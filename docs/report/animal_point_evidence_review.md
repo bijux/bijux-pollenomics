@@ -1498,7 +1498,7 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Unsupported claim.** A coordinate basis called exact does not prove a specimen findspot; approximate and geocoded coordinates cannot become precise ecological sites through traceability.
 
-**Actual verification performed.** The current entity replay verifies 161 locality features and 318 mapped IDs against the normalized source and unchanged exclusions. The retained point-evidence capture describes the earlier 165-feature epoch; its source decisions were not rerun or relabeled.
+**Actual verification performed.** Current saved-source consumer and independent comparison reconcile all 1464 normalized IDs into 324 mapped IDs in 163 locality features and 1140 reason-coded exclusions. Complete child chronology/provenance packets, coordinates and ownership are preserved; only the declared locality display labels change. Two horse localities add six source-supported owners without assigning a default BP epoch. The retained point-evidence capture describes the earlier 165-feature epoch and was not regenerated.
 
 **Remaining input or review.** Each point needs qualified geographic/chronological interpretation, taxon scope and primary-source review before a biological or historical join.
 
@@ -1508,13 +1508,13 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Precise next acceptance route.** Inspect each native source locator and represented sample IDs, retain uncertainty and unresolved chronology, and qualify sample-level scientific admission before ecological comparison.
 
-**Negative or refused result.** Named-site geocoding and approximate proximal coordinates remain explicit; five unqualified horse features/nine memberships were removed without assigning a default BP epoch.
+**Negative or refused result.** Named-site/proximal coordinate caveats remain explicit. Hyena's Lair has two context-only owners; Yana has four owners with one numeric child support. Neither a locality hull nor an unspecified elapsed-age epoch becomes a specimen BP date.
 
-**Matched denominator.** Current 161 locality features represent 318 mapped sample IDs; historical 170 features/331 memberships are superseded. The global 161 does not substitute for 8 Nordic features/12 samples.
+**Matched denominator.** Current 163 locality features represent 324 mapped sample IDs. Historical 165/322, 161/318 and 170/331 captures remain distinct; the global population does not substitute for 8 Nordic features/12 mapped samples.
 
 - [Retained qualification evidence: docs/report/animal_point_evidence_review.json](animal_point_evidence_review.json) (SHA-256 `38c98f138fd2e8fc1cd3caa53b5fc6337d0e513ad4f1a1ee7cab848bf48236f4`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

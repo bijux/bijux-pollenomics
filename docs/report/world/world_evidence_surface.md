@@ -64,7 +64,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A species review contribution labelled direct is not proof that the world map contains a mapped point for that species, nor qualified scientific admission.
 
-**Actual verification performed.** The actual three-scope producer at 04f1c4857 passed source-value, temporal, layer, point-traceability, static-budget and playback guards in 266.419 s. World retains 16 layer rows, including 15 point layers with 1711 record uses. No full browser or query-latency acceptance is claimed.
+**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. World now has 1713 point uses across 15 point layers within 16 layer rows. The retained 16-row species-review register was not rerun.
 
 **Remaining input or review.** Project geography must be resolved to sample-owned locality/chronology and qualified taxonomy/source roles before broad biological interpretation.
 
@@ -76,11 +76,11 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Negative or refused result.** 17 refusals and too-weak species remain; wild/progenitor cattle and mixed source taxonomies cannot be flattened into domesticated-core confidence.
 
-**Matched denominator.** 16 species-review rows across 4 country profiles; current actual map supports 6 animal species/161 features/318 samples, not 16 mapped species or 64 independent biological populations.
+**Matched denominator.** 16 species-review rows across 4 country profiles remain the retained register; the current map supports 6 animal species/163 features/324 mapped samples, not 16 mapped species or 64 independent biological populations.
 
 - [Retained qualification evidence: docs/report/world/world_evidence_surface.json](world_evidence_surface.json) (SHA-256 `2070f4b89c44bcbab8ca72f9b3bb6a09e214205062af4aba6c8ae34c0b14a27a`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

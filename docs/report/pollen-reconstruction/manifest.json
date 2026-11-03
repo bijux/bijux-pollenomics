@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "6fd01b841b3e0aefc6c58aabcdd83f595f9c7c86942b188d2b414e5eeda11205",
-      "bytes": 7399706
+      "sha256": "647916839d901ec1a4de186359d3d7b5cc48a149867e9fc6916df7520e22c646",
+      "bytes": 7399768
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -2176,7 +2176,7 @@
     },
     {
       "path": "docs/report/regions/europe-plus/europe-plus_map.html",
-      "sha256": "698cfd52bcda7e133291d0715e11555e2f25d042bdafd9dad382f2f780a54c23",
+      "sha256": "163397f3727b78d70874b139cf4526b88e138303dd66bd01ad58a83b7b0d6ffb",
       "bytes": 86193
     },
     {
@@ -2476,7 +2476,7 @@
     },
     {
       "path": "docs/report/regions/nordic/nordic_map.html",
-      "sha256": "2f9df5a393254311b8aad1a1d0e525fc113553ec57fdb4ecaef61b1b3af95312",
+      "sha256": "348c0ecac988f4d7150981aef2c2f1697ba9591f4c9931f3192b90a8a9feacd6",
       "bytes": 168069
     },
     {
@@ -3281,8 +3281,8 @@
     },
     {
       "path": "docs/report/world/world_map.html",
-      "sha256": "b635e0db59949bd829beb12dc16f161a7b0b273144e92e3516097101bfbfbf91",
-      "bytes": 112114
+      "sha256": "cee9eb9dc9c4d9ae6dda7d4c6d3df23b20420cbc3c08acfd9662b7e64fa9e37a",
+      "bytes": 112124
     },
     {
       "path": "makes/README.md",
@@ -3436,7 +3436,7 @@
     },
     {
       "path": "reports/science/animal-entity-capability/report.json",
-      "sha256": "713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b",
+      "sha256": "7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9",
       "bytes": 3543
     },
     {
@@ -5438,6 +5438,31 @@
       "path": "reports/science/method-certification/minimum-lake-comparisons.csv",
       "sha256": "51963e6fef262f81c1bbe4f5a1c004e7479ca9cd8197f18b0a79a111e12b4fdb",
       "bytes": 969
+    },
+    {
+      "path": "reports/science/adna-locality-support/atlas-consumer-protocol.json",
+      "sha256": "6d707775a3adf574b4160a0882a778beb0e6752d8231d503079f358d19ccbfa5",
+      "bytes": 5351
+    },
+    {
+      "path": "reports/science/adna-locality-support/map-followthrough-protocol.json",
+      "sha256": "dedb848098b86bfd6a8d26b16cb1b8314abb599ece081c116f72ee98fb0cad42",
+      "bytes": 4949
+    },
+    {
+      "path": "reports/science/adna-locality-support/protocol.json",
+      "sha256": "90654d44cf5be83943faef8c416191d117d5a8b55b90d614d202c168a7705e73",
+      "bytes": 6315
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-author-window-support/protocol.json",
+      "sha256": "a2badb22f0989547131077d367c647dc07710d722b613ced9a182610e2ee38e2",
+      "bytes": 17424
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-literal-window-support/protocol.json",
+      "sha256": "b2413f79f3b781a0c6029433a75481ce021597dcdcdbd264e353e992b91846e4",
+      "bytes": 6741
     }
   ],
   "maintained_paths": [

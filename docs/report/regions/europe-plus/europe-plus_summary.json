@@ -76,95 +76,95 @@
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-provenance.0000.2066a3c80599d4bc.js"
+        "filename": "europe-plus.atlas-provenance.0000.2a1d9e7199a44307.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0001.556729fb9d14463f.js"
+        "filename": "europe-plus.atlas-nodes.0001.2be1447f6a98c2b0.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0002.cd881a84c336da31.js"
+        "filename": "europe-plus.atlas-nodes.0002.5c14bd51712255e4.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0003.47cafd72834c618f.js"
+        "filename": "europe-plus.atlas-nodes.0003.24a504b56e9439c3.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0004.a5b39d7c34a145ca.js"
+        "filename": "europe-plus.atlas-nodes.0004.0460fce851d7ec2f.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0005.e730ab7fca32b7c4.js"
+        "filename": "europe-plus.atlas-nodes.0005.8420bba88e3ed902.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0006.ded44026762186a6.js"
+        "filename": "europe-plus.atlas-nodes.0006.cd154db28ba5b2ef.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0007.654aba744ba20208.js"
+        "filename": "europe-plus.atlas-nodes.0007.b05b2f4f8c082543.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0008.0fae62735f5cd2da.js"
+        "filename": "europe-plus.atlas-nodes.0008.4bb73316f076fc59.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0009.c5644587fea76ea8.js"
+        "filename": "europe-plus.atlas-nodes.0009.1e54dd9723b40fca.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0010.47d00af47cc8dfd4.js"
+        "filename": "europe-plus.atlas-nodes.0010.4e91916b4aa3f70c.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0011.85ba744e69dfb9a3.js"
+        "filename": "europe-plus.atlas-nodes.0011.3cf41ff597625f22.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0012.8d6c0c8f4c741f4d.js"
+        "filename": "europe-plus.atlas-nodes.0012.3ef66f1b7154ced4.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0013.ea8346a43446258f.js"
+        "filename": "europe-plus.atlas-nodes.0013.88d30b4ccf44c186.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0014.e02a39a1e5d6309c.js"
+        "filename": "europe-plus.atlas-nodes.0014.a180e286d77122aa.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0015.5ddd0661cc03b0de.js"
+        "filename": "europe-plus.atlas-nodes.0015.4e329c431ed61d66.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0016.22e656b8829036ea.js"
+        "filename": "europe-plus.atlas-nodes.0016.cc08afc482eb1706.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0017.436faf127b3df124.js"
+        "filename": "europe-plus.atlas-nodes.0017.6a05caabad06bbbe.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0018.40c116297fb15de1.js"
+        "filename": "europe-plus.atlas-nodes.0018.b1f944a78c19f0fe.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0019.c134b2de1a85baa0.js"
+        "filename": "europe-plus.atlas-nodes.0019.040e511312b0b9e4.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-edges.0020.635a0b26be0e13ec.js"
+        "filename": "europe-plus.atlas-edges.0020.0fd208deba688dd3.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-sequences.0021.3b246f7815180eb5.js"
+        "filename": "europe-plus.atlas-sequences.0021.2ce6bd5cdce9bdde.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-indexes.0022.d4b06a326e0d3cf8.js"
+        "filename": "europe-plus.atlas-indexes.0022.4539359428d2609d.js"
       },
       {
         "label": "Animal source-sample chronology accountability",
@@ -212,7 +212,7 @@
       },
       {
         "label": "Static atlas runtime",
-        "filename": "europe-plus_map.atlas-runtime.6fe0692bc39a6d95.js"
+        "filename": "europe-plus_map.atlas-runtime.75daf45e8363273d.js"
       },
       {
         "label": "Interactive evidence tools",
@@ -685,9 +685,7 @@
       "Species and confidence legend sections"
     ],
     "temporal_windows": [
-      "Early Holocene and older (6001+ BP)",
-      "Mid-Holocene (3001-6000 BP)",
-      "Recent and historical (0-1000 BP)"
+      "Unresolved time window"
     ],
     "coordinate_confidence_counts": {
       "approximate": 6,

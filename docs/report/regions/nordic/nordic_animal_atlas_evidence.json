@@ -34,9 +34,9 @@
         "time_mean_bp": 8074,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -151,9 +151,9 @@
         "time_mean_bp": 7246,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mitochondrial_phylogenetic_model",
-        "evidence_class": "modeled_sample_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -298,9 +298,9 @@
         "time_mean_bp": 9334,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -415,9 +415,9 @@
         "time_mean_bp": 9546,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -532,9 +532,9 @@
         "time_mean_bp": 434,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -679,9 +679,9 @@
         "time_mean_bp": 3925,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "radiocarbon",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -856,9 +856,9 @@
         "time_mean_bp": 4700,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [
@@ -976,9 +976,9 @@
         "time_mean_bp": 1000,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
-        "dating_basis": "archaeological_context",
-        "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled",
+        "dating_basis": "locality_sample_coverage",
+        "evidence_class": "locality_sample_coverage_hull",
+        "precision_posture": "display_coverage_only",
         "refusal_reason_code": ""
       },
       "sample_ids": [

@@ -7,7 +7,7 @@ for deeper source-family review files.
 ## Summary
 
 - Scope key: `world`
-- Visible point rows: `1711`
+- Visible point rows: `1713`
 - Visible point layers: `15`
 
 ## Example Rows
@@ -65,9 +65,9 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A traceable marker is not a unique independent sample, precise findspot, validated source chronology or qualified ecological event.
 
-**Actual verification performed.** The actual three-scope producer at 04f1c4857 passed source-value, temporal, layer, point-traceability, static-budget and playback guards in 266.419 s. World retains 16 layer rows, including 15 point layers with 1711 record uses. No full browser or query-latency acceptance is claimed.
+**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. World now has 1713 point uses across 15 point layers within 16 layer rows.
 
-**Remaining input or review.** Primary source-family interpretation, identity/time/geographic admission and current browser behavior still require their own qualified checks.
+**Remaining input or review.** Primary source-family interpretation and identity/time/geographic admission remain separate from completed current preservation/index and narrow World served-temporal checks.
 
 **Cause category.** Publication traceability across overlapping source entity layers.
 
@@ -77,9 +77,9 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Negative or refused result.** Marker traceability leaves existing source refusals intact; unqualified horse elapsed ages cannot appear as BP events merely because a source row is addressable.
 
-**Matched denominator.** 1711 visible point-layer rows across 15 layers; 1231 human metadata+161 animal locality+319 sample chronology record uses. These include overlapping memberships and are not 1711 independent specimens.
+**Matched denominator.** 1713 point-layer record uses across 15 layers=1231 human metadata+163 animal localities+319 source-chronology uses. Memberships overlap; these are not 1713 independent specimens.
 
-- [Retained qualification evidence: docs/report/world/world_point_traceability.json](world_point_traceability.json) (SHA-256 `9ff2806a674906666a9a9cb089beac90ce22a9c6ca7ea92322753373b5f792e5`).
+- [Retained qualification evidence: docs/report/world/world_point_traceability.json](world_point_traceability.json) (SHA-256 `81ae146c8c932d8c6b401c4bd598dec41e9bf0199fc5d14546f4b32e14517c8e`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

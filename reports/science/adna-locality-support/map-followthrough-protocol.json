@@ -1,0 +1,53 @@
+{
+  "schema_version": "adna-locality-map-followthrough-protocol.v1",
+  "question": "Do current assembled maps and their served temporal runtime preserve all unrelated saved science and use only exact specimen-owned intervals for corrected animal occurrence?",
+  "precondition": {
+    "path": "reports/science/adna-locality-support/atlas-consumer-protocol.json",
+    "bytes": 5351,
+    "sha256": "6d707775a3adf574b4160a0882a778beb0e6752d8231d503079f358d19ccbfa5"
+  },
+  "execution_precondition": "The separately frozen actual saved-animal producer and independent observer must pass before this map producer starts; install no unqualified output.",
+  "scopes": [
+    "world",
+    "europe-plus",
+    "nordic"
+  ],
+  "assembly": "Decode authenticated existing static layers/details/signals/edges/sequences; replace only animal locality point layers with the independently qualified current native saved-metadata consumer; retain source chronology context exactly. Use existing owning static writer, contract publisher, playback publisher and finalize_bundle to emit current runtime/controllers and transport. No collection/master/normalizer/model/chronology census rerun.",
+  "preservation": "Exact decoded nonanimal points, polygons, details, signals, edges, sequences, source chronology layers and all319 global source chronology nodes; unchanged source corpus and normalized foundation. New legitimate animal layer keys may be appended in native builder order; retain relative order of existing unrelated layers. Preserve country/version/date and other metadata except necessary owned animal counts/contracts/runtime/staticinventory/buildIDs. Every actual saved animal specimen packet and coordinate must exactly match its qualified consumer output.",
+  "guards": "Freeze HEAD/index/alltrackedpackagefiles including JS/HTML/schema, complete data/adna tree, all three existing map trees and actual opened resources; pin both artifact assembly scripts plus this protocol. Reject network and any write outside absent root-artifact destination. Preserve inputs through producer and independent readback. Original constraints and failed attempts stay visible.",
+  "budgets": {
+    "producer_wall_seconds": 600,
+    "producer_max_rss_bytes": 8589934592,
+    "producer_max_output_bytes": 201326592,
+    "observer_wall_seconds": 180,
+    "observer_max_rss_bytes": 4294967296,
+    "observer_max_output_bytes": 16777216,
+    "browser_wall_seconds": 180,
+    "browser_max_rss_bytes": 2147483648,
+    "browser_max_output_bytes": 16777216
+  },
+  "per_scope_static_budgets": {
+    "bootstrap_max_bytes": 262144,
+    "chunk_max_bytes": 4194304,
+    "document_max_bytes": 524288,
+    "static_assets_max_bytes": 134217728,
+    "static_assets_max_files": 512,
+    "initial_max_requests": 4,
+    "initial_max_bytes": 1048576,
+    "interaction_max_requests": 128,
+    "interaction_max_bytes": 67108864,
+    "filter_main_thread_max_ms": 50
+  },
+  "wire_budget_semantics": "Retain all original declared static and interaction/latency budgets. Validate byte/request constraints with maintained writers. An advertised budget is not a measured query or latency result; claim no new latency qualification without measuring it.",
+  "independent_observation": "Decode every candidate and compare preserved payloads to authenticated original maps, exact changed animal records to qualified saved-consumer products and full index ownership/postings to a fresh independently derived reference. Runtime must be served in actual existing Chromium with authenticated source bytes/buildID; evaluate actual loaded closure functions via CDP breakpoint and restore state. Source-backed animal/SEAD positives and gaps plus explicit labelled synthetic null/zero/malformed/global-refusal controls retain independent expected interval arithmetic.",
+  "installation": "Only after all corresponding independent identity/preservation/temporal checks pass, install exact declared owned outputs and remove only manifest-owned obsolete chunks/controllers. Never alter unrelated user files or copy external private source inputs.",
+  "unsupported_claims": [
+    "New dates, ecological events or specimen identities",
+    "New field/source permission or scientific endorsement",
+    "New model, collection or source chronology census",
+    "Full product/release qualification",
+    "Query latency, measured vegetation accuracy or propagation acceptance",
+    "External deployment or publication"
+  ],
+  "retained_source_chronology": "Rehydrate and reconcile the existing authenticated sidecar and exact decoded chronology layers through the maintained publication contract. Preserve each sidecar byte-for-byte with its original qualified snapshot/input identity; this is inherited source evidence, not a new current native census. Previously qualified source-caution followthrough preserves every date/identity and its nonmapped warning; do not relabel a historic census as a newly executed one."
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": "adna-locality-support-protocol.v1",
+  "question": "Do generated locality exports and actual animal-atlas consumers preserve source-owned specimen chronology while presenting a locality hull only as display coverage?",
+  "normalization": {
+    "species_name": "Capra hircus",
+    "sample_count": 78,
+    "locality_count": 23,
+    "sample_support_count": 78,
+    "refusal_count": 8,
+    "sample_refusal_count": 4,
+    "locality_refusal_count": 4,
+    "projects": [
+      "PRJEB90141",
+      "PRJEB90261",
+      "PRJNA1328209"
+    ],
+    "maintained_builder": "bijux_pollenomics.adna.workflow.normalization.build_species_normalization_bundle",
+    "output_helpers": [
+      "bijux_pollenomics.adna.species.tracked_data.payloads._locality_summaries_payload",
+      "bijux_pollenomics.adna.species.tracked_data.csv_exports._render_locality_summaries_csv",
+      "AdnaSpeciesNormalizationBundle.as_dict"
+    ],
+    "baseline_products": {
+      "locality_json": {
+        "path": "data/adna/species/capra_hircus/normalized/locality_summaries.json",
+        "bytes": 179703,
+        "sha256": "c3f87b5b2168f1f12fb8d33894ecdcec8eda1cd194798e39a23bd78fd5bcd8d8"
+      },
+      "locality_csv": {
+        "path": "data/adna/species/capra_hircus/normalized/locality_summaries.csv",
+        "bytes": 124502,
+        "sha256": "80f4c33653819a2539e88588bd3507bf299fddaee4f606d00c9d8a88e689f4f8"
+      },
+      "bundle": {
+        "path": "data/adna/species/capra_hircus/manifests/normalization_bundle.json",
+        "bytes": 632723,
+        "sha256": "80948c114a02207be4a735e800639f98280a47a45909c22de764df1efd2f551e"
+      }
+    },
+    "canonical_samples": {
+      "path": "data/adna/species/capra_hircus/normalized/sample_records.json",
+      "bytes": 347510,
+      "sha256": "ff87b19c0fb4d3f63a4c05167995a575bb71d6afeaffecc4bb58a53f6d009349"
+    },
+    "allowed_aggregate_chronology_changes": {
+      "dating_basis": "locality_sample_coverage",
+      "evidence_class": "locality_sample_coverage_hull",
+      "precision_posture": "display_coverage_only"
+    },
+    "preservation": "All samples, refusals, ordered locality identities, memberships, coordinates, original text, date endpoints, mean, uncertainty/refusal metadata, individual support packets and all other bundle sections remain exactly unchanged. Both locality JSON and bundle locality records change only these three aggregate labels; CSV retains its31-column v2 schema and changes only corresponding three columns. No specimen identity/taxon/chronology decision, calibration, geometry replacement or new evidence.",
+    "output_scope": "Build exactly one species bundle and render exactly three candidate files in fresh root artifacts. Do not invoke broad species/source-library/global materializers. No live product/data file is overwritten during producer or independent observer. Install only the independently verified three files afterward."
+  },
+  "consumer_semantics": {
+    "locality_visibility": "An exact matched admitted original sample packet must satisfy the unchanged specimen chronology-publication predicate. A convincing aggregate hull alone is insufficient. Validate complete unique sample/support membership and exact source packet equality; only absent legacy support key permits source-packet fallback, never explicit empty/null or a locality hull.",
+    "display": "Public locality chronology retains original display text and valid canonical navigation bounds, without claiming specimen dating basis/evidence/precision. Preserve explicit refusal reasons. Sample dates/provenance/conflicts/refusals remain literal and independently owned.",
+    "temporal_admission": "Preserve generic structural/schema and explicit feature-level refusal checks. Then complete owned locality components take precedence over a merely contextual/unresolved aggregate posture. Occurrence filtering/indexing uses disjoint child intervals, never the hull gap. Invalid/missing/duplicate/unowned components, signed unsupported endpoints and individual refusals retain existing rejection semantics. Existing nonlocality and explicit signed-profile behavior is unchanged.",
+    "backend_browser": "Python and the actual JavaScript temporal consumer must agree for positive, contextual, malformed, refused and gap cases. Correcting a draft negative-mean test must not change existing canonical endpoint/derived-mean behavior.",
+    "consequential_execution": "After code and normalized-source qualification, execute the actual admitted animal locality consumer with complete supported/refused populations. Determine precisely which maintained outputs depend on the change before any further atlas materialization; reuse prior unrelated source/model/index qualifications without blindly repeating them."
+  },
+  "input_guards": {
+    "product_data_root": "data/adna",
+    "code": "All tracked first-party Python bytes, HEAD, index and this protocol stable across producer and independent observer.",
+    "data": "Freeze the complete product animal-data/source-library tree because registry and receipt discovery participates in the builder, with exact before/after file inventories. Record actual opened scientific input identities and relevant repository pyproject files; no content/source substitution or private-bank copy.",
+    "external_discovery": "Preserve the actual BIJUX_POLLENOMICS_REFERENCE_STASH_ROOT resolution or existing fallback used by reference_stash.py; freeze the selected external directory/name/type inventory and resolution before/after, including absence. The reader uses name discovery, not these files as numeric contents. Never force a new empty stash to hide dependencies.",
+    "network": "No source acquisition or external message; unexpected network/source writes must refuse."
+  },
+  "limits": {
+    "producer_wall_seconds": 60,
+    "producer_max_rss_bytes": 1073741824,
+    "producer_max_output_bytes": 16777216,
+    "observer_wall_seconds": 60,
+    "observer_max_rss_bytes": 536870912,
+    "observer_max_output_bytes": 8388608
+  },
+  "unsupported_claims": [
+    "New dating or physical specimen identity",
+    "Independent field or chronology approval",
+    "Updated whole-source temporal-node census",
+    "Calibrated uncertainty or historical-input reproduction",
+    "External publication or deployment"
+  ]
+}

@@ -10,12 +10,11 @@ from ...species.definitions import build_species_support_matrix
 from ...workflow.paths import adna_species_dir
 from .chronology import (
     _atlas_chronology_supports_publication,
-    _atlas_public_chronology,
     _optional_float,
-    _parse_chronology,
 )
 from .models import AnimalAtlasEvidenceRow
 from .row_factory import _build_evidence_row
+from .sample_chronologies import _resolve_sample_chronologies
 from .sample_support import (
     _atlas_admitted_sample_rows,
     _sample_locality_token,
@@ -116,10 +115,11 @@ def build_tracked_animal_atlas_evidence_rows(
             )
             if animal_scope is None:
                 continue
-            public_chronology = _atlas_public_chronology(
-                _parse_chronology(locality.get("chronology", {}))
-            )
-            if not _atlas_chronology_supports_publication(public_chronology):
+            supports = _resolve_sample_chronologies(locality, matched_sample_rows)
+            if not any(
+                _atlas_chronology_supports_publication(support.chronology)
+                for support in supports
+            ):
                 continue
             site_evidence = _lookup_project_locality_row(
                 site_evidence_lookup,

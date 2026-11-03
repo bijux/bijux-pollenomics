@@ -42,122 +42,122 @@ World is the governing publication surface. It keeps every published country ins
 - Animal atlas evidence JSON: [`world_animal_atlas_evidence.json`](./world_animal_atlas_evidence.json)
 - Animal point traceability JSON: [`world_animal_point_traceability.json`](./world_animal_point_traceability.json)
 - Static atlas bootstrap manifest: [`world_map_assets.json`](./world_map_assets.json)
-- Static atlas data chunk: [`world.atlas-provenance.0000.7cc824892bebbe87.js`](./world.atlas-provenance.0000.7cc824892bebbe87.js)
-- Static atlas data chunk: [`world.atlas-nodes.0001.38098c9b43f4660f.js`](./world.atlas-nodes.0001.38098c9b43f4660f.js)
-- Static atlas data chunk: [`world.atlas-nodes.0002.dd37086b452f146a.js`](./world.atlas-nodes.0002.dd37086b452f146a.js)
-- Static atlas data chunk: [`world.atlas-nodes.0003.6e70da35a22a402b.js`](./world.atlas-nodes.0003.6e70da35a22a402b.js)
-- Static atlas data chunk: [`world.atlas-nodes.0004.b2778a35d881f6fd.js`](./world.atlas-nodes.0004.b2778a35d881f6fd.js)
-- Static atlas data chunk: [`world.atlas-nodes.0005.3dd21781108ed3a5.js`](./world.atlas-nodes.0005.3dd21781108ed3a5.js)
-- Static atlas data chunk: [`world.atlas-nodes.0006.1bc389d5c1bbbaba.js`](./world.atlas-nodes.0006.1bc389d5c1bbbaba.js)
-- Static atlas data chunk: [`world.atlas-nodes.0007.0983ae807c663237.js`](./world.atlas-nodes.0007.0983ae807c663237.js)
-- Static atlas data chunk: [`world.atlas-nodes.0008.7cd6d40b4a491545.js`](./world.atlas-nodes.0008.7cd6d40b4a491545.js)
-- Static atlas data chunk: [`world.atlas-nodes.0009.1c7b501d1a0f429e.js`](./world.atlas-nodes.0009.1c7b501d1a0f429e.js)
-- Static atlas data chunk: [`world.atlas-nodes.0010.f94571a2c4070e5a.js`](./world.atlas-nodes.0010.f94571a2c4070e5a.js)
-- Static atlas data chunk: [`world.atlas-nodes.0011.f7754195856dba08.js`](./world.atlas-nodes.0011.f7754195856dba08.js)
-- Static atlas data chunk: [`world.atlas-nodes.0012.1e5bfaea0468fa28.js`](./world.atlas-nodes.0012.1e5bfaea0468fa28.js)
-- Static atlas data chunk: [`world.atlas-nodes.0013.a86a2ae22f30de1b.js`](./world.atlas-nodes.0013.a86a2ae22f30de1b.js)
-- Static atlas data chunk: [`world.atlas-nodes.0014.7bc30b42c57f859f.js`](./world.atlas-nodes.0014.7bc30b42c57f859f.js)
-- Static atlas data chunk: [`world.atlas-nodes.0015.3ac4dd0844bdefa9.js`](./world.atlas-nodes.0015.3ac4dd0844bdefa9.js)
-- Static atlas data chunk: [`world.atlas-nodes.0016.1a44820e057e5c32.js`](./world.atlas-nodes.0016.1a44820e057e5c32.js)
-- Static atlas data chunk: [`world.atlas-nodes.0017.03c66baec13c64aa.js`](./world.atlas-nodes.0017.03c66baec13c64aa.js)
-- Static atlas data chunk: [`world.atlas-nodes.0018.35066746e77e6875.js`](./world.atlas-nodes.0018.35066746e77e6875.js)
-- Static atlas data chunk: [`world.atlas-nodes.0019.4769f98a8919ceb1.js`](./world.atlas-nodes.0019.4769f98a8919ceb1.js)
-- Static atlas data chunk: [`world.atlas-nodes.0020.4ac59de199f82a5b.js`](./world.atlas-nodes.0020.4ac59de199f82a5b.js)
-- Static atlas data chunk: [`world.atlas-nodes.0021.6a206053702ceb0e.js`](./world.atlas-nodes.0021.6a206053702ceb0e.js)
-- Static atlas data chunk: [`world.atlas-nodes.0022.6b92555c0934c9c9.js`](./world.atlas-nodes.0022.6b92555c0934c9c9.js)
-- Static atlas data chunk: [`world.atlas-nodes.0023.e4a06ed074c0ec25.js`](./world.atlas-nodes.0023.e4a06ed074c0ec25.js)
-- Static atlas data chunk: [`world.atlas-nodes.0024.f98c2eb42c9881ee.js`](./world.atlas-nodes.0024.f98c2eb42c9881ee.js)
-- Static atlas data chunk: [`world.atlas-nodes.0025.cafbe0c9526e885b.js`](./world.atlas-nodes.0025.cafbe0c9526e885b.js)
-- Static atlas data chunk: [`world.atlas-nodes.0026.d1a6d9cec246ddb2.js`](./world.atlas-nodes.0026.d1a6d9cec246ddb2.js)
-- Static atlas data chunk: [`world.atlas-nodes.0027.28bbb3a50b889537.js`](./world.atlas-nodes.0027.28bbb3a50b889537.js)
-- Static atlas data chunk: [`world.atlas-nodes.0028.f8d52b42982457c7.js`](./world.atlas-nodes.0028.f8d52b42982457c7.js)
-- Static atlas data chunk: [`world.atlas-nodes.0029.2957c30925b1a338.js`](./world.atlas-nodes.0029.2957c30925b1a338.js)
-- Static atlas data chunk: [`world.atlas-nodes.0030.55319251c1c15a4f.js`](./world.atlas-nodes.0030.55319251c1c15a4f.js)
-- Static atlas data chunk: [`world.atlas-nodes.0031.6d8ad32fb8b74f3a.js`](./world.atlas-nodes.0031.6d8ad32fb8b74f3a.js)
-- Static atlas data chunk: [`world.atlas-nodes.0032.3957f3b0ed161e23.js`](./world.atlas-nodes.0032.3957f3b0ed161e23.js)
-- Static atlas data chunk: [`world.atlas-nodes.0033.9771268def6f17fa.js`](./world.atlas-nodes.0033.9771268def6f17fa.js)
-- Static atlas data chunk: [`world.atlas-nodes.0034.843b962515f5512a.js`](./world.atlas-nodes.0034.843b962515f5512a.js)
-- Static atlas data chunk: [`world.atlas-nodes.0035.f86f2e63d53e1f21.js`](./world.atlas-nodes.0035.f86f2e63d53e1f21.js)
-- Static atlas data chunk: [`world.atlas-nodes.0036.068c5de5dd103d5e.js`](./world.atlas-nodes.0036.068c5de5dd103d5e.js)
-- Static atlas data chunk: [`world.atlas-nodes.0037.ec61f33b9655b1b1.js`](./world.atlas-nodes.0037.ec61f33b9655b1b1.js)
-- Static atlas data chunk: [`world.atlas-nodes.0038.d04cee2eaefaabdf.js`](./world.atlas-nodes.0038.d04cee2eaefaabdf.js)
-- Static atlas data chunk: [`world.atlas-nodes.0039.35086cce45250b49.js`](./world.atlas-nodes.0039.35086cce45250b49.js)
-- Static atlas data chunk: [`world.atlas-nodes.0040.c58e56dd3ca0cdc6.js`](./world.atlas-nodes.0040.c58e56dd3ca0cdc6.js)
-- Static atlas data chunk: [`world.atlas-nodes.0041.2c29ef44ca56d3af.js`](./world.atlas-nodes.0041.2c29ef44ca56d3af.js)
-- Static atlas data chunk: [`world.atlas-nodes.0042.2c4378c6b7cd3060.js`](./world.atlas-nodes.0042.2c4378c6b7cd3060.js)
-- Static atlas data chunk: [`world.atlas-nodes.0043.6c350f14600500e6.js`](./world.atlas-nodes.0043.6c350f14600500e6.js)
-- Static atlas data chunk: [`world.atlas-nodes.0044.b170ea94d61a955e.js`](./world.atlas-nodes.0044.b170ea94d61a955e.js)
-- Static atlas data chunk: [`world.atlas-nodes.0045.d1b45eecd0745c21.js`](./world.atlas-nodes.0045.d1b45eecd0745c21.js)
-- Static atlas data chunk: [`world.atlas-nodes.0046.7dda3d5147edddc9.js`](./world.atlas-nodes.0046.7dda3d5147edddc9.js)
-- Static atlas data chunk: [`world.atlas-nodes.0047.f657e652d61e1686.js`](./world.atlas-nodes.0047.f657e652d61e1686.js)
-- Static atlas data chunk: [`world.atlas-nodes.0048.f44e7d4ca776fa84.js`](./world.atlas-nodes.0048.f44e7d4ca776fa84.js)
-- Static atlas data chunk: [`world.atlas-nodes.0049.a5d189b303244505.js`](./world.atlas-nodes.0049.a5d189b303244505.js)
-- Static atlas data chunk: [`world.atlas-nodes.0050.87ef874987c8ef64.js`](./world.atlas-nodes.0050.87ef874987c8ef64.js)
-- Static atlas data chunk: [`world.atlas-nodes.0051.34c58dc6f9fd3103.js`](./world.atlas-nodes.0051.34c58dc6f9fd3103.js)
-- Static atlas data chunk: [`world.atlas-nodes.0052.6ee354bdcabeb00b.js`](./world.atlas-nodes.0052.6ee354bdcabeb00b.js)
-- Static atlas data chunk: [`world.atlas-nodes.0053.8ca8b7154b86b64a.js`](./world.atlas-nodes.0053.8ca8b7154b86b64a.js)
-- Static atlas data chunk: [`world.atlas-nodes.0054.758af338e0999875.js`](./world.atlas-nodes.0054.758af338e0999875.js)
-- Static atlas data chunk: [`world.atlas-nodes.0055.64a2bf6642ac0028.js`](./world.atlas-nodes.0055.64a2bf6642ac0028.js)
-- Static atlas data chunk: [`world.atlas-nodes.0056.f48197df1f1214f7.js`](./world.atlas-nodes.0056.f48197df1f1214f7.js)
-- Static atlas data chunk: [`world.atlas-nodes.0057.481cddf9400a6f17.js`](./world.atlas-nodes.0057.481cddf9400a6f17.js)
-- Static atlas data chunk: [`world.atlas-nodes.0058.1446b2de4a807760.js`](./world.atlas-nodes.0058.1446b2de4a807760.js)
-- Static atlas data chunk: [`world.atlas-nodes.0059.53e072afcd114f24.js`](./world.atlas-nodes.0059.53e072afcd114f24.js)
-- Static atlas data chunk: [`world.atlas-nodes.0060.bfe0d5f13f99b594.js`](./world.atlas-nodes.0060.bfe0d5f13f99b594.js)
-- Static atlas data chunk: [`world.atlas-nodes.0061.a22a6412753ab642.js`](./world.atlas-nodes.0061.a22a6412753ab642.js)
-- Static atlas data chunk: [`world.atlas-nodes.0062.4b118047b13668f1.js`](./world.atlas-nodes.0062.4b118047b13668f1.js)
-- Static atlas data chunk: [`world.atlas-nodes.0063.373e3c45ec716285.js`](./world.atlas-nodes.0063.373e3c45ec716285.js)
-- Static atlas data chunk: [`world.atlas-nodes.0064.4215e0fc17aabf4e.js`](./world.atlas-nodes.0064.4215e0fc17aabf4e.js)
-- Static atlas data chunk: [`world.atlas-nodes.0065.785ec8bd6ed58e7f.js`](./world.atlas-nodes.0065.785ec8bd6ed58e7f.js)
-- Static atlas data chunk: [`world.atlas-nodes.0066.ea7261e25202bcce.js`](./world.atlas-nodes.0066.ea7261e25202bcce.js)
-- Static atlas data chunk: [`world.atlas-nodes.0067.64efb314dfb9faa8.js`](./world.atlas-nodes.0067.64efb314dfb9faa8.js)
-- Static atlas data chunk: [`world.atlas-nodes.0068.bb093d72bd77bc60.js`](./world.atlas-nodes.0068.bb093d72bd77bc60.js)
-- Static atlas data chunk: [`world.atlas-nodes.0069.0dd673c1f32d7d38.js`](./world.atlas-nodes.0069.0dd673c1f32d7d38.js)
-- Static atlas data chunk: [`world.atlas-nodes.0070.714dc9a1b11285f1.js`](./world.atlas-nodes.0070.714dc9a1b11285f1.js)
-- Static atlas data chunk: [`world.atlas-nodes.0071.e3727f43f1f82242.js`](./world.atlas-nodes.0071.e3727f43f1f82242.js)
-- Static atlas data chunk: [`world.atlas-nodes.0072.09d43d14896c39c4.js`](./world.atlas-nodes.0072.09d43d14896c39c4.js)
-- Static atlas data chunk: [`world.atlas-nodes.0073.bd5897f4b04c717e.js`](./world.atlas-nodes.0073.bd5897f4b04c717e.js)
-- Static atlas data chunk: [`world.atlas-nodes.0074.e9b3782c023389da.js`](./world.atlas-nodes.0074.e9b3782c023389da.js)
-- Static atlas data chunk: [`world.atlas-nodes.0075.c9dc78f4e830ecfb.js`](./world.atlas-nodes.0075.c9dc78f4e830ecfb.js)
-- Static atlas data chunk: [`world.atlas-nodes.0076.9582666bb2a50bf5.js`](./world.atlas-nodes.0076.9582666bb2a50bf5.js)
-- Static atlas data chunk: [`world.atlas-nodes.0077.c8c63177010b4146.js`](./world.atlas-nodes.0077.c8c63177010b4146.js)
-- Static atlas data chunk: [`world.atlas-nodes.0078.32777e4b92acf92e.js`](./world.atlas-nodes.0078.32777e4b92acf92e.js)
-- Static atlas data chunk: [`world.atlas-nodes.0079.72edfaa03d0efbaf.js`](./world.atlas-nodes.0079.72edfaa03d0efbaf.js)
-- Static atlas data chunk: [`world.atlas-nodes.0080.d21df136189272cf.js`](./world.atlas-nodes.0080.d21df136189272cf.js)
-- Static atlas data chunk: [`world.atlas-nodes.0081.dc22657a78a1598e.js`](./world.atlas-nodes.0081.dc22657a78a1598e.js)
-- Static atlas data chunk: [`world.atlas-nodes.0082.5c4d27973ef04b2c.js`](./world.atlas-nodes.0082.5c4d27973ef04b2c.js)
-- Static atlas data chunk: [`world.atlas-nodes.0083.82c5e03cc6c931bb.js`](./world.atlas-nodes.0083.82c5e03cc6c931bb.js)
-- Static atlas data chunk: [`world.atlas-nodes.0084.df954a5859239879.js`](./world.atlas-nodes.0084.df954a5859239879.js)
-- Static atlas data chunk: [`world.atlas-nodes.0085.ca529f70dd3ba410.js`](./world.atlas-nodes.0085.ca529f70dd3ba410.js)
-- Static atlas data chunk: [`world.atlas-nodes.0086.341505d7eda19117.js`](./world.atlas-nodes.0086.341505d7eda19117.js)
-- Static atlas data chunk: [`world.atlas-nodes.0087.749c4521e9a7b463.js`](./world.atlas-nodes.0087.749c4521e9a7b463.js)
-- Static atlas data chunk: [`world.atlas-nodes.0088.5e8655071567f74b.js`](./world.atlas-nodes.0088.5e8655071567f74b.js)
-- Static atlas data chunk: [`world.atlas-nodes.0089.b980d996cd3762f5.js`](./world.atlas-nodes.0089.b980d996cd3762f5.js)
-- Static atlas data chunk: [`world.atlas-nodes.0090.5ad726a023cd5437.js`](./world.atlas-nodes.0090.5ad726a023cd5437.js)
-- Static atlas data chunk: [`world.atlas-nodes.0091.4f8daa04d4b8e0b0.js`](./world.atlas-nodes.0091.4f8daa04d4b8e0b0.js)
-- Static atlas data chunk: [`world.atlas-nodes.0092.db7e7eabfe916e81.js`](./world.atlas-nodes.0092.db7e7eabfe916e81.js)
-- Static atlas data chunk: [`world.atlas-nodes.0093.92dd18831ef168f0.js`](./world.atlas-nodes.0093.92dd18831ef168f0.js)
-- Static atlas data chunk: [`world.atlas-nodes.0094.c5a307ecaca01a64.js`](./world.atlas-nodes.0094.c5a307ecaca01a64.js)
-- Static atlas data chunk: [`world.atlas-nodes.0095.456d3271d6b739c6.js`](./world.atlas-nodes.0095.456d3271d6b739c6.js)
-- Static atlas data chunk: [`world.atlas-nodes.0096.f3863fa77544ce9b.js`](./world.atlas-nodes.0096.f3863fa77544ce9b.js)
-- Static atlas data chunk: [`world.atlas-nodes.0097.e4557c84f5e9be37.js`](./world.atlas-nodes.0097.e4557c84f5e9be37.js)
-- Static atlas data chunk: [`world.atlas-nodes.0098.407bdb32964288e7.js`](./world.atlas-nodes.0098.407bdb32964288e7.js)
-- Static atlas data chunk: [`world.atlas-nodes.0099.34f4da8e8bf168de.js`](./world.atlas-nodes.0099.34f4da8e8bf168de.js)
-- Static atlas data chunk: [`world.atlas-nodes.0100.79e9dec872af0900.js`](./world.atlas-nodes.0100.79e9dec872af0900.js)
-- Static atlas data chunk: [`world.atlas-nodes.0101.78bbc9550b841dc2.js`](./world.atlas-nodes.0101.78bbc9550b841dc2.js)
-- Static atlas data chunk: [`world.atlas-nodes.0102.5a4aac8d11cdce68.js`](./world.atlas-nodes.0102.5a4aac8d11cdce68.js)
-- Static atlas data chunk: [`world.atlas-nodes.0103.a203c99de4f23e2c.js`](./world.atlas-nodes.0103.a203c99de4f23e2c.js)
-- Static atlas data chunk: [`world.atlas-nodes.0104.663631fdd4c3ccaf.js`](./world.atlas-nodes.0104.663631fdd4c3ccaf.js)
-- Static atlas data chunk: [`world.atlas-nodes.0105.c5e39f0fd9626279.js`](./world.atlas-nodes.0105.c5e39f0fd9626279.js)
-- Static atlas data chunk: [`world.atlas-nodes.0106.66e35cdfd514329d.js`](./world.atlas-nodes.0106.66e35cdfd514329d.js)
-- Static atlas data chunk: [`world.atlas-nodes.0107.7e3ea477cb9205d3.js`](./world.atlas-nodes.0107.7e3ea477cb9205d3.js)
-- Static atlas data chunk: [`world.atlas-nodes.0108.d98afad0e795dec9.js`](./world.atlas-nodes.0108.d98afad0e795dec9.js)
-- Static atlas data chunk: [`world.atlas-nodes.0109.ec70ce31de49acbc.js`](./world.atlas-nodes.0109.ec70ce31de49acbc.js)
-- Static atlas data chunk: [`world.atlas-nodes.0110.5125bbe5f9746253.js`](./world.atlas-nodes.0110.5125bbe5f9746253.js)
-- Static atlas data chunk: [`world.atlas-nodes.0111.23e6becdeb5e3839.js`](./world.atlas-nodes.0111.23e6becdeb5e3839.js)
-- Static atlas data chunk: [`world.atlas-nodes.0112.e205b1e5c3c6bc00.js`](./world.atlas-nodes.0112.e205b1e5c3c6bc00.js)
-- Static atlas data chunk: [`world.atlas-edges.0113.9ece9bb545994e20.js`](./world.atlas-edges.0113.9ece9bb545994e20.js)
-- Static atlas data chunk: [`world.atlas-sequences.0114.59d0aa1174363a6b.js`](./world.atlas-sequences.0114.59d0aa1174363a6b.js)
-- Static atlas data chunk: [`world.atlas-indexes.0115.3eb7d584923725d6.js`](./world.atlas-indexes.0115.3eb7d584923725d6.js)
+- Static atlas data chunk: [`world.atlas-provenance.0000.24ed5a4b40830b5c.js`](./world.atlas-provenance.0000.24ed5a4b40830b5c.js)
+- Static atlas data chunk: [`world.atlas-nodes.0001.49c0de7e6a1ec79c.js`](./world.atlas-nodes.0001.49c0de7e6a1ec79c.js)
+- Static atlas data chunk: [`world.atlas-nodes.0002.d0ecb48d88fec713.js`](./world.atlas-nodes.0002.d0ecb48d88fec713.js)
+- Static atlas data chunk: [`world.atlas-nodes.0003.c7105325f3e26409.js`](./world.atlas-nodes.0003.c7105325f3e26409.js)
+- Static atlas data chunk: [`world.atlas-nodes.0004.c7e81be673a43d76.js`](./world.atlas-nodes.0004.c7e81be673a43d76.js)
+- Static atlas data chunk: [`world.atlas-nodes.0005.6479308972c3c76f.js`](./world.atlas-nodes.0005.6479308972c3c76f.js)
+- Static atlas data chunk: [`world.atlas-nodes.0006.5e7ef70cbe820f94.js`](./world.atlas-nodes.0006.5e7ef70cbe820f94.js)
+- Static atlas data chunk: [`world.atlas-nodes.0007.4748f6d146aa01cc.js`](./world.atlas-nodes.0007.4748f6d146aa01cc.js)
+- Static atlas data chunk: [`world.atlas-nodes.0008.7b8da99a4aa8d9c1.js`](./world.atlas-nodes.0008.7b8da99a4aa8d9c1.js)
+- Static atlas data chunk: [`world.atlas-nodes.0009.3c3dc2d0e74aed85.js`](./world.atlas-nodes.0009.3c3dc2d0e74aed85.js)
+- Static atlas data chunk: [`world.atlas-nodes.0010.cc0ef829f5cab82b.js`](./world.atlas-nodes.0010.cc0ef829f5cab82b.js)
+- Static atlas data chunk: [`world.atlas-nodes.0011.b56a34b45128867c.js`](./world.atlas-nodes.0011.b56a34b45128867c.js)
+- Static atlas data chunk: [`world.atlas-nodes.0012.5c12e5e05791d25c.js`](./world.atlas-nodes.0012.5c12e5e05791d25c.js)
+- Static atlas data chunk: [`world.atlas-nodes.0013.37981c27724a7f27.js`](./world.atlas-nodes.0013.37981c27724a7f27.js)
+- Static atlas data chunk: [`world.atlas-nodes.0014.38a15767de0675cb.js`](./world.atlas-nodes.0014.38a15767de0675cb.js)
+- Static atlas data chunk: [`world.atlas-nodes.0015.e906b459c6954613.js`](./world.atlas-nodes.0015.e906b459c6954613.js)
+- Static atlas data chunk: [`world.atlas-nodes.0016.de02c3337c36da6c.js`](./world.atlas-nodes.0016.de02c3337c36da6c.js)
+- Static atlas data chunk: [`world.atlas-nodes.0017.0b5a6c73fdd9081f.js`](./world.atlas-nodes.0017.0b5a6c73fdd9081f.js)
+- Static atlas data chunk: [`world.atlas-nodes.0018.2d74e64d9c33d893.js`](./world.atlas-nodes.0018.2d74e64d9c33d893.js)
+- Static atlas data chunk: [`world.atlas-nodes.0019.449c8a1883e73143.js`](./world.atlas-nodes.0019.449c8a1883e73143.js)
+- Static atlas data chunk: [`world.atlas-nodes.0020.68393325570ab8b2.js`](./world.atlas-nodes.0020.68393325570ab8b2.js)
+- Static atlas data chunk: [`world.atlas-nodes.0021.afd3aec4c421fd83.js`](./world.atlas-nodes.0021.afd3aec4c421fd83.js)
+- Static atlas data chunk: [`world.atlas-nodes.0022.b3d640aaa0c4e77c.js`](./world.atlas-nodes.0022.b3d640aaa0c4e77c.js)
+- Static atlas data chunk: [`world.atlas-nodes.0023.7d5088928b9eccfc.js`](./world.atlas-nodes.0023.7d5088928b9eccfc.js)
+- Static atlas data chunk: [`world.atlas-nodes.0024.692dd8336a65f034.js`](./world.atlas-nodes.0024.692dd8336a65f034.js)
+- Static atlas data chunk: [`world.atlas-nodes.0025.a95b388016f4ea62.js`](./world.atlas-nodes.0025.a95b388016f4ea62.js)
+- Static atlas data chunk: [`world.atlas-nodes.0026.be30bdb78305a749.js`](./world.atlas-nodes.0026.be30bdb78305a749.js)
+- Static atlas data chunk: [`world.atlas-nodes.0027.f7cc644b83b1619d.js`](./world.atlas-nodes.0027.f7cc644b83b1619d.js)
+- Static atlas data chunk: [`world.atlas-nodes.0028.d11933db6e97ce8e.js`](./world.atlas-nodes.0028.d11933db6e97ce8e.js)
+- Static atlas data chunk: [`world.atlas-nodes.0029.6ca760785021e5e9.js`](./world.atlas-nodes.0029.6ca760785021e5e9.js)
+- Static atlas data chunk: [`world.atlas-nodes.0030.e7996ae421cccc3b.js`](./world.atlas-nodes.0030.e7996ae421cccc3b.js)
+- Static atlas data chunk: [`world.atlas-nodes.0031.35be527b70daf692.js`](./world.atlas-nodes.0031.35be527b70daf692.js)
+- Static atlas data chunk: [`world.atlas-nodes.0032.a18949cd65da69bf.js`](./world.atlas-nodes.0032.a18949cd65da69bf.js)
+- Static atlas data chunk: [`world.atlas-nodes.0033.fa5b6bd4924f0634.js`](./world.atlas-nodes.0033.fa5b6bd4924f0634.js)
+- Static atlas data chunk: [`world.atlas-nodes.0034.2423d5e49b811f78.js`](./world.atlas-nodes.0034.2423d5e49b811f78.js)
+- Static atlas data chunk: [`world.atlas-nodes.0035.2ab2028a2c567411.js`](./world.atlas-nodes.0035.2ab2028a2c567411.js)
+- Static atlas data chunk: [`world.atlas-nodes.0036.adca3a719826236d.js`](./world.atlas-nodes.0036.adca3a719826236d.js)
+- Static atlas data chunk: [`world.atlas-nodes.0037.6f07defdc0b80119.js`](./world.atlas-nodes.0037.6f07defdc0b80119.js)
+- Static atlas data chunk: [`world.atlas-nodes.0038.a965fde86a5fbdb6.js`](./world.atlas-nodes.0038.a965fde86a5fbdb6.js)
+- Static atlas data chunk: [`world.atlas-nodes.0039.c0ac3c6be987552a.js`](./world.atlas-nodes.0039.c0ac3c6be987552a.js)
+- Static atlas data chunk: [`world.atlas-nodes.0040.7cdeaded70863bb4.js`](./world.atlas-nodes.0040.7cdeaded70863bb4.js)
+- Static atlas data chunk: [`world.atlas-nodes.0041.e45981cb9a163379.js`](./world.atlas-nodes.0041.e45981cb9a163379.js)
+- Static atlas data chunk: [`world.atlas-nodes.0042.8805b24d12fe2939.js`](./world.atlas-nodes.0042.8805b24d12fe2939.js)
+- Static atlas data chunk: [`world.atlas-nodes.0043.0df383e45b565158.js`](./world.atlas-nodes.0043.0df383e45b565158.js)
+- Static atlas data chunk: [`world.atlas-nodes.0044.135e0d94858f8e3d.js`](./world.atlas-nodes.0044.135e0d94858f8e3d.js)
+- Static atlas data chunk: [`world.atlas-nodes.0045.fe1fc93c5092c65d.js`](./world.atlas-nodes.0045.fe1fc93c5092c65d.js)
+- Static atlas data chunk: [`world.atlas-nodes.0046.3b9767da4ed5771d.js`](./world.atlas-nodes.0046.3b9767da4ed5771d.js)
+- Static atlas data chunk: [`world.atlas-nodes.0047.b297dfcd4dbabaed.js`](./world.atlas-nodes.0047.b297dfcd4dbabaed.js)
+- Static atlas data chunk: [`world.atlas-nodes.0048.a8e0425d4c46b36e.js`](./world.atlas-nodes.0048.a8e0425d4c46b36e.js)
+- Static atlas data chunk: [`world.atlas-nodes.0049.cf03574f795fa22e.js`](./world.atlas-nodes.0049.cf03574f795fa22e.js)
+- Static atlas data chunk: [`world.atlas-nodes.0050.a64ebce53a7100a2.js`](./world.atlas-nodes.0050.a64ebce53a7100a2.js)
+- Static atlas data chunk: [`world.atlas-nodes.0051.0c6a4ee9a9493761.js`](./world.atlas-nodes.0051.0c6a4ee9a9493761.js)
+- Static atlas data chunk: [`world.atlas-nodes.0052.bdf202c3ab40e59f.js`](./world.atlas-nodes.0052.bdf202c3ab40e59f.js)
+- Static atlas data chunk: [`world.atlas-nodes.0053.18680337a067f044.js`](./world.atlas-nodes.0053.18680337a067f044.js)
+- Static atlas data chunk: [`world.atlas-nodes.0054.311754707cbfce82.js`](./world.atlas-nodes.0054.311754707cbfce82.js)
+- Static atlas data chunk: [`world.atlas-nodes.0055.f55bd10b9a33f035.js`](./world.atlas-nodes.0055.f55bd10b9a33f035.js)
+- Static atlas data chunk: [`world.atlas-nodes.0056.9a808070191b1e92.js`](./world.atlas-nodes.0056.9a808070191b1e92.js)
+- Static atlas data chunk: [`world.atlas-nodes.0057.bcb9d804bcad1dea.js`](./world.atlas-nodes.0057.bcb9d804bcad1dea.js)
+- Static atlas data chunk: [`world.atlas-nodes.0058.1599da82b177624a.js`](./world.atlas-nodes.0058.1599da82b177624a.js)
+- Static atlas data chunk: [`world.atlas-nodes.0059.7055af8f849e5e07.js`](./world.atlas-nodes.0059.7055af8f849e5e07.js)
+- Static atlas data chunk: [`world.atlas-nodes.0060.2af5194fda7df799.js`](./world.atlas-nodes.0060.2af5194fda7df799.js)
+- Static atlas data chunk: [`world.atlas-nodes.0061.8c9efa7283854469.js`](./world.atlas-nodes.0061.8c9efa7283854469.js)
+- Static atlas data chunk: [`world.atlas-nodes.0062.58807ecfb498cef4.js`](./world.atlas-nodes.0062.58807ecfb498cef4.js)
+- Static atlas data chunk: [`world.atlas-nodes.0063.aae754ac239ef316.js`](./world.atlas-nodes.0063.aae754ac239ef316.js)
+- Static atlas data chunk: [`world.atlas-nodes.0064.2cbf15d320592792.js`](./world.atlas-nodes.0064.2cbf15d320592792.js)
+- Static atlas data chunk: [`world.atlas-nodes.0065.12a6bb7fbe29de1a.js`](./world.atlas-nodes.0065.12a6bb7fbe29de1a.js)
+- Static atlas data chunk: [`world.atlas-nodes.0066.f8f98bc6a69a3142.js`](./world.atlas-nodes.0066.f8f98bc6a69a3142.js)
+- Static atlas data chunk: [`world.atlas-nodes.0067.9ca9b047e49f01a6.js`](./world.atlas-nodes.0067.9ca9b047e49f01a6.js)
+- Static atlas data chunk: [`world.atlas-nodes.0068.8ce945aa90f1fd5b.js`](./world.atlas-nodes.0068.8ce945aa90f1fd5b.js)
+- Static atlas data chunk: [`world.atlas-nodes.0069.080a19cf57cb0d76.js`](./world.atlas-nodes.0069.080a19cf57cb0d76.js)
+- Static atlas data chunk: [`world.atlas-nodes.0070.b8f84a13a365f445.js`](./world.atlas-nodes.0070.b8f84a13a365f445.js)
+- Static atlas data chunk: [`world.atlas-nodes.0071.6c2254f26ef326d7.js`](./world.atlas-nodes.0071.6c2254f26ef326d7.js)
+- Static atlas data chunk: [`world.atlas-nodes.0072.bc5c77af0dcd87e7.js`](./world.atlas-nodes.0072.bc5c77af0dcd87e7.js)
+- Static atlas data chunk: [`world.atlas-nodes.0073.1301ca1cb1c533ba.js`](./world.atlas-nodes.0073.1301ca1cb1c533ba.js)
+- Static atlas data chunk: [`world.atlas-nodes.0074.f56973f08c114f0d.js`](./world.atlas-nodes.0074.f56973f08c114f0d.js)
+- Static atlas data chunk: [`world.atlas-nodes.0075.6437183dfba93973.js`](./world.atlas-nodes.0075.6437183dfba93973.js)
+- Static atlas data chunk: [`world.atlas-nodes.0076.63e3cb9e25b945a2.js`](./world.atlas-nodes.0076.63e3cb9e25b945a2.js)
+- Static atlas data chunk: [`world.atlas-nodes.0077.d556c4e9accd9b94.js`](./world.atlas-nodes.0077.d556c4e9accd9b94.js)
+- Static atlas data chunk: [`world.atlas-nodes.0078.dcdd0879d9b15ab0.js`](./world.atlas-nodes.0078.dcdd0879d9b15ab0.js)
+- Static atlas data chunk: [`world.atlas-nodes.0079.16a4dbb6275bb4b9.js`](./world.atlas-nodes.0079.16a4dbb6275bb4b9.js)
+- Static atlas data chunk: [`world.atlas-nodes.0080.b4273d5455f9f032.js`](./world.atlas-nodes.0080.b4273d5455f9f032.js)
+- Static atlas data chunk: [`world.atlas-nodes.0081.2d6dbb4621eca696.js`](./world.atlas-nodes.0081.2d6dbb4621eca696.js)
+- Static atlas data chunk: [`world.atlas-nodes.0082.fcd0a534f417ec0d.js`](./world.atlas-nodes.0082.fcd0a534f417ec0d.js)
+- Static atlas data chunk: [`world.atlas-nodes.0083.3a013e427ad84ab7.js`](./world.atlas-nodes.0083.3a013e427ad84ab7.js)
+- Static atlas data chunk: [`world.atlas-nodes.0084.991a2f0aa4809233.js`](./world.atlas-nodes.0084.991a2f0aa4809233.js)
+- Static atlas data chunk: [`world.atlas-nodes.0085.444231e78e0a4d74.js`](./world.atlas-nodes.0085.444231e78e0a4d74.js)
+- Static atlas data chunk: [`world.atlas-nodes.0086.f13d401f4074910b.js`](./world.atlas-nodes.0086.f13d401f4074910b.js)
+- Static atlas data chunk: [`world.atlas-nodes.0087.b03beb2ff928a041.js`](./world.atlas-nodes.0087.b03beb2ff928a041.js)
+- Static atlas data chunk: [`world.atlas-nodes.0088.13140423ee23e479.js`](./world.atlas-nodes.0088.13140423ee23e479.js)
+- Static atlas data chunk: [`world.atlas-nodes.0089.975e06718e1cd6df.js`](./world.atlas-nodes.0089.975e06718e1cd6df.js)
+- Static atlas data chunk: [`world.atlas-nodes.0090.ad8fd578c66f380f.js`](./world.atlas-nodes.0090.ad8fd578c66f380f.js)
+- Static atlas data chunk: [`world.atlas-nodes.0091.73fe6de822e36219.js`](./world.atlas-nodes.0091.73fe6de822e36219.js)
+- Static atlas data chunk: [`world.atlas-nodes.0092.bc000bd55d9c59d4.js`](./world.atlas-nodes.0092.bc000bd55d9c59d4.js)
+- Static atlas data chunk: [`world.atlas-nodes.0093.6f2e09c5ab5bc6f1.js`](./world.atlas-nodes.0093.6f2e09c5ab5bc6f1.js)
+- Static atlas data chunk: [`world.atlas-nodes.0094.b988dc73227bef68.js`](./world.atlas-nodes.0094.b988dc73227bef68.js)
+- Static atlas data chunk: [`world.atlas-nodes.0095.a91bddf06b2dac60.js`](./world.atlas-nodes.0095.a91bddf06b2dac60.js)
+- Static atlas data chunk: [`world.atlas-nodes.0096.7bdd801c32fd37f0.js`](./world.atlas-nodes.0096.7bdd801c32fd37f0.js)
+- Static atlas data chunk: [`world.atlas-nodes.0097.d0f8bc15fe25b8ef.js`](./world.atlas-nodes.0097.d0f8bc15fe25b8ef.js)
+- Static atlas data chunk: [`world.atlas-nodes.0098.651ffad02fccf21b.js`](./world.atlas-nodes.0098.651ffad02fccf21b.js)
+- Static atlas data chunk: [`world.atlas-nodes.0099.16e263170d10ea4c.js`](./world.atlas-nodes.0099.16e263170d10ea4c.js)
+- Static atlas data chunk: [`world.atlas-nodes.0100.43834973ec35d4d1.js`](./world.atlas-nodes.0100.43834973ec35d4d1.js)
+- Static atlas data chunk: [`world.atlas-nodes.0101.c82c74d7e86a85ab.js`](./world.atlas-nodes.0101.c82c74d7e86a85ab.js)
+- Static atlas data chunk: [`world.atlas-nodes.0102.fc23e55ab19d3837.js`](./world.atlas-nodes.0102.fc23e55ab19d3837.js)
+- Static atlas data chunk: [`world.atlas-nodes.0103.5a337c3a2baa99db.js`](./world.atlas-nodes.0103.5a337c3a2baa99db.js)
+- Static atlas data chunk: [`world.atlas-nodes.0104.e325a19e8541bb45.js`](./world.atlas-nodes.0104.e325a19e8541bb45.js)
+- Static atlas data chunk: [`world.atlas-nodes.0105.3de633b2dde58565.js`](./world.atlas-nodes.0105.3de633b2dde58565.js)
+- Static atlas data chunk: [`world.atlas-nodes.0106.910cf26f6a35e1b7.js`](./world.atlas-nodes.0106.910cf26f6a35e1b7.js)
+- Static atlas data chunk: [`world.atlas-nodes.0107.78422ccb946c32ca.js`](./world.atlas-nodes.0107.78422ccb946c32ca.js)
+- Static atlas data chunk: [`world.atlas-nodes.0108.d5cfa9118f125e55.js`](./world.atlas-nodes.0108.d5cfa9118f125e55.js)
+- Static atlas data chunk: [`world.atlas-nodes.0109.f038cd68fda35658.js`](./world.atlas-nodes.0109.f038cd68fda35658.js)
+- Static atlas data chunk: [`world.atlas-nodes.0110.298986aea18e4034.js`](./world.atlas-nodes.0110.298986aea18e4034.js)
+- Static atlas data chunk: [`world.atlas-nodes.0111.87ad7eb5ebfa9e85.js`](./world.atlas-nodes.0111.87ad7eb5ebfa9e85.js)
+- Static atlas data chunk: [`world.atlas-nodes.0112.38ad24906e2d4962.js`](./world.atlas-nodes.0112.38ad24906e2d4962.js)
+- Static atlas data chunk: [`world.atlas-edges.0113.e04f7602846ad276.js`](./world.atlas-edges.0113.e04f7602846ad276.js)
+- Static atlas data chunk: [`world.atlas-sequences.0114.2193bdbf873c6c5b.js`](./world.atlas-sequences.0114.2193bdbf873c6c5b.js)
+- Static atlas data chunk: [`world.atlas-indexes.0115.ee8815b992f80684.js`](./world.atlas-indexes.0115.ee8815b992f80684.js)
 - Animal source-sample chronology accountability: [`world_animal_sample_chronology_context.json`](./world_animal_sample_chronology_context.json)
 - Candidate site ranking CSV: [`world_candidate_sites.csv`](./world_candidate_sites.csv)
 - Candidate site ranking JSON: [`world_candidate_sites.json`](./world_candidate_sites.json)
@@ -169,7 +169,7 @@ World is the governing publication surface. It keeps every published country ins
 - Atlas evidence surface markdown: [`world_evidence_surface.md`](./world_evidence_surface.md)
 - Atlas scientific review JSON: [`world_scientific_review.json`](./world_scientific_review.json)
 - Atlas scientific review markdown: [`world_scientific_review.md`](./world_scientific_review.md)
-- Static atlas runtime: [`world_map.atlas-runtime.f2519cfb77824d9e.js`](./world_map.atlas-runtime.f2519cfb77824d9e.js)
+- Static atlas runtime: [`world_map.atlas-runtime.a333c0c242dd81a3.js`](./world_map.atlas-runtime.a333c0c242dd81a3.js)
 - Interactive evidence tools: [`world_map.atlas-evidence-tools.bac3f9295a5c95bb.js`](./world_map.atlas-evidence-tools.bac3f9295a5c95bb.js)
 - Static atlas index transport: [`world_map.atlas-index-transport.2168d29af8354bcb.js`](./world_map.atlas-index-transport.2168d29af8354bcb.js)
 
@@ -181,7 +181,7 @@ World is the governing publication surface. It keeps every published country ins
 | Cattle aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `22` |
 | Goat aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `23` |
 | Horse aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `63` |
-| Horse aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `10` |
+| Horse aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `12` |
 | Cat aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `24` |
 | Cat aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `15` |
 | Sheep aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
@@ -212,7 +212,7 @@ World is the governing publication surface. It keeps every published country ins
 
 ## Animal aDNA Layers
 
-- Total animal locality points: `161`
+- Total animal locality points: `163`
 - Shipped animal species: `6`
 - Domesticated-core species layers: `5`
 - Comparator species layers: `0`
@@ -242,7 +242,7 @@ World is the governing publication surface. It keeps every published country ins
 | Coordinate confidence | Visible mapped points |
 | --- | ---: |
 | approximate | 24 |
-| exact | 135 |
+| exact | 137 |
 | source_reported_two_decimal_degrees | 2 |
 
 ### Visible Animal Caveats
@@ -260,7 +260,7 @@ World is the governing publication surface. It keeps every published country ins
 | cattle | Bos taurus | wild_or_progenitor_context | 22 |
 | goat | Capra hircus | domesticated_core | 23 |
 | horse | Equus caballus | domesticated_core | 63 |
-| horse | Equus caballus | wild_or_progenitor_context | 10 |
+| horse | Equus caballus | wild_or_progenitor_context | 12 |
 | cat | Felis catus | domesticated_core | 24 |
 | cat | Felis catus | wild_or_progenitor_context | 15 |
 | sheep | Ovis aries | domesticated_core | 2 |
@@ -273,29 +273,29 @@ World is the governing publication surface. It keeps every published country ins
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-**Supported claim.** The world bundle is a governing publication scope with 1231AADR metadata samples from four Nordic country products and 161 governed animal locality features.
+**Supported claim.** The current world bundle is a governing publication scope with 1231 AADR metadata samples from four Nordic country products and 163 governed animal locality features.
 
 **Unsupported claim.** World is a scope name, not worldwide source completeness, genotype analysis, scientific country/chronology admission or validated fieldwork advice.
 
-**Actual verification performed.** The actual three-scope producer at 04f1c4857 passed source-value, temporal, layer, point-traceability, static-budget and playback guards in 266.419 s. World retains 16 layer rows, including 15 point layers with 1711 record uses. No full browser or query-latency acceptance is claimed.
+**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. World now has 1713 point uses across 15 point layers within 16 layer rows.
 
-**Remaining input or review.** Broader context-source coverage, qualified sample chronology/geography/rights and scientific admission remain incomplete; current browser/network behavior requires its own retained execution.
+**Remaining input or review.** Broader source coverage, sample chronology/geography/rights and scientific admission remain incomplete. The narrow served World temporal cases do not qualify all browser/network behavior or query latency.
 
 **Cause category.** Publication scope and heterogeneous metadata layers with incomplete scientific/global coverage.
 
 **Consequence.** Withheld Nordic environmental/context overlays do not become globally available by widening the map frame; source-sample chronology overlays are not additional biological samples.
 
-**Precise next acceptance route.** Reproduce exact current bundle/assets and native browser contract, then qualify broader source coverage and each family role before asserting worldwide science or historical inference.
+**Precise next acceptance route.** Use the qualified current bundle/assets and source-bound temporal/index evidence; qualify broader source coverage and each family role before worldwide scientific or historical inference.
 
-**Negative or refused result.** Nordic-onlycontext overlays remain withheld; animal comparator layer count 0 is not absence of all wild/progenitor context; historical 170 features/331 memberships are superseded by 161/318.
+**Negative or refused result.** Nordic-only context overlays remain withheld; zero comparator layers do not imply absence of wild/progenitor context. Earlier 161/318, 165/322 and 170/331 animal populations remain historical.
 
-**Matched denominator.** Human 1231=SE 416+NO 130+FI 32+DK 653 at 447 localities; animal 161 features represent 318 samples across 6 mapped species. Source-chronology overlays 319 record uses overlap these memberships and must not be added as independent evidence.
+**Matched denominator.** Human 1231=SE416+NO130+FI32+DK653 at 447 localities; animal 163 locality features represent 324 mapped samples across 6 mapped species. The 319 retained source-chronology record uses overlap those memberships and are not additional independent evidence.
 
-- [Retained qualification evidence: docs/report/world/world_summary.json](world_summary.json) (SHA-256 `72145bd208a3dfd9b890bdb08ce1fd868685e55d9ac9ef155facb6da3ec4529b`).
+- [Retained qualification evidence: docs/report/world/world_summary.json](world_summary.json) (SHA-256 `4024f52d6f032e139771a9727902f4a06f362a0be526f659409dbc34910812cd`).
 
-- [Retained qualification evidence: docs/report/world/world_map_publication_contract.json](world_map_publication_contract.json) (SHA-256 `25d3be6f3671d90b333cf09b98c0278a6b8bd71560a88a2ed64e2bdcc0745548`).
+- [Retained qualification evidence: docs/report/world/world_map_publication_contract.json](world_map_publication_contract.json) (SHA-256 `9fda0df60f16a49b954d846fc3e933c1ad1f43ba734fe6fb58147080e0f30431`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

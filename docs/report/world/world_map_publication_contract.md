@@ -24,7 +24,7 @@ The opening extent keeps a broad trans-Atlantic and Eurasian frame so the root p
 | Cattle aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `22` |
 | Goat aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `23` |
 | Horse aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `63` |
-| Horse aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `10` |
+| Horse aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `12` |
 | Cat aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `24` |
 | Cat aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `15` |
 | Sheep aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
@@ -69,21 +69,21 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A consistent renderer or broad opening extent is not scientific source admission, complete world coverage or proof of valid chronology at every point.
 
-**Actual verification performed.** The actual three-scope producer at 04f1c4857 passed source-value, temporal, layer, point-traceability, static-budget and playback guards in 266.419 s. World retains 16 layer rows, including 15 point layers with 1711 record uses. No full browser or query-latency acceptance is claimed.
+**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. World now has 1713 point uses across 15 point layers within 16 layer rows.
 
-**Remaining input or review.** Current native asset/browser qualification and qualified family-specific geography, chronology, rights and biological interpretation remain separate requirements.
+**Remaining input or review.** Qualified family-specific geography, chronology, rights and biological interpretation remain separate. Completed preservation/index and narrow World temporal checks do not qualify all browser/provider/export behavior or query latency.
 
 **Cause category.** Map software/publication contract with incomplete scientific/global coverage.
 
 **Consequence.** World filters may expose declared records but cannot manufacture environmental coverage or turn present-day framing boundaries into historical nationality.
 
-**Precise next acceptance route.** Run exact current source/assets through maintained map publication and native browser consumers; retain source-family refusals and separately qualify scientific roles before inference.
+**Precise next acceptance route.** Retain the qualified current source/assets and exact native identities; qualify source-family scientific roles and any additional delivery/latency claim through its own scoped check.
 
 **Negative or refused result.** Nordic environmental/archaeology overlays are withheld from world; source metadata country assignments and scientific flags remain separately governed.
 
-**Matched denominator.** 16 layer rows=15 point layers+1 boundary layer carrying 4 polygons; visible point records 1711=1231 human+161 animal-locality+319 sample-chronology record uses. Shared identities can appear in multiple layers.
+**Matched denominator.** 16 layer rows=15 point layers+1 boundary layer with 4 polygons; 1713 point uses=1231 human+163 animal-locality+319 source-chronology record uses. Shared identities can appear in multiple layers.
 
-- [Retained qualification evidence: docs/report/world/world_map_publication_contract.json](world_map_publication_contract.json) (SHA-256 `25d3be6f3671d90b333cf09b98c0278a6b8bd71560a88a2ed64e2bdcc0745548`).
+- [Retained qualification evidence: docs/report/world/world_map_publication_contract.json](world_map_publication_contract.json) (SHA-256 `9fda0df60f16a49b954d846fc3e933c1ad1f43ba734fe6fb58147080e0f30431`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

@@ -14,12 +14,13 @@ from ....adna import (
     build_species_support_matrix,
 )
 from ....adna.domain.models.localities import AdnaSampleChronologySupport
+from ....adna.governance.atlas_candidates.chronology import (
+    _atlas_public_locality_chronology,
+)
 from ....adna.workflow.paths import adna_species_dir
 from .chronology import (
-    _atlas_public_chronology,
     _optional_float,
     _optional_str,
-    _parse_chronology,
 )
 from .service import build_tracked_animal_atlas_evidence_rows
 
@@ -134,7 +135,7 @@ def _parse_locality_summary(payload: dict[str, object]) -> AdnaLocalitySummary:
         datasets=tuple(
             str(item) for item in cast(Iterable[object], payload.get("datasets", []))
         ),
-        chronology=_atlas_public_chronology(_parse_chronology(chronology)),
+        chronology=_atlas_public_locality_chronology(chronology),
         sample_chronologies=supports,
         sample_namespace=str(payload.get("sample_namespace", "")),
         project_accessions=tuple(

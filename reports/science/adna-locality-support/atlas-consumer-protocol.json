@@ -1,0 +1,60 @@
+{
+  "schema_version": "adna-locality-atlas-consumer-protocol.v1",
+  "question": "Which saved animal specimens and localities are admitted or refused by the corrected owned-support consumer, and do all three saved scopes retain exact specimen chronology through their public layers?",
+  "precondition": {
+    "path": "reports/science/adna-locality-support/protocol.json",
+    "bytes": 6315,
+    "sha256": "90654d44cf5be83943faef8c416191d117d5a8b55b90d614d202c168a7705e73"
+  },
+  "qualified_normalization": {
+    "source_commit": "bba372a6f1745b89d7afae20041f54dfa145491c",
+    "verification_sha256": "6378ea8b8127395abf55d706c9e2b1b2a856d000c6aa0e6881c1eb8e38906e92",
+    "installed_data_commit": "ab43e5188"
+  },
+  "scopes": [
+    "world",
+    "europe-plus",
+    "nordic"
+  ],
+  "actual_consumers": [
+    "bijux_pollenomics.adna.governance.atlas_candidates.build_tracked_animal_atlas_evidence_rows",
+    "bijux_pollenomics.adna.governance.audit_catalogs.build_animal_atlas_candidate_accountability",
+    "bijux_pollenomics.reporting.adna.public_outputs.atlas_readiness._build_animal_atlas_exclusion_report",
+    "bijux_pollenomics.reporting.adna.animal_localities.build_tracked_animal_atlas_bundle"
+  ],
+  "population": "Enumerate the complete saved nonhuman normalized sample population directly. Every specimen must be mapped exactly once or reason-coded exactly once, without intersection or omission; retain the full species/project partition. Current counts are measured, never inherited from old map receipts. Preserve the normalized foundation and source chronology corpus read-only.",
+  "ownership": "Derive locality admission independently from original saved source/sample/provenance/site/project/scope/review evidence using the unchanged individual chronology-publication rules. Require exact complete unique original sample IDs, typed sample count and support owners; explicit missing/empty/null/mismatched support is not a hull fallback. Legacy absent-key supports are the literal original source packets. Require at least one admitted child chronology, not an aggregate hull. All children retain original chronology/provenance/refusal and uncertainty fields.",
+  "outputs": "Fresh artifact candidate only: global candidate JSON/CSV, candidate accountability JSON/CSV/Markdown, exclusion JSON/Markdown, and seven native animal locality/evidence/traceability products per fixed scope. A separately identified diagnostic bundle per scope may retain the actual returned point layers for independent observation. Do not install until independent comparison succeeds. Never rewrite raw sources, masters, normalization, global chronology-node census, model outputs or unrelated products.",
+  "comparison": "Independently reconcile global and scope populations, every owned child packet, public display chronology, coordinates, evidence/traceability joins, CSV schema and field formatting, all four GeoJSON feature partitions and actual returned layers. Account for every exclusion and changed membership against the former saved candidate without assuming no membership change. Recompute exact byte pins and read every closed output.",
+  "input_guards": {
+    "code": "Freeze all tracked package files including actual JavaScript/HTML/schema resources, HEAD and index across producer and observer. Bind runner, protocol, pyprojects, original normalization protocol and actual opened resources.",
+    "data": "Full exact data/adna tree before and after, unchanged through both jobs. Bind relevant repository descriptors and any external discovery actually used. No network or source writes.",
+    "outputs": "Fresh absent output, reject parent traversal/symlink ancestry/resolved escapes; enumerate all final files and output bytes; observer writes only its own absent verification directory."
+  },
+  "limits": {
+    "producer_wall_seconds": 60,
+    "producer_max_rss_bytes": 536870912,
+    "producer_max_output_bytes": 33554432,
+    "observer_wall_seconds": 60,
+    "observer_max_rss_bytes": 536870912,
+    "observer_max_output_bytes": 16777216
+  },
+  "followthrough": "Animal point layers and the changed temporal runtime require dependent current full-map/static transport/contract followthrough after this qualification. Keep all unrelated decoded layers, polygon/detail/edge/sequence scientific records and all 319 existing source chronology nodes exact. A separate prospective map protocol binds the necessary assembly and original 600s/8GiB/192MiB limits plus per-scope wire budgets; current browser/runtime checks must be source/build-bound. The current protocol alone does not qualify maps, queries or latency.",
+  "unsupported_claims": [
+    "New specimen identity, dates, calibration or biological admission",
+    "Independent scientific approval or source permission",
+    "New source chronology census or model results",
+    "Current full map or browser qualification before separate actual checks",
+    "External publication or deployment"
+  ],
+  "geography_source": {
+    "path": "docs/report/world/world_summary.json",
+    "bytes": 42801,
+    "sha256": "72145bd208a3dfd9b890bdb08ce1fd868685e55d9ac9ef155facb6da3ec4529b"
+  },
+  "foundation_source": {
+    "path": "data/adna/governance/animal_sample_foundation_truth.json",
+    "bytes": 17540,
+    "sha256": "833029f796f6bc9f518db1e48c676467f39a880a1cc86cac80abab89acc8dd7e"
+  }
+}

@@ -87,15 +87,15 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A display circle, layer visibility rule or software contract is not a pollen basin radius, physical dispersal support, scientific source admission or an observed ecological boundary.
 
-**Actual verification performed.** The actual three-scope producer at 04f1c4857 passed source-value, temporal, layer, point-traceability, static-budget and playback guards in 266.419 s. Regional chronology retains 13 nodes and its original source fields. The independent actual Nordic JavaScript index observer recovered every original logical search entry in 30.51 s; this is not full browser or query-latency acceptance.
+**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. Regional animal/index populations and 13 retained chronology nodes are unchanged.
 
-**Remaining input or review.** Actual provider/browser/export behavior and each layer's scientific/source rights decisions remain separate requirements.
+**Remaining input or review.** Broader browser/provider/export behavior, query latency and each layer's scientific/source-rights decisions remain separate from the completed source-bound preservation/index and narrow served-temporal checks.
 
 **Cause category.** Map delivery and scope contract.
 
 **Consequence.** Shared rendering makes publication behavior consistent without conferring scientific equivalence on mixed layers.
 
-**Precise next acceptance route.** Replay the configured scope and its browser/export checks using exact layer/source identities, then review scientific use under the appropriate data contract.
+**Precise next acceptance route.** Retain the qualified current scope and native identities; execute additional browser/export/provider or latency cases only for their defined delivery claim, and qualify source-family scientific roles separately.
 
 **Negative or refused result.** Literal ecological codes and exact source taxa remain source-owned display contexts, not reviewed biological signal admission. Approximate and country-unresolved animal records keep their caveats; excluded broader-scope overlays remain separate.
 

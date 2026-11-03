@@ -1,7 +1,7 @@
 {
   "schema_version": "animal-atlas-candidate-accountability.v1",
-  "candidate_row_count": 161,
-  "passed_row_count": 161,
+  "candidate_row_count": 163,
+  "passed_row_count": 163,
   "overall_ok": true,
   "rows": [
     {
@@ -1852,6 +1852,33 @@
       "fully_accountable": true
     },
     {
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-hyenaslair-russia",
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB44430",
+      "site_record_id": "equus_caballus:locality:prjeb44430:hyenaslair:russia",
+      "sample_record_ids": [
+        "equus_caballus:sample:prjeb44430:samea9533291",
+        "equus_caballus:sample:prjeb44430:samea9533292"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "site_evidence_locator": "SI Table 1!row145",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "coordinate_provenance_locator": "SI Table 1!row145",
+      "fully_accountable": true
+    },
+    {
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-iguedugral-france",
       "species_latin_name": "Equus caballus",
       "project_accession": "PRJEB44430",
@@ -3103,6 +3130,35 @@
       ],
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "coordinate_provenance_locator": "SI Table 1!row138",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-yana-russia",
+      "species_latin_name": "Equus caballus",
+      "project_accession": "PRJEB44430",
+      "site_record_id": "equus_caballus:locality:prjeb44430:yana:russia",
+      "sample_record_ids": [
+        "equus_caballus:sample:prjeb44430:samea9533361",
+        "equus_caballus:sample:prjeb44430:samea9533362",
+        "equus_caballus:sample:prjeb44430:samea9533363",
+        "equus_caballus:sample:prjeb44430:samea9533364"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "site_evidence_locator": "SI Table 1!row272",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "coordinate_provenance_locator": "SI Table 1!row272",
       "fully_accountable": true
     },
     {

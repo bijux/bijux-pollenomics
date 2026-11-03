@@ -1,6 +1,6 @@
 # Animal atlas exclusion report
 
-- Excluded tracked sample rows: `1146`
+- Excluded tracked sample rows: `1140`
 
 | Species | Project | Sample record | Locality | Inclusion status | Mapping posture | Exclusion reason |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -492,8 +492,6 @@
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533284 | Kozhai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533287 | Köşk Höyük | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533289 | Krasnyi Yar | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
-| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533291 | Hyena's Lair | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
-| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533292 | Hyena's Lair | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533293 | Repin khutor | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533294 | Repin khutor | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533295 | Turganik | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
@@ -515,10 +513,6 @@
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533349 | Mozgawa 1-3 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533351 | Litovice | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533359 | Stránská skála | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
-| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533361 | Yana | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
-| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533362 | Yana | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
-| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533363 | Yana | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
-| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533364 | Yana | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533384 | Turganik | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533385 | Turganik | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533386 | Oroshaemoe I | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
@@ -1157,27 +1151,27 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-**Supported claim.** This ledger preserves 1146 tracked sample rows excluded from the current animal atlas and names their native sample/project/locality refusal reasons.
+**Supported claim.** This ledger preserves 1140 tracked sample rows excluded from the current animal atlas and names their native sample/project/locality refusal reasons.
 
 **Unsupported claim.** An excluded row is not a biological absence, unrecoverable source or permission to infer location or chronology from a project average.
 
-**Actual verification performed.** The current entity replay reconciled all 1464 normalized IDs into 318 mapped and 1146 excluded IDs, with exact sample/species/project lineage. The 1146 exclusion rows and their original JSON bytes are unchanged; the four ambiguous goat identities are refused before normalization.
+**Actual verification performed.** Current saved-source consumer and independent comparison reconcile all 1464 normalized IDs into 324 mapped IDs in 163 locality features and 1140 reason-coded exclusions. Complete child chronology/provenance packets, coordinates and ownership are preserved; only the declared locality display labels change. Two horse localities add six source-supported owners without assigning a default BP epoch.
 
 **Remaining input or review.** Each excluded native sample needs its named locality, coordinate provenance, dating or source-lineage gap resolved with exact source evidence and qualified review.
 
 **Cause category.** Sample-owned publication refusals from incomplete source evidence or chronology.
 
-**Consequence.** The atlas remains a selected 318-sample subset; plotting an excluded row would exceed its governed identity/time support.
+**Consequence.** The atlas remains a selected 324-sample subset; plotting an excluded row would exceed its governed identity/time support.
 
 **Precise next acceptance route.** Resolve each explicit sample-level reason, retain source text and uncertainty, then pass the maintained atlas/publication contract before changing the published population.
 
-**Negative or refused result.** 1146 exclusions remain; PRJEB31613 elapsed ages retain an unspecified reference epoch and cannot acquire a BP default merely to become mappable.
+**Negative or refused result.** 1140 exclusions remain: 378 unresolved localities, 409 missing coordinate-provenance rows, 327 other point-contract refusals and 26 chronology refusals. PRJEB31613 elapsed ages retain their unspecified reference epoch.
 
-**Matched denominator.** Current 1464 normalized sample IDs=318 mapped+1146 excluded; 161 published locality features represent those 318 samples. Earlier 1468/322/165 and 170/331 populations are historical.
+**Matched denominator.** Current 1464 normalized IDs=324 mapped+1140 excluded; 163 locality features represent those 324 samples. Earlier 161/318, 1468/322/165 and 170/331 populations remain historical.
 
-- [Retained qualification evidence: docs/report/animal_atlas_exclusion_report.json](animal_atlas_exclusion_report.json) (SHA-256 `7c7a5883a61d8ca1707262777f70f76e2cb5209b5a295975aa85c6009a1baceb`).
+- [Retained qualification evidence: docs/report/animal_atlas_exclusion_report.json](animal_atlas_exclusion_report.json) (SHA-256 `c26058c1db2e17a99f3afe94c4b206622a7684979f5d221c848f8ffa871877fe`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `713396181e44cfe23c2be59e8cac78db120ef33888245adcc01a7c2e18a6784b`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 
