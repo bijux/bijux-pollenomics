@@ -88,7 +88,7 @@ jobs:
           dpkg-query -W > "$system/dpkg-packages.txt"
           uname -a > "$system/kernel.txt"
       - run: uv sync --frozen --all-packages --all-extras --python 3.11
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: lra-r-sources-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff
@@ -154,11 +154,11 @@ jobs:
           dpkg-query -W > "$system/dpkg-packages.txt"
           uname -a > "$system/kernel.txt"
       - run: uv sync --frozen --all-packages --all-extras --python 3.11
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: lra-r-sources-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: lra-r-runtime-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff
@@ -256,11 +256,11 @@ jobs:
           uname -a > artifacts/bijux-pollenomics-lra/reference/system/kernel.txt
       - name: Install exact Python workspace lock
         run: uv sync --frozen --all-packages --all-extras --python 3.11
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: lra-r-runtime-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: lra-r-provision-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff
@@ -318,11 +318,11 @@ jobs:
           enable-cache: true
           cache-dependency-glob: uv.lock
       - run: uv sync --frozen --all-packages --all-extras --python 3.11
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: lra-native-cases-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/ci-native
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
         with:
           name: lra-live-r-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/ci-live
