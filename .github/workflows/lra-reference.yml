@@ -26,10 +26,10 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.11"
-      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
@@ -45,7 +45,7 @@ jobs:
           mkdir -p "$root/handoff"
           tar -C "$GITHUB_WORKSPACE" -cf "$root/handoff/sources.tar" "$root/sources" "$root/receipts/acquisition"
           printf 'sha256=%s\n' "$(sha256sum "$root/handoff/sources.tar" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lra-r-sources-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff/sources.tar
@@ -53,7 +53,7 @@ jobs:
           if-no-files-found: error
       - name: Retain source acquisition diagnostics
         if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lra-r-sources-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/receipts/acquisition/
@@ -70,10 +70,10 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.11"
-      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
@@ -88,7 +88,7 @@ jobs:
           dpkg-query -W > "$system/dpkg-packages.txt"
           uname -a > "$system/kernel.txt"
       - run: uv sync --frozen --all-packages --all-extras --python 3.11
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: lra-r-sources-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff
@@ -109,7 +109,7 @@ jobs:
           root="artifacts/bijux-pollenomics-lra/reference"
           tar -C "$GITHUB_WORKSPACE" -cf "$root/handoff/runtime.tar" "$root/runtime" "$root/receipts/runtime" "$root/system/runtime"
           printf 'sha256=%s\n' "$(sha256sum "$root/handoff/runtime.tar" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lra-r-runtime-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff/runtime.tar
@@ -117,7 +117,7 @@ jobs:
           if-no-files-found: error
       - name: Retain R build diagnostics
         if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lra-r-runtime-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: |
@@ -136,10 +136,10 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.11"
-      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
@@ -154,11 +154,11 @@ jobs:
           dpkg-query -W > "$system/dpkg-packages.txt"
           uname -a > "$system/kernel.txt"
       - run: uv sync --frozen --all-packages --all-extras --python 3.11
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: lra-r-sources-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: lra-r-runtime-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff
@@ -189,7 +189,7 @@ jobs:
           root="artifacts/bijux-pollenomics-lra/reference"
           tar -C "$GITHUB_WORKSPACE" -cf "$root/handoff/provision.tar" "$root/library" "$root/receipts/provision" "$root/system/provision"
           printf 'sha256=%s\n' "$(sha256sum "$root/handoff/provision.tar" | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lra-r-provision-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff/provision.tar
@@ -197,7 +197,7 @@ jobs:
           if-no-files-found: error
       - name: Retain provisioning diagnostics
         if: failure()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lra-r-provision-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: |
@@ -211,17 +211,17 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.11"
-      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
       - run: uv sync --frozen --all-packages --all-extras --python 3.11
       - name: Prepare native cases and exact shared-input digests
         run: .venv/bin/python packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_live_r.py --prepare-only --output artifacts/bijux-pollenomics-lra/reference/native-cases
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lra-native-cases-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: |
@@ -238,10 +238,10 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.11"
-      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
@@ -256,11 +256,11 @@ jobs:
           uname -a > artifacts/bijux-pollenomics-lra/reference/system/kernel.txt
       - name: Install exact Python workspace lock
         run: uv sync --frozen --all-packages --all-extras --python 3.11
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: lra-r-runtime-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: lra-r-provision-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/handoff
@@ -310,19 +310,19 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.11"
-      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
       - run: uv sync --frozen --all-packages --all-extras --python 3.11
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: lra-native-cases-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/ci-native
-      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: lra-live-r-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/ci-live
@@ -335,7 +335,7 @@ jobs:
             --target-sha "${{ github.sha }}" \
             --repository "$GITHUB_WORKSPACE" \
             --output artifacts/bijux-pollenomics-lra/reference/ci-parity/report.json
-      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lra-native-live-r-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/ci-parity/report.json

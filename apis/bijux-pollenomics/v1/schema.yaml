@@ -2,6 +2,9 @@ openapi: 3.1.0
 info:
   title: Bijux Pollenomics Public API
   version: 1.0.0
+  license:
+    name: Apache-2.0
+    identifier: Apache-2.0
   summary: Freeze-only contract for pollenomics publication and evidence summary surfaces.
   description: |
     This checked-in OpenAPI contract defines the stable public surface that future
@@ -9,6 +12,7 @@ info:
     published report discovery, and atlas metadata.
 servers:
   - url: https://bijux.io/bijux-pollenomics
+security: []
 paths:
   /v1/health:
     get:
