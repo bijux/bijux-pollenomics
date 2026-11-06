@@ -83,6 +83,7 @@ class PopulationMoments:
 
     @classmethod
     def empty(cls, axes: int, sd: np.ndarray) -> PopulationMoments:
+        """Create zeroed moment accumulators for finite marginal standard deviations."""
         if (
             axes < 1
             or sd.ndim != 1

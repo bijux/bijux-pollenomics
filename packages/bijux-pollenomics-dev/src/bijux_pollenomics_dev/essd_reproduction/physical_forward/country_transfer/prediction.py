@@ -45,6 +45,7 @@ def structural_sources(
     scope: str,
     protocol: dict[str, Any],
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Partition structural source cores by the declared transfer exclusions."""
     accepted = []
     excluded = []
     for core in protocol["cores"]:
@@ -85,6 +86,7 @@ def structural_sources(
 
 
 def weights(sources: list[dict[str, Any]], weighting: str) -> list[Fraction]:
+    """Compute equal-place or equal-country-then-place source weights."""
     require(
         weighting in {"equal_physical_place", "equal_country_then_place"},
         "Unknown fixed weighting",
@@ -165,6 +167,7 @@ def predict_context(
     inverse: Callable[..., tuple[float, ...]] = native_inverse,
     forward: Callable[[Target, tuple[float, ...]], tuple[float, ...]] = _forward,
 ) -> dict[str, Any]:
+    """Predict both transfer families for one declared target and window."""
     declarations = {c["key"]: c for c in protocol["cores"]}
     target_core = declarations[target_key]
     require(
@@ -413,6 +416,7 @@ def predict_context(
 def context_specs(
     protocol: dict[str, Any],
 ) -> list[tuple[dict[str, Any], str, str, list[int], str]]:
+    """Enumerate the protocol's requested prediction contexts."""
     result = []
     for profile in protocol["profiles"]:
         for experiment in protocol["experiments"]:
@@ -435,6 +439,7 @@ def predict_all(
     responses: dict[str, Any],
     **callbacks: Any,
 ) -> list[dict[str, Any]]:
+    """Predict every declared context with a shared response cache."""
     contexts = []
     cache: dict[str, dict[str, Any]] = {}
     for profile, experiment, target, window, scope in context_specs(protocol):

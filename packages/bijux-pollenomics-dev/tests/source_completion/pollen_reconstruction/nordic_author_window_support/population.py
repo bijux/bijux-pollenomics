@@ -16,6 +16,7 @@ from .native_owners import native_owner, require, sample_account
 
 
 def source_decimal(value: object) -> Decimal:
+    """Parse a finite literal CSV number with decimal arithmetic."""
     require(type(value) is str and bool(value), "literal CSV numeric string")
     try:
         result = Decimal(str(value))
@@ -28,6 +29,7 @@ def source_decimal(value: object) -> Decimal:
 def parameter_evidence(
     bodies: dict[str, bytes], protocol: dict[str, Any], binding: dict[str, Any]
 ) -> tuple[dict[str, Any], dict[str, list[dict[str, Any]]]]:
+    """Verify the full parameter axis before selecting the declared evidence."""
     policy = protocol["author_lookup_contract"]
     reader = csv.DictReader(io.StringIO(bodies["lookup"].decode("latin-1")))
     require(
@@ -167,6 +169,7 @@ def expected_core(
     protocol: dict[str, Any],
     lookup: dict[str, list[dict[str, Any]]],
 ) -> dict[str, Any]:
+    """Derive a core's expected owner and window accounting independently."""
     require(
         protocol["schema_version"] == "nordic-author-window-support-protocol.v1"
         and protocol["taxa"] == ["Betula", "Pinus"]

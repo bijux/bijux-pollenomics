@@ -17,6 +17,7 @@ from .prediction import context_specs
 
 
 def native_score(prediction: list[float], vector: tuple[int, int]) -> dict[str, Any]:
+    """Score a two-axis pollen prediction with the maintained metrics."""
     from bijux_pollenomics.analysis.lra_validation.metrics import (
         hellinger_distance,
         score_pollen,
@@ -55,6 +56,7 @@ def score_closed(
     score: Callable[[list[float], tuple[int, int]], dict[str, Any]] = native_score,
 ) -> list[dict[str, Any]]:
     # Every byte/member is authenticated before the first target score call.
+    """Reopen bound response and prediction products before scoring their slots."""
     response = reopen(directory, response_pin)
     prediction = reopen(directory, prediction_pin)
     require(
@@ -330,6 +332,7 @@ def _matched(
 
 
 def summarize(rows: list[dict[str, Any]], protocol: dict[str, Any]) -> dict[str, Any]:
+    """Summarize the complete declared score population by transfer context."""
     require(
         len(rows) == 432 and len({(r["context_id"], r["method"]) for r in rows}) == 432,
         "Complete unique score population required",

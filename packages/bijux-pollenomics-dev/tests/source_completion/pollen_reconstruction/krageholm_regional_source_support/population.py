@@ -25,10 +25,12 @@ IDENTITY = {
 
 
 def frequencies(values: list[str]) -> dict[str, int]:
+    """Count disposition labels in their first-occurrence order."""
     return {value: values.count(value) for value in dict.fromkeys(values)}
 
 
 def group_mass(members: list[dict[str, Any]], unassigned: list[int]) -> dict[str, Any]:
+    """Aggregate complete group membership without dropping unassigned samples."""
     panel_available = (
         bool(members)
         and not unassigned
@@ -75,6 +77,7 @@ def group_mass(members: list[dict[str, Any]], unassigned: list[int]) -> dict[str
 
 
 def native_owner(source: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Require the selected native owner, chronology and all 96 unique samples."""
     candidates: list[dict[str, Any]] = []
     for row in rows(source["rows"]):
         site = row.get("site")
@@ -165,6 +168,7 @@ def native_owner(source: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
 
 
 def expected_result(source: dict[str, Any], protocol: dict[str, Any]) -> dict[str, Any]:
+    """Reconstruct the declared regional account from literal source rows."""
     require(
         protocol["schema_version"] == "krageholm-regional-literal-panel-protocol.v1"
         and protocol["identity"] == IDENTITY

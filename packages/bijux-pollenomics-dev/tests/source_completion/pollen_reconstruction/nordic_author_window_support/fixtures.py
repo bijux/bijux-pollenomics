@@ -12,6 +12,7 @@ from typing import Any, cast
 
 
 def protocol() -> dict[str, Any]:
+    """Load the author-window protocol with explicit fixture scope metadata."""
     repository = Path(__file__).resolve().parents[6]
     result: dict[str, Any] = json.loads(
         (
@@ -25,6 +26,7 @@ def protocol() -> dict[str, Any]:
 
 
 def cell(name: str, code: int, value: object) -> dict[str, Any]:
+    """Construct one invented native datum with explicit pollen roles."""
     return {
         "variablename": name,
         "taxonid": code,
@@ -39,6 +41,7 @@ def cell(name: str, code: int, value: object) -> dict[str, Any]:
 def native_fixture(
     index: int = 0,
 ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    """Construct invented native owners matching a selected core declaration."""
     profile = protocol()
     core = profile["cores"][index]
     owner, age = core["identity"], core["chronology"]
@@ -127,6 +130,7 @@ def native_fixture(
 
 
 def native_samples(source: dict[str, Any]) -> list[dict[str, Any]]:
+    """Return the invented source's nested sample population."""
     return cast(
         list[dict[str, Any]],
         source["rows"][0]["site"]["collectionunit"]["dataset"]["samples"],
@@ -134,6 +138,7 @@ def native_samples(source: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def lookup_fixture() -> list[dict[str, Any]]:
+    """Construct literal lookup rows with a repeated agreeing source name."""
     return [
         {"row_number": i + 2, "oldvar": name, "author_target": target}
         for i, (name, target) in enumerate(
@@ -149,6 +154,7 @@ def lookup_fixture() -> list[dict[str, Any]]:
 
 
 def csv_bytes(fields: list[str], rows: list[dict[str, Any]]) -> bytes:
+    """Serialize fixture rows to a Latin-1 CSV byte stream."""
     stream = io.StringIO(newline="")
     writer = csv.DictWriter(stream, fieldnames=fields, lineterminator="\n")
     writer.writeheader()
@@ -157,6 +163,7 @@ def csv_bytes(fields: list[str], rows: list[dict[str, Any]]) -> bytes:
 
 
 def parameter_fixture() -> tuple[bytes, bytes, bytes, dict[str, Any]]:
+    """Construct ordered parameter CSV fixtures with selected author values."""
     names = [f"Author target {i}" for i in range(31)]
     names[4], names[20] = "Betula", "Pinus"
     means = [{"A.series": name, "alpha": "1", "vg": "0.1"} for name in names]
@@ -207,6 +214,7 @@ def parameter_fixture() -> tuple[bytes, bytes, bytes, dict[str, Any]]:
 
 
 def saved_inputs(repository: Path, originals: Path) -> tuple[dict[str, Any], Path]:
+    """Write invented source inputs and return their protocol bindings."""
     profile = protocol()
 
     def store(root: Path, name: str, value: Any, raw: bool = False) -> dict[str, Any]:

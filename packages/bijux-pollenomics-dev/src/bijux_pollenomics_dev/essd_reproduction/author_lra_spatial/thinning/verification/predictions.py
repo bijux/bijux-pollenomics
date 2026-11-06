@@ -16,11 +16,13 @@ METHODS = (*BASELINES, "hellinger_20km", "hellinger_100km")
 
 
 def require(condition: object, message: str) -> None:
+    """Raise an independent thinning refusal when a required condition fails."""
     if not condition:
         raise ValueError("Independent thinning verification: " + message)
 
 
 def digest(value: Any) -> str:
+    """Hash canonical JSON metadata without allowing nonfinite values."""
     return hashlib.sha256(
         json.dumps(
             value, sort_keys=True, separators=(",", ":"), allow_nan=False
@@ -29,10 +31,12 @@ def digest(value: Any) -> str:
 
 
 def same(actual: Any, expected: Any) -> None:
+    """Require identical canonical JSON metadata."""
     require(digest(actual) == digest(expected), "literal metadata disagreement")
 
 
 def number(value: Any) -> float:
+    """Read a finite native numeric scalar as a float."""
     require(type(value) in (int, float), "native numerical scalar")
     result = float(value)
     require(math.isfinite(result), "finite numerical scalar")
@@ -40,6 +44,7 @@ def number(value: Any) -> float:
 
 
 def compare(actual: Any, expected: Any, atol: float, rtol: float) -> None:
+    """Compare nested predictions with numeric tolerances and sign constraints."""
     if isinstance(expected, dict):
         require(
             type(actual) is dict and actual.keys() == expected.keys(), "closed fields"
@@ -63,6 +68,7 @@ def compare(actual: Any, expected: Any, atol: float, rtol: float) -> None:
 
 
 def contexts(packet: dict[str, Any], protocol: dict[str, Any]) -> dict[str, Any]:
+    """Validate and index the declared ten-site thinning prediction contexts."""
     require(packet["schema_version"] == "author-lra-thinning-inputs.v1", "input schema")
     require(
         protocol["schema_version"] == "author-lra-geographic-thinning.v1",
@@ -239,6 +245,7 @@ def baseline(
 
 
 def forward(cover: list[float], inputs: dict[str, Any]) -> dict[str, list[float]]:
+    """Compute the two-ring forward projection with decimal arithmetic."""
     with localcontext() as context:
         context.prec = 80
 

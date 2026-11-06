@@ -60,6 +60,7 @@ def sample_account(
     chronology: dict[str, Any],
     panel_projector: Callable[[list[dict[str, Any]]], dict[str, Any]],
 ) -> dict[str, Any]:
+    """Account for a native sample within its selected chronology window."""
     datum = objects(sample["datum"])
     status, selected = selected_age(sample, chronology)
     window = None

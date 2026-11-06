@@ -30,6 +30,8 @@ CONTINUOUS_PROTOCOL = BASE + "continuous-receiver/protocol.json"
 
 @dataclass(frozen=True)
 class RingInputs:
+    """Group ring metadata, exact geometry, edges and the scored-source path."""
+
     protocol: dict[str, Any]
     prediction: dict[str, Any]
     original: dict[str, Any]
@@ -40,10 +42,12 @@ class RingInputs:
 
 
 def identity(raw: bytes) -> dict[str, str | int]:
+    """Return the byte count and SHA-256 identity of an input body."""
     return {"bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}
 
 
 def validate_protocol(protocol: dict[str, Any]) -> None:
+    """Require the declared ring population, numerical law and work limits."""
     if "frontier" in protocol:
         require(
             protocol["frontier"]
@@ -223,6 +227,7 @@ def select_geometry(
 
 
 def read_ring_inputs(repository: Path, protocol_path: Path) -> RingInputs:
+    """Read and bind the declared ring inputs before scored observations."""
     protocol = decode_json(protocol_path.read_bytes())
     validate_protocol(protocol)
     radial = decode_json((repository / RADIAL_PROTOCOL).read_bytes())

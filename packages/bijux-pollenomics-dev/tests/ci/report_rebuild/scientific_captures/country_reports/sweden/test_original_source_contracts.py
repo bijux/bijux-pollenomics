@@ -5,6 +5,7 @@ from __future__ import annotations
 from copy import deepcopy
 import hashlib
 from pathlib import Path
+from types import SimpleNamespace
 from typing import Any, cast
 
 import pytest
@@ -19,7 +20,28 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.country_reports
     transport as subject,
 )
 
-from .test_capture import MemoryResolver
+
+class MemoryResolver:
+    def __init__(self, root: Path, bodies: dict[str, bytes]) -> None:
+        self.repository = root.parent
+        self.prefix = root.name
+        self.bodies = bodies
+        self.descriptor = SimpleNamespace(
+            members={
+                name: {"sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw)}
+                for name, raw in bodies.items()
+            },
+            capture_name="capture.json",
+        )
+        self.reads: list[str] = []
+        self.refreshes = 0
+
+    def fresh(self) -> None:
+        self.refreshes += 1
+
+    def read_source(self, name: str) -> bytes:
+        self.reads.append(name)
+        return self.bodies[name]
 
 
 def original_sources(

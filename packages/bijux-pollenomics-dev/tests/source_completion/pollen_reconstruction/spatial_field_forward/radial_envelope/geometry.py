@@ -20,6 +20,7 @@ Point = tuple[Fraction, Fraction]
 
 
 def point(values: Any) -> Point:
+    """Decode two finite coordinates for planar anchor geometry."""
     require(
         isinstance(values, list) and len(values) == 2, "two anchor coordinates required"
     )
@@ -72,6 +73,7 @@ def literal_circle_mean(
 
 
 def check_angular(first: Point, second: Point, row: dict[str, Any]) -> Interval:
+    """Match declared symmetry and angular certificates to the anchor geometry."""
     expected, radicand, roots = circle_bounds(first, second, finite(row["radius_m"]))
     require(type(row["symmetry"]) is bool, "literal symmetry flag required")
     require(row["symmetry"] is (roots is None), "incorrect symmetry branch")

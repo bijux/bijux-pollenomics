@@ -207,6 +207,59 @@ def validated_source_layout(repository: Path) -> dict[str, Any]:
     return proof
 
 
+def read_historical_api_preimage(repository: Path) -> bytes:
+    """Read the fixed archived API for raw inventory, without current qualification."""
+    path = _regular_confined_file(repository, PROOF_PATH, "historical API proof")
+    before = path.stat()
+    _require(
+        before.st_nlink == 1 and 0 < before.st_size <= 32768,
+        "historical API proof must be bounded and unaliased",
+    )
+    raw = path.read_bytes()
+    _require(hashlib.sha256(raw).hexdigest() == PROOF_SHA256, "proof digest differs")
+    proof = json.loads(raw)
+    _require(
+        proof["schema_version"] == "lra-uncertainty-source-layout.v1"
+        and proof["preimage_api"] == {"path": PREIMAGE_PATH, "sha256": PREIMAGE_SHA256}
+        and proof["native_R_executed"] is False
+        and proof["browser_executed"] is False
+        and proof["scientific_admission"] is False,
+        "historical API identity or admission scope differs",
+    )
+    physical = repository / PREIMAGE_PATH
+    _require(
+        not physical.exists() and not physical.is_symlink(),
+        "historical API must remain in Git storage",
+    )
+    body = _api_preimage_bytes(repository)
+    _require(
+        len(body) == 6049 and hashlib.sha256(body).hexdigest() == PREIMAGE_SHA256,
+        "historical API bytes differ",
+    )
+    stable = _regular_confined_file(repository, PROOF_PATH, "historical API proof")
+    after = stable.stat()
+    _require(
+        all(
+            getattr(before, field) == getattr(after, field)
+            for field in (
+                "st_dev",
+                "st_ino",
+                "st_mode",
+                "st_nlink",
+                "st_size",
+                "st_mtime_ns",
+                "st_ctime_ns",
+            )
+        )
+        and after.st_nlink == 1
+        and stable.read_bytes() == raw
+        and not physical.exists()
+        and not physical.is_symlink(),
+        "historical API proof or storage changed during read",
+    )
+    return body
+
+
 def api_adoption_preimage(repository: Path, current: Path) -> bytes:
     """Return original API bytes after proving exact named import ownership."""
     body = current.read_bytes()

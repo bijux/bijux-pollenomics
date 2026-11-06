@@ -15,6 +15,7 @@ from tests.source_completion.pollen_reconstruction.krageholm_regional_source_sup
 
 
 def require(condition: object, message: str) -> None:
+    """Raise the independent author-window diagnostic for a failed condition."""
     if not condition:
         raise ValueError("Independent author-window support: " + message)
 
@@ -22,6 +23,7 @@ def require(condition: object, message: str) -> None:
 def native_owner(
     source: dict[str, Any], core: dict[str, Any]
 ) -> tuple[dict[str, Any], dict[str, Any], list[dict[str, Any]]]:
+    """Validate and select a core's declared native sample owner."""
     identity, policy = core["identity"], core["chronology"]
     candidates = []
     for wrapper in rows(source["rows"]):
@@ -156,6 +158,7 @@ def native_owner(
 def selected_age(
     ages: list[dict[str, Any]], core: dict[str, Any]
 ) -> tuple[str, dict[str, Any] | None]:
+    """Select the declared typed chronology point without choosing alternatives."""
     policy = core["chronology"]
     selected = [
         age
@@ -192,6 +195,7 @@ def author_panel(
     lookup: dict[str, list[dict[str, Any]]],
     excluded: list[str],
 ) -> dict[str, Any]:
+    """Account for pollen axes and excluded cells using literal author mappings."""
     axes = core["native_axes"]
     accounting = []
     for index, cell in enumerate(datum):
@@ -295,6 +299,7 @@ def sample_account(
     protocol: dict[str, Any],
     lookup: dict[str, list[dict[str, Any]]],
 ) -> dict[str, Any]:
+    """Account for a native owner within the declared author-window protocol."""
     ages, datum = rows(owner["ages"]), rows(owner["datum"])
     state, age = selected_age(ages, core)
     window = None

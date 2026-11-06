@@ -22,6 +22,7 @@ class ObservationReader:
         admission: dict[str, Any],
         prediction_freeze_sha256: str,
     ) -> None:
+        """Bind admitted observation references to the prediction-freeze digest."""
         require(
             re.fullmatch(r"[a-f0-9]{64}", prediction_freeze_sha256) is not None,
             "Authenticated new prediction freeze identity required",

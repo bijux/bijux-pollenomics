@@ -13,6 +13,7 @@ from .inputs import finite, normalized_request, response_id
 
 
 def native_response(**kwargs: Any) -> Any:
+    """Call the maintained circular receiver response with the supplied arguments."""
     from bijux_pollenomics_lra.dispersal.receiver_annulus import (
         circular_receiver_annulus,
     )

@@ -100,6 +100,7 @@ def _integral(result: IntegralResult | None) -> dict[str, Any] | None:
 def case_record(
     inputs: RingInputs, index: int, result: RingCaseResult, work: Any
 ) -> dict[str, Any]:
+    """Record one case's endpoint outcomes, bounds and charged work."""
     bounds = result.bounds
     values = (
         None
@@ -162,6 +163,7 @@ def _write(path: Path, value: Any, limit: int) -> dict[str, str | int]:
 
 
 def run_study(repository: Path, protocol_path: Path, output: Path) -> dict[str, Any]:
+    """Publish ring predictions and preserve every population refusal."""
     started = time.monotonic()
     repository, protocol_path = repository.resolve(), protocol_path.resolve()
     require(protocol_path.is_relative_to(repository), "Protocol escapes repository")
@@ -265,6 +267,7 @@ def run_study(repository: Path, protocol_path: Path, output: Path) -> dict[str, 
 
 
 def main() -> None:
+    """Run the declared ring study and print its outcome summary."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--protocol", type=Path, required=True)

@@ -41,6 +41,7 @@ from .population import METHODS, plan, summaries
 
 
 def pointer(value: Any, path: str) -> Any:
+    """Resolve a literal absolute JSON pointer in the supplied value."""
     require(type(path) is str and path.startswith("/"), "absolute JSON pointer")
     for part in path[1:].split("/"):
         key = part.replace("~1", "/").replace("~0", "~")
@@ -49,12 +50,14 @@ def pointer(value: Any, path: str) -> Any:
 
 
 def canonical(value: Any) -> bytes:
+    """Serialize canonical JSON metadata without nonfinite values."""
     return json.dumps(
         value, ensure_ascii=True, allow_nan=False, sort_keys=True, separators=(",", ":")
     ).encode()
 
 
 def json_value(body: bytes) -> Any:
+    """Decode strict JSON with decimal values and unique member names."""
     return json.loads(
         body,
         parse_float=Decimal,
@@ -64,6 +67,7 @@ def json_value(body: bytes) -> Any:
 
 
 def response_identity(radius: Any, fall: Any, protocol: dict[str, Any]) -> str:
+    """Build the response identifier from the declared geometry and transport."""
     transport = protocol["transport"]
     arguments = {
         "receiver_radius_m": float(radius),
@@ -394,6 +398,7 @@ def source_binding(repository: Path, protocol: dict[str, Any]) -> dict[str, Any]
 def responses(
     value: dict[str, Any], protocol: dict[str, Any]
 ) -> dict[tuple[Decimal, Decimal], dict[str, Any]]:
+    """Verify the complete bound response population and refusal records."""
     require(
         set(value) == {"schema_version", "taxa", "transport", "rows"}
         and value["schema_version"] == "nordic-physical-responses.v1"
@@ -542,6 +547,7 @@ def kernels(
     protocol: dict[str, Any],
     table: dict[tuple[Decimal, Decimal], dict[str, Any]],
 ) -> tuple[list[Any], list[str]]:
+    """Look up a core's response factors and their identifiers."""
     rows = [
         table[(number(core["radius_m"]), Decimal(v))]
         for v in protocol["parameters"]["fall_speed_m_s_text"]
@@ -550,6 +556,7 @@ def kernels(
 
 
 def context_identity(row: dict[str, Any]) -> tuple[Any, ...]:
+    """Extract a forecast context's structural identity tuple."""
     return (
         row["profile"],
         row["experiment"],
@@ -560,6 +567,7 @@ def context_identity(row: dict[str, Any]) -> tuple[Any, ...]:
 
 
 def refusal_population(rows: Any, expected: list[tuple[str, str, str]]) -> None:
+    """Verify the complete ordered owner refusal population."""
     require(
         type(rows) is list and len(rows) == len(expected),
         "complete owner refusal population",
@@ -580,6 +588,7 @@ def forecasts(
     bound: dict[str, Any],
     table: dict[tuple[Decimal, Decimal], dict[str, Any]],
 ) -> dict[str, dict[str, Any]]:
+    """Verify every requested forecast context and its numerical bindings."""
     required_plan = {context_identity(r): r for r in plan(protocol)}
     cores = {r["key"]: r for r in protocol["cores"]}
     ppe = [Decimal(v) for v in protocol["parameters"]["alpha_text"]]
@@ -863,6 +872,7 @@ def score_population(
     bound: dict[str, Any],
     contexts: dict[str, dict[str, Any]],
 ) -> list[dict[str, Any]]:
+    """Verify all scored dispositions against the bound forecast contexts."""
     require(
         set(value) == {"schema_version", "prediction_file", "rows"}
         and value["schema_version"] == "nordic-physical-scores.v1"
@@ -943,6 +953,7 @@ def score_population(
 
 
 def verify(repository: Path, protocol_path: Path, products: Path) -> dict[str, Any]:
+    """Verify serialized physical-transfer products with fixed decimal precision."""
     with localcontext() as context:
         context.prec = PRECISION
         return _verify(repository, protocol_path, products)

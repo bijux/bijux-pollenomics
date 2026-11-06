@@ -41,6 +41,7 @@ AXIS = ("Betula", "Ulmus")
 
 
 def source_revision(repository: Path, protocol: dict[str, Any]) -> str:
+    """Return HEAD after checking that consumed sources are tracked and unchanged."""
     files = [
         Path(__file__),
         Path(exact.__file__),
@@ -165,6 +166,7 @@ def read_prediction_inputs(
 
 
 def nested_edges(geometry: dict[str, Any], outer: float) -> list[float]:
+    """Subdivide each saved coarse ring while retaining every original boundary."""
     rings = geometry["taxa"][0]["step_bounds"]["annuli"]
     exact.require(len(rings) == 8, "Eight original rings required")
     coarse = [rings[0]["inner_radius_m"], *[row["outer_radius_m"] for row in rings]]
@@ -194,6 +196,7 @@ def nested_edges(geometry: dict[str, Any], outer: float) -> list[float]:
 def refine_geometry(
     saved: dict[str, Any], original: dict[str, Any], protocol: dict[str, Any]
 ) -> dict[str, Any]:
+    """Refine saved rings and retain every mass or refusal outcome."""
     edges = nested_edges(saved, original["physical"]["regional_extent_m"])
     anchors = saved["anchor_xy_m"]
     certificates = [
@@ -309,6 +312,7 @@ def refine_geometry(
 def prediction_context(
     context: dict[str, Any], geometry: dict[str, Any], ppe: list[float]
 ) -> dict[str, Any]:
+    """Form deposition ranges and record reference-point membership."""
     result: dict[str, Any] = {
         "context_id": context["context_id"],
         "core": context["target"]["core"],
@@ -463,6 +467,7 @@ def score_closed(
 
 
 def average_ranges(rows: list[dict[str, Any]]) -> dict[str, list[str]]:
+    """Average metric interval endpoints using the complete row denominator."""
     exact.require(len(rows) > 0, "Empty aggregate denominator")
     result = {}
     for metric in exact.METRICS:
@@ -485,6 +490,7 @@ def average_ranges(rows: list[dict[str, Any]]) -> dict[str, list[str]]:
 
 
 def summarize(scores: list[dict[str, Any]], original: dict[str, Any]) -> dict[str, Any]:
+    """Aggregate complete context ranges by family and matched place."""
     families = []
     for family in FAMILIES:
         rows = [row for row in scores if row["family"] == family]
@@ -570,6 +576,7 @@ def summarize(scores: list[dict[str, Any]], original: dict[str, Any]) -> dict[st
 
 
 def publish(repository: Path, output: Path) -> dict[str, Any]:
+    """Publish finite-mass ranges and their saved-reference comparisons."""
     started = time.monotonic()
     repository = repository.resolve()
     destination = require_absent_artifact_output(repository, output)
@@ -686,6 +693,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> int:
+    """Publish the radial-envelope result and print its call and refusal summary."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

@@ -90,6 +90,7 @@ def verify_production_revision(
 def artifact_pin(
     repository: Path, pin: dict[str, Any], owner: Path
 ) -> tuple[Path, bytes, dict[str, Any]]:
+    """Read a pinned JSON artifact within its declared owner."""
     path = owned_artifact_path(repository, pin["path"], owner)
     body = read_file(path, 2 * 1024**2, pin["sha256"])
     if "bytes" in pin:
@@ -103,6 +104,7 @@ def artifact_pin(
 def closed_batch(
     value: dict[str, Any], operation: str, head: str, protocol_pin: dict[str, Any]
 ) -> None:
+    """Require all fixed bins, folds, and method dispositions in one batch."""
     require(
         value["schema_version"] == "krageholm-regional-coupled-batch.v1"
         and value["operation"] == operation
@@ -146,6 +148,7 @@ def closed_batch(
 
 
 def verify(repository: Path, result_path: Path, result_sha256: str) -> dict[str, Any]:
+    """Observe closed study products and check source and scalar correspondence."""
     started = time.monotonic()
     repository = repository.resolve(strict=True)
     git = ["git", "-C", str(repository)]

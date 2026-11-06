@@ -21,6 +21,7 @@ FAMILIES = (
 
 
 def object_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    """Build a JSON object while refusing duplicate member names."""
     result = {}
     for key, value in pairs:
         require(key not in result, "duplicate JSON key")
@@ -29,6 +30,7 @@ def object_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
 
 
 def decode(body: bytes) -> dict[str, Any]:
+    """Decode a JSON object with unique keys and finite numeric values."""
     value: Any = json.loads(body, object_pairs_hook=object_pairs)
     require(isinstance(value, dict), "JSON object required")
     assert isinstance(value, dict)
@@ -37,6 +39,7 @@ def decode(body: bytes) -> dict[str, Any]:
 
 
 def confined(repository: Path, relative: str) -> Path:
+    """Locate a regular repository input without symlinked ancestry."""
     require(
         not Path(relative).is_absolute() and ".." not in Path(relative).parts,
         "relative confined source path required",
@@ -56,6 +59,7 @@ def confined(repository: Path, relative: str) -> Path:
 
 
 def bound(repository: Path, relative: str, pin: dict[str, Any]) -> bytes:
+    """Read a confined input and require its exact declared byte identity."""
     require(set(pin) == {"bytes", "sha256"}, "data identity fields differ")
     body = confined(repository, relative).read_bytes()
     require(
