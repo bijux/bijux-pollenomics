@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Qualify Hatchling across all workspace distributions and adopt the accepted Redocly tooling baseline ([#343](https://github.com/bijux/bijux-pollenomics/pull/343)).
+
 - Consolidate dependency security fixes, qualify pandas 3 support, and consume accepted action and OpenAPI tooling standards ([#337](https://github.com/bijux/bijux-pollenomics/pull/337)).
 
 - **Pending review:** Retain historical programme sources and likelihood verification ([#312](https://github.com/bijux/bijux-pollenomics/pull/312)).
