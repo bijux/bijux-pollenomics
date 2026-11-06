@@ -13,12 +13,15 @@ Array = NDArray[np.float64]
 
 
 def require(condition: bool, message: str) -> None:
+    """Raise ValueError when a declared batch-means condition fails."""
     if not condition:
         raise ValueError(message)
 
 
 @dataclass(frozen=True)
 class Chain:
+    """Native chain population and ordered batch-deviation summaries."""
+
     rows: int
     complete: int
     batch_size: int
@@ -27,6 +30,7 @@ class Chain:
 
     @property
     def mean(self) -> Array:
+        """Return the conditional cover mean from the joint indicator-cover mean."""
         result: Array = self.joint_mean[1:] / self.joint_mean[0]
         return result
 

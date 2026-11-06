@@ -157,6 +157,7 @@ def produce(
 
 
 def main() -> None:
+    """Run the bounded country-transfer command with explicit input paths."""
     parser = argparse.ArgumentParser(description=__doc__, allow_abbrev=False)
     for name in ("repository", "protocol", "output"):
         parser.add_argument("--" + name, type=Path, required=True)

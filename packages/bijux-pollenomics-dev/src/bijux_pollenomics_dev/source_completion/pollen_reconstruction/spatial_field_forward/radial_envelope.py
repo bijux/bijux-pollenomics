@@ -16,11 +16,13 @@ METRICS = (
 
 
 def require(condition: bool, reason: str) -> None:
+    """Refuse a conditional-envelope input when its required condition fails."""
     if not condition:
         raise ValueError(reason)
 
 
 def rational(value: float | int) -> Fraction:
+    """Convert an allowed finite integer or float to its rational value."""
     require(
         type(value) in (int, float) and math.isfinite(value),
         "Finite numeric value required",
@@ -29,11 +31,13 @@ def rational(value: float | int) -> Fraction:
 
 
 def encoded(interval: Bounds) -> list[str]:
+    """Serialize ordered rational interval endpoints as strings."""
     require(interval[0] <= interval[1], "Reversed exact interval")
     return [str(interval[0]), str(interval[1])]
 
 
 def decoded(interval: list[str]) -> Bounds:
+    """Read two rational endpoints and reject reversed order."""
     require(len(interval) == 2, "Two exact interval endpoints required")
     values = Fraction(interval[0]), Fraction(interval[1])
     require(values[0] <= values[1], "Reversed exact interval")
@@ -51,6 +55,7 @@ def root_bounds(value: Fraction) -> Bounds:
 
 
 def lattice_bounds(interval: Bounds) -> Bounds:
+    """Enclose a rational interval on the fixed binary lattice."""
     lattice = 1 << BITS
     left, right = interval
     require(left <= right, "Reversed rational lattice domain")
@@ -133,6 +138,7 @@ def coefficients(
 def deposition(
     total: Fraction, first: Bounds, cover: list[float], ppe: float
 ) -> Bounds:
+    """Bound deposition with complementary coefficients and fixed cover and PPE."""
     require(
         len(cover) == 2 and total > 0 and 0 <= first[0] <= first[1] <= total,
         "Invalid complementary coefficient domain",
@@ -150,6 +156,7 @@ def deposition(
 
 
 def normalized(masses: tuple[Bounds, Bounds]) -> Bounds:
+    """Bound the first closed component of two nonnegative mass intervals."""
     first, second = masses
     require(
         0 <= first[0] <= first[1] and 0 <= second[0] <= second[1],
@@ -163,6 +170,7 @@ def normalized(masses: tuple[Bounds, Bounds]) -> Bounds:
 
 
 def squared(interval: Bounds) -> Bounds:
+    """Bound an interval square while retaining any zero crossing."""
     lower, upper = interval
     require(lower <= upper, "Reversed square interval")
     endpoints = lower * lower, upper * upper

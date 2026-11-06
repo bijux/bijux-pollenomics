@@ -23,6 +23,7 @@ PROTOCOL = Path(
 
 
 def component_axis() -> list[dict[str, Any]]:
+    """List the fixed window and taxon identities for each cover component."""
     return [
         {"window_id": b, "taxon": name, "native_taxon_id": taxon}
         for b in BINS
@@ -32,6 +33,8 @@ def component_axis() -> list[dict[str, Any]]:
 
 @dataclass(frozen=True)
 class Inputs:
+    """Authenticated protocol, reference, ledger, and original input buffers."""
+
     protocol: dict[str, Any]
     reference: dict[str, Any]
     ledger: bytes
@@ -39,11 +42,13 @@ class Inputs:
     hashes: dict[str, str]
 
     def unchanged(self) -> None:
+        """Refuse if any authenticated input bytes changed during verification."""
         if any(path.read_bytes() != body for path, body in self.bodies.items()):
             raise ValueError("Qualified observer input changed during verification")
 
 
 def read_inputs(repository: Path) -> Inputs:
+    """Authenticate the declared result, ledger, and independent-check inputs."""
     protocol_path = repository / PROTOCOL
     protocol_body = protocol_path.read_bytes()
     protocol = json.loads(protocol_body)
@@ -148,6 +153,7 @@ def read_inputs(repository: Path) -> Inputs:
 
 
 def parameters(reference: dict[str, Any]) -> tuple[Array, Array]:
+    """Read parameter arrays with the declared taxon axes and numeric domain."""
     rows = reference["parameters"]
     if [(row["name"], row["native_taxon_id"]) for row in rows] != list(
         zip(AXIS, TAXON_IDS, strict=True)
@@ -168,6 +174,8 @@ def parameters(reference: dict[str, Any]) -> tuple[Array, Array]:
 
 @dataclass(frozen=True)
 class Population:
+    """Complete cover rows and their per-chain population counts."""
+
     covers: Array
     rows: int
     chains: dict[int, int]

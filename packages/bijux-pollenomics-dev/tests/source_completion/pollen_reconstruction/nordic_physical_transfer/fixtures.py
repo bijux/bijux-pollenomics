@@ -14,6 +14,7 @@ from bijux_pollenomics_dev.essd_reproduction.physical_forward.prediction import 
 
 
 def protocol() -> dict[str, Any]:
+    """Load the declared physical-transfer protocol for invented fixtures."""
     repository = Path(__file__).resolve().parents[6]
     return cast(
         dict[str, Any],
@@ -27,6 +28,7 @@ def protocol() -> dict[str, Any]:
 
 
 def synthetic_response(**kwargs: Any) -> SimpleNamespace:
+    """Return an invented response with a radius-dependent factor."""
     return SimpleNamespace(
         factor=0.1 + kwargs["receiver_radius_m"] / 1000, estimated_absolute_error=1e-12
     )
@@ -38,17 +40,20 @@ def inverse_callback(
     ppe: tuple[float, ...],
     covariance: tuple[tuple[float, ...], ...],
 ) -> tuple[float, ...]:
+    """Invert the invented two-axis counts with the expected covariance binding."""
     assert len(covariance) == 2 and covariance[0][0] == float("0.092006056")
     values = [vector[i] / (kernels[i] * ppe[i]) for i in range(2)]
     return tuple(v / math.fsum(values) for v in values)
 
 
 def forward_callback(target: Target, cover: tuple[float, ...]) -> tuple[float, ...]:
+    """Project invented cover through a target's kernel and PPE values."""
     values = [target.kernels[i] * (cover[i] * target.ppe[i]) for i in range(2)]
     return tuple(v / math.fsum(values) for v in values)
 
 
 def packet_fixture() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    """Construct invented packets for the declared transfer population."""
     profile = protocol()
     cores = {}
     members_by_core = (
@@ -182,6 +187,7 @@ def packet_fixture() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
 def write_pin(
     repository: Path, relative: str, value: Any, *, raw: bool = False
 ) -> dict[str, Any]:
+    """Write an invented product and return its exact byte pin."""
     body = value if raw else json.dumps(value, allow_nan=False).encode()
     path = repository / relative
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -194,6 +200,7 @@ def write_pin(
 
 
 def saved_inputs(repository: Path) -> tuple[dict[str, Any], Path]:
+    """Write invented bound inputs for the serialized transfer workflow."""
     packet, profile, _ = packet_fixture()
     author_pins = {
         key: {

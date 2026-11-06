@@ -18,6 +18,8 @@ BINS = (3, 4, 5, 9)
 
 @dataclass(frozen=True)
 class Sample:
+    """Native sample measurements with missing panel values kept explicit."""
+
     sample_id: int
     depth: float
     panel: tuple[int | None, ...]
@@ -27,6 +29,8 @@ class Sample:
 
 @dataclass(frozen=True)
 class Membership:
+    """Window membership, missing taxa, and pooled panel status."""
+
     sample_ids: tuple[int, ...]
     missing: dict[int, tuple[str, ...]]
     reported_nisp: int

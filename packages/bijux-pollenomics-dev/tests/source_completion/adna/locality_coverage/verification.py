@@ -55,11 +55,14 @@ CSV_LABELS = {
 
 
 def require(condition: object, message: str) -> None:
+    """Raise a prefixed independent locality-coverage refusal."""
     if not condition:
         raise ValueError("Independent locality coverage: " + message)
 
 
 def decode(body: bytes) -> Any:
+    """Decode strict JSON while preserving finite Decimal values."""
+
     def pairs(items: list[tuple[str, Any]]) -> dict[str, Any]:
         result: dict[str, Any] = {}
         for key, value in items:
@@ -89,6 +92,7 @@ def decode(body: bytes) -> Any:
 
 
 def same(actual: Any, expected: Any) -> None:
+    """Require identical JSON types, populations, and signed decimal zeros."""
     require(type(actual) is type(expected), "literal JSON type changed")
     if type(expected) is dict:
         require(actual.keys() == expected.keys(), "JSON field population changed")
@@ -105,6 +109,7 @@ def same(actual: Any, expected: Any) -> None:
 
 
 def csv_rows(body: bytes) -> list[dict[str, str]]:
+    """Read complete rows under the exact locality CSV column contract."""
     csv.field_size_limit(8 * 1024**2)
     reader = csv.DictReader(io.StringIO(body.decode("utf-8"), newline=""), strict=True)
     require(

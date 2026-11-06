@@ -19,18 +19,22 @@ MAX_BANDS = 11
 
 
 def validate_partition_option(partition: str) -> None:
+    """Require one of the two named radial partition strategies."""
     if type(partition) is not str or partition not in (WHOLE_ANNULUS, DYADIC_RADIAL):
         raise ValueError("Unknown continuous-receiver radial partition")
 
 
 @dataclass(frozen=True)
 class Band:
+    """Bind one exact radial band to its unchanged original geometry."""
+
     geometry: Geometry
     index: int
     lower: Fraction
     upper: Fraction
 
     def __post_init__(self) -> None:
+        """Require the band index and endpoints to match original radial ownership."""
         if (
             type(self.geometry) is not Geometry
             or type(self.index) is not int
@@ -52,6 +56,7 @@ class Band:
 
 
 def radial_bands(geometry: Geometry) -> tuple[Band, ...]:
+    """Partition the full radial span into bounded dyadic bands."""
     if type(geometry) is not Geometry:
         raise TypeError("Exact original geometry required")
     bands: list[Band] = []
@@ -66,17 +71,21 @@ def radial_bands(geometry: Geometry) -> tuple[Band, ...]:
 
 
 def validate_bands(geometry: Geometry, bands: tuple[Band, ...]) -> None:
+    """Require exactly the complete ordered bands of the declared geometry."""
     if type(bands) is not tuple or bands != radial_bands(geometry):
         raise ValueError("Missing, overlapping, reordered or foreign radial bands")
 
 
 @dataclass(frozen=True)
 class RadialDomain:
+    """Describe a contact-triangle or regular-band integration domain."""
+
     band: Band
     kind: str
     patch: int | None = None
 
     def __post_init__(self) -> None:
+        """Require the domain kind and patch to match their source-owned band."""
         if type(self.band) is not Band:
             raise TypeError("Source-owned radial band required")
         if self.kind == "contact_triangle":
@@ -95,6 +104,7 @@ class RadialDomain:
             raise ValueError("Unknown radial domain kind")
 
     def evaluate(self, arguments: tuple[Jet, ...]) -> Jet:
+        """Evaluate the transformed integrand on its declared radial domain."""
         if len(arguments) != 2:
             raise ValueError("Two radial integration coordinates required")
         first, second = arguments
@@ -145,11 +155,14 @@ class RadialDomain:
 
 @dataclass(frozen=True)
 class RadialPartition:
+    """Group exact radial bands and their complete transformed domains."""
+
     geometry: Geometry
     bands: tuple[Band, ...]
     domains: tuple[RadialDomain, ...]
 
     def __post_init__(self) -> None:
+        """Require the exact ordered domain population for the original geometry."""
         validate_bands(self.geometry, self.bands)
         expected = (
             RadialDomain(self.bands[0], "contact_triangle", 1),
@@ -162,6 +175,7 @@ class RadialPartition:
 
     @classmethod
     def build(cls, geometry: Geometry) -> RadialPartition:
+        """Construct all contact and regular domains for an exact geometry."""
         bands = radial_bands(geometry)
         domains = (
             RadialDomain(bands[0], "contact_triangle", 1),

@@ -22,6 +22,7 @@ PRODUCT_FILES = {
 
 
 def file_pin(path: Path, base: Path | None = None) -> dict[str, Any]:
+    """Hash a regular file while checking that its stat identity remains stable."""
     require(path.is_file(), "consumed regular file exists")
     if base is not None:
         require(
@@ -50,6 +51,7 @@ def file_pin(path: Path, base: Path | None = None) -> dict[str, Any]:
 
 
 def read_pin(base: Path, pin: dict[str, Any], maximum: int) -> bytes:
+    """Read a bounded declared member and recheck its byte identity."""
     require(
         type(pin) is dict
         and set(pin) == {"path", "bytes", "sha256"}
@@ -75,6 +77,7 @@ def read_pin(base: Path, pin: dict[str, Any], maximum: int) -> bytes:
 
 
 def code_state(repository: Path) -> dict[str, Any]:
+    """Record HEAD, the index identity, and tracked package Python hashes."""
     names = (
         subprocess.check_output(
             ["git", "ls-files", "-z", "--", "packages"], cwd=repository, timeout=10
@@ -96,6 +99,7 @@ def code_state(repository: Path) -> dict[str, Any]:
 
 
 def data_inventory(repository: Path) -> list[dict[str, Any]]:
+    """List byte identities for files under the repository aDNA data tree."""
     return [
         file_pin(path, repository)
         for path in sorted((repository / "data/adna").rglob("*"))
@@ -137,6 +141,7 @@ def discover_stash(repository: Path, configured: str) -> dict[str, Any]:
 
 
 def stash_inventory(repository: Path) -> dict[str, Any]:
+    """Return the reference-stash inventory using the configured location."""
     return discover_stash(
         repository, os.environ.get("BIJUX_POLLENOMICS_REFERENCE_STASH_ROOT", "")
     )

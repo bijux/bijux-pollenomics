@@ -19,6 +19,7 @@ METADATA = "neotoma/dataset-19913/2026-10-26T185139Z/dataset-19913.metadata.json
 
 
 def pinned_bodies(source_root: Path, pins: dict[str, Any]) -> dict[str, bytes]:
+    """Read the three declared retained sources and check their byte identities."""
     if set(pins) != {ORIGINAL, NATIVE, METADATA}:
         raise ValueError("Independent retained source population differs")
     bodies = {}

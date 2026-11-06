@@ -96,6 +96,7 @@ def test_source_fields_are_additive_to_the_actual_provenance_consumer(
     )
     baseline = provenance._build_sample_chronology_provenance_rows(tmp_path)
     context: dict[str, object] = {
+        "repo_stable_sample_id": "PRJEB31613:alpha",
         "evidence_role": "source_context_only",
         "scientific_admission": False,
     }
@@ -120,7 +121,8 @@ def test_source_fields_are_additive_to_the_actual_provenance_consumer(
             {
                 key: value
                 for key, value in packet.items()
-                if key != "source_chronology_fields"
+                if key
+                not in {"source_chronology_fields", "source_chronology_alternatives"}
             }
             for packet in candidate
         )

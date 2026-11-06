@@ -12,6 +12,7 @@ MCSE_SCOPE = "IID conditional working-law expectation, not exact finite-ensemble
 
 
 def linear_quantile(values: Sequence[float], probability: float) -> float:
+    """Compute a linearly interpolated quantile from a nonempty population."""
     require(bool(values) and 0 <= probability <= 1, "quantile population/domain")
     ordered = sorted(values)
     location = (len(ordered) - 1) * probability
@@ -102,6 +103,7 @@ def ensemble_summary(
 
 
 def losses(prediction: Sequence[object], observed: Sequence[object]) -> list[float]:
+    """Compute paired absolute-error, total-variation, and Hellinger losses."""
     p, o = (
         [finite(value) for value in prediction],
         [finite(value) for value in observed],
@@ -124,6 +126,7 @@ def matched_summaries(
     *,
     include_all_direct: bool,
 ) -> dict[str, Any]:
+    """Summarize matched physical, direct, and replicate-difference populations."""
     require(len(physical) == len(direct) == len(mask), "matched replicate membership")
     differences = [
         [finite(p) - finite(d) for p, d in zip(first, second, strict=True)]

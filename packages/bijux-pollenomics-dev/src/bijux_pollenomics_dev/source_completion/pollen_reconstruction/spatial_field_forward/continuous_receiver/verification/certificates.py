@@ -76,6 +76,7 @@ def _coverage(boxes: list[Box], dimensions: int, clock: Clock) -> None:
 def replay_leaf(
     function: Function, box: Box, clock: Clock
 ) -> tuple[Interval, Fraction, tuple[Fraction, ...]]:
+    """Evaluate one saved leaf with independent node and error arithmetic."""
     clock.check()
     dimensions = len(box)
     lengths = tuple(b - a for a, b in box)
@@ -119,6 +120,7 @@ def replay_leaf(
 def verify_certificate(
     value: Mapping[str, Any], geometry: Geometry, clock: Clock
 ) -> dict[str, Any]:
+    """Check the complete saved leaf partition and coefficient enclosure."""
     require(
         value.get("schema_version") == "continuous-receiver-coefficient-certificate.v3"
         and value.get("quadrature_rule") == RULE,

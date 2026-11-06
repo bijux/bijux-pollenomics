@@ -27,6 +27,7 @@ from .geometry import Geometry
 
 
 def validate_protocol(value: Mapping[str, Any]) -> None:
+    """Require the fixed study population, arithmetic and resource contract."""
     require(
         value.get("schema_version") == "continuous-receiver-study.v1",
         "Unknown study protocol",
@@ -122,6 +123,7 @@ def _captured(value: object, label: str) -> tuple[float, Fraction]:
 def select_sources(
     source: Mapping[str, Any], original: Mapping[str, Any], freeze: Mapping[str, Any]
 ) -> list[dict[str, Any]]:
+    """Bind exact case owners and native-prefix values to the source freeze."""
     import platform
 
     import numpy as np
@@ -313,6 +315,7 @@ def select_sources(
 def reference_checks(
     references: list[tuple[str, str, Fraction]], saved: Mapping[str, Any]
 ) -> list[dict[str, Any]]:
+    """Record certified endpoint differences from named saved references."""
     result = []
     for name, target, value in references:
         interval = bounds(saved[target])

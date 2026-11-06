@@ -10,6 +10,7 @@ from .producer import publish
 
 
 def main() -> int:
+    """Parse output arguments and publish saved-chain precision diagnostics."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

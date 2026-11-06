@@ -20,11 +20,13 @@ TOLERANCE = 1e-12
 
 
 def require(condition: object, message: str) -> None:
+    """Raise a prefixed refusal when an independent algebra condition fails."""
     if not condition:
         raise ValueError("Independent predictive uncertainty: " + message)
 
 
 def finite(value: object) -> float:
+    """Read a finite native integer or float while refusing other scalar types."""
     require(type(value) in (int, float), "finite native numeric scalar required")
     assert isinstance(value, int | float)
     result = float(value)
@@ -35,6 +37,7 @@ def finite(value: object) -> float:
 def pair(
     values: Sequence[object], *, positive: bool = False
 ) -> tuple[Fraction, Fraction]:
+    """Convert two native numbers to the required rational numeric domain."""
     require(len(values) == 2, "ordered two-taxon axis required")
     numbers = tuple(Fraction.from_float(finite(value)) for value in values)
     require(
@@ -44,6 +47,7 @@ def pair(
 
 
 def close(values: Sequence[Fraction]) -> tuple[Fraction, Fraction]:
+    """Normalize a positive-mass nonnegative two-taxon composition."""
     require(
         len(values) == 2 and min(values) >= 0 and sum(values) > 0,
         "positive composition",
@@ -64,6 +68,7 @@ def rounded_percent(value: Fraction) -> float:
 def regional_cover(
     counts: Sequence[object], ppe: Sequence[object], kernel: Sequence[object]
 ) -> tuple[Fraction, Fraction]:
+    """Reconstruct two-taxon regional cover with the declared percent rounding."""
     n, alpha, k = pair(counts), pair(ppe, positive=True), pair(kernel, positive=True)
     composition = close([n[index] / (alpha[index] * k[index]) for index in range(2)])
     first, second = (
@@ -79,6 +84,7 @@ def signed_local(
     local_kernel: Sequence[object],
     regional_kernel: Sequence[object],
 ) -> tuple[Fraction, Fraction]:
+    """Evaluate signed local cover without clipping its two outputs."""
     n, alpha = pair(counts), pair(ppe, positive=True)
     local, distant = pair(local_kernel), pair(regional_kernel)
     require(len(regional) == 2 and min(regional) >= 0, "regional cover axis/domain")
@@ -93,6 +99,7 @@ def signed_local(
 
 
 def admitted(values: Sequence[Fraction]) -> bool:
+    """Check two-taxon cover bounds and the declared closure tolerance."""
     return (
         len(values) == 2
         and min(values) >= 0
@@ -102,6 +109,7 @@ def admitted(values: Sequence[Fraction]) -> bool:
 
 
 def weights(method: str, distances: Sequence[object]) -> tuple[Fraction, Fraction]:
+    """Return fixed-baseline predictor weights while preserving distance ties."""
     require(method in METHODS, "unknown spatial method")
     distance = pair(distances)
     if method == "training_mean":
@@ -114,6 +122,7 @@ def weights(method: str, distances: Sequence[object]) -> tuple[Fraction, Fractio
 def interpolated(
     covers: Sequence[Sequence[Fraction]], spatial_weights: Sequence[Fraction]
 ) -> tuple[Fraction, Fraction]:
+    """Combine two admitted local covers with the declared spatial weights."""
     require(
         len(covers) == 2 and all(admitted(value) for value in covers),
         "both local predictors",
@@ -144,6 +153,7 @@ def forward_pollen(
     local_fractions: Sequence[object],
     outer_k: Sequence[object],
 ) -> tuple[Fraction, Fraction]:
+    """Combine local and regional deposition into closed pollen fractions."""
     require(admitted(cover), "forward local cover")
     alpha, distant = pair(ppe, positive=True), pair(outer_k)
     require(len(local_k) == len(local_fractions) == 2, "two local forward rings")
@@ -164,6 +174,7 @@ def forward_pollen(
 
 
 def owner_stream_key(owner_id: str) -> tuple[int, ...]:
+    """Derive the fixed integer stream key from a source-owner identifier."""
     digest = hashlib.sha256(owner_id.encode("utf-8")).digest()
     return (
         0,
