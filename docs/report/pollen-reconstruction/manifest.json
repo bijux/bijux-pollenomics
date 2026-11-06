@@ -3386,8 +3386,8 @@
     },
     {
       "path": "reports/exports/papers/manifest.json",
-      "sha256": "d4336d9ec79a7b3db9ce6ad2a9f04b6e72c24824d1ca7fa97a51509f3879df6c",
-      "bytes": 25264
+      "sha256": "64797bf678ccdc4b8e2f5462896bd6200c96ee2a0dbf502a7bf0aee0c080f2bc",
+      "bytes": 25291
     },
     {
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
@@ -3406,13 +3406,13 @@
     },
     {
       "path": "reports/exports/papers/southern-sweden-regional-validation.pdf",
-      "sha256": "3db992ad8d093369762ce4e112cafee92e502c5981658c3348c2aa10ac835180",
-      "bytes": 51334
+      "sha256": "11313be8894bf1800291c94fee01d4089d063dd24bf5f5c5fce5e3556664cf40",
+      "bytes": 52654
     },
     {
       "path": "reports/exports/papers/southern-sweden-sampling-design.pdf",
-      "sha256": "29c0590e2668a342e8545ca81f3bebcdc46db8d905423eba5108a2feec4eb08b",
-      "bytes": 48468
+      "sha256": "27aee6a5c9b5971574fd01e6f288790dd7d78bf1e6a13f8beb6fd94d37e66d81",
+      "bytes": 49657
     },
     {
       "path": "reports/exports/papers/southern-sweden-validation-synthesis.pdf",
@@ -3421,8 +3421,8 @@
     },
     {
       "path": "reports/exports/papers/visual-review.json",
-      "sha256": "ae929f89b5cebb8bdf07aea895ab866c8a44aa6959ed6884ec3b323a08e3e18d",
-      "bytes": 56113
+      "sha256": "ca6d3738950e6e69a103cf8e4b79f6e2f929b45ed10198e4690e090a9752a9dd",
+      "bytes": 56188
     },
     {
       "path": "reports/science/aadr-nordic-entities/decisions.csv",
@@ -5463,6 +5463,16 @@
       "path": "reports/science/pollen-reconstruction/nordic-literal-window-support/protocol.json",
       "sha256": "b2413f79f3b781a0c6029433a75481ce021597dcdcdbd264e353e992b91846e4",
       "bytes": 6741
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-physical-transfer/protocol.json",
+      "sha256": "7c6edc43beb0ca72099165c0fc30275651aee743090b88f18805db1fd9590224",
+      "bytes": 31410
+    },
+    {
+      "path": "reports/science/pollen-reconstruction/nordic-physical-transfer/summary.json",
+      "sha256": "8d0bcf1f973029cdcfda6021d5d593dd453a196871179533b59b4c9c9504453c",
+      "bytes": 130246
     }
   ],
   "maintained_paths": [

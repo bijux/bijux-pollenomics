@@ -9,14 +9,15 @@ reader needs:
 | Implementers | [Developer](developer.tex) | [Developer PDF](developer.pdf) |
 | Researchers | [Scientific evidence](scientific-evidence.tex) | [Scientific evidence PDF](scientific-evidence.pdf) |
 
-The current PDFs were compiled from Git revision `c9b2047155e999d6a6164b52ec73b5fd95cd31be`
-on 30 October 2026: 14 big-picture, 13 developer and 41 scientific pages.
-All three compiler commands completed successfully in 7.72 seconds using the
-existing authored sources. All 68 pages have embedded fonts and text within
-page bounds; all 107 citation annotations point to existing repository files.
-Model review inspected three dense pages. Full human reading, tagged
-accessibility and online availability remain unqualified. Earlier exports
-retain their original source and execution identities in Git history.
+The current PDFs were compiled from Git revision `31606e73a89ee00c5f35e3a0747e6d8dbba52da2`
+on 6 November 2026: 14 big-picture, 13 developer and 42 scientific pages.
+All three compiler commands completed successfully from the five committed
+inputs. Scientific page 23 includes the matched Nordic physical-transfer
+result and its conditional development scope. All 69 pages pass embedded-font
+and text-bound checks; model inspection of the new Nordic slide found no
+clipping or layout defect. Full human reading, tagged accessibility and online
+availability remain unqualified. Earlier exports retain their original source
+and execution identities in Git history.
 
 Run `python3 presentation/build.py` from the repository root with `latexmk`
 and a working TeX distribution. Intermediate files and the compiler log go

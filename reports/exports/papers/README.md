@@ -81,3 +81,11 @@ revision can contain identical report text but produce different PDF bytes
 because the commit-pinned links differ. Font/compiler changes also require
 new layout verification. Retain only accepted PDFs and their reviewed
 manifest; build intermediates stay under `artifacts/`.
+
+The two southern-Swedish Hellman accounts were re-exported from committed source
+on 6 November 2026 to include the already recorded correspondence-status
+paragraphs. Their individual manifest and page-review rows retain the exact
+source, producer and build receipt; all ten new pages passed font/text-bound
+checks and model layout inspection. The other seven paper exports keep their
+existing records and bytes. This publication repair does not qualify original
+study reproduction, human comprehension or tagged accessibility.
