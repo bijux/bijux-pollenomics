@@ -64,7 +64,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A species review contribution labelled direct is not proof that the world map contains a mapped point for that species, nor qualified scientific admission.
 
-**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. World now has 1713 point uses across 15 point layers within 16 layer rows. The retained 16-row species-review register was not rerun. The current thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun.
+**Actual verification performed.** The source-bound three-scope producer at a18530b54 completed in 326.099 s. Independent decoded preservation and all three actual JavaScript index-factory checks passed in 65.517 s aggregate, preserving unrelated science and retained chronology context. Freshly served World Chromium passed 22 source-backed and labelled synthetic temporal cases; this does not qualify general browser behavior, external providers or query latency. World now has 1713 point uses across 15 point layers within 16 layer rows. The retained 16-row species-review register was not rerun. The earlier thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun. Current entity reconciliation at a1801f5be43845a9d34b0cd09be4607958ba09ac completes in0.127s/RSS43696128B,13inputs+producer/HEAD/indexstable:1482source IDs=335mapped+1147excluded/167features. OnlyBER11_L is added asoneexcluded source; alloldmappedIDs/Nordic12IDs8features/falseadmissions unchanged. No originalcountry, map, source, chronology or model producer is rerun; previous actuals retain their sourceepochs.
 
 **Remaining input or review.** Project geography must be resolved to sample-owned locality/chronology and qualified taxonomy/source roles before broad biological interpretation.
 
@@ -80,7 +80,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 - [Retained qualification evidence: docs/report/world/world_evidence_surface.json](world_evidence_surface.json) (SHA-256 `2070f4b89c44bcbab8ca72f9b3bb6a09e214205062af4aba6c8ae34c0b14a27a`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `aab2ff406a9d06ce71c8559371d4f9a8404173a12c4525f456a8de250a584fda`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `2c7807f58aa96ce33426817d9907fb89ea1b4c5f96854175fdf0ee75a070bc60`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

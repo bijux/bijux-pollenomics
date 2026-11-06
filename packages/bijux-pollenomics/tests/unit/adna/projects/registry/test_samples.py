@@ -19,10 +19,10 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
             Counter(
                 {
                     "PRJEB10854": 1,
-                    "PRJEB19970": 15,
+                    "PRJEB19970": 16,
                     "PRJEB22390": 42,
                     "PRJEB31613": 245,
-                    "PRJEB44430": 248,
+                    "PRJEB44430": 264,
                     "PRJEB56293": 1,
                     "PRJEB7537": 1,
                     "PRJEB9799": 1,

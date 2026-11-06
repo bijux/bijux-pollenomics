@@ -28,8 +28,8 @@
     },
     {
       "path": "data/adna/species/equus_caballus/normalized/sample_records.csv",
-      "bytes": 576948,
-      "sha256": "a3d90e6a94716a0960b549df4a101442188bcadb4702a71b6f0e5508393001fa"
+      "bytes": 578569,
+      "sha256": "c0959b096bac81f95654dd70beb1d0e66eb986b0480bceb78a0393bdb52265fc"
     },
     {
       "path": "data/adna/species/felis_catus/normalized/sample_records.csv",
@@ -53,8 +53,8 @@
     },
     {
       "path": "data/adna/governance/animal_sample_foundation_truth.json",
-      "bytes": 17540,
-      "sha256": "25e6d8e50d721173fe8e5209ca3bb94d281d95cd98458391f2d3ad123e0e2fe3"
+      "bytes": 17590,
+      "sha256": "15a0692462d7f6e133ec1c3f9d6e33efe83953d5a6eaa974612aa584c33d3040"
     },
     {
       "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
@@ -63,19 +63,19 @@
     },
     {
       "path": "docs/report/animal_atlas_exclusion_report.json",
-      "bytes": 1398318,
-      "sha256": "8e42c52bf97742536a1b7b07295516e23e73c2798ba8dea208b81f40b7703cdc"
+      "bytes": 1399704,
+      "sha256": "0dfe52030955bdd0988117e8e73947b521f946742f9128e435b5ad1c2024eada"
     }
   ],
-  "normalized_sample_ids": 1481,
+  "normalized_sample_ids": 1482,
   "map_feature_count": 167,
   "mapped_sample_ids": 335,
-  "excluded_sample_ids": 1146,
+  "excluded_sample_ids": 1147,
   "map_exclusion_reasons": {
     "chronology remains unresolved enough that the sample stays out of the public map": 27,
     "no coordinate provenance row currently supports point publication": 409,
     "sample is tracked but does not yet satisfy the full atlas point contract": 332,
-    "sample locality remains unresolved and cannot be mapped honestly": 378
+    "sample locality remains unresolved and cannot be mapped honestly": 379
   },
   "nordic_map_feature_count": 8,
   "nordic_mapped_sample_ids": 12,

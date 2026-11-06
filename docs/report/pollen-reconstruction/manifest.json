@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "0ebb1f29fe768ffc8cc26ca2e3db1b4752ffb464e0281cced580248a90b5d1f9",
-      "bytes": 7400272
+      "sha256": "fed636b116dd883359d37a5e593658fe1faaaac77cd592f6530340c5128f3d13",
+      "bytes": 7400390
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -3436,7 +3436,7 @@
     },
     {
       "path": "reports/science/animal-entity-capability/report.json",
-      "sha256": "aab2ff406a9d06ce71c8559371d4f9a8404173a12c4525f456a8de250a584fda",
+      "sha256": "2c7807f58aa96ce33426817d9907fb89ea1b4c5f96854175fdf0ee75a070bc60",
       "bytes": 3543
     },
     {

@@ -53,7 +53,7 @@ class CompletenessTests(SampleMasterRecoveryTestCase):
             if row["project_accession"]
             in {"PRJEB19970", "PRJEB22390", "PRJEB31613", "PRJEB44430"}
         )
-        self.assertEqual(horse_counts, Counter({15: 1, 42: 1, 245: 1, 248: 1}))
+        self.assertEqual(horse_counts, Counter({16: 1, 42: 1, 245: 1, 264: 1}))
         camel = next(
             row for row in completeness_rows if row["project_accession"] == "SRP073444"
         )
@@ -66,6 +66,10 @@ class CompletenessTests(SampleMasterRecoveryTestCase):
                 for row in ambiguity_rows
             },
             {
+                ("PRJEB90141", "prjeb90141:samea4453841"),
+                ("PRJEB90141", "prjeb90141:samea4588077"),
+                ("PRJEB90141", "prjeb90141:samea4591758"),
+                ("PRJEB90141", "prjeb90141:samea4591761"),
                 ("PRJEB81815", "prjeb81815:samea120246597"),
                 ("PRJEB81815", "prjeb81815:samea120246598"),
                 ("PRJEB81815", "prjeb81815:samea120246599"),

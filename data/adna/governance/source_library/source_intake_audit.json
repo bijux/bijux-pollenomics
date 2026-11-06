@@ -201,7 +201,7 @@
       "species_latin_name": "Equus caballus",
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_status": "source_population_unresolved",
       "sample_identifier_status": "manual_curation_required",
       "blocker_categories": [
         "missing_sample_identifiers"
@@ -212,7 +212,7 @@
       "species_latin_name": "Equus caballus",
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_status": "source_population_unresolved",
       "sample_identifier_status": "manual_curation_required",
       "blocker_categories": [
         "missing_sample_identifiers"
@@ -223,7 +223,7 @@
       "species_latin_name": "Equus caballus",
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
+      "expected_sample_count_status": "source_population_unresolved",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
       "blocker_categories": [
         "missing_sample_identifiers"

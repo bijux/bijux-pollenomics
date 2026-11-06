@@ -13,6 +13,11 @@ from ..identity import (
 )
 from ..models import AdnaProjectSampleMasterRow
 
+HORSE_COMPARATIVE_SUPPLEMENT = (
+    "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/"
+    "supplementary/1-s2.0-S0092867419303848-mmc3.xlsx"
+)
+
 
 def _source_elapsed_age_text(value: str) -> str:
     """Retain the native years-ago field without declaring a BP age scale."""
@@ -113,6 +118,8 @@ def _build_horse_comparative_panel_rows(
     country_index = header_map.get("Country")
     age_index = header_map.get("Age (years ago)")
     accession_index = header_map.get("Accession number")
+    population_index = header_map.get("Culture/Population/Breed")
+    reference_index = header_map.get("Reference")
     if sample_index is None or site_index is None or accession_index is None:
         return ()
 
@@ -146,6 +153,18 @@ def _build_horse_comparative_panel_rows(
                 sample_lineage_excerpt=excerpt,
                 sample_identity_resolution="final",
                 sample_ambiguity_note="",
+                # The cited common label establishes mismatch without a Latin name.
+                taxon_alignment_status=(
+                    "project_species_mismatch"
+                    if source_path == HORSE_COMPARATIVE_SUPPLEMENT
+                    and project.project_accession == "PRJEB19970"
+                    and sample_label == "Somali_0226A"
+                    and population_index is not None
+                    and reference_index is not None
+                    and _cell_value(row, population_index) == "Somali wild ass"
+                    and _cell_value(row, reference_index) == "Jónsson et al. 2014"
+                    else "not_reported"
+                ),
                 locality_text=_clean_optional_source_text(_cell_value(row, site_index)),
                 political_entity=""
                 if country_index is None

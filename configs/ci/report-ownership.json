@@ -24879,6 +24879,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/goat_imputation.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/goat_qinghai.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/horse_chronology.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/horse_domestication.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/horse_nature.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/horse_panels.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/obishir_sheep.py",

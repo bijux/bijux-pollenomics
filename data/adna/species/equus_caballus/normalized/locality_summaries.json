@@ -160,7 +160,7 @@
         "longitude_text": "",
         "confidence": "unknown"
       },
-      "sample_count": 10,
+      "sample_count": 11,
       "sample_ids": [
         "prjeb19970:cgg_1_016168",
         "prjeb19970:cgg_1_016169",
@@ -171,7 +171,8 @@
         "prjeb19970:cgg_1_016175",
         "prjeb19970:cgg_1_016176",
         "prjeb19970:cgg_1_016177",
-        "prjeb19970:cgg_1_016179"
+        "prjeb19970:cgg_1_016179",
+        "prjeb19970:samea103910520"
       ],
       "datasets": [
         "equus_caballus:project:PRJEB19970"
@@ -462,6 +463,34 @@
           "provenance_locator": "Sheet1!row16",
           "provenance_excerpt": "Berel_BER12_M_2300 | CGG_1_016179 | Iron Age | 2300 | Scythian | Berel' | Kazakhstan | male | PRJEB19970 | Librado et al. 2017 | 5.7 | 151",
           "provenance_kind": "supplementary_spreadsheet_row",
+          "chronology_strength": "sample_owned_text_only",
+          "normalization_status": "text_only_unparsed",
+          "conflict_note": "",
+          "reference_epoch": "not_separately_declared",
+          "age_type": "not_separately_declared",
+          "calibration_status": "not_separately_declared",
+          "model": "not_separately_declared"
+        },
+        {
+          "schema_version": "adna-sample-chronology-support.v1",
+          "sample_id": "prjeb19970:samea103910520",
+          "chronology": {
+            "original_text": "2,300 yBP",
+            "time_start_bp": null,
+            "time_end_bp": null,
+            "time_mean_bp": null,
+            "date_stddev_bp": "",
+            "source_mean_bp_text": "",
+            "dating_basis": "unknown",
+            "evidence_class": "unresolved",
+            "precision_posture": "unresolved",
+            "refusal_reason_code": ""
+          },
+          "source_release": "PRJEB19970",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf | data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
+          "provenance_locator": "PDF pp.16–17, Berel sample information and named BER11_L; PDF p.78, Table S12, ID BER11_L; PDF p.2, data availability | sample_accession:SAMEA103910520;submitted_filename_label:BER11_L;tsv_lines:41,42,43,118,119,147,195,196,197,198,199,200,240",
+          "provenance_excerpt": "Table S12: BER11_L | Berel' | 2,300 yBP | coverage 1.665. PDF p.16 explicitly places Berel in Kazakhstan; p.17 names BER11_L among its eleven genome-appropriate samples after thirteen Berel horses were screened. These are site-level study stages, not the project-wide or independent-animal denominator. The caption defines yBP as years Before Present. PDF p.2 assigns shotgun data to PRJEB19970. Thirteen distinct archive runs (eleven FASTQ and two aligned BAM records) bind BER11_L filenames to SAMEA103910520, tax_id 9796, Equus caballus. The selected table does not supply a calibrated interval, dating method or explicit reference year; no precise numeric chronology is admitted.",
+          "provenance_kind": "article_or_archive_text",
           "chronology_strength": "sample_owned_text_only",
           "normalization_status": "text_only_unparsed",
           "conflict_note": "",

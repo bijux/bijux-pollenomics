@@ -4,15 +4,15 @@ We compared the ten normalized species sample tables with the retained
 [point candidates](../../../data/adna/final/atlas/animal_atlas_point_candidates.json)
 and [map exclusion decisions](../../../docs/report/animal_atlas_exclusion_report.json).
 The two existing per-sample sources form an exact, disjoint partition of the
-1,481 normalized sample IDs. We keep those original decision rows as the
+1,482 normalized sample IDs. We keep those original decision rows as the
 entity ledger instead of copying them into a second list. The
 [reconciliation result](report.json) binds all 13 inputs by size and SHA-256.
 
 | Map decision | Sample IDs | Meaning |
 | --- | ---: | --- |
 | In 167 point features | 335 | Source-backed map candidate membership; no scientific admission |
-| Excluded from point map | 1,146 | 378 unresolved locality, 409 without coordinate provenance, 332 failing the point contract, 27 with unresolved chronology |
-| **Normalized foundation** | **1,481** | Every ID has exactly one map decision |
+| Excluded from point map | 1,147 | 379 unresolved locality, 409 without coordinate provenance, 332 failing the point contract, 27 with unresolved chronology |
+| **Normalized foundation** | **1,482** | Every ID has exactly one map decision |
 
 Eight candidate features carry a Nordic inclusion label and refer to 12
 distinct sample IDs: Denmark five, Finland two and Sweden five. No Norwegian
@@ -33,6 +33,27 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   --repository . --output artifacts/jobs/animal-entity-capability-replay
 ```
 
+
+## Primary Berel owner in the current partition
+
+At committed source `a1801f5be43845a9d34b0cd09be4607958ba09ac`, the unchanged
+producer reconciles **1,482 source IDs = 335 mapped + 1,147 excluded** in
+0.127 seconds, RSS 43,696,128 B, within 5 s / 128 MiB / 1 MiB. All thirteen
+inputs and the producer, HEAD and index remain stable. Complete result comparison
+allows only current input identities, the one added source/excluded ID and the
+unresolved-location exclusion count 378→379. Every mapped identity, 167-feature
+count, Nordic twelve-ID/eight-feature subset and false scientific/country
+admission remains exact. The independent saved-atlas observer also reconciles
+all owned child chronologies, point exports, exclusions and disjoint gaps.
+
+The only new source is primary-table/archive-bound BER11_L. Kazakhstan is
+source-bound, but unresolved chronology and coordinates still prevent its map
+admission. This accounting adds no animal independence, calibrated date, field
+permission, source-country authority or scientific review. The source chronology
+view separately has 1,493 owners, 335 displayable nodes and 1,158 refusals. Equal
+335 counts do not establish equal identity populations. Existing map geometry,
+static assets and indexes are unchanged; chronology-sidecar contract refresh is
+separate. The following older native actuals retain their original source epochs.
 
 ## Current reconciliation and source epochs
 
@@ -97,23 +118,23 @@ The retained atlas source-view packet authenticates all captured software bodies
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Every current normalized animal source ID has one explicit map membership or exclusion. The 1,481 records partition as 335 mapped and 1,146 excluded in 167 locality features; country, chronology and biological admission remain separate.
+**Supported claim.** Every current normalized animal source ID has one explicit map membership or exclusion. The 1,482 records partition as 335 mapped and 1,147 excluded in 167 locality features. All previous 1,481 source IDs retain their map decision; only primary BER11_L is added as one excluded owner. Country, chronology, independence and scientific admission remain separate.
 
 **Unsupported claim.** Scientific animal/ecological admission or source-country authority.
 
-**Actual verification performed.** At committed source988d1ff127bad598ff359cd14fc7bc1409ce5325, the unchanged thirteen-input entity producer passes0.129seconds, RSS45,236,224B. Compared with the earlier10bf report, only cattleCSV input size/SHA changes; all populations, memberships and decisions are exact. Parallel current source reports preserve6544source files+HEAD/index. Earlier10bf/a185/04f and1468-ID lifecycle actuals remain their original source epochs; no model, country, census, map or browser replay.
+**Actual verification performed.** The unchanged thirteen-input entity producer at a1801f5be43845a9d34b0cd09be4607958ba09ac passes in 0.127 seconds, RSS 43,696,128 B, native exit zero, within 5 s / 128 MiB / 1 MiB. All thirteen inputs, producer, HEAD and index remain stable. Complete result comparison permits only updated input identities, normalized count 1,482, excluded count 1,147 and unresolved-location count 379. Mapped 335, 167 features, Nordic twelve IDs/eight features and false admission flags remain exact. Independent atlas comparison verifies all source owners, child chronologies, support gaps and forty outputs. Earlier 988d1ff, 10bf, a185 and lifecycle actuals retain their original source epochs; no source, country, model, map or browser replay.
 
-**Remaining input or review.** The current ID partition is complete, but 1,146 point-map exclusions and unresolved specimen, chronology and source-country interpretations prevent stronger biological/ecological admission. Resolver: Animal source custodian and qualified provenance/biological reviewer Reopen when: Source-backed locality, coordinates, chronology, paper links and admission are decided per sample.
+**Remaining input or review.** The current ID partition is complete, but 1,147 point-map exclusions and unresolved specimen, chronology and source-country interpretations prevent stronger biological/ecological admission. Resolver: Animal source custodian and qualified provenance/biological reviewer Reopen when: Source-backed locality, coordinates, chronology, paper links and admission are decided per sample.
 
 **Cause category.** data|qualified review
 
 **Consequence.** Map candidates and product zeros cannot be read as biological distribution or pollen context.
 
-**Precise next acceptance route.** Source-backed locality, coordinates, chronology, paper links and admission are decided per sample. Then update reports/science/source-cohorts.md.
+**Precise next acceptance route.** Verify current chronology-refusal sidecar and contract identities against unchanged map/runtime bytes. Resolve sample-owned locality, coordinates, chronology, source-country authority and qualified scientific or rights decisions separately; then update the owning source-cohort account.
 
-**Negative or refused result.** 1,146 exclusions comprise 378 locality, 409 coordinate-provenance, 332 point-contract and 27 chronology refusals. Norway has zero mapped labels in this product, not zero archaeological remains. Ambiguous specimen/paper links and qualified biological interpretation remain open.
+**Negative or refused result.** 1,147 exclusions comprise 379 locality, 409 coordinate-provenance, 332 point-contract and 27 chronology refusals. Norway has zero mapped labels in this product, not zero archaeological remains. Ambiguous specimen/paper links and qualified biological interpretation remain open.
 
-**Matched denominator.** 1,481 normalized source IDs = 335 mapped in 167 features + 1,146 excluded. Nordic retains twelve mapped IDs in eight features (DK5/FI2/SE5). World130 admitted/37 contextual localities retain236 occurrence intervals/67 gaps. Distinct source chronology1492owners/335nodes/1157refusals is not this mapped-ID population.
+**Matched denominator.** 1,482 normalized source IDs = 335 mapped in 167 features + 1,147 excluded (379 unresolved locality, 409 coordinate provenance, 332 point contract, 27 chronology). Nordic retains twelve IDs/eight features (DK5/FI2/SE5). World 130 admitted and 37 contextual localities retain 236 individual intervals and 67 gaps. Source chronology has 1,493 owners, 335 nodes and 1,158 refusals: a distinct view, not independent animals.
 
 Retained evidence: [reports/science/animal-entity-capability/report.json](report.json), [docs/report/animal_atlas_exclusion_report.json](../../../docs/report/animal_atlas_exclusion_report.json), [reports/science/adna-source-lifecycle/report.json](../adna-source-lifecycle/report.json), [reports/science/adna-source-lifecycle/capture.json](../adna-source-lifecycle/capture.json).
 

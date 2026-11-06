@@ -31,7 +31,7 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Unsupported claim.** A generic BP label, publication-map membership or country annotation does not establish calibrated sample chronology, biological domestication, country-assignment admission or historical first appearance.
 
-**Actual verification performed.** Read the authored support/non-support statements and retained farming JSON alongside the current animal entity capability account; bound those bytes. No dating, source acquisition, map replay or historical inference was performed. The current thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun.
+**Actual verification performed.** Read the authored support/non-support statements and retained farming JSON alongside the current animal entity capability account; bound those bytes. No dating, source acquisition, map replay or historical inference was performed. The earlier thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun. Current entity reconciliation at a1801f5be43845a9d34b0cd09be4607958ba09ac completes in0.127s/RSS43696128B,13inputs+producer/HEAD/indexstable:1482source IDs=335mapped+1147excluded/167features. OnlyBER11_L is added asoneexcluded source; alloldmappedIDs/Nordic12IDs8features/falseadmissions unchanged. No originalcountry, map, source, chronology or model producer is rerun; previous actuals retain their sourceepochs.
 
 **Remaining input or review.** The named PRJEB30282 signal requires sample-level source dating with documented epoch and scale, accepted taxonomy/evidence class, reviewed country provenance and qualified historical interpretation.
 
@@ -43,11 +43,11 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Negative or refused result.** Bos taurus wild/progenitor context remains outside domesticated-core support; seven named country-localized species claims remain unsupported. The current animal account explicitly sets scientific and country admission false.
 
-**Matched denominator.** Own narrative: one named Sus source lead, two Bos context statements and seven unsupported species claims. Current linked animal accounting: 1,481 normalized IDs, 335 mapped in 167 features, 1,146 excluded; twelve Nordic mapped IDs/eight localities are not twelve admitted farming events.
+**Matched denominator.** Own narrative: one named Sus source lead, two Bos context statements and seven unsupported species claims. Current linked animal accounting: 1,482 normalized IDs, 335 mapped in 167 features, 1,147 excluded; twelve Nordic mapped IDs/eight localities are not twelve admitted farming events.
 
 - [Retained qualification evidence: docs/report/nordic_farming_history_scenario.json](nordic_farming_history_scenario.json) (SHA-256 `62736772e789063f7f7eac3657ef418e0777b1a4ad3363a359327919d5604b56`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `aab2ff406a9d06ce71c8559371d4f9a8404173a12c4525f456a8de250a584fda`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `2c7807f58aa96ce33426817d9907fb89ea1b4c5f96854175fdf0ee75a070bc60`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

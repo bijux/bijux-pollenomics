@@ -1,9 +1,9 @@
 # Animal sample chronology review
 
-- Sample chronology rows: `1492`
+- Sample chronology rows: `1493`
 - Normalized intervals: `315`
 - Normalized points: `384`
-- Text-only rows: `386`
+- Text-only rows: `387`
 - Unresolved rows: `407`
 - Direct radiocarbon rows: `585`
 - Modeled rows: `6`
@@ -11,7 +11,7 @@
 - Broad period rows: `1`
 - Numeric interval rows: `559`
 - Numeric rows with caveat: `140`
-- Context-only rows: `386`
+- Context-only rows: `387`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -284,6 +284,7 @@
 | Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017079 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 |
 | Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017088 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | Age (years ago): 2727 |
 | Equus caballus | PRJEB19970 | prjeb19970:connemara_0004a | unresolved | unresolved | unresolved | unresolved |  |
+| Equus caballus | PRJEB19970 | prjeb19970:samea103910520 | sample_owned_text_only | unresolved | unresolved | text_only_unparsed | 2,300 yBP |
 | Equus caballus | PRJEB19970 | prjeb19970:somali_0226a | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_017139 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1979 BP |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_018064 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3101 BP |
@@ -1520,25 +1521,25 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-**Supported claim.** The current saved chronology ledger retains 1,492 source owners with normalized, contextual and unresolved evidence. Seventeen qualified source owners are added; four Qinghai labels preserve archaeological-context evidence. All 1,471 unaffected old rows and every original numeric date and coordinate remain exact.
+**Supported claim.** The current saved ledger retains1493source owners, including primary BER11_L. All1492previous chronology/provenance records and every original numeric date/coordinate remain exact.
 
 **Unsupported claim.** A parsed numeric date is not automatically direct radiocarbon or a qualified sample date; unqualified elapsed ages cannot acquire a 1950 BPepoch by default.
 
-**Actual verification performed.** At 4a156c434 the saved-row native consumer produced sixteen outputs in 2.94 seconds, peak RSS 248,250,368 B. Independent literal JSON readback took 1.46 seconds, peak RSS 174,735,360 B, and reconciles all 1,492 owners, 335 admitted nodes, 1,157 refusals and 6,454 source entries plus HEAD/index. Native exit one remains explicit: the final collector included pre-existing failed products. Independent current-run measurement is 14,308,341 B, within the original 16 MiB. No native or model replay; all failures retained.
+**Actual verification performed.** Saved consumers atda813b7e367cdb735d608f0b18a79299bb28932f produce16outputs in2.756s/RSS273858560B/nativeexit0. Literalobserver0.684s verifies1493owners,335nodes,1158refusals and6459sourceentries/actualreads+HEAD/indexstable. Completefoundation/2CSV checks bind13alreadyqualifiedcatch-up fields. Current-run14317600B<16MiB; oldfailedactuals preserved separately. Three pointlayers exact previous335/13/13; no originalsource/model/map replay.
 
 **Remaining input or review.** Source epoch, type, unit, calibration, ownership and uncertainty need explicit qualified decisions for each context/unresolved row before scientific interval comparison.
 
 **Cause category.** Heterogeneous source chronology with explicit epoch and precision refusals.
 
-**Consequence.** The 1,492 source chronology owners and 1,481 normalized animal records are distinct units. The 335 displayable source nodes are not independent animals or ecological events. Current saved maps and index still need consequential qualification.
+**Consequence.** 1493source chronology owners and1482normalized source records use different units.335displayable nodes are not independentanimals or ecologicalevents. Current atlas/map/index/entity followthrough remains pending.
 
 **Precise next acceptance route.** Resolve source-native chronology/epoch and precision without invented aging defaults, replay normalization and sample publication guards, then qualify comparable sample-owned intervals for analysis.
 
-**Negative or refused result.** The 1,157 source chronology refusals comprise eleven unresolved identities, 790 noncomparable chronologies and 356 unavailable mappable coordinates. New PGULL remains undated. The native collector accounting failure remains explicit; no source date, independence, field permission or scientific endorsement is inferred.
+**Negative or refused result.** 1158refusals=11unresolved identities+791noncomparable chronologies+356unavailable mappablecoordinates. BER11_L countryKazakhstan does not resolve its date or point; no new scientific, field or rights decision.
 
-**Matched denominator.** 1,492 rows = 315 normalized intervals + 384 normalized points + 386 text-only + 407 unresolved. Comparability: 559 numeric + 140 numeric with caveat + 386 contextual + 407 unresolved. Fresh chronology has 335 world nodes and thirteen each in Europe-plus and Nordic; these remain candidate map context until consequential checks pass. Earlier maps retain their historical scope.
+**Matched denominator.** 1493rows=315normalized intervals+384points+387text-only+407unresolved. Comparability559numeric+140caveated+387contextual+407unresolved is a separate partition. Current335world/13Europe-plus/13Nordic pointlayers exactly preserve the prior qualified actual; newrefusal sidecars remain candidates pending consequential map checks.
 
-- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `75638214935901d3ad1e0071a2ed0dc8a2ce5e425f45846da08b7ff77124d8b7`).
+- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `a02cddad644f7727dc89631930391c345b095ff7413a4a84eadab74646a06300`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 
