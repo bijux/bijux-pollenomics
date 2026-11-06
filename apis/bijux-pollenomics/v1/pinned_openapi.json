@@ -142,6 +142,10 @@
   },
   "info": {
     "description": "This checked-in OpenAPI contract defines the stable public surface that future\nBijux Pollenomics HTTP delivery should preserve for evidence summaries,\npublished report discovery, and atlas metadata.\n",
+    "license": {
+      "identifier": "Apache-2.0",
+      "name": "Apache-2.0"
+    },
     "summary": "Freeze-only contract for pollenomics publication and evidence summary surfaces.",
     "title": "Bijux Pollenomics Public API",
     "version": "1.0.0"
@@ -253,6 +257,7 @@
       }
     }
   },
+  "security": [],
   "servers": [
     {
       "url": "https://bijux.io/bijux-pollenomics"
