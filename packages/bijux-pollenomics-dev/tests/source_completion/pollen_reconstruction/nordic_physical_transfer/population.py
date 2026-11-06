@@ -16,6 +16,7 @@ METRICS = ("mae_fraction", "hellinger_stable", "total_variation")
 def cohort(
     protocol: dict[str, Any], profile: dict[str, Any], target: str, scope: str
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Partition a target's training cores under the declared family exclusions."""
     cores = {c["key"]: c for c in protocol["cores"]}
     owner = cores[target]
     require(target in profile["cores"], "target in structural profile")
@@ -110,6 +111,7 @@ def plan(protocol: dict[str, Any]) -> list[dict[str, Any]]:
 def loss_summary(
     rows: list[dict[str, Any]],
 ) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    """Summarize scored losses with equal target-level contributions."""
     scored = [row for row in rows if row["status"] == "scored"]
     by_target: dict[str, list[dict[str, Any]]] = {}
     for row in scored:
@@ -145,12 +147,14 @@ def loss_summary(
 
 
 def channel(row: dict[str, Any]) -> dict[str, str]:
+    """Extract the prediction channel's structural identity fields."""
     return {key: row["identity"][key] for key in ("profile", "experiment", "scope")} | {
         "method": row["method"]
     }
 
 
 def channel_key(value: dict[str, Any]) -> tuple[str, ...]:
+    """Require and order the closed prediction channel identity."""
     require(
         set(value) == {"profile", "experiment", "scope", "method"},
         "closed channel identity",
@@ -161,6 +165,7 @@ def channel_key(value: dict[str, Any]) -> tuple[str, ...]:
 def compare_targets(
     actual: list[dict[str, Any]], expected: list[dict[str, Any]], label: str
 ) -> None:
+    """Compare the complete unique target population and its expected values."""
     require(
         len(actual) == len(expected)
         and len({row["target_core"] for row in actual}) == len(actual),
@@ -176,6 +181,7 @@ def compare_targets(
 def summaries(
     value: dict[str, Any], protocol: dict[str, Any], rows: list[dict[str, Any]]
 ) -> None:
+    """Verify the declared grouped and matched score summaries."""
     require(
         set(value) == {"schema_version", "groups", "matched"}
         and value["schema_version"] == "nordic-physical-summary.v1",

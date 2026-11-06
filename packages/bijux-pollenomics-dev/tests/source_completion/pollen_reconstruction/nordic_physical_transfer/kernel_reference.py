@@ -653,6 +653,7 @@ def check(
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Prepare or check the declared independent response comparison artifacts."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("operation", choices=("prepare", "check"))
     for name in ("repository", "protocol", "products", "output"):

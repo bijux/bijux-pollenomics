@@ -20,6 +20,7 @@ def check_scores(
     context: dict[str, Any],
     tolerance: dict[str, Any],
 ) -> dict[str, Any]:
+    """Check scoring populations, prediction ownership, and saved scalar results."""
     directory = Path(pin["directory"])
     require(
         directory.is_relative_to(repository / "artifacts"),

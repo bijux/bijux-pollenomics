@@ -67,6 +67,7 @@ def revision(repository: Path) -> str:
 
 
 def pinned(repository: Path, pin: dict[str, Any], maximum: int = 4194304) -> Any:
+    """Read a confined JSON source with its declared hash and byte count."""
     relative = Path(pin["path"])
     require(
         not relative.is_absolute() and ".." not in relative.parts,
@@ -78,6 +79,7 @@ def pinned(repository: Path, pin: dict[str, Any], maximum: int = 4194304) -> Any
 
 
 def declaration(repository: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Read the fixed-cohort protocol and check its axes and source audit."""
     raw = (repository / PROTOCOL).read_bytes()
     protocol = decode(raw)
     require(
@@ -593,6 +595,7 @@ def qualified_supports(
 
 
 def materialize(repository: Path, output: Path) -> dict[str, Any]:
+    """Project pinned source support into the fixed-regional input inventory."""
     started = time.monotonic()
     repository = repository.resolve(strict=True)
     output = require_absent_artifact_output(repository, output)
@@ -716,6 +719,7 @@ def read_inputs(
 
 
 def enforce_budget(output: Path, budget: dict[str, Any], elapsed: float) -> None:
+    """Check artifact file types and declared wall-time and byte limits."""
     sizes = []
     for path in output.rglob("*"):
         shared.physical(path)
@@ -953,6 +957,7 @@ def run(
 
 
 def main() -> int:
+    """Dispatch the fixed-regional operation and print its source summary."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("operation", choices=("materialize", "prepare", "score"))
     parser.add_argument("--repository", type=Path, required=True)

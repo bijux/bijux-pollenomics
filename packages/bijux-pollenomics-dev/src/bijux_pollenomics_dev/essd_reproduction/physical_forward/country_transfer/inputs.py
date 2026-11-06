@@ -31,10 +31,12 @@ METRICS = ("mae_fraction", "hellinger_stable", "total_variation")
 
 
 def semantic_sha(value: object) -> str:
+    """Hash canonical JSON metadata without allowing nonfinite values."""
     return hashlib.sha256(canonical(value)).hexdigest()
 
 
 def finite(value: object, *, positive: bool = False) -> float:
+    """Read a finite typed number with an optional positivity constraint."""
     require(type(value) in (int, float), "Finite typed number required")
     try:
         result = float(cast(int | float, value))
@@ -48,6 +50,7 @@ def finite(value: object, *, positive: bool = False) -> float:
 
 
 def counts(value: object) -> tuple[int, int]:
+    """Require two nonnegative integer count axes with a bounded positive total."""
     require(type(value) is list and len(value) == 2, "Two exact count axes required")
     vector = cast(list[Any], value)
     require(
@@ -59,6 +62,7 @@ def counts(value: object) -> tuple[int, int]:
 
 
 def validate_protocol(protocol: dict[str, Any]) -> None:
+    """Validate the declared physical-transfer protocol and fixed populations."""
     require(
         protocol["schema_version"] == "nordic-physical-transfer-protocol.v1"
         and protocol["taxa"] == list(AXIS)
@@ -134,6 +138,7 @@ def validate_protocol(protocol: dict[str, Any]) -> None:
 
 
 def pointer(value: Any, path: str) -> Any:
+    """Resolve a literal JSON source pointer without substituting missing keys."""
     require(
         type(path) is str and path.startswith("/"),
         "Literal JSON source pointer required",
@@ -155,6 +160,7 @@ def pointer(value: Any, path: str) -> Any:
 
 
 def normalized_request(row: dict[str, Any], protocol: dict[str, Any]) -> dict[str, Any]:
+    """Normalize the declared geometry and transport request fields."""
     transport = protocol["transport"]
     radius = finite(row["receiver_radius_m"], positive=True)
     inner = finite(
@@ -185,6 +191,7 @@ def normalized_request(row: dict[str, Any], protocol: dict[str, Any]) -> dict[st
 
 
 def response_id(row: dict[str, Any], protocol: dict[str, Any]) -> str:
+    """Hash the normalized response request into its stable identifier."""
     return "response:" + semantic_sha(normalized_request(row, protocol))
 
 

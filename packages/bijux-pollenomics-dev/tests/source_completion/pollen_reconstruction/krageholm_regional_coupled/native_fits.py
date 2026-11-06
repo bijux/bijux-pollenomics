@@ -13,6 +13,7 @@ from .scalar import AXIS, number, require, reveals, signed_love
 
 
 def near(actual: object, expected: object, tolerance: dict[str, Any]) -> float:
+    """Check a scalar against the declared absolute and relative tolerances."""
     left = float(number(actual))
     right = float(expected if isinstance(expected, Fraction) else number(expected))
     difference = abs(left - right)
@@ -26,6 +27,7 @@ def near(actual: object, expected: object, tolerance: dict[str, Any]) -> float:
 
 
 def named(values: dict[str, Any]) -> list[object]:
+    """Return composition values in the exact two-taxon axis order."""
     require(set(values) == set(AXIS), "literal two-taxon composition keys required")
     return [values[taxon] for taxon in AXIS]
 
@@ -36,6 +38,7 @@ def native_fit(
     request: dict[str, Any],
     tolerance: dict[str, Any],
 ) -> dict[str, Any]:
+    """Reconstruct signed scalar outputs from a pinned saved native product."""
     manifest, members = product(directory, pin["manifest_sha256"])
     require(
         manifest["schema_version"] == "lra-product.v1"
@@ -119,6 +122,7 @@ def check_batches(
     context: dict[str, Any],
     tolerance: dict[str, Any],
 ) -> dict[str, dict[str, Any]]:
+    """Check saved local and regional requests and native product ownership."""
     attempts = [
         (name, decode(body))
         for name, body in members.items()

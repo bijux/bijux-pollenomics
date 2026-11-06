@@ -119,15 +119,20 @@ def test_missing_or_invalid_storage_custody_still_refuses(
         ]
 
 
-def test_current_deck_execution_epoch_remains_original_with_registered_storage() -> (
-    None
-):
-    path = ROOT / "presentation/current-build-export-context.json"
+def test_current_deck_build_retains_its_recorded_epoch_and_source_custody() -> None:
+    path = ROOT / HOOK.MANIFEST
     before = path.read_bytes()
-    assert json.loads(before)["producer"]["candidate"] == ORIGINAL
-    assert HOOK.source_revision(ROOT, ORIGINAL) == STORAGE
+    build = json.loads(before)["deck_build"]
+    revision = build["source_revision"]
     assert (
-        HOOK._retained_export_git(ROOT, "merge-base", "--is-ancestor", ORIGINAL, "HEAD")
+        HOOK._retained_export_git(ROOT, "merge-base", "--is-ancestor", revision, "HEAD")
         == b""
     )
+    assert (
+        int(HOOK._retained_export_git(ROOT, "show", "-s", "--format=%ct", revision))
+        == build["source_date_epoch"]
+    )
+    evidence = HOOK.retained_deck_sources(ROOT)
+    assert evidence["context"] == build
+    assert [row["path"] for row in evidence["current_inputs"]] == build["inputs"]
     assert path.read_bytes() == before

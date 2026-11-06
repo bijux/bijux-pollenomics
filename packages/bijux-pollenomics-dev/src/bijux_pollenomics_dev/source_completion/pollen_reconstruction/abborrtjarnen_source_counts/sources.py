@@ -10,6 +10,8 @@ from typing import Any
 
 @dataclass(frozen=True)
 class Axis:
+    """Original table column and matching native taxon identity."""
+
     name: str
     column: str
     abbreviation: str
@@ -28,6 +30,8 @@ AXES = (
 
 @dataclass(frozen=True)
 class OriginalRow:
+    """Literal original-table tokens and exact decimal depth for one row."""
+
     index: int
     depth_token: str
     depth_m: Decimal
@@ -36,12 +40,16 @@ class OriginalRow:
 
 @dataclass(frozen=True)
 class OriginalTable:
+    """Column names and ordered rows from the retained original table."""
+
     columns: tuple[str, ...]
     rows: tuple[OriginalRow, ...]
 
 
 @dataclass(frozen=True)
 class NativeSample:
+    """Native sample identity, exact depth, and observed integer counts."""
+
     sample_id: int
     depth: Decimal
     observed: dict[str, int]

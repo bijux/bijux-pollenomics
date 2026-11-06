@@ -28,6 +28,7 @@ def audit(
     certificates: list[dict[str, Any]],
     clock: Clock,
 ) -> dict[str, Any]:
+    """Check every case disposition and its saved coefficient certificates."""
     validate_protocol(protocol)
     require(
         result.get("schema_version") == "continuous-receiver-study-result.v1"

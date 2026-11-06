@@ -9,6 +9,7 @@ from typing import Any
 
 
 def fixture(index: int = 0) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    """Construct synthetic native core records using the declared protocol."""
     repository = Path(__file__).resolve().parents[6]
     protocol = json.loads(
         (
@@ -109,6 +110,7 @@ def fixture(index: int = 0) -> tuple[dict[str, Any], dict[str, Any], dict[str, A
 
 
 def cell(label: str, code: int, value: object) -> dict[str, Any]:
+    """Create one literal native pollen datum for a fixture."""
     return {
         "variablename": label,
         "taxonid": code,
@@ -121,6 +123,7 @@ def cell(label: str, code: int, value: object) -> dict[str, Any]:
 
 
 def native_samples(source: dict[str, Any]) -> list[dict[str, Any]]:
+    """Return the fixture's nested native sample list."""
     result: list[dict[str, Any]] = source["rows"][0]["site"]["collectionunit"][
         "dataset"
     ]["samples"]

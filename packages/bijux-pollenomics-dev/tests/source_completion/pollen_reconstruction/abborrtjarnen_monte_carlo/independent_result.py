@@ -25,6 +25,7 @@ from .independent_sources import DESIGN, PROTOCOL, read_sources
 
 
 def check_group(record: dict[str, Any], mean: Vector, covariance: Matrix) -> float:
+    """Compare saved vector, covariance and scalar precision records."""
     if (
         len(record["mean"]) != 20
         or len(record["mc_covariance"]) != 20
@@ -59,6 +60,7 @@ def check_group(record: dict[str, Any], mean: Vector, covariance: Matrix) -> flo
 def check_probability(
     record: dict[str, Any], rows: int, complete: int, variance: float
 ) -> None:
+    """Check complete-row counts, indicator warnings and probability error display."""
     if (
         (record["rows"], record["complete"], record["undefined"])
         != (rows, complete, rows - complete)
@@ -79,6 +81,7 @@ def check_probability(
 
 
 def verify_result(repository: Path, path: Path) -> dict[str, Any]:
+    """Verify saved-chain precision using independent masked batch influences."""
     sources = read_sources(repository)
     raw = path.read_bytes()
     result = json.loads(raw)

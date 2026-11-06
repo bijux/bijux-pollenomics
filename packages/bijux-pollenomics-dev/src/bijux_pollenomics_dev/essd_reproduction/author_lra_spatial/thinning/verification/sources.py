@@ -22,6 +22,7 @@ from .projection import audit_projection
 
 
 def read_pin(root: Path, pin: dict[str, Any], *, archived: bool = False) -> Any:
+    """Read pinned JSON from its repository path or archived object."""
     require(set(pin) == {"path", "bytes", "sha256"}, "closed source pin")
     require(
         type(pin["bytes"]) is int and 0 < pin["bytes"] <= 140 * 1024**2,

@@ -13,6 +13,7 @@ from .scalar import AXIS, METHODS
 def write_product(
     directory: Path, scientific: dict[str, Any], members: dict[str, Any], *, phase: str
 ) -> dict[str, Any]:
+    """Write a synthetic product and return its manifest identity."""
     directory.mkdir(parents=True)
     inventory = {}
     for name, value in members.items():
@@ -41,6 +42,7 @@ def write_product(
 def prediction_fixture(
     repository: Path, *, refused: bool = False
 ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any], dict[str, Any]]:
+    """Build synthetic fixed-regional predictions and their source context."""
     ids = dict.fromkeys(("BOKE", "BUS", "SOLSOE83", "KRAGMJNY"))
     ids = {code: code for code in ids}
     sites: list[dict[str, Any]] = [
