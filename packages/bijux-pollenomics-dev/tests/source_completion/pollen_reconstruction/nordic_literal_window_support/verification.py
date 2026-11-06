@@ -32,6 +32,7 @@ INHERITED = (
 
 
 def read_pin(repository: Path, pin: dict[str, Any], maximum: int) -> bytes:
+    """Read a bounded repository-relative source with its declared byte identity."""
     require(
         type(pin) is dict and set(pin) == {"path", "bytes", "sha256"},
         "closed scientific byte identity",
@@ -55,6 +56,7 @@ def read_pin(repository: Path, pin: dict[str, Any], maximum: int) -> bytes:
 def contract(
     repository: Path, protocol: dict[str, Any]
 ) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Check source and provenance pins and inherit the literal-panel policy."""
     require(
         protocol["schema_version"] == "nordic-literal-window-support-protocol.v1"
         and set(protocol["provenance"]) == set(PROVENANCE)

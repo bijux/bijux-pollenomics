@@ -11,11 +11,13 @@ from .scalar import require
 
 
 def digest(value: object) -> str:
+    """Hash a canonical JSON value for source and lineage identities."""
     body = json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False)
     return sha256(body.encode()).hexdigest()
 
 
 def families(records: Sequence[Mapping[str, Any]]) -> list[list[str]]:
+    """Build complete physical-site and alias identity components."""
     require(bool(records), "nonempty source catalogue required")
     ids = [row["record_id"] for row in records]
     require(
@@ -67,6 +69,7 @@ def families(records: Sequence[Mapping[str, Any]]) -> list[list[str]]:
 def expected_folds(
     records: Sequence[Mapping[str, Any]], targets: Sequence[str], regional: str
 ) -> list[dict[str, Any]]:
+    """Construct three fixed-target folds with a distinct regional source."""
     components = families(records)
     catalogue = {row["record_id"] for row in records}
     target_set = set(targets)
@@ -117,6 +120,7 @@ def allowed_closure(
     heldout: Sequence[str],
     external: Sequence[str],
 ) -> list[str]:
+    """Trace admitted training ancestry and refuse held-out or cyclic inputs."""
     allowed, forbidden = set(training) | set(external), set(heldout)
     require(bool(roots), "nonempty quantitative lineage required")
     complete: set[str] = set()

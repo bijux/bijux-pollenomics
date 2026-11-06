@@ -22,6 +22,7 @@ from .native_owners import native_owner, require, sample_account
 def expected_core(
     source: dict[str, Any], core: dict[str, Any], protocol: dict[str, Any]
 ) -> dict[str, Any]:
+    """Reconstruct literal core and window support with its refusal states."""
     require(
         protocol["schema_version"] == "nordic-literal-window-support-protocol.v1",
         "prospective protocol schema",

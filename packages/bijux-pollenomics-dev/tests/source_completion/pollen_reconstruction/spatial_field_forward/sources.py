@@ -25,6 +25,7 @@ WINDOWS = tuple((low, low + 500) for low in range(2700, 5700, 500))
 
 
 def bound_files(root: Path, declarations: dict[str, Any]) -> dict[str, bytes]:
+    """Read confined declared files and check their exact byte identities."""
     result = {}
     for relative, identity in declarations.items():
         path = root / relative
@@ -41,6 +42,7 @@ def bound_files(root: Path, declarations: dict[str, Any]) -> dict[str, bytes]:
 
 
 def workbook_cells(body: bytes, part: str) -> dict[str, str | None]:
+    """Read literal worksheet cells while leaving formula cells unavailable."""
     namespace = "{http://schemas.openxmlformats.org/spreadsheetml/2006/main}"
     with ZipFile(BytesIO(body)) as archive:
         strings = [
@@ -64,6 +66,7 @@ def workbook_cells(body: bytes, part: str) -> dict[str, str | None]:
 
 
 def original_inputs(repository: Path, source_root: Path) -> dict[str, Any]:
+    """Check pinned source identities and reconstruct declared core inputs."""
     protocol_body = (repository / PROTOCOL).read_bytes()
     protocol = json.loads(protocol_body)
     assert protocol["projected_axis"] == list(AXIS)

@@ -14,6 +14,7 @@ from tests.source_completion.pollen_reconstruction.krageholm_regional_source_sup
 
 
 def require(condition: object, message: str) -> None:
+    """Raise a prefixed independent literal-support refusal."""
     if not condition:
         raise ValueError("Independent Nordic literal support: " + message)
 
@@ -21,6 +22,7 @@ def require(condition: object, message: str) -> None:
 def native_owner(
     source: dict[str, Any], core: dict[str, Any]
 ) -> tuple[dict[str, Any], dict[str, Any], list[dict[str, Any]]]:
+    """Check declared core, chronology, and complete sample-owner identities."""
     identity, policy = core["identity"], core["chronology"]
     candidates = []
     for wrapper in rows(source["rows"]):
@@ -141,6 +143,7 @@ def native_owner(
 def selected_age(
     claims: list[dict[str, Any]], core: dict[str, Any]
 ) -> tuple[str, dict[str, Any] | None]:
+    """Classify the selected age claim without substituting source defaults."""
     policy = core["chronology"]
     selected = [
         r
@@ -177,6 +180,7 @@ def selected_age(
 def sample_account(
     source: dict[str, Any], index: int, core: dict[str, Any], windows: list[list[int]]
 ) -> dict[str, Any]:
+    """Account for one native sample's selected age and literal pollen support."""
     datum, ages = rows(source["datum"]), rows(source["ages"])
     status, selected = selected_age(ages, core)
     window = None

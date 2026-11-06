@@ -9,22 +9,15 @@ reader needs:
 | Implementers | [Developer](developer.tex) | [Developer PDF](developer.pdf) |
 | Researchers | [Scientific evidence](scientific-evidence.tex) | [Scientific evidence PDF](scientific-evidence.pdf) |
 
-The current decks were compiled from Git revision `0de9fe3c7` on
-28 October 2026: 14 big-picture, 13 developer and 44 scientific pages.
-The three compiler commands completed successfully in 5.93 seconds overall
-(68,026,368 bytes peak process RSS). Scientific page 23 adds the matched
-six-place Nordic physical-transfer result, with its direct baseline, full
-outcome population and conditional scope. All 70 preceding pages retain their
-text after excluding page counters. The new slide was visually inspected with
-no observed clipping or layout defect. All fonts are embedded, and all 110
-citation annotations resolve to existing repository files. Current input and
-download identity checks passed; the focused source/build checks also passed
-72 tests. Compiler output and the compact text/font/link review remain under
-`artifacts/root/nordic-physical-transfer/`; intermediates remain with the normal
-presentation build outputs. Earlier retained export contexts keep their original
-epochs and were not rewritten. This is machine and model visual review;
-independent human comprehension, tagged accessibility and online availability
-remain unqualified.
+The current PDFs were compiled from Git revision `31606e73a89ee00c5f35e3a0747e6d8dbba52da2`
+on 6 November 2026: 14 big-picture, 13 developer and 42 scientific pages.
+All three compiler commands completed successfully from the five committed
+inputs. Scientific page 23 includes the matched Nordic physical-transfer
+result and its conditional development scope. All 69 pages pass embedded-font
+and text-bound checks; model inspection of the new Nordic slide found no
+clipping or layout defect. Full human reading, tagged accessibility and online
+availability remain unqualified. Earlier exports retain their original source
+and execution identities in Git history.
 
 Run `python3 presentation/build.py` from the repository root with `latexmk`
 and a working TeX distribution. Intermediate files and the compiler log go

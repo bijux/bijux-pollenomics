@@ -44,6 +44,7 @@ RUNNER = "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduc
 
 
 def committed_protocol(repository: Path, path: Path) -> None:
+    """Require the protocol path to be tracked and unchanged in Git."""
     relative = str(path.relative_to(repository))
     for args in (
         ("ls-files", "--error-unmatch", "--", relative),
@@ -58,6 +59,7 @@ def committed_protocol(repository: Path, path: Path) -> None:
 
 
 def ordinary(path: Path, *, directory: bool = False) -> None:
+    """Require an existing unaliased file or directory path."""
     require(
         path.exists()
         and path.resolve() == path.absolute()
@@ -71,6 +73,7 @@ def ordinary(path: Path, *, directory: bool = False) -> None:
 
 
 def read_pin(root: Path, pin: dict[str, Any], maximum: int) -> bytes:
+    """Read a confined pinned input with explicit size and digest checks."""
     require(
         type(pin) is dict and set(pin) == {"path", "bytes", "sha256"},
         "closed input identity",
@@ -110,6 +113,7 @@ def contract(
     dict[str, Any],
     list[dict[str, Any]],
 ]:
+    """Bind the declared author sources and native populations to their pins."""
     require(
         protocol["schema_version"] == "nordic-author-window-support-protocol.v1"
         and protocol["taxa"] == ["Betula", "Pinus"]
@@ -298,6 +302,7 @@ def contract(
 def verify(
     repository: Path, original_data_root: Path, products: Path, protocol_path: Path
 ) -> dict[str, Any]:
+    """Verify serialized author-window products against their bound inputs."""
     started = time.monotonic()
     repository, original_data_root = (
         repository.absolute(),

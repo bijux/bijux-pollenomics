@@ -9,6 +9,7 @@ from typing import Any
 
 
 def sha(value: Any) -> str:
+    """Hash canonical JSON metadata without allowing nonfinite values."""
     return hashlib.sha256(
         json.dumps(
             value, sort_keys=True, separators=(",", ":"), allow_nan=False
@@ -17,6 +18,7 @@ def sha(value: Any) -> str:
 
 
 def synthetic() -> tuple[dict[str, Any], list[dict[str, Any]], dict[str, Any]]:
+    """Build invented thinning inputs, predictions and their matching protocol."""
     taxa = [f"taxon-{i:02d}" for i in range(30)]
     groups = {f"site-{i:02d}": f"group-{i:02d}" for i in range(15)}
     all_owners = sorted(groups)

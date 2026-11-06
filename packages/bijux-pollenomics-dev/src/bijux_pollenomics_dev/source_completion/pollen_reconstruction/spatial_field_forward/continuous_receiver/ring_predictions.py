@@ -159,6 +159,7 @@ def _encoded(interval: Interval) -> list[str]:
 def prediction_contexts(
     prediction: dict[str, Any], case_results: tuple[RingCaseResult, ...]
 ) -> list[dict[str, Any]]:
+    """Build all contexts while retaining incomplete ring-case refusals."""
     contexts, geometry = _contexts(prediction)
     require(
         type(case_results) is tuple and len(case_results) == len(OWNERS),
@@ -417,6 +418,7 @@ def score_closed(
 def summarize(
     scores: list[dict[str, Any]], old_scored: dict[str, Any]
 ) -> dict[str, Any]:
+    """Aggregate complete family and paired-place ranges without dropping rows."""
     require(
         len(scores) == 54
         and len({(row["context_id"], row["family"]) for row in scores}) == 54,

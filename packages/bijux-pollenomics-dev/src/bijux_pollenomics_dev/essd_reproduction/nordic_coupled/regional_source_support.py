@@ -48,6 +48,7 @@ WINDOWS = tuple((year, year + 500) for year in range(2700, 5700, 500))
 
 
 def mapping(value: object) -> dict[str, Any]:
+    """Require a native JSON object whose keys are strings."""
     require(
         type(value) is dict and all(type(key) is str for key in value),
         "Native JSON object required",
@@ -56,15 +57,18 @@ def mapping(value: object) -> dict[str, Any]:
 
 
 def objects(value: object) -> list[dict[str, Any]]:
+    """Read a native object array without coercing its row types."""
     require(type(value) is list, "Native JSON row array required")
     return [mapping(row) for row in cast(list[object], value)]
 
 
 def integer(value: object) -> bool:
+    """Identify nonnegative integer tokens while excluding booleans."""
     return type(value) is int and value >= 0
 
 
 def finite(value: object) -> bool:
+    """Identify finite integer or float values without overflow coercion."""
     if type(value) not in (int, float):
         return False
     try:
@@ -74,6 +78,7 @@ def finite(value: object) -> bool:
 
 
 def count_state(row: dict[str, Any]) -> str:
+    """Keep missing, null, invalid, zero and positive count states distinct."""
     if "value" not in row:
         return "missing_native_value"
     if row["value"] is None:
@@ -84,6 +89,7 @@ def count_state(row: dict[str, Any]) -> str:
 
 
 def count_metadata(row: dict[str, Any]) -> bool:
+    """Check the literal pollen, NISP and null-context metadata contract."""
     return (
         row.get("element") == row.get("elementtype") == "pollen"
         and row.get("units") == "NISP"
@@ -93,6 +99,7 @@ def count_metadata(row: dict[str, Any]) -> bool:
 
 
 def literal_panel(datum: list[dict[str, Any]]) -> dict[str, Any]:
+    """Account for the two literal taxon axes without filling missing counts."""
     taxa = []
     counts: list[int | None] = []
     for taxon in TAXA:
@@ -142,6 +149,7 @@ def literal_panel(datum: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def pollen_mass(datum: list[dict[str, Any]]) -> dict[str, Any]:
+    """Account for all pollen cells and refuse an incomplete denominator."""
     candidates = [
         (i, row)
         for i, row in enumerate(datum)
@@ -205,6 +213,7 @@ def pollen_mass(datum: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def selected_age(sample: dict[str, Any]) -> tuple[str, dict[str, Any] | None]:
+    """Resolve only the declared chronology and retain conflicting age states."""
     claims = objects(sample["ages"])
     matches = [
         claim
@@ -234,6 +243,7 @@ def selected_age(sample: dict[str, Any]) -> tuple[str, dict[str, Any] | None]:
 
 
 def sample_account(sample: dict[str, Any], index: int) -> dict[str, Any]:
+    """Record native sample counts and half-open selected-age membership."""
     datum = objects(sample["datum"])
     age_status, selected = selected_age(sample)
     window = None
@@ -281,6 +291,7 @@ def sample_account(sample: dict[str, Any], index: int) -> dict[str, Any]:
 
 
 def aggregate(samples: list[dict[str, Any]], unassignable: list[int]) -> dict[str, Any]:
+    """Aggregate whole-window support while preserving suppression reasons."""
     panel_defined = (
         bool(samples)
         and not unassignable
@@ -476,6 +487,7 @@ def project(source: dict[str, Any], protocol: dict[str, Any]) -> dict[str, Any]:
 
 
 def source_revision(repository: Path) -> str:
+    """Return HEAD after checking that consumed sources are tracked and unchanged."""
     files = [
         Path(__file__),
         repository / PROTOCOL,
@@ -496,6 +508,7 @@ def source_revision(repository: Path) -> str:
 
 
 def publish(repository: Path, output: Path) -> dict[str, Any]:
+    """Publish the bounded literal regional support account after source rechecks."""
     started = time.monotonic()
     repository = repository.resolve(strict=True)
     destination = require_absent_artifact_output(repository, output)
@@ -533,6 +546,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> int:
+    """Publish the regional source-support account and print its summary."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

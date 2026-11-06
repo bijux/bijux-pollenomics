@@ -26,6 +26,7 @@ def check_prediction(
     context: dict[str, Any],
     tolerance: dict[str, Any],
 ) -> dict[str, Any]:
+    """Check saved prediction populations, lineage, and conditional scalar outputs."""
     directory = Path(pin["directory"])
     require(
         directory.is_relative_to(repository / "artifacts"),

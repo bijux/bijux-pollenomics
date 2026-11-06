@@ -27,6 +27,7 @@ COMMENTS = (
 
 
 def canonical_digest(value: object) -> str:
+    """Hash the canonical JSON encoding of a source-accounting value."""
     return hashlib.sha256(
         json.dumps(
             value,
@@ -39,6 +40,7 @@ def canonical_digest(value: object) -> str:
 
 
 def classified_token(token: str) -> tuple[str, int | None, str | None]:
+    """Classify a literal count token while retaining its refusal reason."""
     status, value = literal_count(token)
     if status == "blank":
         return "blank", None, "empty_cell"

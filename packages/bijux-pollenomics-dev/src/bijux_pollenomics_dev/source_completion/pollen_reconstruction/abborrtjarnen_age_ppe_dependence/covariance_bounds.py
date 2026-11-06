@@ -17,6 +17,7 @@ Matrix = tuple[tuple[Fraction, ...], ...]
 
 
 def rational(value: Fraction) -> str:
+    """Encode a fraction using its exact numerator and denominator."""
     return f"{value.numerator}/{value.denominator}"
 
 
@@ -49,6 +50,7 @@ def principal_minors(matrix: Matrix) -> tuple[Fraction, ...]:
 
 
 def gram(rows: Matrix) -> Matrix:
+    """Build a rational Gram matrix from four exact unit rows."""
     require(
         len(rows) == 4
         and bool(rows[0])
@@ -82,6 +84,7 @@ def circle_rows(angles: np.ndarray, bits: int) -> Matrix:
 
 
 def trace_product(left: Matrix, right: Matrix) -> Fraction:
+    """Compute the exact trace of the product of two four-axis matrices."""
     return sum(
         (left[i][j] * right[j][i] for i in range(4) for j in range(4)), Fraction()
     )
@@ -89,6 +92,8 @@ def trace_product(left: Matrix, right: Matrix) -> Fraction:
 
 @dataclass(frozen=True)
 class Candidate:
+    """Store a candidate identifier, rational Gram rows and objective value."""
+
     identifier: str
     rows: Matrix
     objective: Fraction

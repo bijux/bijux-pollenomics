@@ -17,6 +17,7 @@ from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_project_sample_chronology_rows,
 )
 from bijux_pollenomics.adna.projects.registry.localities import (
+    build_species_project_locality_leads,
     resolve_project_locality_leads,
 )
 from bijux_pollenomics.adna.projects.registry.samples import (
@@ -54,7 +55,7 @@ def _archive_rows() -> tuple[list[str], list[dict[str, str]]]:
         delimiter="\t",
     )
     assert reader.fieldnames is not None
-    return reader.fieldnames, list(reader)
+    return list(reader.fieldnames), list(reader)
 
 
 def _archive_text(headers: list[str], rows: list[dict[str, str]]) -> str:
@@ -93,7 +94,9 @@ def test_primary_identity_retains_owners_and_source_comparator_posture() -> None
     assert source["sample_evidence_status"] == "direct_table_extracted"
     assert source["chronology_text"] == "2,300 yBP"
     assert source["political_entity"] == "Kazakhstan"
-    assert "PDF pp.16–17" in source["sample_lineage_locator"]
+    locator = source["sample_lineage_locator"]
+    assert isinstance(locator, str)
+    assert "PDF pp.16–17" in locator
     assert source["latitude_text"] == source["longitude_text"] == ""
     modern = {"Connemara_0004A", "Somali_0226A"}
     assert modern <= {row.preferred_sample_label for row in master.rows}
@@ -157,14 +160,14 @@ def test_same_locality_name_does_not_merge_unknown_and_known_countries(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     bundle = build_species_normalization_bundle("horse")
-    curated = localities.build_species_curated_sample_rows("horse")
+    curated = build_species_curated_sample_rows("horse")
     rows = tuple(
         replace(row, political_entity=None)
         if row.stable_sample_id == "prjeb19970:samea103910520"
         else row
         for row in curated
     )
-    leads = localities.build_species_project_locality_leads(
+    leads = build_species_project_locality_leads(
         tuple(summary.project_accession for summary in bundle.project_summaries)
     )
     known_lead = next(

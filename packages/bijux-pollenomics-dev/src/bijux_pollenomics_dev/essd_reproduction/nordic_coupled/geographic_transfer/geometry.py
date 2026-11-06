@@ -13,6 +13,7 @@ from bijux_pollenomics.analysis.lra_validation.spatial.support import support_se
 
 
 def require(condition: object, message: str) -> None:
+    """Refuse a geographic admission condition with its owning diagnostic."""
     if not condition:
         raise ValueError("Geographic transfer admission: " + message)
 

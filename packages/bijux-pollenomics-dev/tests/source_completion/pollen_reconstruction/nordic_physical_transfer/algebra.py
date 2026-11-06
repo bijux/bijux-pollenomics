@@ -10,11 +10,13 @@ TOLERANCE = Decimal("1e-12")
 
 
 def require(condition: object, message: str) -> None:
+    """Raise the independent physical-transfer diagnostic for a failed condition."""
     if not condition:
         raise ValueError("Independent physical transfer: " + message)
 
 
 def number(value: object) -> Decimal:
+    """Read a finite numeric value as a decimal."""
     require(type(value) in (int, float, Decimal), "finite numeric scalar")
     result = Decimal(str(value))
     require(result.is_finite(), "finite numeric scalar")
@@ -22,6 +24,7 @@ def number(value: object) -> Decimal:
 
 
 def vector(values: Any, *, positive: bool = False) -> list[Decimal]:
+    """Read a nonnegative two-axis vector with optional strict positivity."""
     require(type(values) is list and len(values) == 2, "two-axis vector")
     result = [number(value) for value in values]
     require(all(v > 0 if positive else v >= 0 for v in result), "vector domain")
@@ -29,6 +32,7 @@ def vector(values: Any, *, positive: bool = False) -> list[Decimal]:
 
 
 def count_vector(values: Any) -> list[int]:
+    """Require a positive two-axis integer count panel below the native bound."""
     require(
         type(values) is list
         and len(values) == 2
@@ -40,6 +44,7 @@ def count_vector(values: Any) -> list[int]:
 
 
 def close(values: list[Decimal]) -> list[Decimal]:
+    """Close finite nonnegative values to a positive-total composition."""
     require(
         all(v.is_finite() and v >= 0 for v in values) and sum(values, Decimal(0)) > 0,
         "nonnegative finite positive-total closure",
@@ -50,6 +55,7 @@ def close(values: list[Decimal]) -> list[Decimal]:
 
 
 def inverse(counts: Any, coefficients: Any, ppe: Any) -> dict[str, Any]:
+    """Invert two count axes using positive coefficients and PPE values."""
     n, k, a = (
         count_vector(counts),
         vector(coefficients, positive=True),
@@ -114,6 +120,7 @@ def direct_prediction(sources: list[dict[str, Any]]) -> list[Decimal]:
 
 
 def metrics(prediction: Any, counts: Any) -> dict[str, Any]:
+    """Compute two-axis prediction metrics using decimal arithmetic."""
     p, n = vector(prediction), count_vector(counts)
     require(abs(sum(p, Decimal(0)) - 1) <= TOLERANCE, "closed pollen prediction")
     with localcontext() as context:
