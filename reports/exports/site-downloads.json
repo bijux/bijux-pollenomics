@@ -33,20 +33,20 @@
       "source_sha256": "0e2b36ddda4eb639d618c7b1dda4e2ecd1cf049d6dcf0f0c96992a90ce89a051"
     },
     {
-      "bytes": 51334,
+      "bytes": 52654,
       "canonical_source": "reports/science/hellman-regional-validation-paper.md",
       "path": "reports/exports/papers/southern-sweden-regional-validation.pdf",
-      "sha256": "3db992ad8d093369762ce4e112cafee92e502c5981658c3348c2aa10ac835180",
+      "sha256": "11313be8894bf1800291c94fee01d4089d063dd24bf5f5c5fce5e3556664cf40",
       "site_uri": "assets/science/papers/southern-sweden-regional-validation.pdf",
-      "source_sha256": "a7ac2a189497310267d366e7961e7c963786c074a759f479d6d20ee467de65ab"
+      "source_sha256": "11a1640002b4dd0daafe9286e0552d7f5e0a52221949b6ddff47a65cde80aaea"
     },
     {
-      "bytes": 48468,
+      "bytes": 49657,
       "canonical_source": "reports/science/hellman-sampling-design-paper.md",
       "path": "reports/exports/papers/southern-sweden-sampling-design.pdf",
-      "sha256": "29c0590e2668a342e8545ca81f3bebcdc46db8d905423eba5108a2feec4eb08b",
+      "sha256": "27aee6a5c9b5971574fd01e6f288790dd7d78bf1e6a13f8beb6fd94d37e66d81",
       "site_uri": "assets/science/papers/southern-sweden-sampling-design.pdf",
-      "source_sha256": "e236a3945e51d65457dcd432e99186004d4de9c4543efc13a46755056d3730ef"
+      "source_sha256": "0566598b6e94fd68e4f413dc40f01515bdf2f929bdbb07b96ffa1089ed199289"
     },
     {
       "bytes": 47212,
@@ -76,35 +76,35 @@
       "bytes": 179307,
       "canonical_source": "presentation/big-picture.tex",
       "path": "presentation/big-picture.pdf",
-      "sha256": "f61bcd351261574d2b79cdc2c88548c1241312a7a1487c478eeb1158788a3a1f",
+      "sha256": "1c9d123c4e14118447212955adc921e0f6ec515aaa90a6abc136bef97a786f5e",
       "site_uri": "assets/science/presentations/big-picture.pdf"
     },
     {
       "bytes": 162155,
       "canonical_source": "presentation/developer.tex",
       "path": "presentation/developer.pdf",
-      "sha256": "37790b11fb2514e38d7a971ad3ea1b42215ebe516da6529f827855154997ab0b",
+      "sha256": "427b907d4e1442ac40196b0bb1d5c5ef0609556b83b71c2d87fee6b9d92254ca",
       "site_uri": "assets/science/presentations/developer.pdf"
     },
     {
-      "bytes": 270222,
+      "bytes": 271753,
       "canonical_source": "presentation/scientific-evidence.tex",
       "path": "presentation/scientific-evidence.pdf",
-      "sha256": "11201805a2b67212f5904928447f439b9fd8709446d53c20b62d92a6bac00e24",
+      "sha256": "70eb56cab8e2cb2be30f98910def619d6bfd340e04979d7b7c836d1b162ffd75",
       "site_uri": "assets/science/presentations/scientific-evidence.pdf"
     }
   ],
   "inputs": {
-    "reports/exports/papers/manifest.json": "d4336d9ec79a7b3db9ce6ad2a9f04b6e72c24824d1ca7fa97a51509f3879df6c",
-    "reports/exports/papers/visual-review.json": "ae929f89b5cebb8bdf07aea895ab866c8a44aa6959ed6884ec3b323a08e3e18d",
+    "reports/exports/papers/manifest.json": "64797bf678ccdc4b8e2f5462896bd6200c96ee2a0dbf502a7bf0aee0c080f2bc",
+    "reports/exports/papers/visual-review.json": "ca6d3738950e6e69a103cf8e4b79f6e2f929b45ed10198e4690e090a9752a9dd",
     "reports/science/paper-accounts.csv": "7eddabdca98385713acc11224abc2f5355567d44f9277da88a526dfedc622eb2"
   },
   "schema_version": "scientific-reader-downloads.v1",
   "scope": "Nine canonical paper PDFs and three reviewed audience decks; local site delivery, no publication or independent human endorsement.",
   "deck_build": {
     "schema_version": "git-compiled-deck-inputs.v1",
-    "source_revision": "c9b2047155e999d6a6164b52ec73b5fd95cd31be",
-    "source_date_epoch": 1793385193,
+    "source_revision": "31606e73a89ee00c5f35e3a0747e6d8dbba52da2",
+    "source_date_epoch": 1793980960,
     "inputs": [
       "presentation/big-picture.tex",
       "presentation/developer.tex",
