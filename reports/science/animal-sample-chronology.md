@@ -25,6 +25,424 @@ sample identity before evaluating whether their coordinates are mappable. A
 nearby or missing coordinate cannot establish that they are independent
 specimens.
 
+## Obishir extraction and deposited-sample populations
+
+PRJEB41594's expected biological population remains **unknown** after reading
+the retained primary sources. The [Obishir paper](https://doi.org/10.1038/s41562-021-01083-y)
+assigns shotgun raw files to that project in its final Data Availability section,
+without specifying a closed project sample count. Its Reporting Summary page 2
+selects six best-preserved specimens for genomic sequencing; page 3 describes
+DNA extraction from six teeth, then five samples advanced to deep shotgun
+sequencing. These are distinct analysis-stage populations. The summary's own
+accession statement still contains an upload placeholder and cannot be cited
+as an explicit five-sample project declaration.
+
+The retained complete ENA run report has five runs, five experiments and five
+BioSample aliases, but equality of these captured counts does not establish the
+paper's expected biological denominator or independent individuals. All five
+aliases match their original XML: OB20-01, OB20-06, OB21-04, OB21-06 and OB20-04.
+Four retain native Ovis aries identity; OB21-04 / SAMEA8022722 retains Capra
+hircus and its project-species mismatch. Supplementary Appendix F / Table 7
+also identifies that Capra specimen. We do not call these five sheep or infer
+the identity, failure, duplication or disposition of the additional selected
+entry from the difference between six and five.
+
+The [project master](../../data/adna/governance/source_library/projects/PRJEB41594/sample_master.json)
+now records `source_population_unresolved`, the exact source-stage distinction
+and Reporting Summary locator. Expected and unresolved counts remain null;
+the five recovered/final records, all specimen fields, dates, coordinates and
+the goat mismatch remain unchanged. Reopening requires a source-owned
+specimen-to-analysis-stage crosswalk and a closed project submission roster.
+Archive aliases, library counts and the Reporting Summary's Obishir site/permit
+statement alone do not supply that evidence.
+
+At committed source `8fa209201bb67906699a9ee02112ee92f0059ec7`, the maintained
+one-project consumer and exact header/row comparison passed in 2.07 process
+seconds with 78,331,904 B peak process RSS, within 60 s / 512 MiB / 8 MiB.
+All 6,126 frozen source/input files and HEAD/index remain unchanged; only
+status, provenance and source-locator headers differ. Two existing source-native
+taxonomy controls, scoped lint/format and strict types pass. Independent original
+page/ENA review agrees with the unresolved population decision. The initial
+comparison failed because its wrapper expected `schema_version` inside the
+native `as_dict`; the corrected wrapper uses the existing materializer envelope.
+That failure remains preserved, with no source, data or scientific criterion
+change. Both attempts and the final small product stay under
+`artifacts/root/prjeb41594-population/`. No all-project materializer, chronology
+census, model, atlas or source acquisition ran; aggregate intake/yield views
+were not regenerated. Earlier Obishir dating-caution results remain unchanged.
+
+## Bovine source panels and captured project populations
+
+The [Nature source for PRJEB75467](https://doi.org/10.1038/s41586-024-08112-6)
+explicitly declares **50 new samples** in its supplement, physical page 3
+(printed page 2). Supplementary Data 1, cells A2:AB51, has 50 populated unique
+Analysis IDs. Its literal Species column contains 41 Bos primigenius, eight
+Bos taurus and one Bos admixed labels. Final Data Availability assigns new
+reads and alignment files to PRJEB75467, separately from previously published
+ancient and modern comparison data. This supports a published new-sample
+denominator of 50; it does not establish 50 independent individuals, 50 aurochs
+or a reviewed taxonomic change to the existing archive records.
+
+The retained project snapshot contains **664 runs / 44 BioSamples**. The
+[current master](../../data/adna/governance/source_library/projects/PRJEB75467/sample_master.json)
+has 45 rows, including provisional supplement-only Fre1, and 44 records marked
+final under the existing archive-identity rule. Its expected count is now 50.
+The maintained counter reports six unresolved as **50 expected minus 44 final
+archive-identity rows**, not five from subtracting the 45-row union. That is an
+administrative balance, not six authenticated missing biological individuals.
+
+Six source IDs lack exact captured filename stems: Fife1, Fre1, Narym1, Padova2,
+Shauke8b and Var3. There is also a separate alias ambiguity: SAMEA115574406
+contains both Borly4a and Borlya filenames, while SAMEA115574408 also contains
+Borlya. We preserve every original row and do not turn those filenames into a
+clean one-to-one specimen crosswalk. The supplement restricts the eight named
+ASIAPAST samples BZL1, BZL2, NVL1, NVL3, KOL9, KOL10, ROS001 and ROS002 to
+non-commercial use. This source-count curation grants no additional data-use
+permission or genetic-analysis admission.
+
+The separate [Science supplement for PRJEB31621](https://doi.org/10.1126/science.aav1002)
+supports **66 ancient source IDs** in Table S1, pages 55–57. CPC98 is explicitly
+previously published and enters the broader analysis in Table S2; Table S6,
+page 68, separates nine modern genomes attributed to this study from 14 reused
+genomes. The retained article HTML is a PubMed landing-page capture, not the
+full Science article. Its 67-genome abstract is not a project deposition census.
+
+The retained PRJEB31621 snapshot has **364 runs / 77 BioSamples**. Its
+[78-row master](../../data/adna/governance/source_library/projects/PRJEB31621/sample_master.json)
+is a union of 65 ancient-source/archive joins, twelve archive-only owners and
+provisional supplement-only Men1. All 77 archive owners remain present.
+Sixty ancient joins use literal filename prefixes and five use explicit library
+aliases. The supplement identifies Men1 as `JK95-7-3-166-180('97)d`; it does not
+bind that specimen to archive MV013 / SAMEA5577376 and its 24 runs. The nine
+modern ERS identifiers likewise lack a retained ERS-to-SAMEA crosswalk and
+closed project/reused-data inclusion decision. Expected and unresolved project
+population therefore remain null, now with precise source-population provenance
+rather than a generic weak-capture explanation. The 66, 67, 77 and 78 counts
+describe different populations.
+
+At committed source `8fe41f69d700a23eb30bdc6bd296d25fa399cdcb`, both maintained
+project-master consumers and exact saved-row comparisons passed on their first
+attempt in 2.15 process seconds, peak process RSS 89,784,320 B, within
+60 s / 512 MiB / 8 MiB. All 6,126 frozen source/input files and HEAD/index stay
+stable. PRJEB31621 changes three diagnostic headers; PRJEB75467 changes five
+count/provenance headers. All 123 existing rows, provisional identities, native
+taxa, dates, coordinates and source lineages remain exact. Two existing source
+controls plus six project subtests and scoped lint/format/strict types pass.
+Independent original PDF/workbook/ENA reviews distinguish these populations.
+Products and guards remain under `artifacts/root/bovine-project-populations/`.
+No global materializer, chronology census, model, map or source acquisition ran;
+aggregate intake/yield views were not regenerated. Full named-project identity
+recovery and biological/scientific acceptance remain open.
+
+## Felid genome panels and project populations
+
+The [Science cat study](https://doi.org/10.1126/science.adt2642) reports 70
+ancient and 17 present-day/museum genomes in its deep-sequenced cohort. Tables
+S3 and S4 enumerate those 87 owners: S3 has 70 distinct ancient CatIDs across
+98 sequencing/resequencing rows, and S4 has 17 modern/museum entries. Its methods
+also describe 225 ancient remains processed and shallow-sequenced before deep
+selection. Data Availability and MDAR page 2 assign genomic FASTQ data to
+PRJEB81815 without limiting submission to the 87 published genomes. We therefore
+keep the [project expectation](../../data/adna/governance/source_library/projects/PRJEB81815/sample_master.json)
+**unknown**. The 87 recovered rows, 84 final identities and three ambiguities
+are captured counts, not a closed biological project census. The conflicts
+`778_Fss`/`778_Fsl` (SAMEA120246597), `779_Fss`/`779_Fsl` (SAMEA120246598) and
+`BG05`/`BG5` (SAMEA120246599) remain. An initial review recommendation to use 87
+was rejected before adoption because it conflated deep selection with deposition.
+
+The separate [China felid study](https://doi.org/10.1016/j.xgen.2025.101099)
+explicitly describes **22 newly collected ancient felid bones**, seven nuclear
+and 22 mitochondrial genomes. The retained full article is supplementary
+`1-s2.0-S2666979X25003556-mmc8.pdf`, not the redirected article HTML: physical
+page 15 (printed e2) describes sampling and page 9 binds FASTQ to PRJNA1178732.
+Workbook `mmc3.xlsx`, sheet A rows 4–25, enumerates the same 22 distinct FSIDs
+as the [current master](../../data/adna/governance/source_library/projects/PRJNA1178732/sample_master.json).
+FS12 resequencing supplies no additional specimen. This supports expected,
+recovered and final counts of 22 and an administrative unresolved count of zero.
+It does **not** establish native accession-to-FSID joins: existing blank native
+IDs stay blank. Fourteen source Felis catus, seven Prionailurus bengalensis and
+one literal Felis ornata are not 22 domestic cats; the article's ornata-or-bieti
+interpretation and biological independence remain unresolved. Comparison sheets
+are outside the newly collected population.
+
+## Pig, sheep and camel deposition scopes
+
+For [PRJEB30282](https://doi.org/10.1073/pnas.1901169116), the retained article's
+Data Availability (`fn8`) assigns ancient and modern reads without a numerical
+project roster. The captured **632 runs / 343 BioSamples** partition exactly
+into 320 archive-selected Dataset S1 lab codes and 23 Dataset S2 modern
+`this_study` accessions (rows 2–24); the 116 reused S2 entries do not overlap
+those accessions. The broader S1 has 2,322 populated lab-code rows / 2,321
+distinct codes, including the repeated LG370 rows A980 and A1657. Its 597
+positive-read rows include 277 outside the captured 320; those are not
+automatically missing deposits. The study's 2,099-member analysis, 557 new
+mitochondrial genomes (230 PCR / 327 NGS) and 63 nuclear genomes use different
+units. The [343-row pig master](../../data/adna/governance/source_library/projects/PRJEB30282/sample_master.json)
+therefore retains null expected/unresolved counts. The 23 modern accession
+subgroup is closed; the ancient deposition population still needs a
+source-owned specimen/extraction/submission roster.
+
+For the [PRJEB36540 sheep study](https://doi.org/10.1038/s42003-021-02794-8),
+the retained file named `article.pdf` is HTML. Its methods and Data Availability
+distinguish **180 archaeological bones/teeth**, 29 Illumina sample owners plus
+negative controls, four selected nuclear genomes and 91 mitochondrial
+assignments. FASTQ belongs to PRJEB36540, Sanger sequences to GenBank
+MT321187–MT321260, and reused Obishir data to PRJEB41594. Supplementary Data 1
+has 180 numbered specimens; Data 2 has 29 distinct SampleIDs across repeated
+capture/sequencing representations. The [190-row union master](../../data/adna/governance/source_library/projects/PRJEB36540/sample_master.json)
+contains the 180 Data 1 rows and ten Data 2-only labels. The five captured ENA
+BioSamples are another population, not the expected total. `TEP5` and `TEP05`
+have different excavation tokens and are not automatically merged. Expected
+and unresolved project counts stay null pending assay/deposition scope and
+cross-table specimen identity. Turkish specimen-use/export restrictions remain.
+
+For [SRP073444](https://doi.org/10.1111/1755-0998.12551), the retained full ENA
+report already has **107 runs / experiments / BioSamples**, mirrored under
+PRJNA317727. Its exact author-label/treatment multiset matches original Table
+S3: 63 DSL-capture rows (physical rows 3–65), eight TD rows (67–74), 21 paired-end
+shotgun rows (76–96) and 15 single-end shotgun rows (98–112). These 107 technical
+representations cover **63 author labels**: 28 appear once, 26 twice and nine
+three times. They are not 107 independent camels. Table S1 instead enumerates
+77 sampled IDs: 54 ancient domestic, 22 wild dromedary and one Camelus thomasi.
+Deposited labels cover 42 domestic and 21 wild IDs; the other 14 S1 entries
+cannot simply be declared missing biological deposits.
+
+The native SRA capture explicitly says items 1–20 of 107. Accordingly, the
+[current master](../../data/adna/governance/source_library/projects/SRP073444/sample_master.json)
+contains only 20 accessions / 19 author labels, with 18 final identities and
+the two Palm143 ambiguities described below. A complete technical roster is
+available locally; the unresolved fact is which denominator and
+accession-to-extraction-to-specimen correspondence governs the biological
+project expectation. It remains null, along with unresolved count. Neither
+20, 63, 77 nor 107 is substituted into that field. No new acquisition or
+automatic collapse of the two Palm143 BioSamples is justified by this review.
+
+At committed consumer source `1e216e238b93089be7459543b2c9ac9beb7c0777`, all five
+maintained project-master consumers passed on their first attempt in 2.90
+process seconds, peak process RSS 144,211,968 B, within 60 s / 512 MiB / 8 MiB.
+All 6,127 frozen code/source/input files and HEAD/index remained stable. The
+**662 existing rows are unchanged**. Four projects change three diagnostic
+headers; PRJNA1178732 changes five count/provenance headers. Native UTF-8/EOF
+representation is preserved. Five existing source/taxon/recovery controls,
+four scope-precedence checks and scoped lint/format/strict types pass; five
+earlier population profiles remain unchanged. Independent original article,
+supplement and accession reviews support the scope distinctions. Camel DOCX
+members were streamed in place without copying the 170,976,839-byte document.
+Actual products and source freeze remain under
+`artifacts/root/source-population-review/native-consumers/`; source reviews
+remain under the corresponding `artifacts/covariance-observer/` and
+`artifacts/wetland/` project-population directories. No global materializer,
+chronology census, model, map, genotype analysis or source acquisition ran.
+Aggregate intake/yield views and all biological/scientific admissions remain
+unchanged. A balanced source-label count does not establish specimen independence.
+
+## Identified owners without dates and newly sequenced prior samples
+
+Two source-selection rules previously omitted identified owners. The Canary
+[goat supplement](https://doi.org/10.1016/j.isci.2025.113771), Table S2 row 22,
+records PGULL-2131 / library LLD-1388 from Tubo Volcánico–Los Roques de García,
+Tenerife. Its chronology cell contains literal `-`. Table S1 row 91 separately
+identifies it as goat, sequenced and included. Requiring a cleaned date to retain
+its identity dropped this owner. The corrected projection retains its source
+label, locality and coordinate tokens, with empty chronology and native IDs.
+Its source excerpt preserves the dash. This adds one source owner to the
+[Canary master](../../data/adna/governance/source_library/projects/PRJEB90261/sample_master.json),
+73 to 74, without supplying a dated observation or an accession crosswalk.
+The supplements' 190 screened remains, 174 sequenced entries, 77 included
+entries and 74 mtDNA-table owners remain distinct. The retained article HTML
+is a redirect; whole-project expected and unresolved counts remain null.
+
+The [Nature horse study](https://doi.org/10.1038/s41586-021-04018-9) describes
+264 sequenced ancient specimens, including 16 with additional sequencing of
+previously reported data. Nine reused-only ancient genomes bring its analysis
+to 273. SI Table 1 column O partitions those rows into 248 `this study`, eight
+`this study + Fages et al. (2019)`, eight `this study + Gaunitz et al. (2018)`
+and nine prior-only entries. The old equality filter admitted only the first
+category. The corrected projection admits exactly the three newly sequenced
+categories and keeps the nine reused-only rows outside this project's master.
+This recovers 16 project-associated source owners, not 16 newly independent
+animals. Every added owner has an exact native submitted-filename/BioSample
+join. All 248 prior rows remain exact, including CAR05_Hun_m2458's blank native
+accession: the archive's CAR05_Hun_m3130 filename does not authorize an age-suffix
+alias or date correction. The [current horse master](../../data/adna/governance/source_library/projects/PRJEB44430/sample_master.json)
+therefore has 264 rows, 263 with native accession joins, with prior-publication
+overlap preserved in their source excerpts. Expected/unresolved project counts
+remain null rather than claiming an exhaustive screening population.
+
+All 16 added `AgeEstimate (BP)` cells in source column M are shared-formula
+followers with stored numeric caches. The projection preserves the source
+cached-age interpretation; it does not evaluate the formulas or create a new
+radiocarbon calibration, date convention or independent chronology. The
+independent observation retains each formula's attributes and cached token.
+Native formula cells in technical columns X/Y are outside the selected
+identity/date/GPS/publication fields.
+
+At committed source `d6c545c3ac3b1304d9535e4a6409e4511bb3a705`, the two maintained
+native consumers passed on their first attempt in 2.47 process seconds, peak
+RSS 167,395,328 B, within 60 s / 512 MiB / 8 MiB. All 6,128 frozen code/source/
+input files and HEAD/index remained stable; all 321 existing rows remain exact,
+with only these 17 owners added. Proposed JSON and CSV outputs use the existing
+materializer serializers. Fourteen targeted selection/interface/source checks
+and scoped lint/format/strict types pass. The independent goat source observer
+passed in 0.22 s / RSS 62,406,656 B, confirming all 74 original table owners,
+the 73 unchanged rows and the single undated addition. The independent horse observer passed in 0.39 s / RSS 68,304,896 B, confirming
+all 248 complete prior rows and their order, exactly 16 additions, nine reused-only
+exclusions and unchanged CAR05 accession refusal. Two earlier observer failures
+remain: one rejected legitimate formula cells before row comparison; the next
+found a single trailing-space presentation mismatch in source C68. Read-only
+comparison of all 16 owners and every field established that mismatch alone;
+the corrected observer retains the original literal cell and compares its
+edge-trimmed presentation, preserving internal whitespace and combining Unicode.
+Neither correction changed the producer, source bytes, date caches or scientific
+criteria. Source-free observer controls pass (21 goat / 37 horse checks).
+Actuals remain under
+`artifacts/root/source-owner-recovery/` and the respective
+`artifacts/covariance-observer/prjeb90261-population/` and
+`artifacts/wetland/prjeb44430-population/` observer directories.
+
+This is source-owner recovery. The project and species followthrough below
+now carries these 17 owners into normalized metadata. Earlier global chronology
+reviews and map/index layers retain their previous producing epochs and do not
+yet include them. No new dates, access rights, biological independence,
+ecological events or scientific endorsement follow.
+No global materializer, normalization writer, chronology census, model, map,
+index, genotype analysis or source acquisition ran for this result.
+
+## Sample-owned chronology after source recovery
+
+The two project evidence sets and the affected goat/horse normalized exports
+now include the recovered owners. All **628 existing normalized sample records**
+remain exact. Goat records increase from 78 to **79**, horse records from 550 to
+**566**; the two species now contain 645 source records. Their eight and nine
+normalization refusals remain unchanged. These are source/project records,
+including known publication overlap, not 645 independent animals or additional
+pollen observations.
+With the other species unchanged, the stored normalized foundation increases
+from 1,464 to 1,481 source records. This read-only export accounting does not
+refresh the earlier global chronology, atlas or index products.
+
+The [Canary project](../../data/adna/governance/source_library/projects/PRJEB90261/sample_chronology.json)
+has 74 sample-owned site/locality/chronology/provenance packets and 23 locality
+worksheet rows. The [horse project](../../data/adna/governance/source_library/projects/PRJEB44430/sample_chronology.json)
+has 264 packets and 119 worksheet rows. Across all their projects, the two
+species have 24 and 244 locality summaries. PGULL-2131's three normalized age
+bounds remain null, its date/native accession stay empty, and its chronology
+evidence and precision remain unresolved. Its new locality contributes an
+explicit undated child support; no locality or publication year supplies a date.
+
+The sixteen horse additions create five source locality groups and extend
+Botai by four owners, Halvai by two and Tepe Hasanlu by five. Site-context date
+text clears when it can no longer represent every member: Hasanlu's three
+previous members shared 2718 BP, whereas its eight members now have source ages
+2613, 2718, 2740, 2818, 2828 and 2863 BP. Halvai's two previous members shared
+3806 BP; its four members now include 3806, 3845 and 3905 BP. The two context
+records' outer time bounds remain null and dating basis unknown. Individual
+dates never change. This suppression affects the corresponding site-evidence
+and coordinate-provenance context fields, not sample chronology.
+
+Hasanlu's representative provenance changes from the original SI Table 1 row 15
+(Hasanlu2327 / SAMEA9533260) to the newly included first row 14 (Hasanlu1140 /
+SAMEA9533259). All eight members share the same source coordinates
+37.004486 / 45.458817. Only the aggregate source locator/excerpt follows that
+representative; this selects neither a different location nor a new date.
+
+The existing writer upgrades the horse locality export envelope to its maintained
+v2 contract. All 239 earlier horse locality groups retain their source values,
+with explicit display-only chronology roles and exact sample-owned child
+packets. Only the three expanded groups change their coverage hulls. New or
+expanded hulls remain display summaries: they do not replace child intervals,
+fill disjoint gaps or create observations. JSON and CSV retain their owning
+serializers, including the explicit lowercase boolean representation for
+normalized `comparator_context`; missing dates remain distinct from zero.
+
+At committed source/data `7350f4b9f71235cf65c436d41809313acfd9d4eb`, the bounded
+native consumer produced exactly **46 files / 17,819,821 bytes** in 11.86 process
+seconds, peak process RSS 283,590,656 B, within 180 s / 768 MiB / 32 MiB total
+outputs. All 6,574 frozen code/source/data/link entries and HEAD/index stayed
+stable through producer and independent observation. The independent saved-output
+observer passed in 0.98 s, RSS 146,014,208 B, within 180 s / 512 MiB / 8 MiB;
+its receipt explicitly lists the aggregate, schema and representation differences
+above. Sixty-one synthetic observer controls pass. Eleven existing normalization,
+source-recovery and sample-owned locality checks pass, along with scoped
+lint/format/strict types. Installation copies only the qualified 46 outputs,
+without rerunning their producers.
+
+The first native comparison stopped because it compared in-memory tuple lineage
+with baseline JSON lists. Its 28 completed project outputs remain retained.
+A narrow diagnostic and independent JSON reading establish that all 78 prior
+goat records were already identical when serialized. The corrected orchestration
+uses the existing native JSON representation, without changing source values,
+criteria or production code. Two observer failures also remain: an incorrect
+per-row schema-version assumption, then a boolean CSV spelling assumption.
+Only observer shape/serialization handling changed. All original scripts,
+products, resource records and failed logs stay under
+`artifacts/root/source-owner-followthrough/` and
+`artifacts/covariance-observer/source-owner-followthrough/`.
+
+The canonical project dossiers now record the added undated chronology obligation.
+Their work-item totals sum missing, ambiguity and conflict flags; they do not
+count distinct specimens or independent observations.
+No source acquisition, all-project materializer, model, genetic analysis, map or
+index writer ran. The earlier global chronology review and map/index products
+still describe their original qualified populations. Their consequential
+followthrough remains separate from this completed project/species metadata
+result, and biological, field, rights and independent-review acceptance stay open.
+
+## Qinghai contextual ages and radiocarbon evidence
+
+The [Qinghai goat supplement](https://doi.org/10.24272/j.issn.2095-8137.2025.080)
+qualifies four dates that the generic importer previously labeled direct
+radiocarbon measurements. Table S2 cells R3, R4, R5 and R7 contain the literal
+`3480 – 3580a`, belonging to **DC23, DC27-HE, DC40 and DC48-1**. Footnote A8
+explicitly says that marked specimens were not directly radiocarbon dated and
+that their assigned dates come from archaeological context. The unmarked
+DC47_4HE cell R6 remains a separate source assertion.
+
+The source-specific parser now retains the marked age and A8 explanation in
+provenance, with explicit archaeological-context basis, `archaeological_context_date`
+evidence and `contextual_interval` precision. The
+[project chronology](../../data/adna/governance/source_library/projects/PRJNA1328209/sample_chronology.json)
+and its provenance expose `numeric_interval_with_caveat` comparability for
+those four owners. If a marked value lacks its explanatory footnote, the parser
+keeps its evidence unresolved rather than inferring direct radiocarbon support.
+This is a source-qualifier correction, not a new dating or calibration procedure.
+
+All five identifiers, native-accession blanks, coordinates, taxa and numeric
+ages remain unchanged: **3480–3580 BP, retained mean 3530**. The unmarked DC47_4HE
+master and normalized row are completely unchanged. The other 75 normalized
+goat records also remain exact, including undated PGULL-2131. Locality membership
+and coverage bounds stay fixed; four child packets now carry the contextual
+evidence and source caveat. Shared archaeological context does not supply four
+independent radiocarbon observations. The existing test that called DC23 direct
+was corrected against the original footnote, rather than treating its old
+expectation as scientific authority.
+
+At committed source `1877db1946e9ce60911ac51bcb59d2df44686e0b`, the native
+25-product consumer passed on its first attempt in **10.27 process seconds**,
+peak process RSS **276,463,616 B**, within 60 s / 512 MiB / 8 MiB. Its candidate
+contains 1,634,724 bytes; 21 files differ and four remain identical. All 6,577
+frozen code/source/data/link entries and HEAD/index stayed stable through the
+producer and final input guard. The independent literal-XML/saved-output observer
+completed with a verified result in **0.47 s / RSS 40,714,240 B**; it authenticates
+the original 42,068-byte workbook, the four exact marked cells and A8, complete
+owner/value preservation and the 25 output identities. Twenty source-free
+observer controls and seven relevant parser/normalization/interface checks
+pass; configured lint, format and strict types pass for all three code/test
+files. The observer finished and saved its verification before its agent turn
+reported a capacity error; the existing completed result was collected without
+another observer run.
+
+Source/workbook SHA-256 is
+`b0aded81cd60083c3e387dc8edebf3c3a5fd24bde06a5b55fd266bec8b85378f`.
+The independent result SHA-256 is
+`6907257a8255c6ffdd2a8da03ec1f5a944dbdbd488b89ef17cbe43aee4f875d8`.
+Actuals and installation readback are under `artifacts/root/qinghai-context-dates/`
+and `artifacts/covariance-observer/qinghai-context-dates/`. Only the qualified
+changed outputs are installed. Raw sources and selected ages remain unchanged. No genetic analysis, model,
+map, index or acquisition ran. The pending current
+global chronology/atlas consumer must carry these four caveats together with
+the 17 recovered owners; older global products retain their producing scope.
+
 ## Baltic sheep source population
 
 The primary article for PRJEB59481 (DOI [10.1093/gbe/evae114](https://doi.org/10.1093/gbe/evae114)) explicitly assigns five new ancient individuals to this project. Its five Table 1 labels join five distinct official ENA BioSamples; comparison genomes reused by the paper are outside that project-owned population. The governed project master now records five expected and five recovered individuals, with zero unresolved count. This is identity-recovery accounting: all five sample rows, chronology/site/locality fields and five material-evidence conflicts remain unchanged. It establishes neither analytical admission nor a resolved material or chronology decision.
@@ -783,25 +1201,25 @@ accession requires source evidence that resolves its physical specimen identity.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** All 260 horse source identities and native elapsed-age tokens are preserved; 250 unsupported BP intervals are refused. The PRJEB31613 provenance consumer additionally preserves 1,960 labeled source-date cells for 245 owners and separately accounts for 54 signed-calendar alternatives against the source-defined 2017 reference: 18 equal numeric D coordinates, 35 different and one range left uncomputed. All 191 blank alternatives and every selected chronology remain unchanged. Generic direct radiocarbon evidence and precision remain refused; Palm143 identity refusal is retained. Separate Galician curation exposes eleven sample-owned supplement rows as 110 literal typed cells, with radiocarbon, calibrated-BP, calendar and locality fields kept distinct. Palm143 source curation distinguishes one author Table S1 sample/find row from capture and shotgun technical representations across two BioSamples, without selecting physical specimen identity. The Baltic sheep source explicitly binds five project-owned individuals; administrative expected/recovered accounting is five/five. Four PRJEB90141 comparator keys/five candidate accessions retain ambiguous identity, with literal alternatives and every source date/coordinate preserved; modern VarGoats reference genotypes and ancient imputed data are distinct source roles. Source-specific Obishir AA-114607 stratigraphic warning now reaches one owner conflict/review fields and exact temporal provenance. Sheep export preserves200samples/3refusals/9localities with200individual chronology supports; locality hulls are display-only and never replace sample dates. Capra exports now label 23 coverage hulls as display-only while preserving all 78 specimens, 78 owned chronology packets and eight refusals. Atlas locality admission and occurrence filtering now use exact sample-owned support; current actual saved-layer/map/runtime qualification now passes in its stated scope.
+**Supported claim.** All 260 horse source identities and native elapsed-age tokens are preserved; 250 unsupported BP intervals are refused. The PRJEB31613 provenance consumer additionally preserves 1,960 labeled source-date cells for 245 owners and separately accounts for 54 signed-calendar alternatives against the source-defined 2017 reference: 18 equal numeric D coordinates, 35 different and one range left uncomputed. All 191 blank alternatives and every selected chronology remain unchanged. Generic direct radiocarbon evidence and precision remain refused; Palm143 identity refusal is retained. Separate Galician curation exposes eleven sample-owned supplement rows as 110 literal typed cells, with radiocarbon, calibrated-BP, calendar and locality fields kept distinct. Palm143 source curation distinguishes one author Table S1 sample/find row from capture and shotgun technical representations across two BioSamples, without selecting physical specimen identity. The Baltic sheep source explicitly binds five project-owned individuals; administrative expected/recovered accounting is five/five. Four PRJEB90141 comparator keys/five candidate accessions retain ambiguous identity, with literal alternatives and every source date/coordinate preserved; modern VarGoats reference genotypes and ancient imputed data are distinct source roles. Source-specific Obishir AA-114607 stratigraphic warning now reaches one owner conflict/review fields and exact temporal provenance. Sheep export preserves200samples/3refusals/9localities with200individual chronology supports; locality hulls are display-only and never replace sample dates. Capra exports now label 23 coverage hulls as display-only while preserving all 78 specimens, 78 owned chronology packets and eight refusals. Atlas locality admission and occurrence filtering now use exact sample-owned support; earlier saved-layer/map/runtime qualification now passes in its stated scope. PRJEB41594 source inspection distinguishes six selected/extracted specimens from five advanced deep-shotgun samples and five retained archive aliases; expected/unresolved biological counts remain null, with explicit source_population_unresolved provenance. PRJEB75467 expected population is50source-declared new samples, separate from44captured BioSamples/45masterrows; administrative unresolved count6 retains Fre1 and alias ambiguities. PRJEB31621 distinguishes66ancient sourceIDs/77archiveowners/78unionrows and keeps project expected populationnull. Five source reviews preserve all662masterrows. PRJNA1178732 explicitly enumerates22new mixed-felid source labels; expected/recovered/final22 and administrativeunresolved0 do not establish native accession joins or biological independence. PRJEB81815 published87deepgenomes follows225ancientremains processed; PRJEB30282 captured343 partitions320ancient-table codes+23newmodernaccessions; PRJEB36540 union190 combines180specimenrows+10assay-onlylabels. Those project expectations remainnull. SRP073444 retained107technicalrepresentations match originalTableS3 across63authorlabels; current20accession subset/19labels is not the complete107. Its biological expectation and bothPalm143identityrefusals remainnull/unresolved. Two corrected source-selection rules recover one undated Canary goat and sixteen horse owners with new sequencing plus prior publication data. All321 existing master rows remain exact in JSON and CSV; proposed totals74/264 preserve null expectations. The nine reused-only horse rows stay outside this project. All16 added horses have exact native filename joins; existing CAR05 accession refusal remains unchanged. Their AgeEstimate(BP) values are stored formula caches, not new computed dates. Qualified project/species followthrough now retains all628 old normalizedsampleJSONs and adds17sourceowners:79goat/566horse,24/244localities,8/9normalizationrefusals unchanged. The installed ten-species normalized foundation is1481records(previous1464+17), a source-record total rather than independent animals or pollen observations. PGULL remains undated withblanknativeID; horse overlap/refusals persist. Context dates clear only where Hasanlu/Halvai groups become heterogeneous; outercontexttimebounds remainnull. Legacy239horse localitygroups gain existingdisplay-onlyroles/exactchildpackets; only3expandedhulls changecoverage. QinghaiDC23/DC27-HE/DC40/DC48-1 retain theoriginal TableS2R3/R4/R5/R7 age-marker andA8not-direct-radiocarbon explanation, witharchaeological_context_date/contextual_interval andnumeric_interval_with_caveat. Allfive identities/coordinates/taxa/nativeblanks/3480–3580BP/mean3530 stayexact; unmarkedDC47_4HE entiremaster/normalizedrow remainsunchanged. All75othergoatrecords exact; parenthull/membershipfixed andfourchildcaveats explicit.
 
-**Unsupported claim.** A universal 67-year shift, calibrated BP, or per-row direct radiocarbon support from the imported mixed elapsed-age field; distinct physical identity for both Palm143 BioSamples; ecological events. The four comparator keys do not authenticate distinct selected specimens, and current project hierarchy does not authenticate historical export routing or genotype availability.
+**Unsupported claim.** A universal 67-year shift, calibrated BP, or per-row direct radiocarbon support from the imported mixed elapsed-age field; distinct physical identity for both Palm143 BioSamples; ecological events. The four comparator keys do not authenticate distinct selected specimens, and current project hierarchy does not authenticate historical export routing or genotype availability. Neither 87deepgenomes, 343capturedpigBioSamples, 180sheepbones/29Illuminaowners, nor107cameltechnicalentries establish independent biological project totals. A balanced22FSID count does not authenticate native accession mapping, domestic-cat-only taxonomy or specimen independence. These seventeen additional project owners do not establish seventeen independent animals, new calibrated dates, ecological events, field validation or a newly qualified current atlas. Blank PGULL chronology/native IDs and CAR05 suffix ambiguity remain. The fourmarked contextdates are notfourdirect orindependent radiocarbon observations. This is notnewdating, calibration, genotypeanalysis orqualifiedfield/reviewer acceptance; preserve theunmarked fifthrow asaseparateexisting source assertion.
 
-**Actual verification performed.** The alternative consumer ran at d9a4ea9a3653cd6c07a0f924e1259b5ccac8eede, session 80537 exit zero: all 54 source midpoint/offset equations hold, all 245 owners and 191 blank refusals reconcile, and all 1,475 previous packets and selected fields remain unchanged. The independent DOM/rational saved-result and original literal observers passed three tests at 547d24718cca48d8deaa2e00b0441d3b2418139f, session 75988, confirming all alternative/source counts and unchanged packets. The producer’s initial wrapper-comparison failure and same-source correction are retained above. The horse source-field consumer and independent raw-XML test ran at a1f04506dd1a26ea63cda0f2c3526814629fc995, both exit zero: all 245 source owners/1,960 date cells agree, with 1,475 old provenance packets unchanged and no new field on the other 1,230. No map or selected-age writer was rerun for this source-field result. Earlier actual owned source and dependent-data consumers, three qualified map surfaces and five paired final/public/governance owners returned; baseline drift was zero and immutable source/country/map inputs were preserved. World/Europe actual returned predecessor stages were retained with the CSS-only renderer; Nordic was freshly published. The index did not rerun. The Galician optional consumer ran at 85de3133f, exit 0 in 2.30 s, producing a 19905-byte context table. An independent DOM source check confirms all 110 cells, original header/unit/type/style/value/blank/formula states and exact eleven crosswalk rows.Fifty controlled tests plus the native default-writer exact-byte test pass, with configured lint/types. Original default report/species CSV remain unchanged. Original nested DOCX was streamed in place without materializing its 170976839 bytes; only document.xml and retained primary HTML were read. Independent literal-layout checking confirms the ten non-sequence header/target cells and four author-label occurrences, including a physically present empty WGSS cell. Original ZIP identity and both identity refusals remain unchanged. Actual reading .42 s/RSS75464704 B; separate layout check .29 s/RSS81756160 B; the actual report render and 24 reader controls pass. The Baltic one-project consumer at 92b5042fc3dd327c7ea42445044610a9bb905b9c passed: exactly five master header fields differ, all five rows and 18 guarded inputs are unchanged, and five material conflicts remain. No global completeness or intake view was regenerated. The later 48-file goat source candidate at 83bb2e81e passed exact support/input checks in 2.209 s; the matched saved global review at 6e68f1a9d changed only four identity/provenance rows. The full three-scope producer at 04f1c4857 passed in 266.419 s/RSS4658364416 B, with all2617 guarded inputs stable and original budgets unchanged. The independent actual Nordic JavaScript index observer passed in30.51 s/RSS1320927232 B: all275094 logical entries and35103623 postings memberships match the independently authenticated original. Seven current source/map/evidence regressions pass in38.94 s. Earlier failed attempts are retained; no full browser, query-latency, new dating or biological review claim. At e9aff4a34 actual chronology producer11.02s/RSS262864896B/37254885generatedB and independent1.69s/RSS151863296B verify260products/1475owners, exact1Obishir note delta and explicit unrelatedhorse additions left uninstalled; source/code/index guards pass. The first exact Markdown-header observer refusal is retained; only two ordinary header lines admitted on readback, products unchanged. Supplied-population public reader changes only two notes on this owner and preserves aggregates/authored body; original whole-page/footer assertion failure retained. At7053f6edc actual sheep producer3.10s/RSS84983808B and independent1.67s/RSS30556160B verify all200sample identities/fields (one caution),3refusals,9locality identities/coords/bounds,200owned support joins and4export pins;4542Python/1677source guards stable. Twelve source-caution and seven hull controls plus configured lint/format/types pass. No calibration/model/map/new source. At bba372a6f1745b89d7afae20041f54dfa145491c the actual single-species builder and native exporters pass in 3.23 s, 96,960,512 B RSS, 2,194,072 B final output. Same-epoch independent readback passes in 2.63 s, 38,404,096 B RSS, 2,594 B output: 78 specimens, 23 localities, 78 supports and eight refusals exact, with only 69 aggregate-label changes per format. All 4,584 Python files, 1,681 animal inputs, 259 actual opened resources, two descriptors and source epoch remain stable. Two observer contract errors are retained: an absent optional Python import ZIP probe and expected uppercase CSV boolean. Explicit recorded runtime adapters correct only those metadata expectations without producer retry, product edit or numerical change. Data ab43e5188 and durable observer fix 2f4f3b83c preserve all other source fields; 67 observer controls and 135 combined locality/Python/JavaScript controls pass, with configured static checks. The saved-source core taxon/scope regression passes with 3,124 consumed core/data files stable. At a18530b54738b71dfef4d69becaf56ae7ecc4827 the actual saved-animal producer and independent observer first pass preserve all1464 owners:324 mapped in163 features and1140 reasoned exclusions; all4729 tracked package files/1681 animal inputs/101 opened resources/194 discoveries remain stable. Two newly visible horse localities retain six original owners (Hyena's Lair contextual, Yana only its supported child date); no dates are invented. World126 timed-admitted/37 contextual features retain225 child intervals and60 disjoint gaps. The necessary three-scope map producer first passes327.244s/RSS4992991232B/126381319 generatedB within600s/8GiB/192MiB;7181 inputs/2325 actual reads and source epoch are stable. Independent decoded scientific preservation and all three current packaged JavaScript factories first pass in65.517s aggregate within180s, with all unrelated records and319 retained source nodes exact. Nordic275094 search entries/35103623 posting memberships match a fresh full-document equality bridge to authenticated prior proof, followed by actual new-wire JavaScript restoration. Current served World Chromium closure first passes22 cases in2.718s/full-process-treeRSS1236041728B:18 source-backed cases/four explicit synthetic controls,25 served files,zero runtime errors and restored UI state. Site5070 retains its0–10000BP display envelope; the0BP point is explicitly synthetic. No query-latency, fullUI, new source census, field or biological admission claim.
+**Actual verification performed.** The alternative consumer ran at d9a4ea9a3653cd6c07a0f924e1259b5ccac8eede, session 80537 exit zero: all 54 source midpoint/offset equations hold, all 245 owners and 191 blank refusals reconcile, and all 1,475 previous packets and selected fields remain unchanged. The independent DOM/rational saved-result and original literal observers passed three tests at 547d24718cca48d8deaa2e00b0441d3b2418139f, session 75988, confirming all alternative/source counts and unchanged packets. The producer’s initial wrapper-comparison failure and same-source correction are retained above. The horse source-field consumer and independent raw-XML test ran at a1f04506dd1a26ea63cda0f2c3526814629fc995, both exit zero: all 245 source owners/1,960 date cells agree, with 1,475 old provenance packets unchanged and no new field on the other 1,230. No map or selected-age writer was rerun for this source-field result. Earlier actual owned source and dependent-data consumers, three qualified map surfaces and five paired final/public/governance owners returned; baseline drift was zero and immutable source/country/map inputs were preserved. World/Europe actual returned predecessor stages were retained with the CSS-only renderer; Nordic was freshly published. The index did not rerun. The Galician optional consumer ran at 85de3133f, exit 0 in 2.30 s, producing a 19905-byte context table. An independent DOM source check confirms all 110 cells, original header/unit/type/style/value/blank/formula states and exact eleven crosswalk rows.Fifty controlled tests plus the native default-writer exact-byte test pass, with configured lint/types. Original default report/species CSV remain unchanged. Original nested DOCX was streamed in place without materializing its 170976839 bytes; only document.xml and retained primary HTML were read. Independent literal-layout checking confirms the ten non-sequence header/target cells and four author-label occurrences, including a physically present empty WGSS cell. Original ZIP identity and both identity refusals remain unchanged. Actual reading .42 s/RSS75464704 B; separate layout check .29 s/RSS81756160 B; the actual report render and 24 reader controls pass. The Baltic one-project consumer at 92b5042fc3dd327c7ea42445044610a9bb905b9c passed: exactly five master header fields differ, all five rows and 18 guarded inputs are unchanged, and five material conflicts remain. No global completeness or intake view was regenerated. The later 48-file goat source candidate at 83bb2e81e passed exact support/input checks in 2.209 s; the matched saved global review at 6e68f1a9d changed only four identity/provenance rows. The full three-scope producer at 04f1c4857 passed in 266.419 s/RSS4658364416 B, with all2617 guarded inputs stable and original budgets unchanged. The independent actual Nordic JavaScript index observer passed in30.51 s/RSS1320927232 B: all275094 logical entries and35103623 postings memberships match the independently authenticated original. Seven current source/map/evidence regressions pass in38.94 s. Earlier failed attempts are retained; no full browser, query-latency, new dating or biological review claim. At e9aff4a34 actual chronology producer11.02s/RSS262864896B/37254885generatedB and independent1.69s/RSS151863296B verify260products/1475owners, exact1Obishir note delta and explicit unrelatedhorse additions left uninstalled; source/code/index guards pass. The first exact Markdown-header observer refusal is retained; only two ordinary header lines admitted on readback, products unchanged. Supplied-population public reader changes only two notes on this owner and preserves aggregates/authored body; original whole-page/footer assertion failure retained. At7053f6edc actual sheep producer3.10s/RSS84983808B and independent1.67s/RSS30556160B verify all200sample identities/fields (one caution),3refusals,9locality identities/coords/bounds,200owned support joins and4export pins;4542Python/1677source guards stable. Twelve source-caution and seven hull controls plus configured lint/format/types pass. No calibration/model/map/new source. At bba372a6f1745b89d7afae20041f54dfa145491c the actual single-species builder and native exporters pass in 3.23 s, 96,960,512 B RSS, 2,194,072 B final output. Same-epoch independent readback passes in 2.63 s, 38,404,096 B RSS, 2,594 B output: 78 specimens, 23 localities, 78 supports and eight refusals exact, with only 69 aggregate-label changes per format. All 4,584 Python files, 1,681 animal inputs, 259 actual opened resources, two descriptors and source epoch remain stable. Two observer contract errors are retained: an absent optional Python import ZIP probe and expected uppercase CSV boolean. Explicit recorded runtime adapters correct only those metadata expectations without producer retry, product edit or numerical change. Data ab43e5188 and durable observer fix 2f4f3b83c preserve all other source fields; 67 observer controls and 135 combined locality/Python/JavaScript controls pass, with configured static checks. The saved-source core taxon/scope regression passes with 3,124 consumed core/data files stable. At a18530b54738b71dfef4d69becaf56ae7ecc4827 the actual saved-animal producer and independent observer first pass preserve all1464 owners:324 mapped in163 features and1140 reasoned exclusions; all4729 tracked package files/1681 animal inputs/101 opened resources/194 discoveries remain stable. Two newly visible horse localities retain six original owners (Hyena's Lair contextual, Yana only its supported child date); no dates are invented. World126 timed-admitted/37 contextual features retain225 child intervals and60 disjoint gaps. The necessary three-scope map producer first passes327.244s/RSS4992991232B/126381319 generatedB within600s/8GiB/192MiB;7181 inputs/2325 actual reads and source epoch are stable. Independent decoded scientific preservation and all three current packaged JavaScript factories first pass in65.517s aggregate within180s, with all unrelated records and319 retained source nodes exact. Nordic275094 search entries/35103623 posting memberships match a fresh full-document equality bridge to authenticated prior proof, followed by actual new-wire JavaScript restoration. Current served World Chromium closure first passes22 cases in2.718s/full-process-treeRSS1236041728B:18 source-backed cases/four explicit synthetic controls,25 served files,zero runtime errors and restored UI state. Site5070 retains its0–10000BP display envelope; the0BP point is explicitly synthetic. No query-latency, fullUI, new source census, field or biological admission claim. At8fa209201bb67906699a9ee02112ee92f0059ec7 the maintained one-project master consumer/exact comparison passes2.07processs/RSS78331904B within60s/512MiB/8MiB; all6126source/inputfiles and HEAD/index remain stable. Only three expected-population metadata headers change; all5rows remain exact,4Ovis+1Capra, expected/unresolved countsnull. Two existing source-native taxonomy controls and configured lint/format/types pass. Independent original ReportingSummarypp2-3/article/AppendixF/ENA review agrees. Initial wrapper comparison failed because native as_dict omits materializer schema_version; corrected existing envelope preserves originalfailure and changes no source/data/criterion. No global materializer/census/model/map/acquisition ran. At8fe41f69d700a23eb30bdc6bd296d25fa399cdcb the two-project consumers/exact row comparison first pass2.15processs/RSS89784320B within60s512MiB8MiB, all6126source/inputfiles+HEAD/indexstable. Only3PRJEB31621/5PRJEB75467 metadataheaders differ; all123rows exact. Two existing taxonomy/recovery controls plus6projectsubtests and scoped staticchecks pass. Independent primary PDF/workbook/XML/ENA review confirms50new sourceIDs,66ancient sourceIDs and separate44/77captured owners. No genotype/model/globalmaterializer/census/map/sourceacquisition ran. Five maintained native consumers FIRSTPASS at1e216e238b93089be7459543b2c9ac9beb7c0777:2.90processs/RSS144211968B, within60s/512MiB/8MiB, all6127code/source/inputfiles+HEAD/index stable. All662rows and rawUTF8row-suffixbytes remainexact; fourprojects change3diagnosticheaders and1178732 changes5count/provenanceheaders. Fiveexistingcontrols/fourscopeprecedencechecks/scopedlint-format-stricttypes pass; allfiveearlierpopulationprofiles unchanged. Independent primary/supplement/native reviews preserve source scopes; no globalmaterializer/census/model/map/fetch or earlierPalmconsumer rerun. Native consumers first passed at d6c545c3ac3b1304d9535e4a6409e4511bb3a705 in2.47process seconds/RSS167395328B, within60s/512MiB/8MiB; all6128 frozen code/source/input files plus HEAD/index stable through producer and both independent observers. All321 old JSON/CSV rows unchanged, only17 added. Fourteen targeted checks and scoped lint/format/strict types pass. Independent original-XML goat observation passed0.22s/RSS62406656B; horse observation passed0.39s/RSS68304896B after two preserved observer-only formula-shape/trailing-space failures. All16 source formula attributes/caches and literal locality whitespace remain in the proof. No producer rerun, formula evaluation, normalization writer, global census, model, map or acquisition. Native46filecandidate at7350f4b9f71235cf65c436d41809313acfd9d4eb passed11.86process seconds/RSS283590656B,46files17819821B, within180s/768MiB/32MiB. All6574code/source/data/linkentries+HEAD/index stable throughindependentreadback. Independentobserver passed0.98s/RSS146014208B/23274totaloutputB, within180s/512MiB/8MiB;61tinycontrols pass. Elevenexistingnormalization/source/localitychecks andscopedlint/format/stricttypes pass. Initialinmemorytuple-vs-JSONlist comparatorfailure ispreserved; narrowCapradiagnostic andindependentreading proveall78oldserializedrows alreadyexact. Twoobserver-only schema/CSVboolean spelling failures remain. Production/source/data criteria unchanged; no model/map/index/collector or all-projectmaterializer. At committedsource1877db1946e9ce60911ac51bcb59d2df44686e0b, native25productconsumer FIRSTPASS10.27processs/RSS276463616B, within60s/512MiB/8MiB,25files1634724B/21changed. All6577code/source/data/linkentries+HEAD/index stable throughproducer/finalguard. IndependentoriginalXML/saved-output result verified0.47s/RSS40714240B; originalworkbook42068B/hash andfourmarkedcells/A8, allowner/numeric/coordinate preservation andall25outputpins verified.20sourcefreecontrols/7parser-normalization-interfacechecks/scopedlint-format-stricttypesPASS. Agentcapacityerror occurredAFTERcompletedresult/resourceswerewritten; existingverifiedresult collectedwithout rerun.
 
-**Remaining input or review.** The Cell 2019 native selected Age (years ago) field still has no established field-specific epoch and scale mapping; the separate T–X alternative arithmetic is now source-bound to 2017 without adopting a civil year-zero convention; a mixed project dating basis cannot classify every row as direct radiocarbon. Two Palm143 BioSamples also retain unresolved physical specimen identity. Four goat comparator keys/five candidate accessions also need source-backed specimen ownership and historical project-to-export reconciliation. Resolver: Horse source chronology reviewer and SRP073444 specimen/source owner; goat specimen and project/export source owner Reopen when: Source-backed field epoch and scale or independently dated per-row evidence permits horse chronology; citable accession-to-physical-specimen evidence resolves Palm143. Source-backed goat comparator-to-accession identity and historical export population reconcile.
+**Remaining input or review.** The Cell 2019 native selected Age (years ago) field still has no established field-specific epoch and scale mapping; the separate T–X alternative arithmetic is now source-bound to 2017 without adopting a civil year-zero convention; a mixed project dating basis cannot classify every row as direct radiocarbon. Two Palm143 BioSamples also retain unresolved physical specimen identity. Four goat comparator keys/five candidate accessions also need source-backed specimen ownership and historical project-to-export reconciliation. PRJEB41594 requires a source-owned six-to-five analysis-stage crosswalk and closed project submission roster; five archive aliases do not establish its expected biological denominator. PRJEB31621 still needs Men1/MV013 and modern ERS/SAMEA/project-scope bindings; PRJEB75467 still needs six unmatched AnalysisID and Borly4a/Borlya source identity resolutions, preserving sample-specific use restrictions. Published genome cohorts, assay rows and captured accession subsets do not automatically define PRJEB81815, PRJEB30282, PRJEB36540 or SRP073444 biological project populations. PRJNA1178732 closes 22 source FSIDs while native accession-to-FSID joins remain unestablished. Seventeen recovered source owners now have qualified project/site/chronology and two-species normalization outputs; earlier global chronology/map/index products retain their prior producing epochs pending consequential followthrough. PGULL-2131 has no source date or native accession, and sixteen newly sequenced horse owners overlap prior publications. Four Qinghai dates were misclassified as direct radiocarbon despite originalmarker a/A8 contextualfootnote. Source-specific correction is now qualified; currentglobal chronology/atlas/index must consume these caveats and17recovered owners before claiming fullcurrentcoverage. Resolver: Horse source chronology reviewer and SRP073444 specimen/source owner; goat specimen and project/export source owner Reopen when: Source-backed field epoch and scale or independently dated per-row evidence permits horse chronology; citable accession-to-physical-specimen evidence resolves Palm143. Source-backed goat comparator-to-accession identity and historical export population reconcile.
 
 **Cause category.** data|assumption
 
 **Consequence.** Source chronology nodes, locality features and mapped samples have distinct admission contracts. Elapsed-age text cannot become BP or direct radiocarbon support, and accession labels cannot establish independent specimens.
 
-**Precise next acceptance route.** Resolve the selected D field meaning, per-row dating evidence and source conflicts before re-admitting horse chronology; preserve the now-accounted alternative coordinates as distinct source context. Resolve Palm143 physical specimen identity from citable source evidence before revising its source-sample publication decision. Use the source treatment distinction now; obtain the specific accession-to-extraction-to-physical-bone crosswalk before changing Palm143 identity or dependency grouping, without requesting the already retained supplement again.
+**Precise next acceptance route.** Resolve the selected D field meaning, per-row dating evidence and source conflicts before re-admitting horse chronology; preserve the now-accounted alternative coordinates as distinct source context. Resolve Palm143 physical specimen identity from citable source evidence before revising its source-sample publication decision. Use the source treatment distinction now; obtain the specific accession-to-extraction-to-physical-bone crosswalk before changing Palm143 identity or dependency grouping, without requesting the already retained supplement again. Obtain the Obishir specimen-to-stage crosswalk and explicit project submission roster before replacing null expected population; retain all original identities/dates/taxa and archive versus study denominators. Reconcile Men1/MV013 and modern ERS/SAMEA/project membership for31621, and the six unmatched new-sample IDs plus Borly4a/Borlya files for75467 before whole-project biological completeness or independent-individual claims. Obtain wholeproject deposition/analysis-stage and specimen crosswalks for81815,30282,36540 andSRP073444; use the alreadyretained107cameltechnicalroster rather than request it again. Bind1178732 native accessions to22FSIDs before native-identity completeness or biological inference; preserve mixedtaxa and use limits. The existing project-owned site/locality/chronology/provenance/dossier and two-species normalization/export consumers are now complete; use these qualified metadata for the necessary global chronology/atlas/index followthrough while preserving sample-owned support and explicit refusal/dependence. Keep PGULL undated and cross-publication dependence explicit before any consequential map or ecological use. Keep earlier globalproducts explicitly scoped until the consequential metadata/map consumer qualifies the new source population. Do not reassign chronology from aggregate hulls, promote failed/missing dates or count cross-publication topups as independent animals. Use the qualified saved projectchronology/provenance and normalizedsource-child packets forfreshcurrentglobalreview/three-scopecorpus/atlasaccounting. Preserveallnumericdates/gaps andexplicitcontextualcaveats; do notreuseold319/13/13sidecars as currenttotal or infer independent dating fromsharedcontext.
 
-**Negative or refused result.** 250 previously inferred BP intervals are refused; all 260 selected horse dating-evidence and precision classifications remain unresolved. Among the 245 linked source-field rows, 191 have blank R–X cells and eight have literal `-` in D; all 54 populated alternatives are arithmetically consistent, but 35 numeric D values differ from their alternative midpoints and one range is not compared. No selected chronology is established by this accounting. The global refusal waterfall has 11 identity, 789 chronology and 356 coordinate refusals. Both Palm143 accessions remain identity-refused. Galician sample SAMN18106837 keeps modern-carbon text, a blank calibrated-BP cell and last-60-years calendar text; its label establishes neither 60 BP nor Cobas locality. All eleven retain unresolved site/date and refused atlas-point posture. Table S1 WGSS is blank while Table S3 separately includes a shotgun row. The two accession titles distinguish capture/shotgun treatment, and extraction independence does not establish specimen independence. Exact accession-to-extraction-to-bone binding remains absent; neither collapse nor independent biological counting is adopted. Four goat comparator identities are ambiguous before normalization; the current global chronology has319 admitted/1156 refused records. All six retained technical studies are current project children, so they are not labeled foreign contamination; five comparator candidate accessions are absent from the retained export, without asserting live absence. OB20-04 warning adds one conflict/attention owner; existing publication owner predicate blocks it, no whole gate rerun. Its null coordinates retain map exclusion. Two Obishir aliases remain undated. Sheep has26/200samples without numeric endpoint pairs and3original recovery refusals; coverage hulls cannot fill chronology gaps or establish dated observations. Locality hulls cannot admit unsupported specimen dates or fill gaps. The current point partition, three-scope maps, complete index restoration and bounded served-runtime checks now pass;37 World locality features remain contextual, and six newly mapped owners gain no dates from their coverage hulls. No field, fullUI or latency qualification follows.
+**Negative or refused result.** 250 previously inferred BP intervals are refused; all 260 selected horse dating-evidence and precision classifications remain unresolved. Among the 245 linked source-field rows, 191 have blank R–X cells and eight have literal `-` in D; all 54 populated alternatives are arithmetically consistent, but 35 numeric D values differ from their alternative midpoints and one range is not compared. No selected chronology is established by this accounting. The global refusal waterfall has 11 identity, 789 chronology and 356 coordinate refusals. Both Palm143 accessions remain identity-refused. Galician sample SAMN18106837 keeps modern-carbon text, a blank calibrated-BP cell and last-60-years calendar text; its label establishes neither 60 BP nor Cobas locality. All eleven retain unresolved site/date and refused atlas-point posture. Table S1 WGSS is blank while Table S3 separately includes a shotgun row. The two accession titles distinguish capture/shotgun treatment, and extraction independence does not establish specimen independence. Exact accession-to-extraction-to-bone binding remains absent; neither collapse nor independent biological counting is adopted. Four goat comparator identities are ambiguous before normalization; the earlier global chronology has319 admitted/1156 refused records. All six retained technical studies are current project children, so they are not labeled foreign contamination; five comparator candidate accessions are absent from the retained export, without asserting live absence. OB20-04 warning adds one conflict/attention owner; existing publication owner predicate blocks it, no whole gate rerun. Its null coordinates retain map exclusion. Two Obishir aliases remain undated. Sheep has26/200samples without numeric endpoint pairs and3original recovery refusals; coverage hulls cannot fill chronology gaps or establish dated observations. Locality hulls cannot admit unsupported specimen dates or fill gaps. The earlier qualified point partition, three-scope maps, complete index restoration and bounded served-runtime checks now pass;37 World locality features remain contextual, and six newly mapped owners gain no dates from their coverage hulls. No field, fullUI or latency qualification follows. PRJEB41594 expected/unresolved population staysnull:6selected/extracted,5advanceddeep-sequencing and5ENAaliases are different stage denominators. Capra SAMEA8022722 remains project_species_mismatch; no fifth-sheep or independent-individual claim. PRJEB31621 expected/unresolved remainsnull and provisionalMen1 isnotautomaticallyMV013. PRJEB75467 administrative6=50expectedminus44finalarchiveidentityrows isnotauthenticatedsixmissingindividuals; provisionalFre1 and Borly4a/Borlya ambiguity persist. Publishedmixedtaxonomy and eightASIAPASTnoncommercial-use limits remain; no taxon/biological/rights admission. 81815 expectation87 rejected beforeadoption because deepselection is not deposition. Other wholeproject expectations staynull; 1178732 nativeIDs remainblank whereunbound. TEP5/TEP05 sheepaliases are notzero-stripped. Camel107/63/77/20 are separate technical/label/sampling/subset populations; no automaticPalm143collapse or independence. PGULL-2131 retains empty chronology/native IDs and a literal dash in its source excerpt. Horse prior-publication overlap remains; CAR05_Hun_m2458 is not aliased to archived m3130. The horse observer first refused legitimate formula cells, then its complete-field diagnostic isolated one trailing locality space; both failures remain, with no underlying data/date criterion change. The46file result doesnotrefresh earlierglobalchronology/maps/index or confer biological/field/rights/scientific acceptance. MissingPGULLdate staysnull ratherthanzero. ContextHasanlu2718BP/Halvai3806BP text clears afterheterogeneous additions; no individualdate changes. Hasanlu representativeprovenance follows exactqualifiedrow14 instead15. ExplicitCSVbooleanlowercase isserialization, nottruthiness ormissing/zero coercion. MarkedQinghairows are refused asdirectradiocarbon/sample-precise evidence; numericdateinterval/mean unchanged. A markedvalue without itsqualifyingfootnote staysunresolved ratherthan defaultdirect. Globalproducts still needthese4annotationcorrections and17newownerdispositions; no old model, map, index oracquisition reran.
 
-**Matched denominator.** 1,475 source rows = 319 temporal nodes + 1,156 refusals; 13 temporal nodes each in Europe-plus/Nordic. Separate normalized foundation: 1,464 rows; current locality atlas:163 features/324 mapped samples; 12 Nordic mapped IDs. Separate Galician context:11 BioSamples versus 18 paper specimens;110 exact cells: 109 shared strings, one present blank, zero formulas. Separate Palm143 context: two BioSamples/experiment-run pairs, one Table S1 sample/find row, two Table S3 treatment rows and one Table S5 repeat; four author-label occurrences are not four specimens. Separate PRJEB59481 source population: five expected, five recovered, zero unresolved count; five unchanged material conflicts. Separate source-caution population1475owners, one changed review owner/1474preserved; attention928to929/conflict0to1. Separate sheep200normalized samples+3refusals,9localities/200exact membership supports,174numeric pairs/26without. These are not additional source specimens or independent time observations. Capra followthrough: 78 specimens, 23 localities, 78 supports and eight refusals; three aggregate labels on each of 23 localities, reflected in three formats without increasing the observation count. All other 1,678 animal-data files remain byte-identical.
+**Matched denominator.** 1,475 source rows = 319 temporal nodes + 1,156 refusals; 13 temporal nodes each in Europe-plus/Nordic. Earlier normalized foundation: 1,464 rows; earlier locality atlas:163 features/324 mapped samples; 12 Nordic mapped IDs. Separate Galician context:11 BioSamples versus 18 paper specimens;110 exact cells: 109 shared strings, one present blank, zero formulas. Separate Palm143 context: two BioSamples/experiment-run pairs, one Table S1 sample/find row, two Table S3 treatment rows and one Table S5 repeat; four author-label occurrences are not four specimens. Separate PRJEB59481 source population: five expected, five recovered, zero unresolved count; five unchanged material conflicts. Separate source-caution population1475owners, one changed review owner/1474preserved; attention928to929/conflict0to1. Separate sheep200normalized samples+3refusals,9localities/200exact membership supports,174numeric pairs/26without. These are not additional source specimens or independent time observations. Capra followthrough: 78 specimens, 23 localities, 78 supports and eight refusals; three aggregate labels on each of 23 localities, reflected in three formats without increasing the observation count. All other 1,678 animal-data files remain byte-identical. Separate Obishir population inspection:6selected specimens/6extracted teeth,5advanced samples,5retained runs/5experiments/5BioSamplealiases=4Ovis+1Capra; these are dependent stage counts, not a closed biological census. Separatebovine sourcepopulations:75467 published50new samples(41Bosprimigenius/8Bostaurus/1Bosadmixed),664runs/44BioSamples,45masterrows=44final+1provisionalFre1,6administrativeunresolved.31621 source66ancientIDs,9newmodern versus14reusedmoderns;364runs/77BioSamples,78masterunion=65ancientjoins+12archiveonly+1provisionalMen1. These are not interchangeable specimen/analysis/archive units. Separatefive-project662unchangedrows:81815 87recovered/84final/3ambiguous;1178732 22/22/0;30282 343/343/0;36540 190/190/0;SRP073444 20/18/2. Only1178732 expected22/unresolved0. Camel full107=63DSLcapture+8TD+21PEshotgun+15SEshotgun;63labels=28once+26twice+9thrice; original77sampledIDs=54domestic+22wild+1Cthomasi. Separate source-owner recovery:73 to74 Canary table owners,248 to264 newly sequenced horse project owners; all321 prior rows exact and only17 added. Horse273-source analysis partitions248 first-time/16 new-sequencing topups/9 reused-only; native project264 owners has263 exact joins in the proposed master. Sixteen date cells use stored shared-formula caches; they are not sixteen newly calibrated or independent observations. Separateproject/species followthrough:74Canary/264horse sourcepackets,23/119projectworksheetrows;79goat/566horse normalizedsamples=645targetrecords, all628oldexact+17new. Species24/244localities=268displaygroups, notnewindependent observations. Allotherspeciesunchanged gives1481normalizedrecords. Threehorse groups extend4/2/5members and5groups are new;239priorhorse groups retainexactchildsupport underexistingv2export roles. SeparateQinghaifootnote correction:5sourceowners,4markedcontextdates+1unchangedunmarkeddate;79goatrecords=4annotationchanges+75exactoldrecords. All5ranges3480–3580/mean3530 andallcoordinates unchanged.25nativeproducts/21changedfilebytes; no additional observation orindependent radiocarbon measurement.
 
-Retained evidence: [data/adna/governance/source_library/projects/PRJEB31613/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB31613/sample_master.json), [data/adna/governance/source_library/projects/PRJEB19970/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB19970/sample_master.json), [data/adna/governance/source_library/projects/SRP073444/sample_master.json](../../data/adna/governance/source_library/projects/SRP073444/sample_master.json), [docs/report/animal_sample_chronology_review.json](../../docs/report/animal_sample_chronology_review.json), [reports/science/source-cohorts/galician-sample-context.csv](source-cohorts/galician-sample-context.csv), [artifacts/animal-source-chronology/native-source-fields/summary.json](../../artifacts/animal-source-chronology/native-source-fields/summary.json), [artifacts/animal-source-chronology/source-alternatives/summary.json](../../artifacts/animal-source-chronology/source-alternatives/summary.json), [data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html.gz](../../data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html.gz), [data/adna/governance/source_library/projects/PRJEB90141/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB90141/sample_master.json), [data/adna/governance/source_library/projects/PRJEB90141/sample_chronology_provenance.json](../../data/adna/governance/source_library/projects/PRJEB90141/sample_chronology_provenance.json), [data/adna/governance/source_library/projects/PRJEB41594/sample_chronology.json](../../data/adna/governance/source_library/projects/PRJEB41594/sample_chronology.json), [data/adna/species/ovis_aries/normalized/sample_records.json](../../data/adna/species/ovis_aries/normalized/sample_records.json), [data/adna/species/ovis_aries/normalized/locality_summaries.json](../../data/adna/species/ovis_aries/normalized/locality_summaries.json), [reports/science/adna-locality-support/protocol.json](adna-locality-support/protocol.json), [reports/science/adna-locality-support/atlas-consumer-protocol.json](adna-locality-support/atlas-consumer-protocol.json), [reports/science/adna-locality-support/map-followthrough-protocol.json](adna-locality-support/map-followthrough-protocol.json), [data/adna/final/atlas/animal_atlas_point_candidates.json](../../data/adna/final/atlas/animal_atlas_point_candidates.json).
+Retained evidence: [data/adna/governance/source_library/projects/PRJEB31613/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB31613/sample_master.json), [data/adna/governance/source_library/projects/PRJEB19970/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB19970/sample_master.json), [data/adna/governance/source_library/projects/SRP073444/sample_master.json](../../data/adna/governance/source_library/projects/SRP073444/sample_master.json), [docs/report/animal_sample_chronology_review.json](../../docs/report/animal_sample_chronology_review.json), [reports/science/source-cohorts/galician-sample-context.csv](source-cohorts/galician-sample-context.csv), [artifacts/animal-source-chronology/native-source-fields/summary.json](../../artifacts/animal-source-chronology/native-source-fields/summary.json), [artifacts/animal-source-chronology/source-alternatives/summary.json](../../artifacts/animal-source-chronology/source-alternatives/summary.json), [data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html.gz](../../data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html.gz), [data/adna/governance/source_library/projects/PRJEB90141/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB90141/sample_master.json), [data/adna/governance/source_library/projects/PRJEB90141/sample_chronology_provenance.json](../../data/adna/governance/source_library/projects/PRJEB90141/sample_chronology_provenance.json), [data/adna/governance/source_library/projects/PRJEB41594/sample_chronology.json](../../data/adna/governance/source_library/projects/PRJEB41594/sample_chronology.json), [data/adna/species/ovis_aries/normalized/sample_records.json](../../data/adna/species/ovis_aries/normalized/sample_records.json), [data/adna/species/ovis_aries/normalized/locality_summaries.json](../../data/adna/species/ovis_aries/normalized/locality_summaries.json), [reports/science/adna-locality-support/protocol.json](adna-locality-support/protocol.json), [reports/science/adna-locality-support/atlas-consumer-protocol.json](adna-locality-support/atlas-consumer-protocol.json), [reports/science/adna-locality-support/map-followthrough-protocol.json](adna-locality-support/map-followthrough-protocol.json), [data/adna/final/atlas/animal_atlas_point_candidates.json](../../data/adna/final/atlas/animal_atlas_point_candidates.json), [data/adna/governance/source_library/projects/PRJEB41594/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB41594/sample_master.json), [data/adna/governance/source_library/projects/PRJEB31621/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB31621/sample_master.json), [data/adna/governance/source_library/projects/PRJEB75467/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB75467/sample_master.json), [data/adna/governance/source_library/projects/PRJEB81815/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB81815/sample_master.json), [data/adna/governance/source_library/projects/PRJNA1178732/sample_master.json](../../data/adna/governance/source_library/projects/PRJNA1178732/sample_master.json), [data/adna/governance/source_library/projects/PRJEB30282/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB30282/sample_master.json), [data/adna/governance/source_library/projects/PRJEB36540/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB36540/sample_master.json), [data/adna/governance/source_library/projects/PRJEB90261/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB90261/sample_master.json), [data/adna/governance/source_library/projects/PRJEB44430/sample_master.json](../../data/adna/governance/source_library/projects/PRJEB44430/sample_master.json), [data/adna/species/capra_hircus/normalized/sample_records.json](../../data/adna/species/capra_hircus/normalized/sample_records.json), [data/adna/species/capra_hircus/normalized/locality_summaries.json](../../data/adna/species/capra_hircus/normalized/locality_summaries.json), [data/adna/species/equus_caballus/normalized/sample_records.json](../../data/adna/species/equus_caballus/normalized/sample_records.json), [data/adna/species/equus_caballus/normalized/locality_summaries.json](../../data/adna/species/equus_caballus/normalized/locality_summaries.json), [data/adna/governance/source_library/projects/PRJEB90261/sample_chronology.json](../../data/adna/governance/source_library/projects/PRJEB90261/sample_chronology.json), [data/adna/governance/source_library/projects/PRJEB90261/sample_chronology_provenance.json](../../data/adna/governance/source_library/projects/PRJEB90261/sample_chronology_provenance.json), [data/adna/governance/source_library/projects/PRJEB44430/sample_chronology.json](../../data/adna/governance/source_library/projects/PRJEB44430/sample_chronology.json), [data/adna/governance/source_library/projects/PRJEB44430/sample_chronology_provenance.json](../../data/adna/governance/source_library/projects/PRJEB44430/sample_chronology_provenance.json), [data/adna/governance/source_library/projects/PRJNA1328209/sample_master.json](../../data/adna/governance/source_library/projects/PRJNA1328209/sample_master.json), [data/adna/governance/source_library/projects/PRJNA1328209/sample_chronology.json](../../data/adna/governance/source_library/projects/PRJNA1328209/sample_chronology.json), [data/adna/governance/source_library/projects/PRJNA1328209/sample_chronology_provenance.json](../../data/adna/governance/source_library/projects/PRJNA1328209/sample_chronology_provenance.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 

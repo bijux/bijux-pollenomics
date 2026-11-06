@@ -14,6 +14,19 @@ from ..identity import (
 from ..models import AdnaProjectSampleMasterRow
 
 
+def _contextual_date_note(rows: tuple[tuple[str, ...], ...]) -> str:
+    """Bind the age-cell marker to its original archaeological-context footnote."""
+    for row_number, row in enumerate(rows, start=1):
+        text = _cell_value(row, 0)
+        if (
+            text.startswith("a ")
+            and "not directly radiocarbon dated" in text
+            and "archaeological context" in text
+        ):
+            return f"Table S2!A{row_number}: {text}"
+    return ""
+
+
 def _build_goat_qinghai_rows(
     *,
     species: AdnaSpeciesDefinition,
@@ -35,9 +48,12 @@ def _build_goat_qinghai_rows(
     if sample_index is None or locality_index is None or chronology_index is None:
         return ()
 
+    context_note = _contextual_date_note(rows)
     built_rows: list[AdnaProjectSampleMasterRow] = []
     for row_number, row in enumerate(rows[2:], start=3):
         sample_label = _cell_value(row, sample_index)
+        source_age = _cell_value(row, chronology_index)
+        context_marked = source_age.endswith("a")
         chronology_text = (
             ""
             if chronology_index is None
@@ -48,6 +64,9 @@ def _build_goat_qinghai_rows(
         if not sample_label or not chronology_text:
             continue
         excerpt = " | ".join(value for value in row if value)[:300]
+        if context_marked:
+            note = context_note or "Source marker a lacks its explanatory footnote."
+            excerpt = f"Source age: {source_age} | {note} | {excerpt}"[:300]
         built_rows.append(
             AdnaProjectSampleMasterRow(
                 species_latin_name=species.latin_name,
@@ -74,6 +93,21 @@ def _build_goat_qinghai_rows(
                 if longitude_index is None
                 else _clean_coordinate_text(_cell_value(row, longitude_index)),
                 chronology_text=chronology_text,
+                chronology_dating_basis=(
+                    "archaeological_context" if context_note else "unresolved"
+                )
+                if context_marked
+                else "",
+                chronology_evidence_class=(
+                    "archaeological_context_date" if context_note else "unresolved"
+                )
+                if context_marked
+                else "",
+                chronology_precision_posture=(
+                    "contextual_interval" if context_note else "unresolved"
+                )
+                if context_marked
+                else "",
             )
         )
     return tuple(built_rows)

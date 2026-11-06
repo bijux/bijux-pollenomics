@@ -46,7 +46,7 @@ def _build_goat_canary_rows(
             if chronology_index is None
             else _clean_sample_chronology_text(_cell_value(row, chronology_index))
         )
-        if not sample_label or not chronology_text:
+        if not sample_label:
             continue
         library_label = "" if library_index is None else _cell_value(row, library_index)
         location = (

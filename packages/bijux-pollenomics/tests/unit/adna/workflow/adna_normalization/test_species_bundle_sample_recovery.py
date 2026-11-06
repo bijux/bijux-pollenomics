@@ -38,19 +38,31 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
     ) -> None:
         bundle = build_species_normalization_bundle("goat")
 
-        self.assertEqual(len(bundle.sample_records), 82)
+        self.assertEqual(len(bundle.sample_records), 79)
         qinghai_sample = next(
             item
             for item in bundle.sample_records
             if item.project_accession == "PRJNA1328209"
         )
         self.assertEqual(
-            qinghai_sample.chronology.evidence_class, "direct_radiocarbon_date"
+            qinghai_sample.chronology.evidence_class, "archaeological_context_date"
         )
         self.assertEqual(
-            qinghai_sample.chronology.precision_posture, "sample_precise_interval"
+            qinghai_sample.chronology.precision_posture, "contextual_interval"
         )
         self.assertEqual(
             (qinghai_sample.time_start_bp, qinghai_sample.time_end_bp),
             (3480, 3580),
         )
+
+        undated = next(
+            item
+            for item in bundle.sample_records
+            if item.master_id == "prjeb90261:pgull-2131"
+        )
+        self.assertEqual(undated.archive_native_sample_id, "")
+        self.assertEqual(undated.chronology.original_text, "")
+        self.assertIsNone(undated.time_start_bp)
+        self.assertIsNone(undated.time_end_bp)
+        self.assertIsNone(undated.chronology.time_mean_bp)
+        self.assertEqual(undated.chronology.evidence_class, "unresolved")

@@ -8,7 +8,7 @@
 - Next required stage: `none`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
-- Final recovered sample rows: `248`
+- Final recovered sample rows: `264`
 - Minimum recovery gap: `0`
 - Implausibly low recovery: `false`
 

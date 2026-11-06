@@ -2,7 +2,7 @@
   "schema_version": "animal-project-locality-worksheet.v1",
   "project_accession": "PRJEB90261",
   "species_latin_name": "Capra hircus",
-  "row_count": 22,
+  "row_count": 23,
   "rows": [
     {
       "project_accession": "PRJEB90261",
@@ -443,6 +443,26 @@
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "Table S2!row11",
       "source_excerpt": "9 | CHIC-0009 | PGULL-2146 | LLD-1395 | La_Palma | Tigalate | 28.552054999999999 | -17.812253999999999 | 15th - 17th centuries CE (site) | Yes | No | Yes | 2.1430000000000001E-2 | 48.599299999999999 | 6.4298800000000003E-2 | 6594 | 0.998197 | 19.055499999999999 | Yes | A8a | - | 0.99093200000000004"
+    },
+    {
+      "project_accession": "PRJEB90261",
+      "species_latin_name": "Capra hircus",
+      "source_surface": "supplementary_table",
+      "source_claim_scope": "sample_owned_locality",
+      "supporting_sample_count": 1,
+      "original_locality_text": "Tubo Volcánico - Los Roques de García",
+      "resolved_locality_text": "Tubo Volcánico - Los Roques de García",
+      "locality_class": "excavation_site",
+      "site_name": "Tubo Volcánico - Los Roques de García",
+      "municipality_name": "",
+      "region_name": "",
+      "country_name": "Tenerife",
+      "broader_geography": "",
+      "geocoding_safe_token": "tubovolcánicolosroquesdegarcía",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_artifact_kind": "supplementary_spreadsheet_row",
+      "source_locator": "Table S2!row22",
+      "source_excerpt": "20 | CHIC-0020 | PGULL-2131 | LLD-1388 | Tenerife | Tubo Volcánico - Los Roques de García  | 28.224651999999999 | -16.631799999999998 | - | No | No | Yes | 5.6890000000000003E-2 | 46.730800000000002 | 5.3136799999999998E-2 | 27891 | 1 | 78.039500000000004 | Yes | A8a | - | 1 | 71.564700000000002 | Y"
     }
   ]
 }
