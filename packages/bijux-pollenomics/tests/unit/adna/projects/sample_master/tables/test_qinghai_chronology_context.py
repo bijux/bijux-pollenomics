@@ -7,16 +7,33 @@ import pytest
 from bijux_pollenomics.adna.projects.evidence.chronology.resolution import (
     _resolve_chronology_source,
 )
+from bijux_pollenomics.adna.projects.sample_master import build_project_sample_master
 from bijux_pollenomics.adna.projects.sample_master.tables.goat_qinghai import (
     _build_goat_qinghai_rows,
 )
 from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.species.definitions import resolve_species_definition
+from tests.support.repository import REPOSITORY_ROOT
 
 NOTE = (
     "a We note that this sample was not directly radiocarbon dated. "
     "The date used here was based on archaeological context."
 )
+
+
+@pytest.mark.generated_artifacts
+def test_generated_source_population_does_not_shrink_to_analysis_subset() -> None:
+    master = build_project_sample_master(REPOSITORY_ROOT / "data", "PRJNA1328209")
+    assert master.expected_sample_count == len(master.rows) == 5
+    assert master.unresolved_sample_count == 0
+    assert {row.paper_native_sample_label for row in master.rows} == {
+        "DC23",
+        "DC27-HE",
+        "DC40",
+        "DC47_4HE",
+        "DC48-1",
+    }
+    assert all(not row.archive_native_sample_id for row in master.rows)
 
 
 @pytest.mark.parametrize("footnote", [NOTE, ""])

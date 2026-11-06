@@ -61,8 +61,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "647916839d901ec1a4de186359d3d7b5cc48a149867e9fc6916df7520e22c646",
-      "bytes": 7399768
+      "sha256": "0ebb1f29fe768ffc8cc26ca2e3db1b4752ffb464e0281cced580248a90b5d1f9",
+      "bytes": 7400272
     },
     {
       "path": "configs/release_evidence_policy.json",
@@ -3281,8 +3281,8 @@
     },
     {
       "path": "docs/report/world/world_map.html",
-      "sha256": "cee9eb9dc9c4d9ae6dda7d4c6d3df23b20420cbc3c08acfd9662b7e64fa9e37a",
-      "bytes": 112124
+      "sha256": "5024a904074d0fe9866292260cfc2bbaf235051ffa09ab2e77d2f6386bd2c578",
+      "bytes": 114064
     },
     {
       "path": "makes/README.md",
@@ -3436,7 +3436,7 @@
     },
     {
       "path": "reports/science/animal-entity-capability/report.json",
-      "sha256": "7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9",
+      "sha256": "aab2ff406a9d06ce71c8559371d4f9a8404173a12c4525f456a8de250a584fda",
       "bytes": 3543
     },
     {

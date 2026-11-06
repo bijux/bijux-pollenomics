@@ -80,18 +80,16 @@
       "nordic_relevance": "non_nordic",
       "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
       "last_checked_on": "2026-05-07"
-    }
-  ],
-  "pending_projects": [
+    },
     {
       "project_accession": "PRJNA705960",
       "source_family": "ENA",
       "accession_scope": "project",
-      "archive_status": "archive_verified_needs_paper_pinning",
-      "evidence_strength": "archive_only",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
       "ancient_status": "ancient_confirmed",
-      "paper_title": null,
-      "paper_doi": null,
+      "paper_title": "Insight into the introduction of domestic cattle and the process of Neolithization to the Spanish region Galicia by genetic evidence",
+      "paper_doi": "10.1371/journal.pone.0249537",
       "sequencing_target": "mitogenome",
       "material_basis": "individual_bone_or_tooth",
       "dating_basis": "archaeological_period_assignment",
@@ -99,11 +97,12 @@
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
-      "notes": "Ancient Galician cattle mtDNA dataset kept archive-verified until explicit primary-paper linkage is encoded.",
+      "notes": "Galician cattle and aurochs mtDNA source; sample-owned taxa and processing/deposition populations remain distinct.",
       "nordic_relevance": "non_nordic",
       "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
       "last_checked_on": "2026-05-07"
     }
   ],
+  "pending_projects": [],
   "rejected_projects": []
 }

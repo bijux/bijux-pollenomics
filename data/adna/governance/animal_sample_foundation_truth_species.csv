@@ -1,9 +1,9 @@
 species_latin_name,species_common_name,sample_row_count,fully_grounded_count,partially_grounded_count,blocked_missing_metadata_count,blocked_missing_location_detail_count,blocked_weak_chronology_count,project_count,reported_curated_sample_count,uses_project_level_sample_anchor
-Equus caballus,horse,550,242,43,0,2,263,4,550,false
+Equus caballus,horse,566,258,43,0,2,263,4,550,false
 Sus scrofa domesticus,pig,343,2,0,0,341,0,1,343,false
 Ovis aries,sheep,200,4,169,0,1,26,3,200,false
 Bos taurus,cattle,132,31,66,11,22,2,3,132,false
-Capra hircus,goat,78,5,0,0,0,73,2,78,false
+Capra hircus,goat,79,5,0,0,0,74,2,78,false
 Canis lupus familiaris,dog,4,0,3,0,1,0,3,4,false
 Felis catus,cat,106,35,27,0,0,44,2,106,false
 Camelus dromedarius,dromedary camel,31,0,27,0,0,4,2,31,false

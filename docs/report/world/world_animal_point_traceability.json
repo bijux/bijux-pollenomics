@@ -1659,6 +1659,30 @@
       "supplementary_sources": []
     },
     {
+      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-fengtai-china",
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-fengtai-china",
+      "site_record_id": "equus_caballus:locality:prjeb44430:fengtai:china",
+      "species_latin_name": "Equus caballus",
+      "primary_project_accession": "PRJEB44430",
+      "sample_record_ids": [
+        "equus_caballus:sample:prjeb44430:samea9533234"
+      ],
+      "sample_group_ids": [
+        "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "source_locator": "SI Table 1!row13",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "supplementary_sources": []
+    },
+    {
       "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-gangatsagaanereg-mongolia",
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-gangatsagaanereg-mongolia",
       "site_record_id": "equus_caballus:locality:prjeb44430:gangatsagaanereg:mongolia",
@@ -1708,14 +1732,13 @@
       "supplementary_sources": []
     },
     {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-halvai-kazakhstan",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-halvai-kazakhstan",
-      "site_record_id": "equus_caballus:locality:prjeb44430:halvai:kazakhstan",
+      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-goyet-belgium",
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-goyet-belgium",
+      "site_record_id": "equus_caballus:locality:prjeb44430:goyet:belgium",
       "species_latin_name": "Equus caballus",
       "primary_project_accession": "PRJEB44430",
       "sample_record_ids": [
-        "equus_caballus:sample:prjeb44430:samea9533256",
-        "equus_caballus:sample:prjeb44430:samea9533257"
+        "equus_caballus:sample:prjeb44430:samea9533437"
       ],
       "sample_group_ids": [
         "PRJEB44430"
@@ -1724,7 +1747,58 @@
       "taxon_alignment_statuses": [
         "not_reported"
       ],
-      "sample_count": 2,
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "source_locator": "SI Table 1!row141",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-grbov-romania",
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-grbov-romania",
+      "site_record_id": "equus_caballus:locality:prjeb44430:grbov:romania",
+      "species_latin_name": "Equus caballus",
+      "primary_project_accession": "PRJEB44430",
+      "sample_record_ids": [
+        "equus_caballus:sample:prjeb44430:samea9533238"
+      ],
+      "sample_group_ids": [
+        "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "source_locator": "SI Table 1!row61",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-halvai-kazakhstan",
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-halvai-kazakhstan",
+      "site_record_id": "equus_caballus:locality:prjeb44430:halvai:kazakhstan",
+      "species_latin_name": "Equus caballus",
+      "primary_project_accession": "PRJEB44430",
+      "sample_record_ids": [
+        "equus_caballus:sample:prjeb44430:samea9533256",
+        "equus_caballus:sample:prjeb44430:samea9533257",
+        "equus_caballus:sample:prjeb44430:samea9533285",
+        "equus_caballus:sample:prjeb44430:samea9533286"
+      ],
+      "sample_group_ids": [
+        "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
+      "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
@@ -2600,6 +2674,30 @@
       "supplementary_sources": []
     },
     {
+      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-tachtiperda-georgia",
+      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-tachtiperda-georgia",
+      "site_record_id": "equus_caballus:locality:prjeb44430:tachtiperda:georgia",
+      "species_latin_name": "Equus caballus",
+      "primary_project_accession": "PRJEB44430",
+      "sample_record_ids": [
+        "equus_caballus:sample:prjeb44430:samea9533403"
+      ],
+      "sample_group_ids": [
+        "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "source_locator": "SI Table 1!row34",
+      "paper_doi": "10.1038/s41586-021-04018-9",
+      "supplementary_sources": []
+    },
+    {
       "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-tarquinia-italy",
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-tarquinia-italy",
       "site_record_id": "equus_caballus:locality:prjeb44430:tarquinia:italy",
@@ -2657,8 +2755,13 @@
       "species_latin_name": "Equus caballus",
       "primary_project_accession": "PRJEB44430",
       "sample_record_ids": [
+        "equus_caballus:sample:prjeb44430:samea9533259",
         "equus_caballus:sample:prjeb44430:samea9533260",
+        "equus_caballus:sample:prjeb44430:samea9533261",
+        "equus_caballus:sample:prjeb44430:samea9533262",
         "equus_caballus:sample:prjeb44430:samea9533263",
+        "equus_caballus:sample:prjeb44430:samea9533264",
+        "equus_caballus:sample:prjeb44430:samea9533265",
         "equus_caballus:sample:prjeb44430:samea9533266"
       ],
       "sample_group_ids": [
@@ -2668,11 +2771,11 @@
       "taxon_alignment_statuses": [
         "not_reported"
       ],
-      "sample_count": 3,
+      "sample_count": 8,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
-      "source_locator": "SI Table 1!row15",
+      "source_locator": "SI Table 1!row14",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "supplementary_sources": []
     },

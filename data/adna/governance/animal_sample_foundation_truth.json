@@ -3,19 +3,19 @@
   "summary": {
     "tracked_species_count": 10,
     "tracked_project_count": 21,
-    "sample_row_count": 1464,
-    "fully_grounded_count": 319,
+    "sample_row_count": 1481,
+    "fully_grounded_count": 335,
     "partially_grounded_count": 355,
     "blocked_missing_metadata_count": 11,
     "blocked_missing_location_detail_count": 367,
-    "blocked_weak_chronology_count": 412
+    "blocked_weak_chronology_count": 413
   },
   "species_rows": [
     {
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
-      "sample_row_count": 550,
-      "fully_grounded_count": 242,
+      "sample_row_count": 566,
+      "fully_grounded_count": 258,
       "partially_grounded_count": 43,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 2,
@@ -66,12 +66,12 @@
     {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
-      "sample_row_count": 78,
+      "sample_row_count": 79,
       "fully_grounded_count": 5,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
-      "blocked_weak_chronology_count": 73,
+      "blocked_weak_chronology_count": 74,
       "project_count": 2,
       "reported_curated_sample_count": 78,
       "uses_project_level_sample_anchor": false
@@ -198,14 +198,14 @@
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
       "project_accession": "PRJEB44430",
-      "sample_row_count": 248,
-      "fully_grounded_count": 242,
+      "sample_row_count": 264,
+      "fully_grounded_count": 258,
       "partially_grounded_count": 1,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
       "blocked_weak_chronology_count": 5,
-      "sample_backed_site_count": 114,
-      "project_locality_summary_count": 114,
+      "sample_backed_site_count": 119,
+      "project_locality_summary_count": 119,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "supplementary_table_sample_label_anchor"
@@ -336,14 +336,14 @@
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
       "project_accession": "PRJEB90261",
-      "sample_row_count": 73,
+      "sample_row_count": 74,
       "fully_grounded_count": 0,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
-      "blocked_weak_chronology_count": 73,
-      "sample_backed_site_count": 22,
-      "project_locality_summary_count": 22,
+      "blocked_weak_chronology_count": 74,
+      "sample_backed_site_count": 23,
+      "project_locality_summary_count": 23,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "supplementary_table_sample_label_anchor"

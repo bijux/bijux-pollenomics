@@ -63,18 +63,17 @@
     "dataset_bucket": "archive_verified_needs_paper_pinning",
     "archive_project_count": 3,
     "core_project_count": 3,
-    "primary_paper_pin_count": 2,
-    "curated_support_project_count": 1,
+    "primary_paper_pin_count": 3,
+    "curated_support_project_count": 2,
     "archive_required": true,
     "primary_paper_required": true,
     "manifest_schema_required": true,
     "release_gate_satisfied": false,
     "eligible_for_supported_status": false,
     "blocking_reasons": [
-      "missing_primary_paper_pins",
-      "missing_archive_paper_pinning_rationale",
       "ancient_but_not_domesticated_core_projects",
-      "mixed_species_rule_unresolved"
+      "mixed_species_rule_unresolved",
+      "missing_archive_paper_pinning_rationale"
     ]
   },
   "project_manifest": {
@@ -127,11 +126,11 @@
         "project_accession": "PRJNA705960",
         "source_family": "ENA",
         "accession_scope": "project",
-        "archive_status": "archive_verified_needs_paper_pinning",
-        "evidence_strength": "archive_only",
+        "archive_status": "paper_pinned_core",
+        "evidence_strength": "primary_paper_pinned",
         "ancient_status": "ancient_confirmed",
-        "paper_title": null,
-        "paper_doi": null,
+        "paper_title": "Insight into the introduction of domestic cattle and the process of Neolithization to the Spanish region Galicia by genetic evidence",
+        "paper_doi": "10.1371/journal.pone.0249537",
         "sequencing_target": "mitogenome",
         "material_basis": "individual_bone_or_tooth",
         "dating_basis": "archaeological_period_assignment",
@@ -139,7 +138,7 @@
         "access_policy": "public_downloadable",
         "public_release_date": null,
         "domestication_scope": "domesticated_core",
-        "notes": "Ancient Galician cattle mtDNA dataset kept archive-verified until explicit primary-paper linkage is encoded.",
+        "notes": "Galician cattle and aurochs mtDNA source; sample-owned taxa and processing/deposition populations remain distinct.",
         "nordic_relevance": "non_nordic",
         "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
         "last_checked_on": "2026-05-07"
@@ -184,18 +183,15 @@
       "project_accession": "PRJNA705960",
       "source_family": "ENA",
       "accession_scope": "project",
-      "archive_status": "archive_verified_needs_paper_pinning",
-      "evidence_strength": "archive_only",
+      "archive_status": "paper_pinned_core",
+      "evidence_strength": "primary_paper_pinned",
       "ancient_status": "ancient_confirmed",
       "access_policy": "public_downloadable",
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
       "core_project": true,
-      "admissible_for_curated_support": false,
-      "blocking_reasons": [
-        "missing_primary_paper_anchor",
-        "missing_archive_paper_pinning_rationale"
-      ]
+      "admissible_for_curated_support": true,
+      "blocking_reasons": []
     }
   ],
   "accepted_projects": [
@@ -203,6 +199,16 @@
       "project_accession": "PRJEB31621",
       "paper_title": "Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent",
       "paper_doi": "10.1126/science.aav1002",
+      "archive_status": "paper_pinned_core",
+      "support_class": "accepted",
+      "reason": "admissible_for_curated_support",
+      "nordic_relevance": "non_nordic",
+      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+    },
+    {
+      "project_accession": "PRJNA705960",
+      "paper_title": "Insight into the introduction of domestic cattle and the process of Neolithization to the Spanish region Galicia by genetic evidence",
+      "paper_doi": "10.1371/journal.pone.0249537",
       "archive_status": "paper_pinned_core",
       "support_class": "accepted",
       "reason": "admissible_for_curated_support",
@@ -221,24 +227,13 @@
       "reason": "ancient_but_not_domesticated_core",
       "nordic_relevance": "non_nordic",
       "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
-    },
-    {
-      "project_accession": "PRJNA705960",
-      "paper_title": null,
-      "paper_doi": null,
-      "archive_status": "archive_verified_needs_paper_pinning",
-      "support_class": "ancient_but_too_weak",
-      "reason": "missing_primary_paper_anchor, missing_archive_paper_pinning_rationale",
-      "nordic_relevance": "non_nordic",
-      "nordic_relevance_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
     }
   ],
   "comparator_projects": [],
   "nordic_unmapped_leads": [],
   "release_blockers": [
-    "missing_primary_paper_pins",
-    "missing_archive_paper_pinning_rationale",
     "ancient_but_not_domesticated_core_projects",
-    "mixed_species_rule_unresolved"
+    "mixed_species_rule_unresolved",
+    "missing_archive_paper_pinning_rationale"
   ]
 }

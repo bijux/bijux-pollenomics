@@ -4,7 +4,7 @@ This review names the temporal comparisons that remain safe and the ones that wo
 
 | Family | Rows | Comparison policy |
 | --- | ---: | --- |
-| Animal aDNA chronology | 1475 | Animal rows only support interval comparison when sample-owned chronology survives publication without false precision. |
+| Animal aDNA chronology | 1492 | Animal rows only support interval comparison when sample-owned chronology survives publication without false precision. |
 | SEAD archaeology context | 2069 | SEAD rows remain site-level archaeology context even when numeric spans are available. |
 
 ## Unsafe Comparison Findings
@@ -24,11 +24,11 @@ This review names the temporal comparisons that remain safe and the ones that wo
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-**Supported claim.** The review separates sample-owned animal chronology from SEAD site-level archaeology context and retains two unsafe-comparison findings.
+**Supported claim.** Two source-family reviews preserve sample-owned animal chronology and contextual SEAD time semantics separately. The current 1,492 animal provenance rows retain all contextual and unresolved dispositions without rebuilding raw source evidence.
 
 **Unsupported claim.** Numeric contextual spans are not direct event dates; temporal overlap cannot establish migration, farming or causation.
 
-**Actual verification performed.** Read the two retained family rows and unsafe findings; distinguished 1475 animal chronology review rows from 2069SEADsite-context rows. No temporal comparison or source-review producer was run.
+**Actual verification performed.** The saved-provenance comparison at 2b0c0dbeb reads the independently qualified current maps and all 1,492 saved animal packets. It independently reconciles posture counts and preserves the separate 2,069 SEAD context records. The report guard now honors only validated owned child intervals; missing, duplicate, unowned or hull-only support remains refused. Seventeen targeted tests, lint, formatting and strict typing pass. The first collector assertion and 290 false legacy hull warnings are retained; no map, model or source-census replay.
 
 **Remaining input or review.** Comparable sample-owned chronology, source role and qualified ecological/event interpretation remain required before joining these families.
 
@@ -38,11 +38,11 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Precise next acceptance route.** Authenticate native date ownership, type, unit and precision in each family, declare matched biological support, and qualify the comparison before numerical/event inference.
 
-**Negative or refused result.** Two unsafe findings remain: animal broad periods are not sample numeric dates, and mixed SEADlabels remain context. Zero published-feature guard findings is no scientific endorsement.
+**Negative or refused result.** Animal unresolved/context-only evidence and mixed SEAD chronology remain visible. Unsupported elapsed-age epochs and unqualified specimen identities are not admitted. Valid locality hulls retain contextual display labels; only their individually validated sample supports carry numeric comparison authority.
 
-**Matched denominator.** 2 family rows describe 1475 animal chronology review records and 2069SEAD context records; not 3544 matched pairs or independent events.
+**Matched denominator.** Two family rows: 1,492 animal chronology owners and 2,069 SEAD context records, not 3,561 matched pairs or independent events. Animal postures: 559 numeric, 140 numeric with caveat, 386 contextual and 407 unresolved. SEAD retains its original separate partitions.
 
-- [Retained qualification evidence: docs/report/animal_temporal_comparison_review.json](animal_temporal_comparison_review.json) (SHA-256 `79f8eaf1d578ed31e0f20c92c48e3791e26077104b82f945a3bc24fed4cb7729`).
+- [Retained qualification evidence: docs/report/animal_temporal_comparison_review.json](animal_temporal_comparison_review.json) (SHA-256 `664d0b5b67d60cfa83d8548711f6a4fbd11f345578214b6bb74a78000be8c625`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

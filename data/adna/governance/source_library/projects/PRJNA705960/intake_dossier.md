@@ -1,13 +1,13 @@
 # PRJNA705960 recovery dossier
 
 - Species: `Bos taurus`
-- Archive status: `archive_verified_needs_paper_pinning`
+- Archive status: `paper_pinned_core`
 - Inventory disposition: `tracked_intake_candidate`
-- Paper DOI: `none`
+- Paper DOI: `10.1371/journal.pone.0249537`
 - Publication readiness: `blocked`
-- Next required stage: `paper_capture`
+- Next required stage: `site_recovery`
 - Exact expected sample count: `unknown`
-- Minimum expected sample count: `11`
+- Minimum expected sample count: `1`
 - Final recovered sample rows: `11`
 - Minimum recovery gap: `0`
 - Implausibly low recovery: `false`
@@ -15,8 +15,8 @@
 ## Stage Statuses
 
 - `project_admission`: `complete`
-- `paper_capture`: `blocked`
-- `supplement_capture`: `not_required`
+- `paper_capture`: `complete`
+- `supplement_capture`: `complete`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `in_progress`
 - `chronology_recovery`: `in_progress`
@@ -25,12 +25,18 @@
 
 ## Expected Contributions
 
+- `sample_identities`
+- `taxonomic_context`
 - `site_evidence`
 - `coordinate_candidates`
 - `sample_chronology`
 
 ## Known Assets
 
+- `adna/review/galician_cattle/article.html`
+- `adna/review/galician_cattle/correction.html`
+- `adna/review/galician_cattle/dating-table.xlsx`
+- `adna/review/galician_cattle/mapping-table.xlsx`
 - `adna/governance/source_library/projects/PRJNA705960/archive_metadata.html`
 - `data/adna/governance/source_library/projects/PRJNA705960/sample_master.json`
 - `data/adna/governance/source_library/projects/PRJNA705960/sample_sites.json`
@@ -39,10 +45,8 @@
 
 ## Missing Assets
 
-- Readable repository paper capture is still missing.
 - Some recovered sample rows still lack a defensible site assignment.
 - Some recovered sample rows still lack sample-level chronology.
-- The tracked project still lacks a pinned primary paper linkage.
 
 ## Contradictory Evidence
 

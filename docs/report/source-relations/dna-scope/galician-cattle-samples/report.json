@@ -2,7 +2,7 @@
   "admission_posture": {
     "atlas_point_admitted": false,
     "nordic_relevance": "none_galician_source_context",
-    "project_paper_linkage_promoted": false,
+    "project_paper_linkage_promoted": true,
     "sample_chronology_resolved": false,
     "sample_site_resolved": false,
     "sample_species_resolved": true
@@ -17,14 +17,14 @@
   },
   "governed_normalized_samples": {
     "sample_records.csv": {
-      "bytes": 165617,
+      "bytes": 167685,
       "path": "data/adna/species/bos_taurus/normalized/sample_records.csv",
-      "sha256": "3bf9b510d7af34fb199bd8f58bfa4c07ca8b98c30a29f29b62cc34ef1109fc2c"
+      "sha256": "460997b7d37282e58fc0b89e8375d924a6ede73ae028ad9dcdee5630d7ed6219"
     },
     "sample_records.json": {
-      "bytes": 583597,
+      "bytes": 585709,
       "path": "data/adna/species/bos_taurus/normalized/sample_records.json",
-      "sha256": "d5060a5f657a2db322a99b23a12f5467959dd95f8fbb1a9fc9d6a45a5b5dcbc6"
+      "sha256": "4bb827068bd3c94c9d0047de2908df73556fec32dd8073bd57c921849eb14fe4"
     }
   },
   "governed_sample_master": {
@@ -34,9 +34,9 @@
       "sha256": "9625685fe27082ac19f2ee3fc78d3fc474de013db30613913c7dcaa582e1b038"
     },
     "sample_master.json": {
-      "bytes": 16440,
+      "bytes": 16738,
       "path": "data/adna/governance/source_library/projects/PRJNA705960/sample_master.json",
-      "sha256": "978176d4b0c235c71a7a55179eb3f5b002b5d0b1c0c40d38fa8a81658e1dda6f"
+      "sha256": "f1082ee1ff1f9e07d594424e34c14d228ff9576b1acdce062a12813e0440116c"
     }
   },
   "paper_specimen_count": 18,

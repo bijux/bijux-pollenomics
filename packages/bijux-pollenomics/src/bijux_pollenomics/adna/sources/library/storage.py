@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from functools import cache
+from hashlib import sha256
 import json
 from pathlib import Path
 
@@ -21,6 +22,7 @@ from .artifact_types import (
 from .models import (
     SOURCE_LIBRARY_SCHEMA_VERSION,
     AdnaSourceArtifact,
+    _PaperSourceSpec,
 )
 from .specifications import (
     _doi_slug,
@@ -112,6 +114,86 @@ def _build_source_artifact_index_cached(
     output_root_key: str,
 ) -> tuple[AdnaSourceArtifact, ...]:
     return _build_source_artifact_index_uncached(Path(output_root_key))
+
+
+def _retained_galician_paper_artifacts(
+    output_root: Path, spec: _PaperSourceSpec, projects: tuple[str, ...]
+) -> tuple[AdnaSourceArtifact, ...]:
+    """Bind existing captures without inventing a new download or moving originals."""
+    repository = output_root.parent
+    review_path = (
+        repository / "docs/report/source-relations/dna-scope/galician-cattle-paper.json"
+    )
+    identities: dict[str, dict[str, object]] = {}
+    if review_path.is_file():
+        raw = review_path.read_bytes()
+        if (
+            sha256(raw).hexdigest()
+            != "34f3899c37c437d55c8a891d834a7f119edf4ede46f076da03160e9f31a8b567"
+        ):
+            raise ValueError("Galician retained source review changed")
+        review = json.loads(raw)
+        for key, identity in review["sources"].items():
+            review_relative = Path(identity["path"])
+            if review_relative.is_absolute() or ".." in review_relative.parts:
+                raise ValueError("Galician retained source escapes repository")
+            source = repository / review_relative
+            if not source.is_file():
+                continue
+            payload = source.read_bytes()
+            if (
+                len(payload) != identity["bytes"]
+                or sha256(payload).hexdigest() != identity["sha256"]
+            ):
+                raise ValueError(f"Galician retained source differs: {key}")
+            identities[key] = identity
+    rows = []
+    for key, filename, kind, url in (
+        ("article", "article.html", "article_html", spec.article_source_url),
+        (
+            "correction",
+            "correction.html",
+            "paper_correction_html",
+            "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0269578",
+        ),
+        (
+            "dating_table",
+            "dating-table.xlsx",
+            "supplementary_xlsx",
+            "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0249537.s001&type=supplementary",
+        ),
+        (
+            "mapping_table",
+            "mapping-table.xlsx",
+            "supplementary_xlsx",
+            "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0249537.s002&type=supplementary",
+        ),
+    ):
+        relative = "adna/review/galician_cattle/" + filename
+        source = output_root / relative
+        identity = identities.get(key)
+        exists = identity is not None
+        if identity is not None and identity["path"] != "data/" + relative:
+            raise ValueError("Galician retained source binding differs")
+        size = source.stat().st_size if exists else None
+        rows.append(
+            AdnaSourceArtifact(
+                artifact_id=_artifact_id(spec.doi, filename),
+                artifact_kind=kind,
+                label=key.replace("_", " "),
+                source_url=url,
+                local_path=relative,
+                fetch_status="archived" if exists else "missing",
+                remote_note="Original retained capture authenticated against the reviewed sixteen-source paper/ENA binding; no new acquisition or specimen admission.",
+                project_accessions=projects,
+                paper_doi=spec.doi,
+                content_type=_content_type_from_filename(filename) if exists else None,
+                byte_size=size,
+                storage_path=relative if exists else None,
+                storage_byte_size=size,
+            )
+        )
+    return tuple(rows)
 
 
 def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact, ...]:
@@ -343,6 +425,9 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                 and project.paper_linkage.doi == doi
             )
         )
+        if doi == "10.1371/journal.pone.0249537":
+            rows.extend(_retained_galician_paper_artifacts(output_root, spec, projects))
+            continue
         for remote in _expand_remote_assets(spec, catalog):
             local_path = source_root / remote.relative_path
             metadata_path = local_path.with_suffix(local_path.suffix + ".metadata.json")

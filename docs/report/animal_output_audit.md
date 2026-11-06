@@ -38,7 +38,7 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Unsupported claim.** Bundle presence, full traceability and country output hits are not reference-grade readiness, scientific country approval or worldwide completeness.
 
-**Actual verification performed.** Current saved-source consumer and independent comparison reconcile all 1464 normalized IDs into 324 mapped IDs in 163 locality features and 1140 reason-coded exclusions. Complete child chronology/provenance packets, coordinates and ownership are preserved; only the declared locality display labels change. Two horse localities add six source-supported owners without assigning a default BP epoch. The retained output-audit capture still describes 165 features/322 mapped IDs; it was not rerun or relabeled.
+**Actual verification performed.** Current saved-source consumer and independent comparison reconcile all 1464 normalized IDs into 324 mapped IDs in 163 locality features and 1140 reason-coded exclusions. Complete child chronology/provenance packets, coordinates and ownership are preserved; only the declared locality display labels change. Two horse localities add six source-supported owners without assigning a default BP epoch. The retained output-audit capture still describes 165 features/322 mapped IDs; it was not rerun or relabeled. The current thirteen-input entity reconciliation at 10bf26d61 confirms 1,481 = 335 mapped + 1,146 excluded in 167 features, with unchanged twelve-ID Nordic subset; country producers and older captures were not rerun.
 
 **Remaining input or review.** Blocked/unresolved samples and mixed coordinate/taxon scopes require source-owner review. Current source-bound map, full-index and narrow served-temporal checks do not establish broader browser, latency or scientific admission.
 
@@ -50,11 +50,11 @@ Actual normalized animal entity/map populations and distinct chronology/event ac
 
 **Negative or refused result.** 1140 exclusions and 378 unresolved-locality sample rows remain. The historical country-publication capture has no horse outputs and does not erase the current 75 global horse locality features.
 
-**Matched denominator.** Current 1464 tracked=324 mapped+1140 excluded; 163 locality features. The unchanged country lifecycle retains 12 sample publications across 4 country bundles and 5 species/country cells. Retained output-audit 165/322 and earlier 161/318 and 170/331 epochs are historical.
+**Matched denominator.** Current linked entity result: 1,481 tracked source records = 335 mapped + 1,146 excluded, in 167 locality features. The unchanged country lifecycle has twelve sample publications/four country bundles/five species-country cells. Retained output-audit 165/322 and earlier 161/318 and 170/331 epochs remain historical.
 
 - [Retained qualification evidence: docs/report/animal_output_audit.json](animal_output_audit.json) (SHA-256 `32b6ac488b84fecd80020ba61894a50b8cad63b7f34546b262636043440e01f7`).
 
-- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `7e3e55e28c1582ce388493290b1272709f3d85f8439e1dbbda67f7d5dcf531e9`).
+- [Retained qualification evidence: reports/science/animal-entity-capability/report.json](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/report.json) (SHA-256 `aab2ff406a9d06ce71c8559371d4f9a8404173a12c4525f456a8de250a584fda`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 

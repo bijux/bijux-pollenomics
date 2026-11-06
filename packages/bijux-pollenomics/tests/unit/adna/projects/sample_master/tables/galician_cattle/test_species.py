@@ -41,6 +41,10 @@ ARCHIVE = (
 def test_public_sample_master_distinguishes_aurochs_and_domestic_cattle() -> None:
     master = build_project_sample_master(ROOT / "data", "PRJNA705960")
     assert master.species_latin_name == "Bos taurus"
+    assert master.expected_sample_count is None
+    assert master.unresolved_sample_count is None
+    assert master.expected_sample_count_status == "source_population_unresolved"
+    assert (ROOT / master.expected_sample_count_artifact_path).is_file()
     assert len(master.rows) == 11
     assert Counter(row.species_latin_name for row in master.rows) == {
         "Bos primigenius": 3,
@@ -80,7 +84,7 @@ def test_pinned_paper_ena_crosswalk_accounts_for_each_sample_without_admission()
     assert report["paper_specimen_count"] == 18
     assert report["admission_posture"] == {
         "sample_species_resolved": True,
-        "project_paper_linkage_promoted": False,
+        "project_paper_linkage_promoted": True,
         "sample_site_resolved": False,
         "sample_chronology_resolved": False,
         "atlas_point_admitted": False,

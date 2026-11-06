@@ -4,14 +4,14 @@
   "species_latin_name": "Bos taurus",
   "species_common_name": "cattle",
   "expected_sample_count": null,
-  "expected_sample_count_status": "not_yet_curated",
-  "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
-  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+  "expected_sample_count_status": "source_population_unresolved",
+  "expected_sample_count_provenance": "The retained primary article DOI 10.1371/journal.pone.0249537 assigns original Illumina reads to PRJNA705960. Eighteen bone samples were processed; eleven yielded consensus sequences and seven failed mapping or quality criteria. Nine consensus sequences met GenBank submission criteria. The eleven reviewed ENA BioSample aliases do not establish whether unsuccessful libraries were deposited or close the project specimen roster.",
+  "expected_sample_count_artifact_path": "data/adna/review/galician_cattle/article.html",
   "recovered_sample_count": 11,
   "unresolved_sample_count": null,
   "final_sample_count": 11,
   "ambiguity_row_count": 0,
-  "sample_identifier_status": "missing_primary_paper_linkage",
+  "sample_identifier_status": "paper_or_supplement_targets_curated",
   "extraction_plan": "",
   "rows": [
     {

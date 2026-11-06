@@ -2,14 +2,14 @@
   "schema_version": "animal-project-recovery-dossier.v1",
   "project_accession": "PRJNA705960",
   "species_latin_name": "Bos taurus",
-  "paper_doi": "",
-  "archive_status": "archive_verified_needs_paper_pinning",
-  "evidence_strength": "archive_only",
+  "paper_doi": "10.1371/journal.pone.0249537",
+  "archive_status": "paper_pinned_core",
+  "evidence_strength": "primary_paper_pinned",
   "inventory_disposition": "tracked_intake_candidate",
   "stage_statuses": {
     "project_admission": "complete",
-    "paper_capture": "blocked",
-    "supplement_capture": "not_required",
+    "paper_capture": "complete",
+    "supplement_capture": "complete",
     "sample_identity_recovery": "complete",
     "site_recovery": "in_progress",
     "chronology_recovery": "in_progress",
@@ -17,17 +17,16 @@
     "publication_readiness": "blocked"
   },
   "blocking_stages": [
-    "paper_capture",
     "coordinate_derivation",
     "publication_readiness"
   ],
-  "next_required_stage": "paper_capture",
+  "next_required_stage": "site_recovery",
   "publication_readiness_status": "blocked",
   "expected_sample_count": null,
-  "expected_sample_count_status": "not_yet_curated",
-  "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
-  "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
-  "minimum_expected_sample_count": 11,
+  "expected_sample_count_status": "source_population_unresolved",
+  "expected_sample_count_provenance": "The retained primary article DOI 10.1371/journal.pone.0249537 assigns original Illumina reads to PRJNA705960. Eighteen bone samples were processed; eleven yielded consensus sequences and seven failed mapping or quality criteria. Nine consensus sequences met GenBank submission criteria. The eleven reviewed ENA BioSample aliases do not establish whether unsuccessful libraries were deposited or close the project specimen roster.",
+  "expected_sample_count_artifact_path": "data/adna/review/galician_cattle/article.html",
+  "minimum_expected_sample_count": 1,
   "recovered_sample_count": 11,
   "final_sample_count": 11,
   "unresolved_sample_count": null,
@@ -38,6 +37,10 @@
   "implausibly_low_recovery": false,
   "implausibly_low_recovery_reason": "",
   "known_assets": [
+    "adna/review/galician_cattle/article.html",
+    "adna/review/galician_cattle/correction.html",
+    "adna/review/galician_cattle/dating-table.xlsx",
+    "adna/review/galician_cattle/mapping-table.xlsx",
     "adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
     "data/adna/governance/source_library/projects/PRJNA705960/sample_master.json",
     "data/adna/governance/source_library/projects/PRJNA705960/sample_sites.json",
@@ -45,18 +48,22 @@
     "data/adna/governance/source_library/projects/PRJNA705960/sample_locality_evidence.json"
   ],
   "missing_assets": [
-    "Readable repository paper capture is still missing.",
     "Some recovered sample rows still lack a defensible site assignment.",
-    "Some recovered sample rows still lack sample-level chronology.",
-    "The tracked project still lacks a pinned primary paper linkage."
+    "Some recovered sample rows still lack sample-level chronology."
   ],
   "expected_contributions": [
+    "sample_identities",
+    "taxonomic_context",
     "site_evidence",
     "coordinate_candidates",
     "sample_chronology"
   ],
   "expected_contribution_surfaces": [
-    "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html"
+    "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html",
+    "data/adna/review/galician_cattle/article.html",
+    "adna/review/galician_cattle/dating-table.xlsx",
+    "adna/review/galician_cattle/mapping-table.xlsx",
+    "data/adna/review/galician_cattle/dating-table.xlsx"
   ],
   "contradictory_evidence": [
     "Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence."
@@ -104,7 +111,6 @@
   "major_deficit_reasons": [
     "site_assignment_gap",
     "chronology_gap",
-    "coordinate_precision_gap",
-    "missing_primary_paper_linkage"
+    "coordinate_precision_gap"
   ]
 }

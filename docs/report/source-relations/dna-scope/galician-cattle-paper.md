@@ -25,13 +25,15 @@ paper-row, specimen-code, and species pairs. Every pair agrees on source
 species. This establishes the sample identity crosswalk without resolving
 sample locality or chronology or admitting an atlas point.
 
-The current project catalog is owned by *Bos taurus* and its primary-paper
-field remains unpinned. Three of its eleven archive samples are source-owned
-*Bos primigenius*. Promoting the paper link without correcting mixed-species
-ownership would hide a real source conflict. This review records the paper as
-an identified source candidate while retaining the sample-owned 8/3 taxonomy.
-Locality, chronology, and point admission remain unresolved. The Galician
-project supplies no Nordic sample by itself.
+The current project catalogue retains its *Bos taurus* heading and now links
+the primary paper through its explicit BioProject statements. All three
+*Bos primigenius* samples remain source-owned aurochs with a visible project
+species mismatch. The original source-review JSON keeps its historical
+`identified_not_promoted` posture; the current source library separately binds
+the existing article, correction and two supplements in place. The current
+[sample report](galician-cattle-samples/report.json) records catalogue linkage
+without resolving locality, chronology or point admission. The Galician project
+supplies no Nordic sample by itself.
 
 ## Reproduce
 
@@ -61,17 +63,17 @@ Native DNA specimen/publication/chronology scope and unsupported ecological or p
 
 **Unsupported claim.** The project-wide Bos taurus label does not identify all sample species, and identifying the paper does not admit site or chronology.
 
-**Actual verification performed.** Read the paper-review JSON, its eleven alias crosswalks, specimen counts and author-name-only correction scope; no paper recapture or dating calculation.
+**Actual verification performed.** Read the paper-review JSON, its eleven alias crosswalks, specimen counts and author-name-only correction scope; no paper recapture or dating calculation. Current default report from988d1ff12 passes2.126s/RSS88096768B; only seven typed metadata leaves change, eleven-row CSV and all16source pins remain exact. Catalogue linkage is source curation, not sample context admission.
 
-**Remaining input or review.** Qualified project-paper promotion and sample-owned site/date/context decisions remain.
+**Remaining input or review.** Current catalogue linkage is encoded. Sample-owned locality, chronology, whole-project deposition scope, scientific use and independent qualified interpretation remain unresolved.
 
 **Cause category.** Project-level species and sample-level source taxonomy differ.
 
 **Consequence.** Three aurochs must remain visible instead of inheriting a domestic-cattle project label.
 
-**Precise next acceptance route.** Review the eleven sample aliases against the retained paper/ENA evidence before changing the project catalog and context admission.
+**Precise next acceptance route.** Use the retained primary/supplement/ENA crosswalk and unchanged110literal cells to resolve specimen-owned site, selected chronology and use scope; keep all unresolved context refused.
 
-**Negative or refused result.** Three Bos primigenius conflict with the project Bos taurus label; paper linkage remains identified_not_promoted.
+**Negative or refused result.** Three aurochs remain distinct from the domestic-cattle project label; all eleven sample locality/date/point decisions remain unresolved or refused. The original paper review identified_not_promoted state is historical; current catalogue linkage is encoded.
 
 **Matched denominator.** 18 dating-table specimens versus 11 sequenced labels/BioSamples: 8 Bos taurus and 3 Bos primigenius.
 

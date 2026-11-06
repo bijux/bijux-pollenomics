@@ -23,18 +23,18 @@ flowchart LR
 - Dataset bucket: `archive_verified_needs_paper_pinning`
 - Curation class: `paper_pinned_core`
 - Curated sample rows: `132`
-- Curated projects: `2`
+- Curated projects: `3`
 - Curated site rows: `66`
 - Direct-coordinate rows: `24`
 - Geocoded rows: `0`
 - Unresolved sample rows: `33`
 - Mapped Nordic rows: `4`
 - Tracked intake projects: `3`
-- Projects with sample recovery gaps: `0`
+- Projects with sample recovery gaps: `1`
 - Projects with site-recovery gaps: `3`
 - Projects with chronology gaps: `3`
 - Projects blocked before publication review: `3`
-- Pending projects: `1`
+- Pending projects: `0`
 - Rejected projects: `0`
 
 These values describe different observation units. Sample, project, site,
@@ -59,10 +59,9 @@ Paper-pinned core domestication support exists for this species. Curated project
 
 ### Current Blocking Reasons
 
-- `missing_primary_paper_pins`
-- `missing_archive_paper_pinning_rationale`
 - `ancient_but_not_domesticated_core_projects`
 - `mixed_species_rule_unresolved`
+- `missing_archive_paper_pinning_rationale`
 
 A clear blocker is retained evidence, not a failed attempt at presentation.
 It identifies the project, sample, locality, chronology, or source-recovery

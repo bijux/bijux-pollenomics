@@ -140,8 +140,15 @@ def build_cattle_projects() -> tuple[AdnaArchiveProject, ...]:
         _project(
             "Bos taurus",
             "PRJNA705960",
-            archive_status="archive_verified_needs_paper_pinning",
-            notes="Ancient Galician cattle mtDNA dataset kept archive-verified until explicit primary-paper linkage is encoded.",
+            archive_status="paper_pinned_core",
+            notes="Galician cattle and aurochs mtDNA source; sample-owned taxa and processing/deposition populations remain distinct.",
+            paper_linkage=_paper(
+                paper_title="Insight into the introduction of domestic cattle and the process of Neolithization to the Spanish region Galicia by genetic evidence",
+                doi="10.1371/journal.pone.0249537",
+                journal_title="PLOS ONE",
+                publication_year=2021,
+                pinning_evidence="Retained primary article Data Availability and Results explicitly assign original Illumina reads to PRJNA705960; correction 10.1371/journal.pone.0269578 changes only an author name.",
+            ),
             ancient_status="ancient_confirmed",
             sequencing_target="mitogenome",
             material_basis="individual_bone_or_tooth",

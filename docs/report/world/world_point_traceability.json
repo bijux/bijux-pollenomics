@@ -3,19 +3,19 @@
   "title": "World Evidence Surface",
   "scope_key": "world",
   "scope_label": "World",
-  "row_count": 1713,
+  "row_count": 1733,
   "layer_counts": {
     "aadr": 1231,
     "animal-bos-taurus-wild-or-progenitor-context": 22,
     "animal-capra-hircus": 23,
-    "animal-equus-caballus": 63,
-    "animal-equus-caballus-wild-or-progenitor-context": 12,
+    "animal-equus-caballus": 66,
+    "animal-equus-caballus-wild-or-progenitor-context": 13,
     "animal-felis-catus": 24,
     "animal-felis-catus-wild-or-progenitor-context": 15,
     "animal-ovis-aries": 2,
     "animal-source-chronology-bos-taurus": 31,
     "animal-source-chronology-capra-hircus": 5,
-    "animal-source-chronology-equus-caballus": 242,
+    "animal-source-chronology-equus-caballus": 258,
     "animal-source-chronology-felis-catus": 35,
     "animal-source-chronology-ovis-aries": 4,
     "animal-source-chronology-sus-scrofa-domesticus": 2,
@@ -7877,14 +7877,14 @@
       "source_name": "Tracked animal aDNA localities",
       "source_artifact": "world_animal_point_traceability.json",
       "source_reference": "",
-      "row_count": 63,
+      "row_count": 66,
       "field_counts": {
-        "title": 63,
-        "country": 63,
-        "source_url": 63,
-        "species_latin_name": 63,
-        "animal_scope": 63,
-        "coordinate_confidence": 63
+        "title": 66,
+        "country": 66,
+        "source_url": 66,
+        "species_latin_name": 66,
+        "animal_scope": 66,
+        "coordinate_confidence": 66
       },
       "records": [
         {
@@ -8050,6 +8050,15 @@
           "coordinate_confidence": "exact"
         },
         {
+          "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-fengtai-china",
+          "title": "Fengtai",
+          "country": "China",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "species_latin_name": "Equus caballus",
+          "animal_scope": "domesticated_core",
+          "coordinate_confidence": "exact"
+        },
+        {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-gangatsagaanereg-mongolia",
           "title": "Ganga-Tsagaan Ereg",
           "country": "Mongolia",
@@ -8062,6 +8071,15 @@
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-gordinestiii-moldova",
           "title": "Gordinesti II",
           "country": "Moldova",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "species_latin_name": "Equus caballus",
+          "animal_scope": "domesticated_core",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-grbov-romania",
+          "title": "Gârbovăț",
+          "country": "Romania",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "species_latin_name": "Equus caballus",
           "animal_scope": "domesticated_core",
@@ -8293,6 +8311,15 @@
           "coordinate_confidence": "exact"
         },
         {
+          "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-tachtiperda-georgia",
+          "title": "Tachti Perda",
+          "country": "Georgia",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "species_latin_name": "Equus caballus",
+          "animal_scope": "domesticated_core",
+          "coordinate_confidence": "exact"
+        },
+        {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-tarquinia-italy",
           "title": "Tarquinia",
           "country": "Italy",
@@ -8463,16 +8490,25 @@
       "source_name": "Tracked animal aDNA localities",
       "source_artifact": "world_animal_point_traceability.json",
       "source_reference": "",
-      "row_count": 12,
+      "row_count": 13,
       "field_counts": {
-        "title": 12,
-        "country": 12,
-        "source_url": 12,
-        "species_latin_name": 12,
-        "animal_scope": 12,
-        "coordinate_confidence": 12
+        "title": 13,
+        "country": 13,
+        "source_url": 13,
+        "species_latin_name": 13,
+        "animal_scope": 13,
+        "coordinate_confidence": 13
       },
       "records": [
+        {
+          "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-goyet-belgium",
+          "title": "Goyet",
+          "country": "Belgium",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "species_latin_name": "Equus caballus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "exact"
+        },
         {
           "record_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-hyenaslair-russia",
           "title": "Hyena's Lair",
@@ -9306,14 +9342,14 @@
       "source_name": "Governed animal project sample chronology",
       "source_artifact": "world_animal_sample_chronology_context.json",
       "source_reference": "",
-      "row_count": 242,
+      "row_count": 258,
       "field_counts": {
-        "title": 242,
-        "country": 242,
-        "source_url": 242,
+        "title": 258,
+        "country": 258,
+        "source_url": 258,
         "species_latin_name": 0,
         "animal_scope": 0,
-        "coordinate_confidence": 242
+        "coordinate_confidence": 258
       },
       "records": [
         {
@@ -9562,6 +9598,34 @@
           "coordinate_confidence": "exact"
         },
         {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533205",
+          "title": "BotaiC_Kaz_m3328",
+          "country": "Kazakhstan",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533206",
+          "title": "BotaiG_Kaz_m3193",
+          "country": "Kazakhstan",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533207",
+          "title": "BotaiI_Kaz_m3328",
+          "country": "Kazakhstan",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533208",
+          "title": "BotaiK_Kaz_m3501",
+          "country": "Kazakhstan",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
           "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533209",
           "title": "BPTDG1_Fra_m11800",
           "country": "France",
@@ -9674,6 +9738,13 @@
           "coordinate_confidence": "exact"
         },
         {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533226",
+          "title": "Duk2_Hun_m2059",
+          "country": "Hungary",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
           "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533227",
           "title": "Esto2_Est_m661",
           "country": "Estonia",
@@ -9723,6 +9794,13 @@
           "coordinate_confidence": "exact"
         },
         {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533234",
+          "title": "Fen4_Chi_m800",
+          "country": "China",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
           "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533235",
           "title": "Fetusx9m_Spa_m475",
           "country": "Spain",
@@ -9740,6 +9818,13 @@
           "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533237",
           "title": "Ganx4_Mon_m775",
           "country": "Mongolia",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533238",
+          "title": "Gar3_Rom_m1539",
+          "country": "Romania",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "coordinate_confidence": "exact"
         },
@@ -9884,6 +9969,13 @@
           "coordinate_confidence": "exact"
         },
         {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533259",
+          "title": "Hasanlu1140_Ira_m663",
+          "country": "Iran",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
           "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533260",
           "title": "Hasanlu2327_Ira_m768",
           "country": "Iran",
@@ -9891,8 +9983,36 @@
           "coordinate_confidence": "exact"
         },
         {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533261",
+          "title": "Hasanlu2405_Ira_m868",
+          "country": "Iran",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533262",
+          "title": "Hasanlu3394_Ira_m790",
+          "country": "Iran",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
           "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533263",
           "title": "Hasanlu3398_Ira_m768",
+          "country": "Iran",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533264",
+          "title": "Hasanlu3461_Ira_m913",
+          "country": "Iran",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533265",
+          "title": "Hasanlu368_Ira_m878",
           "country": "Iran",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "coordinate_confidence": "exact"
@@ -10026,6 +10146,20 @@
         {
           "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533284",
           "title": "Kozhai_Kaz_m3342",
+          "country": "Kazakhstan",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533285",
+          "title": "KSH4_Kaz_m1955",
+          "country": "Kazakhstan",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533286",
+          "title": "KSH5_Kaz_m1895",
           "country": "Kazakhstan",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "coordinate_confidence": "exact"
@@ -10787,6 +10921,13 @@
           "coordinate_confidence": "exact"
         },
         {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533403",
+          "title": "TP4_Geo_m1578",
+          "country": "Georgia",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
           "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533404",
           "title": "UE10287_Fra_m617",
           "country": "France",
@@ -11000,6 +11141,13 @@
           "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533436",
           "title": "Var3_Rus_m5549",
           "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB44430:prjeb44430:samea9533437",
+          "title": "Vert311_Bel_m34314",
+          "country": "Belgium",
           "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
           "coordinate_confidence": "exact"
         },
