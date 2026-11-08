@@ -448,6 +448,30 @@ provide focused controls. These establish the representation and remainder,
 not success within the original 160-second work / 180-second process,
 768 MiB / 5 MB study limits or any of the eighteen `1e-9` coefficient goals.
 
+The opt-in population and [fixed-input protocol](continuous-receiver/receiver-angle-moments.json)
+retain the original shared frontier, eighteen final-width goals and all numerical
+resource ceilings. Their one-dimensional certificates separate the finite J sum
+from the whole-J remainder. A saved-leaf observer derives cosine primitives,
+Horner angular polynomials, cap Jacobians and complementary coefficients
+independently; it never calls the producer's changed moment helper. Both sets of
+actual coefficient bounds and width/positivity flags must pass before a precision
+or usable-denominator claim. Overlap alone establishes consistency.
+
+The maintained producer and observer are the modules
+`continuous_receiver.angle_moments.study` and
+`continuous_receiver.angle_moments.observe` under
+`bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward`.
+They require committed source, all four package imports from that checkout,
+the authenticated 3,915-byte retained input freeze and fresh root `artifacts/`
+outputs. The reader interprets canonical rational geometry strings directly;
+the original result and protocol predecessors are checked as opaque bytes.
+No target or saved native-reference value enters this study. An external
+180-second whole-process supervisor, final native peak-RSS and all-output byte
+checks remain required in addition to the internal alarm and shared 160-second
+integration clock. The original posthoc RSS policy does not imply an OS memory
+quota. These executable paths and source-free controls do not establish a new
+six-case precision result before the actual producer and observer terminals.
+
 ## True survival endpoints and monotone ring bounds
 
 The actual wide two-dimensional certificates motivate a different continuous
