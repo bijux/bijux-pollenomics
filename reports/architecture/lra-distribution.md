@@ -86,6 +86,20 @@ its rebuilt wheel equivalence is the narrower result. This qualification adds
 no physical cohort, native R comparison, public index or release claim; both
 synthetic products retain `not_evaluated` scientific acceptance.
 
+The same accepted source also supplied the Apache-2.0 `pollenomics` compatibility
+wheel. An offline dependency-resolving installation reused the completed base-sdist
+environment after its recorded host probes. All eight package payload files matched
+Git, the wheel and installed bytes; fourteen wheel RECORD entries, legal files,
+Twine and the resulting dependency check passed. An isolated 3.51-second probe
+(72,105,984 bytes peak RSS) confirmed twenty shared top-level exports and nested
+API/type identity, six console/module version-and-help calls, and an oversized-count
+CLI refusal with exit 2 and `invalid_count_denominator`. The public alias API also
+preserved that count refusal and `lra_extension_missing` for valid base input,
+without creating outputs. All checked imports resolved inside the installed prefix;
+the engine, NumPy, SciPy and pandas remained absent. CLI refusals preserve
+machine-readable JSON on stdout. This adds no compatibility-sdist,
+optional-engine, native-R, physical-cohort or public-release qualification.
+
 ## Earlier installed API checks
 
 On 23 October 2026, we built the host, compatibility facade and engine at
