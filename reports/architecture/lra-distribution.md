@@ -19,7 +19,74 @@ checks the installed engine's distribution, version, entry point and API
 descriptor. Those are current package contracts, not a promise of a future
 public release.
 
-## What we verified
+## Installed host and optional engine
+
+Accepted source `07b9a9a53cfc34822da1c520d41ba26f6629cde9` was qualified on
+8 November 2026 as `0.1.9.dev2607`, using CPython 3.11.13 on macOS ARM64.
+The host and engine each produced a wheel and sdist; both standalone sdist
+rebuilds retained their version with enclosing Git discovery blocked. All six
+archives passed Twine, metadata, legal-file and path checks. Every wheel RECORD
+entry passed; 1,481 host and 71 engine files matched accepted Git blobs, and
+the engine included its declared SCM-generated version file. Direct/sdist-rebuilt
+wheel payloads were byte-identical. Host metadata remained Apache-2.0; the
+optional engine retained GPL-2.0-or-later.
+
+Two fresh noneditable environments separated the base host from optional LRA.
+The base environment was subsequently reinstalled directly from the host sdist.
+All probes ran under `python -I` from a neutral directory, with production
+imports confined to the corresponding installed prefix and no editable packages.
+
+| Installed consumer | Elapsed process seconds | Peak RSS bytes | Verified module origins |
+| --- | ---: | ---: | ---: |
+| Base host wheel | 8.39 | 78,757,888 | 1,050 |
+| Base host sdist | 3.13 | 73,465,856 | 1,050 |
+| Host and optional LRA wheels | 33.45 | 216,727,552 | 2,030 |
+
+Each probe refused five oversized JSON-float count totals with
+`invalid_count_denominator`, including local counts, and refused a changed
+source digest before output. Both base paths had no engine, NumPy, SciPy or
+pandas and returned `lra_extension_missing` for valid synthetic LRA input. The
+optional path discovered the installed extension and produced two synthetic
+REVEALS products: integer and integral-float counts yielded two byte-identical
+CSV pairs, and both products reopened through their manifests. The installed
+[Neotoma site-evidence API](../../packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py)
+preserved nine synthetic source values and their types, exposed the conflicting
+provider area definitions, selected no unit and admitted zero samples. The
+[request](../../packages/bijux-pollenomics/tests/unit/analysis/lra/support.py) and
+[source](../../packages/bijux-pollenomics/tests/unit/analysis/lra/materialization/support.py)
+helpers supplied declared synthetic controls; their production calls imported
+the installed packages. Both environments passed dependency checks and CLI
+version, help and `run-lra --help`; R and Rscript were absent from the probe PATH.
+
+Builds used the declared Hatchling bounds, Hatchling 1.33.0, hatch-vcs 0.5.0
+and build 1.4.2. The existing
+[locked dependency exporter](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/dependency_audit.py)
+provided nine base and seventeen optional pins, including target markers;
+compatible cached payloads were reused and missing wheels downloaded into the
+owned cache. The native commands below use the selected package, archive,
+interpreter and output locations; `$probe` denotes the retained isolated harness.
+
+```sh
+python -m build --no-isolation --wheel --sdist --outdir "$dist" "$package"
+python -m build --no-isolation --wheel --outdir "$rebuilt" "$unpacked_sdist"
+uv pip install --offline --no-deps --python "$python" "$wheel"
+uv pip install --offline --reinstall --no-deps --python "$base_python" \
+  --build-constraints "$build_constraints" "$host_sdist"
+python -I "$probe" "$role" "$label" "$source" "$output"
+```
+
+The build, rebuild and initial-install drivers used 180-second per-subprocess
+deadlines; CLI calls had 30 seconds. The direct sdist installation and final
+consumers had no imposed process-wide deadline. The table records observed
+consumer elapsed time and RSS, without asserting a memory quota. An independent
+readback authenticated the archives, captured import origins and both serialized
+products without rerunning the producer. Optional
+engine execution after a direct sdist installation was not separately tested;
+its rebuilt wheel equivalence is the narrower result. This qualification adds
+no physical cohort, native R comparison, public index or release claim; both
+synthetic products retain `not_evaluated` scientific acceptance.
+
+## Earlier installed API checks
 
 On 23 October 2026, we built the host, compatibility facade and engine at
 commit `b25d0fbf9f667819e1a08da64634240644a6580d`, each version

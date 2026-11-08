@@ -162,8 +162,8 @@ argv, six one-thread/bytecode environment overrides, Python `-B`, the 180-second
 signal alarm, UTC bounds, source/input identities and owned tool handles are in
 `artifacts/physical-core/abborrtjarnen-age-ppe/source-supported-counts/native-execution/execution.json`.
 The existing module CLI selected `--count-profile pangaea_recorded_zeros_local_nc`
-with repository `/Users/bijan/bijux/bijux-pollenomics`, shared source root
-`/Users/bijan/bijux/-bijux-pollenomics-data` and its fresh `native-run` destination.
+with the repository root, the source-identified external data root and its
+fresh `native-run` destination.
 There was no fit, new age/PPE draw, geometry integration or repeated producer.
 
 Full outputs remain local under

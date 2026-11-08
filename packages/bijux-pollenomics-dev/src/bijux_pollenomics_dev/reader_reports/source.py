@@ -28,6 +28,8 @@ MAINTAINED_READER_BOOKKEEPING = frozenset(
         "mkdocs.yml",
         "packages/bijux-pollenomics-dev/pyproject.toml",
         "packages/bijux-pollenomics-lra/pyproject.toml",
+        "packages/bijux-pollenomics/pyproject.toml",
+        "packages/pollenomics/pyproject.toml",
         "presentation/source-lock.json",
         "pyproject.toml",
         "reports/exports/site-downloads.json",
