@@ -189,6 +189,8 @@ def test_family_and_report_populations_remain_exact(
         "mkdocs.yml",
         "packages/bijux-pollenomics-dev/pyproject.toml",
         "packages/bijux-pollenomics-lra/pyproject.toml",
+        "packages/bijux-pollenomics/pyproject.toml",
+        "packages/pollenomics/pyproject.toml",
         "presentation/source-lock.json",
         "pyproject.toml",
         "reports/exports/site-downloads.json",
@@ -209,7 +211,12 @@ def test_current_repository_bookkeeping_keeps_exact_paths_without_body_pins(
 
 @pytest.mark.parametrize(
     "relative",
-    [".github/workflows/other.yml", "other.toml", "configs/ci/report-ownership.json"],
+    [
+        ".github/workflows/other.yml",
+        "other.toml",
+        "packages/unlisted/pyproject.toml",
+        "configs/ci/report-ownership.json",
+    ],
 )
 def test_unlisted_metadata_and_scientific_ownership_cannot_be_unpinned(
     tmp_path: Path, verifier: ModuleType, lock: dict[str, Any], relative: str
