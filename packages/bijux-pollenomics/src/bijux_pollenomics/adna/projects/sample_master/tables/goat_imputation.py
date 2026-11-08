@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import csv
 from dataclasses import replace
-import io
 from hashlib import sha256
+import io
 import json
 
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject

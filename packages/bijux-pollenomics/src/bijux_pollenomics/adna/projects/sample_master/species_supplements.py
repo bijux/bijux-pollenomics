@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 from hashlib import sha256
+from pathlib import Path
 
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.sources.library import ADNA_SOURCE_LIBRARY_DIR
