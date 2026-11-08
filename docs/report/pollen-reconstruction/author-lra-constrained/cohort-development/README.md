@@ -80,7 +80,7 @@ The retained source contains 15 positive-count sites and 20,732 original grains.
 
 Overlapping training sets, reused numerical requests and shared source/protocol choices create spatial and computational dependence. Neither 12,480 references nor 45 prediction slots is an independent-sample denominator. This deterministic point diagnostic does not establish ecological vegetation accuracy, calibrated uncertainty, untouched confirmation, source rights, original R optimizer parity, installed wheel/sdist qualification or release approval.
 
-[report.json](report.json) retains every scored/refused fold; [training.json](training.json) retains the numerical request pool and logical reuse map; [trials.jsonl](trials.jsonl) retains every new start/completion lifecycle. The linked prior evidence retains the 832 reused outcomes. [prediction-freeze.json](prediction-freeze.json) and [outcome-access.jsonl](outcome-access.jsonl) bind complete-inventory freezing and subsequent cohort scoring. [protocol.json](protocol.json), [replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py) and [pool.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/pool.py) retain the exact executed scientific protocol and source.
+[report.json](report.json) retains every scored/refused fold; [training.json](training.json) retains the numerical request pool and logical reuse map; [trials.jsonl](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/trials.jsonl) retains every new start/completion lifecycle. The linked prior evidence retains the 832 reused outcomes. [prediction-freeze.json](prediction-freeze.json) and [outcome-access.jsonl](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/outcome-access.jsonl) bind complete-inventory freezing and subsequent cohort scoring. [protocol.json](protocol.json), [replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/replay.py) and [pool.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/pool.py) retain the exact executed scientific protocol and source.
 
 The actual execution used clean base `5998a3c616e02c9e702fae8048ffbff6f40435d2` with separately authenticated cohort sources. Native/common/outer exits were zero, with source/input/runtime custody preserved. The compact [execution authority](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/author-love-cohort-development.json) binds the original terminals, source overlay and independent saved-output arithmetic. Derived source discovery metadata is declared separately from installed-distribution qualification.
 
@@ -108,7 +108,7 @@ Homogeneous retrospective prior-exposed English fixed-start LOVE development coh
 
 **Matched denominator.** 15 prior-exposed sites;195 fold-specific requests/27 numerical requests;896 new+832 reused=1,728 unique attempts;12,480 logical references;45 prediction/refusal slots across three baselines.
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/outcome-access.jsonl](outcome-access.jsonl) (SHA-256 `08643e07835ca56f79835d4e3d0e563f6bcca1bc14158d15e4d1d6b936b5bd06`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/outcome-access.jsonl](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/outcome-access.jsonl) (SHA-256 `08643e07835ca56f79835d4e3d0e563f6bcca1bc14158d15e4d1d6b936b5bd06`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/prediction-freeze.json](prediction-freeze.json) (SHA-256 `1459879a51fe6263e587316a7eeaf80baffbe74b717618024618b7d5f944d81b`).
 
@@ -116,7 +116,7 @@ Homogeneous retrospective prior-exposed English fixed-start LOVE development coh
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/training.json](training.json) (SHA-256 `ba24a3d9d7a41b8be459c61078ff975422483ce9b8c26eac8155ea02f4938e2f`).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/trials.jsonl](trials.jsonl) (SHA-256 `3db9d3c352e869ea09d44d0577c32d3ebe16f7944001bedd5e2ae6e81386fad9`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/trials.jsonl](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/trials.jsonl) (SHA-256 `3db9d3c352e869ea09d44d0577c32d3ebe16f7944001bedd5e2ae6e81386fad9`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/cohort-development/protocol.json](protocol.json) (SHA-256 `6a87258f9495c417efb45e5a973a566134c7f7f28cecbe741777577ed0066585`).
 

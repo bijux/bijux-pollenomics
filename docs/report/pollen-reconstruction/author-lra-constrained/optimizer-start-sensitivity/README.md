@@ -73,7 +73,7 @@ checks are reused without rerunning or replacing them.
 
 [report.json](report.json) retains every start, candidate or refusal, objective,
 stop message, iteration/evaluation diagnostics and elapsed time.
-[trials.jsonl](trials.jsonl) retains the start and completion events for every
+[trials.jsonl](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/trials.jsonl) retains the start and completion events for every
 attempt. The [execution receipt](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-cohorts/author-love-start-diagnostic.json)
 binds their exact bytes, inputs, source candidate, command, terminal and runtime.
 [replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/replay.py) implements this comparison without changing the original
@@ -152,7 +152,7 @@ Source-bound fixed-start convergence diagnostic on exposed English training obje
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/report.json](report.json) (SHA-256 `29386982ad042292b918d25ac5891760c045b83a7edeebaf08b256e571719ddd`).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/trials.jsonl](trials.jsonl) (SHA-256 `fe7b2734419a7c98cbfc6215ac83950887111acda629ef75586ae294c8050f75`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/trials.jsonl](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/trials.jsonl) (SHA-256 `fe7b2734419a7c98cbfc6215ac83950887111acda629ef75586ae294c8050f75`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/protocol.json](protocol.json) (SHA-256 `d257517c80ea407de3c186a8fa611d3a68ef95aae2ee706173849148fe6a37d8`).
 
