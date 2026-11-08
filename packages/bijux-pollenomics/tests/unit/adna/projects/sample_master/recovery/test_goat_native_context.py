@@ -9,6 +9,13 @@ from typing import Any
 
 import pytest
 
+from bijux_pollenomics.adna.projects.evidence.chronology.resolution import (
+    _artifact_kind_from_path as chronology_kind,
+)
+from bijux_pollenomics.adna.projects.registry.sites.evidence import (
+    _artifact_kind_from_path as locality_kind,
+)
+
 from bijux_pollenomics.adna.projects.sample_master.models import (
     AdnaProjectSampleMasterRow,
 )
@@ -75,6 +82,12 @@ def test_native_correspondence_changes_only_one_owners_lineage(
         assert after.source_native_identity_kind == "supplementary_sample_label"
         assert after.taxon_alignment_status == "not_reported"
         assert after.source_native_tax_id == after.source_native_scientific_name == ""
+        assert chronology_kind(after.sample_lineage_path) == chronology_kind(
+            before.sample_lineage_path
+        )
+        assert locality_kind(after.sample_lineage_path) == locality_kind(
+            before.sample_lineage_path
+        )
 
 
 def test_changed_native_context_refuses_even_equivalent_json(

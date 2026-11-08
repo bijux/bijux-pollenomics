@@ -244,7 +244,7 @@ def _bind_blagotin_native_context(
     )
     updated = replace(
         row,
-        sample_lineage_path=f"{row.sample_lineage_path} || {GOAT_NATIVE_CONTEXT}",
+        sample_lineage_path=f"{GOAT_NATIVE_CONTEXT} || {row.sample_lineage_path}",
         sample_lineage_locator=(
             f"{row.sample_lineage_locator} || SAMPLE accession/PRIMARY_ID:"
             f"{native['primary_id']}; TITLE:{native['title']}"
