@@ -2,6 +2,7 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import runpy
 from types import SimpleNamespace
 from typing import NotRequired, TypedDict
 
@@ -304,3 +305,31 @@ def test_noncanonical_scientific_source_paths_refuse_before_io(
 def test_context_json_duplicate_keys_refuse_without_a_dispatch_assumption() -> None:
     with pytest.raises(ValueError, match="duplicate source keys"):
         HOOK._json_object([("schema", "first"), ("schema", "second")])
+
+
+@pytest.mark.parametrize(
+    "relative",
+    [None, "reports/exports/papers/paper-0.pdf", "presentation/developer.pdf"],
+)
+def test_research_verifier_authenticates_owned_pdf_bytes(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    synthetic_pdf_sources: None,
+    relative: str | None,
+) -> None:
+    _fixture(tmp_path)
+    verifier = runpy.run_path(str(ROOT / "reports/verify.py"))
+
+    def owned_hook(path: str) -> dict[str, object]:
+        assert Path(path) == tmp_path / "configs/docs/science_downloads.py"
+        return {"download_bytes": HOOK.download_bytes}
+
+    monkeypatch.setattr(verifier["runpy"], "run_path", owned_hook)
+    if relative is None:
+        assert verifier["verify_scientific_downloads"](tmp_path) == 12
+    else:
+        (tmp_path / relative).write_bytes(b"%PDF-unreviewed replacement")
+        with pytest.raises(
+            ValueError, match="differs from qualified paper export|changed"
+        ):
+            verifier["verify_scientific_downloads"](tmp_path)
