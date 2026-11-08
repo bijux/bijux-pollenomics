@@ -164,11 +164,11 @@ def test_changed_source_or_admitted_bytes_are_refused(
         publication["repository_source_sha"] = "0" * 40
         write_json(path, publication)
     else:
-        path = {
+        relative_path = {
             "pdf": "assets/science/papers/0.pdf",
             "data": DATA[0],
             "html": ENTRY + "index.html",
         }[change]
-        (root / SITE / path).write_bytes(b"changed public bytes")
+        (root / SITE / relative_path).write_bytes(b"changed public bytes")
     with pytest.raises(ValueError):
         prepare(root, accepted, Path("/controlled-browser"))

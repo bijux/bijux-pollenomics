@@ -6,6 +6,7 @@ import copy
 import json
 from pathlib import Path
 import subprocess
+from typing import Any
 
 import pytest
 
@@ -23,11 +24,11 @@ from bijux_pollenomics_dev.ci.scientific_reading.contracts import (
 ROOT = Path(__file__).resolve().parents[4]
 
 
-def observation() -> tuple[dict, dict]:
+def observation() -> tuple[dict[str, Any], dict[str, Any]]:
     paths = [f"assets/science/papers/{number}.pdf" for number in range(9)]
     paths += [f"assets/science/presentations/{number}.pdf" for number in range(3)]
     paths += list(DATA)
-    plan = {
+    plan: dict[str, Any] = {
         "candidate": {"sha": "a" * 40},
         "downloads": [
             {"path": path, "bytes": index + 1, "sha256": f"{index:064x}"}
@@ -35,7 +36,7 @@ def observation() -> tuple[dict, dict]:
         ],
     }
     origin = "http://127.0.0.1:12345"
-    receipt = {
+    receipt: dict[str, Any] = {
         "status": "PASS",
         "candidate": plan["candidate"],
         "errors": [],
