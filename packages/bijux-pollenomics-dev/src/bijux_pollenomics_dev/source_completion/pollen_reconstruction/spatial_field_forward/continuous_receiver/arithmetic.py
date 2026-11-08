@@ -176,7 +176,9 @@ def _trigonometric_derivative(value: Interval, derivative: int) -> Interval:
             polynomial += coefficient * midpoint**power / math.factorial(power)
     remainder = abs(midpoint) ** (SERIES_DEGREE + 1) / math.factorial(SERIES_DEGREE + 1)
     radius = remainder + value.width / 2
-    return Interval.outward(polynomial - radius, polynomial + radius)
+    result = Interval.outward(polynomial - radius, polynomial + radius)
+    # Every sine/cosine derivative has magnitude at most one on the real line.
+    return Interval(max(result.lower, Fraction(-1)), min(result.upper, Fraction(1)))
 
 
 def sin_bounds(value: Interval) -> Interval:
@@ -210,7 +212,14 @@ def sinc_derivative(value: Interval, derivative: int) -> Interval:
         math.factorial(SERIES_DEGREE + 1) * (derivative + SERIES_DEGREE + 2)
     )
     radius = remainder + value.width / (2 * (derivative + 2))
-    return Interval.outward(polynomial - radius, polynomial + radius)
+    result = Interval.outward(polynomial - radius, polynomial + radius)
+    # Differentiating integral_0^1 cos(t*z) dt gives a factor t^n;
+    # integrating its absolute bound yields 1/(n+1), including the origin.
+    bound = Fraction(1, derivative + 1)
+    global_range = Interval.outward(-bound, bound)
+    return Interval(
+        max(result.lower, global_range.lower), min(result.upper, global_range.upper)
+    )
 
 
 def exp_bounds(value: Interval) -> Interval:

@@ -129,15 +129,17 @@ the compact summaries rather than another full CSV copy.
 
 The executed commands, wrapped by the existing bounded executor and
 `/usr/bin/time -l`, were equivalent to these repository-relative invocations;
-the compact result preserves their literal original argument lists. Replays
-require new absent output paths.
+the compact result preserves their literal original argument lists. For a new
+replay, use the locked check environment created by `make install` and new
+absent output paths. The commands below select that maintained environment;
+they do not change the historical execution records.
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m \
+PYTHONDONTWRITEBYTECODE=1 artifacts/root/check-venv/bin/python -B -m \
   bijux_pollenomics_dev.source_completion.nordic.sequence_support \
   --repository "$PWD" \
   --output "$PWD/artifacts/nordic-sequence-support/finite-depth-boundaries"
-PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B \
+PYTHONDONTWRITEBYTECODE=1 artifacts/root/check-venv/bin/python -B \
   packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_sequence_support_result.py \
   --repository "$PWD" \
   --result "$PWD/artifacts/nordic-sequence-support/finite-depth-boundaries" \

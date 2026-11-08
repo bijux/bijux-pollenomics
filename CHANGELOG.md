@@ -12,7 +12,11 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Distinguish historical and conditional LRA evidence and reconcile current animal map/chronology populations without extending earlier browser qualifications ([#345](https://github.com/bijux/bijux-pollenomics/pull/345)).
+- **Pending review:** Restore scientific report rendering and current locked-environment replay recipes while preserving source claims and historical qualification limits ([#347](https://github.com/bijux/bijux-pollenomics/pull/347)).
+
+- **Verified merge (2026-11-08 11:51:00 UTC):** Tighten continuous receiver elementary enclosures and record the frozen six-receiver evaluation with coefficient precision still refused ([#346](https://github.com/bijux/bijux-pollenomics/pull/346)).
+
+- **Verified merge (2026-11-08 11:40:40 UTC):** Distinguish historical and conditional LRA evidence and reconcile current animal map/chronology populations without extending earlier browser qualifications ([#345](https://github.com/bijux/bijux-pollenomics/pull/345)).
 
 - **Verified merge (2026-11-08 11:33:28 UTC):** Preserve exact count mass for integral-float LRA requests and refuse denominators above the existing bound before writing products ([#344](https://github.com/bijux/bijux-pollenomics/pull/344)).
 
