@@ -196,3 +196,47 @@ def test_native_configuration_requires_early_selected_source_preflight(
         )
     with pytest.raises(ValueError):
         verify_workflow(document)
+
+
+@pytest.mark.parametrize(
+    "change", ["missing", "incomplete", "empty", "duplicate", "foreign"]
+)
+def test_native_preflight_refuses_unbound_package_sources(
+    monkeypatch: pytest.MonkeyPatch, change: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    selected = next(
+        step
+        for step in document["jobs"]["reading"]["steps"]
+        if step["name"] == "Check native report configuration"
+    )
+    paths = selected["env"]["PYTHONPATH"].split(":")
+    if change == "missing":
+        selected.pop("env")
+    else:
+        if change == "incomplete":
+            paths.pop()
+        elif change == "empty":
+            paths[1] = ""
+        elif change == "duplicate":
+            paths[1] = paths[0]
+        else:
+            paths[1] = "artifacts/foreign/src"
+        selected["env"]["PYTHONPATH"] = ":".join(paths)
+    with pytest.raises(ValueError, match="four distinct owned package source roots"):
+        verify_workflow(document)
+
+
+def test_native_preflight_accepts_reordered_distinct_package_sources(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    document, _ = workflow(monkeypatch)
+    selected = next(
+        step
+        for step in document["jobs"]["reading"]["steps"]
+        if step["name"] == "Check native report configuration"
+    )
+    selected["env"]["PYTHONPATH"] = ":".join(
+        reversed(selected["env"]["PYTHONPATH"].split(":"))
+    )
+    verify_workflow(document)

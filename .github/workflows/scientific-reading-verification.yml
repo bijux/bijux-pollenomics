@@ -90,6 +90,8 @@ jobs:
         run: make docs-publication-controls
 
       - name: Check native report configuration
+        env:
+          PYTHONPATH: packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics-lra/src:packages/pollenomics/src
         run: artifacts/docs/publication/python/bin/python .bijux/shared/bijux-docs/security/render_publication.py --config mkdocs.yml --site-dir artifacts/docs/site --site-url https://bijux.io/bijux-pollenomics/ --interactive-report-owner configs/docs/maps/report-owner.json --preflight
 
       - name: Build and verify the production-site artifact
