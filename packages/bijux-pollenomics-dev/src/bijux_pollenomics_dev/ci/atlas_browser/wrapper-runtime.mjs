@@ -2,7 +2,7 @@
 import {execFileSync, spawn} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {createServer} from 'node:http';
-import {mkdir, mkdtemp, readFile, realpath, rm, writeFile} from 'node:fs/promises';
+import {mkdir, mkdtemp, readFile, realpath, rm, stat, writeFile} from 'node:fs/promises';
 import {extname, join, relative, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {connectCdp, debuggerEndpoint, evaluate} from './browser-transport.mjs';
@@ -13,6 +13,37 @@ const ownerPath = 'configs/docs/maps/report-owner.json';
 export const parentOutput = 'public/nordic-atlas/index.html';
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 const git = (repository, ...args) => execFileSync('git', args, {cwd: repository, encoding: 'utf8'}).trim();
+
+async function readPublication(repository, site) {
+  // runWrapper invokes the normal verifier before using this byte-bound plan.
+  // A serialized inventory supplies expected bytes, never publication authority.
+  const checkpointRaw = await readFile(join(repository, 'artifacts/website-security/source-identity.json'));
+  const publicationRaw = await readFile(join(repository, 'artifacts/website-security/publication.json'));
+  if (checkpointRaw.length > 16777216 || publicationRaw.length > 16777216) throw Error('publication receipt exceeds byte budget');
+  const checkpoint = JSON.parse(checkpointRaw), publication = JSON.parse(publicationRaw);
+  const source = publication.qualification?.source;
+  const standard = (await readFile(join(repository, '.github/standards/bijux-docs.sha'), 'utf8')).trim();
+  if (publication.schema !== 2 || publication.repository_source_sha !== git(repository, 'rev-parse', 'HEAD')
+      || checkpoint.repository_source?.sha !== publication.repository_source_sha
+      || checkpoint.repository_source?.tree !== git(repository, 'rev-parse', 'HEAD^{tree}')
+      || publication.standard_sha !== standard || checkpoint.standard?.sha !== standard
+      || publication.site_url !== 'https://bijux.io/bijux-pollenomics/' || checkpoint.site_url !== publication.site_url
+      || publication.site_dir !== 'artifacts/docs/site' || checkpoint.site_dir !== publication.site_dir
+      || await realpath(site) !== await realpath(join(repository, publication.site_dir))
+      || source?.sha256 !== digest(checkpointRaw) || JSON.stringify(source?.receipt) !== JSON.stringify(checkpoint)) {
+    throw Error('publication inventory differs from current source or selected site');
+  }
+  if (!Array.isArray(publication.files) || publication.files.length > 100000) throw Error('publication inventory exceeds member budget');
+  const members = new Map();
+  for (const row of publication.files) {
+    if (typeof row.path !== 'string' || row.path.startsWith('/') || row.path.includes('\\')
+        || row.path.split('/').some(part => !part || part === '.' || part === '..')
+        || !/^[a-f0-9]{64}$/.test(row.sha256) || !Number.isSafeInteger(row.bytes) || row.bytes < 0
+        || members.has(row.path)) throw Error('publication member is ambiguous');
+    members.set(row.path, row);
+  }
+  return {members, source:publication.repository_source_sha, sha256:digest(publicationRaw)};
+}
 
 export function requireScopedCandidate(repository, paths, expectedHead = null) {
   const head = git(repository, 'rev-parse', 'HEAD');
@@ -26,6 +57,7 @@ export function requireScopedCandidate(repository, paths, expectedHead = null) {
 }
 
 export async function readWrapperAuthority(repository, site) {
+  const publication = await readPublication(repository, site);
   const owner = JSON.parse(await readFile(join(repository, ownerPath), 'utf8'));
   const parents = owner.parents.filter(row => row.output === parentOutput);
   if (parents.length !== 1 || parents[0].reports.length !== 1) throw Error('Nordic wrapper authority is ambiguous');
@@ -36,24 +68,33 @@ export async function readWrapperAuthority(repository, site) {
   const html = await readFile(join(site, parent.output));
   if (digest(html) !== parent.built_html_sha256) throw Error('built wrapper differs from approved parent');
   if (digest(await readFile(join(repository, parent.source.path))) !== parent.source.sha256) throw Error('wrapper source differs from approved parent');
-  const expected = new Map([[parent.output, parent.built_html_sha256], [report.output, report.source.sha256],
-    ...Object.entries(report.resources).map(([path, row]) => [path, row.sha256])]);
-  if (digest(await readFile(join(site, report.output))) !== report.source.sha256
-      || digest(await readFile(join(repository, report.source.path))) !== report.source.sha256) throw Error('built child differs from canonical map');
+  const expected = new Map([...publication.members].map(([path,row])=>[path,row.sha256]));
+  if (expected.get(parent.output) !== parent.built_html_sha256) throw Error('built wrapper differs from publication inventory');
+  if (!expected.has(report.output) || digest(await readFile(join(site, report.output))) !== expected.get(report.output)) throw Error('built child differs from publication inventory');
+  if (digest(await readFile(join(repository, report.source.path))) !== report.source.sha256) throw Error('canonical map differs from approved source');
+  for (const [path, row] of Object.entries(report.resources)) {
+    const raw = await readFile(join(repository, row.source));
+    if (digest(raw) !== row.sha256 || expected.get(path) !== row.sha256
+        || publication.members.get(path).bytes !== raw.length) throw Error('owned resource differs from source or publication inventory');
+  }
   const iframe = [...html.toString().matchAll(/<iframe\b[^>]*\bsrc="([^"]+)"/g)];
   if (iframe.length !== 1 || new URL(iframe[0][1], `http://localhost/${parent.output}`).pathname !== `/${report.output}`) throw Error('real wrapper iframe target differs');
   const match = (await readFile(join(site, report.output), 'utf8')).match(/<script[^>]*id="atlas-static-bootstrap"[^>]*>([\s\S]*?)<\/script>/);
   if (!match) throw Error('child scientific bootstrap is unavailable');
   const bootstrap = JSON.parse(match[1]);
-  return {parent, report, expected, buildId: bootstrap.build_id, version: bootstrap.version};
+  return {parent, report, expected, publication:{source:publication.source,sha256:publication.sha256}, buildId: bootstrap.build_id, version: bootstrap.version};
 }
 
 export async function readSiteMember(site, pathname, expected) {
   const root = await realpath(site);
-  const path = await realpath(resolve(root, `.${decodeURIComponent(pathname)}`));
+  const requested = resolve(root, `.${decodeURIComponent(pathname)}`);
+  const path = await realpath(requested);
   if (relative(root, path).startsWith('..')) throw Error('site request escapes root');
+  if (path !== requested) throw Error('site member alias is forbidden');
+  const info = await stat(path);
+  if (!info.isFile() || info.nlink !== 1 || info.size > 16777216) throw Error('site member is aliased, missing or oversized');
   const bytes = await readFile(path), key = relative(root, path);
-  if (expected.has(key) && digest(bytes) !== expected.get(key)) throw Error(`owned site member differs: ${key}`);
+  if (!expected.has(key) || digest(bytes) !== expected.get(key)) throw Error(`owned site member differs: ${key}`);
   return {bytes, path};
 }
 
@@ -80,6 +121,10 @@ function evidenceIdentity(snapshot) {
 export async function runWrapper({repository, site, output, browserBinary}) {
   repository = resolve(repository); site = resolve(site); output = resolve(output);
   if (!relative(join(repository, 'artifacts'), output) || relative(join(repository, 'artifacts'), output).startsWith('..')) throw Error('output must be a child of repository artifacts');
+  execFileSync(join(repository, 'artifacts/docs/publication/python/bin/python'),
+    [join(repository, '.bijux/shared/bijux-docs/security/publication.py'), '--repo-root', repository, 'verify',
+      '--manifest', join(repository, 'artifacts/website-security/publication.json'), '--require-qualified'],
+    {cwd:repository, timeout:180000, maxBuffer:16777216});
   const authority = await readWrapperAuthority(repository, site);
   const paths = [ownerPath, authority.parent.source.path, authority.report.source.path,
     ...Object.values(authority.report.resources).map(row => row.source),
@@ -169,9 +214,10 @@ export async function runWrapper({repository, site, output, browserBinary}) {
       async writeScenario(_scope, scenario, receipts) {const path=`nordic-wrapper/${scenario.name}.json`; await writeFile(join(output,path),JSON.stringify(scenario,null,2)+'\n'); receipts.push(path);},
     });
     requireScopedCandidate(repository,paths,revision);
-    await readWrapperAuthority(repository,site);
-    outcome = {source_revision:revision, parent:authority.parent, map:{output:authority.report.output,source:authority.report.source,build_id:authority.buildId,version:authority.version}, browser:browserIdentity, scenarios:result.scenarios, requests, external_refusals:externalRefusals, server_errors:serverErrors,
-      scope:'Local retained Nordic docs iframe only; separate current-loader contract. Direct results are reused, not rerun. No hosted or release qualification.'};
+    const after = await readWrapperAuthority(repository,site);
+    if (JSON.stringify(after.publication) !== JSON.stringify(authority.publication)) throw Error('publication inventory changed during browser journey');
+    outcome = {source_revision:revision, publication:authority.publication, parent:authority.parent, map:{output:authority.report.output,source:authority.report.source,build_id:authority.buildId,version:authority.version}, browser:browserIdentity, scenarios:result.scenarios, requests, external_refusals:externalRefusals, server_errors:serverErrors,
+      scope:'Local Nordic docs iframe and source-bound publication bytes after the owning publication verifier. Direct results are reused, not rerun. No hosted, scientific or human-reader qualification.'};
     if (result.scenarios.length !== 10 || result.scenarios.some(row=>!Object.values(row.assertions).every(value=>value===true)) || serverErrors.length || externalRefusals.length) throw Error('actual wrapper matrix did not qualify');
   } catch(error) {failure=error;}
   finally {

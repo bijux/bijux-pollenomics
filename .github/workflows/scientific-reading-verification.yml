@@ -124,6 +124,7 @@ jobs:
             artifacts/scientific-reading
             artifacts/website-security
             artifacts/docs/publication/python-admission.json
+            artifacts/docs/site/public/nordic-atlas/index.html
           if-no-files-found: error
           retention-days: 14
 
