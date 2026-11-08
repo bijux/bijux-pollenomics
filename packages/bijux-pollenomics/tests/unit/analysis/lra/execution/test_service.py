@@ -17,6 +17,18 @@ from ..outputs.test_publication import Result, binding
 from ..support import request_fixture
 
 
+def test_host_refuses_rounded_excess_count_mass_before_publication(
+    tmp_path: Path,
+) -> None:
+    payload = request_fixture(tmp_path)
+    payload["regional"]["samples"][0]["counts"] = [float(2**53), 1]
+    destination = tmp_path / "output"
+    with pytest.raises(LRARefusal) as error:
+        service.run_lra_request(payload, input_root=tmp_path, destination=destination)
+    assert error.value.reason_code == "invalid_count_denominator"
+    assert not destination.exists()
+
+
 @pytest.mark.parametrize("change", ["code", "source"])
 def test_run_binds_inputs_before_and_after_computation(
     tmp_path: Path, change: str
