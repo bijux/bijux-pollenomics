@@ -156,9 +156,20 @@ acceptance requirements.
 
 ## LRA source gate
 
-We require one identified physical core with selected chronology,
-time-matched basin geometry, an eligible count and taxon denominator, fall
-speeds and permitted PPE use before LRA admission. Our
+LRA admission requires an identified physical core, a justified selected
+chronology and basin model for the declared time support, an eligible count
+and taxon denominator, fall speeds and permitted PPE use. The evidence needed
+depends on the claim. Historical LandClim reproduction requires its actual
+selected chronology, sample membership, geometry and parameters. A separately
+declared reconstruction may use a source-qualified alternative chronology and
+a justified static basin model, with explicit assumptions, sensitivity and
+evaluation scope. These assumptions do not establish a past shoreline or
+authenticate the historical selection. The
+[prerequisite review](../../docs/report/source-relations/neotoma/lra-prerequisites/README.md#historical-correspondence-and-a-new-reconstruction)
+explains the distinction; it retains zero accepted samples and no executable
+request. This clarification admits no new core or source use.
+
+Our
 [ABB source correspondence](../../docs/report/source-relations/neotoma/abbo-native-correspondence/README.md)
 matches many depth and count cells, but the
 [published-method review](abborrtjarnen-source-method.md)
@@ -171,9 +182,11 @@ matches 72 samples and all 11 radiocarbon source controls, while conflicting
 reported areas and missing time-matched basin and analytical-use fields still
 prevent LRA admission. Finnish Laihalampi has an exact 150-sample, single-core
 lead and consistent modern area claims, but its [source decision](laihalampi-lra-input/README.md)
-still needs the selected age vector and dated basin. We recorded these exact gaps in
-research needs; we have not substituted study-wide
-assumptions for a named core's missing evidence.
+still needs the selected age vector and dated basin for the historical claim.
+These unresolved source decisions remain open. A new conditional profile must
+justify its own core, source rows, chronology, geometry, denominator and
+parameter use; it cannot silently substitute study-wide assumptions for a
+named core's missing evidence or inherit historical reproduction status.
 
 The existing [site-level author-taxonomy mass ledger](../../docs/report/regions/nordic/author-taxonomy-mass/sites.csv)
 accounts for 84,078 assigned, 916 excluded and 309 unmapped native counts at
