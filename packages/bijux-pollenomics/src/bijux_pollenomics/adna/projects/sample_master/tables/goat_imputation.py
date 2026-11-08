@@ -26,7 +26,7 @@ GOAT_NATIVE_CONTEXT = (
     "data/adna/governance/source_library/projects/PRJEB90141/native_sample_context.json"
 )
 _NATIVE_CONTEXT_SHA256 = (
-    "52fe16913fc4c2b7533a0517cfac6902305fa22015a5a751066dc08fa3ba47fc"
+    "61649f7954b8bef57297cd51efb23274580a116ae118bb9bfe006209de137ab2"
 )
 _NATIVE_WORKBOOK_SHA256 = (
     "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f"
@@ -232,6 +232,49 @@ def _current_run_association_note(
     )
 
 
+def _matched_direkli_study_note(
+    *,
+    accessions: tuple[str, ...],
+    natives: dict[str, Any],
+    associations: dict[str, Any],
+    study: dict[str, Any],
+) -> str:
+    """Attribute the paired source assertion only to its two matched native records."""
+    pair = {"SAMEA4453841", "SAMEA4453842"}
+    if set(accessions) != pair:
+        return ""
+    members = study["direkli_assertion"]["native_records"]
+    if (
+        study["native"]["primary_id"] != "PRJEB26011"
+        or study["native"]["secondary_id"] != "ERP107983"
+        or len(members) != 2
+        or {member["primary_id"] for member in members} != pair
+        or any(
+            natives[member["primary_id"]][field] != member[field]
+            for member in members
+            for field in ("primary_id", "secondary_id", "title", "alias")
+        )
+    ):
+        raise ValueError("Direkli native study assertion binding differs")
+    if not all(
+        any(
+            group["study_accession"] == "PRJEB26011"
+            for group in associations[a]["study_associations"]
+        )
+        for a in accessions
+    ):
+        return ""
+    return (
+        " Current native PROJECT PRJEB26011 / ERP107983 "
+        f"({study['native']['title']}; PubMed {', '.join(study['native']['pubmed_ids'])}) "
+        "reports Direkli1 and 2 as identified from the same individual, and "
+        "cautions that the same PCR reactions sometimes span several runs. "
+        "This is an attributed source assertion for both matched native records, "
+        "not a selected physical-specimen identity, pooling instruction or "
+        "biological admission. Both records and the ambiguous author row are retained."
+    )
+
+
 def _bind_goat_comparator_native_context(
     rows: tuple[AdnaProjectSampleMasterRow, ...],
     *,
@@ -342,6 +385,15 @@ def _bind_goat_comparator_native_context(
             " These are only observed current technical associations, not complete "
             "or historical study membership, configured-project ownership, "
             "physical-specimen identity or biological independence."
+        )
+        note += _matched_direkli_study_note(
+            accessions=accessions,
+            natives=natives,
+            associations={
+                r["native"]["accession"]: r["current_run_associations"]
+                for r in native_records
+            },
+            study=document["native_study_context"],
         )
         updated[label] = replace(
             row,

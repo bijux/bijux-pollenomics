@@ -292,5 +292,44 @@
       }
     }
   ],
-  "scope": "Five native record assertions correspond to the literal accession cells of four author analysis rows. Direkli1-2 retains two separate native records, without selecting one scalar accession or inferring specimen independence. Scientific-name equality or difference from the configured project species is a computational comparison, not biological or taxonomic validation. No project membership, structured country, coordinate, chronology interpretation, analytical-use or scientific admission. Source and native locality spellings remain separate."
+  "scope": "Five native record assertions correspond to the literal accession cells of four author analysis rows. Direkli1-2 retains two separate native records, without selecting one scalar accession or inferring specimen independence. Scientific-name equality or difference from the configured project species is a computational comparison, not biological or taxonomic validation. No project membership, structured country, coordinate, chronology interpretation, analytical-use or scientific admission. Source and native locality spellings remain separate.",
+  "native_study_context": {
+    "source": {
+      "http_status": 200,
+      "started_utc": "2026-11-08T19:59:04.267257+00:00",
+      "completed_utc": "2026-11-08T19:59:04.413510+00:00",
+      "bytes": 2651,
+      "sha256": "254235c714aa6e03c049ef6b250be3dd9392e88c98d1b5f31d1dd2a4face4724",
+      "url": "https://www.ebi.ac.uk/ena/browser/api/xml/PRJEB26011",
+      "external_member": "adna/goat-imputation/project-metadata/PRJEB26011/2026-11-08/response.xml"
+    },
+    "native": {
+      "primary_id": "PRJEB26011",
+      "secondary_id": "ERP107983",
+      "title": "Ancient Goat Genomics",
+      "pubmed_ids": [
+        "29976826"
+      ]
+    },
+    "pcr_run_caution_excerpt": "Please note that in some cases the same PCR reactions were sequenced on several runs.",
+    "direkli_assertion": {
+      "source_excerpt": "same individual (Direkli1 and 2",
+      "native_records": [
+        {
+          "primary_id": "SAMEA4453841",
+          "secondary_id": "ERS2404573",
+          "title": "Direkli1",
+          "alias": "TCD_Direkli1"
+        },
+        {
+          "primary_id": "SAMEA4453842",
+          "secondary_id": "ERS2404574",
+          "title": "Direkli2",
+          "alias": "TCD_Direkli2"
+        }
+      ],
+      "scope": "The native PROJECT description reports the matched Direkli labels as the same individual. Preserve this source assertion without selecting a physical specimen, collapsing records, pooling genotypes or admitting biological identity."
+    },
+    "scope": "Current native PROJECT identity, publication link and two selected source assertions only. Not historical export authentication, configured PRJEB90141 ownership, specimen-roster closure or instructions to perform an analysis. Other named pairs are outside this context."
+  }
 }
