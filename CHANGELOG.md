@@ -12,7 +12,9 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Preserve exact count mass for integral-float LRA requests and refuse denominators above the existing bound before writing products ([#344](https://github.com/bijux/bijux-pollenomics/pull/344)).
+- **Pending review:** Distinguish historical and conditional LRA evidence and reconcile current animal map/chronology populations without extending earlier browser qualifications ([#345](https://github.com/bijux/bijux-pollenomics/pull/345)).
+
+- **Verified merge (2026-11-08 11:33:28 UTC):** Preserve exact count mass for integral-float LRA requests and refuse denominators above the existing bound before writing products ([#344](https://github.com/bijux/bijux-pollenomics/pull/344)).
 
 - Qualify Hatchling across all workspace distributions and adopt the accepted Redocly tooling baseline ([#343](https://github.com/bijux/bijux-pollenomics/pull/343)).
 
