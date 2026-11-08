@@ -156,9 +156,20 @@ acceptance requirements.
 
 ## LRA source gate
 
-We require one identified physical core with selected chronology,
-time-matched basin geometry, an eligible count and taxon denominator, fall
-speeds and permitted PPE use before LRA admission. Our
+LRA admission requires an identified physical core, a justified selected
+chronology and basin model for the declared time support, an eligible count
+and taxon denominator, fall speeds and permitted PPE use. The evidence needed
+depends on the claim. Historical LandClim reproduction requires its actual
+selected chronology, sample membership, geometry and parameters. A separately
+declared reconstruction may use a source-qualified alternative chronology and
+a justified static basin model, with explicit assumptions, sensitivity and
+evaluation scope. These assumptions do not establish a past shoreline or
+authenticate the historical selection. The
+[prerequisite review](../../docs/report/source-relations/neotoma/lra-prerequisites/README.md#historical-correspondence-and-a-new-reconstruction)
+explains the distinction; it retains zero accepted samples and no executable
+request. This clarification admits no new core or source use.
+
+Our
 [ABB source correspondence](../../docs/report/source-relations/neotoma/abbo-native-correspondence/README.md)
 matches many depth and count cells, but the
 [published-method review](abborrtjarnen-source-method.md)
@@ -171,9 +182,11 @@ matches 72 samples and all 11 radiocarbon source controls, while conflicting
 reported areas and missing time-matched basin and analytical-use fields still
 prevent LRA admission. Finnish Laihalampi has an exact 150-sample, single-core
 lead and consistent modern area claims, but its [source decision](laihalampi-lra-input/README.md)
-still needs the selected age vector and dated basin. We recorded these exact gaps in
-research needs; we have not substituted study-wide
-assumptions for a named core's missing evidence.
+still needs the selected age vector and dated basin for the historical claim.
+These unresolved source decisions remain open. A new conditional profile must
+justify its own core, source rows, chronology, geometry, denominator and
+parameter use; it cannot silently substitute study-wide assumptions for a
+named core's missing evidence or inherit historical reproduction status.
 
 The existing [site-level author-taxonomy mass ledger](../../docs/report/regions/nordic/author-taxonomy-mass/sites.csv)
 accounts for 84,078 assigned, 916 excluded and 309 unmapped native counts at
@@ -194,28 +207,28 @@ metadata rows do not contribute pollen or vegetation observations.
 
 We also checked [animal sample map membership](animal-entity-capability/README.md)
 without duplicating the existing per-ID decisions. Ten normalized species
-tables contain **1,464 sample IDs**; **324** appear in **163 point features**
-and the other **1,140** retain named map exclusions. Two source-backed horse
-localities, Hyena's Lair and Yana, add six existing PRJEB44430 owners without
-new specimen identities, coordinates or dates. The complete saved-source
-consumer and independent comparison qualify all 37 native outputs; the installed
-thirteen-input entity replay verifies this exact disjoint partition.
+tables contain **1,482 source IDs**; **335** appear in **167 point features**
+and the other **1,147** retain named map exclusions. The existing thirteen-input
+entity result binds this exact disjoint partition. Its current input identities
+and the governed map membership agree; this summary correction does not rerun
+the source, map or browser producers. A source ID is not necessarily an
+independent animal, and a map feature can contain several source IDs.
 Twelve mapped IDs occur in eight Nordic-labeled features: Denmark five,
 Finland two and Sweden five. The separate
-[current animal chronology account](animal-sample-chronology.md#current-source-and-map-population)
-retains all 1,475 source rows, with 319 admitted temporal nodes and 1,156
-refusals; Europe-plus and Nordic each have thirteen temporal nodes. Those exact
-chronology layers and their historical source-identity sidecars are retained,
-without rerunning the chronology census. The separate current locality surface
-has 225 child-support intervals across 126 temporally admitted points, 37
-contextual points and sixty preserved gaps. All three assembled map surfaces and
-their packaged indexes pass independent preservation/readback. Twenty-two served
-Chromium cases include eighteen source-backed cases and four synthetic controls:
-a source-backed SEAD [0, 10,000] BP display envelope is distinct from the synthetic
-exact [0, 0] BP point. Locality hulls supply no occurrence inside a support gap
-and do not date an undated member. These are different denominators and scopes;
-the [owning account](animal-sample-chronology.md#current-source-and-map-population)
-retains their exact receipts and limits. The four PRJEB90141 source keys and five accession
+[current animal chronology account](animal-sample-chronology.md#complete-saved-source-chronology-after-the-berel-join)
+retains **1,493 source owners = 335 displayable temporal nodes + 1,158 refusals**.
+Europe-plus and Nordic each retain thirteen temporal nodes. Equal counts of
+335 mapped IDs and 335 chronology nodes do not establish identical memberships.
+The added primary Berel owner remains excluded from the point map; it supplies
+no selected coordinate or numerical date.
+
+Earlier map/index/browser qualifications retain their original inputs and
+epochs. In particular, the `a18530b5` result's 1,464 IDs, 163 features, 225
+child-support intervals, sixty gaps and 22 served cases are historical, not
+verification on the current 1,482-ID population. The
+[owning accounts](animal-entity-capability/README.md#primary-berel-owner-in-the-current-partition)
+preserve the source revisions and checks. No locality hull supplies occurrence
+inside a support gap or dates an undated member. The four PRJEB90141 source keys and five accession
 alternatives remain identity-ambiguous without altered dates, coordinates or
 source taxa. Map placement and source labels remain context, not a qualified
 source-country, pollen or ecological cohort. The linked lifecycle capture's
@@ -399,11 +412,11 @@ after matching measured targets and their sampling design.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Four-country 31-target observed-pollen source population and related context/refusal decisions are documented. Animal context separately retains 1,464 normalized IDs, 324 mapped IDs in 163 locality features and 1,146 explicit exclusions; twelve Nordic mapped IDs do not mean thirteen temporal nodes. Separate SEAD categorical staging preserves 4,800 native component/parent identities, exact site UUIDs and distinct nullable fields, item identities and parent displays. Integer preparation separately exposes 24,701 exact component/parent rows, native qualifiers and units, parsed displays and refusal states. Boolean preparation preserves 11,603 exact keyed rows, actual Boolean values, parent flags, native qualifiers and declared type discrepancies without interpretation or coercion.
+**Supported claim.** Four-country 31-target observed-pollen source population and related context/refusal decisions are documented. Animal context separately retains 1,482 normalized source IDs = 335 mapped + 1,147 excluded in 167 locality features. Source chronology separately retains 1,493 owners = 335 displayable nodes + 1,158 refusals; twelve Nordic mapped IDs do not mean thirteen temporal nodes. Separate SEAD categorical staging preserves 4,800 native component/parent identities, exact site UUIDs and distinct nullable fields, item identities and parent displays. Integer preparation separately exposes 24,701 exact component/parent rows, native qualifiers and units, parsed displays and refusal states. Boolean preparation preserves 11,603 exact keyed rows, actual Boolean values, parent flags, native qualifiers and declared type discrepancies without interpretation or coercion.
 
 **Unsupported claim.** Nordic LRA cohort, independent measured vegetation or joint multi-source causal explanation.
 
-**Actual verification performed.** Retained country score, capability, registry and reference reports are synthesized; index did not rerun. The categorical consumer ran at e38230752, exit 0/4.12 s, scanning 177,763 observations and 68,705 parent values. Independent original-table joins confirm all 4,800 component identities, exact site UUIDs and native fields; 55 focused cases and configured lint/types pass. Original grouped report unchanged. Integer staging ran at ffbbd20c7, exit zero in 4.61 s, producing 13,337,653 CSV bytes. Independent nine-original-table joins confirm all 24,701 native identities and exact UUIDs, units, qualifiers, 1,763 parent parse failures and five precision differences. Sixty-six controlled checks and one original governed-source case pass with lint/types. Original summary unchanged. Boolean staging ran at 64fd304cf, exit zero in 4.26 s, producing 6,847,316 CSV bytes. Independent nine-original-table joins confirm every native key/UUID, qualifier, component and parent flag, plus all 738 Count/integer declarations. Fifty-seven focused tests and lint/types pass; original grouped report unchanged. Current animal source/entity followthrough separately verifies1464=318 mapped+1146 excluded in161 features; the actual13-input entity replay passed in0.12 s/RSS40386560 B, and seven current source/map/evidence checks passed. The three-scope map producer and independent Nordic index observer passed with source fields and unchanged nonanimal context preserved; no SEAD or pollen study was rerun for this correction. Current source-owned animal followthrough at a18530b54 independently verifies1464=324 mapped+1140 excluded IDs/163 features and complete three-scope map preservation, current JavaScript indexes and22 served temporal controls. Pollen/event populations and all319 retained source chronology nodes remain unchanged; no empirical admission follows.
+**Actual verification performed.** Retained country score, capability, registry and reference reports are synthesized; index did not rerun. The categorical consumer ran at e38230752, exit 0/4.12 s, scanning 177,763 observations and 68,705 parent values. Independent original-table joins confirm all 4,800 component identities, exact site UUIDs and native fields; 55 focused cases and configured lint/types pass. Original grouped report unchanged. Integer staging ran at ffbbd20c7, exit zero in 4.61 s, producing 13,337,653 CSV bytes. Independent nine-original-table joins confirm all 24,701 native identities and exact UUIDs, units, qualifiers, 1,763 parent parse failures and five precision differences. Sixty-six controlled checks and one original governed-source case pass with lint/types. Original summary unchanged. Boolean staging ran at 64fd304cf, exit zero in 4.26 s, producing 6,847,316 CSV bytes. Independent nine-original-table joins confirm every native key/UUID, qualifier, component and parent flag, plus all 738 Count/integer declarations. Fifty-seven focused tests and lint/types pass; original grouped report unchanged. Earlier animal source/entity and browser qualifications retain their source epochs: 04f1c4857 accounts for 1,464 = 318 mapped + 1,146 excluded in 161 features; a18530b54 accounts for 1,464 = 324 mapped + 1,140 excluded in 163 features and 22 served temporal controls. A current committed-source readback on 9f4207329792f0236b9d5495cbfa676ce6379ca3 independently reconciles all ten normalized tables and the saved map/exclusion identities: 1,482 = 335 mapped + 1,147 excluded in 167 features, with all thirteen saved entity-input byte identities matching. The separate governed chronology surface has 1,493 owners, 335 displayable nodes and 1,158 refusals. This correction reuses saved producer results; it does not rerun or retag source, map, browser or pollen/event studies and grants no scientific admission.
 
 **Remaining input or review.** Observed-pollen cohort membership and modeled context do not supply admitted Nordic LRA inputs, independent measured vegetation, complete cross-domain identities or all source rights. Resolver: Country core/reference/registry source owners and qualified source reviewers Reopen when: Specific physical site/window or observation gains matched chronology, geometry, denominator, rights and review; rerun only affected consumer.
 
@@ -415,7 +428,7 @@ after matching measured targets and their sampling design.
 
 **Negative or refused result.** NO 94/1,178 bins and SE 3/54 bins refused; zero qualified Nordic LRA inputs and zero measured-cover pairs. SEAD item lookup does not supply an observed category; all 4,800 source components remain event-refused, with no unit exposure. Integer qualifiers and nearby chronology claims are not exact measurements or selected ages; 1,763 parse failures and five precision differences remain explicit, with all events refused. Boolean storage does not repair Count/integer declarations or interpret parent labels; all 11,603 remain event-refused.
 
-**Matched denominator.** DK 1 site/91 samples/24 bins; FI 28/1,797/435; NO 52/3,544/1,084; SE 3/228/51 scored on 31 targets. Separate animal context: 1,464 normalized IDs = 324 mapped + 1,140 excluded; 163 locality features; 12 Nordic mapped IDs. Separate SEAD categorical rows: 4,800 components/parents at 393 sites; 4,800 null values and variants; 1,979 equal/2,821 different parent/item displays; 25 chronology-context-only/4,775 unavailable; zero events. Integer table: 24,701 components/parents, 394 sites, 4,769 samples, 15,429 datasets; 1,712 reported/22,989 null qualifiers, 4,430 Years-linked/20,271 unexposed units; zero events. Boolean table: 11,603 components/parents at 397 sites/4,774 samples/6,088 datasets; 1,708 true/9,895 false; 38 literal nära qualifiers; 738 Count/integer declarations; no unit or same-entity chronology, zero events.
+**Matched denominator.** DK 1 site/91 samples/24 bins; FI 28/1,797/435; NO 52/3,544/1,084; SE 3/228/51 scored on 31 targets. Separate animal context: 1,482 normalized source IDs = 335 mapped + 1,147 excluded; 167 locality features; 12 Nordic mapped IDs. Separate source chronology: 1,493 owners = 335 displayable nodes + 1,158 refusals. Separate SEAD categorical rows: 4,800 components/parents at 393 sites; 4,800 null values and variants; 1,979 equal/2,821 different parent/item displays; 25 chronology-context-only/4,775 unavailable; zero events. Integer table: 24,701 components/parents, 394 sites, 4,769 samples, 15,429 datasets; 1,712 reported/22,989 null qualifiers, 4,430 Years-linked/20,271 unexposed units; zero events. Boolean table: 11,603 components/parents at 397 sites/4,774 samples/6,088 datasets; 1,708 true/9,895 false; 38 literal nära qualifiers; 738 Count/integer declarations; no unit or same-entity chronology, zero events.
 
 Retained evidence: [docs/report/regions/nordic/source-capability/README.md](../../docs/report/regions/nordic/source-capability/README.md), [reports/science/vegetation-reference.md](vegetation-reference.md), [reports/science/animal-entity-capability/report.json](animal-entity-capability/report.json), [reports/science/source-cohorts/sead-categorical-values.csv](source-cohorts/sead-categorical-values.csv), [reports/science/source-cohorts/sead-integer-values.csv](source-cohorts/sead-integer-values.csv), [reports/science/source-cohorts/sead-boolean-values.csv](source-cohorts/sead-boolean-values.csv).
 
