@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Make native report source preflight load the four checkout package roots explicitly ([#367](https://github.com/bijux/bijux-pollenomics/pull/367)).
+
 - Bind native report ownership to the current publication configuration and run the existing source preflight before site rendering, preserving native resources and pending composition/browser qualification ([#366](https://github.com/bijux/bijux-pollenomics/pull/366)).
 
 - Retain five cited goat sample references as document correspondence, preserve unresolved specimen identities and propagate their provenance through the existing scientific consumers ([#365](https://github.com/bijux/bijux-pollenomics/pull/365)).
