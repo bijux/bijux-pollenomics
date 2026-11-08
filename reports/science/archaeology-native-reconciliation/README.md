@@ -109,6 +109,13 @@ A later claim-specific selection must declare its treatment of these statuses.
 
 ## Execution and independent check
 
+The commands below retain the historical module and arguments with checkout
+locations normalized. Run from the repository root and set `RAA_GPKG` to the
+unchanged GeoPackage identified in the source account. `.venv/bin/python` names
+the historical environment; a current replay uses the environment created by
+`make install` at `artifacts/root/check-venv/bin/python`. The recorded source
+commits and results below remain historical qualifications.
+
 The population baseline execution used committed consumed source
 `657c8358f9f2234b58a1155e0e2906cd58e23eba` on 26 October 2026:
 
@@ -116,9 +123,9 @@ The population baseline execution used committed consumed source
 PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
   .venv/bin/python -B \
   -m bijux_pollenomics_dev.source_completion.archaeology.national_population \
-  --repository /Users/bijan/bijux/bijux-pollenomics \
-  --source /Users/bijan/bijux/-bijux-pollenomics-data/raa/lamningar-v1/lamningar_sverige.gpkg \
-  --output /Users/bijan/bijux/bijux-pollenomics/artifacts/raa-reconciliation/national-population
+  --repository . \
+  --source "${RAA_GPKG:?set RAA_GPKG to the source-identified GeoPackage}" \
+  --output artifacts/raa-reconciliation/national-population
 ```
 
 The owned execution session `50719` terminated with exit code **0**. It completed
@@ -197,9 +204,9 @@ The final actual command used committed consumed source
 PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
   .venv/bin/python -B \
   -m bijux_pollenomics_dev.source_completion.archaeology.national_geometry \
-  --repository /Users/bijan/bijux/bijux-pollenomics \
-  --source /Users/bijan/bijux/-bijux-pollenomics-data/raa/lamningar-v1/lamningar_sverige.gpkg \
-  --output /Users/bijan/bijux/bijux-pollenomics/artifacts/raa-reconciliation/national-geometry-runtime
+  --repository . \
+  --source "${RAA_GPKG:?set RAA_GPKG to the source-identified GeoPackage}" \
+  --output artifacts/raa-reconciliation/national-geometry-runtime
 ```
 
 The owned session `54257` terminated with exit code **0** in **74.593 seconds**.
@@ -258,9 +265,9 @@ Actual retained-source execution used committed consumed source
 PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
   .venv/bin/python -B \
   -m bijux_pollenomics_dev.source_completion.archaeology.national_population \
-  --repository /Users/bijan/bijux/bijux-pollenomics \
-  --source /Users/bijan/bijux/-bijux-pollenomics-data/raa/lamningar-v1/lamningar_sverige.gpkg \
-  --output /Users/bijan/bijux/bijux-pollenomics/artifacts/raa-reconciliation/native-source-context
+  --repository . \
+  --source "${RAA_GPKG:?set RAA_GPKG to the source-identified GeoPackage}" \
+  --output artifacts/raa-reconciliation/native-source-context
 ```
 
 Owned session `16408` terminated with exit code **0** in **48.155 seconds**,
