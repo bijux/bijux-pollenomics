@@ -24,11 +24,12 @@ remain separate; this result admits no ecological, pollen or vegetation analysis
 
 The [producer](replay.py) checks the normalized IDs against both original
 decision sources, refuses overlap, missing IDs, duplicate mappings and broken
-sample lineage, then reports the joined counts. Reproduce into a new directory
-from the repository root and compare `report.json` byte for byte:
+sample lineage, then reports the joined counts. After the repository's
+`make install` creates its locked check environment, reproduce into a new
+directory from the repository root and compare `report.json` byte for byte:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+PYTHONDONTWRITEBYTECODE=1 artifacts/root/check-venv/bin/python \
   reports/science/animal-entity-capability/replay.py \
   --repository . --output artifacts/jobs/animal-entity-capability-replay
 ```

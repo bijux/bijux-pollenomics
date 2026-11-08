@@ -609,7 +609,6 @@ we summarize its matched direct-pollen scores and model conditions in the
 
 Retained evidence: [docs/report/method-certification/original-r-reference/README.md](../../docs/report/method-certification/original-r-reference/README.md), [docs/report/method-certification/optimizer-solution-quality/README.md](../../docs/report/method-certification/optimizer-solution-quality/README.md), [reports/science/method-certification/love-wrapper-values.csv](method-certification/love-wrapper-values.csv), [reports/science/method-certification/kernel-branch-comparisons.csv](method-certification/kernel-branch-comparisons.csv), [reports/science/method-certification/minimum-lake-comparisons.csv](method-certification/minimum-lake-comparisons.csv), [reports/science/method-certification/current-native-r-values.csv](method-certification/current-native-r-values.csv), [reports/science/method-certification/current-native-r-comparisons.csv](method-certification/current-native-r-comparisons.csv), [docs/report/method-certification/petrkunes-r-comparison/README.md](../../docs/report/method-certification/petrkunes-r-comparison/README.md).
 
-
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
 <!-- scientific-verification-and-limits:end -->
