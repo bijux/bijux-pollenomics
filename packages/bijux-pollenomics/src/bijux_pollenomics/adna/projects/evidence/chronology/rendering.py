@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from html import escape
 from typing import Any
 
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
@@ -183,6 +184,15 @@ def _render_sample_chronology_conflict_markdown(rows: list[dict[str, Any]]) -> s
     return "\n".join(lines)
 
 
+def _provenance_markdown_cell(value: object) -> str:
+    """Keep literal source text inside one table cell, including line breaks."""
+    text = escape(str(value), quote=False)
+    # Escape backslashes first so a literal slash cannot consume a pipe escape.
+    for character in "\\`*_[]~|":
+        text = text.replace(character, "\\" + character)
+    return text.replace("\r\n", "\n").replace("\r", "\n").replace("\n", "<br>")
+
+
 def _render_sample_chronology_provenance_markdown(rows: list[dict[str, Any]]) -> str:
     lines = [
         "# Sample chronology provenance review",
@@ -201,12 +211,19 @@ def _render_sample_chronology_provenance_markdown(rows: list[dict[str, Any]]) ->
         ]
     )
     for row in rows:
-        lines.append(
-            f"| {row['project_accession']} | {row['repo_stable_sample_id']} | "
-            f"{row['published_wording']} | {row['provenance_surface']} | "
-            f"{row['provenance_locator']} | {row['normalization_rule']} | "
-            f"{row['uncertainty_note']} |"
+        cells = (
+            _provenance_markdown_cell(row[field])
+            for field in (
+                "project_accession",
+                "repo_stable_sample_id",
+                "published_wording",
+                "provenance_surface",
+                "provenance_locator",
+                "normalization_rule",
+                "uncertainty_note",
+            )
         )
+        lines.append("| " + " | ".join(cells) + " |")
     lines.append("")
     return "\n".join(lines)
 
