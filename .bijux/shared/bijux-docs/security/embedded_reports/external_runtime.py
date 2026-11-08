@@ -92,6 +92,8 @@ def _literals(repo, external):
                 len(nodes[0].targets) != 1
                 or not isinstance(nodes[0].targets[0], ast.Name)
             )
+            or isinstance(nodes[0], ast.AnnAssign)
+            and not isinstance(nodes[0].target, ast.Name)
             or not isinstance(nodes[0].value, ast.Constant)
             or not isinstance(nodes[0].value.value, str)
         ):
