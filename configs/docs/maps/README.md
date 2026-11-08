@@ -1,6 +1,6 @@
-# Retained native report publication
+# Native report publication
 
-`report-owner.json` declares the exact original atlas documents, their local
+`report-owner.json` declares the exact published atlas documents, their local
 assets and data registrations, the Swedish sequence chart and its six local data
 files, and the passive Sweden lake availability notice. `mkdocs.yml` explicitly
 selects this descriptor. The publication renderer must receive the same selector
@@ -10,23 +10,28 @@ and source revision during rendering and mechanical admission.
 route and a search route. The descriptor also binds the sole Nordic documentation
 iframe to its original Markdown and rendered parent page.
 
-Publication qualification preserves the governed report documents and scientific inputs.
+Publication qualification preserves the governed documents and scientific inputs.
 It verifies presentation source, resource ownership, executable recipes, navigation
 and browser policy. It does not recompute or certify scientific results. The
-historical Nordic document was 526299 bytes, 2011 bytes beyond the 524288-byte value
-recorded in its bootstrap; the shared standard retains an allowance only for that
-exact historical document and producer closure. The current Nordic document is
-523944 bytes and uses the ordinary 524288-byte limit. Its current source and
-immutable data registrations are bound by this descriptor; the earlier scientific
-results and historical publication receipts keep their original identities.
+current Nordic, Europe-plus and world HTML documents are respectively 168069,
+86193 and 114064 bytes. Their scientific registration inventories contain 239,
+23 and 123 members. Runtime scripts are separately owned and charged by the
+native resource budgets.
 
-The three retained atlas documents use the executable template preserved in
-`data/atlas/source-view-capture/source/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html`.
-Their publication recipes bind that exact committed source. The maintained map
-template has separate current source and browser qualification in
-`data/atlas/sample-chronology-source-view-capture/capture.json`. This qualification
-does not transfer current chronology behavior to the retained documents or claim
-that they were regenerated from the current template.
+The three documents and their selected producer files match accepted generation
+`9882a0916523b78eda22f392fedc463877781a75`. Their recipe selects the current
+`reporting/map_document/assets/document.html`, its literal controller expansions,
+and the finite native external-runtime transformation declared in `render.py`.
+The shared verifier reconstructs the runtime and evidence-tools factory, checks
+the direct index controller, and authenticates the loader's exact local paths,
+byte counts and SRI references. Provider inspection uses the authenticated runtime;
+the inline loader alone contributes its inline CSP hash.
+
+Scientific registration membership comes from each document's matching
+`*_map_assets.json` inventory. Publication ownership adds the existing vendor
+resources and three runtime/controller files. This descriptor refresh does not
+regenerate maps or transfer earlier browser receipts to current bytes. Historical
+captures and the earlier inline-template publication retain their own scope.
 
 The Swedish chart has no inert bootstrap. Its independently reviewed original
 script reads exactly three same-origin files and displays retained sample and

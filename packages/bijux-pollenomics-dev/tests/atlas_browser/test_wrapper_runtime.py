@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import base64
 import hashlib
 import json
 from pathlib import Path
@@ -38,7 +39,8 @@ def _sha(value: bytes) -> str:
 
 @pytest.fixture
 def authority(tmp_path: Path) -> tuple[Path, Path, dict[str, Any]]:
-    repository, site = tmp_path / "repository", tmp_path / "site"
+    repository = tmp_path / "repository"
+    site = repository / "artifacts/docs/site"
     source = b"# Nordic Evidence Atlas\n"
     parent = b'<iframe src="../../report/regions/nordic/nordic_map.html"></iframe>'
     child = b'<script id="atlas-static-bootstrap">{"build_id":"build","version":"source"}</script>'
@@ -47,6 +49,7 @@ def authority(tmp_path: Path) -> tuple[Path, Path, dict[str, Any]]:
         repository / "docs/report/regions/nordic/nordic_map.html": child,
         site / "public/nordic-atlas/index.html": parent,
         site / "report/regions/nordic/nordic_map.html": child,
+        repository / "docs/report/regions/nordic/chunk.js": b"original raw chunk",
         site / "report/regions/nordic/chunk.js": b"original raw chunk",
     }
     for path, body in paths.items():
@@ -82,7 +85,91 @@ def authority(tmp_path: Path) -> tuple[Path, Path, dict[str, Any]]:
     }
     (repository / "configs/docs/maps").mkdir(parents=True)
     (repository / "configs/docs/maps/report-owner.json").write_text(json.dumps(owner))
+    pin = repository / ".github/standards/bijux-docs.sha"
+    pin.parent.mkdir(parents=True)
+    pin.write_text("a" * 40 + "\n")
+    for args in [
+        ["init", "--quiet"],
+        ["add", "configs", "docs", ".github"],
+        [
+            "-c",
+            "user.name=Fixture",
+            "-c",
+            "user.email=fixture@example.invalid",
+            "commit",
+            "--quiet",
+            "-m",
+            "fixture",
+        ],
+    ]:
+        subprocess.run(["git", *args], cwd=repository, check=True, capture_output=True)
+    _publication(repository, site)
     return repository, site, owner
+
+
+def _publication(repository: Path, site: Path) -> None:
+    """Model only the existing publication inventory's source/physical binding."""
+
+    def git(ref: str) -> str:
+        return subprocess.check_output(
+            ["git", "rev-parse", ref], cwd=repository, text=True
+        ).strip()
+
+    checkpoint = {
+        "repository_source": {"sha": git("HEAD"), "tree": git("HEAD^{tree}")},
+        "standard": {"sha": "a" * 40},
+        "site_url": "https://bijux.io/bijux-pollenomics/",
+        "site_dir": "artifacts/docs/site",
+    }
+    raw = json.dumps(checkpoint).encode()
+    evidence = repository / "artifacts/website-security"
+    evidence.mkdir(parents=True, exist_ok=True)
+    (evidence / "source-identity.json").write_bytes(raw)
+    owner = json.loads((repository / "configs/docs/maps/report-owner.json").read_text())
+    publication = {
+        "schema": 2,
+        "repository_source_sha": git("HEAD"),
+        "standard_sha": "a" * 40,
+        "site_url": checkpoint["site_url"],
+        "site_dir": checkpoint["site_dir"],
+        "qualification": {
+            "source": {"sha256": _sha(raw), "receipt": checkpoint},
+            "csp": {
+                "receipt": {
+                    "embedded": {
+                        "records": [
+                            {
+                                "kind": "owned-parent-frame",
+                                "path": row["output"],
+                                "source": row["source"],
+                                "input_sha256": row["built_html_sha256"],
+                            }
+                            for row in owner["parents"]
+                        ]
+                        + [
+                            {
+                                "kind": "owned-report",
+                                "path": row["output"],
+                                "source": row["source"],
+                                "input_sha256": row["source"]["sha256"],
+                            }
+                            for row in owner["reports"]
+                        ]
+                    }
+                }
+            },
+        },
+        "files": [
+            {
+                "path": path.relative_to(site).as_posix(),
+                "bytes": path.stat().st_size,
+                "sha256": _sha(path.read_bytes()),
+            }
+            for path in sorted(site.rglob("*"))
+            if path.is_file()
+        ],
+    }
+    (evidence / "publication.json").write_text(json.dumps(publication))
 
 
 def _read_authority(repository: Path, site: Path) -> Any:
@@ -103,10 +190,119 @@ def test_real_parent_child_and_owned_resources_are_bound(
         "version": "source",
         "expected": [
             "public/nordic-atlas/index.html",
-            "report/regions/nordic/nordic_map.html",
             "report/regions/nordic/chunk.js",
+            "report/regions/nordic/nordic_map.html",
         ],
     }
+
+
+def test_normalized_child_is_bound_separately_from_unchanged_raw_source(
+    authority: tuple[Path, Path, dict[str, Any]],
+) -> None:
+    repository, site, owner = authority
+    child = site / owner["reports"][0]["output"]
+    child.write_bytes(
+        b'<head><meta name="reader-return" content="science"></head>'
+        + child.read_bytes()
+    )
+    assert _sha(child.read_bytes()) != owner["reports"][0]["source"]["sha256"]
+    _publication(repository, site)
+    assert _read_authority(repository, site)["build"] == "build"
+
+
+def test_normalized_parent_and_child_bind_final_bytes_separately_from_raw_inputs(
+    authority: tuple[Path, Path, dict[str, Any]],
+) -> None:
+    repository, site, owner = authority
+    for row in [owner["parents"][0], owner["reports"][0]]:
+        path = site / row["output"]
+        path.write_bytes(
+            b'<head><meta http-equiv="Content-Security-Policy" content="default-src \'none\'"></head>'
+            + path.read_bytes()
+            + b'<nav><a href="/bijux-pollenomics/science/">Science</a></nav>'
+        )
+    assert (
+        _sha((site / owner["parents"][0]["output"]).read_bytes())
+        != owner["parents"][0]["built_html_sha256"]
+    )
+    _publication(repository, site)
+    assert _read_authority(repository, site)["build"] == "build"
+
+
+@pytest.mark.parametrize(
+    "tamper", ["parent-input", "child-input", "source", "kind", "duplicate", "missing"]
+)
+def test_raw_composition_bindings_remain_required_after_normalization(
+    authority: tuple[Path, Path, dict[str, Any]], tamper: str
+) -> None:
+    repository, site, _ = authority
+    path = repository / "artifacts/website-security/publication.json"
+    publication = json.loads(path.read_text())
+    records = publication["qualification"]["csp"]["receipt"]["embedded"]["records"]
+    if tamper in {"parent-input", "child-input"}:
+        index = 1 if tamper == "child-input" else 0
+        records[index]["input_sha256"] = "b" * 64
+    elif tamper == "source":
+        records[0]["source"]["sha256"] = "b" * 64
+    elif tamper == "kind":
+        records[0]["kind"] = "owned-report"
+    elif tamper == "duplicate":
+        records.append(records[0])
+    else:
+        records.pop(0)
+    path.write_text(json.dumps(publication))
+    assert "raw embedded source differs" in _read_authority(repository, site)["error"]
+
+
+@pytest.mark.parametrize(
+    "tamper", ["source", "standard", "checkpoint", "duplicate", "resource"]
+)
+def test_stale_or_ambiguous_publication_inventory_refuses(
+    authority: tuple[Path, Path, dict[str, Any]], tamper: str
+) -> None:
+    repository, site, _ = authority
+    path = repository / "artifacts/website-security/publication.json"
+    publication = json.loads(path.read_text())
+    if tamper == "source":
+        publication["repository_source_sha"] = "b" * 40
+    elif tamper == "standard":
+        publication["standard_sha"] = "b" * 40
+    elif tamper == "checkpoint":
+        publication["qualification"]["source"]["sha256"] = "b" * 64
+    elif tamper == "duplicate":
+        publication["files"].append(publication["files"][0])
+    else:
+        next(row for row in publication["files"] if row["path"].endswith("chunk.js"))[
+            "sha256"
+        ] = "b" * 64
+    path.write_text(json.dumps(publication))
+    assert "error" in _read_authority(repository, site)
+
+
+def test_unlisted_resource_cannot_be_served(
+    authority: tuple[Path, Path, dict[str, Any]],
+) -> None:
+    repository, site, _ = authority
+    (site / "foreign.js").write_bytes(b"unowned executable")
+    result = _node(f"""
+      const authority=await wrapper.readWrapperAuthority({json.dumps(str(repository))},{json.dumps(str(site))});
+      try{{await wrapper.readSiteMember({json.dumps(str(site))},'/foreign.js',authority.expected);console.log(JSON.stringify({{accepted:true}}));}}
+      catch(error){{console.log(JSON.stringify({{error:String(error)}}));}}
+    """)
+    assert "owned site member differs" in result["error"]
+
+
+def test_unlisted_alias_to_owned_bytes_cannot_be_served(
+    authority: tuple[Path, Path, dict[str, Any]],
+) -> None:
+    repository, site, _ = authority
+    (site / "unlisted.js").symlink_to(site / "report/regions/nordic/chunk.js")
+    result = _node(f"""
+      const authority=await wrapper.readWrapperAuthority({json.dumps(str(repository))},{json.dumps(str(site))});
+      try{{await wrapper.readSiteMember({json.dumps(str(site))},'/unlisted.js',authority.expected);console.log(JSON.stringify({{accepted:true}}));}}
+      catch(error){{console.log(JSON.stringify({{error:String(error)}}));}}
+    """)
+    assert "site member alias is forbidden" in result["error"]
 
 
 @pytest.mark.parametrize(
@@ -115,7 +311,7 @@ def test_real_parent_child_and_owned_resources_are_bound(
         ("parent", "built wrapper differs"),
         ("child", "built child differs"),
         ("source", "wrapper source differs"),
-        ("canonical", "built child differs"),
+        ("canonical", "canonical map differs"),
     ],
 )
 def test_stale_built_or_canonical_bytes_refuse(
@@ -140,10 +336,119 @@ def test_approved_parent_cannot_point_at_a_synthetic_child(
     path.write_bytes(b'<iframe src="../../fake.html"></iframe>')
     owner["parents"][0]["built_html_sha256"] = _sha(path.read_bytes())
     (repository / "configs/docs/maps/report-owner.json").write_text(json.dumps(owner))
+    _publication(repository, site)
     assert (
         "real wrapper iframe target differs"
         in _read_authority(repository, site)["error"]
     )
+
+
+def test_parent_cannot_use_a_foreign_origin_with_the_same_child_path(
+    authority: tuple[Path, Path, dict[str, Any]],
+) -> None:
+    repository, site, owner = authority
+    path = site / "public/nordic-atlas/index.html"
+    path.write_bytes(
+        b'<iframe src="https://elsewhere.invalid/bijux-pollenomics/report/regions/nordic/nordic_map.html"></iframe>'
+    )
+    owner["parents"][0]["built_html_sha256"] = _sha(path.read_bytes())
+    (repository / "configs/docs/maps/report-owner.json").write_text(json.dumps(owner))
+    _publication(repository, site)
+    assert (
+        "real wrapper iframe target differs"
+        in _read_authority(repository, site)["error"]
+    )
+
+
+def test_production_origin_reply_keeps_the_qualified_csp_bytes_unmodified(
+    authority: tuple[Path, Path, dict[str, Any]],
+) -> None:
+    repository, site, _ = authority
+    path = site / "public/nordic-atlas/index.html"
+    content = (
+        b'<head><meta http-equiv="Content-Security-Policy" content="frame-src https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html"></head>'
+        + path.read_bytes()
+    )
+    path.write_bytes(content)
+    _publication(repository, site)
+    result = _node(f"""
+      const authority=await wrapper.readWrapperAuthority({json.dumps(str(repository))},{json.dumps(str(site))});
+      const calls=[],cdp={{send:async(method,params)=>{{calls.push({{method,params}});}}}};
+      const reply=await wrapper.fulfillPublicationRequest(cdp,{json.dumps(str(site))},{{requestId:'owned',request:{{url:authority.parentUrl,method:'GET'}}}},authority);
+      console.log(JSON.stringify({{parent:authority.parentUrl,child:authority.childUrl,reply,calls}}));
+    """)
+    assert (
+        result["parent"]
+        == "https://bijux.io/bijux-pollenomics/public/nordic-atlas/index.html"
+    )
+    assert (
+        result["child"]
+        == "https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html"
+    )
+    assert len(result["calls"]) == 1
+    assert result["calls"][0]["method"] == "Fetch.fulfillRequest"
+    assert result["calls"][0]["params"]["requestId"] == "owned"
+    assert result["calls"][0]["params"]["responseCode"] == 200
+    assert base64.b64decode(result["calls"][0]["params"]["body"]) == content
+    assert result["reply"]["bytes"] == len(content)
+
+
+@pytest.mark.parametrize(
+    ("url", "method"),
+    [
+        ("http://bijux.io/bijux-pollenomics/public/nordic-atlas/index.html", "GET"),
+        (
+            "https://elsewhere.invalid/bijux-pollenomics/public/nordic-atlas/index.html",
+            "GET",
+        ),
+        (
+            "https://bijux.io/bijux-pollenomics-other/public/nordic-atlas/index.html",
+            "GET",
+        ),
+        (
+            "https://bijux.io/bijux-pollenomics/public/nordic-atlas/index.html?changed=1",
+            "GET",
+        ),
+        (
+            "https://user@bijux.io/bijux-pollenomics/public/nordic-atlas/index.html",
+            "GET",
+        ),
+        ("https://bijux.io/bijux-pollenomics/public%2Fnordic-atlas/index.html", "GET"),
+        (
+            "https://bijux.io/bijux-pollenomics/public/../public/nordic-atlas/index.html",
+            "GET",
+        ),
+        ("https://bijux.io/bijux-pollenomics/foreign.js", "GET"),
+        ("https://bijux.io/bijux-pollenomics/public/nordic-atlas/index.html", "POST"),
+    ],
+)
+def test_production_reply_refuses_origin_prefix_alias_and_unowned_requests(
+    authority: tuple[Path, Path, dict[str, Any]], url: str, method: str
+) -> None:
+    repository, site, _ = authority
+    result = _node(f"""
+      const authority=await wrapper.readWrapperAuthority({json.dumps(str(repository))},{json.dumps(str(site))});
+      const calls=[],cdp={{send:async(method,params)=>{{calls.push({{method,params}});}}}};
+      try{{await wrapper.fulfillPublicationRequest(cdp,{json.dumps(str(site))},{{requestId:'refused',request:{{url:{json.dumps(url)},method:{json.dumps(method)}}}}},authority);console.log(JSON.stringify({{accepted:true,calls}}));}}
+      catch(error){{console.log(JSON.stringify({{error:String(error),calls}}));}}
+    """)
+    assert "error" in result
+    assert result["calls"] == []
+
+
+@pytest.mark.parametrize("header", ["Authorization", "Cookie", "X-Api-Key"])
+def test_owned_publication_reply_refuses_credential_headers(
+    authority: tuple[Path, Path, dict[str, Any]], header: str
+) -> None:
+    repository, site, _ = authority
+    result = _node(f"""
+      const authority=await wrapper.readWrapperAuthority({json.dumps(str(repository))},{json.dumps(str(site))});
+      const calls=[],cdp={{send:async(method,params)=>{{calls.push({{method,params}});}}}};
+      try{{await wrapper.fulfillPublicationRequest(cdp,{json.dumps(str(site))},{{requestId:'refused',request:{{url:authority.parentUrl,method:'GET',headers:{{{json.dumps(header)}:'constructed'}}}}}},authority);console.log(JSON.stringify({{accepted:true,calls}}));}}
+      catch(error){{console.log(JSON.stringify({{error:String(error),calls}}));}}
+    """)
+    assert "outside the exact production publication" in result["error"]
+    assert result["calls"] == []
 
 
 @pytest.mark.parametrize("tamper", [False, True])

@@ -4,7 +4,8 @@ from collections.abc import Mapping
 import copy
 import re
 
-from .contract import AdmissionError, canonical, digest, json_data, read_owned, relative, retained_templates, source_inputs
+from .contract import AdmissionError, digest, json_data, read_owned, relative, retained_templates, source_inputs
+from .external_runtime import provider_bodies, recipe_paths
 from .html import Document, executable_scripts, report_class, report_recipe, validate_report
 from .integration import verify_composition
 from .planning import _descriptor_inputs, reviewed_providers
@@ -79,11 +80,12 @@ def _shape(descriptor):
             raise AdmissionError('interactive resource closure exceeds its reviewed byte budget')
         if report.get('report_class') == 'interactive':
             recipe = report.get('recipe')
-            if (not isinstance(recipe, dict) or set(recipe) != {'template', 'expansions', 'slots'}
+            if (not isinstance(recipe, dict) or set(recipe) not in ({'template', 'expansions', 'slots'}, {'template', 'expansions', 'slots', 'external_runtime'})
                 or not isinstance(recipe['expansions'], list) or len(recipe['expansions']) > 512
                 or not isinstance(recipe['slots'], dict)
                 or not (1 <= len(recipe['slots']) <= 512 or sequence_recipe(report))):
                 raise AdmissionError('interactive renderer requires a finite source recipe')
+            recipe_paths(recipe)
             relative(recipe['template'])
             for expansion in recipe['expansions']:
                 if (not isinstance(expansion, dict) or set(expansion) != {'token', 'path'}
@@ -182,15 +184,13 @@ class InteractiveReportSource(ReaderSource):
             if set(report) != fields:
                 raise AdmissionError('interactive renderer requires exact executable report fields')
             recipe = report['recipe']
-            if not isinstance(recipe, dict) or set(recipe) != {'template', 'expansions', 'slots'}:
+            if not isinstance(recipe, dict) or set(recipe) not in ({'template', 'expansions', 'slots'}, {'template', 'expansions', 'slots', 'external_runtime'}):
                 raise AdmissionError('interactive renderer requires a finite source recipe')
-            recipe_paths = {recipe['template'], *[item['path'] for item in recipe['expansions'] if item.get('path')]}
-            if not recipe_paths <= producer_paths:
+            if not recipe_paths(recipe) <= producer_paths:
                 raise AdmissionError('interactive recipe lacks committed producer closure')
             report_recipe(self.repository, document, report, self.site_url, report['output'],
                           source_sha=self.source_sha, source_descriptor=descriptor)
-            bodies = executable_scripts(document)
-            reviewed_providers(report, bodies)
+            reviewed_providers(report, provider_bodies(self.repository, document, report, self.site_url, report['output'], source_sha=self.source_sha, source_descriptor=descriptor))
             bootstrap(document, report)
         return descriptor
 

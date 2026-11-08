@@ -19,6 +19,7 @@ from .contract import (
     site_url,
     source_inputs,
 )
+from .external_runtime import provider_bodies, recipe_paths
 from .html import (
     Document,
     csp_hash,
@@ -54,20 +55,22 @@ def _report_capability(report, bodies):
 
 def reviewed_providers(report, bodies):
     """Recheck finite provider calls from the same reviewed source body."""
-    if len(bodies) != 1:
-        raise AdmissionError("reviewed report class requires exactly one executable body")
+    expected = 3 if "external_runtime" in report.get("recipe", {}) else 1
+    if len(bodies) != expected:
+        raise AdmissionError("reviewed report executable body population differs")
     providers = report["providers"]
     if set(providers) != set(report["reviewed_provider_origins"]):
         raise AdmissionError("provider origin is not owner-reviewed")
+    executable_source = '\n'.join(body['body'] for body in bodies)
     observed_providers = set()
     for call in report["provider_calls"]:
         callee = call["callee"]
         if not re.fullmatch(r"[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)*", callee):
             raise AdmissionError("invalid reviewed provider call")
-        matches = list(re.finditer(re.escape(callee) + r"\s*\(", bodies[0]["body"]))
+        matches = list(re.finditer(re.escape(callee) + r"\s*\(", executable_source))
         for match in matches:
             literal = re.match(
-                r"\s*(['\"])(https://[^'\"]+)\1", bodies[0]["body"][match.end() :]
+                r"\s*(['\"])(https://[^'\"]+)\1", executable_source[match.end() :]
             )
             if literal is None:
                 raise AdmissionError(
@@ -100,7 +103,7 @@ def reviewed_providers(report, bodies):
             raise AdmissionError(
                 "provider privacy/attribution contract is incomplete"
             )
-        if origin not in bodies[0]["body"]:
+        if origin not in executable_source:
             raise AdmissionError(
                 "declared provider is not in reviewed executable source"
             )
@@ -230,21 +233,13 @@ def plan_embedded_reports(
                     "reviewed report class requires exactly one executable body"
                 )
             producer_paths = {item["path"] for item in descriptor["producer_inputs"]}
-            recipe_paths = {
-                report["recipe"]["template"],
-                *[
-                    item["path"]
-                    for item in report["recipe"]["expansions"]
-                    if item.get("path")
-                ],
-            }
-            if not recipe_paths <= producer_paths:
+            if not recipe_paths(report['recipe']) <= producer_paths:
                 raise AdmissionError(
                     "renderer recipe lacks tracked producer fingerprint closure"
                 )
             recipe = report_recipe(repo_root, document, report, product_base, output,
                                    source_sha=source_sha, source_descriptor=descriptor)
-            providers = reviewed_providers(report, bodies)
+            providers = reviewed_providers(report, provider_bodies(repo_root, document, report, product_base, output, source_sha=source_sha, source_descriptor=descriptor))
         resource_records = []
         chunks = 0
         for resource_output, resource in sorted(report["resources"].items()):
