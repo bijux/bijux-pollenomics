@@ -189,6 +189,20 @@ decisions. A descriptor with unresolved decisions is rejected, not approved by
 this adapter. It never executes a product generator, science workflow or provider
 request to manufacture source ownership.
 
+An interactive recipe may select `external_runtime` with exactly `producer`,
+`loader_symbol`, `helper_factory_symbol`, `helper_markers` and
+`controller_source`. The selected producer supplies direct Python string
+literals; it is parsed, never imported or executed. The verifier reconstructs
+the original template's finite slots, the ordered helper split and its factory,
+the exact inline loader and both fixed JSON bindings. Main runtime and optional
+helper/index controllers require exact source-bound names, bytes and SRI, with
+no additional executable resources. Compact registration rows must equal the
+declared bounded data-resource population; scientific field interpretation
+remains the consumer's responsibility. Existing initial and total resource
+budgets include the runtime, controllers and fixed JSON. Provider inspection
+uses the authenticated external bodies while inline CSP hashes continue to
+authorize only the loader. This recipe supplies no browser or scientific result.
+
 Both selected and independent reference renders apply the same reviewed
 composition. Typed in-process verification rederives current source, useful
 Return/Search routes, CSP capabilities and executable bodies; serialized receipts
