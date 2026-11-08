@@ -313,7 +313,8 @@ def test_doc_account_routes_remain_local_and_root_accounts_use_portable_reposito
         ("docs/report/source/result.json", "result.json"),
         ("docs/report/source/values.csv", "values.csv"),
         ("docs/report/source/report.pdf", "report.pdf"),
-        ("docs/report/source/records.jsonl", "records.jsonl"),
+        ("docs/report/source/records.jsonl", "source"),
+        ("docs/report/source/historical.lock", "source"),
         ("docs/report/source/data.json.gz", "data.json.gz"),
     ],
 )

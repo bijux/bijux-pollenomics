@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Keep retained scientific ledgers and environment locks outside the website, link readers to source evidence and check selected static files before publication ([#369](https://github.com/bijux/bijux-pollenomics/pull/369)).
+
 - Record direct host and optional-engine source archive installation and installed-runtime qualification with confined imports and preserved scientific refusal boundaries ([#368](https://github.com/bijux/bijux-pollenomics/pull/368)).
 
 - Make native report source preflight load the four checkout package roots explicitly ([#367](https://github.com/bijux/bijux-pollenomics/pull/367)).

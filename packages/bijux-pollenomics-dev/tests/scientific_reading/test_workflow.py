@@ -199,16 +199,20 @@ def test_native_configuration_requires_early_selected_source_preflight(
 
 
 @pytest.mark.parametrize(
+    "source_check",
+    ["Check retained publication downloads", "Check native report configuration"],
+)
+@pytest.mark.parametrize(
     "change", ["missing", "incomplete", "empty", "duplicate", "foreign"]
 )
-def test_native_preflight_refuses_unbound_package_sources(
-    monkeypatch: pytest.MonkeyPatch, change: str
+def test_documentation_source_checks_refuse_unbound_package_sources(
+    monkeypatch: pytest.MonkeyPatch, change: str, source_check: str
 ) -> None:
     document, _ = workflow(monkeypatch)
     selected = next(
         step
         for step in document["jobs"]["reading"]["steps"]
-        if step["name"] == "Check native report configuration"
+        if step["name"] == source_check
     )
     paths = selected["env"]["PYTHONPATH"].split(":")
     if change == "missing":
@@ -227,14 +231,19 @@ def test_native_preflight_refuses_unbound_package_sources(
         verify_workflow(document)
 
 
-def test_native_preflight_accepts_reordered_distinct_package_sources(
+@pytest.mark.parametrize(
+    "source_check",
+    ["Check retained publication downloads", "Check native report configuration"],
+)
+def test_documentation_source_checks_accept_reordered_distinct_package_sources(
     monkeypatch: pytest.MonkeyPatch,
+    source_check: str,
 ) -> None:
     document, _ = workflow(monkeypatch)
     selected = next(
         step
         for step in document["jobs"]["reading"]["steps"]
-        if step["name"] == "Check native report configuration"
+        if step["name"] == source_check
     )
     selected["env"]["PYTHONPATH"] = ":".join(
         reversed(selected["env"]["PYTHONPATH"].split(":"))

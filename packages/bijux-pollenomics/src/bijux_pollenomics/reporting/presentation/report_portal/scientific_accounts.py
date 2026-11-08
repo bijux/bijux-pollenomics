@@ -144,11 +144,15 @@ def verified_authored_reader(raw: bytes, route: Route) -> bytes:
 def _reading_target(source: str, parent: str) -> str:
     """Keep published report links local and excluded run assets in source control."""
     path = PurePosixPath(source)
-    excluded = path.parts[:2] == ("docs", "report") and (
-        path.suffix in {".py", ".R", ".npz", ".npy", ".log"}
-        or source
-        == "docs/report/publication-replay/landclim-study-inputs/records.jsonl"
-    )
+    excluded = path.parts[:2] == ("docs", "report") and path.suffix in {
+        ".py",
+        ".R",
+        ".npz",
+        ".npy",
+        ".log",
+        ".jsonl",
+        ".lock",
+    }
     if path.parts[:1] != ("docs",) or excluded:
         return "https://github.com/bijux/bijux-pollenomics/blob/main/" + quote(
             source, safe="/"

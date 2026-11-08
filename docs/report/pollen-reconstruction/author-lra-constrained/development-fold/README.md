@@ -83,7 +83,7 @@ prediction freezing here supplies an operational ordering boundary, not a new
 untouched confirmation cohort.
 
 [protocol.json](protocol.json) retains the fixed settings, input/source hashes
-and reuse identities. [training.json](training.json) and [trials.jsonl](trials.jsonl)
+and reuse identities. [training.json](training.json) and [trials.jsonl](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/development-fold/trials.jsonl)
 retain the training decisions, all new attempts and their start/completion events;
 the linked earlier report/ledger retain the 128 reused outcomes. [report.json](report.json)
 retains the result and refusal/scoring population. [replay.py](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/development-fold/replay.py) and
@@ -127,7 +127,7 @@ Source-bound retrospective fixed-start English development-fold prediction and d
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/development-fold/training.json](training.json) (SHA-256 `89d0ba05579676d2882ecb1edfbea88c695f9b07aca639dd2930ea2d95b4dae9`).
 
-- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/development-fold/trials.jsonl](trials.jsonl) (SHA-256 `84fae7553048d2439ab744dedf30d016abf89a74184d6e4180149e39ace43655`).
+- [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/development-fold/trials.jsonl](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/pollen-reconstruction/author-lra-constrained/development-fold/trials.jsonl) (SHA-256 `84fae7553048d2439ab744dedf30d016abf89a74184d6e4180149e39ace43655`).
 
 - [Retained qualification evidence: docs/report/pollen-reconstruction/author-lra-constrained/development-fold/prediction-freeze.json](prediction-freeze.json) (SHA-256 `5d57b8bcd859d013ddcd554ab1bea2ef2207a6c42820cf1d69fab4777cb528e1`).
 

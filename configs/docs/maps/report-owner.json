@@ -3,7 +3,7 @@
   "site_url": "https://bijux.io/bijux-pollenomics/",
   "config": {
     "path": "mkdocs.yml",
-    "sha256": "1740bc07f0f51df2f09811c0b3521c5a17ecb0670d318eb4a76f2c03471f75e7"
+    "sha256": "24e8c401151f28fd0105962c24cf92f7d9938778b0a135882342c60d1e89355a"
   },
   "resolved_config_sha256": "bae26ea026aeecffebeb9429ecf3f492179830b7d439cecc75d9bd362d57e9a0",
   "producer_inputs": [
