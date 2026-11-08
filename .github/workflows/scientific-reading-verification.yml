@@ -1,0 +1,137 @@
+name: scientific reading verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      accepted_commit:
+        description: Exact accepted main source to verify without publishing
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scientific-reading-verification-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  UV_PYTHON_DOWNLOADS: never
+
+jobs:
+  reading:
+    name: scientific reading / admitted source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - name: Checkout exact accepted source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check accepted source selection
+        shell: bash
+        env:
+          ACCEPTED_COMMIT: ${{ inputs.accepted_commit }}
+        run: |
+          set -euo pipefail
+          test "$GITHUB_EVENT_NAME" = workflow_dispatch
+          test "$GITHUB_REF" = refs/heads/main
+          [[ "$ACCEPTED_COMMIT" =~ ^[0-9a-f]{40}$ ]]
+          test "$ACCEPTED_COMMIT" = "$GITHUB_SHA"
+          test "$(git rev-parse HEAD)" = "$ACCEPTED_COMMIT"
+          mkdir -p artifacts/scientific-reading/tmp
+          echo "TMPDIR=$PWD/artifacts/scientific-reading/tmp" >> "$GITHUB_ENV"
+
+      - name: Set up supported Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.11.17"
+
+      - name: Set up supported uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.11.17"
+          enable-cache: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24.21.0"
+
+      - name: Check nonpublishing workflow contract
+        env:
+          PYTHONPATH: packages/bijux-pollenomics-dev/src
+        run: python3 -m bijux_pollenomics_dev.ci.scientific_reading.workflow
+
+      - name: Admit exact documentation standards
+        shell: bash
+        run: |
+          set -euo pipefail
+          accepted_ref="$(cat .github/standards/bijux-docs.sha)"
+          [[ "$accepted_ref" =~ ^[0-9a-f]{40}$ ]]
+          source_root="$PWD/artifacts/accepted-standard"
+          mkdir -p "$source_root"
+          git -C "$source_root" init --quiet
+          git -C "$source_root" remote add origin https://github.com/bijux/bijux-std.git
+          git -C "$source_root" fetch --quiet --depth 1 origin "$accepted_ref"
+          git -C "$source_root" checkout --quiet --detach FETCH_HEAD
+          test "$(git -C "$source_root" rev-parse HEAD)" = "$accepted_ref"
+          echo "BIJUX_STD_ROOT=$source_root" >> "$GITHUB_ENV"
+          echo "BIJUX_STD_REF=$accepted_ref" >> "$GITHUB_ENV"
+
+      - name: Install admitted documentation renderer
+        run: make gh-docs-install
+
+      - name: Build and verify the production-site artifact
+        run: make gh-docs-build gh-docs-verify
+
+      - name: Locate hosted Chromium
+        id: browser
+        shell: bash
+        run: |
+          set -euo pipefail
+          for command_name in google-chrome-stable google-chrome chromium chromium-browser; do
+            if browser_binary="$(command -v "$command_name" 2>/dev/null)"; then
+              echo "binary=$browser_binary" >> "$GITHUB_OUTPUT"
+              "$browser_binary" --version
+              exit 0
+            fi
+          done
+          echo "No hosted Chromium browser is available." >&2
+          exit 1
+
+      - name: Verify actual scientific reading and download routes
+        env:
+          BROWSER_BINARY: ${{ steps.browser.outputs.binary }}
+          ACCEPTED_COMMIT: ${{ inputs.accepted_commit }}
+          PYTHONPATH: packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src
+        run: |
+          artifacts/docs/publication/python/bin/python \
+            -m bijux_pollenomics_dev.ci.scientific_reading.runner \
+            --repository "$PWD" --accepted-commit "$ACCEPTED_COMMIT" \
+            --browser "$BROWSER_BINARY" --output "$PWD/artifacts/scientific-reading/evidence"
+
+      - name: Retain verification evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: scientific-reading-evidence
+          path: |
+            artifacts/scientific-reading
+            artifacts/website-security
+            artifacts/docs/publication/python-admission.json
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Retain verified site
+        if: success()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: scientific-reading-site
+          path: artifacts/docs/site
+          if-no-files-found: error
+          retention-days: 14
