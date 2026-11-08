@@ -24,7 +24,7 @@ Native DNA specimen/publication/chronology scope and unsupported ecological or p
 
 **Unsupported claim.** An unlabeled dated tooth is not OB20-01, and an article variant is not authority to overwrite the governed PDF.
 
-**Actual verification performed.** Read the source-specific Table 2 interpretation and current animal chronology account; this is document correspondence review, with no calibration or new specimen join. Primary PDF Table2 and ENA independently bind AA-114607 to SAMEA8022724/OB20-04. The source-bound actual materializer and independent1475-owner comparison carry its stratigraphic caution into review/temporal comparison notes while preserving4650–4952BP and all other selected dates/classes. The public reader changes only this owner conflict/review notes; no calibration, specimen reassignment or map rebuild. The readback at source `31a70e4fe` preserves this owner's complete chronology packet within the current ledger of 1,493 source owners; the newly bound result changes only four unrelated goat provenance packets.
+**Actual verification performed.** Read the source-specific Table 2 interpretation and current animal chronology account; this is document correspondence review, with no calibration or new specimen join. Primary PDF Table2 and ENA independently bind AA-114607 to SAMEA8022724/OB20-04. The source-bound actual materializer and independent1475-owner comparison carry its stratigraphic caution into review/temporal comparison notes while preserving4650–4952BP and all other selected dates/classes. The public reader changes only this owner conflict/review notes; no calibration, specimen reassignment or map rebuild. The readback at source f11396a2e preserves this owner’s complete chronology packet in the 1,493-owner ledger; only four unrelated goat provenance packets change.
 
 **Remaining input or review.** The undated aliases need specimen-owned dates; source warnings and the Capra species conflict need qualified resolution.
 
@@ -38,7 +38,7 @@ Native DNA specimen/publication/chronology scope and unsupported ecological or p
 
 **Matched denominator.** 5 archive accessions; 3 stated specimen-date matches include one Capra sample; calibrated BCE ranges and uncalibrated 14C BP remain distinct.
 
-- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](../../animal_sample_chronology_review.json) (SHA-256 `b8a09ca175608351de30bd625825c9beb4ad80d1aadbf48cc15c25ddca3711d7`).
+- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](../../animal_sample_chronology_review.json) (SHA-256 `793fde3db6bf5f9efca7c3cb13d9538232e10164682d1b3e72bbd61e7221ee0b`).
 
 - [Retained qualification evidence: reports/science/animal-sample-chronology.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-sample-chronology.md).
 

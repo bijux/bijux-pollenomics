@@ -1521,25 +1521,25 @@
 
 Actual normalized animal entity/map populations and distinct chronology/event acceptance boundaries.
 
-**Supported claim.** The saved ledger retains 1,493 source owners, including primary BER11_L. Five native SAMPLE assertions now reach four ambiguous comparator provenance packets; all selected dates, coordinates, dating classes and refusals remain unchanged.
+**Supported claim.** The saved ledger retains 1,493 source owners. Five native SAMPLE records and 143 current technical run/experiment pairs support four source packets; native PRJEB26011 attributes Direkli1 and Direkli2 to the same individual. Both records remain separate; all four canonical identities stay ambiguous with zero final. Selected dates, coordinates, dating classes and refusals remain unchanged.
 
-**Unsupported claim.** A parsed numeric date is not automatically direct radiocarbon or a qualified sample date; unqualified elapsed ages cannot acquire a 1950 BPepoch by default.
+**Unsupported claim.** A parsed numeric date is not automatically direct radiocarbon or a qualified sample date; unqualified elapsed ages cannot acquire a 1950 BP epoch by default.
 
-**Actual verification performed.** Maintained species consumers and chronology consumers for 40 projects at source `31a70e4fe` produced 24 existing members (23 changed); separate standard library readback and independent review of bytes and types verified the full 1,493-owner population, 79 normalization records/eight refusals and 335/13/13 nodes. Producer: 24.842 s, 201,244,672 B peak RSS and 12,052,121 B output. Readback: 25.124 s, 102,137,856 B peak RSS and 7,512 B output. Both stages passed the original 60 s process limits and observed RSS/output bounds: producer 1 GiB/16 MiB; observer 512 MiB/8 MiB. This saved view explicitly omits optional source-field context; the API default remains unchanged. Prior map/browser and refused attempts retain their producing epochs; all 430 runtime files remain exact.
+**Actual verification performed.** Project consumers at dd390046b produced fourteen existing products; source followthrough at f11396a2e checked all 24 (22 metadata changes). Separate standard library observers and independent full-population review verify all 1,493 owners, 79 sample objects/eight refusals, 335/13/13 nodes, 1,911 frozen source bindings and 430 runtime files. Producer/readback passed original 60 s process and observed RSS/output bounds (project 512 MiB/8 MiB each; global 1 GiB/16 MiB and 512 MiB/8 MiB). The canonical research account records the measured resources and separate Markdown-only rendering; no genotype, calibration, map or browser run occurred. The saved view omits optional source-field context and the public API default remains unchanged.
 
 **Remaining input or review.** Source epoch, type, unit, calibration, ownership and uncertainty need explicit qualified decisions for each context/unresolved row before scientific interval comparison.
 
 **Cause category.** Heterogeneous source chronology with explicit epoch and precision refusals.
 
-**Consequence.** The 1,493 source chronology owners and 1,482 normalized source records use different units. The 335 displayable chronology nodes are not independent animals or ecological events. Current provenance and input-identity followthrough is qualified; map geometry, indexes and browser results retain their original captured epochs.
+**Consequence.** The 1,493 source owners and 1,482 normalized identities are different units. Current technical runs and the native same-individual statement neither select canonical physical specimens nor establish a biological census. Retain both Direkli records, four ambiguity refusals, selected scientific values and original map/index/browser epochs.
 
 **Precise next acceptance route.** Resolve source-native chronology/epoch and precision without invented aging defaults, replay normalization and sample publication guards, then qualify comparable sample-owned intervals for analysis.
 
-**Negative or refused result.** 1158refusals=11unresolved identities+791noncomparable chronologies+356unavailable mappablecoordinates. BER11_L countryKazakhstan does not resolve its date or point; no new scientific, field or rights decision.
+**Negative or refused result.** The 1,158 refusals comprise 11 unresolved identities, 791 noncomparable chronologies and 356 unavailable mappable coordinates. BER11_L’s Kazakhstan source country does not resolve its date or point. No new scientific, field or rights decision follows.
 
 **Matched denominator.** 1,493 rows = 315 normalized intervals + 384 points + 387 text-only + 407 unresolved. Comparability: 559 numeric + 140 caveated + 387 contextual + 407 unresolved is a separate partition. The 335 world, 13 Europe-plus and 13 Nordic source nodes and 1,158 refusals are preserved. Three sidecars and nine matching identity copies are metadata products, not additional observations.
 
-- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `b8a09ca175608351de30bd625825c9beb4ad80d1aadbf48cc15c25ddca3711d7`).
+- [Retained qualification evidence: docs/report/animal_sample_chronology_review.json](animal_sample_chronology_review.json) (SHA-256 `793fde3db6bf5f9efca7c3cb13d9538232e10164682d1b3e72bbd61e7221ee0b`).
 
 - [Canonical scientific account: reports/science/animal-entity-capability/README.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md).
 
