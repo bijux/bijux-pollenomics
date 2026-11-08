@@ -1,0 +1,286 @@
+{
+  "bounds_origin": "independent fixed-leaf reconstruction",
+  "cases": [
+    {
+      "auxiliary_local_allocations_pass": false,
+      "case_index": 0,
+      "coefficient_bounds": {
+        "B1": [
+          "23217099006872334930457413995/79228162514264337593543950336",
+          "23217099065023907608577392167/79228162514264337593543950336"
+        ],
+        "B2": [
+          "303613570036941957125469397/79228162514264337593543950336",
+          "18975850105916353478542211/4951760157141521099596496896"
+        ],
+        "K": [
+          "23520712608239213607646100839/79228162514264337593543950336",
+          "23520712635388632544170850095/79228162514264337593543950336"
+        ]
+      },
+      "complete_domains": 14,
+      "core": "BOKE",
+      "fixed_node_evaluations": 350,
+      "full_widths": {
+        "B1": "14537893169529994543/19807040628566084398385987584",
+        "B2": "31657719698531205979/79228162514264337593543950336",
+        "K": "3393677367065593657/9903520314283042199192993792"
+      },
+      "positive_lower_bound": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      },
+      "saved_leaves": 50,
+      "taxon": "Betula",
+      "width_pass": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      }
+    },
+    {
+      "auxiliary_local_allocations_pass": false,
+      "case_index": 1,
+      "coefficient_bounds": {
+        "B1": [
+          "4664783686664579565042200681/19807040628566084398385987584",
+          "18659134796812454402031340585/79228162514264337593543950336"
+        ],
+        "B2": [
+          "109335067600058987230787037/39614081257132168796771975168",
+          "109335081814727712746834531/39614081257132168796771975168"
+        ],
+        "K": [
+          "4719451227516987118061841875/19807040628566084398385987584",
+          "18877804932232397589908018945/79228162514264337593543950336"
+        ]
+      },
+      "complete_domains": 14,
+      "core": "BOKE",
+      "fixed_node_evaluations": 350,
+      "full_widths": {
+        "B1": "50154136141862537861/79228162514264337593543950336",
+        "B2": "7107334362758023747/19807040628566084398385987584",
+        "K": "22164449117660651445/79228162514264337593543950336"
+      },
+      "positive_lower_bound": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      },
+      "saved_leaves": 50,
+      "taxon": "Ulmus",
+      "width_pass": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      }
+    },
+    {
+      "auxiliary_local_allocations_pass": false,
+      "case_index": 2,
+      "coefficient_bounds": {
+        "B1": [
+          "23819806606924335910419268263/79228162514264337593543950336",
+          "23819806649856765337505438385/79228162514264337593543950336"
+        ],
+        "B2": [
+          "29450672126860699517440223/9903520314283042199192993792",
+          "29450674128837841401064349/9903520314283042199192993792"
+        ],
+        "K": [
+          "6013852999923970296081469013/19807040628566084398385987584",
+          "24055412027130808390946867171/79228162514264337593543950336"
+        ]
+      },
+      "complete_domains": 14,
+      "core": "BUS",
+      "fixed_node_evaluations": 350,
+      "full_widths": {
+        "B1": "21466214713543085061/39614081257132168796771975168",
+        "B2": "1000988570941812063/4951760157141521099596496896",
+        "K": "27434927206620991119/79228162514264337593543950336"
+      },
+      "positive_lower_bound": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      },
+      "saved_leaves": 50,
+      "taxon": "Betula",
+      "width_pass": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      }
+    },
+    {
+      "auxiliary_local_allocations_pass": false,
+      "case_index": 3,
+      "coefficient_bounds": {
+        "B1": [
+          "9609666181107662573043627669/39614081257132168796771975168",
+          "19219332416723877340368805935/79228162514264337593543950336"
+        ],
+        "B2": [
+          "43363659306761178214688719/19807040628566084398385987584",
+          "86727334838792067248363525/39614081257132168796771975168"
+        ],
+        "K": [
+          "606024594741048514343793983/2475880078570760549798248448",
+          "9696393527065139437405067871/39614081257132168796771975168"
+        ]
+      },
+      "complete_domains": 14,
+      "core": "BUS",
+      "fixed_node_evaluations": 343,
+      "full_widths": {
+        "B1": "54508552194281550597/79228162514264337593543950336",
+        "B2": "16225269710818986087/39614081257132168796771975168",
+        "K": "11208363207904364143/39614081257132168796771975168"
+      },
+      "positive_lower_bound": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      },
+      "saved_leaves": 49,
+      "taxon": "Ulmus",
+      "width_pass": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      }
+    },
+    {
+      "auxiliary_local_allocations_pass": false,
+      "case_index": 4,
+      "coefficient_bounds": {
+        "B1": [
+          "6254388384229962802377491919/39614081257132168796771975168",
+          "12508776807702031512408352401/79228162514264337593543950336"
+        ],
+        "B2": [
+          "10626473640741866369840978053/79228162514264337593543950336",
+          "2656618419202807769630710157/19807040628566084398385987584"
+        ],
+        "K": [
+          "5783812606839919184957166131/19807040628566084398385987584",
+          "23135250466355377825698490397/79228162514264337593543950336"
+        ]
+      },
+      "complete_domains": 14,
+      "core": "SOLSOE83",
+      "fixed_node_evaluations": 287,
+      "full_widths": {
+        "B1": "39242105907653368563/79228162514264337593543950336",
+        "B2": "36069364708681862575/79228162514264337593543950336",
+        "K": "38995701085869825873/79228162514264337593543950336"
+      },
+      "positive_lower_bound": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      },
+      "saved_leaves": 41,
+      "taxon": "Betula",
+      "width_pass": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      }
+    },
+    {
+      "auxiliary_local_allocations_pass": false,
+      "case_index": 5,
+      "coefficient_bounds": {
+        "B1": [
+          "5003581835236835754765139241/39614081257132168796771975168",
+          "10007163696446594471297987973/79228162514264337593543950336"
+        ],
+        "B2": [
+          "8501293939192840201213676463/79228162514264337593543950336",
+          "8501293962487005440491067261/79228162514264337593543950336"
+        ],
+        "K": [
+          "18508457617838034779172249837/79228162514264337593543950336",
+          "18508457650762076843360760341/79228162514264337593543950336"
+        ]
+      },
+      "complete_domains": 14,
+      "core": "SOLSOE83",
+      "fixed_node_evaluations": 287,
+      "full_widths": {
+        "B1": "25972922961767709491/79228162514264337593543950336",
+        "B2": "11647082619638695399/39614081257132168796771975168",
+        "K": "4115505258023563813/9903520314283042199192993792"
+      },
+      "positive_lower_bound": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      },
+      "saved_leaves": 41,
+      "taxon": "Ulmus",
+      "width_pass": {
+        "B1": true,
+        "B2": true,
+        "K": true
+      }
+    }
+  ],
+  "complete_cases": 6,
+  "epsilon_exact": "1/1000000000",
+  "independent_certified_widths": 18,
+  "independent_positive_lower_bounds": 18,
+  "independent_receipt": {
+    "bytes": 13317,
+    "path": "artifacts/verification/receiver-angle-moments/complement-correlation-replay/products/independent-check.json",
+    "sha256": "85ff2dd74e83951e17356f88b6f6b12bfa8d66958c2b84f9dc22def9bed66082"
+  },
+  "independent_source_commit": "d7ec2f4127420e06369246034a69cfbfedfbce43",
+  "method": "receiver-angle-moments.v1",
+  "observed_resources": {
+    "independent_observer": {
+      "all_output_bytes": 30846,
+      "elapsed_seconds": 38.580526374978945,
+      "output_cap_pass": true,
+      "peak_rss_bytes": 207716352,
+      "process_cap_pass": true,
+      "returncode": 0,
+      "rss_cap_pass": true,
+      "timed_out": false
+    },
+    "producer": {
+      "all_output_bytes": 188983,
+      "elapsed_seconds": 70.40954979194794,
+      "output_cap_pass": true,
+      "peak_rss_bytes": 205733888,
+      "process_cap_pass": true,
+      "returncode": 0,
+      "rss_cap_pass": true,
+      "timed_out": false
+    }
+  },
+  "owner": "reports/science/pollen-reconstruction/spatial-field-forward/README.md",
+  "producer_certified_widths": 18,
+  "producer_positive_lower_bounds": 18,
+  "producer_source_commit": "59b7165c8871dcb810f2b8d77f32ae215861398e",
+  "protocol": {
+    "bytes": 4527,
+    "path": "reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/receiver-angle-moments.json",
+    "sha256": "0bd37b81794bea39da7e357762be41abe7337449249d26abdbd19ba6c1120661"
+  },
+  "schema_version": "continuous-receiver-angle-moments-numerical-result.v1",
+  "scope": {
+    "field_acceptance": false,
+    "historical_A_authenticated": false,
+    "law": "original six frozen captured-A continuous-receiver geometries",
+    "new_observations": 0,
+    "new_predictions": 0,
+    "new_scores": 0,
+    "saved_native_reference_diagnostics": "not re-evaluated"
+  },
+  "status": "precision_usable"
+}

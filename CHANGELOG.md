@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Certify receiver-angle coefficient bounds for six frozen captured-A geometries with independent replay, original precision/resource limits and explicit historical and field-accuracy boundaries ([#354](https://github.com/bijux/bijux-pollenomics/pull/354)).
+
 - Preserve native JSON integer and float identity in returned basin review selections while retaining source-authority refusals and non-admitting decisions ([#355](https://github.com/bijux/bijux-pollenomics/pull/355)).
 
 - Align documentation authority and generated provenance with the existing accepted shared components so source guards admit the unchanged publication renderer and assets ([#353](https://github.com/bijux/bijux-pollenomics/pull/353)).

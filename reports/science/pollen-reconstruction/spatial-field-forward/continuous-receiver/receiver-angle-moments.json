@@ -1,0 +1,86 @@
+{
+  "schema_version": "continuous-receiver-angle-moments-study.v1",
+  "question": "Can the same retained captured-A continuous law certify all eighteen original K/B1/B2 widths, using exact receiver-angle moments and a rigorously bounded finite-series remainder under the unchanged original resources?",
+  "method": "receiver-angle-moments.v1",
+  "cases": [
+    {
+      "core": "BOKE",
+      "taxon": "Betula"
+    },
+    {
+      "core": "BOKE",
+      "taxon": "Ulmus"
+    },
+    {
+      "core": "BUS",
+      "taxon": "Betula"
+    },
+    {
+      "core": "BUS",
+      "taxon": "Ulmus"
+    },
+    {
+      "core": "SOLSOE83",
+      "taxon": "Betula"
+    },
+    {
+      "core": "SOLSOE83",
+      "taxon": "Ulmus"
+    }
+  ],
+  "captured_law_source_commit": "6ea7d2e1845350ab506fb49f669389198abf40bb",
+  "input_freeze": {
+    "path": "artifacts/physical-core/spatial-field-forward/continuous-receiver/study/input-freeze.json",
+    "bytes": 3915,
+    "sha256": "c32b78b844f31d11e587bcc69a91cb50bb8fae943ee37f0cad057b4b6c807c4f"
+  },
+  "law": {
+    "survival": "exp(-A*d^(1/8))",
+    "receiver": "original uniform disk radius R",
+    "source_annulus": "original R<=r<=L",
+    "angular_weight": "original two-anchor circle mean h(r)",
+    "native_prefix_recapture": false,
+    "historical_A_authenticated": false
+  },
+  "numerical_contract": {
+    "epsilon_exact": "1/1000000000",
+    "coefficient_population": 18,
+    "arithmetic_bits": 96,
+    "rule": "closed-newton-cotes-seven.v1",
+    "derivative_order": 8,
+    "binomial_degree": 5,
+    "maximum_angular_degree": 10,
+    "maximum_displacement_bands": 11,
+    "cap_domain": "L>3R",
+    "expansion_domain": "qbar<14/15",
+    "radial_full_width_budget_exact": "1/8000000000",
+    "series_remainder": "whole J widened both ways once after finite-polynomial quadrature",
+    "stopping": "all three actual final coefficient widths <= epsilon"
+  },
+  "resources": {
+    "wall_seconds": 180,
+    "integration_work_seconds": 160,
+    "closure_seconds_reserved": 20,
+    "peak_rss_bytes_posthoc": 805306368,
+    "all_output_bytes": 5000000,
+    "per_case_maximum_leaves": 4096,
+    "per_case_maximum_attempted_panels": 8191,
+    "per_case_maximum_node_evaluations": 73719,
+    "per_case_maximum_live_queue": 4096,
+    "all_cases_maximum_leaves": 24576,
+    "all_cases_maximum_attempted_panels": 49146,
+    "all_cases_maximum_node_evaluations": 442314
+  },
+  "independent_resources": {
+    "wall_seconds": 180,
+    "integration_work_seconds": 160,
+    "peak_rss_bytes_posthoc": 805306368,
+    "all_output_bytes": 5000000
+  },
+  "coverage": "All fourteen initial one-dimensional domains per frozen case close before any refinement. Retain all six owners, all eighteen criteria, incomplete/unexecuted cases and every resource refusal. A split replaces a closed parent only when both children close.",
+  "refinement": "One global deterministic frontier over closed case/domain states. Choose the unqualified case with greatest max(K,B1,B2 full width)/epsilon (ties fixed case order), then its greatest weighted leaf width: endpoint contribution weight 2, radial contribution weight 1 (ties domain/creation order). Bisect the direction with greatest certified directional remainder. Freeze an exhausted case but continue other cases under the SAME global clock. No saved-point error, old score or count drives refinement.",
+  "acceptance": "Keep producer and independent actual width and positivity flags separately; both complete six-owner reconstructions must satisfy their unchanged criteria before any precision/usability claim. Source/geometry/law and all inputs remain unchanged through both terminals.",
+  "limits": "Displacement coordinates preserve original source radius and annulus. No native prefix recapture, target/reference inspection, source admission, fit, prediction or score. Original thirty saved-native-point diagnostics remain historical, not re-evaluated or relabelled by this fixed-input study. Strict precision is a stronger research diagnostic, not reopening the completed numerical-method profiles.",
+  "on_exhaustion": "Retain every closed case/domain certificate and every declared case status, including incomplete or not-executed owners; do not retry, enlarge bounds/tolerance/resources, or call the full population accepted.",
+  "clock": "All case budgets share the one study start and 160-second integration-work deadline; no per-case wall-time reset. Whole-process 180-second wall and posthoc RSS/output checks include closure; retain partial states honestly."
+}
