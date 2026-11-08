@@ -497,6 +497,74 @@ is 0.280017 percentage points on this closed two-taxon axis.
 \evidence{reports/science/method-correspondence.md}
 \end{frame}
 
+\begin{frame}{Certified bounds for six frozen receiver geometries}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.74\textwidth}
+\begin{tikzpicture}
+% Conservative display of the exact result widths: divide by epsilon and
+% round upward to six decimals, retaining the original threshold at one.
+\begin{axis}[
+  xbar,
+  width=0.88\linewidth,
+  height=4.45cm,
+  xmin=0, xmax=1.05,
+  xtick={0,0.25,0.5,0.75,1},
+  xlabel={Full interval width / $\varepsilon$ ($\varepsilon=10^{-9}$)},
+  y dir=reverse,
+  ymin=0.4, ymax=6.6,
+  ytick={1,2,3,4,5,6},
+  yticklabels={BOKE / Betula,BOKE / Ulmus,BUS / Betula,BUS / Ulmus,SOLSOE83 / Betula,SOLSOE83 / Ulmus},
+  yticklabel style={font=\small},
+  tick label style={font=\scriptsize},
+  label style={font=\scriptsize},
+  bar width=3.2pt,
+  xmajorgrids=true,
+  grid style={gray!25},
+  axis lines*=left,
+  legend style={at={(0.5,1.05)},anchor=south,draw=none,font=\small},
+  legend columns=3,
+  area legend
+]
+\addplot[fill=blue!65!black,draw=blue!65!black,bar shift=3.8pt] coordinates {
+  (0.342674,1) (0.279755,2) (0.346278,3)
+  (0.282939,4) (0.492195,5) (0.415560,6)
+};
+\addplot[fill=black!65,draw=black!65,bar shift=0pt] coordinates {
+  (0.733977,1) (0.633035,2) (0.541884,3)
+  (0.687995,4) (0.495306,5) (0.327825,6)
+};
+\addplot[fill=orange!75!black,draw=orange!75!black,bar shift=-3.8pt] coordinates {
+  (0.399577,1) (0.358829,2) (0.202149,3)
+  (0.409584,4) (0.455260,5) (0.294014,6)
+};
+\draw[red!70!black,densely dashed,thick]
+  (axis cs:1,0.4) -- (axis cs:1,6.6);
+\legend{$K$,$B_1$,$B_2$}
+\end{axis}
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.23\textwidth}
+\footnotesize
+\textbf{Same frozen law}\par
+Three geometries $\times$ two retained taxon A values.
+\medskip
+
+\textbf{Independent bounds}\par
+18/18 widths below $\varepsilon$; 18/18 positive lower bounds.
+\medskip
+
+$K$: homogeneous coefficient.\\
+$B_1,B_2$: anchor coefficients.
+\medskip
+
+Dashed line: the original $10^{-9}$ width goal.
+\end{column}
+\end{columns}
+\scope{Captured-A numerical coefficients only. Historical A remains unauthenticated;
+no new fit, prediction, score or field-accuracy claim follows.}
+\evidence{reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/receiver-angle-moments-result.json}
+\end{frame}
+
 \begin{frame}{Technical appendix: LOVE numerical correspondence}
 \scriptsize
 \begin{tabular}{p{0.26\textwidth}p{0.57\textwidth}}
