@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Retain current goat run-study associations and the attributed native Direkli statement while preserving ambiguous identities, and prevent provenance text loss in chronology Markdown tables ([#363](https://github.com/bijux/bijux-pollenomics/pull/363)).
+
 - Resolve published source links, consume accepted renderer diagnostics, retire obsolete synthetic drawer publications and preserve current versus captured reader ownership ([#362](https://github.com/bijux/bijux-pollenomics/pull/362)).
 
 - Propagate native goat context through governed chronology provenance and source-bound readers, correct the retained support-summary scope, and preserve ambiguous identities and zero final admission ([#361](https://github.com/bijux/bijux-pollenomics/pull/361)).
