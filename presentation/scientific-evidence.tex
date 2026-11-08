@@ -1,8 +1,10 @@
 \input{presentation/shared.tex}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \title{Bijux Pollenomics: scientific evidence}
 \subtitle{What the methods estimate, what the evidence supports, and what remains open}
 \author{Bijux Pollenomics}
-\date{23 October 2026}
+\date{8 November 2026}
 \begin{document}
 \frame{\titlepage}
 
@@ -308,22 +310,70 @@ Sweden & 228 & 221,800/240,966 & 51/54 \\
 \evidence{reports/science/landclim-paper.md; reports/science/publication-correspondence.md}
 \end{frame}
 
-\begin{frame}{Matched Nordic physical transfer: pooling lowers error}
-\small
-\begin{tabular}{lrr}
-\toprule
-Training scope & Physical MAE & Direct MAE \\
-\midrule
-Sweden only & 0.242912 & 0.242412 \\
-Nordic pool & 0.198419 & 0.197962 \\
-\bottomrule
-\end{tabular}
-\begin{itemize}
-\item Same three Swedish targets, 18 windows and 78 native owners; two author taxa, Betula/Pinus. Site-macro fraction errors; lower is better.
-\item Physical is slightly better at two targets, poorer at B\"okesj\"on. Country weighting and core substitution retain different rankings and common support.
-\item Three profiles retain 414 scored, 16 refused and two unscorable outcomes; saved predictions precede scoring. Independent Decimal and R checks pass.
-\end{itemize}
-\scope{Conditional fixed-geometry inverse-to-forward development result. No local LOVE, historical basin admission, calibrated uncertainty, measured vegetation or untouched confirmation.}
+\begin{frame}{Nordic training: lower pollen error on fixed targets}
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.59\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+  xbar,
+  width=0.81\linewidth,
+  height=4.0cm,
+  xmin=0, xmax=0.27,
+  xtick={0,0.1,0.2,0.27},
+  xlabel={Site-macro pollen MAE (fraction)\\lower is better},
+  xlabel style={align=center},
+  symbolic y coords={Direct pollen,Physical forward},
+  ytick=data,
+  yticklabel style={font=\small},
+  tick label style={font=\scriptsize},
+  label style={font=\scriptsize},
+  enlarge y limits=0.45,
+  bar width=9pt,
+  xmajorgrids=true,
+  grid style={gray!25},
+  axis lines*=left,
+  legend style={at={(0.5,1.12)},anchor=south,draw=none,font=\scriptsize},
+  legend columns=2,
+  area legend,
+  nodes near coords,
+  point meta=x,
+  every node near coord/.append style={
+    font=\scriptsize,color=white,anchor=east,xshift=-2pt,
+    /pgf/number format/fixed,/pgf/number format/precision=6,
+    /pgf/number format/fixed zerofill
+  }
+]
+\addplot[fill=black!65,draw=black!65,bar shift=5pt] coordinates {
+  (0.242412,Direct pollen) (0.242912,Physical forward)
+};
+\addplot[fill=blue!65!black,draw=blue!65!black,bar shift=-5pt] coordinates {
+  (0.197962,Direct pollen) (0.198419,Physical forward)
+};
+\legend{Sweden only,Nordic pool}
+\end{axis}
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.38\textwidth}
+\footnotesize
+\textbf{Same test support}\par
+Three Swedish targets, 18 windows, 78 native owners; Betula/Pinus.
+Primary equal-place / Sols\o{} 83 profile.
+\medskip
+
+\textbf{The pooled methods remain close}\par
+Physical is slightly better at Abborrtj\"arnen and Bussj\"osj\"on,
+poorer at B\"okesj\"on.
+Other weighting/core profiles can reverse rankings.
+\medskip
+
+Point estimates: age, count, geometry and parameter uncertainty is not propagated.
+\end{column}
+\end{columns}
+\smallskip
+{\scriptsize All three profiles: 414 scored, 16 refused and two unscorable outcomes.
+Predictions precede scoring; independent Decimal and R checks pass.}
+\scope{Conditional fixed-geometry development. No local LOVE, historical basin admission,
+measured vegetation or untouched confirmation; no causal effect of adding countries.}
 \evidence{reports/science/nordic-pollen-study.md}
 \end{frame}
 

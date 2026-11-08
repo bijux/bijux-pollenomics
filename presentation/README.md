@@ -9,18 +9,22 @@ reader needs:
 | Implementers | [Developer](developer.tex) | [Developer PDF](developer.pdf) |
 | Researchers | [Scientific evidence](scientific-evidence.tex) | [Scientific evidence PDF](scientific-evidence.pdf) |
 
-The current PDFs were compiled from Git revision `31606e73a89ee00c5f35e3a0747e6d8dbba52da2`
-on 6 November 2026: 14 big-picture, 13 developer and 42 scientific pages.
+The current PDFs were compiled from Git revision `8d034903f10639d10655f4edbde78acc20358364`
+on 8 November 2026: 14 big-picture, 13 developer and 42 scientific pages.
 All three compiler commands completed successfully from the five committed
-inputs. Scientific page 23 includes the matched Nordic physical-transfer
-result and its conditional development scope. All 69 pages pass embedded-font
-and text-bound checks; model inspection of the new Nordic slide found no
-clipping or layout defect. Full human reading, tagged accessibility and online
-availability remain unqualified. Earlier exports retain their original source
-and execution identities in Git history.
+inputs. Scientific page 23 plots the four matched Nordic/Swedish training
+error estimates on a zero-based fraction axis. It names the fixed target
+support, primary profile and missing uncertainty propagation, and keeps
+all-profile refusals separate. Independent source and visual review passed.
+All 69 pages pass embedded-font and text-bound checks; only scientific pages
+1 (edition date) and 23 changed text from the prior export. The other two decks
+retain their full text. All twelve paper/deck download bytes pass their existing
+source checks. Full human reading, tagged accessibility and online availability
+remain unqualified. Earlier exports retain their source and execution identities
+in Git history.
 
 Run `python3 presentation/build.py` from the repository root with `latexmk`
-and a working TeX distribution. Intermediate files and the compiler log go
+and a working TeX distribution including PGFPlots 1.18 compatibility. Intermediate files and the compiler log go
 to `artifacts/jobs/presentation/`; only the final PDFs are retained here.
 The build requires committed, unchanged copies of the three authored TeX
 files, `shared.tex` and `build.py`. The download manifest records their actual
@@ -57,4 +61,4 @@ accessibility.
 
 The [16 October 2026 publication packet](https://github.com/bijux/bijux-pollenomics/tree/891664fe4579c6ef0d9481fe1b0ae7df307ce438/presentation) preserves the original [big-picture PDF](https://github.com/bijux/bijux-pollenomics/blob/891664fe4579c6ef0d9481fe1b0ae7df307ce438/presentation/big-picture.pdf), [developer PDF](https://github.com/bijux/bijux-pollenomics/blob/891664fe4579c6ef0d9481fe1b0ae7df307ce438/presentation/developer.pdf) and [scientific-evidence PDF](https://github.com/bijux/bijux-pollenomics/blob/891664fe4579c6ef0d9481fe1b0ae7df307ce438/presentation/scientific-evidence.pdf), with their five project build-source inputs and recorded publication context. Its retention commit is separate from the original producer identifier `0caba19fdca39e183dce2b1a3929d1b94495cc21`; two reviewed TeX overlays are declared in the retained context.
 
-The historical 121-entry watchlist contains cited evidence as well as project inputs. The retained source context owns 119 exact watchlisted source bodies; two noncompiler citation bodies retain their identities without a portable public-source counterpart. The publication packet retains all five project build-source files. Its machine checks and bounded model review remain scoped historical observations; unfamiliar-human review, tagged accessibility and the PPTX decision remain open. Current PDFs and their five-input build authority remain unchanged.
+The historical 121-entry watchlist contains cited evidence as well as project inputs. The retained source context owns 119 exact watchlisted source bodies; two noncompiler citation bodies retain their identities without a portable public-source counterpart. The publication packet retains all five project build-source files. Its machine checks and bounded model review remain scoped historical observations; unfamiliar-human review, tagged accessibility and the PPTX decision remain open. This retained packet is historical; current PDFs use the five-input build authority above.

@@ -12,7 +12,9 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Reconcile current report membership and source roles, preserve portable historical evidence, and record supplied theory-paper access and installed distribution qualification ([#349](https://github.com/bijux/bijux-pollenomics/pull/349)).
+- **Pending review:** Plot matched Nordic pollen errors in the scientific deck and qualify current source-bound PDF exports while preserving support, refusals and uncertainty limits ([#350](https://github.com/bijux/bijux-pollenomics/pull/350)).
+
+- **Verified merge (2026-11-08 12:44:11 UTC):** Reconcile current report membership and source roles, preserve portable historical evidence, and record supplied theory-paper access and installed distribution qualification ([#349](https://github.com/bijux/bijux-pollenomics/pull/349)).
 
 - **Verified merge (2026-11-08 12:18:02 UTC):** Expose conflicting Neotoma site-area unit definitions without selecting units or admitting basin evidence, and distinguish current prerequisite metadata from its historical projection ([#348](https://github.com/bijux/bijux-pollenomics/pull/348)).
 
