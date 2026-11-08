@@ -119,6 +119,7 @@ for(const path of ['/outside','/bijux-pollenomics/%2e%2e/outside','/bijux-pollen
     [
         "Install admitted documentation renderer",
         "Check retained publication downloads",
+        "Check native report configuration",
         "Build and verify the production-site artifact",
         "Verify actual scientific reading and download routes",
         "Verify production-origin Nordic iframe",
@@ -163,5 +164,35 @@ def test_download_boundary_must_execute_before_site_build(
         steps.insert(position + 1, selected)
     else:
         selected["run"] = "true"
+    with pytest.raises(ValueError):
+        verify_workflow(document)
+
+
+@pytest.mark.parametrize(
+    "change", ["after_build", "missing_preflight", "foreign_owner"]
+)
+def test_native_configuration_requires_early_selected_source_preflight(
+    monkeypatch: pytest.MonkeyPatch, change: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    steps = document["jobs"]["reading"]["steps"]
+    selected = next(
+        step for step in steps if step["name"] == "Check native report configuration"
+    )
+    if change == "after_build":
+        steps.remove(selected)
+        position = next(
+            i
+            for i, step in enumerate(steps)
+            if step["name"] == "Build and verify the production-site artifact"
+        )
+        steps.insert(position + 1, selected)
+    elif change == "missing_preflight":
+        selected["run"] = selected["run"].replace(" --preflight", "")
+    else:
+        selected["run"] = selected["run"].replace(
+            "configs/docs/maps/report-owner.json",
+            "configs/docs/maps/foreign-owner.json",
+        )
     with pytest.raises(ValueError):
         verify_workflow(document)

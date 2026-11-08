@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Bind native report ownership to the current publication configuration and run the existing source preflight before site rendering, preserving native resources and pending composition/browser qualification ([#366](https://github.com/bijux/bijux-pollenomics/pull/366)).
+
 - Retain five cited goat sample references as document correspondence, preserve unresolved specimen identities and propagate their provenance through the existing scientific consumers ([#365](https://github.com/bijux/bijux-pollenomics/pull/365)).
 
 - Bind retained map downloads to committed source bytes, remove duplicate per-file hashes and check the finite download boundary before scientific site rendering ([#364](https://github.com/bijux/bijux-pollenomics/pull/364)).
