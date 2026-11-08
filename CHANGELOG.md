@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Retire superseded synthetic boundary-orientation reports and delegate all twelve publication PDF integrity checks to their existing owner while retaining scientific source bindings and unresolved custody limits ([#352](https://github.com/bijux/bijux-pollenomics/pull/352)).
+
 - Add manual source-bound scientific reading qualification and record installed compatibility-facade behavior without extending scientific or release acceptance ([#351](https://github.com/bijux/bijux-pollenomics/pull/351)).
 
 - **Verified merge (2026-11-08 12:55:56 UTC):** Plot matched Nordic pollen errors in the scientific deck and qualify current source-bound PDF exports while preserving support, refusals and uncertainty limits ([#350](https://github.com/bijux/bijux-pollenomics/pull/350)).
