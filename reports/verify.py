@@ -670,6 +670,12 @@ def verify_scientific_accounts(root: Path) -> tuple[int, int]:
     return len(accounts), len(routes)
 
 
+def verify_scientific_downloads(root: Path) -> int:
+    """Authenticate paper and deck exports through their existing publication owners."""
+    owner = runpy.run_path(str(root / "configs/docs/science_downloads.py"))
+    return len(owner["download_bytes"](root))
+
+
 def main() -> None:
     if (REPORTS / "needed").exists():
         raise ValueError(
@@ -679,7 +685,8 @@ def main() -> None:
     print(
         f"verified {accounts} visible scientific accounts and {routes} qualified routes"
     )
-    runpy.run_path(str(REPORTS / "exports/papers/verify.py"), run_name="__main__")
+    downloads = verify_scientific_downloads(ROOT)
+    print(f"verified {downloads} source-bound paper and deck PDF downloads")
     portal_module = runpy.run_path(
         str(
             ROOT

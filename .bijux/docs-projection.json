@@ -184,7 +184,7 @@
   "schema": 1,
   "source": {
     "mode": "accepted-github",
-    "origin": "git@github.com:bijux/bijux-std.git",
-    "sha": "c1e1ce521bb0e30be052ccd1d0a852b9fef6d802"
+    "origin": "https://github.com/bijux/bijux-std.git",
+    "sha": "79d14bcd460152249b4751623787a162b1d4dce2"
   }
 }

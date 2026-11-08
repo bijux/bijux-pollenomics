@@ -107,6 +107,16 @@ If the only route to one of these answers is a test name, commit note, backlog,
 or internal handbook, the public journey is incomplete. Add the domain answer
 to the owning public page and keep implementation procedure internal.
 
+The manually dispatched [scientific reading verification workflow](../../../.github/workflows/scientific-reading-verification.yml)
+builds an exact accepted main commit with the admitted Linux renderer and
+accepted documentation standards, then checks real article-link clicks at desktop
+and narrow widths. It verifies the twelve PDF downloads through their existing
+export owner and three source-table downloads against committed bytes. The
+browser has a 180-second process limit and bounded evidence output; failed
+checks retain receipts. This workflow uploads a local verified artifact without
+publishing or using deployment credentials. A green run qualifies that local
+reading route, not hosted behavior, human comprehension or scientific accuracy.
+
 ## Place Content By Decision Owner
 
 Use ownership, not sensitivity or technical depth, to choose a destination:
