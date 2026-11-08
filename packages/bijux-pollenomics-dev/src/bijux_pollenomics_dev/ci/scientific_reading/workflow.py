@@ -67,6 +67,7 @@ def verify_workflow(document: dict[str, Any]) -> None:
         "Build and verify the production-site artifact",
         "Locate hosted Chromium",
         "Verify actual scientific reading and download routes",
+        "Verify production-origin Nordic iframe",
         "Retain verification evidence",
         "Retain verified site",
     ]
@@ -105,6 +106,23 @@ def verify_workflow(document: dict[str, Any]) -> None:
         and browser_step.get("env", {}).get("ACCEPTED_COMMIT")
         == "${{ inputs.accepted_commit }}",
         "the actual browser runner or accepted input is missing",
+    )
+    native = by_name["Verify production-origin Nordic iframe"]
+    require(
+        all(
+            clause in native.get("run", "")
+            for clause in (
+                "artifacts/docs/publication/python/bin/python",
+                "wrapper-runtime.mjs",
+                "run_bounded_argv(",
+                "timeout_seconds=360",
+                'receipt["source_revision"] != os.environ["ACCEPTED_COMMIT"]',
+                'len(receipt["scenarios"]) != 10',
+            )
+        )
+        and native.get("env", {}).get("ACCEPTED_COMMIT")
+        == "${{ inputs.accepted_commit }}",
+        "the bounded source-bound native iframe runner is missing",
     )
     require(
         by_name["Retain verification evidence"].get("if") == "always()"

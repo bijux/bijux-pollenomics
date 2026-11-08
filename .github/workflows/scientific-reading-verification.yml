@@ -115,6 +115,50 @@ jobs:
             --repository "$PWD" --accepted-commit "$ACCEPTED_COMMIT" \
             --browser "$BROWSER_BINARY" --output "$PWD/artifacts/scientific-reading/evidence"
 
+      - name: Verify production-origin Nordic iframe
+        env:
+          BROWSER_BINARY: ${{ steps.browser.outputs.binary }}
+          ACCEPTED_COMMIT: ${{ inputs.accepted_commit }}
+          PYTHONPATH: packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src
+        run: |
+          artifacts/docs/publication/python/bin/python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          from bijux_pollenomics_dev.ci.atlas_media.process_execution import run_bounded_argv
+
+          root = Path.cwd()
+          output = root / "artifacts/scientific-reading/nordic-iframe"
+          output.mkdir()
+          summary = {"status": "FAIL", "scope": "production-origin iframe fulfilled from local qualified bytes"}
+          try:
+              script = root / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/wrapper-runtime.mjs"
+              result = run_bounded_argv(
+                  ("node", str(script), str(root), str(root / "artifacts/docs/site"),
+                   str(output / "browser"), os.environ["BROWSER_BINARY"]),
+                  cwd=root, timeout_seconds=360, max_output_bytes=16 * 1024 * 1024,
+              )
+              (output / "stdout.log").write_bytes(result.stdout)
+              (output / "stderr.log").write_bytes(result.stderr)
+              summary.update(returncode=result.returncode, timed_out=result.timed_out,
+                             seconds=result.duration_seconds, termination=result.termination)
+              if result.timed_out or result.returncode != 0:
+                  raise RuntimeError("Native iframe verification refused or exceeded its process limit")
+              receipt = json.loads((output / "browser/report.json").read_bytes())
+              publication = (root / "artifacts/website-security/publication.json").read_bytes()
+              if (receipt["source_revision"] != os.environ["ACCEPTED_COMMIT"]
+                      or receipt["publication"]["source"] != os.environ["ACCEPTED_COMMIT"]
+                      or receipt["publication"]["sha256"] != hashlib.sha256(publication).hexdigest()
+                      or len(receipt["scenarios"]) != 10
+                      or any(not row["assertions"] or not all(value is True for value in row["assertions"].values())
+                             for row in receipt["scenarios"])):
+                  raise RuntimeError("Native iframe receipt differs from accepted source or required scenarios")
+              summary["status"] = "PASS"
+          finally:
+              (output / "result.json").write_text(json.dumps(summary, indent=2) + "\n")
+          PY
+
       - name: Retain verification evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
