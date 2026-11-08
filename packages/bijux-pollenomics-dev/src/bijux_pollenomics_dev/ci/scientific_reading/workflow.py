@@ -64,6 +64,7 @@ def verify_workflow(document: dict[str, Any]) -> None:
         "Check nonpublishing workflow contract",
         "Admit exact documentation standards",
         "Install admitted documentation renderer",
+        "Check retained publication downloads",
         "Build and verify the production-site artifact",
         "Locate hosted Chromium",
         "Verify actual scientific reading and download routes",
@@ -81,6 +82,8 @@ def verify_workflow(document: dict[str, Any]) -> None:
     require(
         by_name["Install admitted documentation renderer"].get("run")
         == "make gh-docs-install"
+        and by_name["Check retained publication downloads"].get("run")
+        == "make docs-publication-controls"
         and by_name["Build and verify the production-site artifact"].get("run")
         == "make gh-docs-build gh-docs-verify",
         "the admitted build and verifier must both execute",

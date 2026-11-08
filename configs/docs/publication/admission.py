@@ -8,7 +8,6 @@ import io
 import json
 import os
 from pathlib import Path, PurePosixPath
-import re
 import subprocess
 import sys
 
@@ -21,7 +20,6 @@ POLICY = EVIDENCE + "/download-policy.json"
 SOURCE = EVIDENCE + "/source-identity.json"
 SITE = "artifacts/docs/site"
 URL = "https://bijux.io/bijux-pollenomics/"
-SHA256 = re.compile(r"^[0-9a-f]{64}$")
 
 
 def digest(content: bytes) -> str:
@@ -70,15 +68,15 @@ def committed_hashes(root: Path, source_sha: str, paths: list[str]) -> dict[str,
 
 def download_policy(root: Path, site: Path, source_sha: str,
                     base_policy: dict, manifest: dict, committed: dict[str, str]) -> dict:
-    require(set(manifest) == {"schema", "scope", "files"} and manifest["schema"] == 1
+    require(set(manifest) == {"schema", "scope", "files"} and manifest["schema"] == 2
             and manifest["scope"] == "retained-public-geojson-downloads"
             and isinstance(manifest["files"], list) and len(manifest["files"]) == 50,
             "Download manifest requires the exact reviewed finite population")
     result = json.loads(json.dumps(base_policy))
     seen = set()
     for record in manifest["files"]:
-        require(set(record) == {"path", "source", "sha256", "bytes", "kind", "purpose"},
-                "Download manifest requires exact source identity fields")
+        require(set(record) == {"path", "source", "kind", "purpose"},
+                "Download manifest requires exact source policy fields")
         path, source = record["path"], record["source"]
         require(isinstance(path, str) and path.startswith("report/") and path.endswith(".geojson")
                 and source == "docs/" + path and path not in seen,
@@ -88,15 +86,12 @@ def download_policy(root: Path, site: Path, source_sha: str,
                          "report/pollen-reconstruction/swedish-native-sequences/map-summary.geojson"
                          else "geojson-download")
         require(record["kind"] == expected_kind and isinstance(record["purpose"], str)
-                and record["purpose"].strip() and isinstance(record["bytes"], int)
-                and not isinstance(record["bytes"], bool) and record["bytes"] > 0
-                and isinstance(record["sha256"], str) and bool(SHA256.fullmatch(record["sha256"])),
+                and record["purpose"].strip(),
                 "Download manifest requires reviewed data purpose and identity")
         authored = regular(root, source).read_bytes()
         public = regular(site, path).read_bytes()
-        require(digest(authored) == record["sha256"] == committed.get(source)
-                and authored == public and len(public) == record["bytes"],
-                "Retained public download differs from its committed owning source")
+        require(digest(authored) == committed.get(source) and authored == public,
+                f"Retained public download differs from its committed owning source: {source} -> {path}")
         body = json.loads(public)
         require(isinstance(body, dict) and body.get("type") in {"Feature", "FeatureCollection"},
                 "Retained public download is not a GeoJSON feature surface")

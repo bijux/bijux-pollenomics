@@ -2,7 +2,10 @@
 
 `downloads.json` owns the exact fifty GeoJSON files served with the retained
 scientific reports and browser observations. The manifest identifies each
-committed source, byte count, hash and public purpose. The Swedish sequence
+source, public path, kind and purpose. Byte identity comes from the dispatched
+committed Git source: authored bytes must match that source, and public bytes
+must match the authored file. Per-file hashes and byte counts are derived
+rather than duplicated in this policy. The Swedish sequence
 map's original GeoJSON remains a runtime resource of its independently
 reconstructed report descriptor.
 

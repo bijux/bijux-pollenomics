@@ -51,10 +51,10 @@ extra:
     interactive_report_owner: configs/docs/maps/report-owner.json
     publication_adapter:
       path: configs/docs/publication/admission.py
-      sha256: 8d37baba19863336fa98a721a9486c026999d005bb813c19e46fecbd9a13adfe
+      sha256: 726f20b5b2cb2b57f302735d404daa57683ded026f3bb0a56a836363eeca4cc9
     publication_downloads:
       path: configs/docs/publication/downloads.json
-      sha256: 8eab4877e1f1a806ae1762005ef847f672b35b6d74931e28977a678fc59197f4
+      sha256: eb4487e3dc9f7fd488c2c84f128026dd4d4871cb1e652121f3c6131f92075e0e
     docs_package: bijux-pollenomics-dev
     nav_mode: default
     theme_key: bijux:theme

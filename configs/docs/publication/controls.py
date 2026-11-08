@@ -62,8 +62,8 @@ def main() -> None:
             "extra_manifest_member": "exact reviewed finite population",
             "duplicate_manifest_member": "unique owned GeoJSON source paths",
             "foreign_source_owner": "unique owned GeoJSON source paths",
-            "changed_declared_hash": "differs from its committed owning source",
-            "changed_declared_bytes": "differs from its committed owning source",
+            "unsupported_declared_hash": "exact source policy fields",
+            "unsupported_declared_bytes": "exact source policy fields",
             "wrong_native_resource_kind": "reviewed data purpose and identity",
             "missing_public_purpose": "reviewed data purpose and identity",
             "wildcard_path": "exact confined public path",
@@ -72,6 +72,7 @@ def main() -> None:
             "changed_public_download": "differs from its committed owning source",
             "missing_public_download": "file is missing",
             "changed_authored_download": "differs from its committed owning source",
+            "coordinated_download_changes": "differs from its committed owning source",
             "extra_public_download": "population differs",
             "extra_authored_download": "population differs",
             "missing_committed_source": "differs from its committed owning source",
@@ -85,6 +86,11 @@ def main() -> None:
                 module.download_policy(root, site, head, base, changed or manifest, hashes or committed)
             except (ValueError, OSError, KeyError, TypeError) as error:
                 assert reasons[name] in str(error), (name, str(error))
+                if name in {"changed_public_download", "changed_authored_download",
+                            "coordinated_download_changes",
+                            "missing_committed_source", "changed_committed_source"}:
+                    assert manifest["files"][0]["source"] in str(error), (name, str(error))
+                    assert manifest["files"][0]["path"] in str(error), (name, str(error))
                 cases.append(name)
             else:
                 raise AssertionError(name + " unexpectedly admitted")
@@ -94,8 +100,8 @@ def main() -> None:
             ("extra_manifest_member", lambda d: d["files"].append(copy.deepcopy(d["files"][0]))),
             ("duplicate_manifest_member", lambda d: d["files"].__setitem__(1, copy.deepcopy(d["files"][0]))),
             ("foreign_source_owner", lambda d: d["files"][0].__setitem__("source", "configs/foreign.geojson")),
-            ("changed_declared_hash", lambda d: d["files"][0].__setitem__("sha256", "0" * 64)),
-            ("changed_declared_bytes", lambda d: d["files"][0].__setitem__("bytes", 1)),
+            ("unsupported_declared_hash", lambda d: d["files"][0].__setitem__("sha256", "0" * 64)),
+            ("unsupported_declared_bytes", lambda d: d["files"][0].__setitem__("bytes", 1)),
             ("wrong_native_resource_kind", lambda d: next(r for r in d["files"] if r["kind"] == "native-sequence-data").__setitem__("kind", "geojson-download")),
             ("missing_public_purpose", lambda d: d["files"][0].__setitem__("purpose", "")),
         ):
@@ -120,7 +126,11 @@ def main() -> None:
         authored = root / first["source"]
         authored.write_bytes(original + b"\n")
         refuse("changed_authored_download")
+        authored.write_bytes(original + b"\n")
+        path.write_bytes(original + b"\n")
+        refuse("coordinated_download_changes")
         authored.write_bytes(original)
+        path.write_bytes(original)
         extra = site / "report/unreviewed.geojson"
         extra.write_text('{"type":"FeatureCollection","features":[]}')
         refuse("extra_public_download")
@@ -144,7 +154,6 @@ def main() -> None:
         invalid = b'{"type":"UnreviewedData"}'
         path.write_bytes(invalid)
         authored.write_bytes(invalid)
-        candidate["files"][0].update(sha256=module.digest(invalid), bytes=len(invalid))
         forged = dict(committed)
         forged[first["source"]] = module.digest(invalid)
         refuse("non_geojson_data", candidate, forged)
