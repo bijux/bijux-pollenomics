@@ -1,6 +1,75 @@
 # Spatial-field forwarding between three physical places
 
-The declared spatial IDW cover field produced all 18 held-place/window predictions and all 54 matched scores. Its equal-place MAE/TV was 0.204875686, compared with 0.205958107 for homogeneous centre-cover forwarding and 0.220493174 for direct pollen IDW. The spatial-versus-centre difference is **numerically unresolved** by the prespecified conservative step-bracket diagnostics. These are previously exposed development observations, not an independent vegetation benchmark or untouched confirmation. A separate declared captured-A continuous law now has independently verified aggregate score separation after geometry-only contribution scheduling: centre minus spatial MAE/TV is [0.00102032786791026, 0.00114664850002645]. This conditional numerical finding preserves the original eight-ring context and does not establish field accuracy. The separate receiver-angle certificate below independently meets all eighteen strict coefficient-width criteria for the same six frozen captured-A geometries.
+The current numerical result certifies all eighteen strict coefficient widths
+and positive lower bounds for six frozen captured-A cases. It does not add a
+forecast or establish field accuracy. The related development comparisons and
+historical refusals below retain their distinct laws and denominators.
+
+| Question | Result and scope |
+| --- | --- |
+| Strict continuous-law coefficient precision | [Six cases, eighteen bounds below `1e-9`](#receiver-angle-study-strict-coefficient-widths), independently replayed on the frozen captured-A law. |
+| Continuous-law development ordering | [Geometry-only contribution scheduling](#contribution-study-independently-separated-continuous-law-scores) separates aggregate centre-minus-spatial MAE/TV: `[0.00102032786791026, 0.00114664850002645]`. BOKE drives the aggregate; spatial remains poorer at BUS and SOLSOE83. |
+| Original exposed development comparison | All 18 held-place/window predictions and 54 matched scores remain. Spatial MAE/TV is `0.204875686`, centre-cover `0.205958107`, direct pollen IDW `0.220493174`; spatial versus centre remains numerically unresolved under the original eight-ring step brackets. |
+| Historical and field interpretation | Historical A, qualified physical geometry, measured vegetation and untouched confirmation remain open. Neither numerical result establishes an independent vegetation benchmark or unconditional spatial superiority. |
+
+## Receiver-angle study: strict coefficient widths
+
+The receiver-angle method independently certifies **all eighteen original
+`1e-9` full coefficient widths and all eighteen positive lower bounds** for the
+six retained captured-A geometries. The [protocol](continuous-receiver/receiver-angle-moments.json)
+keeps the original law, support, precision and resource ceilings. Analytic
+angle moments reduce the two-dimensional correction to one-dimensional
+quadrature, with a rigorous whole-integral series remainder. The
+[exact numerical result](continuous-receiver/receiver-angle-moments-result.json)
+retains every case's rational bounds, flags and source/protocol identities.
+
+The producer used committed `59b7165c8871dcb810f2b8d77f32ae215861398e`;
+the final independent observer used
+`d7ec2f4127420e06369246034a69cfbfedfbce43`. All six owners and 84 domains
+close. The observer replays all 281 saved leaves and 1,967 fixed nodes with
+its own equations and derivative bounds. The independent full widths below
+are rounded upward, in units of `1e-9`; every value is below the threshold of 1.
+
+| Core | Taxon | K | B1 | B2 |
+| --- | --- | ---: | ---: | ---: |
+| BOKE | Betula | 0.342674 | 0.733977 | 0.399577 |
+| BOKE | Ulmus | 0.279755 | 0.633035 | 0.358829 |
+| BUS | Betula | 0.346278 | 0.541884 | 0.202149 |
+| BUS | Ulmus | 0.282939 | 0.687995 | 0.409584 |
+| SOLSOE83 | Betula | 0.492195 | 0.495306 | 0.455260 |
+| SOLSOE83 | Ulmus | 0.415560 | 0.327825 | 0.294014 |
+
+Two preceding observer refusals remain retained: 10/18 widths before
+normalizing a dimensional endpoint-mean reciprocal, then 17/18 before
+preserving the common Q dependence in complementary B2. The latter BOKE/Betula
+B2 width was `1.0766498793820573e-9`. The final observer intersects `K-B1`
+with the exact identity `(1-h(R))*Q(R)-(1-h(L))*Q(L)-J`; independent rational
+controls prove containment and strict tightening at the same epsilon.
+The producer, law, saved leaves and original criterion are unchanged.
+
+| Consumer | Whole process seconds | Native peak RSS bytes | All output bytes |
+| --- | ---: | ---: | ---: |
+| Producer | 70.409550 | 205,733,888 | 188,983 |
+| Final independent observer | 38.580526 | 207,716,352 | 30,846 |
+
+Both jobs exit zero within the original 160-second shared work, 180-second
+process, 768 MiB observed RSS and 5 MB output ceilings. External supervisors
+enforce the process deadline; completed-process RSS/output postchecks include
+receipts and logs, without an OS memory-quota claim. Source and inputs remain
+stable. Times are rounded; exact observations remain in the numerical result.
+Auxiliary local integral and endpoint-product allocations remain false in all
+six cases; the passed claim is the eighteen final coefficient criteria.
+
+This conditional numerical certificate authenticates neither historical A nor
+the original native environment. It adds no observation, fit, forecast, score,
+source admission or field-accuracy claim. The original thirty saved-native-point
+diagnostics are not re-evaluated, and prior two-dimensional/ring refusals retain
+their scopes. [PR #354](https://github.com/bijux/bijux-pollenomics/pull/354)
+delivers the implementation, protocol and numerical account. Raw execution
+proof is retained through the existing artifact archive; runtime contexts and
+logs are outside the committed numerical summary.
+
+## Original three-place development comparison
 
 [protocol.json](protocol.json) fixes the question, source identities, original sample IDs, geometry, three prediction families, metrics and resource budgets before execution. [result.json](result.json) exports the compact derived population, geometry and complete-family summaries. [scores.csv](scores.csv) retains every context/family identity, both predicted and observed fractions, both signed errors, all three scalar metrics and their numerical ranges. It contains 54 rows and no copied native count table. Full frozen predictions and the original terminal result remain in `artifacts/physical-core/spatial-field-forward/native-run/`.
 
@@ -292,6 +361,11 @@ following execution records their subsequent result.
 
 
 ## Actual continuous study: complete coverage, unresolved precision
+
+The original two-dimensional producer widths span approximately `4.60e6–6.58e6`
+for K and `6.19e17–1.29e18` for B. These historical bounds preclude useful
+normalized prediction propagation; the later receiver-angle result has its
+own method and scope.
 
 The producer and independent fixed-leaf observer both consumed committed
 `6ea7d2e1845350ab506fb49f669389198abf40bb`, the prospective
@@ -723,7 +797,9 @@ source/case/partition/work/forecast/score/aggregation accounting and recomputes
 its own Q, complementary coefficients, affine deposition and metrics. Its own
 centre-minus-spatial MAE/TV range is exactly
 `[0.00102032786791026..., 0.0011466485000264496...]` as a decimal illustration;
-the saved rational strings are authoritative. All original 180 s / 768 MiB /
+the saved rational strings are authoritative. The corresponding Hellinger
+illustration is `[0.0007109660197353096, 0.0008027760124864743]`.
+All original 180 s / 768 MiB /
 5 MB resource limits pass for both jobs.
 
 Commands are the same `ring_study` and `ring_verification` invocations shown
@@ -798,85 +874,26 @@ certificates and driver remain under
 studies, later score-separation evidence and all physical/source limitations
 retain their original scopes. No prediction, refit or score was produced.
 
-
-## Receiver-angle study: strict coefficient widths
-
-The receiver-angle method independently certifies **all eighteen original
-`1e-9` full coefficient widths and all eighteen positive lower bounds** for the
-six retained captured-A geometries. The [protocol](continuous-receiver/receiver-angle-moments.json)
-keeps the original law, support, precision and resource ceilings. Analytic
-angle moments reduce the two-dimensional correction to one-dimensional
-quadrature, with a rigorous whole-integral series remainder. The
-[exact numerical result](continuous-receiver/receiver-angle-moments-result.json)
-retains every case's rational bounds, flags and source/protocol identities.
-
-The producer used committed `59b7165c8871dcb810f2b8d77f32ae215861398e`;
-the final independent observer used
-`d7ec2f4127420e06369246034a69cfbfedfbce43`. All six owners and 84 domains
-close. The observer replays all 281 saved leaves and 1,967 fixed nodes with
-its own equations and derivative bounds. The independent full widths below
-are rounded upward, in units of `1e-9`; every value is below the threshold of 1.
-
-| Core | Taxon | K | B1 | B2 |
-| --- | --- | ---: | ---: | ---: |
-| BOKE | Betula | 0.342674 | 0.733977 | 0.399577 |
-| BOKE | Ulmus | 0.279755 | 0.633035 | 0.358829 |
-| BUS | Betula | 0.346278 | 0.541884 | 0.202149 |
-| BUS | Ulmus | 0.282939 | 0.687995 | 0.409584 |
-| SOLSOE83 | Betula | 0.492195 | 0.495306 | 0.455260 |
-| SOLSOE83 | Ulmus | 0.415560 | 0.327825 | 0.294014 |
-
-Two preceding observer refusals remain retained: 10/18 widths before
-normalizing a dimensional endpoint-mean reciprocal, then 17/18 before
-preserving the common Q dependence in complementary B2. The latter BOKE/Betula
-B2 width was `1.0766498793820573e-9`. The final observer intersects `K-B1`
-with the exact identity `(1-h(R))*Q(R)-(1-h(L))*Q(L)-J`; independent rational
-controls prove containment and strict tightening at the same epsilon.
-The producer, law, saved leaves and original criterion are unchanged.
-
-| Consumer | Whole process seconds | Native peak RSS bytes | All output bytes |
-| --- | ---: | ---: | ---: |
-| Producer | 70.409550 | 205,733,888 | 188,983 |
-| Final independent observer | 38.580526 | 207,716,352 | 30,846 |
-
-Both jobs exit zero within the original 160-second shared work, 180-second
-process, 768 MiB observed RSS and 5 MB output ceilings. External supervisors
-enforce the process deadline; completed-process RSS/output postchecks include
-receipts and logs, without an OS memory-quota claim. Source and inputs remain
-stable. Times are rounded; exact observations remain in the numerical result.
-Auxiliary local integral and endpoint-product allocations remain false in all
-six cases; the passed claim is the eighteen final coefficient criteria.
-
-This conditional numerical certificate authenticates neither historical A nor
-the original native environment. It adds no observation, fit, forecast, score,
-source admission or field-accuracy claim. The original thirty saved-native-point
-diagnostics are not re-evaluated, and prior two-dimensional/ring refusals retain
-their scopes. [PR #354](https://github.com/bijux/bijux-pollenomics/pull/354)
-delivers the implementation, protocol and numerical account. Raw execution
-proof remains local under `artifacts/verification/receiver-angle-moments/`
-for retention through the existing artifact owner; runtime contexts and logs
-are not part of the committed numerical summary.
-
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Matched whole-place-excluded forward predictions of a two-anchor cover field against direct-pollen IDW and homogeneous centre-cover forwarding, with frozen prediction bytes, all family metrics and conservative numerical-resolution accounting. A separate fixed 128-ring refinement certifies complementary finite-mass coefficient and score ranges; centre-minus-spatial aggregate MAE/TV is approximately [0.001020466,0.001146475], positive only in that new conditional context. Separately, independently replayed true continuous captured-A ring bounds qualify complete positive prediction/score enclosures for all6geometryowners/774endpoints/18contexts/54familydispositions. Their broad ranges do not resolve precision or ranking. The subsequent geometry-only contribution profile independently separates all3family pairs under the ideal continuous captured-A law on the same18exposed contexts/54slots. Owncentre-minus-spatial MAE/TV[0.00102032786791026,0.0011466485000264496] andH[0.0007109660197353096,0.0008027760124864743] arepositive; BOKEdrivesaggregate,spatialstillpooreratBUS/SOLSOE83. This is conditional numerical ordering, notfield/statistical/vegetation accuracy. The receiver-angle study separately passes all eighteen strict coefficient-width and positivity criteria for the same six frozen captured-A inputs, with independent fixed-leaf bounds.
+**Supported claim.** Matched whole-place-excluded predictions retain all family metrics and conservative numerical ranges. The fixed 128-ring finite-mass refinement separates aggregate scores in its own conditional context. Independently replayed continuous captured-A contribution bounds separate all three aggregate family pairs on the same exposed support; BOKE drives the improvement, while spatial remains poorer at BUS and SOLSOE83. The receiver-angle study separately certifies all eighteen strict coefficient widths and positive lower bounds for six frozen captured-A cases.
 
-**Unsupported claim.** Measured or jointly fitted vegetation field, genuine untouched confirmation, unconditional superiority of spatial over centre forwarding, coefficient accuracy outside the declared six-case captured-A law or authenticated historical floating-kernel bounds, jointly attaining aggregate endpoints, qualified historical basin/core geometry or field accuracy.
+**Unsupported claim.** Measured or jointly fitted vegetation field, untouched confirmation, unconditional spatial superiority, coefficient accuracy outside the six-case captured-A law, authenticated historical floating-kernel bounds, jointly attaining aggregate endpoints, qualified historical basin/core geometry or field accuracy.
 
-**Actual verification performed.** Producer dbe099e7d saved predictions before scoring all 18 contexts/54 outcomes and met resource bounds. Independent checker 7deffa682 compared all 147 original samples, 59 selected samples, exact source IDs/denominators, folds, prediction identities, all formulas and scores. Direct 256/512-node angular quadrature and independent ellipsoidal projection checks passed; maximum angular-resolution discrepancy was 3.3306690738754696e-16 and bracket width 0.002801955587572096. The checker exited zero in 6.18 s. The disclosed missing-bytecode-flag deviation was retained without a model rerun. Producer and independent observer at frozen aec105a2dae494c3abd09dc2df12300aee1706e2 both exited zero, checking 768 saved ring outcomes, 18 contexts, all 54 scores and summaries without repeated integration. No ring or legacy-reference refusal. Twenty-nine producer and seventy-one independent controls, lint and strict types passed. Fifty-five working-source primitive/derivative/Duffy/Simpson/refusal controls pass with configured lint/format/strict types. One source-free long-annulus prototype cost control, session47915/17eb1b, exits0 with numerical status refuse_unresolved:45.13 s/RSS25608192 B and197697 report/certificate bytes. The complete bounds are retained, with Q(R) width5.886e-11 above its3.125e-11 allocation; Kwidth2.4314 and Bwidth2.5627e39. This is a precommit synthetic control, not an actual six-case study or qualified historical result. Fifty-two independent exact primitive/series/jet/polynomial/partition/Peano controls then pass in0.67 s (process0.96 s/RSS57032704 B) with configured lint/format/types; the first observer exception-class assumption failure is retained. Decimal Duffy comparisons are correspondence diagnostics, separate from the exact proof checks. Those source-free controls did not establish an actual six-case certificate or geometry-independent serialized-certificate validity. The explicit seven-node positive rule now passes74 author controls and72 independent controls (1.94 s/process2.30 s/RSS58572800 B), including actual signed eighth-degree errors, nonunit tensor bounds, jet8/h9 identities, node caps, strict rule ownership and unchanged Simpson/v1 bytes. Configured lint/format/types pass. The single seven-node source-free cost control then ran at committed75e2b12aa, session89485/fa0b48:45.08 s process/RSS25509888 B/39880 total output bytes, unchanged source/HEAD/index and resource guards. Both endpoint allocations pass; reported Kwidth5.945532e-11. The weighted factors remain unresolved (Bwidth7.74758e68). A separate direct Fraction inspection checks all74 closed leaf partitions, outward96 rounding, signed radii and coefficient aggregation without primitive reevaluation; its initial direct sum omitted lattice rounding and was corrected. No actual six-case study or independent field result follows. Exact dyadic radial conditioning then passes89 author controls plus the final allocation trace and24 independent controls (7.33 s/process7.71 s/RSS58523648 B), with configured lint/format/types. It retains originalR, exact closed bands, all14 domains/602 initial nodes/26 derivative boxes before refinement, one global budget and eps/8 total radial width. Geometry/domain ownership is explicit in v3; oldv1/v2 bytes remain. The conditioned source-free cost control then ran at committed01ba73270, session40184/765f87:45.08 s/RSS25509888 B/49862 total output bytes, all input/source/HEAD/index/resource guards unchanged. All14 initial domains remain covered; Kwidth5.945532e-11, firstcontactwidth1.095e-7, weightedBwidth4.7369275e21. Overallrefuse_unresolved; other radial domains remained initial because sequential refinement exhausted work on one contribution. No actualsixcase integration or newforecast ran. The shared-clock geometry-only population frontier passes21 scheduler controls and6 existing certificate/default-rule compatibility checks, with configured lint/format/types. The six-case protocol binds both original JSON byte identities, all6owners/18coefficients, exact epsilon and global180-second budget prospectively. Actual source capture, six-case integration and fixed-leaf verification remain unexecuted. The source/native-prefix reader and bounded study wrapper pass38 fake-input/fake-frontier controls in1.49 s and configured lint/format/strict types. They reject owner/axis/radius/anchor/profile/numeric-contract/population drift, retain partial dispositions, close proofs before reference comparison and guard source/resources/output bytes. Nativeprefix calls remain stubbed in qualification; no actualsixcase integration or field result yet. The modular independent fixed-leaf verifier passes39 fake/synthetic controls through the full selection, covering independent geometry/Peano replay, regular/contact bands, nonuniform coverage, source/prefix/owner binding, minimum ancestor node/derivative work and tampering. The complete consumer selection passes283 tests in37.64 s (process38.22 s/RSS170278912 B), with configured lint/format/strict types. Its earlier Interval-left/Jet adapter failure is retained and corrected only in the observer. No real six-case prefix or integration has yet executed. Actual six-case producer58309/0db88e and independent observer61255/ef4ab8 both consumed frozen6ea7d2e184 with unchanged source/inputs/HEAD/index. Producer161.54s/RSS144523264B/186842totalB, observer70.39s/RSS143327232B/35899totalB, all original resource guards pass. All6cases have complete partitions; observer accounting_verified=true. Both refuse all18 coefficient widths and positive bounds; all30 old-reference tests remain uncertified. Charged329panels/15617reservednodes/15589completednodes/646derivativeboxes/207leafreservations,206savedleaves; interrupted split retains its parent. No forecasts or scoring reran. A different true-Q ring-bound module passes23syntheticcontrols5.55s with configuredlint/format/strict types: six×129polynomial endpoint population,5418nodes,sharedQ telescoping/complement/constantcover/signedcover, globalclock/percasecaps and interruptedparent retention. Independent positive-displacement and likelihood-ratio proofs establish Qmonotonicity and positive true ring masses. No actual1D Q study ran; source/prediction/scoring/observer qualification remains in progress. True-Q source/prediction/scoring consumers pass31controlledcases:15sourceguards,2fake-frontierclosure tests and14prediction/score cases. They retain774endpointslots/18contexts/54familydispositions, preserve fixed finite direct references and use one continuousK for centre/spatial. Pure metadata-only production/independent readers agree all6owners/774exactdyadicedges and9rawsourcepins without Q integration. New prediction source keeps fixed covers/PPE and closes count-free bounds before parsing targets; no actual1D study yet. The independent true-ring observer passes53constructed source/numerical/fullpacket controls plus3closed-file/epoch checks. Fullcombinedselection393PASS54.22s/process54.79s/RSS164036608B; all15newPythonpaths configuredRuff/format/strictmypyPASS. Its own Qgeometry/Peano/telescoping/predictions/54scores decide mathematical bounds; a separate witness passes useful score bounds with originalcoefficientEPSfalse. InitialHellingerfixture precision assumption corrected only to elementary2^-48 granularity; last-unattempted-leaf accounting now accurately bounded with refusal evidence. No actual1DQ producer/observer yet. Actualtrue-Q producer3666/d8998b and observer16466/6296ef consume frozen3626a75d66 with unchanged source/all9inputs/HEAD/rawindex. Producer162.21s/RSS143392768B/875594ALLB; observer76.62s/RSS147996672B/98369ALLB; both original resourceboundsPASS. All6cases/774endpoints complete, all18positive predictioncontexts/54familydispositions retained. Independent statuspassed/accountingtrue qualifies its OWN complete validbounds; all774rawQ and18originalEPS targets false, every pairmetric unresolved. Work1886panels/13202reservednodes/13195completednodes/1886derivativeboxes/1330reservations/1329savedleaves. No oldmodel/count/age/pointresult changed. An explicit geometry-only contribution frontier now passes37scheduler/algebra controls; its independent optional-profile/spread/stop-reason support passes73controls. Combinedselection432PASS60.18s/process60.73s/RSS167215104B;15pathRuff/format/strictmypyPASS. Closedcertalgebra findsrawinteriorleaders7-11orderslessrelevant toK/BthanQ0; no counts/scoresused. Newimmutableprofilekeeps9pins/774edges/oldtargets/budgets; EPS/16bounds Quncertainty only, notfixedringhvariation/fullcoeffEPS. Explicitwideauxiliaryrefusals remain. Oneconstructedrefusalmetadatafield and2teststylefindings corrected, no mathgatechange. No actualcontributionrun yet. Actualcontributionproducer40473/d40cd5 and independentobserver28646/43d826 bothrunonceat frozena53992eaa,unchanged9inputs/source/HEAD/rawindex. Producer162.13s/RSS142196736B/890464ALLB;observer78.53s/RSS148307968B/118405ALLB,originalresourceboundsPASS. Observerpassed/accountingtrue/all6complete/18usable,OWNall9pairmetricdifferences excludezero. Work1863panels/13041reservednodes/13034completednodes/1863derivativeboxes/1319reservations/1318savedleaves. Zero774rawQ/zero18EPS andall6Qspread targetsremainfalse. Same18/54exposedpopulation, no newfit/point/count/age/nativeprefix or old768-ring-call repeat. The separate receiver-angle study independently passes all eighteen coefficient-width and positive-lower-bound criteria; its earlier 10/18 and 17/18 refusals remain retained, without repeating the original thirty native-reference diagnostics.
+**Actual verification performed.** The original producer froze predictions before scoring; independent checks covered source IDs, denominators, folds, projection, formulas and all scores. The finite-mass refinement checked all 768 ring outcomes. The historical two-dimensional, raw-width true-ring and contribution studies retain their independent accounting and distinct precision flags in the sections above. The contribution observer independently separated all nine aggregate pair/metric comparisons. The receiver-angle producer at `59b7165c8871dcb810f2b8d77f32ae215861398e` and observer at `d7ec2f4127420e06369246034a69cfbfedfbce43` close all six cases; the observer independently replays 281 leaves and passes all eighteen width and positivity criteria. Their actual resource observations, exact rational bounds and fixed protocol are linked in the receiver-angle section. This editorial summary does not rerun those consumers.
 
-**Remaining input or review.** Three exposed physical places and six fixed windows support a declared two-anchor spatial hypothesis, not measured vegetation or untouched validation. Static radii, BUS coordinate ambiguity, inherited panel completeness and two-stage anchor inversion remain assumptions; the original eight-ring step brackets do not resolve the centre-versus-spatial score differences. The finer finite-mass context separates the aggregate scores without certifying the true integrals or a universal place-level improvement. A separate exact continuous-receiver implementation now has validated primitives and complete resource-refused enclosures on synthetic geometry, but its first long-annulus cost probe did not achieve the fixed coefficient-width target. The first actual six-case calculation retains complete independently checked coverage but refuses all18 widths and positive lower bounds within the unchanged shared time budget. High-derivative interval cost remained unresolved in that two-dimensional study; its wide bounds do not support normalized forecasts. The later true-ring calculation now supports independently valid positive prediction intervals, but they remain broad: all pairmetricranges include zero and endpoint/coefficient precision still fails. The original two-dimensional refusal and separate finite-mass success keep their own scopes. Geometry-only contribution scheduling now independently resolves the declared continuous-law aggregate score ordering. It does not meet strict1e-9coeffprecision, removefixedringhvariation orqualify physical source/geometry/parameter assumptions. The separate receiver-angle study independently meets all eighteen strict coefficient-width and positive-lower-bound criteria on the same frozen captured-A law. It adds no forecasts or scores and does not qualify historical A or physical source/geometry/parameter assumptions. Earlier contexts retain their own flags. Resolver: Analyst for a predeclared numerical/spatial model question; source and vegetation-reference experts only for historical geometry, ecological accuracy or an admitted field interpretation. Reopen when: A broader numerical claim needs declared support and independently checked bounds; historical or field claims require exact core/geometry support and independent measured targets.
+**Remaining input or review.** Static radii, BUS coordinate ambiguity, inherited source-panel completeness, source chronology/taxon/denominator/parameter transfer and two-stage anchor inversion remain assumptions. Original eight-ring comparisons remain unresolved; finite-mass certificates and later continuous-law results keep their own scopes. Strict coefficient precision is qualified only for the six frozen captured-A cases, without historical-A, native-environment or field qualification. Resolver: Analyst for a predeclared numerical/spatial model question; source and vegetation-reference experts only for historical geometry, ecological accuracy or an admitted field interpretation. Reopen when: A broader numerical claim needs declared support and independently checked bounds; historical or field claims require exact core/geometry support and independent measured targets.
 
 **Cause category.** assumption|algorithm/numerical|comparability
 
-**Consequence.** Retain the full matched development comparison and numerical ranges; keep per-context and aggregate endpoints conservative and the common geometry dependence explicit.
+**Consequence.** Retain the matched development comparison and conservative ranges, including per-place negative findings and common geometry dependence.
 
-**Precise next acceptance route.** Reuse the independently qualified continuous-law score separation on its fixed exposed support and the eighteen receiver-angle coefficient bounds on their six frozen captured-A geometries. Keep the original historical/field/source/review criteria separate. Any stronger numerical question needs a justified changed method, prospective bounds and independent actual consumer; do not rerun unchanged or tune from target scores.
+**Precise next acceptance route.** Reuse the qualified continuous-law score separation and six-case coefficient bounds within their fixed scopes. Keep historical, field, source and review criteria separate. A stronger numerical question requires a justified changed method, prospective bounds and an independent actual consumer; no unchanged retry or target-score tuning.
 
-**Negative or refused result.** In the existing forecast study, no context/family was dropped or refused; all 54 scores remain. Every original aggregate centre-versus-spatial metric comparison remains numerically unresolved under its eight-ring brackets. No response rescaling, point correction, target-score tuning or ecological winner was adopted. BUS and SOLSOE83 spatial forwarding remain poorer than centre forwarding. Exact finite-mass certificates do not certify quadrature error, true integrals or field accuracy; the original eight-ring context remains unresolved. The separate source-free continuous long-annulus probe refuses resolution without changing the original1e-9 final full-width goal, dropping domain, increasing resources or rerunning the original768 ring calls. The higher-order source-free control also refuses the full coefficient target: first triangle width3.229e-6 and second initial panel extremely wide; neither omitted nor treated as zero. Endpoint success does not close weighted integration. Exact radial conditioning also refuses the full synthetic coefficient target within the same time limit. Its retained all-domain enclosures motivate a global width frontier for the declared real-case study, not a tolerance/resource increase or an unchanged probe retry. The original two-dimensional six-case study and its independent fixed-leaf check both refused numerical precision. Producer Kwidths4.60e6–6.58e6 and Bwidths6.19e17–1.29e18 preclude useful normalized prediction propagation; no owner, broad interval or failed reference is omitted. New true-Q bounds enable valid positive continuous predictions but certify zero774rawendpointwidths and zero18coefficientwidths. Independent centre-minus-spatial MAE/TV remains approximately[-0.443764666,0.444648067], so the aggregate ranking remains unresolved. Raw-width priority over interior endpoints is an observed cost/consumer mismatch; no tolerance or resource increase follows. In the later contribution profile, all aggregate comparisons are separated, but BUS andSOLSOE83spatialremainworse. Everycase stillrefuses originalrawQ/coefficient/Qspread precision afterwalllimit; no tolerance/budget increase orrowdrop. The raw-width andoriginal8ring unresolved results remaintheir owncontexts.
+**Negative or refused result.** No original context or family was dropped: all 54 scores remain. Original eight-ring aggregate centre-versus-spatial comparisons are unresolved. BUS and SOLSOE83 spatial forwarding remain poorer. Source-free continuous probes, the original two-dimensional six-case study and the raw-width true-ring study retain their precision refusals; the latter has zero of 774 raw-endpoint and zero of eighteen coefficient-width successes, with unresolved ranking. Contribution scheduling separates aggregate ordering but still fails its raw-Q, coefficient-width and Q-spread criteria. The receiver-angle observer's earlier 10/18 and 17/18 width results remain refused; its final 18/18 result changes neither those flags nor the original thirty saved-native-point diagnostics. No tolerance/resource increase, target correction or ecological winner was adopted.
 
-**Matched denominator.** Three physical places BOKE/BUS/SOLSOE83; 147 native accounts, 59 selected and 88 outside six frozen windows. Inherited source panels of three/two/six taxa are projected to literal Betula/Ulmus on the same 18 target contexts, producing 54 outcomes across three families. Refinement: 128 nested rings times six geometries = 768 calls; all 18 contexts and 54 family outcomes retained. Historical true-ring context:6owners/774closedendpoints/18positivepredictioncontexts/54familydispositions,zero774rawQ andzero18EPS successes; independent matchedpopulationcomplete, no case/window omitted. Receiver-angle numerical verification reuses six owners, 84 complete domains and 281 saved leaves; all eighteen independent coefficient-width and positivity flags pass, with zero new observations, predictions or scores.
+**Matched denominator.** Three physical places, 147 native accounts, 59 selected and 88 outside six frozen windows. Three/two/six-taxon source panels project to literal Betula/Ulmus: 18 target contexts and 54 outcomes across three families. Finite-mass refinement: 128 rings × six geometries = 768 calls. Historical true-ring population: six owners, 774 endpoints, eighteen positive prediction contexts and 54 family dispositions. Receiver-angle verification: six cases, 84 domains, 281 leaves, eighteen independent width and positivity passes; zero new observations, predictions or scores.
 
 Retained evidence: [reports/science/pollen-reconstruction/spatial-field-forward/result.json](result.json), [reports/science/pollen-reconstruction/spatial-field-forward/scores.csv](scores.csv), [reports/science/pollen-reconstruction/spatial-field-forward/radial-envelope/protocol.json](radial-envelope/protocol.json).
 

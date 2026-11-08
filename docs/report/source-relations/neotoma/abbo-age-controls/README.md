@@ -31,14 +31,23 @@ bounds for the interpolated ages of the 107 pollen samples, identify Rootsi
 workbook rights, or establish age-specific lake geometry. **Zero ABBO LRA
 samples are admitted.**
 
-Reproduce from the repository root with the source file retained externally:
+Use the qualified locked repository environment described in
+[Installation and Setup](../../../../public/pollenomics/operations/installation-and-setup.md#reproduce-the-repository-environment).
+Set `POLLENOMICS_SOURCE_ROOT` to the configured external source store containing
+`epd/pangaea/abbo-age-determination-pangaea-740080.tsv`; no sibling-directory
+name is assumed. Once analytical-use authority is established, run from the
+repository root with an output path that does not already exist:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
-  bijux_pollenomics_dev.source_completion.abbo_age_controls \
-  --repository . \
-  --source ../bijux-pollenomics-data/epd/pangaea/abbo-age-determination-pangaea-740080.tsv \
-  --output artifacts/jobs/abbo-age-controls-replay
+POLLENOMICS_PYTHON=artifacts/root/check-venv/bin/python
+: "${POLLENOMICS_SOURCE_ROOT:?configure the retained external source store}"
+POLLENOMICS_OUTPUT=artifacts/jobs/abbo-age-controls-replay
+test ! -e "$POLLENOMICS_OUTPUT" &&
+  PYTHONDONTWRITEBYTECODE=1 "$POLLENOMICS_PYTHON" -m \
+    bijux_pollenomics_dev.source_completion.abbo_age_controls \
+    --repository . \
+    --source "$POLLENOMICS_SOURCE_ROOT/epd/pangaea/abbo-age-determination-pangaea-740080.tsv" \
+    --output "$POLLENOMICS_OUTPUT"
 ```
 
 The producer checks the external file's exact hash, citation, license, table

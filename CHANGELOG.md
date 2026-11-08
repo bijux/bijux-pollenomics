@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Foreground the independently certified receiver coefficient bounds and condense their scientific verification history, while making the ABBO age-control replay environment and external source path explicit ([#358](https://github.com/bijux/bijux-pollenomics/pull/358)).
+
 - Bind current native atlas resources and iframe probes to exact accepted source and qualified publication bytes, and add bounded manual production-origin verification while retaining browser and scientific acceptance limits ([#357](https://github.com/bijux/bijux-pollenomics/pull/357)).
 
 - Plot all eighteen independently certified receiver coefficient widths against the original threshold in the scientific deck and qualify source-bound PDF exports while retaining historical and field-accuracy limits ([#356](https://github.com/bijux/bijux-pollenomics/pull/356)).
