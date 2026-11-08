@@ -2,13 +2,16 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from html.parser import HTMLParser
+from typing import Any
 
 from markdown_it import MarkdownIt
 import pytest
 
 from bijux_pollenomics.adna.projects.evidence.chronology.rendering import (
     _render_sample_chronology_provenance_markdown,
+    _render_sample_chronology_review_markdown,
 )
 
 
@@ -41,6 +44,38 @@ class TableCells(HTMLParser):
 
 
 @pytest.mark.parametrize(
+    ("render", "fields"),
+    [
+        (
+            _render_sample_chronology_provenance_markdown,
+            (
+                "project_accession",
+                "repo_stable_sample_id",
+                "published_wording",
+                "provenance_surface",
+                "provenance_locator",
+                "normalization_rule",
+                "uncertainty_note",
+            ),
+        ),
+        (
+            _render_sample_chronology_review_markdown,
+            (
+                "species_latin_name",
+                "project_accession",
+                "repo_stable_sample_id",
+                "chronology_strength",
+                "chronology_evidence_class",
+                "chronology_precision_posture",
+                "chronology_normalization_status",
+                "chronology_text",
+                "chronology_provenance_path",
+            ),
+        ),
+    ],
+    ids=["provenance", "chronology"],
+)
+@pytest.mark.parametrize(
     "value",
     [
         "a | b || c",
@@ -54,24 +89,19 @@ class TableCells(HTMLParser):
         "literal <br> &nbsp; <em>source</em>",
     ],
 )
-def test_every_provenance_cell_round_trips_as_literal_text(value: str) -> None:
-    fields = (
-        "project_accession",
-        "repo_stable_sample_id",
-        "published_wording",
-        "provenance_surface",
-        "provenance_locator",
-        "normalization_rule",
-        "uncertainty_note",
-    )
+def test_every_provenance_cell_round_trips_as_literal_text(
+    value: str,
+    render: Callable[[list[dict[str, Any]]], str],
+    fields: tuple[str, ...],
+) -> None:
     row = dict.fromkeys(fields, value)
-    markdown = _render_sample_chronology_provenance_markdown([row])
+    markdown = render([row])
     parser = TableCells()
     parser.feed(MarkdownIt("commonmark").enable("table").render(markdown))
     assert len(parser.rows) == 2
-    assert [len(cells) for cells in parser.rows] == [7, 7]
+    assert [len(cells) for cells in parser.rows] == [len(fields), len(fields)]
     expected = value.replace("\r\n", "\n").replace("\r", "\n")
-    assert parser.rows[1] == [expected] * 7
+    assert parser.rows[1] == [expected] * len(fields)
     assert row == dict.fromkeys(fields, value)
 
 
