@@ -86,6 +86,9 @@ jobs:
       - name: Install admitted documentation renderer
         run: make gh-docs-install
 
+      - name: Check retained publication downloads
+        run: make docs-publication-controls
+
       - name: Build and verify the production-site artifact
         run: make gh-docs-build gh-docs-verify
 

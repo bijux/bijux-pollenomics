@@ -118,6 +118,7 @@ for(const path of ['/outside','/bijux-pollenomics/%2e%2e/outside','/bijux-pollen
     "name",
     [
         "Install admitted documentation renderer",
+        "Check retained publication downloads",
         "Build and verify the production-site artifact",
         "Verify actual scientific reading and download routes",
         "Verify production-origin Nordic iframe",
@@ -140,4 +141,27 @@ def test_omitted_site_verifier_is_refused(monkeypatch: pytest.MonkeyPatch) -> No
         if step.get("name") == "Build and verify the production-site artifact":
             step["run"] = "make gh-docs-build"
     with pytest.raises(ValueError, match="both execute"):
+        verify_workflow(document)
+
+
+@pytest.mark.parametrize("change", ["after_build", "replaced_command"])
+def test_download_boundary_must_execute_before_site_build(
+    monkeypatch: pytest.MonkeyPatch, change: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    steps = document["jobs"]["reading"]["steps"]
+    selected = next(
+        step for step in steps if step["name"] == "Check retained publication downloads"
+    )
+    if change == "after_build":
+        steps.remove(selected)
+        position = next(
+            i
+            for i, step in enumerate(steps)
+            if step["name"] == "Build and verify the production-site artifact"
+        )
+        steps.insert(position + 1, selected)
+    else:
+        selected["run"] = "true"
+    with pytest.raises(ValueError):
         verify_workflow(document)
