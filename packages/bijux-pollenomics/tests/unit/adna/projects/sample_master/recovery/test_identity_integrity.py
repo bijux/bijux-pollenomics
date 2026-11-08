@@ -196,9 +196,9 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
         normalized_by_master = {
             (row.project_accession, row.master_id): row for row in normalized_rows
         }
-        self.assertEqual(len(stable_tokens), 1468)
-        self.assertEqual(len(set(stable_tokens)), 1468)
-        self.assertEqual(len(normalized_by_master), 1468)
+        self.assertEqual(len(stable_tokens), 1482)
+        self.assertEqual(len(set(stable_tokens)), 1482)
+        self.assertEqual(len(normalized_by_master), 1482)
         all_master_rows = [
             row
             for project in catalog
@@ -212,8 +212,8 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
             if row.sample_identity_resolution == "final"
             and row.sample_evidence_status != "experiment_level_only"
         }
-        self.assertEqual(len(all_master_rows), 1475)
-        self.assertEqual(len(admitted_master_by_identity), 1468)
+        self.assertEqual(len(all_master_rows), 1493)
+        self.assertEqual(len(admitted_master_by_identity), 1482)
         self.assertEqual(set(normalized_by_master), set(admitted_master_by_identity))
         for key, normalized in normalized_by_master.items():
             master_row = admitted_master_by_identity[key]

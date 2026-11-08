@@ -7,6 +7,7 @@ from dataclasses import replace
 from hashlib import sha256
 import io
 import json
+from typing import Any
 
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
@@ -25,7 +26,7 @@ GOAT_NATIVE_CONTEXT = (
     "data/adna/governance/source_library/projects/PRJEB90141/native_sample_context.json"
 )
 _NATIVE_CONTEXT_SHA256 = (
-    "7df6a362bdb91809db0a2dbe0fe715080ad55bb88b6c03bfba94410fea9ce651"
+    "61649f7954b8bef57297cd51efb23274580a116ae118bb9bfe006209de137ab2"
 )
 _NATIVE_WORKBOOK_SHA256 = (
     "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f"
@@ -201,6 +202,79 @@ def _qualify_goat_imputation_rows(
     return tuple(qualified_rows)
 
 
+def _current_run_association_note(
+    *, native_accession: str, secondary_accession: str, association: dict[str, Any]
+) -> str:
+    """Describe capture-bound technical associations without selecting ownership."""
+    if (
+        association["observed_sample_accession"] != native_accession
+        or association["query_secondary_accession"] != secondary_accession
+    ):
+        raise ValueError("Goat current run association sample binding differs")
+    # The complete reviewed context is digest-bound; retain every reported study.
+    studies = sorted(
+        association["study_associations"], key=lambda study: study["study_accession"]
+    )
+    observed = (
+        "; ".join(
+            f"{study['study_accession']}: {study['returned_row_count']} returned technical rows, "
+            f"{study['distinct_run_count']} distinct run IDs and "
+            f"{study['distinct_experiment_count']} distinct experiment IDs"
+            for study in studies
+        )
+        or "no study rows returned"
+    )
+    return (
+        f"Current read_run capture for SAMPLE {native_accession} / "
+        f"{secondary_accession} reports {observed} "
+        f"(row limit {association['row_limit']}; "
+        f"limit reached: {association['limit_reached']})."
+    )
+
+
+def _matched_direkli_study_note(
+    *,
+    accessions: tuple[str, ...],
+    natives: dict[str, Any],
+    associations: dict[str, Any],
+    study: dict[str, Any],
+) -> str:
+    """Attribute the paired source assertion only to its two matched native records."""
+    pair = {"SAMEA4453841", "SAMEA4453842"}
+    if set(accessions) != pair:
+        return ""
+    members = study["direkli_assertion"]["native_records"]
+    if (
+        study["native"]["primary_id"] != "PRJEB26011"
+        or study["native"]["secondary_id"] != "ERP107983"
+        or len(members) != 2
+        or {member["primary_id"] for member in members} != pair
+        or any(
+            natives[member["primary_id"]][field] != member[field]
+            for member in members
+            for field in ("primary_id", "secondary_id", "title", "alias")
+        )
+    ):
+        raise ValueError("Direkli native study assertion binding differs")
+    if not all(
+        any(
+            group["study_accession"] == "PRJEB26011"
+            for group in associations[a]["study_associations"]
+        )
+        for a in accessions
+    ):
+        return ""
+    return (
+        " Current native PROJECT PRJEB26011 / ERP107983 "
+        f"({study['native']['title']}; PubMed {', '.join(study['native']['pubmed_ids'])}) "
+        "reports Direkli1 and 2 as identified from the same individual, and "
+        "cautions that the same PCR reactions sometimes span several runs. "
+        "This is an attributed source assertion for both matched native records, "
+        "not a selected physical-specimen identity, pooling instruction or "
+        "biological admission. Both records and the ambiguous author row are retained."
+    )
+
+
 def _bind_goat_comparator_native_context(
     rows: tuple[AdnaProjectSampleMasterRow, ...],
     *,
@@ -223,6 +297,14 @@ def _bind_goat_comparator_native_context(
     for accession, native in natives.items():
         if any(native[field] != accession for field in ("primary_id", "biosample_id")):
             raise ValueError("Goat comparator native accession assertions disagree")
+    association_notes = {
+        record["native"]["accession"]: _current_run_association_note(
+            native_accession=record["native"]["accession"],
+            secondary_accession=record["native"]["secondary_id"],
+            association=record["current_run_associations"],
+        )
+        for record in native_records
+    }
     benchmarks = document["benchmarks"]
     by_label = {row.preferred_sample_label: row for row in rows}
     labels = [benchmark["sample_label"] for benchmark in benchmarks]
@@ -298,6 +380,21 @@ def _bind_goat_comparator_native_context(
             "or chronology. Native scientific-name agreement/difference is a "
             "computational comparison, not biological or taxonomic validation."
         )
+        note += " " + " ".join(association_notes[accession] for accession in accessions)
+        note += (
+            " These are only observed current technical associations, not complete "
+            "or historical study membership, configured-project ownership, "
+            "physical-specimen identity or biological independence."
+        )
+        note += _matched_direkli_study_note(
+            accessions=accessions,
+            natives=natives,
+            associations={
+                r["native"]["accession"]: r["current_run_associations"]
+                for r in native_records
+            },
+            study=document["native_study_context"],
+        )
         updated[label] = replace(
             row,
             source_native_tax_id=_join_distinct(
@@ -313,7 +410,9 @@ def _bind_goat_comparator_native_context(
             + "; ".join(
                 f"{native['primary_id']}/TITLE:{native['title']}"
                 for native in assertions
-            ),
+            )
+            + " || current_run_associations: "
+            + "; ".join(accessions),
             sample_lineage_excerpt=f"{row.sample_lineage_excerpt} || {note}",
             sample_ambiguity_note=f"{row.sample_ambiguity_note} {note}",
         )

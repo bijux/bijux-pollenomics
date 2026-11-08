@@ -63,6 +63,32 @@
         "scientific_name": "Capra aegagrus",
         "common_name": "wild goat",
         "description": "Wild goat from Direkli Cave, Turkey (Epipaleolithic)."
+      },
+      "current_run_associations": {
+        "source": {
+          "http_status": 200,
+          "started_utc": "2026-11-08T19:16:07.431611+00:00",
+          "completed_utc": "2026-11-08T19:16:07.641760+00:00",
+          "bytes": 620,
+          "sha256": "acd2dfc536e3280cf1f8e501d1dba7dc3b07557b27a8f1c5ff724e547e8cd73f",
+          "url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=ERS2404573&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession&format=tsv&download=true&limit=100",
+          "external_member": "adna/goat-imputation/sample-run-metadata/SAMEA4453841/2026-11-08/response.tsv"
+        },
+        "query_secondary_accession": "ERS2404573",
+        "observed_sample_accession": "SAMEA4453841",
+        "study_associations": [
+          {
+            "study_accession": "PRJEB26011",
+            "returned_row_count": 12,
+            "distinct_run_count": 12,
+            "distinct_experiment_count": 12
+          }
+        ],
+        "body_complete": true,
+        "row_limit": 100,
+        "limit_reached": false,
+        "missing_identifier_cells": 0,
+        "scope": "Only returned current read_run associations. The cap and response do not establish complete or historical membership, configured-project ownership, specimen identity or biological independence."
       }
     },
     {
@@ -87,6 +113,32 @@
         "scientific_name": "Capra aegagrus",
         "common_name": "wild goat",
         "description": "Epipaleolithic Bezoar from Direkli Cave, Turkey."
+      },
+      "current_run_associations": {
+        "source": {
+          "http_status": 200,
+          "started_utc": "2026-11-08T19:16:07.431612+00:00",
+          "completed_utc": "2026-11-08T19:16:07.628476+00:00",
+          "bytes": 1816,
+          "sha256": "b1fc87d2c79964292e3730ce01c37f9d4897b6faadce7e5b7f130969149e077a",
+          "url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=ERS2404574&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession&format=tsv&download=true&limit=100",
+          "external_member": "adna/goat-imputation/sample-run-metadata/SAMEA4453842/2026-11-08/response.tsv"
+        },
+        "query_secondary_accession": "ERS2404574",
+        "observed_sample_accession": "SAMEA4453842",
+        "study_associations": [
+          {
+            "study_accession": "PRJEB26011",
+            "returned_row_count": 38,
+            "distinct_run_count": 38,
+            "distinct_experiment_count": 38
+          }
+        ],
+        "body_complete": true,
+        "row_limit": 100,
+        "limit_reached": false,
+        "missing_identifier_cells": 0,
+        "scope": "Only returned current read_run associations. The cap and response do not establish complete or historical membership, configured-project ownership, specimen identity or biological independence."
       }
     },
     {
@@ -111,6 +163,32 @@
         "scientific_name": "Capra hircus",
         "common_name": "goat",
         "description": "Goat from early Neolithic site of Blagotin-Poljna, Serbia."
+      },
+      "current_run_associations": {
+        "source": {
+          "http_status": 200,
+          "started_utc": "2026-11-08T19:13:07.166876+00:00",
+          "completed_utc": "2026-11-08T19:13:07.455473+00:00",
+          "bytes": 1678,
+          "sha256": "73d2a81314c32a9176e21c5cdd668b6d1dd83881a879e22a70ad59ed49f5c390",
+          "url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=ERS2408800&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession&format=tsv&download=true&limit=100",
+          "external_member": "adna/goat-imputation/sample-run-metadata/SAMEA4588077/2026-11-08/response.tsv"
+        },
+        "query_secondary_accession": "ERS2408800",
+        "observed_sample_accession": "SAMEA4588077",
+        "study_associations": [
+          {
+            "study_accession": "PRJEB26011",
+            "returned_row_count": 35,
+            "distinct_run_count": 35,
+            "distinct_experiment_count": 35
+          }
+        ],
+        "body_complete": true,
+        "row_limit": 100,
+        "limit_reached": false,
+        "missing_identifier_cells": 0,
+        "scope": "Only returned current read_run associations. The cap and response do not establish complete or historical membership, configured-project ownership, specimen identity or biological independence."
       }
     },
     {
@@ -135,6 +213,32 @@
         "scientific_name": "Capra hircus",
         "common_name": "goat",
         "description": "Goat from Acem Hoyok, a Bronze Age site in Central Anatolia."
+      },
+      "current_run_associations": {
+        "source": {
+          "http_status": 200,
+          "started_utc": "2026-11-08T19:16:07.735482+00:00",
+          "completed_utc": "2026-11-08T19:16:07.918343+00:00",
+          "bytes": 988,
+          "sha256": "81adeaa3a8dd6453aebbdfe2682b102889610afcda9ea7bd2280ffb3c077350f",
+          "url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=ERS2412479&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession&format=tsv&download=true&limit=100",
+          "external_member": "adna/goat-imputation/sample-run-metadata/SAMEA4591761/2026-11-08/response.tsv"
+        },
+        "query_secondary_accession": "ERS2412479",
+        "observed_sample_accession": "SAMEA4591761",
+        "study_associations": [
+          {
+            "study_accession": "PRJEB26011",
+            "returned_row_count": 20,
+            "distinct_run_count": 20,
+            "distinct_experiment_count": 20
+          }
+        ],
+        "body_complete": true,
+        "row_limit": 100,
+        "limit_reached": false,
+        "missing_identifier_cells": 0,
+        "scope": "Only returned current read_run associations. The cap and response do not establish complete or historical membership, configured-project ownership, specimen identity or biological independence."
       }
     },
     {
@@ -159,8 +263,73 @@
         "scientific_name": "Capra hircus",
         "common_name": "goat",
         "description": "Neolithic goat from Sang-e Chakmaq, Iran."
+      },
+      "current_run_associations": {
+        "source": {
+          "http_status": 200,
+          "started_utc": "2026-11-08T19:16:07.735572+00:00",
+          "completed_utc": "2026-11-08T19:16:07.919360+00:00",
+          "bytes": 1816,
+          "sha256": "734f2545b45c60ab1795050ee3d311ae8f3be3f3eb08a6bdf71385864c2e2165",
+          "url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=ERS2412476&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession&format=tsv&download=true&limit=100",
+          "external_member": "adna/goat-imputation/sample-run-metadata/SAMEA4591758/2026-11-08/response.tsv"
+        },
+        "query_secondary_accession": "ERS2412476",
+        "observed_sample_accession": "SAMEA4591758",
+        "study_associations": [
+          {
+            "study_accession": "PRJEB26011",
+            "returned_row_count": 38,
+            "distinct_run_count": 38,
+            "distinct_experiment_count": 38
+          }
+        ],
+        "body_complete": true,
+        "row_limit": 100,
+        "limit_reached": false,
+        "missing_identifier_cells": 0,
+        "scope": "Only returned current read_run associations. The cap and response do not establish complete or historical membership, configured-project ownership, specimen identity or biological independence."
       }
     }
   ],
-  "scope": "Five native record assertions correspond to the literal accession cells of four author analysis rows. Direkli1-2 retains two separate native records, without selecting one scalar accession or inferring specimen independence. Scientific-name equality or difference from the configured project species is a computational comparison, not biological or taxonomic validation. No project membership, structured country, coordinate, chronology interpretation, analytical-use or scientific admission. Source and native locality spellings remain separate."
+  "scope": "Five native record assertions correspond to the literal accession cells of four author analysis rows. Direkli1-2 retains two separate native records, without selecting one scalar accession or inferring specimen independence. Scientific-name equality or difference from the configured project species is a computational comparison, not biological or taxonomic validation. No project membership, structured country, coordinate, chronology interpretation, analytical-use or scientific admission. Source and native locality spellings remain separate.",
+  "native_study_context": {
+    "source": {
+      "http_status": 200,
+      "started_utc": "2026-11-08T19:59:04.267257+00:00",
+      "completed_utc": "2026-11-08T19:59:04.413510+00:00",
+      "bytes": 2651,
+      "sha256": "254235c714aa6e03c049ef6b250be3dd9392e88c98d1b5f31d1dd2a4face4724",
+      "url": "https://www.ebi.ac.uk/ena/browser/api/xml/PRJEB26011",
+      "external_member": "adna/goat-imputation/project-metadata/PRJEB26011/2026-11-08/response.xml"
+    },
+    "native": {
+      "primary_id": "PRJEB26011",
+      "secondary_id": "ERP107983",
+      "title": "Ancient Goat Genomics",
+      "pubmed_ids": [
+        "29976826"
+      ]
+    },
+    "pcr_run_caution_excerpt": "Please note that in some cases the same PCR reactions were sequenced on several runs.",
+    "direkli_assertion": {
+      "source_excerpt": "same individual (Direkli1 and 2",
+      "native_records": [
+        {
+          "primary_id": "SAMEA4453841",
+          "secondary_id": "ERS2404573",
+          "title": "Direkli1",
+          "alias": "TCD_Direkli1"
+        },
+        {
+          "primary_id": "SAMEA4453842",
+          "secondary_id": "ERS2404574",
+          "title": "Direkli2",
+          "alias": "TCD_Direkli2"
+        }
+      ],
+      "scope": "The native PROJECT description reports the matched Direkli labels as the same individual. Preserve this source assertion without selecting a physical specimen, collapsing records, pooling genotypes or admitting biological identity."
+    },
+    "scope": "Current native PROJECT identity, publication link and two selected source assertions only. Not historical export authentication, configured PRJEB90141 ownership, specimen-roster closure or instructions to perform an analysis. Other named pairs are outside this context."
+  }
 }

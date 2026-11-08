@@ -298,3 +298,209 @@ def test_missing_or_duplicated_author_owner_refuses(
     for altered in [tuple(row for row in rows if row is not owner), (*rows, owner)]:
         with pytest.raises(ValueError, match="one owner per author row"):
             bind(altered, context)
+
+
+def test_current_run_associations_preserve_all_five_native_records(
+    rows: tuple[AdnaProjectSampleMasterRow, ...], context: bytes
+) -> None:
+    expected = {
+        "Direkli1-2": (
+            ("SAMEA4453841", "ERS2404573", 12),
+            ("SAMEA4453842", "ERS2404574", 38),
+        ),
+        "Blagotin3": (("SAMEA4588077", "ERS2408800", 35),),
+        "Acem2": (("SAMEA4591761", "ERS2412479", 20),),
+        "Semnan3": (("SAMEA4591758", "ERS2412476", 38),),
+    }
+    for row in bind(rows, context):
+        for primary, secondary, count in expected[row.preferred_sample_label]:
+            assert (
+                f"Current read_run capture for SAMPLE {primary} / {secondary} "
+                f"reports PRJEB26011: {count} returned technical rows, {count} distinct run IDs "
+                f"and {count} distinct experiment IDs"
+            ) in row.sample_ambiguity_note
+            assert primary in row.sample_lineage_locator
+        assert (
+            "not complete or historical study membership" in row.sample_ambiguity_note
+        )
+        assert row.project_accession == "PRJEB90141"
+        assert row.sample_identity_resolution == "ambiguous"
+
+
+def test_current_associations_change_only_saved_provenance_packets(
+    rows: tuple[AdnaProjectSampleMasterRow, ...], context: bytes
+) -> None:
+    saved = json.loads(
+        (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/projects/PRJEB90141/sample_master.json"
+        ).read_text()
+    )
+    original = {row["repo_stable_sample_id"]: row for row in saved["rows"]}
+    changed = {
+        "sample_lineage_locator",
+        "sample_lineage_excerpt",
+        "sample_ambiguity_note",
+    }
+    result = bind(rows, context)
+    assert len(original) == len(result) == 4
+    for row in result:
+        before = original[row.repo_stable_sample_id]
+        after = row.as_dict()
+        assert {key: value for key, value in before.items() if key not in changed} == {
+            key: value for key, value in after.items() if key not in changed
+        }
+        assert before["sample_ambiguity_note"] in row.sample_ambiguity_note
+
+
+@pytest.mark.parametrize(
+    "field", ["observed_sample_accession", "query_secondary_accession"]
+)
+def test_wrong_current_run_sample_association_refuses(
+    rows: tuple[AdnaProjectSampleMasterRow, ...],
+    context: bytes,
+    monkeypatch: pytest.MonkeyPatch,
+    field: str,
+) -> None:
+    document = json.loads(context)
+    left, right = document["native_records"][:2]
+    left["current_run_associations"][field] = right["current_run_associations"][field]
+    with pytest.raises(ValueError, match="run association sample binding differs"):
+        bind(rows, qualified_fixture(document, monkeypatch))
+
+
+def test_current_associations_retain_multiple_studies_and_technical_multiplicity(
+    rows: tuple[AdnaProjectSampleMasterRow, ...],
+    context: bytes,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    document = json.loads(context)
+    record = next(
+        record
+        for record in document["native_records"]
+        if record["native"]["accession"] == "SAMEA4588077"
+    )
+    studies = record["current_run_associations"]["study_associations"]
+    studies.append(
+        {
+            "study_accession": "PRJEB12345",
+            "returned_row_count": 6,
+            "distinct_run_count": 2,
+            "distinct_experiment_count": 3,
+        }
+    )
+    result = bind(rows, qualified_fixture(document, monkeypatch))
+    blagotin = next(row for row in result if row.preferred_sample_label == "Blagotin3")
+    assert "PRJEB26011: 35 returned technical rows" in blagotin.sample_ambiguity_note
+    assert (
+        "PRJEB12345: 6 returned technical rows, 2 distinct run IDs and 3 distinct experiment IDs"
+    ) in blagotin.sample_ambiguity_note
+    assert blagotin.sample_identity_resolution == "ambiguous"
+    assert blagotin.project_accession == "PRJEB90141"
+    studies.reverse()
+    document["native_records"].reverse()
+    document["benchmarks"].reverse()
+    assert bind(rows, qualified_fixture(document, monkeypatch)) == result
+
+
+def test_native_project_assertion_is_attributed_once_to_the_matched_direkli_pair(
+    rows: tuple[AdnaProjectSampleMasterRow, ...], context: bytes
+) -> None:
+    result = bind(rows, context)
+    assertion = "reports Direkli1 and 2 as identified from the same individual"
+    for row in result:
+        assert row.sample_identity_resolution == "ambiguous"
+        assert row.project_accession == "PRJEB90141"
+        if row.preferred_sample_label == "Direkli1-2":
+            assert row.sample_ambiguity_note.count(assertion) == 1
+            for literal in [
+                "PRJEB26011 / ERP107983",
+                "PubMed 29976826",
+                "same PCR reactions",
+                "not a selected physical-specimen identity",
+            ]:
+                assert literal in row.sample_ambiguity_note
+            assert all(
+                accession in row.sample_ambiguity_note
+                for accession in ["SAMEA4453841", "SAMEA4453842"]
+            )
+        else:
+            assert assertion not in row.sample_ambiguity_note
+            assert "native PROJECT PRJEB26011" not in row.sample_ambiguity_note
+
+
+@pytest.mark.parametrize("accession", ["SAMEA4453841", "SAMEA4453842", "both"])
+def test_native_study_assertion_requires_both_current_study_matches(
+    rows: tuple[AdnaProjectSampleMasterRow, ...],
+    context: bytes,
+    monkeypatch: pytest.MonkeyPatch,
+    accession: str,
+) -> None:
+    document = json.loads(context)
+    for record in document["native_records"]:
+        primary = record["native"]["primary_id"]
+        if (
+            primary == accession
+            or accession == "both"
+            and primary in {"SAMEA4453841", "SAMEA4453842"}
+        ):
+            groups = record["current_run_associations"]["study_associations"]
+            groups[0]["study_accession"] = "PRJEB12345"
+            groups.append({**groups[0], "study_accession": "PRJEB56789"})
+    result = bind(rows, qualified_fixture(document, monkeypatch))
+    row = next(row for row in result if row.preferred_sample_label == "Direkli1-2")
+    assert "native PROJECT PRJEB26011" not in row.sample_ambiguity_note
+    assert (
+        "PRJEB12345" in row.sample_ambiguity_note
+        and "PRJEB56789" in row.sample_ambiguity_note
+    )
+    assert row.sample_identity_resolution == "ambiguous"
+
+
+def test_native_study_match_is_not_selected_from_first_group_or_record(
+    rows: tuple[AdnaProjectSampleMasterRow, ...],
+    context: bytes,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    document = json.loads(context)
+    for record in document["native_records"]:
+        if record["native"]["primary_id"] in {"SAMEA4453841", "SAMEA4453842"}:
+            groups = record["current_run_associations"]["study_associations"]
+            groups.insert(0, {**groups[0], "study_accession": "PRJEB12345"})
+    result = bind(rows, qualified_fixture(document, monkeypatch))
+    row = next(row for row in result if row.preferred_sample_label == "Direkli1-2")
+    assert (
+        row.sample_ambiguity_note.count(
+            "reports Direkli1 and 2 as identified from the same individual"
+        )
+        == 1
+    )
+    document["native_study_context"]["direkli_assertion"]["native_records"].reverse()
+    document["native_records"].reverse()
+    for record in document["native_records"]:
+        record["current_run_associations"]["study_associations"].reverse()
+    assert bind(rows, qualified_fixture(document, monkeypatch)) == result
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("primary_id", "SAMEA4588077"),
+        ("secondary_id", "ERS2408800"),
+        ("title", "Blagotin3"),
+        ("alias", "TCD_Blagotin3"),
+    ],
+)
+def test_malformed_direkli_study_correspondence_refuses(
+    rows: tuple[AdnaProjectSampleMasterRow, ...],
+    context: bytes,
+    monkeypatch: pytest.MonkeyPatch,
+    field: str,
+    value: str,
+) -> None:
+    document = json.loads(context)
+    document["native_study_context"]["direkli_assertion"]["native_records"][0][
+        field
+    ] = value
+    with pytest.raises(ValueError, match="native study assertion binding differs"):
+        bind(rows, qualified_fixture(document, monkeypatch))
