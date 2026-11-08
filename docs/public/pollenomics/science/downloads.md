@@ -26,7 +26,7 @@ before interpreting a reconstruction or choosing a method.
 | --- | --- |
 | [LandClim II](../../../assets/science/papers/landclim-regional-reconstruction.pdf) | Regional reconstruction, a worked count-to-result example and the unresolved historical archive correspondence. |
 | [LOVE and LOVEoptim](../../../assets/science/papers/love-optimized-local-inference.pdf) | Local reconstruction and the difference between the published simulation and later numerical fixtures. |
-| [REVEALS theory](../../../assets/science/papers/regional-reveals-theory.pdf) | Regional cover assumptions; original simulation inputs and full primary-text review remain open. |
+| [REVEALS theory](../../../assets/science/papers/regional-reveals-theory.pdf) | Regional equations and assumptions reviewed from the supplied full article and appendices; original numerical simulation inputs and programs remain unavailable. |
 | [LOVE theory](../../../assets/science/papers/local-love-theory.pdf) | Local vegetation and regional background; original scenario reproduction remains unavailable. |
 | [Hellman regional validation](../../../assets/science/papers/southern-sweden-regional-validation.pdf) | The original ten-lake validation and the source fields needed for a new measured-cover comparison. |
 | [Hellman sampling design](../../../assets/science/papers/southern-sweden-sampling-design.pdf) | Sampling and parameter sensitivity; original scenario membership and numeric outputs remain unavailable. |
