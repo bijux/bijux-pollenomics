@@ -2,15 +2,39 @@
 from __future__ import annotations
 
 import copy
+from fnmatch import fnmatchcase
 import hashlib
 import importlib.util
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import shutil
 import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[3]
+
+
+def check_static_sources(configuration, policy: dict, downloads: dict) -> int:
+    """Check configured static-source selection against the publication policy."""
+    from mkdocs.structure.files import get_files
+    exceptions = [row["pattern"] for row in policy.get("public_exceptions", [])]
+    exceptions.extend(row["path"] for row in downloads["files"])
+    selected = [item for item in get_files(configuration)
+                if item.inclusion.is_included() and not item.is_documentation_page()]
+    failures = []
+    for item in selected:
+        path = PurePosixPath(item.dest_uri)
+        denied = any(part.startswith(".") or part in policy["forbidden_names"]
+                     for part in path.parts)
+        exception = any(fnmatchcase(item.dest_uri, pattern) for pattern in exceptions)
+        if denied or path.name.startswith(("id_rsa", "id_ed25519")):
+            failures.append({"source": item.src_uri, "code": "private-file"})
+        elif (path.suffix.lower() not in policy["allowed_extensions"]
+              or path.suffix.lower() == ".map") and not exception:
+            failures.append({"source": item.src_uri, "code": "unadmitted-extension"})
+    if failures:
+        raise ValueError("Publication source boundary refused: " + json.dumps(failures, sort_keys=True))
+    return len(selected)
 
 
 def main() -> None:
@@ -24,9 +48,26 @@ def main() -> None:
     destination = ROOT / "artifacts/docs-publication/download-controls"
     destination.mkdir(parents=True, exist_ok=True)
     from mkdocs.config import load_config
-    metadata = load_config(config_file=str(ROOT / "mkdocs.yml")).extra["bijux"]
+    configuration = load_config(config_file=str(ROOT / "mkdocs.yml"))
+    metadata = configuration.extra["bijux"]
     module.owner_records(ROOT, metadata)
-    cases = ["actual_configuration_binds_owned_adapter_and_manifest"]
+    selected_static_files = check_static_sources(configuration, base, manifest)
+    cases = ["actual_configuration_binds_owned_adapter_and_manifest",
+             "actual_selected_static_sources_match_publication_policy"]
+    excluded = configuration.exclude_docs
+    restored = "/report/method-certification/current-r-oracle/retained-vector-historical-uv.lock"
+    patterns = [item for item in excluded.patterns if item.pattern != restored]
+    assert len(patterns) == len(excluded.patterns) - 1
+    configuration.exclude_docs = type(excluded)(patterns)
+    try:
+        check_static_sources(configuration, base, manifest)
+    except ValueError as error:
+        assert restored.lstrip("/") in str(error) and "unadmitted-extension" in str(error)
+        cases.append("restored_retained_source_exclusion_refused")
+    else:
+        raise AssertionError("Restored retained source unexpectedly admitted")
+    finally:
+        configuration.exclude_docs = excluded
     for name, key, field, value in (
         ("changed_adapter_hash", "publication_adapter", "sha256", "0" * 64),
         ("changed_manifest_hash", "publication_downloads", "sha256", "0" * 64),
@@ -158,7 +199,7 @@ def main() -> None:
         forged[first["source"]] = module.digest(invalid)
         refuse("non_geojson_data", candidate, forged)
     result = {"status": "passed", "scope": "finite retained download policy controls; no science or site qualification",
-              "cases": cases, "source_sha": head,
+              "cases": cases, "source_sha": head, "selected_static_files": selected_static_files,
               "adapter_sha256": module.digest(Path(module.__file__).read_bytes()),
               "manifest_sha256": module.digest(Path(__file__).with_name("downloads.json").read_bytes()),
               "control_source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}

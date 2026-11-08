@@ -281,6 +281,11 @@ exclude_docs: |
   /report/**/*.npy
   /report/**/*.log
   /report/publication-replay/landclim-study-inputs/records.jsonl
+  /report/method-certification/current-r-oracle/retained-vector-historical-uv.lock
+  /report/pollen-reconstruction/author-lra-constrained/cohort-development/outcome-access.jsonl
+  /report/pollen-reconstruction/author-lra-constrained/cohort-development/trials.jsonl
+  /report/pollen-reconstruction/author-lra-constrained/development-fold/trials.jsonl
+  /report/pollen-reconstruction/author-lra-constrained/optimizer-start-sensitivity/trials.jsonl
   /overrides/
   /hooks/
   /assets/styles/README.md

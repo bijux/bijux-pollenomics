@@ -100,21 +100,23 @@ def verify_workflow(document: dict[str, Any]) -> None:
         ),
         "the selected native report configuration must pass source preflight",
     )
-    source_path = (
-        by_name["Check native report configuration"].get("env", {}).get("PYTHONPATH")
-    )
-    source_roots = source_path.split(":") if isinstance(source_path, str) else []
-    require(
-        len(source_roots) == 4
-        and set(source_roots)
-        == {
-            "packages/bijux-pollenomics/src",
-            "packages/bijux-pollenomics-dev/src",
-            "packages/bijux-pollenomics-lra/src",
-            "packages/pollenomics/src",
-        },
-        "native report preflight requires all four distinct owned package source roots",
-    )
+    for source_check in (
+        "Check retained publication downloads",
+        "Check native report configuration",
+    ):
+        source_path = by_name[source_check].get("env", {}).get("PYTHONPATH")
+        source_roots = source_path.split(":") if isinstance(source_path, str) else []
+        require(
+            len(source_roots) == 4
+            and set(source_roots)
+            == {
+                "packages/bijux-pollenomics/src",
+                "packages/bijux-pollenomics-dev/src",
+                "packages/bijux-pollenomics-lra/src",
+                "packages/pollenomics/src",
+            },
+            "native report preflight requires all four distinct owned package source roots",
+        )
     require(
         by_name["Set up supported Python"].get("with", {}).get("python-version")
         == "3.11.17"
