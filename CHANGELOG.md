@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Resolve published source links, consume accepted renderer diagnostics, retire obsolete synthetic drawer publications and preserve current versus captured reader ownership ([#362](https://github.com/bijux/bijux-pollenomics/pull/362)).
+
 - Propagate native goat context through governed chronology provenance and source-bound readers, correct the retained support-summary scope, and preserve ambiguous identities and zero final admission ([#361](https://github.com/bijux/bijux-pollenomics/pull/361)).
 
 - Retain five native goat SAMPLE assertions across four comparator author rows and existing projections while preserving ambiguous identities, zero final admission and concise scientific limits ([#360](https://github.com/bijux/bijux-pollenomics/pull/360)).
