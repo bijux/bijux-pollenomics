@@ -315,3 +315,221 @@ def test_later_observer_failure_retains_replayed_prefix_and_current_owner(
     assert result["cases"][2]["status"] == "not_replayed"
     assert result["progress"]["current_case"] == ["BOKE", "Ulmus"]
     assert result["progress"]["completed_leaves"] == 5
+
+
+def historical_source(
+    monkeypatch: pytest.MonkeyPatch,
+) -> tuple[dict[str, Any], dict[str, Any], transport.SourceGuard, dict[str, Any]]:
+    """Model exact Git blobs; only the two observer modules may differ."""
+    import hashlib
+    import subprocess
+
+    owner = observe._SOURCE_OWNER
+    names = [
+        owner + "angle_moments/transport.py",
+        owner + "kernel.py",
+        "uv.lock",
+        "reports/captured-protocol.json",
+        *sorted(observe._OBSERVER_ONLY),
+    ]
+    blobs = {name: ("historical:" + name).encode() for name in names}
+    old = {name: hashlib.sha256(raw).hexdigest() for name, raw in blobs.items()}
+    current = {
+        name: ("e" * 64 if name in observe._OBSERVER_ONLY else digest)
+        for name, digest in old.items()
+    }
+    original = {
+        "head": "a" * 40,
+        "index_sha256": "d" * 64,
+        "files": [[name, digest] for name, digest in old.items()],
+    }
+    before = transport.SourceGuard("b" * 40, "c" * 64, tuple(current.items()))
+    external_context = {"source_commit": "a" * 40, "index_sha256_before": "d" * 64}
+    external_terminal = {"source_commit": "a" * 40}
+
+    def blob(command: list[str], **kwargs: Any) -> bytes:
+        name = command[-1].split(":", 1)[1]
+        return str(len(blobs[name])).encode() if command[-2] == "-s" else blobs[name]
+
+    monkeypatch.setattr(subprocess, "check_output", blob)
+    monkeypatch.setattr(
+        subprocess,
+        "run",
+        lambda command, **kwargs: subprocess.CompletedProcess(command, 0),
+    )
+    monkeypatch.setattr(
+        observe,
+        "_external_receipts",
+        lambda *args: (
+            external_context,
+            external_terminal,
+            {"bound": "external receipts"},
+        ),
+    )
+    return {"source": original}, {"source_commit": "a" * 40}, before, external_context
+
+
+def test_historical_producer_bridge_authenticates_original_equations(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    context, result, before, _ = historical_source(monkeypatch)
+    bridge = observe._producer_source(
+        tmp_path, tmp_path / "artifacts/producer/products", context, result, before
+    )
+    assert bridge["producer_source_commit"] == "a" * 40
+    assert bridge["observer_source_commit"] == "b" * 40
+    assert bridge["historical_git_blobs_authenticated"] is True
+    assert bridge["unchanged_producer_source_files"] == 4
+    assert sorted(row["path"] for row in bridge["observer_only_differences"]) == sorted(
+        observe._OBSERVER_ONLY
+    )
+    assert bridge["external_receipts"]
+
+
+@pytest.mark.parametrize(
+    "fault",
+    [
+        "transport",
+        "input",
+        "lock",
+        "omitted",
+        "claim",
+        "git-blob",
+        "foreign-head",
+        "index",
+    ],
+)
+def test_historical_bridge_refuses_changed_producer_or_unbound_revision(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    fault: str,
+) -> None:
+    import subprocess
+
+    context, result, before, external = historical_source(monkeypatch)
+    current = dict(before.files)
+    if fault in ("transport", "input", "lock"):
+        name = {
+            "transport": observe._SOURCE_OWNER + "angle_moments/transport.py",
+            "input": "reports/captured-protocol.json",
+            "lock": "uv.lock",
+        }[fault]
+        current[name] = "f" * 64
+        before = transport.SourceGuard(
+            before.head, before.index_sha256, tuple(current.items())
+        )
+    elif fault == "omitted":
+        context["source"]["files"].pop(0)
+    elif fault == "claim":
+        result["source_commit"] = "f" * 40
+    elif fault == "git-blob":
+        context["source"]["files"][0][1] = "f" * 64
+    elif fault == "foreign-head":
+        monkeypatch.setattr(
+            subprocess,
+            "run",
+            lambda command, **kwargs: subprocess.CompletedProcess(command, 1),
+        )
+    else:
+        external["index_sha256_before"] = "f" * 64
+    with pytest.raises(ValueError):
+        observe._producer_source(
+            tmp_path, tmp_path / "artifacts/producer/products", context, result, before
+        )
+
+
+def external_products(root: Path, *, existing_products: bool = False) -> Path:
+    parent = root / "artifacts/producer"
+    products = parent / "products"
+    if not existing_products:
+        products.mkdir(parents=True)
+        for name in ("execution-context.json", "result.json", "certificates.json"):
+            (products / name).write_bytes(b"{}")
+    for name in ("stdout.log", "stderr-time.log"):
+        (parent / name).write_bytes(b"native completion control")
+    context = {
+        "whole_process_limit_seconds": 180,
+        "original_integration_work_seconds": 160,
+        "peak_rss_posthoc_maximum_bytes": 805306368,
+        "all_output_maximum_bytes": 5000000,
+    }
+    (parent / "supervision-context.json").write_text(json.dumps(context))
+    terminal = {
+        "returncode": 0,
+        "timed_out": False,
+        "source_head_and_index_unchanged": True,
+        "process_cap_pass": True,
+        "rss_cap_pass": True,
+        "output_cap_pass": True,
+        "elapsed_seconds": 70,
+        "peak_rss_bytes": 205733888,
+        "all_output_bytes": 0,
+    }
+    path = parent / "supervision-terminal.json"
+    for _ in range(4):
+        path.write_text(json.dumps(terminal))
+        terminal["all_output_bytes"] = sum(
+            p.stat().st_size for p in parent.rglob("*") if p.is_file()
+        )
+    path.write_text(json.dumps(terminal))
+    return products
+
+
+def test_external_receipts_bind_complete_output_and_original_caps(
+    tmp_path: Path,
+) -> None:
+    products = external_products(tmp_path)
+    context, terminal, pins = observe._external_receipts(tmp_path, products)
+    assert context["original_integration_work_seconds"] == 160
+    assert terminal["returncode"] == 0
+    assert len(pins) == 4
+    (products.parent / "stdout.log").write_bytes(b"changed native stdout")
+    with pytest.raises(ValueError, match="external resource receipt"):
+        observe._external_receipts(tmp_path, products)
+
+
+def test_external_receipts_refuse_extra_or_symbolic_members(tmp_path: Path) -> None:
+    products = external_products(tmp_path)
+    (products.parent / "foreign.json").write_bytes(b"{}")
+    with pytest.raises(ValueError, match="members differ"):
+        observe._external_receipts(tmp_path, products)
+    (products.parent / "foreign.json").unlink()
+    (products.parent / "foreign.json").symlink_to(products / "result.json")
+    with pytest.raises(ValueError, match="output tree"):
+        observe._external_receipts(tmp_path, products)
+
+
+def test_observer_terminal_rechecks_same_length_external_log_identity(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    synthetic_population: MomentPopulation,
+) -> None:
+    protocol = configure(tmp_path, monkeypatch, synthetic_population)
+    producer = tmp_path / "artifacts/producer/products"
+    study.run_study(tmp_path, protocol, producer)
+    external_products(tmp_path, existing_products=True)
+    pins = observe._external_receipts(tmp_path, producer)[2]
+    monkeypatch.setattr(
+        observe, "_producer_source", lambda *args: {"external_receipts": pins}
+    )
+    original = verify_angle_certificate
+    changed = False
+
+    def tamper(*args: Any) -> dict[str, Any]:
+        nonlocal changed
+        if not changed:
+            log = producer.parent / "stdout.log"
+            body = log.read_bytes()
+            log.write_bytes(b"X" + body[1:])
+            changed = True
+        return original(*args)
+
+    monkeypatch.setattr(observe, "verify_angle_certificate", tamper)
+    output = tmp_path / "artifacts/observer"
+    with pytest.raises(ValueError, match="external receipts changed during replay"):
+        observe.run_observer(tmp_path, protocol, producer, output)
+    assert changed
+    failed = json.loads((output / "independent-check.json").read_bytes())
+    assert failed["status"] == "failed"
+    assert failed["complete_cases"] == 6

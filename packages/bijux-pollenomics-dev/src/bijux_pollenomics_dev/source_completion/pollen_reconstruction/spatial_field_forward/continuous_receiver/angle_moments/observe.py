@@ -4,9 +4,11 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import asdict
+import hashlib
 import json
 from pathlib import Path
 import signal
+import subprocess
 import time
 from typing import Any, cast
 
@@ -25,6 +27,7 @@ from ..verification.receiver_angles import verify_angle_certificate
 from . import METHOD
 from .inputs import decode, identity, read_inputs, read_regular, require
 from .transport import (
+    SourceGuard,
     check_terminal,
     environment,
     fresh_output,
@@ -70,6 +73,196 @@ def _producer(
         certificates,
         {name: identity(raw) for name, raw in bodies.items()},
     )
+
+
+_SOURCE_OWNER = "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/spatial_field_forward/continuous_receiver/"
+_OBSERVER_ONLY = frozenset(
+    (
+        _SOURCE_OWNER + "verification/receiver_angles.py",
+        _SOURCE_OWNER + "angle_moments/observe.py",
+    )
+)
+
+
+def _external_receipts(
+    root: Path, producer: Path
+) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
+    """Bind the original completed-process supervision and its small logs."""
+    parent = producer.parent
+    relative = parent.relative_to(root).as_posix()
+    expected = {
+        "supervision-context.json",
+        "supervision-terminal.json",
+        "stdout.log",
+        "stderr-time.log",
+        *(
+            "products/" + name
+            for name in ("execution-context.json", "result.json", "certificates.json")
+        ),
+    }
+    paths = list(parent.rglob("*"))
+    require(
+        len(paths) <= 16 and not any(path.is_symlink() for path in paths),
+        "Unexpected producer output tree",
+    )
+    files = {path.relative_to(parent).as_posix() for path in paths if path.is_file()}
+    require(
+        files == expected and producer.name == "products",
+        "Original producer output members differ",
+    )
+    total = sum(path.stat().st_size for path in paths if path.is_file())
+    require(total <= 5_000_000, "Original producer all-output ceiling exceeded")
+    bodies = {
+        name: read_regular(root, relative + "/" + name, 150_000)
+        for name in (
+            "supervision-context.json",
+            "supervision-terminal.json",
+            "stdout.log",
+            "stderr-time.log",
+        )
+    }
+    context, terminal = (
+        decode(bodies[name])
+        for name in ("supervision-context.json", "supervision-terminal.json")
+    )
+    require(
+        type(terminal.get("returncode")) is int
+        and terminal["returncode"] == 0
+        and terminal.get("timed_out") is False
+        and terminal.get("source_head_and_index_unchanged") is True
+        and terminal.get("process_cap_pass") is True
+        and terminal.get("rss_cap_pass") is True
+        and terminal.get("output_cap_pass") is True,
+        "Original producer supervision failed",
+    )
+    require(
+        type(terminal.get("elapsed_seconds")) in (int, float)
+        and 0 <= terminal["elapsed_seconds"] < 180
+        and integer(terminal.get("peak_rss_bytes"), "producer peak RSS", 805306368) > 0
+        and integer(
+            terminal.get("all_output_bytes"), "producer all-output bytes", 5_000_000
+        )
+        == total,
+        "Original producer external resource receipt differs",
+    )
+    require(
+        context.get("whole_process_limit_seconds") == 180
+        and context.get("original_integration_work_seconds") == 160
+        and context.get("peak_rss_posthoc_maximum_bytes") == 805306368
+        and context.get("all_output_maximum_bytes") == 5_000_000,
+        "Original producer supervision ceilings differ",
+    )
+    return context, terminal, {name: identity(raw) for name, raw in bodies.items()}
+
+
+def _producer_source(
+    root: Path,
+    producer: Path,
+    context: dict[str, Any],
+    result: dict[str, Any],
+    before: SourceGuard,
+) -> dict[str, Any]:
+    """Authenticate historical producer bytes while allowing only observer equations to change."""
+    original = context.get("source")
+    if _same_json(original, asdict(before)):
+        require(
+            result.get("source_commit") == before.head, "Producer source claim differs"
+        )
+        return {
+            "kind": "same_committed_source",
+            "producer_source_commit": before.head,
+            "observer_source_commit": before.head,
+            "observer_only_differences": [],
+        }
+    require(
+        type(original) is dict and set(original) == {"head", "index_sha256", "files"},
+        "Historical producer source guard malformed",
+    )
+    original = cast(dict[str, Any], original)
+    head = original["head"]
+    require(
+        type(head) is str
+        and len(head) == 40
+        and all(c in "0123456789abcdef" for c in head)
+        and result.get("source_commit") == head,
+        "Historical producer revision/claim differs",
+    )
+    git = ["git", "--no-optional-locks", "--no-replace-objects", "-C", str(root)]
+    ancestor = subprocess.run(
+        [*git, "merge-base", "--is-ancestor", head, before.head],
+        capture_output=True,
+        timeout=30,
+        check=False,
+    )
+    require(ancestor.returncode == 0, "Producer source is not a committed ancestor")
+    rows = original["files"]
+    current = dict(before.files)
+    require(
+        type(rows) is list and len(rows) == len(current),
+        "Historical source closure path count differs",
+    )
+    historical = {}
+    for row in rows:
+        require(
+            type(row) is list
+            and len(row) == 2
+            and type(row[0]) is str
+            and type(row[1]) is str
+            and len(row[1]) == 64
+            and all(c in "0123456789abcdef" for c in row[1])
+            and row[0] not in historical,
+            "Historical source closure entry malformed",
+        )
+        historical[row[0]] = row[1]
+    require(set(historical) == set(current), "Historical source closure paths differ")
+    total = 0
+    changes = []
+    for name, digest in historical.items():
+        object_name = head + ":" + name
+        size = int(
+            subprocess.check_output([*git, "cat-file", "-s", object_name], timeout=30)
+        )
+        total += size
+        require(
+            0 <= size <= 5_000_000 and total <= 5_000_000,
+            "Historical source closure byte cap exceeded",
+        )
+        raw = subprocess.check_output(
+            [*git, "cat-file", "blob", object_name], timeout=30
+        )
+        require(
+            len(raw) == size and hashlib.sha256(raw).hexdigest() == digest,
+            "Historical source does not match its committed Git blob",
+        )
+        if current[name] != digest:
+            require(name in _OBSERVER_ONLY, "Protected producer source changed")
+            changes.append(
+                {
+                    "path": name,
+                    "producer_sha256": digest,
+                    "observer_sha256": current[name],
+                }
+            )
+    external_context, external_terminal, external_pins = _external_receipts(
+        root, producer
+    )
+    require(
+        external_context.get("source_commit")
+        == external_terminal.get("source_commit")
+        == head
+        and external_context.get("index_sha256_before") == original["index_sha256"],
+        "Original producer external source/index identity differs",
+    )
+    return {
+        "kind": "historical_producer_unchanged_equations",
+        "producer_source_commit": head,
+        "observer_source_commit": before.head,
+        "historical_git_blobs_authenticated": True,
+        "unchanged_producer_source_files": len(current) - len(changes),
+        "observer_only_differences": changes,
+        "external_receipts": external_pins,
+        "producer_external_terminal": external_terminal,
+    }
 
 
 def _geometry(values: dict[str, Any]) -> Geometry:
@@ -165,10 +358,9 @@ def run_observer(
         runtime = environment(root)
         before = source_guard(root, inputs)
         context, result, certificates, pins = _producer(root, producer)
+        bridge = _producer_source(root, producer, context, result, before)
         require(
-            _same_json(context.get("source"), asdict(before))
-            and result.get("source_commit") == before.head
-            and result.get("method") == context.get("method") == METHOD
+            result.get("method") == context.get("method") == METHOD
             and result.get("schema_version")
             == "continuous-receiver-angle-moments-result.v1"
             and result.get("status")
@@ -199,6 +391,7 @@ def run_observer(
                 "inputs": inputs.identities,
                 "environment": runtime,
                 "producer_products": pins,
+                "producer_source_bridge": bridge,
                 "resources": inputs.protocol["independent_resources"],
             },
         )
@@ -209,7 +402,11 @@ def run_observer(
         )
         clock = Clock(160)
         observed = cast(list[dict[str, Any]], report["cases"])
-        report.update(source_commit=before.head, producer_products=pins)
+        report.update(
+            source_commit=before.head,
+            producer_products=pins,
+            producer_source_bridge=bridge,
+        )
         certificate_index = 0
         width_count = positive_count = saved_width_count = saved_positive_count = 0
         for index, (frozen, row) in enumerate(
@@ -319,6 +516,11 @@ def run_observer(
             _producer(root, producer)[3] == pins,
             "Producer products changed during replay",
         )
+        if "external_receipts" in bridge:
+            require(
+                _external_receipts(root, producer)[2] == bridge["external_receipts"],
+                "Original producer external receipts changed during replay",
+            )
         terminal = check_terminal(root, protocol, before, inputs, started, destination)
         passed = (
             certificate_index == 6
