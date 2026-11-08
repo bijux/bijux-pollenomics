@@ -142,8 +142,10 @@ Panel counts, panel total and outside-panel mass remain null for all six
 windows; we do not aggregate only complete samples or interpret absence as
 zero abundance. The companion LAIH source supplies six complete windows,
 but DALMUT's missing cells prevent this declared common-axis four-country
-LRA comparison. Source confirmation of the missing-value interpretation or
-a genuinely compatible Norwegian source would be needed to revisit it.
+LRA comparison under that native-only predicate. The
+[archival count comparison below](#archival-count-correspondence-on-the-exact-depth-intersection)
+now resolves the corresponding archival reported-value states without
+changing the native absences, their original aggregates or LRA admission.
 
 The actual producer and independent source observer both pass at
 `d826e04d42eab50f885ec080d315d39b324894b1`, checking all 222 LAIH/DALMUT owners,
@@ -167,16 +169,42 @@ kernel, model prediction, scoring or source-use decision ran. Historical
 geometry, the area discrepancy, selected LandClim inputs and LRA admission
 remain unresolved.
 
+## Archival count correspondence on the exact depth intersection
+
+The [Dalmutladdo pollen table archived in PANGAEA in 2010](https://doi.pangaea.de/10.1594/PANGAEA.739158),
+retrieved on 8 November 2026, supplies a separate source interpretation for
+Ulmus cells absent from the retained Neotoma capture. We compared only the
+**71 exact depth pairs** shared by the two sources. The native 4.5 cm sample
+and archival 4.0 cm row remain unmatched; the original whole-72-depth
+comparison remains refused. We used no rounding, offset or age interpolation.
+
+All **99 shared literal counts** agree exactly: 71 Betula and 28 reported
+Ulmus cells. Only after that check did the comparison inspect the archival
+Ulmus tokens corresponding to the **43 native absences**. All 43 are explicit
+integer zeros in the archival table. Twelve occur among the nineteen owners
+already assigned to the six frozen windows. This resolves their archival
+reported-value interpretation within the 71-pair intersection; it does not
+change a missing native datum into a reported native zero or establish
+whole-core equivalence. The original native audit and its suppressed
+aggregates remain unchanged.
+
+This is a prior-exposed, local noncommercial source comparison under the
+provider-declared CC BY-NC 3.0 terms. We redistribute no raw table or cell
+ledger. The 2010 archival record, its 2026 retrieval and the retained native
+capture are distinct source epochs. The comparison selects no new chronology,
+historical basin, terrestrial denominator, taxon/PPE mapping or analytical
+rights, reruns no LRA model and admits **zero LRA samples**.
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** One DALMUT 72-sample source lineage and 11 published radiocarbon lab/depth/age/error controls match. Explicit calibrated chronology 11601 and all 72 native owners now have complete literal pollen denominators; all six requested Betula29/Ulmus310 windows retain explicit missing-Ulmus refusal.
+**Supported claim.** One DALMUT 72-sample core lineage and 11 published radiocarbon lab/depth/age/error controls match. The calibrated 11601 native audit retains complete pollen denominators and six missing-Ulmus window refusals. Separately, 71 exact PANGAEA/native depth pairs agree on all 99 shared counts; all 43 native-absent counterparts are explicit archival zeros, including 12 of 19 frozen-window owners. This qualifies archival reported states only.
 
-**Unsupported claim.** Time-matched Norwegian LRA reconstruction for the 72 samples.
+**Unsupported claim.** Whole 72-row original/native count equivalence or time-matched Norwegian LRA reconstruction for the 72 samples.
 
-**Actual verification performed.** Retained 11-row controls and source-bound machine report are cited; index did not rerun source PDF or replay. Actual two-core source producer and independent observer at d826e04d42eab50f885ec080d315d39b324894b1 pass on their first attempts: all 222 native owners, twelve windows, five source/provenance pins and 4,576 Python files with protocol, HEAD and index stable. Producer: 2.07 s, 216,088,576 B RSS, 388,030 B final products. Observer: 1.91 s, 216,186,880 B RSS, 3,181 B verification. Both meet 90 s, 1 GiB and 8 MiB bounds. All 83 controls and twelve-file static checks pass. Initial test-import, expected-exception and typing findings remain retained; only test setup or annotations changed, with no source predicate or actual-run retry. No acquisition, engine, model or score.
+**Actual verification performed.** The retained 11-control report and d826e04d42eab50f885ec080d315d39b324894b1 two-core producer/independent observer cover 222 owners and twelve native windows. A separate original-table comparison at 2a73e30fb58fd8afdb90935e834009a771a0167d checks 71 exact-depth pairs, all 99 shared counts before 43 absent counterparts, and unchanged 19-window-owner membership. Independent raw readback confirms every pair/token and 30 source/protocol/controller pins. Producer: 8.52 s, 108,691,456 B observed peak RSS, 56,469 B output meets 60 s/512 MiB observed/8 MiB bounds with inputs, controllers, HEAD and index stable. The full 72 depth refusal, prelaunch refusal, wrong 13 metadata guard and initial observer field-name failure are retained separately; all failed before original pollen-count access. No ages, bins, LRA model or admission were rerun.
 
-**Remaining input or review.** The 72-sample core and 11 lab/depth/age/error controls are matched; historical basin differs across 7.2/8.00 ha claims, two printed intervals exclude their centres, and selected denominator/PPE/rights are unbound. Resolver: DALMUT core/author custodian and qualified chronology/basin reviewer Reopen when: Same-core selected sample/window packet disposes basin and printed-interval differences and binds count, parameter and use rights.
+**Remaining input or review.** The 72-sample core and 11 lab/depth/age/error controls match; 71-pair archival count correspondence is qualified. Whole 72 depth correspondence still refuses native 4.5 cm/original 4.0 cm; historical basin differs across 7.2/8.00 ha claims, two printed age intervals exclude their centres, and selected denominator/PPE/rights remain unbound. Resolver: DALMUT core/author custodian and qualified chronology/basin reviewer Reopen when: Same-core selected sample/window packet disposes basin and printed-interval differences and binds count, parameter and use rights.
 
 **Cause category.** data|assumption|access/rights|qualified review
 
@@ -184,9 +212,9 @@ remain unresolved.
 
 **Precise next acceptance route.** Resolve the same-core historical basin and two printed interval discrepancies in a versioned DALMUT sample/window packet, bind denominator, PPE and rights, then rerun the LRA prerequisite screen before admission.
 
-**Negative or refused result.** Zero DALMUT LRA samples admitted; two printed calibrated intervals exclude their centres. Every requested window refuses its two-taxon aggregate as incomplete, despite complete full-pollen NISP. Missing Ulmus is not reported zero; this core does not unlock the declared common-axis four-country LRA comparison.
+**Negative or refused result.** Zero DALMUT LRA samples admitted; two printed calibrated intervals exclude their centres. Whole 72 depth correspondence refuses native sample 175354 at 4.5 cm versus the original 0.04 m row. All six native-only window aggregates remain suppressed; archival zero counterparts do not rewrite absent native records or admit the four-country LRA comparison.
 
-**Matched denominator.** 72 pollen samples, 23 LandClim windows; 46,477/47,085 native counts map to 19 author targets in observed-pollen ledger. New literal audit: 72 owners and 47,085 full-pollen NISP, 29 complete panels and 43 missing Ulmus cells. Nineteen members occupy six fixed windows with 13,319 full NISP; respective missing-Ulmus counts are 4,2,2,1,1,2. No panel or excluded mass is invented.
+**Matched denominator.** Native audit: 72 owners/47,085 full-pollen NISP, 29 complete Betula/Ulmus panels and 43 missing Ulmus records; 19 members in six fixed windows/13,319 NISP. Separate archival comparison: 71 paired owners/99 shared counts + 43 explicit-zero counterparts; 12 missing counterparts across the 19 window owners, vector 4,2,2,1,1,2. The unmatched owner and source row stay excluded; no native mass is invented.
 
 Retained evidence: [reports/science/dalmutladdo-lra-input/controls.csv](controls.csv), [reports/science/dalmutladdo-lra-input/report.json](report.json), [reports/science/pollen-reconstruction/nordic-literal-window-support/protocol.json](../pollen-reconstruction/nordic-literal-window-support/protocol.json).
 
