@@ -5,6 +5,8 @@ from __future__ import annotations
 import csv
 from dataclasses import replace
 import io
+from hashlib import sha256
+import json
 
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
@@ -16,6 +18,16 @@ from ..identity import (
     _first_accession,
 )
 from ..models import AdnaProjectSampleMasterRow
+
+GOAT_NATIVE_CONTEXT = (
+    "data/adna/governance/source_library/projects/PRJEB90141/native_sample_context.json"
+)
+_NATIVE_CONTEXT_SHA256 = (
+    "014f7fd97bf699226af3a08747ca4546d54eaeee1e87ccb56479d86aadc092d0"
+)
+_NATIVE_WORKBOOK_SHA256 = (
+    "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f"
+)
 
 
 def _build_goat_imputation_rows(
@@ -185,3 +197,59 @@ def _qualify_goat_imputation_rows(
             )
         )
     return tuple(qualified_rows)
+
+
+def _bind_blagotin_native_context(
+    rows: tuple[AdnaProjectSampleMasterRow, ...],
+    *,
+    context: bytes,
+    workbook_sha256: str,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    """Attach one qualified native record without selecting specimen or project scope."""
+    if sha256(context).hexdigest() != _NATIVE_CONTEXT_SHA256:
+        raise ValueError("Blagotin native source context changed")
+    if workbook_sha256 != _NATIVE_WORKBOOK_SHA256:
+        raise ValueError("Blagotin supplementary source changed")
+    document = json.loads(context)
+    native = document["native"]
+    selected = tuple(
+        row
+        for row in rows
+        if row.archive_native_sample_id == native["accession"]
+        or row.preferred_sample_label == native["title"]
+    )
+    if len(selected) != 1:
+        raise ValueError("Blagotin native record requires one supplementary owner")
+    row = selected[0]
+    if (
+        row.project_accession != "PRJEB90141"
+        or row.archive_native_sample_id != native["accession"]
+        or row.paper_native_sample_label != native["title"]
+        or row.supplementary_table_sample_label != native["title"]
+        or row.preferred_sample_label != native["title"]
+        or row.sample_identity_resolution != "ambiguous"
+        or row.source_native_identity_kind != "supplementary_sample_label"
+        or row.source_native_tax_id
+        or row.source_native_scientific_name
+        or row.taxon_alignment_status != "not_reported"
+    ):
+        raise ValueError("Blagotin supplementary owner or unselected scope changed")
+    note = (
+        f"Native SAMPLE {native['primary_id']} / {native['secondary_id']}; "
+        f"title {native['title']!r}; alias {native['alias']!r}; "
+        f"taxon {native['taxon_id']} / {native['scientific_name']}; "
+        f"description {native['description']!r}. "
+        "These are native record assertions, not independent specimen, project "
+        "membership, coordinate, selected chronology or taxon-alignment admission."
+    )
+    updated = replace(
+        row,
+        sample_lineage_path=f"{row.sample_lineage_path} || {GOAT_NATIVE_CONTEXT}",
+        sample_lineage_locator=(
+            f"{row.sample_lineage_locator} || SAMPLE accession/PRIMARY_ID:"
+            f"{native['primary_id']}; TITLE:{native['title']}"
+        ),
+        sample_lineage_excerpt=f"{row.sample_lineage_excerpt} || {note}",
+        sample_ambiguity_note=f"{row.sample_ambiguity_note} {note}",
+    )
+    return tuple(updated if candidate is row else candidate for candidate in rows)

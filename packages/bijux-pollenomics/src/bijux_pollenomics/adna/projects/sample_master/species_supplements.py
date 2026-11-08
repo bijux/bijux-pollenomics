@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from hashlib import sha256
 
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.sources.library import ADNA_SOURCE_LIBRARY_DIR
@@ -33,7 +34,11 @@ from .tables import (
     _read_xlsx_member_rows,
     _read_xlsx_rows,
 )
-from .tables.goat_imputation import _qualify_goat_imputation_rows
+from .tables.goat_imputation import (
+    GOAT_NATIVE_CONTEXT,
+    _bind_blagotin_native_context,
+    _qualify_goat_imputation_rows,
+)
 from .tables.horse_chronology import HORSE_COMPARATIVE_SUPPLEMENT
 from .tables.horse_domestication import _horse_domestication_primary_rows
 
@@ -283,7 +288,7 @@ def _goat_imputation_supplementary_sample_rows(
     )
     archive_source_path = f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/archive_metadata.html"
     archive_path = output_root / archive_source_path.removeprefix("data/")
-    return _qualify_goat_imputation_rows(
+    qualified = _qualify_goat_imputation_rows(
         rows=rows,
         table_rows=table_rows,
         archive_text=(
@@ -292,6 +297,14 @@ def _goat_imputation_supplementary_sample_rows(
             else None
         ),
         archive_source_path=archive_source_path,
+    )
+    context_path = output_root / GOAT_NATIVE_CONTEXT.removeprefix("data/")
+    if not context_path.is_file():
+        return qualified
+    return _bind_blagotin_native_context(
+        qualified,
+        context=context_path.read_bytes(),
+        workbook_sha256=sha256(workbook_path.read_bytes()).hexdigest(),
     )
 
 

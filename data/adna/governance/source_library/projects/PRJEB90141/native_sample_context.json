@@ -1,0 +1,34 @@
+{
+  "schema_version": "goat-native-sample-context.v1",
+  "source": {
+    "url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA4588077",
+    "http_status": 200,
+    "started_utc": "2026-11-08T16:03:52.679698+00:00",
+    "completed_utc": "2026-11-08T16:03:53.222640+00:00",
+    "bytes": 2591,
+    "sha256": "1cd6932b35185926a33b94de891427a958a86b4e88e03bfffbb2860f7ccec2c7",
+    "external_member": "adna/goat-imputation/sample-metadata/SAMEA4588077/2026-11-08/response.xml"
+  },
+  "workbook": {
+    "path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+    "sha256": "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f",
+    "sheet": "Table S2 downsampled samples",
+    "row": 3,
+    "sample_label": "Blagotin3",
+    "accession_cell": "SAMEA4588077"
+  },
+  "native": {
+    "accession": "SAMEA4588077",
+    "primary_id": "SAMEA4588077",
+    "secondary_id": "ERS2408800",
+    "biosample_id": "SAMEA4588077",
+    "alias": "TCD_Blagotin3",
+    "center_name": "TRINITY COLLEGE DUBLIN",
+    "title": "Blagotin3",
+    "taxon_id": "9925",
+    "scientific_name": "Capra hircus",
+    "common_name": "goat",
+    "description": "Goat from early Neolithic site of Blagotin-Poljna, Serbia."
+  },
+  "scope": "Native record/title correspondence and literal taxon/locality description only. No project membership, structured country, coordinate, specimen independence, taxon-alignment selection, chronology interpretation, analytical-use or scientific admission."
+}
