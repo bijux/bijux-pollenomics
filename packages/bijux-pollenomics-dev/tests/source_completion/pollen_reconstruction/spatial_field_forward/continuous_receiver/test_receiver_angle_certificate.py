@@ -139,6 +139,28 @@ def test_cosine_primitive_moments_match_exact_half_interval_integrals() -> None:
             )
 
 
+@pytest.mark.parametrize("scale", [F(1), F(100_000), F(1_000_000_000)])
+@pytest.mark.parametrize("radius_factor,expected", [(F(0), F(4, 5)), (F(2), F(8, 15))])
+def test_endpoint_mean_preserves_exact_values_under_dimensional_scaling(
+    scale: F, radius_factor: F, expected: F
+) -> None:
+    model = Geometry(
+        F(1, 2),
+        scale / 10_000,
+        scale / 1_000,
+        (scale, F(0)),
+        (2 * scale, F(0)),
+    )
+    radius = radius_factor * scale
+    actual = ReceiverAngles(model).mean(radius)
+    assert actual.lower <= expected <= actual.upper
+    assert actual.width <= F(1, 10**25)
+    if scale >= 100_000 and radius_factor == 2:
+        # The rationalized dimensional denominator has a reciprocal below
+        # the lattice resolution; this regression requires removing that loss.
+        assert model.mean(radius).width > F(1, 10**10)
+
+
 def test_complete_certificate_replays_all_domains_without_claiming_precision(
     certificate: dict[str, Any],
 ) -> None:

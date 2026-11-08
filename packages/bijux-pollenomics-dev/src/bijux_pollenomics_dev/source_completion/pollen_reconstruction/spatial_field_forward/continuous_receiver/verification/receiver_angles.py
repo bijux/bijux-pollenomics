@@ -92,6 +92,30 @@ class ReceiverAngles:
         regions.append(("outer_cap", end, geometry.outer + geometry.receiver))
         self.regions = tuple(regions)
 
+    def mean(self, radius: F) -> Interval:
+        """Normalize the endpoint mean before fixed-lattice reciprocals.
+
+        With S=|a|²+|b|²+2r², the denominator becomes S*D and
+        u becomes S*v. Rationalizing the positive-u branch then leaves
+        dimensionless factors, rather than inverting a dimensional fourth
+        power whose reciprocal may be below the absolute 96-bit lattice.
+        """
+        require(type(radius) is F and radius >= 0, "Exact nonnegative radius required")
+        if not self.delta:
+            return Interval.point(F(1, 2))
+        aa, bb, _, _, difference = self.geometry.anchors()
+        scale = aa + bb + 2 * radius**2
+        u = 2 * (radius**2 - self.dot)
+        v = u / scale
+        denominator = Interval.point((u**2 + self.floor) / scale**2).root(2)
+        if u >= 0:
+            correction = (self.delta * difference / (2 * scale**2)) / (
+                denominator * (denominator + v)
+            )
+        else:
+            correction = self.delta / (2 * self.n) * (1 - v / denominator)
+        return F(1, 2) + correction
+
     def _contract(self, distance: Jet, moments: tuple[Jet, ...]) -> Jet:
         """Contract a Horner coefficient vector, independently of binomial powers."""
         centered = self.geometry.receiver**2 + distance**2 - self.dot
@@ -313,7 +337,7 @@ def verify_angle_certificate(
     require(len(products) == 2, "Endpoint products missing")
     for index, radius in enumerate((geometry.receiver, geometry.outer)):
         overlaps(
-            products[index], geometry.mean(radius) * saved[index], "endpoint product"
+            products[index], oracle.mean(radius) * saved[index], "endpoint product"
         )
     k = saved[0] - saved[1]
     first = products[0] - products[1] + radial
@@ -330,8 +354,8 @@ def verify_angle_certificate(
     )
     own_k = independent[0] - independent[1]
     own_first = (
-        geometry.mean(geometry.receiver) * independent[0]
-        - geometry.mean(geometry.outer) * independent[1]
+        oracle.mean(geometry.receiver) * independent[0]
+        - oracle.mean(geometry.outer) * independent[1]
         + sum(independent[2:], Interval.point(0)).expanded(oracle.radius)
     )
     own = (own_k, own_first, own_k - own_first)
