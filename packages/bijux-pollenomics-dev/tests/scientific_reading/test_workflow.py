@@ -120,6 +120,7 @@ for(const path of ['/outside','/bijux-pollenomics/%2e%2e/outside','/bijux-pollen
         "Install admitted documentation renderer",
         "Build and verify the production-site artifact",
         "Verify actual scientific reading and download routes",
+        "Verify production-origin Nordic iframe",
         "Check accepted source selection",
     ],
 )

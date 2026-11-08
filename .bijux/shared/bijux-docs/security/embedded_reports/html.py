@@ -85,7 +85,16 @@ def reviewed_recipe(repo, body, recipe, product_base, report_path, *, source_sha
             else ""
         )
         pattern = pattern.replace(token, content)
-    slots = recipe["slots"]
+    values, count = match_recipe_pattern(pattern, body, recipe["slots"], product_base, report_path)
+    return {
+        "recipe_sha256": digest(original),
+        "parameters_sha256": digest(str(sorted(values.items())).encode()),
+        "slot_count": count,
+    }
+
+
+def match_recipe_pattern(pattern, body, slots, product_base, report_path):
+    """Match source literals and the existing finite parameter grammar."""
     if any(not re.fullmatch(r"__[A-Z][A-Z0-9_]+__", token) for token in slots):
         raise AdmissionError("invalid recipe token")
     parts = re.split("(" + "|".join(re.escape(token) for token in slots) + ")", pattern)
@@ -123,11 +132,7 @@ def reviewed_recipe(repo, body, recipe, product_base, report_path, *, source_sha
             inspect_data(parsed, product_base, report_path)
         else:
             raise AdmissionError("unknown recipe slot grammar")
-    return {
-        "recipe_sha256": digest(original),
-        "parameters_sha256": digest(str(sorted(values.items())).encode()),
-        "slot_count": len(tokens),
-    }
+    return values, len(tokens)
 
 
 def report_class(report):
@@ -145,6 +150,10 @@ def report_recipe(repo, document, report, product_base, output, *, source_sha=No
         source = read_owned(repo, report["source"]["path"])
         document_budget(repo, report, source, product_base)
         return {"recipe_sha256": digest(source), "parameters_sha256": digest(b""), "slot_count": 0}
+    if "external_runtime" in report["recipe"]:
+        from .external_runtime import verify_external_runtime
+        return verify_external_runtime(repo, document, report, product_base, output,
+                                       source_sha=source_sha, source_descriptor=source_descriptor)[0]
     return reviewed_recipe(
         repo, executable_scripts(document)[0]["body"], report["recipe"], product_base, output,
         source_sha=source_sha, source_descriptor=source_descriptor,

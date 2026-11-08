@@ -1,8 +1,7 @@
 // Qualify the actual docs iframe separately from direct-map and current-loader contracts.
 import {execFileSync, spawn} from 'node:child_process';
 import {createHash} from 'node:crypto';
-import {createServer} from 'node:http';
-import {mkdir, mkdtemp, readFile, realpath, rm, writeFile} from 'node:fs/promises';
+import {mkdir, mkdtemp, readFile, realpath, rm, stat, writeFile} from 'node:fs/promises';
 import {extname, join, relative, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {connectCdp, debuggerEndpoint, evaluate} from './browser-transport.mjs';
@@ -10,9 +9,43 @@ import {providerInterception, verifyProviderFailureMatrix} from './provider-fail
 
 const moduleDirectory = fileURLToPath(new URL('.', import.meta.url));
 const ownerPath = 'configs/docs/maps/report-owner.json';
+const productionSite = 'https://bijux.io/bijux-pollenomics/';
 export const parentOutput = 'public/nordic-atlas/index.html';
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 const git = (repository, ...args) => execFileSync('git', args, {cwd: repository, encoding: 'utf8'}).trim();
+
+async function readPublication(repository, site) {
+  // runWrapper invokes the normal verifier before using this byte-bound plan.
+  // A serialized inventory supplies expected bytes, never publication authority.
+  const checkpointRaw = await readFile(join(repository, 'artifacts/website-security/source-identity.json'));
+  const publicationRaw = await readFile(join(repository, 'artifacts/website-security/publication.json'));
+  if (checkpointRaw.length > 16777216 || publicationRaw.length > 16777216) throw Error('publication receipt exceeds byte budget');
+  const checkpoint = JSON.parse(checkpointRaw), publication = JSON.parse(publicationRaw);
+  const source = publication.qualification?.source;
+  const standard = (await readFile(join(repository, '.github/standards/bijux-docs.sha'), 'utf8')).trim();
+  if (publication.schema !== 2 || publication.repository_source_sha !== git(repository, 'rev-parse', 'HEAD')
+      || checkpoint.repository_source?.sha !== publication.repository_source_sha
+      || checkpoint.repository_source?.tree !== git(repository, 'rev-parse', 'HEAD^{tree}')
+      || publication.standard_sha !== standard || checkpoint.standard?.sha !== standard
+      || publication.site_url !== productionSite || checkpoint.site_url !== publication.site_url
+      || publication.site_dir !== 'artifacts/docs/site' || checkpoint.site_dir !== publication.site_dir
+      || await realpath(site) !== await realpath(join(repository, publication.site_dir))
+      || source?.sha256 !== digest(checkpointRaw) || JSON.stringify(source?.receipt) !== JSON.stringify(checkpoint)) {
+    throw Error('publication inventory differs from current source or selected site');
+  }
+  if (!Array.isArray(publication.files) || publication.files.length > 100000) throw Error('publication inventory exceeds member budget');
+  const members = new Map();
+  for (const row of publication.files) {
+    if (typeof row.path !== 'string' || row.path.startsWith('/') || row.path.includes('\\')
+        || row.path.split('/').some(part => !part || part === '.' || part === '..')
+        || !/^[a-f0-9]{64}$/.test(row.sha256) || !Number.isSafeInteger(row.bytes) || row.bytes < 0
+        || members.has(row.path)) throw Error('publication member is ambiguous');
+    members.set(row.path, row);
+  }
+  const records = publication.qualification?.csp?.receipt?.embedded?.records;
+  if (!Array.isArray(records) || records.length > 100000) throw Error('qualified embedded publication records are unavailable');
+  return {members, records, source:publication.repository_source_sha, sha256:digest(publicationRaw)};
+}
 
 export function requireScopedCandidate(repository, paths, expectedHead = null) {
   const head = git(repository, 'rev-parse', 'HEAD');
@@ -26,6 +59,7 @@ export function requireScopedCandidate(repository, paths, expectedHead = null) {
 }
 
 export async function readWrapperAuthority(repository, site) {
+  const publication = await readPublication(repository, site);
   const owner = JSON.parse(await readFile(join(repository, ownerPath), 'utf8'));
   const parents = owner.parents.filter(row => row.output === parentOutput);
   if (parents.length !== 1 || parents[0].reports.length !== 1) throw Error('Nordic wrapper authority is ambiguous');
@@ -33,27 +67,66 @@ export async function readWrapperAuthority(repository, site) {
   const reports = owner.reports.filter(row => row.output === parent.reports[0]);
   if (reports.length !== 1) throw Error('Nordic child authority is ambiguous');
   const report = reports[0];
+  for (const [kind, owned, input] of [
+    ['owned-parent-frame', parent, parent.built_html_sha256],
+    ['owned-report', report, report.source.sha256],
+  ]) {
+    const records = publication.records.filter(row => row.path === owned.output);
+    if (records.length !== 1 || records[0].kind !== kind || records[0].input_sha256 !== input
+        || records[0].source?.path !== owned.source.path || records[0].source?.sha256 !== owned.source.sha256) {
+      throw Error('raw embedded source differs from qualified publication composition');
+    }
+  }
   const html = await readFile(join(site, parent.output));
-  if (digest(html) !== parent.built_html_sha256) throw Error('built wrapper differs from approved parent');
   if (digest(await readFile(join(repository, parent.source.path))) !== parent.source.sha256) throw Error('wrapper source differs from approved parent');
-  const expected = new Map([[parent.output, parent.built_html_sha256], [report.output, report.source.sha256],
-    ...Object.entries(report.resources).map(([path, row]) => [path, row.sha256])]);
-  if (digest(await readFile(join(site, report.output))) !== report.source.sha256
-      || digest(await readFile(join(repository, report.source.path))) !== report.source.sha256) throw Error('built child differs from canonical map');
+  const expected = new Map([...publication.members].map(([path,row])=>[path,row.sha256]));
+  if (digest(html) !== expected.get(parent.output) || html.length !== publication.members.get(parent.output)?.bytes) throw Error('built wrapper differs from publication inventory');
+  const childHtml = await readFile(join(site, report.output));
+  if (digest(childHtml) !== expected.get(report.output) || childHtml.length !== publication.members.get(report.output)?.bytes) throw Error('built child differs from publication inventory');
+  if (digest(await readFile(join(repository, report.source.path))) !== report.source.sha256) throw Error('canonical map differs from approved source');
+  for (const [path, row] of Object.entries(report.resources)) {
+    const raw = await readFile(join(repository, row.source));
+    if (digest(raw) !== row.sha256 || expected.get(path) !== row.sha256
+        || publication.members.get(path).bytes !== raw.length) throw Error('owned resource differs from source or publication inventory');
+  }
+  const parentUrl = new URL(parent.output, productionSite).href;
+  const childUrl = new URL(report.output, productionSite).href;
   const iframe = [...html.toString().matchAll(/<iframe\b[^>]*\bsrc="([^"]+)"/g)];
-  if (iframe.length !== 1 || new URL(iframe[0][1], `http://localhost/${parent.output}`).pathname !== `/${report.output}`) throw Error('real wrapper iframe target differs');
-  const match = (await readFile(join(site, report.output), 'utf8')).match(/<script[^>]*id="atlas-static-bootstrap"[^>]*>([\s\S]*?)<\/script>/);
+  if (iframe.length !== 1 || new URL(iframe[0][1], parentUrl).href !== childUrl) throw Error('real wrapper iframe target differs');
+  const match = childHtml.toString().match(/<script[^>]*id="atlas-static-bootstrap"[^>]*>([\s\S]*?)<\/script>/);
   if (!match) throw Error('child scientific bootstrap is unavailable');
   const bootstrap = JSON.parse(match[1]);
-  return {parent, report, expected, buildId: bootstrap.build_id, version: bootstrap.version};
+  return {parent, report, parentUrl, childUrl, expected, members:publication.members, publication:{source:publication.source,sha256:publication.sha256}, buildId: bootstrap.build_id, version: bootstrap.version};
+}
+
+export async function fulfillPublicationRequest(cdp, site, request, authority) {
+  const urlText = request.request.url, method = request.request.method;
+  const url = new URL(urlText), base = new URL(productionSite);
+  if (method !== 'GET' || url.href !== urlText || url.origin !== base.origin || url.username || url.password
+      || Object.keys(request.request.headers ?? {}).some(key => /authorization|api[-_]?key|token|cookie/i.test(key))
+      || url.search || url.hash || !url.pathname.startsWith(base.pathname)) throw Error('request is outside the exact production publication');
+  const key = decodeURIComponent(url.pathname.slice(base.pathname.length));
+  if (key.includes('\\') || key.split('/').some(part => !part || part === '.' || part === '..')
+      || !authority.expected.has(key) || new URL(key, productionSite).href !== url.href) throw Error('request is not an exact publication member');
+  const {bytes, path} = await readSiteMember(site, '/' + key, authority.expected);
+  if (authority.members.get(key)?.bytes !== bytes.length) throw Error('publication member byte count differs');
+  await cdp.send('Fetch.fulfillRequest', {requestId:request.requestId, responseCode:200, responseHeaders:[
+    {name:'Cache-Control',value:'no-store'},
+    {name:'Content-Type',value:({'.html':'text/html', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.png':'image/png', '.svg':'image/svg+xml', '.woff2':'font/woff2'})[extname(path)] ?? 'application/octet-stream'},
+  ], body:bytes.toString('base64')});
+  return {path:key, bytes:bytes.length};
 }
 
 export async function readSiteMember(site, pathname, expected) {
   const root = await realpath(site);
-  const path = await realpath(resolve(root, `.${decodeURIComponent(pathname)}`));
+  const requested = resolve(root, `.${decodeURIComponent(pathname)}`);
+  const path = await realpath(requested);
   if (relative(root, path).startsWith('..')) throw Error('site request escapes root');
+  if (path !== requested) throw Error('site member alias is forbidden');
+  const info = await stat(path);
+  if (!info.isFile() || info.nlink !== 1 || info.size > 16777216) throw Error('site member is aliased, missing or oversized');
   const bytes = await readFile(path), key = relative(root, path);
-  if (expected.has(key) && digest(bytes) !== expected.get(key)) throw Error(`owned site member differs: ${key}`);
+  if (!expected.has(key) || digest(bytes) !== expected.get(key)) throw Error(`owned site member differs: ${key}`);
   return {bytes, path};
 }
 
@@ -80,6 +153,10 @@ function evidenceIdentity(snapshot) {
 export async function runWrapper({repository, site, output, browserBinary}) {
   repository = resolve(repository); site = resolve(site); output = resolve(output);
   if (!relative(join(repository, 'artifacts'), output) || relative(join(repository, 'artifacts'), output).startsWith('..')) throw Error('output must be a child of repository artifacts');
+  execFileSync(join(repository, 'artifacts/docs/publication/python/bin/python'),
+    [join(repository, '.bijux/shared/bijux-docs/security/publication.py'), '--repo-root', repository, 'verify',
+      '--manifest', join(repository, 'artifacts/website-security/publication.json'), '--require-qualified'],
+    {cwd:repository, timeout:180000, maxBuffer:16777216});
   const authority = await readWrapperAuthority(repository, site);
   const paths = [ownerPath, authority.parent.source.path, authority.report.source.path,
     ...Object.values(authority.report.resources).map(row => row.source),
@@ -87,21 +164,8 @@ export async function runWrapper({repository, site, output, browserBinary}) {
   const revision = requireScopedCandidate(repository, paths);
   await mkdir(output, {recursive: false});
   const requests = [], serverErrors = [], externalRefusals = [], browserLog = [];
-  const server = createServer(async (request, response) => {
-    try {
-      const pathname = new URL(request.url, 'http://localhost').pathname;
-      const {bytes, path} = await readSiteMember(site, pathname, authority.expected);
-      requests.push({path: pathname, status: 200, bytes: bytes.length});
-      response.writeHead(200, {'Cache-Control': 'no-store', 'Content-Type': ({'.html':'text/html', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.png':'image/png', '.svg':'image/svg+xml', '.woff2':'font/woff2'})[extname(path)] ?? 'application/octet-stream'}).end(bytes);
-    } catch (error) {
-      serverErrors.push({path: request.url, error: String(error)});
-      response.writeHead(404).end('not found');
-    }
-  });
   let browser, closed, profile, outcome, failure;
   try {
-    await new Promise((accept, reject) => {server.once('error', reject); server.listen(0, '127.0.0.1', accept);});
-    const origin = `http://127.0.0.1:${server.address().port}`;
     profile = await mkdtemp(join(output, 'browser-profile-'));
     browser = spawn(browserBinary, ['--headless=new', '--disable-gpu', '--disable-background-networking', '--disable-component-update', '--disable-default-apps', '--no-default-browser-check', '--no-first-run', '--remote-allow-origins=*', '--remote-debugging-port=0', `--user-data-dir=${profile}`, 'about:blank'], {stdio:['ignore','pipe','pipe']});
     closed = new Promise(accept => browser.once('close', (code, signal) => accept({code, signal})));
@@ -129,9 +193,16 @@ export async function runWrapper({repository, site, output, browserBinary}) {
           const provider = url && ['tile.openstreetmap.org','tile.opentopomap.org'].includes(new URL(url).hostname);
           if (event.method !== 'Fetch.requestPaused' || provider) interception.handle(event);
           if (event.method === 'Fetch.requestPaused' && !provider) {
-            const local = new URL(url).origin === origin;
-            if (!local) externalRefusals.push(url);
-            const task = raw.send(local ? 'Fetch.continueRequest' : 'Fetch.failRequest', {requestId:event.params.requestId, ...(!local ? {errorReason:'BlockedByClient'} : {})}).catch(error => runtimeFailures.push({kind:'request-reply', detail:String(error)})).finally(() => localReplies.delete(task));
+            const task = (async () => {
+              try {
+                const reply = await fulfillPublicationRequest(raw, site, event.params, authority);
+                requests.push({url, path:reply.path, status:200, bytes:reply.bytes});
+              } catch (error) {
+                externalRefusals.push(url);
+                serverErrors.push({url, error:String(error)});
+                await raw.send('Fetch.failRequest', {requestId:event.params.requestId, errorReason:'BlockedByClient'});
+              }
+            })().catch(error => runtimeFailures.push({kind:'request-reply', detail:String(error)})).finally(() => localReplies.delete(task));
             localReplies.add(task);
           }
           if (event.method === 'Network.requestWillBeSent' && provider) providerRequests.push({url,request_id:event.params.requestId,...(interception.requestsBlocked ? {blocked_during_teardown:true} : {})});
@@ -141,11 +212,11 @@ export async function runWrapper({repository, site, output, browserBinary}) {
         await raw.send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});
         await raw.send('Fetch.enable',{patterns:[{urlPattern:'http*',requestStage:'Request'}]});
         // Controlled reader input before child bootstrap; neither HTML file changes.
-        await raw.send('Page.addScriptToEvaluateOnNewDocument',{source:`if(location.pathname===${JSON.stringify('/'+authority.report.output)})history.replaceState(null,'',${JSON.stringify(options.hash)});`});
+        await raw.send('Page.addScriptToEvaluateOnNewDocument',{source:`if(location.href===${JSON.stringify(authority.childUrl)})history.replaceState(null,'',${JSON.stringify(options.hash)});`});
         const loaded = raw.waitFor('Page.loadEventFired',timeoutMs);
-        await raw.send('Page.navigate',{url:`${origin}/${authority.parent.output}`}); await loaded;
+        await raw.send('Page.navigate',{url:authority.parentUrl}); await loaded;
         const tree = (await raw.send('Page.getFrameTree')).frameTree;
-        const child = (tree.childFrames ?? []).find(row => new URL(row.frame.url).pathname === '/'+authority.report.output);
+        const child = (tree.childFrames ?? []).find(row => {const url=new URL(row.frame.url);url.hash='';return url.href===authority.childUrl;});
         if (!child || !contexts.has(child.frame.id)) throw Error('real child execution context is unavailable');
         const contextId = contexts.get(child.frame.id);
         await evaluate(raw, `document.querySelector('iframe').scrollIntoView({block:'center'})`);
@@ -169,9 +240,10 @@ export async function runWrapper({repository, site, output, browserBinary}) {
       async writeScenario(_scope, scenario, receipts) {const path=`nordic-wrapper/${scenario.name}.json`; await writeFile(join(output,path),JSON.stringify(scenario,null,2)+'\n'); receipts.push(path);},
     });
     requireScopedCandidate(repository,paths,revision);
-    await readWrapperAuthority(repository,site);
-    outcome = {source_revision:revision, parent:authority.parent, map:{output:authority.report.output,source:authority.report.source,build_id:authority.buildId,version:authority.version}, browser:browserIdentity, scenarios:result.scenarios, requests, external_refusals:externalRefusals, server_errors:serverErrors,
-      scope:'Local retained Nordic docs iframe only; separate current-loader contract. Direct results are reused, not rerun. No hosted or release qualification.'};
+    const after = await readWrapperAuthority(repository,site);
+    if (JSON.stringify(after.publication) !== JSON.stringify(authority.publication)) throw Error('publication inventory changed during browser journey');
+    outcome = {source_revision:revision, publication:authority.publication, parent:authority.parent, map:{output:authority.report.output,source:authority.report.source,build_id:authority.buildId,version:authority.version}, browser:browserIdentity, scenarios:result.scenarios, requests, external_refusals:externalRefusals, server_errors:serverErrors,
+      scope:'Production-origin Nordic docs iframe fulfilled only from local source-bound publication bytes after the owning publication verifier. No hosted website requests, HTML/CSP rewriting, scientific or human-reader qualification. Direct results are reused, not rerun.'};
     if (result.scenarios.length !== 10 || result.scenarios.some(row=>!Object.values(row.assertions).every(value=>value===true)) || serverErrors.length || externalRefusals.length) throw Error('actual wrapper matrix did not qualify');
   } catch(error) {failure=error;}
   finally {
@@ -180,7 +252,6 @@ export async function runWrapper({repository, site, output, browserBinary}) {
       let timer; const stopped=await Promise.race([closed.then(()=>true),new Promise(accept=>{timer=setTimeout(()=>accept(false),5000);})]); clearTimeout(timer);
       if (!stopped) {browser.kill('SIGKILL'); await closed;}
     }
-    await new Promise((accept,reject)=>server.close(error=>error?reject(error):accept()));
     if (profile) await rm(profile,{recursive:true,force:true});
     await writeFile(join(output,'browser.log'),browserLog.join(''));
     await writeFile(join(output,'report.json'),JSON.stringify(outcome ?? {error:String(failure),requests,server_errors:serverErrors},null,2)+'\n');
