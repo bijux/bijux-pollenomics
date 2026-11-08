@@ -16,6 +16,7 @@ from ..identity import (
     _clean_coordinate_text,
     _clean_sample_chronology_text,
     _first_accession,
+    _taxon_alignment_status,
 )
 from ..models import AdnaProjectSampleMasterRow
 
@@ -23,7 +24,7 @@ GOAT_NATIVE_CONTEXT = (
     "data/adna/governance/source_library/projects/PRJEB90141/native_sample_context.json"
 )
 _NATIVE_CONTEXT_SHA256 = (
-    "014f7fd97bf699226af3a08747ca4546d54eaeee1e87ccb56479d86aadc092d0"
+    "d00304650d4393c5732803df050b136b5e80a4bc99d251534a0b3c75e2c932a8"
 )
 _NATIVE_WORKBOOK_SHA256 = (
     "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f"
@@ -240,10 +241,17 @@ def _bind_blagotin_native_context(
         f"taxon {native['taxon_id']} / {native['scientific_name']}; "
         f"description {native['description']!r}. "
         "These are native record assertions, not independent specimen, project "
-        "membership, coordinate, selected chronology or taxon-alignment admission."
+        "membership, coordinate, selected chronology or biological validation. "
+        "Native scientific-name equality is a computational comparison only."
     )
     updated = replace(
         row,
+        source_native_tax_id=native["taxon_id"],
+        source_native_scientific_name=native["scientific_name"],
+        taxon_alignment_status=_taxon_alignment_status(
+            configured_species=row.species_latin_name,
+            source_native_scientific_names=(native["scientific_name"],),
+        ),
         sample_lineage_path=f"{GOAT_NATIVE_CONTEXT} || {row.sample_lineage_path}",
         sample_lineage_locator=(
             f"{row.sample_lineage_locator} || SAMPLE accession/PRIMARY_ID:"

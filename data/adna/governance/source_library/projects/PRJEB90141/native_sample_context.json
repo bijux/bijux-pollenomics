@@ -30,5 +30,5 @@
     "common_name": "goat",
     "description": "Goat from early Neolithic site of Blagotin-Poljna, Serbia."
   },
-  "scope": "Native record/title correspondence and literal taxon/locality description only. No project membership, structured country, coordinate, specimen independence, taxon-alignment selection, chronology interpretation, analytical-use or scientific admission."
+  "scope": "Native record/title correspondence and literal taxon/locality description. Scientific-name equality with the configured project species is a computational comparison, not biological or taxonomic validation. No project membership, structured country, coordinate, specimen independence, chronology interpretation, analytical-use or scientific admission."
 }
