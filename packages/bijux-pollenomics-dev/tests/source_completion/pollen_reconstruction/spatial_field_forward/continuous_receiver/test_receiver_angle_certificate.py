@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from fractions import Fraction as F
+from itertools import product
 from math import comb
 from typing import Any
 
@@ -30,6 +31,7 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field
 )
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.spatial_field_forward.continuous_receiver.verification.receiver_angles import (
     ReceiverAngles,
+    _independent_coefficients,
     _moments,
     verify_angle_certificate,
 )
@@ -159,6 +161,36 @@ def test_endpoint_mean_preserves_exact_values_under_dimensional_scaling(
         # The rationalized dimensional denominator has a reciprocal below
         # the lattice resolution; this regression requires removing that loss.
         assert model.mean(radius).width > F(1, 10**10)
+
+
+def test_complementary_bound_contains_every_exact_multiaffine_vertex() -> None:
+    qr, ql = Interval(F(4), F(5)), Interval(F(1), F(2))
+    hr, hl = Interval(F(3, 4), F(4, 5)), Interval(F(1, 3), F(2, 5))
+    radial = Interval(F(-1, 10), F(1, 10))
+    k, first, second = _independent_coefficients((qr, ql), (hr, hl), radial)
+    coarse = k - first
+    assert coarse.lower <= second.lower <= second.upper <= coarse.upper
+    assert second.width < coarse.width
+    # The expression is affine in each of these five scalars, so every
+    # extremum on their rectangle occurs among these exact rational vertices.
+    for a, b, h, j, integral in product(
+        *((value.lower, value.upper) for value in (qr, ql, hr, hl, radial))
+    ):
+        exact = (1 - h) * a - (1 - j) * b - integral
+        assert second.lower <= exact <= second.upper
+
+
+def test_complement_identity_resolves_dependency_at_the_unchanged_width_goal() -> None:
+    qr, ql = Interval(F(4), F(4) + EPSILON), Interval(F(1), F(1) + EPSILON)
+    radial = Interval(-EPSILON / 10, EPSILON / 10)
+    k, first, second = _independent_coefficients(
+        (qr, ql), (Interval.point(F(4, 5)), Interval.point(F(2, 3))), radial
+    )
+    exact_low = F(4, 5) - (1 + EPSILON) / 3 - EPSILON / 10
+    exact_high = (4 + EPSILON) / 5 - F(1, 3) + EPSILON / 10
+    assert second.lower <= exact_low <= exact_high <= second.upper
+    assert (k - first).width > EPSILON
+    assert second.width <= EPSILON
 
 
 def test_complete_certificate_replays_all_domains_without_claiming_precision(

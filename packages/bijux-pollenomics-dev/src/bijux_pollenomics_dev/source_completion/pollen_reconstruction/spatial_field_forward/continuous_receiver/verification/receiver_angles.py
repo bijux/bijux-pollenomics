@@ -54,6 +54,25 @@ def _full(order: int) -> tuple[Jet, ...]:
     )
 
 
+def _independent_coefficients(
+    endpoints: tuple[Interval, Interval],
+    means: tuple[Interval, Interval],
+    radial: Interval,
+) -> tuple[Interval, Interval, Interval]:
+    """Preserve complement correlation through two exact coefficient identities."""
+    qr, ql = endpoints
+    hr, hl = means
+    k = qr - ql
+    first = hr * qr - hl * ql + radial
+    coarse = k - first
+    # Substituting B1 in B2=K-B1 removes repeated Q endpoints before
+    # interval evaluation. Both expressions enclose the same coefficient;
+    # intersecting retains that truth without borrowing producer precision.
+    direct = (1 - hr) * qr - (1 - hl) * ql - radial
+    second = Interval(max(coarse.lower, direct.lower), min(coarse.upper, direct.upper))
+    return k, first, second
+
+
 class ReceiverAngles:
     """An observer formula with no dependency on producer angle-moment helpers."""
 
@@ -352,13 +371,11 @@ def verify_angle_certificate(
         ),
         "Complementary coefficient assembly differs",
     )
-    own_k = independent[0] - independent[1]
-    own_first = (
-        oracle.mean(geometry.receiver) * independent[0]
-        - oracle.mean(geometry.outer) * independent[1]
-        + sum(independent[2:], Interval.point(0)).expanded(oracle.radius)
+    own_radial = sum(independent[2:], Interval.point(0)).expanded(oracle.radius)
+    own_means = (oracle.mean(geometry.receiver), oracle.mean(geometry.outer))
+    own = _independent_coefficients(
+        (independent[0], independent[1]), own_means, own_radial
     )
-    own = (own_k, own_first, own_k - own_first)
     for native, other in zip(original, own, strict=True):
         overlaps(native, other, "independent coefficient")
     success = all(item.width <= EPSILON for item in original)
