@@ -100,6 +100,61 @@ the engine, NumPy, SciPy and pandas remained absent. CLI refusals preserve
 machine-readable JSON on stdout. This adds no compatibility-sdist,
 optional-engine, native-R, physical-cohort or public-release qualification.
 
+## Direct source-distribution installations
+
+Both the base host and optional engine work when installed directly from their
+source archives at accepted source
+[`0cf34c42`](https://github.com/bijux/bijux-pollenomics/commit/0cf34c42cc6f982ada3b6518ee01f663715f861e).
+The two archives have version `0.1.9.dev2725`. This qualification uses CPython
+3.11.13 on macOS ARM64 and extends the earlier result to optional-engine
+execution after direct sdist installation and the later goat-reference consumer.
+
+Two noneditable prefixes separate the base host from host plus LRA. Installed
+production imports are confined to those prefixes; probes use `python -I -B`
+from an isolated artifact working directory, with source fixtures and governed
+data opened explicitly. The base retains no engine, NumPy, pandas or SciPy.
+
+| Installed runtime | Seconds | Observed peak RSS | Run output |
+| --- | ---: | ---: | ---: |
+| Base host from sdist | 6.34 | 90.2 MiB | 522.7 KiB |
+| Host and optional engine from sdists | 37.89 | 206.0 MiB | 776.5 KiB |
+
+Each probe has a prospective 60-second deadline, a 512 MiB completed-process
+RSS check and an 8 MiB output bound; these are not an OS memory quota. CLI
+calls retain their 30-second limit, and build/install process groups have
+180-second deadlines. The earlier uncapped observations keep their original
+scope.
+
+The installed goat API reproduces the complete typed four-row governed master,
+including all five reported paper references, both Direkli records and the
+unresolved Blagotin wording. All four identities remain ambiguous with zero
+final identities. Controlled count cases preserve the exact JSON integer
+`9007199254740993` and refuse its excessive denominator through API and CLI;
+the five floating-count cases and changed-source digest remain refused without
+outputs. Nine synthetic provider-style Neotoma cases preserve literal values,
+types and conflicting unit definitions, with no selected unit or admission.
+The optional engine produces and reopens two synthetic REVEALS products;
+integer and integral-float inputs yield two identical numerical CSV pairs.
+Their scientific acceptance remains `not_evaluated`.
+
+Independent readback verifies both archive identities and versions, all 1,481
+host and 71 engine source files against accepted Git, 1,492/82 installed RECORD
+entries and exact package-owned licence/notice bytes. The engine's declared
+generated version file is the sole source-payload exception. Builds reuse the
+unchanged locked dependency and build pins; the temporary Hatch version output
+is restored to its exact prior bytes, mode and timestamp.
+
+Archive origin is authenticated by the exact local URI and actual frozen archive
+bytes. Supplied direct-URL hashes are checked, while the
+[standard permits absent hash metadata](https://packaging.python.org/en/latest/specifications/direct-url-data-structure/#archive-urls).
+An over-strict metadata-reader refusal and a refused hash-fragment invocation
+remain separate retained outcomes. The archives were built once; the successful
+probes reuse the original successful installations.
+
+These are installed-runtime, governed-source and synthetic numerical checks.
+They add no physical cohort, new scientific acceptance, native-R comparison,
+compatibility-sdist qualification or public release.
+
 ## Earlier installed API checks
 
 On 23 October 2026, we built the host, compatibility facade and engine at
