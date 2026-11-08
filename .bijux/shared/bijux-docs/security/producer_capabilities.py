@@ -25,6 +25,7 @@ HOOKS = {
     '6007e8ae8a101b74102df0385dd0a9bb93efe85bf0edc9962ee3cff346a0b5bf':'retained-scientific-pdf-downloads',
     'f21163129fc42a4a3cc2e5d4d09c6b9fd1cd9096d14b5c7340a8dd6d8487fa26':'retained-build-scientific-pdf-downloads',
     '1ba76967b9519a4495708ff577694a170dfabb4849449a0381bb3e1512ce632b':'committed-retained-scientific-pdf-downloads',
+    '1299643212a65a326e167897ab2951d69503e2ee9b059cf5345c14b521afb6c1':'git-compiled-scientific-pdf-downloads',
     'f714e9c71a7213f573007baf2f54aab1f5ec3375b7481bb48b64f2d06923a88b':'root-icons-and-custom-domain',
 }
 ICONS=('favicon.ico','apple-touch-icon.png','apple-touch-icon-precomposed.png')
@@ -109,7 +110,33 @@ def retained_build_context(hook, root, *, committed=False):
     return context
 
 
-def scientific_downloads(hook, root, path, source, *, retained=False, retained_build=False, committed=False):
+def current_scientific_context(hook, root):
+    """Run source-owned current adapters with fresh shared implementation bindings."""
+    import io
+    import tomllib
+    import typing
+    require(hook.subprocess is subprocess and hook.io is io and hook.tomllib is tomllib
+            and hook.cast is typing.cast and hook.Any is typing.Any,
+            'Producer capability: current scientific dependency binding changed')
+    scopes = {}
+    for name in ('retained_scientific_downloads', 'scientific_source_revisions', 'compiled_scientific_downloads'):
+        path = Path(__file__).absolute().with_name(name + '.py')
+        source = path.read_bytes()
+        module = types.ModuleType('bijux_' + name)
+        module.__file__ = str(path)
+        exec(compile(source, str(path), 'exec', dont_inherit=True), vars(module))
+        scopes[name] = (module, path, source)
+    native = scopes['retained_scientific_downloads'][0]
+    authority = scopes['scientific_source_revisions'][0].capture(
+        hook, root, regular, require, digest, native._blobs, native._git)
+    compiled = scopes['compiled_scientific_downloads'][0].capture(
+        hook, root, regular, require, digest, native._blobs, native._git)
+    require(all(path.read_bytes() == source for _, path, source in scopes.values()),
+            'Producer capability: current scientific adapter source changed')
+    return authority, compiled
+
+
+def scientific_downloads(hook, root, path, source, *, retained=False, retained_build=False, committed=False, compiled=False):
     """Preserve the reviewed finite PDF exports and all of their source inputs."""
     import runpy
     from pathlib import PurePosixPath
@@ -123,11 +150,16 @@ def scientific_downloads(hook, root, path, source, *, retained=False, retained_b
             and hook.Path is Path and hook.PurePosixPath is PurePosixPath and hook.runpy is runpy
             and hook.MkDocsConfig is MkDocsConfig and hook.File is File and hook.Files is Files,
             'Producer capability: scientific download dependency binding changed')
-    require(digest(regular(root, root/PDF_VERIFIER)) in PDF_VERIFIER_SHA256,
+    verifiers = {'4f76c0fddaccf55d5c4a93fb6bad14cfeb828abfa7058b346c78936380ffd342'} if compiled else PDF_VERIFIER_SHA256
+    require(digest(regular(root, root/PDF_VERIFIER)) in verifiers,
             'Producer capability: scientific export verifier differs from reviewed source')
     retained_context = None
-    require(not (retained and (retained_build or committed)) and not (retained_build and committed), 'Producer capability: retained source epochs cannot be mixed')
-    if retained_build or committed:
+    require(sum(bool(value) for value in (retained, retained_build, committed, compiled)) <= 1,
+            'Producer capability: retained source epochs cannot be mixed')
+    authority = None
+    if compiled:
+        authority, retained_context = current_scientific_context(hook, root)
+    elif retained_build or committed:
         retained_context = retained_build_context(hook, root, committed=committed)
     elif retained:
         import io
@@ -159,17 +191,24 @@ def scientific_downloads(hook, root, path, source, *, retained=False, retained_b
     require(isinstance(frozen,dict) and len(frozen)==12,
             'Producer capability: scientific download population differs')
     manifest=json.loads(regular(root,root/hook.MANIFEST))
-    deck_lock=json.loads(regular(root,root/'presentation/source-lock.json'))
+    deck_lock={} if compiled else json.loads(regular(root,root/'presentation/source-lock.json'))
     paper_manifest=json.loads(regular(root,root/'reports/exports/papers/manifest.json'))
-    names={hook.MANIFEST,PDF_VERIFIER,'presentation/source-lock.json',
+    names={hook.MANIFEST,PDF_VERIFIER,
            'reports/exports/papers/manifest.json','reports/exports/papers/visual-review.json',
            'reports/science/paper-accounts.csv',paper_manifest['inventory']}
+    if compiled:
+        names.add('configs/docs/publication/deck_build.py')
+        names.update(item['path'] for item in retained_context['current_inputs'])
+        names.update(item['path'] for item in authority['inputs'])
+    else:
+        names.add('presentation/source-lock.json')
     if retained or retained_build or committed:
         names.add(RETAINED_DECK_CONTEXT_PATH)
     if retained_build or committed:
         names.add('presentation/retained-build-source-context.json')
     names.update(manifest['inputs'])
-    names.update(deck_lock['sources'])
+    if not compiled:
+        names.update(deck_lock['sources'])
     names.update(paper_manifest['producer_sha256'])
     for row in manifest['files']:
         names.update((row['path'],row['canonical_source']))
@@ -182,12 +221,16 @@ def scientific_downloads(hook, root, path, source, *, retained=False, retained_b
                 'Producer capability: canonical scientific source path required')
         inputs.append({'path':name,'sha256':digest(regular(root,root/name))})
     record = {'source':path.relative_to(root).as_posix(),'source_sha256':digest(source),
-              'recipe':('committed-retained-scientific-pdf-downloads' if committed else
+              'recipe':('git-compiled-scientific-pdf-downloads' if compiled else
+                        'committed-retained-scientific-pdf-downloads' if committed else
                         'retained-build-scientific-pdf-downloads' if retained_build else
                         'retained-scientific-pdf-downloads' if retained else 'scientific-pdf-downloads'),
               'inputs':inputs,'outputs':{name:digest(value) for name,value in sorted(frozen.items())}}
     if retained or retained_build or committed:
         record['retained_source_context'] = retained_context
+    if compiled:
+        record['compiled_source_context'] = retained_context
+        record['historical_source_authority'] = authority
     return record
 
 
@@ -260,11 +303,13 @@ def hooks(configuration,root,*,publication=False):
             records.append(core_contract_assets(hook,configuration,root,path,source,publication=publication))
             continue
         if recipe in {'scientific-pdf-downloads', 'retained-scientific-pdf-downloads',
-                      'retained-build-scientific-pdf-downloads', 'committed-retained-scientific-pdf-downloads'}:
+                      'retained-build-scientific-pdf-downloads', 'committed-retained-scientific-pdf-downloads',
+                      'git-compiled-scientific-pdf-downloads'}:
             records.append(scientific_downloads(hook,root,path,source,
                                                 retained=recipe=='retained-scientific-pdf-downloads',
                                                 retained_build=recipe=='retained-build-scientific-pdf-downloads',
-                                                committed=recipe=='committed-retained-scientific-pdf-downloads'))
+                                                committed=recipe=='committed-retained-scientific-pdf-downloads',
+                                                compiled=recipe=='git-compiled-scientific-pdf-downloads'))
             continue
         require(tuple(hook.ROOT_ICON_FILENAMES)==ICONS,'Producer capability: loaded icon contract changed')
         docs=Path(configuration.docs_dir).absolute();assets=docs/'assets'

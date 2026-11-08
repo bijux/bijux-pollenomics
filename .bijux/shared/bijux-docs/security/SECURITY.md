@@ -83,6 +83,17 @@ startup, native package and source closure. Actual consumer plugins, callbacks,
 source history and output still require independent producer reconstruction.
 Renderer observation reports never create admission by themselves.
 
+The `git-compiled-scientific-pdf-downloads` recipe preserves the reviewed twelve
+PDF routes and nine-paper owner while binding current decks to their five actual
+compiled Git inputs, ancestor revision, epoch, modes and compiler completion
+records. Historical deck inventories do not identify these current compilations.
+The reviewed download helper and loaded paper-source resolver are authenticated
+before callback execution; the exact source-storage index locates historical
+paper bytes without replacing their original execution labels. Existing retained
+PDF recipes keep their separate source contracts. This admission establishes
+source and download identity; visual, scientific, human and hosted acceptance
+remain separate.
+
 Reviewed producer adapters preserve actual redirects, revision-date configuration,
 registered callbacks and finite source asset, icon, domain and scientific-download
 recipes. Core's contract recipe binds five tracked JSON files to their exact public
