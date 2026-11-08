@@ -162,6 +162,4 @@ Retained evidence: [docs/report/publication-replay/landclim-example-reexecution/
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
-<!-- scientific-claim-semantic-sha256: 982e13272f80a381b616ce2674c9faa19982691d1939d537ff0f3031b7f24ac6 -->
-<!-- scientific-authored-source-sha256: 96399eb2744394a8d67cc74f29754bce1c11f0d1c1350c98d81ad1d5a5caee6b -->
 <!-- scientific-verification-and-limits:end -->
