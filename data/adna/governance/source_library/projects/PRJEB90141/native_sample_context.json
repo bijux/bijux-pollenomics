@@ -1,0 +1,166 @@
+{
+  "schema_version": "goat-native-sample-context.v1",
+  "workbook": {
+    "path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+    "sha256": "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f",
+    "sheet": "Table S2 downsampled samples"
+  },
+  "benchmarks": [
+    {
+      "row": 2,
+      "sample_label": "Direkli1-2",
+      "accession_cell": "SAMEA4453841; SAMEA4453842",
+      "native_accessions": [
+        "SAMEA4453841",
+        "SAMEA4453842"
+      ]
+    },
+    {
+      "row": 3,
+      "sample_label": "Blagotin3",
+      "accession_cell": "SAMEA4588077",
+      "native_accessions": [
+        "SAMEA4588077"
+      ]
+    },
+    {
+      "row": 4,
+      "sample_label": "Acem2",
+      "accession_cell": "SAMEA4591761",
+      "native_accessions": [
+        "SAMEA4591761"
+      ]
+    },
+    {
+      "row": 5,
+      "sample_label": "Semnan3",
+      "accession_cell": "SAMEA4591758",
+      "native_accessions": [
+        "SAMEA4591758"
+      ]
+    }
+  ],
+  "native_records": [
+    {
+      "source": {
+        "http_status": 200,
+        "started_utc": "2026-11-08T16:33:20.614066+00:00",
+        "completed_utc": "2026-11-08T16:33:20.864948+00:00",
+        "bytes": 2599,
+        "sha256": "a7a98518280fb3248a8e16dd91d24cf86b628a6a473e65fd43b1462e6fa71dc9",
+        "url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA4453841",
+        "external_member": "adna/goat-imputation/sample-metadata/SAMEA4453841/2026-11-08/response.xml"
+      },
+      "native": {
+        "accession": "SAMEA4453841",
+        "primary_id": "SAMEA4453841",
+        "secondary_id": "ERS2404573",
+        "biosample_id": "SAMEA4453841",
+        "alias": "TCD_Direkli1",
+        "center_name": "TRINITY COLLEGE DUBLIN",
+        "title": "Direkli1",
+        "taxon_id": "9923",
+        "scientific_name": "Capra aegagrus",
+        "common_name": "wild goat",
+        "description": "Wild goat from Direkli Cave, Turkey (Epipaleolithic)."
+      }
+    },
+    {
+      "source": {
+        "http_status": 200,
+        "started_utc": "2026-11-08T16:33:20.613983+00:00",
+        "completed_utc": "2026-11-08T16:33:20.870711+00:00",
+        "bytes": 2594,
+        "sha256": "790adec7177486345fbe240959b2ef735b2e58adcecd3f42584de7561e626122",
+        "url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA4453842",
+        "external_member": "adna/goat-imputation/sample-metadata/SAMEA4453842/2026-11-08/response.xml"
+      },
+      "native": {
+        "accession": "SAMEA4453842",
+        "primary_id": "SAMEA4453842",
+        "secondary_id": "ERS2404574",
+        "biosample_id": "SAMEA4453842",
+        "alias": "TCD_Direkli2",
+        "center_name": "TRINITY COLLEGE DUBLIN",
+        "title": "Direkli2",
+        "taxon_id": "9923",
+        "scientific_name": "Capra aegagrus",
+        "common_name": "wild goat",
+        "description": "Epipaleolithic Bezoar from Direkli Cave, Turkey."
+      }
+    },
+    {
+      "source": {
+        "http_status": 200,
+        "started_utc": "2026-11-08T16:03:52.679698+00:00",
+        "completed_utc": "2026-11-08T16:03:53.222640+00:00",
+        "bytes": 2591,
+        "sha256": "1cd6932b35185926a33b94de891427a958a86b4e88e03bfffbb2860f7ccec2c7",
+        "url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA4588077",
+        "external_member": "adna/goat-imputation/sample-metadata/SAMEA4588077/2026-11-08/response.xml"
+      },
+      "native": {
+        "accession": "SAMEA4588077",
+        "primary_id": "SAMEA4588077",
+        "secondary_id": "ERS2408800",
+        "biosample_id": "SAMEA4588077",
+        "alias": "TCD_Blagotin3",
+        "center_name": "TRINITY COLLEGE DUBLIN",
+        "title": "Blagotin3",
+        "taxon_id": "9925",
+        "scientific_name": "Capra hircus",
+        "common_name": "goat",
+        "description": "Goat from early Neolithic site of Blagotin-Poljna, Serbia."
+      }
+    },
+    {
+      "source": {
+        "http_status": 200,
+        "started_utc": "2026-11-08T16:33:20.614062+00:00",
+        "completed_utc": "2026-11-08T16:33:20.772226+00:00",
+        "bytes": 2713,
+        "sha256": "77cbf33f489456e5e48ece1869b47ff6f6f532b6b562e842512f2abc55ca110b",
+        "url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA4591761",
+        "external_member": "adna/goat-imputation/sample-metadata/SAMEA4591761/2026-11-08/response.xml"
+      },
+      "native": {
+        "accession": "SAMEA4591761",
+        "primary_id": "SAMEA4591761",
+        "secondary_id": "ERS2412479",
+        "biosample_id": "SAMEA4591761",
+        "alias": "Acem2",
+        "center_name": "TRINITY COLLEGE DUBLIN",
+        "title": "Acem2",
+        "taxon_id": "9925",
+        "scientific_name": "Capra hircus",
+        "common_name": "goat",
+        "description": "Goat from Acem Hoyok, a Bronze Age site in Central Anatolia."
+      }
+    },
+    {
+      "source": {
+        "http_status": 200,
+        "started_utc": "2026-11-08T16:33:20.613735+00:00",
+        "completed_utc": "2026-11-08T16:33:21.071144+00:00",
+        "bytes": 2700,
+        "sha256": "9c02eab0b0f8edca1ef94679aaf7e19aab017ec0467c6837f1bd16d0290ead60",
+        "url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA4591758",
+        "external_member": "adna/goat-imputation/sample-metadata/SAMEA4591758/2026-11-08/response.xml"
+      },
+      "native": {
+        "accession": "SAMEA4591758",
+        "primary_id": "SAMEA4591758",
+        "secondary_id": "ERS2412476",
+        "biosample_id": "SAMEA4591758",
+        "alias": "Semnan3",
+        "center_name": "TRINITY COLLEGE DUBLIN",
+        "title": "Semnan3",
+        "taxon_id": "9925",
+        "scientific_name": "Capra hircus",
+        "common_name": "goat",
+        "description": "Neolithic goat from Sang-e Chakmaq, Iran."
+      }
+    }
+  ],
+  "scope": "Five native record assertions correspond to the literal accession cells of four author analysis rows. Direkli1-2 retains two separate native records, without selecting one scalar accession or inferring specimen independence. Scientific-name equality or difference from the configured project species is a computational comparison, not biological or taxonomic validation. No project membership, structured country, coordinate, chronology interpretation, analytical-use or scientific admission. Source and native locality spellings remain separate."
+}

@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import Counter
 import csv
 from dataclasses import replace
+from hashlib import sha256
 import io
 import json
 
@@ -19,6 +20,8 @@ from bijux_pollenomics.adna.projects.sample_master.models import (
 )
 from bijux_pollenomics.adna.projects.sample_master.tables import _read_xlsx_rows
 from bijux_pollenomics.adna.projects.sample_master.tables.goat_imputation import (
+    GOAT_NATIVE_CONTEXT,
+    _bind_goat_comparator_native_context,
     _build_goat_imputation_rows,
     _qualify_goat_imputation_rows,
 )
@@ -183,9 +186,7 @@ class GoatImputationSourceTests(SampleMasterRecoveryTestCase):
         projected = tuple(
             replace(
                 row,
-                sample_lineage_path=by_label[row.preferred_sample_label][
-                    "sample_lineage_path"
-                ],
+                sample_lineage_path="data/" + str(workbook.relative_to(self.data_root)),
             )
             for row in projected
         )
@@ -195,25 +196,16 @@ class GoatImputationSourceTests(SampleMasterRecoveryTestCase):
             archive_text=archive_text,
             archive_source_path="data/" + archive_path,
         )
+        qualified = _bind_goat_comparator_native_context(
+            qualified,
+            context=(self.data_root.parent / GOAT_NATIVE_CONTEXT).read_bytes(),
+            workbook_sha256=sha256(workbook.read_bytes()).hexdigest(),
+            table_rows=table,
+        )
         self.assertEqual(len(qualified), 4)
-        changed = {
-            "sample_identity_resolution",
-            "sample_ambiguity_note",
-            "source_native_identity_kind",
-            "sample_lineage_path",
-            "sample_lineage_locator",
-            "sample_lineage_excerpt",
-        }
         for row in qualified:
             prior = by_label[row.preferred_sample_label]
-            self.assertEqual(
-                {
-                    key: value
-                    for key, value in row.as_dict().items()
-                    if key not in changed
-                },
-                {key: value for key, value in prior.items() if key not in changed},
-            )
+            self.assertEqual(row.as_dict(), prior)
             self.assertEqual(row.sample_identity_resolution, "ambiguous")
             self.assertIn(
                 repr(alternatives[row.preferred_sample_label]),
