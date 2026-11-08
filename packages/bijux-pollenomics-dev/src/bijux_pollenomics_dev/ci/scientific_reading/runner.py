@@ -243,6 +243,7 @@ def run(root: Path, accepted: str, browser: Path, output: Path) -> dict[str, Any
 
 
 def main() -> None:
+    """Verify accepted scientific reading through the admitted local-site owner."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, default=Path.cwd())
     parser.add_argument("--accepted-commit", required=True)
