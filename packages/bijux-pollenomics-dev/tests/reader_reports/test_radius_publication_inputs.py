@@ -135,10 +135,13 @@ def test_private_helper_rejects_swapped_or_moved_path(
         )
 
 
-def test_publication_namespace_contains_only_two_declared_inputs() -> None:
-    assert (
-        frozenset(value[0] for value in WITNESSES.values()) == PUBLICATION_INPUT_SOURCES
-    )
+def test_publication_namespace_keeps_radius_and_historical_reader_distinct() -> None:
+    radius_inputs = frozenset(value[0] for value in WITNESSES.values())
+    assert len(radius_inputs) == 2
+    expected_sources = radius_inputs | {
+        "docs/report/countries/sweden/land-use-replay/README.md"
+    }
+    assert expected_sources == PUBLICATION_INPUT_SOURCES
     member = GitSourceMember(
         member=WITNESSES["direct_mae"][0],
         repository_path=WITNESSES["direct_mae"][0],

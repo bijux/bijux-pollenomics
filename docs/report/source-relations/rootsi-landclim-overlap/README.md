@@ -112,7 +112,7 @@ admission for a physical core.
 
 These dispositions apply to each of the 79 distinct `typed_workbook_member`
 entries and their `typed_workbook_sha256` identities in the [row ledger](overlap.csv).
-The [retained field census](../../../../reports/science/publication-correspondence/rootsi-feature-census/report.json)
+The [retained field census](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/rootsi-feature-census/report.json)
 records source sheet/header locations, mechanical row categories and its three
 workbook refusals; those classifications do not authenticate grain-count units
 or taxon identities.

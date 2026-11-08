@@ -47,7 +47,7 @@ and local Yoda metadata instead state CC BY-NC 4.0; later provider metadata
 states CC BY 4.0. Preserve each declaration's source and date. The selection
 does not establish alternative licensing granted by the provider or a verified
 change over time. Exact retained-member rights and publication scope remain
-questions for the owning [scientific source account](../../../../reports/science/hyde-cropland-source-account.md#our-source-authority-decision).
+questions for the owning [scientific source account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md#our-source-authority-decision).
 Original source files and qualified local numerical results remain unchanged.
 
 ## Prepare and verify an external inventory

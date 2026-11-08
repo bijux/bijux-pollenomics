@@ -35,14 +35,14 @@ We opened metadata only, before any new candidate pollen observation or count ta
 
 The earlier availability screen and this replay read metadata only. That does
 not mean the shared source corpus had never processed GARASEL measurements.
-The existing [Rootsi identity crosswalk](../../../../../data/landclim/review/rootsi-candidate-inputs/rootsi-crosswalk.csv)
+The existing [Rootsi identity crosswalk](https://github.com/bijux/bijux-pollenomics/blob/main/data/landclim/review/rootsi-candidate-inputs/rootsi-crosswalk.csv)
 links `Garaselet (Byskeälven)` / `GARASEL`, metadata row 25, to
 `rootsi/GARASEL.xls`: 19,968 bytes, SHA-256
 `fcc6a5deffb86c658ec4dd1be705820c2fde0bb1dda2729886cd242d8df01797`.
 Its recorded coordinates match the PANGAEA metadata site at 65.333333° N,
 19.933333° E to their stated precision.
 
-The [completed feature-census metadata](../../../../../reports/science/publication-correspondence/rootsi-feature-census/report.json)
+The [completed feature-census metadata](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/rootsi-feature-census/report.json)
 records the same workbook identity and `Sheet1` with status `computed`, from
 source commit `6bc07eb8e6b1599739473ff1478f45cb68fa9333`. Its value origin is
 decoded cached values. The maintained census code opens the hash-bound

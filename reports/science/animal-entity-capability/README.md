@@ -56,7 +56,7 @@ view separately has 1,493 owners, 335 displayable nodes and 1,158 refusals. Equa
 static assets and indexes are unchanged; chronology-sidecar contract refresh is
 separate. The following older native actuals retain their original source epochs.
 
-## Current reconciliation and source epochs
+## Captured reconciliation and map qualification
 
 At committed source `988d1ff127bad598ff359cd14fc7bc1409ce5325`, the unchanged
 [producer](replay.py) completes in **0.129 seconds**, peak native RSS
@@ -75,7 +75,7 @@ and the undated PGULL-2131 chronology refusal). Those observations and all older
 source identities remain unchanged; they are not rerun or retagged here.
 
 The owning [chronology account](../animal-sample-chronology.md#current-locality-atlas-maps-and-temporal-runtime)
-records the current source, three-scope map and temporal qualification. World
+records the source, three-scope map and temporal qualification at that captured epoch. World
 retains 236 child-support intervals across 130 temporally admitted and 37
 contextual locality features; 67 gaps remain empty. Its distinct source-chronology
 corpus has 1,492 owners, 335 displayable nodes and 1,157 refusals. The equal
@@ -84,7 +84,7 @@ the same membership. Each regional scope retains thirteen source-chronology
 nodes, separate from the twelve mapped IDs above. No locality hull supplies a
 missing specimen date or makes overlapping source records independent animals.
 
-The current saved-atlas producer and independent readback, decoded three-map
+The saved-atlas producer and independent readback at that epoch, decoded three-map
 preservation and native index checks pass. Nordic's prior factory qualification
 is reused only after exact code/bootstrap/controller/wire/semantic equality; its
 original source epoch is preserved. Actual served Chromium passes 27 source-backed

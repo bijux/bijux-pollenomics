@@ -34,7 +34,7 @@ status. No-basemap mode was active and tile provider requests were blocked.
 
 The browser records its route through Chromium's keyboard-focusable overflow
 tables before reaching sample paging. Twelve earlier candidate producer regressions remain historical source checks. The original
-[synthetic drawer evidence](../detail-focus/README.md) retains its own verifier
+[synthetic drawer evidence](https://github.com/bijux/bijux-pollenomics/blob/c5c2ecaac30cd983c5511bed9bf64a6f174ae85a/docs/report/atlas/detail-focus/README.md) retains its own verifier
 identity.
 
 ## Reproduce

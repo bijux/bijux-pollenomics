@@ -135,8 +135,8 @@ The retained records distinguish metadata dates from download evidence:
 
 | Existing record | Recorded population and date | What the date establishes |
 | --- | --- | --- |
-| [Governed manifest](../../../../../data/svar/raw/svar_lake_registry_manifest.json) and [summary](../../../../../data/svar/normalized/svar_summary.json) | 40,565; `generated_on: 2026-06-22` | A metadata date, without original timed HTTP responses or complete request/page custody. |
-| [Candidate review](../../../../../data/svar/review/lake_candidate_registry_review.json) | Source count 40,523; 99 review members; `generated_on: 2026-08-01` | A review declaration, not evidence of a second complete download or its acquisition date. |
+| [Governed manifest](https://github.com/bijux/bijux-pollenomics/blob/main/data/svar/raw/svar_lake_registry_manifest.json) and [summary](https://github.com/bijux/bijux-pollenomics/blob/main/data/svar/normalized/svar_summary.json) | 40,565; `generated_on: 2026-06-22` | A metadata date, without original timed HTTP responses or complete request/page custody. |
+| [Candidate review](https://github.com/bijux/bijux-pollenomics/blob/main/data/svar/review/lake_candidate_registry_review.json) | Source count 40,523; 99 review members; `generated_on: 2026-08-01` | A review declaration, not evidence of a second complete download or its acquisition date. |
 | Preserved export manifest and summary in the existing source store | 40,565; `generated_on: 2026-09-08` | The metadata accompanying the exact normalized file identified above, without its original WFS pages. |
 | Bounded provider observations recorded above | 1 October 2026; hits 40,565 and two returned features | The scope of those later observations, not the acquisition time or complete identity of either historical population. |
 

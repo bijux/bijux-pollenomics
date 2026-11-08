@@ -53,7 +53,7 @@ missing-taxon semantics, or Nordic empirical reconstruction. The
 [reviewed conditional draw profile](../author-site-uncertainty/README.md) is a
 different method with a restricted positive-count subcomposition.
 
-The maintained [replay script](replay.R) parses only the author's `KPf` and
+The maintained [replay script](https://github.com/bijux/bijux-pollenomics/blob/main/docs/report/method-certification/petrkunes-r-comparison/replay.R) parses only the author's `KPf` and
 `REVEALS` function definitions, avoiding the archived script's old
 installation side effects. It loads the tagged functions from their pinned
 source files and requires the literal DESCRIPTION versions zipfR `0.6-70`

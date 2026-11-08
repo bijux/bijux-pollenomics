@@ -141,13 +141,14 @@ def main():
     parser.add_argument('--no-strict',action='store_true')
     parser.add_argument('--preflight',action='store_true',help='Validate report source selection without rendering or changing retained artifacts')
     args=parser.parse_args()
+    from mkdocs.exceptions import MkDocsException
     try:
         result=build_artifact(Path.cwd().resolve(),args.config,args.site_dir,site_url=args.site_url,
                               source_identity=args.source_identity,strict=not args.no_strict,source_recipe=args.source_recipe,reader_owner=args.reader_owner,
                               interactive_report_owner=args.interactive_report_owner,preflight=args.preflight)
         print(json.dumps({key:value for key,value in result.items() if key!='producer'}))
         return 0
-    except (OSError,ValueError,KeyError,subprocess.CalledProcessError) as error:
+    except (MkDocsException,OSError,ValueError,KeyError,subprocess.CalledProcessError) as error:
         print('Documentation artifact rejected: '+str(error),file=sys.stderr)
         return 1
 
