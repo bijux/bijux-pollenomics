@@ -16,6 +16,7 @@ from ..identity import (
     _clean_coordinate_text,
     _clean_sample_chronology_text,
     _first_accession,
+    _join_distinct,
     _taxon_alignment_status,
 )
 from ..models import AdnaProjectSampleMasterRow
@@ -24,7 +25,7 @@ GOAT_NATIVE_CONTEXT = (
     "data/adna/governance/source_library/projects/PRJEB90141/native_sample_context.json"
 )
 _NATIVE_CONTEXT_SHA256 = (
-    "d00304650d4393c5732803df050b136b5e80a4bc99d251534a0b3c75e2c932a8"
+    "7df6a362bdb91809db0a2dbe0fe715080ad55bb88b6c03bfba94410fea9ce651"
 )
 _NATIVE_WORKBOOK_SHA256 = (
     "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f"
@@ -200,64 +201,123 @@ def _qualify_goat_imputation_rows(
     return tuple(qualified_rows)
 
 
-def _bind_blagotin_native_context(
+def _bind_goat_comparator_native_context(
     rows: tuple[AdnaProjectSampleMasterRow, ...],
     *,
     context: bytes,
     workbook_sha256: str,
+    table_rows: tuple[tuple[str, ...], ...],
 ) -> tuple[AdnaProjectSampleMasterRow, ...]:
-    """Attach one qualified native record without selecting specimen or project scope."""
+    """Retain all native assertions without selecting a pooled specimen identity."""
     if sha256(context).hexdigest() != _NATIVE_CONTEXT_SHA256:
-        raise ValueError("Blagotin native source context changed")
+        raise ValueError("Goat comparator native source context changed")
     if workbook_sha256 != _NATIVE_WORKBOOK_SHA256:
-        raise ValueError("Blagotin supplementary source changed")
+        raise ValueError("Goat comparator supplementary source changed")
     document = json.loads(context)
-    native = document["native"]
-    selected = tuple(
-        row
-        for row in rows
-        if row.archive_native_sample_id == native["accession"]
-        or row.preferred_sample_label == native["title"]
-    )
-    if len(selected) != 1:
-        raise ValueError("Blagotin native record requires one supplementary owner")
-    row = selected[0]
+    native_records = document["native_records"]
+    natives = {
+        record["native"]["accession"]: record["native"] for record in native_records
+    }
+    if len(natives) != len(native_records):
+        raise ValueError("Goat comparator native record duplicated")
+    for accession, native in natives.items():
+        if any(native[field] != accession for field in ("primary_id", "biosample_id")):
+            raise ValueError("Goat comparator native accession assertions disagree")
+    benchmarks = document["benchmarks"]
+    by_label = {row.preferred_sample_label: row for row in rows}
+    labels = [benchmark["sample_label"] for benchmark in benchmarks]
     if (
-        row.project_accession != "PRJEB90141"
-        or row.archive_native_sample_id != native["accession"]
-        or row.paper_native_sample_label != native["title"]
-        or row.supplementary_table_sample_label != native["title"]
-        or row.preferred_sample_label != native["title"]
-        or row.sample_identity_resolution != "ambiguous"
-        or row.source_native_identity_kind != "supplementary_sample_label"
-        or row.source_native_tax_id
-        or row.source_native_scientific_name
-        or row.taxon_alignment_status != "not_reported"
+        len(by_label) != len(rows)
+        or len(set(labels)) != len(labels)
+        or set(by_label) != set(labels)
     ):
-        raise ValueError("Blagotin supplementary owner or unselected scope changed")
-    note = (
-        f"Native SAMPLE {native['primary_id']} / {native['secondary_id']}; "
-        f"title {native['title']!r}; alias {native['alias']!r}; "
-        f"taxon {native['taxon_id']} / {native['scientific_name']}; "
-        f"description {native['description']!r}. "
-        "These are native record assertions, not independent specimen, project "
-        "membership, coordinate, selected chronology or biological validation. "
-        "Native scientific-name equality is a computational comparison only."
-    )
-    updated = replace(
-        row,
-        source_native_tax_id=native["taxon_id"],
-        source_native_scientific_name=native["scientific_name"],
-        taxon_alignment_status=_taxon_alignment_status(
-            configured_species=row.species_latin_name,
-            source_native_scientific_names=(native["scientific_name"],),
-        ),
-        sample_lineage_path=f"{GOAT_NATIVE_CONTEXT} || {row.sample_lineage_path}",
-        sample_lineage_locator=(
-            f"{row.sample_lineage_locator} || SAMPLE accession/PRIMARY_ID:"
-            f"{native['primary_id']}; TITLE:{native['title']}"
-        ),
-        sample_lineage_excerpt=f"{row.sample_lineage_excerpt} || {note}",
-        sample_ambiguity_note=f"{row.sample_ambiguity_note} {note}",
-    )
-    return tuple(updated if candidate is row else candidate for candidate in rows)
+        raise ValueError("Goat comparator requires one owner per author row")
+    if not table_rows or any(
+        table_rows[0].count(name) != 1 for name in ("Sample", "Accession")
+    ):
+        raise ValueError("Goat comparator source metadata columns changed")
+    sample_column = table_rows[0].index("Sample")
+    accession_column = table_rows[0].index("Accession")
+    updated: dict[str, AdnaProjectSampleMasterRow] = {}
+    covered: set[str] = set()
+    for benchmark in benchmarks:
+        label = benchmark["sample_label"]
+        accessions = tuple(benchmark["native_accessions"])
+        literal = benchmark["accession_cell"]
+        if (
+            not accessions
+            or len(set(accessions)) != len(accessions)
+            or accessions != tuple(value.strip() for value in literal.split(";"))
+            or set(accessions) & covered
+            or not set(accessions) <= set(natives)
+        ):
+            raise ValueError(
+                "Goat comparator missing, repeated or swapped native accession"
+            )
+        source_row_number = benchmark["row"]
+        if not 2 <= source_row_number <= len(table_rows):
+            raise ValueError("Goat comparator source row changed")
+        source_row = table_rows[source_row_number - 1]
+        if (
+            _cell_value(source_row, sample_column) != label
+            or _cell_value(source_row, accession_column) != literal
+        ):
+            raise ValueError("Goat comparator author label/accession cell changed")
+        row = by_label[label]
+        # The original adapter's scalar accession remains a trace, not a selected
+        # unique identity for a row whose literal cell names multiple records.
+        if (
+            row.project_accession != "PRJEB90141"
+            or row.archive_native_sample_id != accessions[0]
+            or row.paper_native_sample_label != label
+            or row.supplementary_table_sample_label != label
+            or row.sample_identity_resolution != "ambiguous"
+            or row.source_native_identity_kind != "supplementary_sample_label"
+            or row.source_native_tax_id
+            or row.source_native_scientific_name
+            or row.taxon_alignment_status != "not_reported"
+        ):
+            raise ValueError("Goat comparator owner or unselected scope changed")
+        assertions = tuple(natives[accession] for accession in accessions)
+        source_names = tuple(
+            dict.fromkeys(native["scientific_name"] for native in assertions)
+        )
+        note = (
+            f"Original author label {label!r}; Accession cell {literal!r}. "
+            + " ".join(
+                f"Native SAMPLE {native['primary_id']} / {native['secondary_id']}; "
+                f"title {native['title']!r}; alias {native['alias']!r}; "
+                f"taxon {native['taxon_id']} / {native['scientific_name']}; "
+                f"description {native['description']!r}."
+                for native in assertions
+            )
+        )
+        note += (
+            " Separate native records do not select a scalar specimen, establish "
+            "specimen independence or project membership, or select coordinates "
+            "or chronology. Native scientific-name agreement/difference is a "
+            "computational comparison, not biological or taxonomic validation."
+        )
+        updated[label] = replace(
+            row,
+            source_native_tax_id=_join_distinct(
+                *(native["taxon_id"] for native in assertions)
+            ),
+            source_native_scientific_name=_join_distinct(*source_names),
+            taxon_alignment_status=_taxon_alignment_status(
+                configured_species=row.species_latin_name,
+                source_native_scientific_names=source_names,
+            ),
+            sample_lineage_path=f"{GOAT_NATIVE_CONTEXT} || {row.sample_lineage_path}",
+            sample_lineage_locator=f"{row.sample_lineage_locator} || Native SAMPLE assertions: "
+            + "; ".join(
+                f"{native['primary_id']}/TITLE:{native['title']}"
+                for native in assertions
+            ),
+            sample_lineage_excerpt=f"{row.sample_lineage_excerpt} || {note}",
+            sample_ambiguity_note=f"{row.sample_ambiguity_note} {note}",
+        )
+        covered.update(accessions)
+    if covered != set(natives):
+        raise ValueError("Goat comparator native record has no author-row owner")
+    return tuple(updated[row.preferred_sample_label] for row in rows)

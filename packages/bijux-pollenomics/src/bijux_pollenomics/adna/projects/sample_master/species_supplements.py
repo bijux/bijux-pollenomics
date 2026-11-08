@@ -36,7 +36,7 @@ from .tables import (
 )
 from .tables.goat_imputation import (
     GOAT_NATIVE_CONTEXT,
-    _bind_blagotin_native_context,
+    _bind_goat_comparator_native_context,
     _qualify_goat_imputation_rows,
 )
 from .tables.horse_chronology import HORSE_COMPARATIVE_SUPPLEMENT
@@ -301,10 +301,11 @@ def _goat_imputation_supplementary_sample_rows(
     context_path = output_root / GOAT_NATIVE_CONTEXT.removeprefix("data/")
     if not context_path.is_file():
         return qualified
-    return _bind_blagotin_native_context(
+    return _bind_goat_comparator_native_context(
         qualified,
         context=context_path.read_bytes(),
         workbook_sha256=sha256(workbook_path.read_bytes()).hexdigest(),
+        table_rows=table_rows,
     )
 
 
