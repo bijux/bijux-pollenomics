@@ -94,9 +94,18 @@ def build_sample_chronology_review_rows(
 
 def build_sample_chronology_provenance_rows(
     output_root: Path,
+    *,
+    include_source_field_context: bool = True,
 ) -> tuple[dict[str, object], ...]:
-    """Build one per-sample chronology provenance packet across tracked projects."""
-    return _build_sample_chronology_provenance_rows(output_root)
+    """Build provenance, optionally including separate literal source-field context.
+
+    Source-field context is additive and never selects a chronology. A reader
+    retaining an existing packet shape can omit that separate context while
+    preserving every owner, selected date, uncertainty and refusal field.
+    """
+    return _build_sample_chronology_provenance_rows(
+        output_root, include_source_field_context=include_source_field_context
+    )
 
 
 def build_sample_chronology_conflict_ledger(

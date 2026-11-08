@@ -19,6 +19,7 @@ def _build_sample_chronology_provenance_rows(
     output_root: Path,
     *,
     project_accessions: tuple[str, ...] | None = None,
+    include_source_field_context: bool = True,
 ) -> tuple[dict[str, object], ...]:
     from . import (
         _normalization_rule_for,
@@ -53,7 +54,7 @@ def _build_sample_chronology_provenance_rows(
             output_root, project.project_accession
         )
         horse_fields: dict[str, dict[str, object]] = {}
-        if project.project_accession == "PRJEB31613":
+        if include_source_field_context and project.project_accession == "PRJEB31613":
             master_rows = build_project_sample_master_rows(output_root, "PRJEB31613")
             source_owners = {
                 row.repo_stable_sample_id: (

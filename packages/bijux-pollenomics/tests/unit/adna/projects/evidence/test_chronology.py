@@ -109,7 +109,7 @@ def test_source_fields_are_additive_to_the_actual_provenance_consumer(
         return dict.fromkeys(owners, context)
 
     monkeypatch.setattr(provenance, "horse_source_chronology_fields", native_fields)
-    candidate = provenance._build_sample_chronology_provenance_rows(tmp_path)
+    candidate = build_sample_chronology_provenance_rows(tmp_path)
     assert len(seen) == 1
     assert seen[0] == {
         "PRJEB31613:alpha": ("Horse A", "Sheet1!row5", "data/source.xlsx")
@@ -128,6 +128,57 @@ def test_source_fields_are_additive_to_the_actual_provenance_consumer(
         )
         == baseline
     )
+    assert (
+        build_sample_chronology_provenance_rows(
+            tmp_path, include_source_field_context=True
+        )
+        == candidate
+    )
+    assert (
+        provenance._build_sample_chronology_provenance_rows(
+            tmp_path,
+            project_accessions=("PRJEB31613",),
+            include_source_field_context=True,
+        )
+        == candidate[:1]
+    )
+    reads_with_context = len(seen)
+
+    def unexpected_source_read(
+        root: Path, *, owners: dict[str, tuple[str, str, str]]
+    ) -> dict[str, dict[str, object]]:
+        raise AssertionError("Omitted source-field context must not read its workbook")
+
+    monkeypatch.setattr(
+        provenance, "horse_source_chronology_fields", unexpected_source_read
+    )
+    assert (
+        build_sample_chronology_provenance_rows(
+            tmp_path, include_source_field_context=False
+        )
+        == baseline
+    )
+    assert (
+        provenance._build_sample_chronology_provenance_rows(
+            tmp_path, include_source_field_context=False
+        )
+        == baseline
+    )
+    assert (
+        provenance._build_sample_chronology_provenance_rows(
+            tmp_path,
+            project_accessions=("PRJEB31613",),
+            include_source_field_context=False,
+        )
+        == baseline[:1]
+    )
+    assert (
+        provenance._build_sample_chronology_provenance_rows(
+            tmp_path, project_accessions=("other",), include_source_field_context=False
+        )
+        == baseline[1:]
+    )
+    assert len(seen) == reads_with_context
 
 
 class _ConflictCase(TypedDict):
