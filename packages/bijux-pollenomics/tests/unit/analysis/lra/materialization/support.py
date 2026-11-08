@@ -39,7 +39,10 @@ def datum(value: object, *, unit: str = "NISP", taxon: int = 10) -> dict[str, An
 
 
 def authorities(
-    root: Path, *, context_only_sample: int | None = None
+    root: Path,
+    *,
+    context_only_sample: int | None = None,
+    area_by_site_id: dict[int, object] | None = None,
 ) -> tuple[Path, Path]:
     raw, normalized = root / "raw", root / "normalized"
     parts = []
@@ -80,6 +83,8 @@ def authorities(
                 "dataset": {"datasetid": identity},
             }
         }
+        if area_by_site_id is not None and identity in area_by_site_id:
+            row["site"]["area"] = area_by_site_id[identity]
         filename = f"part-{identity:03d}.json"
         part = {
             "generated_on": "2026-04-01",

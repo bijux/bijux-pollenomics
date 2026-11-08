@@ -96,3 +96,24 @@ def test_source_binding_and_missing_candidate_site_are_refused(tmp_path: Path) -
     payload["site_rows"][0]["collection_unit_ids"] = ["neotoma:collection-unit:missing"]
     with pytest.raises(ValueError, match="missing from authenticated surface"):
         assess_neotoma_candidate_site_evidence(evidence, _groups(payload))
+
+
+def test_conflicting_area_definitions_never_select_or_convert_native_values(
+    tmp_path: Path,
+) -> None:
+    values: dict[int, object] = {1: 0, 2: 25563.4, 3: None, 4: "native area text"}
+    raw, normalized = authorities(tmp_path, area_by_site_id=values)
+    report = inspect_neotoma_lra_candidate_site_evidence(
+        raw_root=raw, normalized_root=normalized
+    ).as_dict()
+    review = report["source_area_unit_review"]
+    assert review["status"] == "unresolved_provider_definition_conflict"
+    assert review["selected_unit"] is None
+    assert review["native_service_revision"] == "not_authenticated"
+    assert {row["documented_unit"] for row in review["definitions"]} == {"ha", "km2"}
+    for row in report["site_rows"]:
+        identity = int(row["site_id"].rsplit(":", 1)[1])
+        assert row["source_area"] == values.get(identity)
+        assert type(row["source_area"]) is type(values.get(identity))
+        assert row["basin_dimensions_status"] == "not_reviewed"
+    assert report["denominators"]["lra_accepted_samples"] == 0

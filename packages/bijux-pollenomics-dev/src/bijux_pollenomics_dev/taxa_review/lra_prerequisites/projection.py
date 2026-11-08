@@ -162,6 +162,9 @@ def _basin_rows(
                         "source_row_locator": site["source_locator"],
                         "value_status": _value_status(area),
                         "unit_status": "not_observed",
+                        "unit_definition_review_status": site_report.get(
+                            "source_area_unit_review", {}
+                        ).get("status", "not_observed"),
                     }
                 )
             )
@@ -321,6 +324,7 @@ def build_neotoma_prerequisite_projection(
         "country_denominators": country_denominators,
         "chronology_rows": chronology_rows,
         "basin_rows": basin_rows,
+        "source_area_unit_review": site_report["source_area_unit_review"],
         "reviewer_authority": "declared_not_authenticated",
         "scientific_acceptance": "not_evaluated",
         "release_status": "not_evaluated",

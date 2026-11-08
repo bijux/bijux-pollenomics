@@ -15,6 +15,39 @@ from ..reading import NeotomaEvidence, json_object
 from .candidate_groups import NeotomaCandidateGroups
 
 
+def _area_unit_review() -> dict[str, object]:
+    """Keep contradictory provider definitions separate from a selected unit."""
+    database = "https://github.com/NeotomaDB/neotoma_database_functions/blob/359c92c3f0d762f64ea0106c6df597594ba0f541/"
+    return {
+        "status": "unresolved_provider_definition_conflict",
+        "selected_unit": None,
+        "native_service_revision": "not_authenticated",
+        "definitions": [
+            {
+                "source_field": "ndb.sites.area",
+                "documented_unit": "ha",
+                "reference": database + "database/neotoma/tables/ndb/sites.sql",
+            },
+            {
+                "source_field": "DataBUS.Site.area",
+                "documented_unit": "km2",
+                "reference": "https://github.com/NeotomaDB/DataBUS/blob/e85fd3c69e0f8d1a3824b6dfef28816165a0eed1/src/DataBUS/Site.py",
+            },
+        ],
+        "native_field_mapping": {
+            "returned_field": "site.area",
+            "database_field": "ndb.sites.area",
+            "reference": database + "database/neotoma/functions/ap/siteobject.sql",
+        },
+        "uploader_field_mapping": {
+            "input_field": "ts.insertsite._area",
+            "database_field": "ndb.sites.area",
+            "reference": database + "database/neotoma/functions/ts/insertsite.sql",
+        },
+        "physical_basin_meaning": "not_established",
+    }
+
+
 @dataclass(frozen=True)
 class NeotomaSiteEvidence:
     """Source-bound review rows; no row is an accepted basin or LRA input."""
@@ -237,6 +270,7 @@ def assess_neotoma_candidate_site_evidence(
         "site_rows": rows,
         "collection_unit_rows": unit_rows,
         "source_area_semantics": "not_verified_as_basin_area_or_dimension",
+        "source_area_unit_review": _area_unit_review(),
         "basin_admission_status": "not_reviewed",
         "lra_admission_status": "refused",
     }

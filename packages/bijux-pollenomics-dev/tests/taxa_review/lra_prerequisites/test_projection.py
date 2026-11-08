@@ -58,6 +58,28 @@ def test_native_and_lake_area_are_distinct_candidate_geometry_rows() -> None:
     assert row["basin_disposition"] == "not_evaluated"
 
 
+def test_provider_unit_conflict_survives_prerequisite_projection() -> None:
+    sites = _sites()
+    sites["source_area_unit_review"] = {
+        "status": "unresolved_provider_definition_conflict",
+        "selected_unit": None,
+    }
+    row = _basin_rows(sites, _lake())[0]
+    lake, native = sorted(
+        row["candidate_basin_evidence"], key=lambda item: item["source_field"]
+    )
+    assert native["unit_status"] == "not_observed"
+    assert (
+        native["unit_definition_review_status"]
+        == "unresolved_provider_definition_conflict"
+    )
+    assert native["source_unit"] is None
+    assert native["source_value"] == 125.0
+    assert lake["source_unit"] == "Surface area (ha)"
+    assert lake["unit_status"] == "source_parameter_label"
+    assert row["basin_disposition"] == "not_evaluated"
+
+
 @pytest.mark.parametrize("value", [0, -1])
 def test_nonpositive_evidence_is_exposed_but_not_marked_positive(value: int) -> None:
     rows = _basin_rows(_sites(value), {"source_rows": []})

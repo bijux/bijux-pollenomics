@@ -22,7 +22,9 @@ from bijux_pollenomics_dev.taxa_review.lra_prerequisites.projection import (
 )
 
 
-def _projection(*, unassigned: bool = False) -> NeotomaPrerequisiteProjection:
+def _projection(
+    *, unassigned: bool = False, native_area: bool = False
+) -> NeotomaPrerequisiteProjection:
     chronology: list[dict[str, Any]] = []
     for index in (1, 2):
         claim = {
@@ -64,6 +66,13 @@ def _projection(*, unassigned: bool = False) -> NeotomaPrerequisiteProjection:
             "value_status": "positive",
             "unit_status": "source_parameter_label",
         }
+        if native_area:
+            evidence.update(
+                source_field="sites.source_payload.area",
+                source_unit=None,
+                unit_status="not_observed",
+                unit_definition_review_status="unresolved_provider_definition_conflict",
+            )
         evidence = {
             **evidence,
             "source_row_sha256": projection_module._digest(evidence),
@@ -220,6 +229,15 @@ def test_complete_return_stays_outcome_free_and_non_executable(
         result["validation_sha256"]
         == hashlib.sha256(canonical_bytes(validation_body)).hexdigest()
     )
+
+
+def test_provider_definition_review_cannot_authorize_unitless_basin_selection(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    projection, returned = _review(_projection(native_area=True))
+    assert returned["basin_decisions"][0]["selected_source_unit"] is None
+    with pytest.raises(ValueError, match="positive observed area with units"):
+        _validate(monkeypatch, projection, returned)
 
 
 def test_different_valid_candidate_rebinds_validation_result(

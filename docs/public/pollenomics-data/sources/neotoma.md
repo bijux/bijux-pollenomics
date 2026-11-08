@@ -180,6 +180,28 @@ diameter; their applicability and units for this captured API value require
 source review. A collection date is not a sample age. Historical basin size,
 source aliases, chronology, taxa/PPE and compatible counts remain unresolved.
 
+The provider's published definitions conflict. The
+[database schema at `359c92c3`](https://github.com/NeotomaDB/neotoma_database_functions/blob/359c92c3f0d762f64ea0106c6df597594ba0f541/database/neotoma/tables/ndb/sites.sql)
+documents `ndb.sites.area` in hectares; its
+[site-object function](https://github.com/NeotomaDB/neotoma_database_functions/blob/359c92c3f0d762f64ea0106c6df597594ba0f541/database/neotoma/functions/ap/siteobject.sql)
+returns the stored value unchanged. The
+[DataBUS uploader at `e85fd3c6`](https://github.com/NeotomaDB/DataBUS/blob/e85fd3c69e0f8d1a3824b6dfef28816165a0eed1/src/DataBUS/Site.py)
+instead describes `Site.area` in square kilometers and passes it unchanged to
+the [insertion function](https://github.com/NeotomaDB/neotoma_database_functions/blob/359c92c3f0d762f64ea0106c6df597594ba0f541/database/neotoma/functions/ts/insertsite.sql),
+which stores `_area` without conversion. These public revisions precede the
+retained v2 downloadset's `2026-04-01` label. That label is not an authenticated
+HTTP request timestamp; neither it nor these source revisions establishes the
+deployed service revision or the ingestion units of individual records.
+
+The current site-review and prerequisite consumers therefore retain an
+unselected native unit and expose `unresolved_provider_definition_conflict`
+as separate review metadata. In the current 163-site prerequisite population,
+the 43 non-null site-area values, their types and source locators remain
+unchanged. This documentation conflict does
+not establish that any particular value is wrong, express a square-metre
+conversion, or supply a historical basin area. The separate lakeparameter
+`Area` values retain their own explicit `Surface area (ha)` source labels.
+
 The [retained lake-parameter source review](../../../report/source-relations/neotoma/lakeparameters/README.md)
 and host `inspect_neotoma_lra_lakeparameters` consumer accept an explicitly
 pinned public Neotoma lakeparameter capture, verifies every captured page and
