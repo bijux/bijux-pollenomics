@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Consume exact accepted documentation admission for current compiled scientific PDF downloads, preserving source/compiler/resolver guards and existing scientific and browser qualification boundaries ([#359](https://github.com/bijux/bijux-pollenomics/pull/359)).
+
 - Foreground the independently certified receiver coefficient bounds and condense their scientific verification history, while making the ABBO age-control replay environment and external source path explicit ([#358](https://github.com/bijux/bijux-pollenomics/pull/358)).
 
 - Bind current native atlas resources and iframe probes to exact accepted source and qualified publication bytes, and add bounded manual production-origin verification while retaining browser and scientific acceptance limits ([#357](https://github.com/bijux/bijux-pollenomics/pull/357)).
