@@ -55,6 +55,34 @@ def test_pi_signed_machin_remainders_and_trigonometric_endpoints() -> None:
     assert sinc_derivative(bounds, 0).lower <= 0 <= sinc_derivative(bounds, 0).upper
 
 
+def test_trigonometric_ranges_keep_exact_extrema_on_broad_domains() -> None:
+    domain = Interval(Fraction(-4), Fraction(4))
+    for operator in (sin_bounds, cos_bounds):
+        bounds = operator(domain)
+        assert bounds == Interval(Fraction(-1), Fraction(1))
+    half_pi = pi_bounds() / 2
+    assert sin_bounds(half_pi).upper == 1
+    assert cos_bounds(pi_bounds()).lower == -1
+
+
+@pytest.mark.parametrize("derivative", range(9))
+def test_sinc_global_derivative_bound_preserves_exact_origin_and_binary_lattice(
+    derivative: int,
+) -> None:
+    bounds = sinc_derivative(Interval(Fraction(-4), Fraction(4)), derivative)
+    cap = Fraction(1, derivative + 1)
+    quantum = Fraction(1, 2**96)
+    assert -cap - quantum < bounds.lower <= bounds.upper < cap + quantum
+    expected_origin = (
+        Fraction((-1) ** (derivative // 2), derivative + 1)
+        if derivative % 2 == 0
+        else Fraction(0)
+    )
+    assert bounds.lower <= expected_origin <= bounds.upper
+    assert (bounds.lower / quantum).denominator == 1
+    assert (bounds.upper / quantum).denominator == 1
+
+
 @pytest.mark.parametrize(
     "derivative,expected",
     [

@@ -638,6 +638,61 @@ inversions and previously exposed targets remain assumptions. Historical A bits,
 full coefficient precision, source-complete physical reconstruction, measured
 vegetation, untouched confirmation and qualified scientific review remain open.
 
+## Exact elementary ranges on the frozen receivers
+
+The continuous arithmetic now intersects its Taylor enclosures with the exact
+global ranges of sine and cosine, and the bound
+`|sinc^(n)(z)| <= 1/(n+1)`. The latter follows by differentiating
+`sinc(z) = integral_0^1 cos(t*z) dt` and integrating `t^n`.
+The rational bounds are rounded outward before intersection, preserving the
+existing 96-bit lattice and all original tolerances.
+
+A paired comparison isolated this change on 24 fixed seven-node unit panels:
+the six original receivers, each with Q(R), Q(L), and both first-band Duffy
+triangles. Every new enclosure lay inside its accepted-main enclosure.
+Their full widths were respectively 43.07–43.41%, 20.33–20.73%, 5.977–6.001%
+and 7.299–7.353% of the original widths. This comparison took 14.38 seconds;
+it did not certify a complete integral.
+
+An actual adaptive evaluation at Git revision `88e319b915703026e41cf1802c52caa20effad93`
+then called the maintained `enclose_population` API on the original frozen
+six geometries and attenuation coefficients. The recovered input freeze was
+3,915 bytes, SHA-256
+`c32b78b844f31d11e587bcc69a91cb50bb8fae943ee37f0cad057b4b6c807c4f`.
+No native prefix was recaptured. All six owners, 84 complete integration
+domains and 203 saved leaves were retained when the shared 160-second work
+deadline was reached.
+The complete process took 160.132312 seconds, below its separate 180-second
+process cap, used 172,212,224 bytes peak RSS and wrote 163,847 bytes.
+Every case retained its `wall_seconds` refusal.
+
+| Coefficient | New full-width range across the six owners | New/historical width |
+| --- | ---: | ---: |
+| K | 1.9952e6–2.8322e6 | 43.07–43.41% |
+| B1 and B2 | 8.9883e16–2.3316e17 | 14.53–18.76% |
+
+Displayed widths and ratios are rounded; the closed certificates retain exact
+rational values.
+
+The historical adaptive result used revision `6ea7d2e1` and a different timed
+work allocation. This same-input comparison does not isolate the cause of its
+entire adaptive width difference; the paired fixed panels above do isolate
+the elementary-function change. All 18 final `1e-9` width tests and all 18
+positive-lower-bound tests still failed. These bounds do not support normalized
+predictions or close the continuous coefficient-precision requirement.
+
+The independent observer replayed all six owners, 203 leaves and 9,443 fixed
+nodes using its own geometry and Peano assembly. Accounting passed; its own
+18 coefficient-width tests remained unresolved. It took 67.866 seconds and
+168,312,832 bytes peak RSS. HEAD, index, consumed sources, the original freeze
+and closed producer proofs stayed unchanged through both executions. The
+fixed-input evaluation and observer are distinct from native-environment
+qualification of the original recapturing study command. Their raw results,
+certificates and driver remain under
+`artifacts/verification/continuous-receiver-analytic-ranges/`; earlier refused
+studies, later score-separation evidence and all physical/source limitations
+retain their original scopes. No prediction, refit or score was produced.
+
 
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
