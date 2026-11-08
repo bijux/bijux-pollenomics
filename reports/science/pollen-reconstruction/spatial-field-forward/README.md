@@ -367,6 +367,87 @@ observed derivative/conditioning cost or derive informative continuous bounds
 by a different justified calculation before prediction propagation.
 
 
+## Analytic receiver-angle contraction
+
+The internal `continuous_receiver.angle_moments` primitive supplies a different
+representation of the same captured-A law. It does not change the original
+receiver radius, source annulus, anchors, exponent or six owners. The complete
+two-dimensional refusals above remain unchanged; no six-case coefficient study
+using this representation has yet been executed.
+
+Write `delta=|b|²−|a|²`, `N=|a+b|²`, `D=|a−b|²`, `c=a·b` and `C0=ND`.
+The original angular mean gives
+
+```text
+F(w) = h'(sqrt(w))/sqrt(w) = -2 delta D / [4(w-c)²+C0]^(3/2).
+```
+
+Translate the source point `(r cos(phi),r sin(phi))` by the receiver-edge
+vector `(R,0)` and call its displacement polar coordinates `(d,theta)`.
+Then `r²=R²+d²+2Rd cos(theta)`, `r sin(phi)=d sin(theta)` and
+`r dr dphi=d dd dtheta`. Consequently the original radial correction is exactly
+
+```text
+J = integral (2d/pi) exp(-A d^(1/8)) F(R²+d²+2Rd cos(theta)) sin²(theta) dd dtheta.
+```
+
+For the explicitly supported `L>3R` domain, displacement support is complete:
+`0<=d<=2R` uses angles from zero to `acos(-d/(2R))`; `2R<=d<=L-R` uses
+all angles from zero to pi; and `L-R<=d<=L+R` uses angles from
+`acos((L²-R²-d²)/(2Rd))` to pi. Displacement distance is not a replacement
+source radius. No collar, tail or contact mass is omitted.
+
+Set `w0=R²+d²`, `v=2Rd cos(theta)` and `W0=4(w0-c)²+C0`. Expanding
+`(1+q)^(-3/2)`, where `q=[8(w0-c)v+4v²]/W0`, through powers zero to five
+leaves a degree-ten angular polynomial. The implementation integrates that
+finite function with its own Taylor derivatives. It does not label those
+derivatives as derivatives of the full original F. With `B=2R(L+R)`,
+
+```text
+qbar = 2B/sqrt(C0) + 4B²/C0 < 14/15
+T = (3003/1024) qbar^6 / (1-15qbar/14)
+absolute whole-J remainder <= (L+R)² |delta| D T / [C0 sqrt(C0)].
+```
+
+The geometric majorant applies to every angle and displacement; `S<=1` and
+`integral_0^pi sin²(theta)dtheta=pi/2` bound its entire original-domain error.
+Certified root lower bounds keep this inequality outward. On the unchanged
+frozen geometry, the bounds below apply to both retained taxon A values.
+
+| Geometry | Uniform q upper bound, approximate | Whole-J absolute remainder upper bound, approximate |
+| --- | ---: | ---: |
+| BOKE | 0.000339408 | 5.636e-22 |
+| BUS | 0.000248408 | 5.301e-23 |
+| SOLSOE83 | 0.002069562 | 5.465e-18 |
+
+All are below `epsilon/256`. This is a rigorous truncation bound, not a bound
+on the still-unevaluated one-dimensional quadrature error. A complete coefficient
+certificate must widen the summed finite-polynomial J by this global radius in
+both directions exactly once.
+
+The angular primitives satisfy `M0=(theta-sin(theta)cos(theta))/2`,
+`M1=sin³(theta)/3` and
+`(m+2)Mm=sin³(theta)cos^(m-1)(theta)+(m-1)M_(m-2)` for `m>=2`.
+Outer tails retain negative odd moments. The inner parameterization
+`d=2R sin(eta)`, `eta=pi*t^8/2` removes the contact root; its exact measure
+factor is `32R²*t^7*sin(eta)*cos(eta)`. The outer parameterization
+`d=-R cos(theta)+sqrt(L²-R²sin²(theta))`, `theta=pi*t` removes inverse-angle
+endpoint singularities. Full-angle displacement bands remain dyadic and bounded.
+Equal-norm anchors give exact `J=0`, including noncoincident antipodal anchors;
+original Geometry validation and the original Q/K calculation remain required.
+
+Dimensionless scaling is essential on the fixed absolute 96-bit lattice.
+The implementation multiplies by the exact scalar `1/C0` before reciprocation,
+then uses `(-2 delta D/C0)/sqrt(C0)` and the dimensionless denominator.
+It avoids an intermediate reciprocal near `1e-33` that the absolute lattice
+cannot resolve. A synthetic large-anchor point control narrows the interval
+from approximately `1.77e-7` to `5.05e-29` without increasing arithmetic precision.
+Independent polynomial-annulus identities for `F(w)=1,w,w²`, moment identities,
+contact/outer endpoint derivatives, signed tails and original admission guards
+provide focused controls. These establish the representation and remainder,
+not success within the original 160-second work / 180-second process,
+768 MiB / 5 MB study limits or any of the eighteen `1e-9` coefficient goals.
+
 ## True survival endpoints and monotone ring bounds
 
 The actual wide two-dimensional certificates motivate a different continuous
