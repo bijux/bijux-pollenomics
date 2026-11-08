@@ -12,7 +12,9 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Restore scientific report rendering and current locked-environment replay recipes while preserving source claims and historical qualification limits ([#347](https://github.com/bijux/bijux-pollenomics/pull/347)).
+- **Pending review:** Expose conflicting Neotoma site-area unit definitions without selecting units or admitting basin evidence, and distinguish current prerequisite metadata from its historical projection ([#348](https://github.com/bijux/bijux-pollenomics/pull/348)).
+
+- **Verified merge (2026-11-08 12:09:31 UTC):** Restore scientific report rendering and current locked-environment replay recipes while preserving source claims and historical qualification limits ([#347](https://github.com/bijux/bijux-pollenomics/pull/347)).
 
 - **Verified merge (2026-11-08 11:51:00 UTC):** Tighten continuous receiver elementary enclosures and record the frozen six-receiver evaluation with coefficient precision still refused ([#346](https://github.com/bijux/bijux-pollenomics/pull/346)).
 
