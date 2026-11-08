@@ -504,3 +504,94 @@ def test_malformed_direkli_study_correspondence_refuses(
     ] = value
     with pytest.raises(ValueError, match="native study assertion binding differs"):
         bind(rows, qualified_fixture(document, monkeypatch))
+
+
+def test_original_paper_references_remain_document_label_correspondence(
+    rows: tuple[AdnaProjectSampleMasterRow, ...], context: bytes
+) -> None:
+    expected = {
+        "Direkli1-2": (("Direkli1", "DM2546", 25), ("Direkli2", "DM3110", 25)),
+        "Blagotin3": (("Blagotin3", "Zemunica 6, BLJhIII", 24),),
+        "Acem2": (("Acem2", "AC14486", 30),),
+        "Semnan3": (("Semnan3", "MM TSC5", 28),),
+    }
+    for row in bind(rows, context):
+        for label, reference, page in expected[row.preferred_sample_label]:
+            literal = f"{label} {reference!r} (PDF page {page})"
+            assert row.sample_ambiguity_note.count(literal) == 1
+            assert row.sample_lineage_excerpt.count(literal) == 1
+            assert row.sample_lineage_locator.count(literal) == 1
+        assert "document-label correspondence only" in row.sample_ambiguity_note
+        assert "no native accession field carries" in row.sample_ambiguity_note
+        assert row.sample_identity_resolution == "ambiguous"
+        assert row.project_accession == "PRJEB90141"
+        assert row.source_native_identity_kind == "supplementary_sample_label"
+        if row.preferred_sample_label == "Blagotin3":
+            assert "unresolved source wording" in row.sample_ambiguity_note
+            assert "without selecting another locality" in row.sample_ambiguity_note
+        else:
+            assert "unresolved source wording" not in row.sample_ambiguity_note
+
+
+def test_original_paper_reference_order_does_not_change_correspondence(
+    rows: tuple[AdnaProjectSampleMasterRow, ...],
+    context: bytes,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    expected = bind(rows, context)
+    document = json.loads(context)
+    document["original_paper_context"]["reported_references"].reverse()
+    assert bind(rows, qualified_fixture(document, monkeypatch)) == expected
+
+
+@pytest.mark.parametrize("change", ["missing", "duplicate", "orphan", "swapped"])
+def test_original_paper_requires_exact_five_native_reference_coverage(
+    rows: tuple[AdnaProjectSampleMasterRow, ...],
+    context: bytes,
+    monkeypatch: pytest.MonkeyPatch,
+    change: str,
+) -> None:
+    document = json.loads(context)
+    references = document["original_paper_context"]["reported_references"]
+    if change == "missing":
+        references.pop()
+    elif change == "duplicate":
+        references.append(references[0])
+    elif change == "orphan":
+        extra = json.loads(json.dumps(references[0]))
+        extra["native"]["primary_id"] = "SAMEA999999"
+        references.append(extra)
+    else:
+        references[0]["native"], references[1]["native"] = (
+            references[1]["native"],
+            references[0]["native"],
+        )
+    with pytest.raises(ValueError, match="original-paper"):
+        bind(rows, qualified_fixture(document, monkeypatch))
+
+
+@pytest.mark.parametrize("field", ["primary_id", "secondary_id", "title", "alias"])
+def test_original_paper_native_identity_binding_refuses_mismatched_fields(
+    rows: tuple[AdnaProjectSampleMasterRow, ...],
+    context: bytes,
+    monkeypatch: pytest.MonkeyPatch,
+    field: str,
+) -> None:
+    document = json.loads(context)
+    reference = document["original_paper_context"]["reported_references"][0]
+    reference["native"][field] = "wrong-native-assertion"
+    with pytest.raises(ValueError, match="original-paper"):
+        bind(rows, qualified_fixture(document, monkeypatch))
+
+
+def test_original_paper_label_must_match_literal_native_title(
+    rows: tuple[AdnaProjectSampleMasterRow, ...],
+    context: bytes,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    document = json.loads(context)
+    document["original_paper_context"]["reported_references"][0]["paper_label"] = (
+        "Direkli2"
+    )
+    with pytest.raises(ValueError, match="native label binding differs"):
+        bind(rows, qualified_fixture(document, monkeypatch))

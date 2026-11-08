@@ -331,5 +331,91 @@
       "scope": "The native PROJECT description reports the matched Direkli labels as the same individual. Preserve this source assertion without selecting a physical specimen, collapsing records, pooling genotypes or admitting biological identity."
     },
     "scope": "Current native PROJECT identity, publication link and two selected source assertions only. Not historical export authentication, configured PRJEB90141 ownership, specimen-roster closure or instructions to perform an analysis. Other named pairs are outside this context."
+  },
+  "original_paper_context": {
+    "source": {
+      "http_status": 200,
+      "started_utc": "2026-11-08T20:52:05.584353+00:00",
+      "completed_utc": "2026-11-08T20:52:05.996153+00:00",
+      "bytes": 5679902,
+      "sha256": "da912da51f14386ff4798d0c28b64094dfc95dfa961b6295d3c89f50e45a6d2f",
+      "url": "https://api.repository.cam.ac.uk/server/api/core/bitstreams/e1ef1fa7-9c12-4855-b2be-12f51c92e027/content",
+      "external_member": "adna/goat-imputation/paper-supplements/10.1126-science.aas9411/2026-11-08/response.pdf"
+    },
+    "response_filename": "aas9411_CombinedPDF_v4.pdf",
+    "repository_item": {
+      "source": {
+        "http_status": 200,
+        "started_utc": "2026-11-08T21:34:37.982480+00:00",
+        "completed_utc": "2026-11-08T21:34:38.131059+00:00",
+        "bytes": 19201,
+        "sha256": "25a73d04f2d957efb8f9e960235192d82bff00198fb6879599668f9fe6fbd5ff",
+        "url": "https://api.repository.cam.ac.uk/server/api/core/items/68b3f342-4e20-4ccd-988d-7496a3ce4d58",
+        "external_member": "adna/goat-imputation/paper-supplements/10.1126-science.aas9411/2026-11-08/repository-item.json"
+      },
+      "declared_version": "AM",
+      "declared_licence_uri": "http://www.rioxx.net/licenses/all-rights-reserved",
+      "declared_licence_startdate": "2018-07",
+      "version_of_record_doi": "10.1126/science.aas9411"
+    },
+    "reported_references": [
+      {
+        "paper_label": "Direkli1",
+        "reported_sample_reference": "DM2546",
+        "methods_pdf_page": 25,
+        "native": {
+          "primary_id": "SAMEA4453841",
+          "secondary_id": "ERS2404573",
+          "title": "Direkli1",
+          "alias": "TCD_Direkli1"
+        }
+      },
+      {
+        "paper_label": "Direkli2",
+        "reported_sample_reference": "DM3110",
+        "methods_pdf_page": 25,
+        "native": {
+          "primary_id": "SAMEA4453842",
+          "secondary_id": "ERS2404574",
+          "title": "Direkli2",
+          "alias": "TCD_Direkli2"
+        }
+      },
+      {
+        "paper_label": "Blagotin3",
+        "reported_sample_reference": "Zemunica 6, BLJhIII",
+        "methods_pdf_page": 24,
+        "native": {
+          "primary_id": "SAMEA4588077",
+          "secondary_id": "ERS2408800",
+          "title": "Blagotin3",
+          "alias": "TCD_Blagotin3"
+        }
+      },
+      {
+        "paper_label": "Acem2",
+        "reported_sample_reference": "AC14486",
+        "methods_pdf_page": 30,
+        "native": {
+          "primary_id": "SAMEA4591761",
+          "secondary_id": "ERS2412479",
+          "title": "Acem2",
+          "alias": "Acem2"
+        }
+      },
+      {
+        "paper_label": "Semnan3",
+        "reported_sample_reference": "MM TSC5",
+        "methods_pdf_page": 28,
+        "native": {
+          "primary_id": "SAMEA4591758",
+          "secondary_id": "ERS2412476",
+          "title": "Semnan3",
+          "alias": "Semnan3"
+        }
+      }
+    ],
+    "scope": "Five already-exposed Methods references joined only by the exact paper labels and current native TITLE/alias assertions. No native SAMPLE XML carries these original references. They are reported sample-reference strings, not selected physical-specimen, extraction or library identifiers, historical export authentication, project ownership or biological admission. Table S1 Site (Site Identifier) denotes site/Figure 1 numbering, not specimens. The repository declares an accepted manuscript (AM) and all rights reserved; this does not establish publisher-version equivalence, an analytical-use licence or permission to redistribute the raw PDF. No new date, coordinate or genotype interpretation.",
+    "blagotin_reference_caution": "For Blagotin3 the Methods reference literally reads 'Zemunica 6, BLJhIII', while Table S1 and the native description name Blagotin-Poljna. Retain this unresolved source wording without selecting another locality or a material/extraction role."
   }
 }

@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Retain five cited goat sample references as document correspondence, preserve unresolved specimen identities and propagate their provenance through the existing scientific consumers ([#365](https://github.com/bijux/bijux-pollenomics/pull/365)).
+
 - Bind retained map downloads to committed source bytes, remove duplicate per-file hashes and check the finite download boundary before scientific site rendering ([#364](https://github.com/bijux/bijux-pollenomics/pull/364)).
 
 - Retain current goat run-study associations and the attributed native Direkli statement while preserving ambiguous identities, and prevent provenance text loss in chronology Markdown tables ([#363](https://github.com/bijux/bijux-pollenomics/pull/363)).
