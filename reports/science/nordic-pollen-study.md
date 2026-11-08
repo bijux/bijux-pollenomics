@@ -39,7 +39,8 @@ For Danish Solsø, we kept the
 [EPD/PANGAEA `SOLSOE81` core record](https://doi.pangaea.de/10.1594/PANGAEA.740759)
 separate from later site-area reports. It gives a 2.5 ha event area, 0.98 m
 water depth and a strongly drained lake. Neotoma dataset 4445 binds the same
-core handle to collection unit 4303 and reports a 25,563 m² site area, but
+core handle to collection unit 4303 and retains a native site `area` value
+of 25,563 with an unresolved unit, but
 its centroid (8.61341° E, 56.12846° N) is 1.352 km from the PANGAEA event
 point (8.63333° E, 56.13333° N) by WGS84 inverse geodesic. An
 [author's later comparison](https://doi.org/10.1046/j.1365-2745.2000.00490.x)

@@ -1,6 +1,6 @@
 # Neotoma LRA prerequisite review
 
-The [source-bound projection](projection.json) has SHA-256
+The [retained source-bound projection](projection.json) has SHA-256
 `26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809`.
 It retains 10,637 sample-owned chronology review rows and 163 source-site basin
 review rows from the corrected Neotoma relational snapshot. Country partitions
@@ -17,6 +17,10 @@ remain in the corrected 163-site cohort under the same raw Neotoma snapshot,
 and projects the same source pages against the larger cohort. Fourteen native
 lakeparameter rows match 13 current sites; 43 sites separately retain a native
 site `area` value without an established unit or historical basin meaning.
+The current consumer separately records the provider's conflicting unit
+definitions; see the [native-area source review](../../../../public/pollenomics-data/sources/neotoma.md#earlier-54-site-basin-source-review).
+Its selected native unit remains null. This additional metadata does not
+convert the 43 values or select basin evidence.
 The source pages came from live offset pagination, not a transactional snapshot;
 absence of a row is not certified.
 
@@ -52,14 +56,23 @@ REVEALS point estimate; original counts and taxon eligibility still govern
 sampling uncertainty and the reconstructed composition. None of these
 distinctions admits the presently unreviewed source rows automatically.
 
-To reproduce, run
+The retained projection belongs to its original producing revision
+`82c8fc4ed3d847909d14162f51b77dc59ccc0a70` and qualification environment.
+Its original receipt and exact bytes remain evidence of that execution.
+
+To build the current metadata-bearing projection, run
 `python -m bijux_pollenomics_dev.taxa_review.lra_prerequisites` with the
 repository raw root `data/neotoma/raw/neotoma_pollen_dataset_downloads`,
 normalized root `data/neotoma/relational`, external capture root
 `<external-Neotoma-lakeparameter-capture-root>`, capture
 SHA-256 `0c800ed252d6bd2bbed72f5ac7798e27d7a72f89330170b8ce33989384c758fd`,
-and a new output path under `artifacts/`. Compare the resulting exact SHA-256
-with the governed projection above before reuse. The external capture path is a
+and a new output path under `artifacts/`. The qualified current output has
+SHA-256 `0de2ecfaf3cdc802236801b732813bc72258396c544f01d0cbbb7306e2813885`,
+distinct from the retained historical projection. An exact readback preserves
+all 10,637 chronology rows, 163 sites, country denominators, 43 native area
+values/types/locators and 14 lakeparameter candidates. Only the new definition
+review metadata and its dependent digests differ. Returned decisions must bind
+the exact projection digest they actually reviewed. The external capture path is a
 local custody location, not a source publication URL.
 
 
