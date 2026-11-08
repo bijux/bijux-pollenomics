@@ -170,7 +170,7 @@ provider publication record identifies Giesecke's 2005 study as primary:
 *Vegetation History and Archaeobotany* **14**, 133–147. The publisher verifies
 that DOI and volume; the provider record itself has a null publication DOI and
 prints volume 13. Those source fields were not silently corrected. The
-[existing core-method account](../../../../../reports/science/abborrtjarnen-source-method.md)
+[existing core-method account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/abborrtjarnen-source-method.md)
 retains the publication-to-core interpretation and its remaining limits.
 
 The captured policy requests the Neotoma reference **Williams, Grimm et al.

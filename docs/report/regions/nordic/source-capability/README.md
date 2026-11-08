@@ -114,7 +114,7 @@ parent/build identities were refreshed through the existing generators.
 
 ## Current country-ledger authority
 
-The 28 October 2026 [governed ledger](../../../../../data/country_dimension_coverage.json)
+The 28 October 2026 [governed ledger](https://github.com/bijux/bijux-pollenomics/blob/main/data/country_dimension_coverage.json)
 retains all 198 count, availability and lifecycle cells while identifying each
 partition's actual assignment authority. The current Finnish boundary profile
 includes both `FIN` and `ALD`; the historical SEAD admission retains its original
@@ -122,7 +122,7 @@ includes both `FIN` and `ALD`; the historical SEAD admission retains its origina
 are not labeled as fresh current-boundary replays without evidence.
 
 The updated writer and independent full-cube check are documented in
-[the country account](../../../../../reports/science/country-evidence-status.md#current-assignment-authority-accounting).
+[the country account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md#current-assignment-authority-accounting).
 The existing source-capability consumer was then run at `47da870a2` on the
 committed current parents: 0.96 s, RSS 49,332,224 bytes. Its independent 1.03 s
 readback, RSS 42,172,416 bytes, verifies all 66 entries/198 dimension projections,

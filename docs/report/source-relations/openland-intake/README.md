@@ -37,7 +37,7 @@ the existing identity, rights, source-route and deduplication decisions.
 | `container` | 8 | Directory entries contain no member observations; CRS, age and measures are inapplicable. |
 
 For the 25 modeled slices, the maintained
-[OpenLand authority](../../../../packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/open_land/authority.py)
+[OpenLand authority](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/open_land/authority.py)
 binds exact member names to `SOURCE_WINDOWS_BP` and the source column vocabulary.
 Its first four label/window mappings are 50/0–100, 225/100–350, 550/350–700 and
 1000/700–1200 BP; later windows follow that authority's explicit mapping.

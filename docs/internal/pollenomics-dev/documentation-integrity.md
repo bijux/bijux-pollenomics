@@ -107,7 +107,7 @@ If the only route to one of these answers is a test name, commit note, backlog,
 or internal handbook, the public journey is incomplete. Add the domain answer
 to the owning public page and keep implementation procedure internal.
 
-The manually dispatched [scientific reading verification workflow](../../../.github/workflows/scientific-reading-verification.yml)
+The manually dispatched [scientific reading verification workflow](https://github.com/bijux/bijux-pollenomics/blob/main/.github/workflows/scientific-reading-verification.yml)
 builds an exact accepted main commit with the admitted Linux renderer and
 accepted documentation standards, then checks real article-link clicks at desktop
 and narrow widths. It verifies the twelve PDF downloads through their existing
