@@ -262,8 +262,8 @@ def test_world_plan_country_filters_do_not_reduce_global_chronology() -> None:
         "kind": "world",
         "countries": ["Sweden", "Norway", "Finland", "Denmark"],
     }
-    assert accountability["projected_node_count"] == 323
-    assert accountability["global_admitted_node_count"] == 323
+    assert accountability["projected_node_count"] == 335
+    assert accountability["global_admitted_node_count"] == 335
     assert accountability["excluded_by_scope_count"] == 0
-    assert accountability["refusal_count"] == 1152
-    assert sum(len(cast(list[object], layer["features"])) for layer in layers) == 323
+    assert accountability["refusal_count"] == 1158
+    assert sum(len(cast(list[object], layer["features"])) for layer in layers) == 335

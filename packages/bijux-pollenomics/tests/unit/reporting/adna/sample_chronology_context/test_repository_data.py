@@ -17,7 +17,7 @@ from bijux_pollenomics.reporting.adna.sample_chronology_context.repository impor
 from bijux_pollenomics.reporting.bundles.atlas_bundle.animal_chronology_publication import (
     build_animal_chronology_publication,
 )
-from bijux_pollenomics.reporting.geography import build_published_geography_plan
+from bijux_pollenomics.reporting.geography import GeographicScope
 
 
 def _data_root() -> Path:
@@ -33,16 +33,16 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
 
     assert dict(corpus.source_counts) == {
         "project_count": 40,
-        "sample_master_row_count": 1475,
-        "sample_chronology_row_count": 1475,
-        "sample_site_row_count": 1475,
-        "admitted_node_count": 319,
-        "refused_master_row_count": 1156,
+        "sample_master_row_count": 1493,
+        "sample_chronology_row_count": 1493,
+        "sample_site_row_count": 1493,
+        "admitted_node_count": 335,
+        "refused_master_row_count": 1158,
     }
     assert dict(corpus.refusal_counts) == {
         "sequencing_experiment_identity": 0,
         "sample_identity_not_final": 11,
-        "source_chronology_not_comparable": 789,
+        "source_chronology_not_comparable": 791,
         "source_coordinate_not_mappable": 356,
         "sample_provenance_unavailable": 0,
         "chronology_provenance_unavailable": 0,
@@ -73,14 +73,14 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
     assert Counter(node.project_species_latin_name for node in corpus.nodes) == {
         "Bos taurus": 31,
         "Capra hircus": 5,
-        "Equus caballus": 242,
+        "Equus caballus": 258,
         "Felis catus": 35,
         "Ovis aries": 4,
         "Sus scrofa domesticus": 2,
     }
     assert Counter(node.project_accession for node in corpus.nodes) == {
         "PRJEB30282": 2,
-        "PRJEB44430": 242,
+        "PRJEB44430": 258,
         "PRJEB59481": 4,
         "PRJEB75467": 31,
         "PRJEB81815": 35,
@@ -91,33 +91,55 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
         max(node.older_bp for node in corpus.nodes),
     ) == (320, 68764)
     assert Counter(node.chronology_precision_posture for node in corpus.nodes) == {
-        "contextual_interval": 5,
+        "contextual_interval": 9,
         "sample_approximate_or_modeled": 39,
-        "sample_precise_interval": 33,
-        "sample_precise_point": 242,
+        "sample_precise_interval": 29,
+        "sample_precise_point": 258,
     }
     assert Counter(node.coordinate_basis for node in corpus.nodes) == {
         "archive_coordinates": 4,
         "named_site_geocoding": 2,
         "supplementary_proximal_site_coordinates": 31,
-        "supplementary_table_coordinates": 282,
+        "supplementary_table_coordinates": 298,
     }
     assert Counter(node.coordinate_confidence for node in corpus.nodes) == {
         "approximate": 33,
-        "exact": 282,
+        "exact": 298,
         "source_reported_two_decimal_degrees": 4,
     }
     assert Counter(node.source_native_taxonomy_status for node in corpus.nodes) == {
         "available": 72,
-        "unavailable": 247,
+        "unavailable": 263,
     }
 
 
 def test_published_chronology_accountability_replays_current_source() -> None:
     corpus = load_animal_sample_chronology_corpus(_data_root())
-    plan = build_published_geography_plan(("Sweden", "Norway", "Finland", "Denmark"))
-    for scope in (plan.world_scope, *plan.regional_scopes):
-        name = f"{scope.slug}_animal_sample_chronology_context.json"
+    report_root = _data_root().parent / "docs" / "report"
+    for parts, slug in (
+        (("world",), "world"),
+        (("regions", "europe-plus"), "europe-plus"),
+        (("regions", "nordic"), "nordic"),
+    ):
+        result_dir = report_root.joinpath(*parts)
+        contract = json.loads(
+            (result_dir / f"{slug}_map_publication_contract.json").read_text()
+        )
+        scope = (
+            None
+            if contract["scope_kind"] == "world"
+            else GeographicScope(
+                key=contract["scope_key"],
+                kind=contract["scope_kind"],
+                label=contract["scope_label"],
+                slug=slug,
+                countries=tuple(contract["countries"]),
+                parent_key=contract["parent_scope_key"],
+                output_dir_parts=parts,
+                map_title=contract["title"],
+            )
+        )
+        name = f"{slug}_animal_sample_chronology_context.json"
         projection = project_animal_sample_chronology_context(
             corpus, geography_scope=scope
         )
@@ -131,18 +153,10 @@ def test_published_chronology_accountability_replays_current_source() -> None:
         payload, identity = build_animal_chronology_publication(
             projection, artifact_name=name
         )
-        result_dir = (
-            _data_root().parent / "docs" / "report" / Path(*scope.output_dir_parts)
-        )
         assert json.loads((result_dir / name).read_text()) == payload
-        contract = json.loads(
-            (result_dir / f"{scope.slug}_map_publication_contract.json").read_text()
-        )
         assert contract["animal_sample_chronology_context"] == identity
         for suffix in ("bundle", "summary"):
-            result = json.loads(
-                (result_dir / f"{scope.slug}_{suffix}.json").read_text()
-            )
+            result = json.loads((result_dir / f"{slug}_{suffix}.json").read_text())
             assert result["map_publication_contract"] == contract
 
 
@@ -178,7 +192,7 @@ def test_real_admitted_identity_set_equals_curated_fully_grounded_set() -> None:
             if fully_grounded:
                 curated_ids.add((row["project_accession"], row["master_id"]))
 
-    assert len(curated_ids) == 319
+    assert len(curated_ids) == 335
     assert not any(project == "PRJEB90141" for project, _ in curated_ids)
     assert source_ids == curated_ids
 

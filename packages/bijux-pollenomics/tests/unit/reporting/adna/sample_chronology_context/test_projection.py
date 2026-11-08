@@ -70,9 +70,9 @@ def test_global_projection_has_six_display_only_layers_and_unique_samples(
     projection = global_projection
     layers = projection.point_layers
     assert len(layers) == 6
-    assert sum(cast(int, layer["count"]) for layer in layers) == 323
+    assert sum(cast(int, layer["count"]) for layer in layers) == 335
     features = _features(projection)
-    assert len({feature["feature_id"] for feature in features}) == 323
+    assert len({feature["feature_id"] for feature in features}) == 335
     for row in [*layers, *features]:
         assert row["semantic_role"] == "animal_source_chronology_context"
         assert row["contribution_role"] == "display_only"
@@ -199,12 +199,7 @@ def test_nordic_inclusion_is_country_membership_not_inference(
         if country not in {"Denmark", "Finland", "Norway", "Sweden", ""}
         for feature in country_features
     )
-    assert all(feature["nordic_inclusion"] is False for feature in by_country[""])
-    assert all(
-        feature["nordic_inclusion_reason"]
-        == "Source-sample country is unassigned; Nordic inclusion is not inferred."
-        for feature in by_country[""]
-    )
+    assert "" not in by_country
 
 
 def test_projection_does_not_invent_scientific_classification_or_animal_scope(
@@ -227,7 +222,7 @@ def test_projection_does_not_invent_scientific_classification_or_animal_scope(
         for feature in features
         if feature["source_native_taxonomy_status"] == "unavailable"
     ]
-    assert len(unavailable) == 251
+    assert len(unavailable) == 263
     assert all(
         feature["source_native_scientific_name"] is None for feature in unavailable
     )
@@ -270,7 +265,7 @@ def test_four_country_scope_reconciles_zero_norway_and_null_bounds() -> None:
     )
     accountability = projection.accountability
     assert accountability["projected_node_count"] == 13
-    assert accountability["excluded_by_scope_count"] == 310
+    assert accountability["excluded_by_scope_count"] == 322
     assert (accountability["time_min_bp"], accountability["time_max_bp"]) == (
         340,
         9657,
@@ -292,15 +287,41 @@ def test_four_country_scope_reconciles_zero_norway_and_null_bounds() -> None:
 def test_global_unknown_country_is_visible_but_excluded_from_filtered_scope(
     global_projection: AnimalSampleChronologyContextProjection,
 ) -> None:
+    assert all(
+        feature["country_status"] != "unassigned"
+        for feature in _features(global_projection)
+    )
+    corpus = load_animal_sample_chronology_corpus(_data_root())
+    target = next(
+        node
+        for node in corpus.nodes
+        if node.country_name not in {"Denmark", "Finland", "Norway", "Sweden"}
+    )
+    unassigned = replace(
+        corpus,
+        nodes=tuple(
+            replace(node, country_name=None) if node == target else node
+            for node in corpus.nodes
+        ),
+    )
+    global_with_unknown = project_animal_sample_chronology_context(
+        unassigned, geography_scope=None
+    )
     global_rows = cast(
-        list[dict[str, object]], global_projection.accountability["country_rows"]
+        list[dict[str, object]], global_with_unknown.accountability["country_rows"]
     )
     unknown = next(row for row in global_rows if row["country_name"] is None)
-    assert unknown["node_count"] == 4
-    global_features = _features(global_projection)
-    assert (
-        sum(feature["country_status"] == "unassigned" for feature in global_features)
-        == 4
+    assert unknown["node_count"] == 1
+    unknown_features = [
+        feature
+        for feature in _features(global_with_unknown)
+        if feature["country_status"] == "unassigned"
+    ]
+    assert len(unknown_features) == 1
+    assert unknown_features[0]["feature_id"] == target.feature_id
+    assert unknown_features[0]["nordic_inclusion"] is False
+    assert unknown_features[0]["nordic_inclusion_reason"] == (
+        "Source-sample country is unassigned; Nordic inclusion is not inferred."
     )
 
     scope = GeographicScope(
@@ -313,23 +334,24 @@ def test_global_unknown_country_is_visible_but_excluded_from_filtered_scope(
         output_dir_parts=("countries", "sweden"),
         map_title="Sweden",
     )
-    sweden = build_animal_sample_chronology_context(_data_root(), geography_scope=scope)
+    sweden = project_animal_sample_chronology_context(unassigned, geography_scope=scope)
     features = _features(sweden)
     assert len(features) == 4
     assert {feature["country"] for feature in features} == {"Sweden"}
+    assert target.feature_id not in {feature["feature_id"] for feature in features}
 
 
 def test_accountability_binds_counts_taxonomy_and_input_identity(
     global_projection: AnimalSampleChronologyContextProjection,
 ) -> None:
     accountability = global_projection.accountability
-    assert accountability["global_admitted_node_count"] == 323
-    assert accountability["projected_node_count"] == 323
-    assert accountability["refusal_count"] == 1152
+    assert accountability["global_admitted_node_count"] == 335
+    assert accountability["projected_node_count"] == 335
+    assert accountability["refusal_count"] == 1158
     assert accountability["source_native_taxonomy"] == {
         "available_count": 72,
-        "unavailable_count": 251,
-        "denominator": 323,
+        "unavailable_count": 263,
+        "denominator": 335,
     }
     input_identity = cast(dict[str, object], accountability["input_identity"])
     assert input_identity["artifact_count"] == 121
