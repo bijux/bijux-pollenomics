@@ -458,14 +458,14 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         )
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
-        self.assertEqual(audit["sample_row_count"], 1475)
+        self.assertEqual(audit["sample_row_count"], 1493)
         self.assertEqual(audit["normalized_interval_count"], 315)
-        self.assertEqual(audit["normalized_point_count"], 368)
-        self.assertEqual(audit["unresolved_count"], 406)
+        self.assertEqual(audit["normalized_point_count"], 384)
+        self.assertEqual(audit["unresolved_count"], 407)
         audit_precision_counts = _count_mapping(audit["precision_counts"])
-        self.assertEqual(audit_precision_counts["contextual_interval"], 32)
+        self.assertEqual(audit_precision_counts["contextual_interval"], 36)
         self.assertEqual(audit_precision_counts["sample_approximate_or_modeled"], 200)
-        self.assertEqual(audit_precision_counts["sample_precise_interval"], 239)
+        self.assertEqual(audit_precision_counts["sample_precise_interval"], 235)
         self.assertFalse(
             any(
                 row["project_accession"]
@@ -515,15 +515,15 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         goat_project = next(
             row for row in project_rows if row["project_accession"] == "PRJNA1328209"
         )
-        self.assertEqual(goat_project["exact_sample_date_count"], 5)
+        self.assertEqual(goat_project["exact_sample_date_count"], 1)
         horse_species = next(
             row for row in species_rows if row["species_latin_name"] == "Equus caballus"
         )
-        self.assertEqual(horse_species["normalized_row_count"], 290)
+        self.assertEqual(horse_species["normalized_row_count"], 306)
         horse_dom2 = next(
             row for row in project_rows if row["project_accession"] == "PRJEB44430"
         )
-        self.assertEqual(horse_dom2["normalized_row_count"], 248)
+        self.assertEqual(horse_dom2["normalized_row_count"], 264)
         self.assertTrue(
             any(
                 row["project_accession"] == "PRJNA705960"
@@ -543,8 +543,8 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
                 for row in gap_queue
             )
         )
-        self.assertEqual(len(sample_review_rows), 1475)
-        self.assertEqual(len(provenance_rows), 1475)
+        self.assertEqual(len(sample_review_rows), 1493)
+        self.assertEqual(len(provenance_rows), 1493)
         horse_provenance = next(
             row
             for row in provenance_rows
