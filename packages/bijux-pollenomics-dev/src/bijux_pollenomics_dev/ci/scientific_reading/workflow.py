@@ -65,6 +65,7 @@ def verify_workflow(document: dict[str, Any]) -> None:
         "Admit exact documentation standards",
         "Install admitted documentation renderer",
         "Check retained publication downloads",
+        "Check native report configuration",
         "Build and verify the production-site artifact",
         "Locate hosted Chromium",
         "Verify actual scientific reading and download routes",
@@ -87,6 +88,17 @@ def verify_workflow(document: dict[str, Any]) -> None:
         and by_name["Build and verify the production-site artifact"].get("run")
         == "make gh-docs-build gh-docs-verify",
         "the admitted build and verifier must both execute",
+    )
+    require(
+        by_name["Check native report configuration"].get("run")
+        == (
+            "artifacts/docs/publication/python/bin/python "
+            ".bijux/shared/bijux-docs/security/render_publication.py "
+            "--config mkdocs.yml --site-dir artifacts/docs/site "
+            "--site-url https://bijux.io/bijux-pollenomics/ "
+            "--interactive-report-owner configs/docs/maps/report-owner.json --preflight"
+        ),
+        "the selected native report configuration must pass source preflight",
     )
     require(
         by_name["Set up supported Python"].get("with", {}).get("python-version")
