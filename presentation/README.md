@@ -9,19 +9,24 @@ reader needs:
 | Implementers | [Developer](developer.tex) | [Developer PDF](developer.pdf) |
 | Researchers | [Scientific evidence](scientific-evidence.tex) | [Scientific evidence PDF](scientific-evidence.pdf) |
 
-The current PDFs were compiled from Git revision `8d034903f10639d10655f4edbde78acc20358364`
-on 8 November 2026: 14 big-picture, 13 developer and 42 scientific pages.
+The current PDFs were compiled from Git revision `520c083fec40e16e64f4fbcd16a662ccd3ecd685`
+on 8 November 2026: 14 big-picture, 13 developer and 43 scientific pages.
 All three compiler commands completed successfully from the five committed
-inputs. Scientific page 23 plots the four matched Nordic/Swedish training
-error estimates on a zero-based fraction axis. It names the fixed target
-support, primary profile and missing uncertainty propagation, and keeps
-all-profile refusals separate. Independent source and visual review passed.
-All 69 pages pass embedded-font and text-bound checks; only scientific pages
-1 (edition date) and 23 changed text from the prior export. The other two decks
-retain their full text. All twelve paper/deck download bytes pass their existing
-source checks. Full human reading, tagged accessibility and online availability
-remain unqualified. Earlier exports retain their source and execution identities
-in Git history.
+inputs using the existing native PGFPlots path.
+
+Scientific page 32 shows the eighteen independently certified coefficient
+interval widths, divided by the unchanged `1e-9` goal. The six cases comprise
+three frozen geometries and two retained taxon-specific A values. Every width
+and positive lower bound passes in that captured-A law; historical A and
+field accuracy remain unqualified. The [exact coefficient result](../reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/receiver-angle-moments-result.json)
+owns the plotted values. The page 23 training-error comparison is unchanged.
+
+All 70 pages pass embedded-font and text-bound checks. All 69 original page
+texts are preserved after frame-number normalization; only the new scientific
+frame is added. The other two decks retain their full text, and all twelve
+paper/deck download bytes pass their existing source checks. Full human
+reading, tagged accessibility and online availability remain unqualified.
+Earlier exports retain their source and execution identities in Git history.
 
 Run `python3 presentation/build.py` from the repository root with `latexmk`
 and a working TeX distribution including PGFPlots 1.18 compatibility. Intermediate files and the compiler log go

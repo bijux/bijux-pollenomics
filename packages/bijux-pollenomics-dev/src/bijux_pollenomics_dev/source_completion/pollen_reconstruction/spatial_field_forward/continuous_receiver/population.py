@@ -7,7 +7,16 @@ from fractions import Fraction
 import heapq
 import math
 import time
+from typing import cast
 
+from .angle_moments.domains import AnglePartition
+from .angle_moments.results import (
+    MomentCoefficient,
+    radial_target,
+)
+from .angle_moments.results import (
+    assemble as assemble_moments,
+)
 from .arithmetic import Interval
 from .coefficients import (
     EPSILON,
@@ -76,14 +85,20 @@ class _Domain:
 
 @dataclass
 class _Case:
-    partition: RadialPartition
+    partition: RadialPartition | AnglePartition
     budget: WorkBudget
     domains: list[_Domain] = field(default_factory=list)
-    result: CoefficientResult | None = None
+    result: CoefficientResult | MomentCoefficient | None = None
     refusal: str | None = None
     sequence: int = 0
 
     def assemble(self) -> None:
+        if isinstance(self.partition, AnglePartition):
+            self.result = assemble_moments(
+                self.partition,
+                tuple(domain.result(self.refusal) for domain in self.domains),
+            )
+            return
         self.result = assemble_coefficients(
             self.partition.geometry,
             tuple(domain.result(self.refusal) for domain in self.domains),
@@ -111,12 +126,16 @@ def _initial_domains(case: _Case) -> None:
         lambda arguments: model.contact_survival(arguments[0]),
         lambda arguments: model.outer_survival(arguments[0]),
     ) + tuple(domain.evaluate for domain in case.partition.domains)
-    local_width = 2 * TRIANGLE_WIDTH / len(case.partition.domains)
+    local_width = (
+        radial_target(case.partition)
+        if isinstance(case.partition, AnglePartition)
+        else 2 * TRIANGLE_WIDTH / len(case.partition.domains)
+    )
     for index, function in enumerate(functions):
         if len(case.domains) >= case.budget.max_queue:
             raise ResourceRefusal("queue_ceiling")
         case.budget.add_leaf()
-        dimension = 1 if index < 2 else 2
+        dimension = 1 if index < 2 or isinstance(case.partition, AnglePartition) else 2
         box: Box = ((Fraction(0), Fraction(1)),) * dimension
         panel = positive_panel(function, box, case.budget, rule=SEVEN_NODE_RULE)
         enclosure = panel.enclosure
@@ -174,7 +193,7 @@ def _refine(case: _Case) -> None:
     case.assemble()
 
 
-def enclose_population(
+def _enclose_population(
     geometries: tuple[Geometry, ...],
     *,
     wall_seconds: float = 160,
@@ -182,7 +201,13 @@ def enclose_population(
     max_attempts: int = 8191,
     max_nodes: int = 73719,
     max_queue: int = 4096,
-) -> PopulationResult:
+    angle_moments: bool = False,
+) -> tuple[
+    tuple[CoefficientResult | MomentCoefficient | None, ...],
+    tuple[str | None, ...],
+    tuple[WorkBudget, ...],
+    float,
+]:
     """Close every initial domain, then refine the worst unresolved final width.
 
     Geometries are the sole mathematical inputs. Local quadrature allocations
@@ -218,11 +243,23 @@ def enclose_population(
     refusals: list[str | None] = []
     for model, budget in zip(geometries, budgets, strict=True):
         try:
-            cases.append(_Case(RadialPartition.build(model), budget))
+            partition = (
+                AnglePartition.build(model)
+                if angle_moments
+                else RadialPartition.build(model)
+            )
+            if isinstance(partition, AnglePartition):
+                radial_target(partition)
+            cases.append(_Case(partition, budget))
             refusals.append(None)
         except ResourceRefusal as error:
             cases.append(None)
             refusals.append(str(error))
+        except ValueError as error:
+            if not angle_moments:
+                raise
+            cases.append(None)
+            refusals.append("angle_method_domain:" + str(error))
     for index, case in enumerate(cases):
         if case is None:
             continue
@@ -255,9 +292,36 @@ def enclose_population(
             case.refusal = str(error)
             refusals[index] = case.refusal
             case.assemble()
-    return PopulationResult(
+    return (
         tuple(case.result if case is not None else None for case in cases),
         tuple(refusals),
         budgets,
         time.monotonic() - started,
+    )
+
+
+def enclose_population(
+    geometries: tuple[Geometry, ...],
+    *,
+    wall_seconds: float = 160,
+    max_leaves: int = 4096,
+    max_attempts: int = 8191,
+    max_nodes: int = 73719,
+    max_queue: int = 4096,
+) -> PopulationResult:
+    """Preserve the original two-dimensional dyadic-radial population contract."""
+    results, refusals, budgets, elapsed = _enclose_population(
+        geometries,
+        wall_seconds=wall_seconds,
+        max_leaves=max_leaves,
+        max_attempts=max_attempts,
+        max_nodes=max_nodes,
+        max_queue=max_queue,
+    )
+    if any(
+        value is not None and type(value) is not CoefficientResult for value in results
+    ):
+        raise ValueError("Foreign coefficient method in original population")
+    return PopulationResult(
+        cast(tuple[CoefficientResult | None, ...], results), refusals, budgets, elapsed
     )

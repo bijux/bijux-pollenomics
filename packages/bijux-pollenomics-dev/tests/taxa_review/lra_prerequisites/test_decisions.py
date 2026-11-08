@@ -23,7 +23,10 @@ from bijux_pollenomics_dev.taxa_review.lra_prerequisites.projection import (
 
 
 def _projection(
-    *, unassigned: bool = False, native_area: bool = False
+    *,
+    unassigned: bool = False,
+    native_area: bool = False,
+    basin_value: int | float | None = None,
 ) -> NeotomaPrerequisiteProjection:
     chronology: list[dict[str, Any]] = []
     for index in (1, 2):
@@ -58,7 +61,7 @@ def _projection(
     for index in (1, 2):
         evidence: dict[str, Any] = {
             "source_field": "lakeparameters.value:3",
-            "source_value": float(index),
+            "source_value": float(index) if basin_value is None else basin_value,
             "source_unit": "Surface area (ha)",
             "source_domain": "area",
             "source_row_locator": {"page": "page.json", "row_index": index},
@@ -331,6 +334,30 @@ def test_basin_selection_must_exactly_match_positive_observed_area(
     returned["basin_decisions"][0][field] = value
     with pytest.raises(ValueError, match=message):
         _validate(monkeypatch, projection, returned)
+
+
+@pytest.mark.parametrize(
+    ("native", "selected"), [(1.0, 1), (1, 1.0), (1.0, True), (1, True)]
+)
+def test_basin_selection_refuses_changed_native_json_scalar_type(
+    monkeypatch: pytest.MonkeyPatch, native: int | float, selected: object
+) -> None:
+    projection, returned = _review(_projection(basin_value=native))
+    returned["basin_decisions"][0]["selected_source_value"] = selected
+    with pytest.raises(ValueError, match="positive observed area with units"):
+        _validate(monkeypatch, projection, returned)
+
+
+@pytest.mark.parametrize("native", [1, 1.0])
+def test_unchanged_native_scalar_identity_remains_non_admitting(
+    monkeypatch: pytest.MonkeyPatch, native: int | float
+) -> None:
+    projection, returned = _review(_projection(basin_value=native))
+    result = _validate(monkeypatch, projection, returned)
+    assert type(returned["basin_decisions"][0]["selected_source_value"]) is type(native)
+    assert result["accepted_samples"] == 0
+    assert result["executable_request"] is None
+    assert result["reviewer_authority"] == "declared_not_authenticated"
 
 
 def test_support_and_unresolved_rows_cannot_invent_selections(

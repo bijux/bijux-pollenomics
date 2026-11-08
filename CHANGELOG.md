@@ -12,6 +12,12 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Plot all eighteen independently certified receiver coefficient widths against the original threshold in the scientific deck and qualify source-bound PDF exports while retaining historical and field-accuracy limits ([#356](https://github.com/bijux/bijux-pollenomics/pull/356)).
+
+- Certify receiver-angle coefficient bounds for six frozen captured-A geometries with independent replay, original precision/resource limits and explicit historical and field-accuracy boundaries ([#354](https://github.com/bijux/bijux-pollenomics/pull/354)).
+
+- Preserve native JSON integer and float identity in returned basin review selections while retaining source-authority refusals and non-admitting decisions ([#355](https://github.com/bijux/bijux-pollenomics/pull/355)).
+
 - Align documentation authority and generated provenance with the existing accepted shared components so source guards admit the unchanged publication renderer and assets ([#353](https://github.com/bijux/bijux-pollenomics/pull/353)).
 
 - Retire superseded synthetic boundary-orientation reports and delegate all twelve publication PDF integrity checks to their existing owner while retaining scientific source bindings and unresolved custody limits ([#352](https://github.com/bijux/bijux-pollenomics/pull/352)).

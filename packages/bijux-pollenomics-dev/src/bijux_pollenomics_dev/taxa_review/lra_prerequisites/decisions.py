@@ -202,6 +202,7 @@ def validate_returned_prerequisite_decisions(
         candidate = basin_candidates.get(selection)
         if (
             candidate is None
+            or canonical_bytes(candidate["source_value"]) != canonical_bytes(value)
             or candidate["source_domain"] != "area"
             or candidate["value_status"] != "positive"
             or candidate["unit_status"] == "not_observed"
