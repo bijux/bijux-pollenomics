@@ -26,7 +26,7 @@ GOAT_NATIVE_CONTEXT = (
     "data/adna/governance/source_library/projects/PRJEB90141/native_sample_context.json"
 )
 _NATIVE_CONTEXT_SHA256 = (
-    "61649f7954b8bef57297cd51efb23274580a116ae118bb9bfe006209de137ab2"
+    "05e596fda368e6eee16d6f1b68ec249324b697341ee1645fe7f1f9193c5098a7"
 )
 _NATIVE_WORKBOOK_SHA256 = (
     "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f"
@@ -275,6 +275,23 @@ def _matched_direkli_study_note(
     )
 
 
+def _original_paper_reference_correspondence(
+    *, natives: dict[str, Any], paper: dict[str, Any]
+) -> dict[str, Any]:
+    """Bind reported paper references to all native labels without choosing specimens."""
+    entries = paper["reported_references"]
+    references = {entry["native"]["primary_id"]: entry for entry in entries}
+    if len(references) != len(entries) or set(references) != set(natives):
+        raise ValueError("Goat original-paper reference coverage differs")
+    for accession, entry in references.items():
+        if entry["paper_label"] != natives[accession]["title"] or any(
+            entry["native"][field] != natives[accession][field]
+            for field in ("primary_id", "secondary_id", "title", "alias")
+        ):
+            raise ValueError("Goat original-paper native label binding differs")
+    return references
+
+
 def _bind_goat_comparator_native_context(
     rows: tuple[AdnaProjectSampleMasterRow, ...],
     *,
@@ -305,6 +322,10 @@ def _bind_goat_comparator_native_context(
         )
         for record in native_records
     }
+    paper = document["original_paper_context"]
+    paper_references = _original_paper_reference_correspondence(
+        natives=natives, paper=paper
+    )
     benchmarks = document["benchmarks"]
     by_label = {row.preferred_sample_label: row for row in rows}
     labels = [benchmark["sample_label"] for benchmark in benchmarks]
@@ -395,6 +416,23 @@ def _bind_goat_comparator_native_context(
             },
             study=document["native_study_context"],
         )
+        references = tuple(paper_references[accession] for accession in accessions)
+        paper_locator = "; ".join(
+            f"{reference['paper_label']} {reference['reported_sample_reference']!r} "
+            f"(PDF page {reference['methods_pdf_page']})"
+            for reference in references
+        )
+        note += (
+            " Retained accepted-manuscript Methods (Daly et al. 2018; DOI "
+            "10.1126/science.aas9411) reports "
+            + paper_locator
+            + ". Exact native TITLE/alias correspondence supports document-label "
+            "correspondence only; no native accession field carries these reported "
+            "references. They do not select physical-specimen, extraction or library "
+            "identifiers, project ownership, coordinates or chronology."
+        )
+        if label == "Blagotin3":
+            note += " " + paper["blagotin_reference_caution"]
         updated[label] = replace(
             row,
             source_native_tax_id=_join_distinct(
@@ -412,7 +450,9 @@ def _bind_goat_comparator_native_context(
                 for native in assertions
             )
             + " || current_run_associations: "
-            + "; ".join(accessions),
+            + "; ".join(accessions)
+            + " || Daly2018 AM Methods reported references: "
+            + paper_locator,
             sample_lineage_excerpt=f"{row.sample_lineage_excerpt} || {note}",
             sample_ambiguity_note=f"{row.sample_ambiguity_note} {note}",
         )
