@@ -12,7 +12,9 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- **Pending review:** Plot matched Nordic pollen errors in the scientific deck and qualify current source-bound PDF exports while preserving support, refusals and uncertainty limits ([#350](https://github.com/bijux/bijux-pollenomics/pull/350)).
+- Add manual source-bound scientific reading qualification and record installed compatibility-facade behavior without extending scientific or release acceptance ([#351](https://github.com/bijux/bijux-pollenomics/pull/351)).
+
+- **Verified merge (2026-11-08 12:55:56 UTC):** Plot matched Nordic pollen errors in the scientific deck and qualify current source-bound PDF exports while preserving support, refusals and uncertainty limits ([#350](https://github.com/bijux/bijux-pollenomics/pull/350)).
 
 - **Verified merge (2026-11-08 12:44:11 UTC):** Reconcile current report membership and source roles, preserve portable historical evidence, and record supplied theory-paper access and installed distribution qualification ([#349](https://github.com/bijux/bijux-pollenomics/pull/349)).
 
