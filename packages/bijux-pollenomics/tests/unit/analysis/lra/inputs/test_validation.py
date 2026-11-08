@@ -125,6 +125,41 @@ def test_nonzero_totals_preserve_individual_zero_counts(tmp_path: Path) -> None:
     ][0]["counts"] == [0, 10]
 
 
+@pytest.mark.parametrize("role", ["regional", "local"])
+@pytest.mark.parametrize(
+    "counts",
+    [
+        [2**53, 1],
+        [float(2**53), 1],
+        [1, float(2**53)],
+        [float(2**53), 1.0],
+        [1.0, float(2**53)],
+    ],
+)
+def test_exact_count_total_refuses_excess_mass_regardless_of_json_spelling(
+    tmp_path: Path, role: str, counts: list[int | float]
+) -> None:
+    payload = request_fixture(tmp_path, "lra")
+    payload[role]["samples"][0]["counts"] = counts
+    with pytest.raises(LRARefusal) as error:
+        validate_request(payload, input_root=tmp_path)
+    assert error.value.reason_code == "invalid_count_denominator"
+
+
+@pytest.mark.parametrize("counts", [[0.0, 10.0], [float(2**53 - 1), 1.0]])
+def test_integral_float_counts_retain_existing_exact_boundary(
+    tmp_path: Path, counts: list[float]
+) -> None:
+    payload = request_fixture(tmp_path)
+    payload["regional"]["samples"][0]["counts"] = counts
+    assert (
+        validate_request(payload, input_root=tmp_path).payload()["regional"]["samples"][
+            0
+        ]["counts"]
+        == counts
+    )
+
+
 def test_published_filipendula_fall_speed_is_admitted(tmp_path: Path) -> None:
     payload = request_fixture(tmp_path, "lra")
     payload["parameters"][0]["fallspeed_m_s"] = 0.006

@@ -346,7 +346,8 @@ def validate_regional_draw_love_request(
         _refuse("invalid_sample_lineage", sample["sample_id"])
     if (
         len(sample["counts"]) != len(copy["taxa"])
-        or not 0 < sum(sample["counts"]) <= 2**53
+        # Schema-qualified integral floats must retain exact counted mass.
+        or not 0 < sum(int(count) for count in sample["counts"]) <= 2**53
     ):
         _refuse("invalid_count_denominator", sample["sample_id"])
     if any(younger > older for younger, older in sample["age_support_bp"]):

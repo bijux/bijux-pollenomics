@@ -117,7 +117,9 @@ def _pollen(payload: dict[str, Any], roles: dict[str, str]) -> None:
                 _refuse("invalid_sample_lineage", row["sample_id"])
             if (
                 len(row["counts"]) != len(payload["taxa"])
-                or not 0 < sum(row["counts"]) <= 2**53
+                # JSON Schema integers can be integral floats; sum their exact
+                # integer values so binary64 rounding cannot hide excess mass.
+                or not 0 < sum(int(count) for count in row["counts"]) <= 2**53
             ):
                 _refuse("invalid_count_denominator", row["sample_id"])
             if any(younger > older for younger, older in row["age_support_bp"]):

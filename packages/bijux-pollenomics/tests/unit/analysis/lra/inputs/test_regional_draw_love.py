@@ -97,6 +97,38 @@ def test_distinct_request_retains_exact_draw_source_contract(
 
 
 @pytest.mark.parametrize(
+    "counts,accepted",
+    [
+        ([float(2**53), 1, 0], False),
+        ([0, 1.0, float(2**53)], False),
+        ([float(2**53), 0.0, 1.0], False),
+        ([0.0, 10.0, 20.0], True),
+        ([float(2**53 - 1), 1.0, 0.0], True),
+    ],
+)
+def test_draw_fed_count_total_uses_exact_integer_mass(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    counts: list[int | float],
+    accepted: bool,
+) -> None:
+    monkeypatch.setattr(
+        regional_draw_love,
+        "read_multisite_regional_draw_source",
+        lambda *args, **kwargs: _source(),
+    )
+    payload = _payload(tmp_path)
+    _rows(_mapping(payload["local"])["samples"])[0]["counts"] = counts
+    if accepted:
+        request = validate_regional_draw_love_request(payload, input_root=tmp_path)
+        assert request.payload()["local"]["samples"][0]["counts"] == counts
+    else:
+        with pytest.raises(LRARefusal) as error:
+            validate_regional_draw_love_request(payload, input_root=tmp_path)
+        assert error.value.reason_code == "invalid_count_denominator"
+
+
+@pytest.mark.parametrize(
     "case,reason",
     [
         ("regional", "invalid_lra_schema"),
