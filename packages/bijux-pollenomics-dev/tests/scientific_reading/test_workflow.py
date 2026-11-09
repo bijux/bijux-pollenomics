@@ -145,6 +145,49 @@ def test_omitted_site_verifier_is_refused(monkeypatch: pytest.MonkeyPatch) -> No
         verify_workflow(document)
 
 
+@pytest.mark.parametrize("change", ["missing", "foreign"])
+def test_site_retention_requires_the_qualified_build_step_identity(
+    monkeypatch: pytest.MonkeyPatch, change: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    selected = next(
+        step
+        for step in document["jobs"]["reading"]["steps"]
+        if step["name"] == "Build and verify the production-site artifact"
+    )
+    if change == "missing":
+        selected.pop("id")
+    else:
+        selected["id"] = "unqualified_build"
+    with pytest.raises(ValueError, match="both execute"):
+        verify_workflow(document)
+
+
+@pytest.mark.parametrize(
+    "condition",
+    [
+        "success()",
+        "always()",
+        "${{ steps.publication.outcome == 'success' }}",
+        "${{ always() && steps.browser.outcome == 'success' }}",
+        "${{ always() && steps.publication.outcome != 'skipped' }}",
+        "${{ always() && steps.publication.outcome == 'failure' }}",
+    ],
+)
+def test_site_retention_refuses_job_success_or_unqualified_build_predicates(
+    monkeypatch: pytest.MonkeyPatch, condition: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    selected = next(
+        step
+        for step in document["jobs"]["reading"]["steps"]
+        if step["name"] == "Retain verified site"
+    )
+    selected["if"] = condition
+    with pytest.raises(ValueError, match="qualified-build site upload"):
+        verify_workflow(document)
+
+
 @pytest.mark.parametrize("change", ["after_build", "replaced_command"])
 def test_download_boundary_must_execute_before_site_build(
     monkeypatch: pytest.MonkeyPatch, change: str

@@ -84,7 +84,9 @@ def verify_workflow(document: dict[str, Any]) -> None:
         by_name["Install admitted documentation renderer"].get("run")
         == "make gh-docs-install"
         and by_name["Build and verify the production-site artifact"].get("run")
-        == "make gh-docs-build gh-docs-verify",
+        == "make gh-docs-build gh-docs-verify"
+        and by_name["Build and verify the production-site artifact"].get("id")
+        == "publication",
         "the admitted build and verifier must both execute",
     )
     downloads = by_name["Check retained publication downloads"]
@@ -171,12 +173,13 @@ def verify_workflow(document: dict[str, Any]) -> None:
     )
     require(
         by_name["Retain verification evidence"].get("if") == "always()"
-        and by_name["Retain verified site"].get("if") == "success()"
+        and by_name["Retain verified site"].get("if")
+        == "${{ always() && steps.publication.outcome == 'success' }}"
         and all(
             by_name[name].get("with", {}).get("retention-days") == 14
             for name in required[-2:]
         ),
-        "evidence retention or success-only site upload differs",
+        "evidence retention or qualified-build site upload differs",
     )
     admissions = [
         step
