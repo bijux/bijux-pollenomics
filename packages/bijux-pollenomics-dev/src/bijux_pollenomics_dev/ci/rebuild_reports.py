@@ -169,14 +169,19 @@ def _safe_relative_path(value: str, label: str) -> Path:
     return path
 
 
-def _canonical_bytes(path: str, payload: bytes, policy: JsonObject) -> bytes:
-    """Normalize only policy-declared volatile text before comparison."""
+def _text_rules_for_path(path: str, policy: JsonObject) -> list[JsonObject]:
+    """Select matching text rules once, preserving their declared order."""
     applicable_rules: list[JsonObject] = []
     for raw_rule in cast(list[object], policy["volatile_text_rules"]):
         rule = _mapping(raw_rule, "volatile rule")
         globs = _string_list(rule["path_globs"], "volatile rule path_globs")
         if any(_matches_glob(path, pattern) for pattern in globs):
             applicable_rules.append(rule)
+    return applicable_rules
+
+
+def _canonical_bytes(payload: bytes, applicable_rules: Sequence[JsonObject]) -> bytes:
+    """Normalize the complete payload using only its selected text rules."""
     if not applicable_rules:
         return payload
     try:
@@ -201,9 +206,19 @@ def _regular_entry(path: Path, relative: str, policy: JsonObject) -> InventoryEn
     mode = path.lstat().st_mode
     if not stat.S_ISREG(mode):
         raise ReproducibleReportError(f"inventory member is not regular: {relative}")
-    payload = path.read_bytes()
+    with path.open("rb") as stream:
+        applicable_rules = _text_rules_for_path(relative, policy)
+        if not applicable_rules:
+            digest = hashlib.sha256()
+            size = 0
+            while chunk := stream.read(1024 * 1024):
+                digest.update(chunk)
+                size += len(chunk)
+            raw_sha256 = digest.hexdigest()
+            return InventoryEntry(relative, "file", size, raw_sha256, raw_sha256)
+        payload = stream.read()
     raw_sha256 = _sha256(payload)
-    canonical_payload = _canonical_bytes(relative, payload, policy)
+    canonical_payload = _canonical_bytes(payload, applicable_rules)
     return InventoryEntry(
         path=relative,
         kind="file",

@@ -3,9 +3,11 @@ from __future__ import annotations
 from collections.abc import Sequence
 import hashlib
 import json
+import os
 from pathlib import Path
+import stat
 import sys
-from typing import cast
+from typing import Any, cast
 
 import pytest
 
@@ -307,6 +309,86 @@ def test_input_inventory_keeps_literal_content_when_not_normalized(
         "size": len(payload),
         "sha256": digest,
         "canonical_sha256": digest,
+    }
+
+
+@pytest.mark.parametrize(
+    "payload",
+    (
+        bytes(range(256)) * 12_289,
+        "\ufeffMálaga 🙂\r\n".encode() * 300_001,
+    ),
+    ids=("binary", "utf8"),
+)
+def test_literal_inventory_reads_bounded_chunks_and_keeps_complete_identity(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, payload: bytes
+) -> None:
+    root, policy_path = _fixture_repo(tmp_path, volatile=True)
+    policy = load_policy(policy_path)
+    policy["input_paths"] = ["literal.bin"]
+    source = root / "literal.bin"
+    source.write_bytes(payload)
+    original_open = Path.open
+    reads: list[int] = []
+
+    def bounded_open(path: Path, *args: Any, **kwargs: Any) -> Any:
+        stream = original_open(path, *args, **kwargs)
+        if path == source:
+            original_read = stream.read
+
+            def bounded_read(size: int = -1) -> bytes:
+                assert 0 < size <= 1024 * 1024
+                chunk = original_read(size)
+                assert isinstance(chunk, bytes)
+                reads.append(len(chunk))
+                return chunk
+
+            monkeypatch.setattr(stream, "read", bounded_read)
+        return stream
+
+    monkeypatch.setattr(Path, "open", bounded_open)
+    entries = inventory_inputs(root, policy)
+    assert len(entries) == 1
+    assert len([size for size in reads if size]) > 1
+    assert reads[-1] == 0 and sum(reads) == len(payload)
+    digest = hashlib.sha256(payload).hexdigest()
+    assert entries[0].as_json() == {
+        "path": "literal.bin",
+        "kind": "file",
+        "size": len(payload),
+        "sha256": digest,
+        "canonical_sha256": digest,
+    }
+
+
+def test_literal_inventory_counts_read_bytes_instead_of_stat_size(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, policy_path = _fixture_repo(tmp_path)
+    policy = load_policy(policy_path)
+    policy["input_paths"] = ["source.txt"]
+    payload = b"literal\r\n" * 200_001
+    source = root / "source.txt"
+    source.write_bytes(payload)
+    original_lstat = Path.lstat
+
+    def misleading_size(path: Path) -> os.stat_result:
+        result = original_lstat(path)
+        if path == source:
+            fields = list(result)
+            fields[stat.ST_SIZE] = 1
+            return os.stat_result(fields)
+        return result
+
+    monkeypatch.setattr(Path, "lstat", misleading_size)
+    entry = inventory_inputs(root, policy)[0]
+    assert source.lstat().st_size == 1
+    assert entry.as_json() == {
+        "path": "source.txt",
+        "kind": "file",
+        "size": len(payload),
+        "sha256": hashlib.sha256(payload).hexdigest(),
+        "canonical_sha256": hashlib.sha256(payload).hexdigest(),
     }
 
 
