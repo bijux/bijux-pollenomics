@@ -249,6 +249,23 @@ def test_reading_runtime_requires_early_admitted_interpreter_and_exact_sources(
         verify_workflow(document)
 
 
+@pytest.mark.parametrize("replacement", ["360", "10800", "0", "None"])
+def test_native_verifier_requires_the_bounded_whole_process_budget(
+    monkeypatch: pytest.MonkeyPatch, replacement: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    selected = next(
+        step
+        for step in document["jobs"]["reading"]["steps"]
+        if step["name"] == "Verify production-origin Nordic iframe"
+    )
+    selected["run"] = selected["run"].replace(
+        "timeout_seconds=1080", "timeout_seconds=" + replacement
+    )
+    with pytest.raises(ValueError, match="bounded source-bound native iframe runner"):
+        verify_workflow(document)
+
+
 @pytest.mark.parametrize(
     "change", ["after_build", "missing_preflight", "foreign_owner"]
 )

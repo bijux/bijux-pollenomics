@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Bind Nordic reading checks to the finite publication policy, bound verifier process groups and separate full qualification receipts from public resource limits ([#373](https://github.com/bijux/bijux-pollenomics/pull/373)).
+
 - Keep scientific reading checks independent of gallery runtime imports and retain qualified site artifacts after later reading failures ([#372](https://github.com/bijux/bijux-pollenomics/pull/372)).
 
 - Expose separately attributed Dalmutladdo archival window counts through a pinned-source API while preserving native missing values and LRA admission boundaries ([#371](https://github.com/bijux/bijux-pollenomics/pull/371)).

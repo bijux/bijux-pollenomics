@@ -162,7 +162,7 @@ def verify_workflow(document: dict[str, Any]) -> None:
                 "artifacts/docs/publication/python/bin/python",
                 "wrapper-runtime.mjs",
                 "run_bounded_argv(",
-                "timeout_seconds=360",
+                "timeout_seconds=1080, max_output_bytes=16 * 1024 * 1024,",
                 'receipt["source_revision"] != os.environ["ACCEPTED_COMMIT"]',
                 'len(receipt["scenarios"]) != 10',
             )

@@ -19,6 +19,7 @@ from .contracts import (
     SITE_URL,
     download_records,
     identity,
+    read_publication_receipt,
     read_regular,
     require,
     verify_receipt,
@@ -70,7 +71,7 @@ def prepare(root: Path, accepted: str, browser: Path) -> dict[str, Any]:
     standard = read_regular(root, ".github/standards/bijux-docs.sha").decode().strip()
     require(checkpoint["standard"]["sha"] == standard, "admitted standard pin differs")
     publication_path = "artifacts/website-security/publication.json"
-    publication_raw = read_regular(root, publication_path)
+    publication_raw = read_publication_receipt(root)
     publication = json.loads(publication_raw)
     require(
         publication.get("schema") == 2
@@ -203,9 +204,7 @@ def run(root: Path, accepted: str, browser: Path, output: Path) -> dict[str, Any
         )
         receipt = json.loads(read_regular(output, "browser.json"))
         verify_receipt(plan, receipt)
-        publication = json.loads(
-            read_regular(root, "artifacts/website-security/publication.json")
-        )
+        publication = json.loads(read_publication_receipt(root))
         qualified = {
             row["path"]: {k: row[k] for k in ("bytes", "sha256")}
             for row in publication["files"]
