@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Refuse contradictory non-pollen element labels in pollen chronology context admission while preserving unknown-label compatibility ([#400](https://github.com/bijux/bijux-pollenomics/pull/400)).
+
 - Narrow source interpretation report producer declarations while preserving whole-repository replay guards and qualified input/output boundaries ([#399](https://github.com/bijux/bijux-pollenomics/pull/399)).
 
 - Validate both native pollen labels before synthetic request publication, require observation identity arrays and qualify the current installed host API boundaries ([#398](https://github.com/bijux/bijux-pollenomics/pull/398)).
