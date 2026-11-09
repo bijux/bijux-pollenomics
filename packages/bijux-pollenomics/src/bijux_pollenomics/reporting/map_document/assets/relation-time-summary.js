@@ -61,7 +61,7 @@ function relationTimeSummaryData(edges) {
 
 function renderRelationTimeSummary(data) {
   const text = value => escapeHtml(String(value));
-  const scope = '<p>Counts follow relation, country and signal filters before endpoint time, layer and viewport eligibility; displayed lines may be fewer. These are properties of supplied candidate relations under their exact active rules, not independent events, rates or origins.</p>';
+  const scope = '<p>Counts follow relation, country and signal filters before endpoint time, layer and viewport eligibility; displayed lines may be fewer. These are properties of supplied candidate relations under their exact active rules, not independent events, rates or origins. An envelope may combine supplied endpoint chronology claims and countries within the current relation filters. The temporal contract version identifies a temporal rule contract, not a selected analysis chronology. Read the retained endpoint details for their exact supplied support.</p>';
   if (data.status !== 'available') return `<section aria-label="Relation endpoint temporal summary">${scope}<p>Temporal summary ${text(data.status)}: ${text(data.reason)} No numeric envelope is inferred.</p></section>`;
   if (!data.groups.length) return `<section aria-label="Relation endpoint temporal summary">${scope}<p>No retained active relation rows were supplied.</p></section>`;
   const rows = data.groups.slice(0, 25).map(group => ['source', 'target'].map(side => {
