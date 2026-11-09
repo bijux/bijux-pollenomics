@@ -104,3 +104,45 @@ cores are eligible for LRA; that source admission remains a separate decision.
 ## Larger retained public-call measurement
 
 The [representative public-call report](../../docs/report/numerical-performance/representative-public-calls/README.md) retains the completed Python measurement at commit `19642380cc6051ed9d6cfc3fbddfdb56b4feeba7`: six actual author sites, ten taxa and 1,024 stored joint draws, plus 128 computational repetitions of one LOVE fixture. Each workload has three isolated first-plus-seven-warm observations, separate loading/conversion and diagnostic profile costs, unprofiled boundary measurements, peak RSS and equal-total one-versus-two-process scaling. None of the three named boundaries reached the conservative 50% share and 5% instrumentation-overhead rule in all workers. No compiler or same-input source R was run, and this result does not reopen the rejected forward C++ adoption or qualify another kernel. Other workload families and the applicable source-R, optimizer, memory/build/platform and scientific acceptance remain separate.
+
+## Full optimized LOVE search through the public API
+
+At source `3621ce70301de9571f4d72e1154b8155db5717ab`, `run_love` used the
+exposed `LOVEexample`: ten taxa, 36 input ring rows, ten requested rings and
+two repeats. The source-compatible profile used SciPy differential evolution,
+seed 7, `stochastic=False`, a 200-iteration cap, tolerance 0.01 and a
+20,100-evaluation ceiling per search. No fixed candidates were supplied.
+
+This source-run used CPython 3.11.13 on arm64 macOS 26.6.2, NumPy 2.4.6,
+SciPy 1.17.1 and pandas 3.1.1. Five thread-limit environment variables requested
+one thread each; vendor thread counts were not measured.
+
+Three fresh workers each made one first call and three warm calls. All twelve
+calls completed, each with eight searches reporting successful stopping and
+six undefined requested rings. Scientific signatures and solver diagnostics
+matched across calls; searches used 4,300–8,400 evaluations. The geometry
+warning remains: terrestrial area exceeds geometric ring area, and the source
+ratio is retained without clipping.
+
+| Worker | First call, s | Warm median, s | Warm range, s | Peak RSS, MiB |
+| --- | ---: | ---: | ---: | ---: |
+| 1 | 1.8635 | 1.7957 | 1.7945–1.7989 | 164.8125 |
+| 2 | 1.8357 | 1.8071 | 1.7741–1.9026 | 164.8906 |
+| 3 | 1.8955 | 1.8637 | 1.8628–1.8810 | 163.9375 |
+
+Calls exclude loading/conversion (0.0015–0.0045 s), writing/projection
+(0.0045–0.0063 s), process startup (0.0224–0.0268 s) and imports
+(1.279–1.555 s). The 32.9884 s aggregate met the 180 s worker/600 s aggregate
+limits. Counted output was 812,019 bytes against 32 MiB; observed RSS stayed
+below 1 GiB without an OS quota. Metadata and source/index/input guards stayed
+unchanged.
+
+The separate profiled call took 3.6659 s. Its diagnostic stack establishes
+neither the low-overhead hotspot gate nor a C++ benefit. This adds full-search
+performance evidence, not global-optimum quality, R search-trajectory parity,
+ecological, installed-package or platform qualification. The Python backend
+decision stands.
+
+Complete API outputs and receipts are retained through the existing
+scientific-artifact recovery owner, keyed by logical path
+`artifacts/verification/love-optimizer-search/run/`.
