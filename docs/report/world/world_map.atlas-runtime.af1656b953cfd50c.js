@@ -626,7 +626,7 @@ async function fetchStaticAtlasNodeAsset(row, signal) {
             return { ...layer, geojson: { ...(entry.layer.geojson || {}), features } };
           });
       }
-      const SCOPE_KEY = "nordic";
+      const SCOPE_KEY = "world";
       const COUNTRIES = ["Sweden","Norway","Finland","Denmark"];
 
       const NATIVE_LRA_BINDING = JSON.parse(document.getElementById('atlas-native-lra-binding').textContent);
@@ -746,7 +746,7 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
       const POINT_LAYERS = hydrateStaticAtlasLayers('point');
       const POLYGON_LAYERS = hydrateStaticAtlasLayers('polygon');
       const MODELED_CONTEXT = JSON.parse(document.getElementById('atlas-modeled-context-binding').textContent);
-      const INITIAL_BOUNDS = [[54.0,4.0],[72.0,35.0]];
+      const INITIAL_BOUNDS = [[-20.0,-165.0],[82.0,180.0]];
       const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
       const ATLAS_EVIDENCE = STATIC_ATLAS_INLINE
         ? { details_status: 'unavailable', details_reason_code: 'record_level_evidence_not_available', classifications_status: 'unavailable', classifications_reason_code: 'accepted_scientific_classifications_not_available', detail_records: [], scientific_signals: [] }
@@ -819,11 +819,11 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
         )
       );
       const TIME_MIN_BP = 0;
-      const TIME_MAX_BP = 2700000;
+      const TIME_MAX_BP = 68764;
       const TIME_HAS_DATA = true;
       const DEFAULT_TIME_START_BP = 0;
-      const DEFAULT_TIME_INTERVAL_YEARS = 2700000;
-      const TIME_INTERVAL_MAX = 2700000;
+      const DEFAULT_TIME_INTERVAL_YEARS = 68764;
+      const TIME_INTERVAL_MAX = 68764;
       const map = L.map('map', { preferCanvas: true, zoomControl: false, maxZoom: 20 });
       let initialMapFitPending = false;
       let mapViewReady = false;
@@ -1091,7 +1091,7 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
       }
       function clampDiameter(value) {
         const numeric = finiteControlNumber(value);
-        const selected = numeric === null ? 20 : numeric;
+        const selected = numeric === null ? 40 : numeric;
         return Math.max(0, Math.min(100, Math.round(selected / 5) * 5));
       }
       function clampTimeInterval(value) {
@@ -2836,7 +2836,7 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
           if (activeSourceChronologyPreset !== 'none') params.set('source_label_preset', activeSourceChronologyPreset);
           if (sourceRecordConcentrationActive) params.set('source_record_concentration', 'captured');
         }
-        if (Number(slider.value) !== 20) params.set('diameter', String(Number(slider.value)));
+        if (Number(slider.value) !== 40) params.set('diameter', String(Number(slider.value)));
         const modeledWindow = currentModeledContextWindow();
         if (modeledContextActive && modeledWindow) {
           params.set('modeled_context', modeledWindow.label);
@@ -3947,7 +3947,7 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
         if (activeAnimalTemporalWindow !== 'all') count += 1;
         if (animalNordicOnly) count += 1;
         if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) count += 1;
-        if (Number(slider.value) !== 20) count += 1;
+        if (Number(slider.value) !== 40) count += 1;
         if (Math.round(densityOpacity * 100) !== 60) count += 1;
         if (currentBasemap !== DEFAULT_BASEMAP) count += 1;
         return count;
@@ -5937,6 +5937,34 @@ function atlasSearchGrams(text, sizes = [1, 2, 3]) {
   for (const size of sizes) for (let i = 0; i + size * 4 <= encoded.length; i += 4) result.add(encoded.slice(i, i + size * 4));
   return result;
 }
+function atlasRestoredPostingFactory(rows) {
+  // Registration freezes this exact dictionary; establish its immutable proof once.
+  const rowsAreFrozen = Object.isFrozen(rows);
+  return (key, values) => {
+    // Capture the original iterator once; only the private snapshot backs the view.
+    if (!rowsAreFrozen || Object.getOwnPropertyDescriptor(rows, key)?.value !== values || !Array.isArray(values) || !Object.isFrozen(values) || Object.getPrototypeOf(values) !== Array.prototype || Object.hasOwn(values, Symbol.iterator)) return new Set(values);
+    const snapshot = [...values], iterator = Array.prototype[Symbol.iterator];
+    for (let i = 0; i < snapshot.length; i++) {
+      if (typeof snapshot[i] !== 'string' || (i > 0 && snapshot[i - 1] >= snapshot[i])) return new Set(snapshot);
+    }
+    Object.freeze(snapshot);
+    return Object.freeze({
+      size:snapshot.length,
+      has(value) {
+        if (typeof value !== 'string') return false;
+        let low = 0, high = snapshot.length;
+        while (low < high) {
+          const middle = low + Math.floor((high - low) / 2), candidate = snapshot[middle];
+          if (candidate === value) return true;
+          if (candidate < value) low = middle + 1;
+          else high = middle;
+        }
+        return false;
+      },
+      [Symbol.iterator]() { return iterator.call(snapshot); }
+    });
+  };
+}
 function atlasRememberRestoredSearch(index, derivedPostings) {
   // Only the owned document decoder calls this after deriving and checking every
   // posting. Freeze that exact input so later layer validation can reuse it.
@@ -5946,7 +5974,8 @@ function atlasRememberRestoredSearch(index, derivedPostings) {
     if (!key.startsWith('p:')) docs.set(key, row);
   }
   Object.freeze(rows);
-  for (const [key, values] of Object.entries(derivedPostings)) postings.set(key, new Set(values));
+  const membershipFor = atlasRestoredPostingFactory(rows);
+  for (const [key, values] of Object.entries(derivedPostings)) postings.set(key, membershipFor(key, values));
   atlasSearchIndexes.set(index, {restored:{rows, docs, postings}});
 }
 function atlasPublishedSearch(index, layers) {
@@ -6023,9 +6052,9 @@ function atlasLookupSearch(state, query) {
   const postings = grams.map(gram => state.published.postings.get('p:' + gram) || new Set()).sort((a, b) => a.size - b.size);
   const results = new Map();
   for (const key of postings[0] || []) {
-    if (!postings.every(posting => posting.has(key))) continue;
     const row = state.visible.get(key);
-    if (row && row.text.includes(query)) results.set(row.order, row);
+    if (!row || !postings.every(posting => posting.has(key))) continue;
+    if (row.text.includes(query)) results.set(row.order, row);
   }
   // Only explicitly detected JS/Python text differences and runtime-only views scan.
   for (const row of state.fallback) if (row.text.includes(query)) results.set(row.order, row);
@@ -6780,7 +6809,7 @@ function publishedSearchCounts() {
         sourceRecordConcentrationActive = false;
         sourceRecordConcentrationSnapshot = null;
         sourceChronologyTaxonQuery.value = '';
-        slider.value = 20;
+        slider.value = 40;
         timeStartBp = DEFAULT_TIME_START_BP;
         timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
         if (signedNativeTime) signedNativeTime.set(signedNativeTime.extent());

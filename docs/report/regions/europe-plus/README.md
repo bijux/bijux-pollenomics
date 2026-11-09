@@ -163,7 +163,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** Four-country display:1,231 human samples (SE416/NO130/FI32/DK653), eight animal locality points across three species; these are publication populations, not independent ecological samples.
 
-- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_summary.json](europe-plus_summary.json) (SHA-256 `e97729c390e652fa6435c54d2a3c0cbf8342ff26cd3b69508c9fa3b75fd8a1f5`).
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_summary.json](europe-plus_summary.json) (SHA-256 `24358db0708a661ed80e2f1b73029596d261c9154a361fd02e3992ca9908e1a8`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

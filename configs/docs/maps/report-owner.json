@@ -61,7 +61,7 @@
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/search-index.js",
-      "sha256": "2fe360fed953795ddf2e55b6e74fec4527fe3a49706b926b78283778110fc7fe"
+      "sha256": "de0b9cc9b7d5c2978d7ee8c1dd6b9008600c9cc559bfad0feacf9840cafd72b5"
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/chronology-diagram.js",
@@ -105,7 +105,7 @@
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/index-transport.js",
-      "sha256": "513b4ed69afc60fb28cab630a116be46c8bccdde5ebad58e1d51fea3c53d39ac"
+      "sha256": "96a71b74ad9d3dea20549712769e585c559d8054967d5ad3ad0af36b8292c09e"
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-native-sequences/index.html",
@@ -126,7 +126,7 @@
       "output": "report/regions/nordic/nordic_map.html",
       "source": {
         "path": "docs/report/regions/nordic/nordic_map.html",
-        "sha256": "f93cb2b421511446c5c1f72a270d1045cbcb5da0a9424f498b922787d6c53b76"
+        "sha256": "5b50d3e5e76a3a574c77a5a0b10b14ba709b2de7485198809151acd27eeab968"
       },
       "resources": {
         "report/regions/nordic/_map_assets/leaflet/images/layers-2x.png": {
@@ -3302,16 +3302,16 @@
           "bytes": 57276,
           "kind": "reviewed-script"
         },
-        "report/regions/nordic/nordic_map.atlas-index-transport.513b4ed69afc60fb.js": {
-          "source": "docs/report/regions/nordic/nordic_map.atlas-index-transport.513b4ed69afc60fb.js",
-          "sha256": "513b4ed69afc60fb28cab630a116be46c8bccdde5ebad58e1d51fea3c53d39ac",
-          "bytes": 26876,
+        "report/regions/nordic/nordic_map.atlas-index-transport.96a71b74ad9d3dea.js": {
+          "source": "docs/report/regions/nordic/nordic_map.atlas-index-transport.96a71b74ad9d3dea.js",
+          "sha256": "96a71b74ad9d3dea20549712769e585c559d8054967d5ad3ad0af36b8292c09e",
+          "bytes": 27685,
           "kind": "reviewed-script"
         },
-        "report/regions/nordic/nordic_map.atlas-runtime.86cd5bd24767867c.js": {
-          "source": "docs/report/regions/nordic/nordic_map.atlas-runtime.86cd5bd24767867c.js",
-          "sha256": "86cd5bd24767867ccdcbf52bcaa4be6be594187f2d3413cfebaa6afbd7a71453",
-          "bytes": 520594,
+        "report/regions/nordic/nordic_map.atlas-runtime.08d2c9554035e2b8.js": {
+          "source": "docs/report/regions/nordic/nordic_map.atlas-runtime.08d2c9554035e2b8.js",
+          "sha256": "08d2c9554035e2b8b5f2404c854ced13970b60e4332875e9b3aeb025dac0cd00",
+          "bytes": 522031,
           "kind": "reviewed-script"
         }
       },
@@ -3319,7 +3319,7 @@
         "09af0d2f699ad51b5906c5e52dd972d940d108fbb4a7a505d9915a5804fec206"
       ],
       "bootstrap_id": "atlas-static-bootstrap",
-      "bootstrap_sha256": "102b74d5166551570d8c242488e4b7c990e99d4d30b2b7a5d13039ab542d0fa9",
+      "bootstrap_sha256": "5321e1864785c2e66c4612a786911d4709832ea7aa15ad11518b237fb5f43a38",
       "recipe": {
         "template": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
         "expansions": [
@@ -3521,7 +3521,7 @@
       "output": "report/regions/europe-plus/europe-plus_map.html",
       "source": {
         "path": "docs/report/regions/europe-plus/europe-plus_map.html",
-        "sha256": "86a0fa6dc74691ba0876479abc48007119cf4bca7e7804b3ee0177b0430fcb12"
+        "sha256": "62b6f6500635ede1b203972ec572a8988cbc82a72542a84ab30bd9ede584be58"
       },
       "resources": {
         "report/regions/europe-plus/_map_assets/leaflet/images/layers-2x.png": {
@@ -3889,16 +3889,16 @@
           "bytes": 57276,
           "kind": "reviewed-script"
         },
-        "report/regions/europe-plus/europe-plus_map.atlas-index-transport.513b4ed69afc60fb.js": {
-          "source": "docs/report/regions/europe-plus/europe-plus_map.atlas-index-transport.513b4ed69afc60fb.js",
-          "sha256": "513b4ed69afc60fb28cab630a116be46c8bccdde5ebad58e1d51fea3c53d39ac",
-          "bytes": 26876,
+        "report/regions/europe-plus/europe-plus_map.atlas-index-transport.96a71b74ad9d3dea.js": {
+          "source": "docs/report/regions/europe-plus/europe-plus_map.atlas-index-transport.96a71b74ad9d3dea.js",
+          "sha256": "96a71b74ad9d3dea20549712769e585c559d8054967d5ad3ad0af36b8292c09e",
+          "bytes": 27685,
           "kind": "reviewed-script"
         },
-        "report/regions/europe-plus/europe-plus_map.atlas-runtime.2e3c6ab584bf69a1.js": {
-          "source": "docs/report/regions/europe-plus/europe-plus_map.atlas-runtime.2e3c6ab584bf69a1.js",
-          "sha256": "2e3c6ab584bf69a1d08e605cb44e4d24c93a7170a81424061e2b22d7f8d8e930",
-          "bytes": 520595,
+        "report/regions/europe-plus/europe-plus_map.atlas-runtime.2ac42d741f12c16c.js": {
+          "source": "docs/report/regions/europe-plus/europe-plus_map.atlas-runtime.2ac42d741f12c16c.js",
+          "sha256": "2ac42d741f12c16c229546bd33be2a57867e687d728a926b09f4853d6b15512d",
+          "bytes": 522032,
           "kind": "reviewed-script"
         }
       },
@@ -3906,7 +3906,7 @@
         "09af0d2f699ad51b5906c5e52dd972d940d108fbb4a7a505d9915a5804fec206"
       ],
       "bootstrap_id": "atlas-static-bootstrap",
-      "bootstrap_sha256": "0108daba3eee6de947bfa9d57b7db8c4391d6c2e06ffe244a8dd9008e44e75b7",
+      "bootstrap_sha256": "002289e1cf6e7c48f2a6a5fded07b119c362edefc55c1586b4204d9945551f83",
       "recipe": {
         "template": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
         "expansions": [
@@ -4108,7 +4108,7 @@
       "output": "report/world/world_map.html",
       "source": {
         "path": "docs/report/world/world_map.html",
-        "sha256": "5e138c82de3dc2ac9b139639e9a8158527eb3e8663e4d747846fa1ffaefe43f7"
+        "sha256": "6e58309bc6c790141f61f9cecbf0e6c6247f6008eaf94df26be95b5ac5af081e"
       },
       "resources": {
         "report/world/_map_assets/leaflet/images/layers-2x.png": {
@@ -5776,16 +5776,16 @@
           "bytes": 57276,
           "kind": "reviewed-script"
         },
-        "report/world/world_map.atlas-index-transport.513b4ed69afc60fb.js": {
-          "source": "docs/report/world/world_map.atlas-index-transport.513b4ed69afc60fb.js",
-          "sha256": "513b4ed69afc60fb28cab630a116be46c8bccdde5ebad58e1d51fea3c53d39ac",
-          "bytes": 26876,
+        "report/world/world_map.atlas-index-transport.96a71b74ad9d3dea.js": {
+          "source": "docs/report/world/world_map.atlas-index-transport.96a71b74ad9d3dea.js",
+          "sha256": "96a71b74ad9d3dea20549712769e585c559d8054967d5ad3ad0af36b8292c09e",
+          "bytes": 27685,
           "kind": "reviewed-script"
         },
-        "report/world/world_map.atlas-runtime.ff8119e09f4bee74.js": {
-          "source": "docs/report/world/world_map.atlas-runtime.ff8119e09f4bee74.js",
-          "sha256": "ff8119e09f4bee7428ba388dbcd367ec345fab89f15b8726875ba12df8cdc609",
-          "bytes": 520592,
+        "report/world/world_map.atlas-runtime.af1656b953cfd50c.js": {
+          "source": "docs/report/world/world_map.atlas-runtime.af1656b953cfd50c.js",
+          "sha256": "af1656b953cfd50cc3f6eba0b8730cb4e52f04d8378806c72dbcaa20f7a3e1d3",
+          "bytes": 522029,
           "kind": "reviewed-script"
         }
       },
@@ -5793,7 +5793,7 @@
         "09af0d2f699ad51b5906c5e52dd972d940d108fbb4a7a505d9915a5804fec206"
       ],
       "bootstrap_id": "atlas-static-bootstrap",
-      "bootstrap_sha256": "e2807ad594fef1f62139d9766a0a7144a3c3178fea58f13a5b3926ab56ce8c84",
+      "bootstrap_sha256": "a70efac17e201119f2f726f493f2cdc234668de9970cbe7018303344bb08c100",
       "recipe": {
         "template": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
         "expansions": [
