@@ -43,21 +43,36 @@ the interpolated ages of individual pollen samples.
 
 ## Reproduce
 
-Download the profile from the DOI above into the external source store,
-verify its SHA-256, then run from the product repository root into an absent
-directory under `artifacts/`:
+Use the locked repository environment described in
+[Installation and Setup](../../../../public/pollenomics/operations/installation-and-setup.md#reproduce-the-repository-environment).
+Configure the external source store containing
+`epd/pangaea/abbo-pollen-profile-pangaea-738429.tsv`; the table remains outside
+the product under its stated CC-BY-NC-3.0 terms. Run from the repository root
+into an absent directory under `artifacts/`:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
-  -m bijux_pollenomics_dev.source_completion.abbo_profile_lineage \
-  --repository . \
-  --profile /path/to/external/abbo-pollen-profile-pangaea-738429.tsv \
-  --output artifacts/neotoma-abbo-lineage-replay
+POLLENOMICS_PYTHON=artifacts/root/check-venv/bin/python
+: "${POLLENOMICS_SOURCE_ROOT:?configure the retained external source store}"
+POLLENOMICS_OUTPUT=artifacts/jobs/abbo-profile-replay
+mkdir -p artifacts/jobs
+test ! -e "$POLLENOMICS_OUTPUT" &&
+  PYTHONDONTWRITEBYTECODE=1 \
+  PYTHONPATH=packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics-lra/src:packages/pollenomics/src \
+  "$POLLENOMICS_PYTHON" -B -m \
+    bijux_pollenomics_dev.source_completion.neotoma.abbo_profile \
+    --repository . \
+    --source-root "$POLLENOMICS_SOURCE_ROOT" \
+    --output "$POLLENOMICS_OUTPUT" &&
+  cmp "$POLLENOMICS_OUTPUT/report.json" \
+    docs/report/source-relations/neotoma/abbo-profile/report.json
 ```
 
-The output must match the retained report byte for byte. The producer refuses
-changed source or sequence hashes, ambiguous depths and any mismatch in the
-five compared count trajectories.
+The qualified wrapper checks the exact descriptor, external table and
+sequence inputs before publishing. The configured execution owner at source
+`d9e6883db64be68d8d5b229d8390438f4ddf74c2` reproduced the complete retained
+1,784-byte report in both reference and replay lanes. Current technical
+ownership does not establish historical acquisition, broader source-use
+authority or LRA admission.
 
 
 <!-- scientific-account-route:begin -->
@@ -69,7 +84,7 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Unsupported claim.** A likely shared source trajectory is not independent vegetation truth, source-wide depth-unit authority or historical basin geometry.
 
-**Actual verification performed.** Read the profile receipt and all five named-taxonomical comparison summaries, including conflicting collection dates; no external download or replay.
+**Actual verification performed.** The profile receipt and five named-taxonomical comparison summaries retain their original scope, including conflicting collection dates. At d9e6883db64be68d8d5b229d8390438f4ddf74c2, the configured qualified wrapper reproduced the complete retained 1,784-byte report in reference and replay lanes using the same clean-source plan, exact external descriptor and retained table; no new download or scientific admission.
 
 **Remaining input or review.** Collection-date semantics, sample-age uncertainty and historical basin/count/PPE/use qualifications remain open.
 

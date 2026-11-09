@@ -15,6 +15,7 @@ import pytest
 from bijux_pollenomics_dev.ci.rebuild_reports import (
     InventoryEntry,
     JsonObject,
+    ReproducibleReportError,
     inventory_reports,
     load_policy,
 )
@@ -43,6 +44,8 @@ from bijux_pollenomics_dev.ci.report_rebuild.workflow import (
     verify_partitioned_rebuild,
 )
 from bijux_pollenomics_dev.lra_validation.reference_replay import CERTIFICATE_SHA256
+
+from . import test_report_rebuild_maintained_sources as maintained_fixture
 
 
 def _policy(root: Path) -> Path:
@@ -819,6 +822,92 @@ def test_owner_stage_reuses_the_publisher_input_inventory(
         lane="reference",
         source_paths={"summary.csv": "method/summary.csv"},
     ).is_file()
+
+
+@pytest.mark.parametrize("damage", ["dirty-before", "dirty-during", "new-commit"])
+def test_owner_plan_binds_unlisted_tracked_helper_and_exact_source_commit(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, damage: str
+) -> None:
+    root, _ = maintained_fixture._fixture(tmp_path, monkeypatch)
+    policy_path = _policy(root)
+    policy = json.loads(policy_path.read_bytes())
+    policy["require_clean_repository"] = True
+    policy_path.write_text(json.dumps(policy), encoding="utf-8")
+    (root / "source.txt").write_text("declared source\n", encoding="utf-8")
+    (root / ".gitignore").write_text("artifacts/\n", encoding="utf-8")
+    maintained_fixture._git(
+        root, "add", "--", "policy.json", "source.txt", ".gitignore"
+    )
+
+    def commit() -> None:
+        maintained_fixture._git(
+            root,
+            "-c",
+            "user.name=Bijux Fixture",
+            "-c",
+            "user.email=fixture@example.invalid",
+            "commit",
+            "--allow-empty",
+            "-qm",
+            "bind clean owner source fixture",
+        )
+
+    commit()
+    artifacts = root / "artifacts"
+    artifacts.mkdir()
+    plan_path = artifacts / "plan.json"
+    build_partition_plan(repo_root=root, policy_path=policy_path, output_path=plan_path)
+    helper = root / "docs/report/source/replay.py"
+    producer = (
+        "from pathlib import Path; import sys; "
+        "Path(sys.argv[1], 'summary.txt').write_text('same report\\n'); "
+        "Path(sys.argv[2]).write_text('VALUE = 2\\n') "
+        "if sys.argv[3] == 'dirty-during' else None"
+    )
+
+    def build(lane: str) -> JsonObject:
+        return build_owner_output(
+            repo_root=root,
+            policy_path=policy_path,
+            plan_path=plan_path,
+            lane=lane,
+            owner_id="domain/summary",
+            producer_command=(
+                sys.executable,
+                "-c",
+                producer,
+                "{output_root}",
+                str(helper),
+                damage,
+            ),
+            producer_inputs={"source": root / "source.txt"},
+            source_paths={"summary.txt": "domain/summary.txt"},
+            evidence_root=artifacts / lane,
+        )
+
+    if damage == "new-commit":
+        reference = build("reference")
+        declared = reference["producer_inputs"]
+        assert isinstance(declared, dict)
+        assert set(declared) == {"source"}
+        # Equal trees at a different committed source still require a new plan.
+        commit()
+        with pytest.raises(ReportRebuildError, match="owner plan"):
+            build("replay")
+        assert not (artifacts / "replay").exists()
+    else:
+        if damage == "dirty-before":
+            helper.write_text("VALUE = 2\n", encoding="utf-8")
+        with pytest.raises(ReproducibleReportError, match="clean repository"):
+            build("reference")
+        if damage == "dirty-during":
+            execution = json.loads(
+                (artifacts / "reference/producer-execution.json").read_bytes()
+            )
+            assert execution["exit_code"] == 0
+            assert not (artifacts / "reference/manifest.json").exists()
+        else:
+            assert not (artifacts / "reference").exists()
 
 
 @pytest.mark.parametrize("produced", [(), ("summary.csv", "extra.csv")])

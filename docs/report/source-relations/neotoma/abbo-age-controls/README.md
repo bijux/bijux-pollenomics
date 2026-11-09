@@ -47,10 +47,11 @@ An earlier request returned HTTP 400 because an explicit Accept header
 conflicted with the URL's format query. Its response and failed execution
 remain retained; removing that header enabled the successful observation.
 This establishes current provider-byte custody, not the original acquisition
-epoch or permission for analytical use under CC-BY-NC-3.0. The original
-unresolved owner criterion, the 107 missing sample-age uncertainty bounds,
+epoch or broader permission for analytical use under CC-BY-NC-3.0. The
+historical acquisition criterion, 107 missing sample-age uncertainty bounds,
 collection-date and historical-geometry questions, and zero admitted ABBO
-LRA samples remain unchanged. No calibration or scientific model was run.
+LRA samples remain unchanged. Current technical execution ownership is
+qualified separately below. No calibration or scientific model was run.
 
 ## Reproduce the control comparison
 
@@ -63,8 +64,12 @@ retain their original scope. The process receipts and independent check are
 preserved in the existing scientific archive.
 
 This is reproduction of the source comparison for the declared local
-noncommercial purpose. The historical acquisition, broader use and unresolved
-owner/admission decisions are unchanged. No calibration or model was run.
+noncommercial purpose. The configured execution owner at source
+`d9e6883db64be68d8d5b229d8390438f4ddf74c2` produced the complete
+retained report in reference and replay lanes using the same clean-source
+plan and exact external descriptor. This qualifies current technical
+execution ownership; historical acquisition, broader use and scientific
+admission remain separate. No calibration or model was run.
 
 Use the qualified locked repository environment described in
 [Installation and Setup](../../../../public/pollenomics/operations/installation-and-setup.md#reproduce-the-repository-environment).
@@ -107,7 +112,7 @@ Native source hierarchy, chronology, units, taxon/count/parameter correspondence
 
 **Unsupported claim.** Calibrated control bounds do not supply sample-age uncertainty or historical lake geometry, and the core top is not a seventh published 14C date.
 
-**Actual verification performed.** On 2026-10-16, the official provider returned one complete 2,977-byte HTTP 200 body matching the retained table; the earlier HTTP 400 response remains preserved. On 2026-11-09, the unchanged qualified wrapper at b522783bc35aa5238b607f4d89143bfef6b42bcc reproduced the complete 3,639-byte report exactly. Independent standard-library Decimal readback verifies six lab joins and all 30 depth/thickness/radiocarbon-age/error comparisons, seven native controls including the non-dated core top, and 107 samples with both age bounds absent. This attributed local noncommercial comparison establishes current reproducibility, not original acquisition, broader use authority or owner/scientific admission. No calibration or model was run.
+**Actual verification performed.** On 2026-10-16, the official provider returned one complete 2,977-byte HTTP 200 body matching the retained table; the earlier HTTP 400 response remains preserved. On 2026-11-09, the unchanged qualified wrapper at b522783bc35aa5238b607f4d89143bfef6b42bcc reproduced the complete 3,639-byte report exactly. Independent standard-library Decimal readback verifies six lab joins and all 30 depth/thickness/radiocarbon-age/error comparisons, seven native controls including the non-dated core top, and 107 samples with both age bounds absent. This attributed local noncommercial comparison establishes current reproducibility, not original acquisition, broader use authority or scientific admission. No calibration or model was run. At d9e6883db64be68d8d5b229d8390438f4ddf74c2, the configured execution owner reproduces the complete retained report in reference and replay lanes under the same clean-source plan and exact external descriptor; this establishes current technical execution ownership only.
 
 **Remaining input or review.** Collection-date roles, 107 interpolated sample uncertainties, historical basin geometry and broader source-use rights remain unresolved; the demonstrated local noncommercial comparison does not settle them.
 

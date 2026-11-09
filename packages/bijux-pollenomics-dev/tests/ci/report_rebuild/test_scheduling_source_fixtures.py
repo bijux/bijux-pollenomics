@@ -2,12 +2,15 @@
 
 from __future__ import annotations
 
+import copy
+import hashlib
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
-from bijux_pollenomics_dev.ci.report_rebuild import scheduling
+from bijux_pollenomics_dev.ci.report_rebuild import configured_owner, scheduling
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.qualified_sources import (
     QualifiedReportSources,
@@ -270,7 +273,7 @@ def test_retained_native_capture_scheduling_fixtures_are_exact_and_unauthenticat
         )
 
 
-def test_schedule_matches_generated_population_without_admitting_pending_age_owner(
+def test_schedule_matches_generated_population_with_qualified_age_owner(
     configured_owner_rows: list[dict[str, str]],
 ) -> None:
     inventory = json.loads(
@@ -285,10 +288,105 @@ def test_schedule_matches_generated_population_without_admitting_pending_age_own
     assert scheduled == generated
     assert len(scheduled) == len(configured_owner_rows)
     identity = "source-relations/neotoma/abbo-age-controls/report-products"
-    (pending,) = [row for row in inventory["owners"] if row["owner_id"] == identity]
-    assert pending["role"] == "unresolved"
-    assert pending["verification"]
-    assert identity not in scheduled
+    (owner,) = [row for row in inventory["owners"] if row["owner_id"] == identity]
+    assert owner["role"] == "generated_owner"
+    assert owner["verification"]
+    assert identity in scheduled
+
+
+AGE_OWNER = "source-relations/neotoma/abbo-age-controls/report-products"
+AGE_DESCRIPTOR = "configs/ci/qualified-report-sources/abbo-age-controls.json"
+AGE_REPORT = "docs/report/source-relations/neotoma/abbo-age-controls/report.json"
+AGE_TABLE = "epd/pangaea/abbo-age-determination-pangaea-740080.tsv"
+
+
+def test_registered_age_owner_binds_wrapper_external_table_and_full_oracle(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    # Source qualification has separate contract tests; this fixture isolates
+    # registration.
+    monkeypatch.setattr(
+        configured_owner, "validated_external_report_sources", _fixture_sources
+    )
+    store = tmp_path / "source-store"
+    owner = configured_owner.resolve_configured_owner(
+        IMPACT.REPO_ROOT, AGE_OWNER, source_root=store
+    )
+    assert (
+        "bijux_pollenomics_dev.source_completion.neotoma.abbo_age_controls"
+        in owner.command
+    )
+    assert owner.external_source_descriptor == Path(AGE_DESCRIPTOR)
+    assert set(owner.external_inputs) == {AGE_DESCRIPTOR, "external/" + AGE_TABLE}
+    assert owner.external_inputs["external/" + AGE_TABLE] == store / AGE_TABLE
+    assert owner.source_paths == {
+        "source-products/report.json": AGE_REPORT.removeprefix("docs/report/")
+    }
+    assert owner.expected_outputs == {
+        AGE_REPORT: hashlib.sha256(
+            (IMPACT.REPO_ROOT / AGE_REPORT).read_bytes()
+        ).hexdigest()
+    }
+    assert AGE_REPORT not in owner.inputs
+    assert owner.timeout_seconds == 60
+
+
+@pytest.mark.parametrize(
+    ("damage", "message"),
+    [
+        ("role", "not declared generated"),
+        ("descriptor", "descriptor is not a declared"),
+        ("output", "output map differs"),
+        ("module", "module is absent"),
+    ],
+)
+def test_registered_age_owner_rejects_substituted_binding(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    damage: str,
+    message: str,
+) -> None:
+    original = configured_owner._read_object
+
+    def changed(repository: Path, relative: str, label: str) -> dict[str, Any]:
+        value = copy.deepcopy(original(repository, relative, label))
+        row = next(r for r in value["owners"] if r["owner_id"] == AGE_OWNER)
+        if label == "report ownership" and damage == "role":
+            row["role"] = "unresolved"
+        elif label == "owner configuration":
+            if damage == "descriptor":
+                row["external_source_descriptor"] = (
+                    "configs/ci/qualified-report-sources/abbo-pollen-profile.json"
+                )
+            elif damage == "output":
+                row["source_paths"] = {
+                    "source-products/report.json": (
+                        "docs/report/source-relations/neotoma/abbo-profile/report.json"
+                    )
+                }
+            elif damage == "module":
+                row["module"] = (
+                    "bijux_pollenomics_dev.source_completion.neotoma.abbo_profile"
+                )
+        return value
+
+    monkeypatch.setattr(configured_owner, "_read_object", changed)
+    monkeypatch.setattr(
+        configured_owner, "validated_external_report_sources", _fixture_sources
+    )
+    with pytest.raises(ReportRebuildError, match=message):
+        configured_owner.resolve_configured_owner(
+            IMPACT.REPO_ROOT, AGE_OWNER, source_root=tmp_path / "source-store"
+        )
+
+
+def test_registered_age_owner_rejects_missing_or_internal_store() -> None:
+    with pytest.raises(ReportRebuildError, match="requires --source-root"):
+        configured_owner.resolve_configured_owner(IMPACT.REPO_ROOT, AGE_OWNER)
+    with pytest.raises(ReportRebuildError, match="must be external"):
+        configured_owner.resolve_configured_owner(
+            IMPACT.REPO_ROOT, AGE_OWNER, source_root=IMPACT.REPO_ROOT
+        )
 
 
 def test_schedule_refuses_submitted_unresolved_owner_without_promoting_it(
