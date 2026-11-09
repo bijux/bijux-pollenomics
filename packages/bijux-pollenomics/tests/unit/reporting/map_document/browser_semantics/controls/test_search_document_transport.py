@@ -149,12 +149,28 @@ def observe(data: dict[str, Any]) -> dict[str, Any]:
  const beforePublishCalls=gramCalls;
  const published=atlasPublishedSearch(decoded,metadata);
  const publishAdditionalGramCalls=gramCalls-beforePublishCalls;
+ const afterPublishRefusals=[];
+ for(const changed of [
+   [{...metadata[0],feature_count:12}],
+   [{...metadata[0],feature_count:14}],
+   [{...metadata[0],layer:{key:'foreign'}}],
+   [metadata[0],metadata[0]],
+ ]){try{atlasPublishedSearch(decoded,changed);afterPublishRefusals.push(false)}catch{afterPublishRefusals.push(true)}}
+ decoded.search_index_abi='foreign';
+ try{atlasPublishedSearch(decoded,metadata);afterPublishRefusals.push(false)}catch{afterPublishRefusals.push(true)}
+ decoded.search_index_abi='atlas-substring-postings.v1';
+ decoded.text_search_index=foreign.text_search_index;
+ try{atlasPublishedSearch(decoded,metadata);afterPublishRefusals.push(false)}catch{afterPublishRefusals.push(true)}
+ decoded.text_search_index=restoredRows;
+ const beforeReuseCalls=gramCalls;
+ const reused=atlasPublishedSearch(decoded,metadata)===published;
+ const reuseAdditionalGramCalls=gramCalls-beforeReuseCalls;
  let missingRefused=false;try{atlasPublishedSearch(foreign,metadata)}catch{missingRefused=true}
  const visible=new Map(Object.entries(original).filter(([key])=>key.startsWith('d:')).reverse().map(([key,row],order)=>[key,{order,text:row.text,entry:{key}}]));
  const state={published,visible,fallback:[]};
  const queries=['a','ab','abc','💠','\ud83d','\udc00','a\u0308','.(a)','same','𐐨','absent'];
  const answers=queries.every(query=>JSON.stringify(atlasLookupSearch(state,query).map(row=>row.key))===JSON.stringify([...visible.values()].filter(row=>row.text.includes(query)).slice(0,12).map(row=>row.entry.key)));
- console.log(JSON.stringify({same,answers,decodeGramCalls,publishAdditionalGramCalls,frozen,layerRefused,missingRefused,reboundRefused,keys:actualKeys.filter(key=>key.startsWith('d:')),transportMetadata:Object.hasOwn(decoded,'search_transport_schema')||Object.hasOwn(decoded,'search_transport_counts')}));
+ console.log(JSON.stringify({same,answers,decodeGramCalls,publishAdditionalGramCalls,afterPublishRefusals,reused,reuseAdditionalGramCalls,frozen,layerRefused,missingRefused,reboundRefused,keys:actualKeys.filter(key=>key.startsWith('d:')),transportMetadata:Object.hasOwn(decoded,'search_transport_schema')||Object.hasOwn(decoded,'search_transport_counts')}));
 }catch(error){console.log(JSON.stringify({refusal:error.message}))}})();
 """
         ),
@@ -174,6 +190,9 @@ def test_document_codec_preserves_exact_map_and_literal_query_order(mode: str) -
     assert observed["layerRefused"] is True
     assert observed["missingRefused"] is True
     assert observed["reboundRefused"] is True
+    assert observed["afterPublishRefusals"] == [True] * 6
+    assert observed["reused"] is True
+    assert observed["reuseAdditionalGramCalls"] == 0
     assert observed["keys"].index("d:0:10") < observed["keys"].index("d:0:2")
 
 

@@ -23,7 +23,6 @@ function atlasRememberRestoredSearch(index, derivedPostings) {
 function atlasPublishedSearch(index, layers) {
   if (!index || typeof index !== 'object') staticAtlasFailure('published search index is missing');
   const cached = atlasSearchIndexes.get(index);
-  if (cached?.published) return cached.published;
   if (index.search_index_abi !== ATLAS_SEARCH_ABI || !index.text_search_index || typeof index.text_search_index !== 'object' || Array.isArray(index.text_search_index)) staticAtlasFailure('search index ABI or object is invalid');
   const restored = cached?.restored?.rows === index.text_search_index ? cached.restored : null;
   if (!Array.isArray(layers)) staticAtlasFailure('search layer metadata is missing');
@@ -35,6 +34,8 @@ function atlasPublishedSearch(index, layers) {
     metadata.set(row.layer_index, row);
   }
   if ([...metadata.keys()].sort((a,b)=>a-b).some((value,i)=>value!==i)) staticAtlasFailure('search layer membership is incomplete');
+  const layerIdentity = JSON.stringify([...metadata].sort(([a],[b])=>a-b).map(([i,row])=>[i,row.feature_count,row.layer.key]));
+  if (cached?.published && cached.rows === index.text_search_index && cached.layerIdentity === layerIdentity) return cached.published;
   const docs = restored?.docs ?? new Map(), postings = restored?.postings ?? new Map(), expected = new Map();
   for (const [key, row] of Object.entries(index.text_search_index)) {
     if (key.startsWith('p:')) continue;
@@ -59,7 +60,13 @@ function atlasPublishedSearch(index, layers) {
     }
     if (postings.size !== expected.size) staticAtlasFailure('search posting membership is incomplete');
   }
-  const result = {docs, postings}; atlasSearchIndexes.set(index, {published:result}); return result;
+  if (!restored) {
+    for (const row of Object.values(index.text_search_index)) Object.freeze(row);
+    Object.freeze(index.text_search_index);
+  }
+  const result = {docs, postings};
+  atlasSearchIndexes.set(index, {restored, rows:index.text_search_index, layerIdentity, published:result});
+  return result;
 }
 function atlasSearchText(layer, feature, timeLabel) {
   return `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''} ${timeLabel(feature)}`.toLowerCase();
