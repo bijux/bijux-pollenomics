@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Retire historical cross-border and keyboard-navigation atlas capture reports while preserving active consumers and accepted Git evidence ([#393](https://github.com/bijux/bijux-pollenomics/pull/393)).
+
 - Keep atlas search restoration responsive, distinguish pending or unavailable evidence from ready views, record browser readiness milestones and avoid duplicate publication reconstruction while retaining full admission checks ([#392](https://github.com/bijux/bijux-pollenomics/pull/392)).
 
 - Require boolean values for propagation event admission flags while preserving existing defaults, refusals and valid-input report results ([#391](https://github.com/bijux/bijux-pollenomics/pull/391)).
