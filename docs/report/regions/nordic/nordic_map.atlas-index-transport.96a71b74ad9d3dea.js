@@ -42,17 +42,24 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
         add('utf16_unit_count', row.text.length);
         const grams = dependencies.searchGrams(row.text);
         if (!(grams instanceof Set)) staticAtlasFailure('search UTF-16 gram helper did not return unique grams');
+        let documentReferences = 0;
+        const maximumDocumentReferences = Number.MAX_SAFE_INTEGER - actual.posting_reference_count;
         for (const gram of grams) {
-          if (typeof gram !== 'string' || !/^(?:[a-f0-9]{4}){1,3}$/.test(gram)) staticAtlasFailure('search UTF-16 gram identity is invalid');
+          if (typeof gram !== 'string') staticAtlasFailure('search UTF-16 gram identity is invalid');
           const posting = `p:${gram}`;
           if (!Object.hasOwn(postings, posting)) {
+            if (!/^(?:[a-f0-9]{4}){1,3}$/.test(gram)) staticAtlasFailure('search UTF-16 gram identity is invalid');
             add('posting_key_count', 1);
             postings[posting] = [];
           }
-          add('posting_reference_count', 1);
+          documentReferences += 1;
+          if (documentReferences > maximumDocumentReferences) integer(actual.posting_reference_count + documentReferences, 'derived search posting_reference_count');
+          if (actual.posting_reference_count + documentReferences > counts.posting_reference_count) staticAtlasFailure('derived search posting_reference_count exceeds its declared count');
           // Globally sorted document keys append each unique membership in lexical order.
           postings[posting].push(key);
         }
+        // The cap is observed per yield; iterator completion may change it, so do not read it again here.
+        actual.posting_reference_count = integer(actual.posting_reference_count + documentReferences, 'derived search posting_reference_count');
       }
       if (SEARCH_COUNT_FIELDS.some(field => actual[field] !== counts[field])) staticAtlasFailure('derived search counts differ from their declaration');
       for (const key of Object.keys(postings).sort()) documents[key] = postings[key];

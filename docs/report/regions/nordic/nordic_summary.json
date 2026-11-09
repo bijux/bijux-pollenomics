@@ -1124,7 +1124,7 @@
       },
       {
         "label": "Static atlas runtime",
-        "filename": "nordic_map.atlas-runtime.86cd5bd24767867c.js"
+        "filename": "nordic_map.atlas-runtime.08d2c9554035e2b8.js"
       },
       {
         "label": "Interactive evidence tools",
@@ -1132,7 +1132,7 @@
       },
       {
         "label": "Static atlas index transport",
-        "filename": "nordic_map.atlas-index-transport.513b4ed69afc60fb.js"
+        "filename": "nordic_map.atlas-index-transport.96a71b74ad9d3dea.js"
       }
     ],
     "playback_storyboards": "nordic_playback_storyboards.json",
