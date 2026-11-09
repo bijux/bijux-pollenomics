@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Bind qualified ABBO report execution to compact source guards and exact external inputs while preserving historical custody and scientific admission limits ([#380](https://github.com/bijux/bijux-pollenomics/pull/380)).
+
 - Keep visible navigation warnings separated from their labels in both text orientations while preserving accessible notices and ordinary inline spacing ([#379](https://github.com/bijux/bijux-pollenomics/pull/379)).
 
 - Prepare immutable LOVE objective inputs once per search and record measured callback costs while preserving numerical and scientific limits ([#378](https://github.com/bijux/bijux-pollenomics/pull/378)).
