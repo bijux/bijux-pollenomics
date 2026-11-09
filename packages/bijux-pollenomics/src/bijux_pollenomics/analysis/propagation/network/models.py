@@ -122,6 +122,9 @@ class PhenomenonEvent:
             object.__setattr__(
                 self, field_name, _required_text(getattr(self, field_name))
             )
+        for field_name in ("preaggregation_valid", "role_membership_explicit"):
+            if type(getattr(self, field_name)) is not bool:
+                _invalid(f"{field_name} must be a boolean")
         if self.schema_version != EVENT_SCHEMA_VERSION:
             _invalid("unsupported phenomenon-event schema_version")
         if self.evidence_domain not in EVIDENCE_DOMAINS:
