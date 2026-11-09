@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Wait for scientific reader table reflow before checking layout, preserving permanent overflow refusals and diagnostic geometry ([#377](https://github.com/bijux/bijux-pollenomics/pull/377)).
+
 - Record complete public LOVE optimizer search costs, stopping outcomes and runtime context while preserving Python backend and scientific qualification limits ([#376](https://github.com/bijux/bijux-pollenomics/pull/376)).
 
 - Keep Chromium IPC paths within Unix socket limits, clean private browser runtime directories and probe startup before scientific site builds ([#375](https://github.com/bijux/bijux-pollenomics/pull/375)).
