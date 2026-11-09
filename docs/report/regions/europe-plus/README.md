@@ -76,9 +76,9 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 - Atlas evidence surface markdown: [`europe-plus_evidence_surface.md`](./europe-plus_evidence_surface.md)
 - Atlas scientific review JSON: [`europe-plus_scientific_review.json`](./europe-plus_scientific_review.json)
 - Atlas scientific review markdown: [`europe-plus_scientific_review.md`](./europe-plus_scientific_review.md)
-- Static atlas runtime: [`europe-plus_map.atlas-runtime.75daf45e8363273d.js`](./europe-plus_map.atlas-runtime.75daf45e8363273d.js)
+- Static atlas runtime: [`europe-plus_map.atlas-runtime.6eb0f22ce261f2f0.js`](./europe-plus_map.atlas-runtime.6eb0f22ce261f2f0.js)
 - Interactive evidence tools: [`europe-plus_map.atlas-evidence-tools.bac3f9295a5c95bb.js`](./europe-plus_map.atlas-evidence-tools.bac3f9295a5c95bb.js)
-- Static atlas index transport: [`europe-plus_map.atlas-index-transport.2168d29af8354bcb.js`](./europe-plus_map.atlas-index-transport.2168d29af8354bcb.js)
+- Static atlas index transport: [`europe-plus_map.atlas-index-transport.513b4ed69afc60fb.js`](./europe-plus_map.atlas-index-transport.513b4ed69afc60fb.js)
 
 ## Visible Layer Contract
 

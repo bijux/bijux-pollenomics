@@ -26,7 +26,8 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
     function validateSearchDocument(key, row) {
       if (!row || typeof row !== 'object' || Array.isArray(row) || Object.keys(row).sort().join('|') !== 'feature_index|layer_index|layer_key|record_id|text' || !Number.isSafeInteger(row.layer_index) || row.layer_index < 0 || !Number.isSafeInteger(row.feature_index) || row.feature_index < 0 || typeof row.layer_key !== 'string' || !row.layer_key || typeof row.text !== 'string' || key !== `d:${row.layer_index}:${row.feature_index}`) staticAtlasFailure('search transport document identity is invalid');
     }
-    function restoreSearchDocuments(documents, counts) {
+    function restoreSearchDocuments(index, counts) {
+      const documents = index.text_search_index;
       if (typeof dependencies.searchGrams !== 'function') staticAtlasFailure('search documents require the published UTF-16 gram helper');
       const postings = Object.create(null);
       const actual = {document_count: 0, utf16_unit_count: 0, posting_key_count: 0, posting_reference_count: 0};
@@ -55,6 +56,7 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
       }
       if (SEARCH_COUNT_FIELDS.some(field => actual[field] !== counts[field])) staticAtlasFailure('derived search counts differ from their declaration');
       for (const key of Object.keys(postings).sort()) documents[key] = postings[key];
+      if (typeof dependencies.rememberRestoredSearch === 'function') dependencies.rememberRestoredSearch(index, postings);
       return documents;
     }
     const STATIC_ATLAS_INDEX_KINDS = Object.freeze([
@@ -227,7 +229,7 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
         0
       ) + Object.keys(merged.detail_record_asset_keys).length;
       if (referenceCount !== payload.reference_count) staticAtlasFailure(`${row.asset_key} merged reference count mismatch`);
-      if (counts !== null) merged.text_search_index = restoreSearchDocuments(merged.text_search_index, counts);
+      if (counts !== null) merged.text_search_index = restoreSearchDocuments(merged, counts);
       return merged;
     }
     const PART_SCHEMA = 'atlas-static-index-part.v1';

@@ -176,9 +176,9 @@ World is the governing publication surface. It keeps every published country ins
 - Atlas evidence surface markdown: [`world_evidence_surface.md`](./world_evidence_surface.md)
 - Atlas scientific review JSON: [`world_scientific_review.json`](./world_scientific_review.json)
 - Atlas scientific review markdown: [`world_scientific_review.md`](./world_scientific_review.md)
-- Static atlas runtime: [`world_map.atlas-runtime.a333c0c242dd81a3.js`](./world_map.atlas-runtime.a333c0c242dd81a3.js)
+- Static atlas runtime: [`world_map.atlas-runtime.1d7fc9ba8b688208.js`](./world_map.atlas-runtime.1d7fc9ba8b688208.js)
 - Interactive evidence tools: [`world_map.atlas-evidence-tools.bac3f9295a5c95bb.js`](./world_map.atlas-evidence-tools.bac3f9295a5c95bb.js)
-- Static atlas index transport: [`world_map.atlas-index-transport.2168d29af8354bcb.js`](./world_map.atlas-index-transport.2168d29af8354bcb.js)
+- Static atlas index transport: [`world_map.atlas-index-transport.513b4ed69afc60fb.js`](./world_map.atlas-index-transport.513b4ed69afc60fb.js)
 
 ## Visible Layer Contract
 

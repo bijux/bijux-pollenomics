@@ -75,15 +75,15 @@
         "filename": "nordic_reveals_temporal_grid_cells.geojson"
       },
       {
-        "label": "RAÄ archaeology layer metadata",
+        "label": "RA\u00c4 archaeology layer metadata",
         "filename": "sweden_archaeology_layer.json"
       },
       {
-        "label": "RAÄ atlas input status",
+        "label": "RA\u00c4 atlas input status",
         "filename": "raa_atlas_input_status.json"
       },
       {
-        "label": "RAÄ archaeology density",
+        "label": "RA\u00c4 archaeology density",
         "filename": "sweden_archaeology_density.geojson"
       },
       {
@@ -1124,7 +1124,7 @@
       },
       {
         "label": "Static atlas runtime",
-        "filename": "nordic_map.atlas-runtime.c7b264756b4cae81.js"
+        "filename": "nordic_map.atlas-runtime.39538025d3ac5810.js"
       },
       {
         "label": "Interactive evidence tools",
@@ -1132,7 +1132,7 @@
       },
       {
         "label": "Static atlas index transport",
-        "filename": "nordic_map.atlas-index-transport.2168d29af8354bcb.js"
+        "filename": "nordic_map.atlas-index-transport.513b4ed69afc60fb.js"
       }
     ],
     "playback_storyboards": "nordic_playback_storyboards.json",
@@ -1231,7 +1231,7 @@
         "key": "fieldwork-documentation",
         "label": "Fieldwork documentation",
         "source_name": "Bijux fieldwork",
-        "coverage_label": "Observed sampling location documented on 2026-02-26 at Lyngsjön Lake.",
+        "coverage_label": "Observed sampling location documented on 2026-02-26 at Lyngsj\u00f6n Lake.",
         "count": 1,
         "publication_role": "scope_specific_overlay",
         "scope_visibility": "scope_owned",
@@ -1282,7 +1282,7 @@
       {
         "key": "sweden-archaeology-site-discovery",
         "label": "Sweden archaeology site discovery",
-        "source_name": "SEAD with RAÄ density context",
+        "source_name": "SEAD with RA\u00c4 density context",
         "coverage_label": "Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record.",
         "count": 8799,
         "publication_role": "scope_specific_overlay",
@@ -1554,9 +1554,9 @@
       },
       {
         "key": "raa-archaeology",
-        "label": "RAÄ archaeology density",
-        "source_name": "RAÄ Fornsök",
-        "coverage_label": "Sweden only. Density cells summarize `Fornlämning` counts.",
+        "label": "RA\u00c4 archaeology density",
+        "source_name": "RA\u00c4 Forns\u00f6k",
+        "coverage_label": "Sweden only. Density cells summarize `Fornl\u00e4mning` counts.",
         "count": 106,
         "publication_role": "scope_specific_overlay",
         "scope_visibility": "scope_owned",
@@ -1593,7 +1593,7 @@
           "status": "observed_retained_normalized_pair"
         },
         "density_value_label": "Retained cell count (unreconciled)",
-        "density_count_label": "Retained Swedish one-degree cell values: 339,412 summed cell counts versus 318,265 metadata Fornlämning; display only, source authority refused."
+        "density_count_label": "Retained Swedish one-degree cell values: 339,412 summed cell counts versus 318,265 metadata Fornl\u00e4mning; display only, source authority refused."
       }
     ],
     "static_assets": {

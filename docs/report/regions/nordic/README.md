@@ -304,9 +304,9 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 - Atlas scientific review JSON: [`nordic_scientific_review.json`](./nordic_scientific_review.json)
 - Atlas scientific review markdown: [`nordic_scientific_review.md`](./nordic_scientific_review.md)
 - Governed oldest-to-present playback storyboards: [`nordic_playback_storyboards.json`](./nordic_playback_storyboards.json)
-- Static atlas runtime: [`nordic_map.atlas-runtime.c7b264756b4cae81.js`](./nordic_map.atlas-runtime.c7b264756b4cae81.js)
+- Static atlas runtime: [`nordic_map.atlas-runtime.39538025d3ac5810.js`](./nordic_map.atlas-runtime.39538025d3ac5810.js)
 - Interactive evidence tools: [`nordic_map.atlas-evidence-tools.bac3f9295a5c95bb.js`](./nordic_map.atlas-evidence-tools.bac3f9295a5c95bb.js)
-- Static atlas index transport: [`nordic_map.atlas-index-transport.2168d29af8354bcb.js`](./nordic_map.atlas-index-transport.2168d29af8354bcb.js)
+- Static atlas index transport: [`nordic_map.atlas-index-transport.513b4ed69afc60fb.js`](./nordic_map.atlas-index-transport.513b4ed69afc60fb.js)
 
 ## Visible Layer Contract
 
