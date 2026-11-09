@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Sequence
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -273,3 +274,121 @@ def test_repository_policy_binds_canonical_report_command() -> None:
         in input_paths
     )
     assert sys.version_info >= (3, 11)
+
+
+@pytest.mark.parametrize(
+    ("filename", "payload"),
+    (
+        ("source.txt", b"\xef\xbb\xbfliteral\r\n"),
+        ("source.txt", "Málaga 🙂\r\n".encode()),
+        ("source.txt", b'{"generated_on": "2026-11-09"}\n'),
+        ("source.json", b'\xff{"generated_on": "2026-11-09"}\r\n'),
+        ("source.txt", b""),
+    ),
+)
+def test_input_inventory_keeps_literal_content_when_not_normalized(
+    tmp_path: Path, filename: str, payload: bytes
+) -> None:
+    root, policy_path = _fixture_repo(tmp_path, volatile=True)
+    policy = load_policy(policy_path)
+    policy["input_paths"] = ["policy.json", filename]
+    policy_path.write_text(json.dumps(policy), encoding="utf-8")
+    (root / filename).write_bytes(payload)
+
+    entry = next(
+        row
+        for row in inventory_inputs(root, load_policy(policy_path))
+        if row.path == filename
+    )
+    digest = hashlib.sha256(payload).hexdigest()
+    assert entry.as_json() == {
+        "path": filename,
+        "kind": "file",
+        "size": len(payload),
+        "sha256": digest,
+        "canonical_sha256": digest,
+    }
+
+
+@pytest.mark.parametrize("suffix", (".json", ".md", ".html"))
+def test_matching_rewrites_keep_order_unicode_and_line_endings(
+    tmp_path: Path, suffix: str
+) -> None:
+    root, policy_path = _fixture_repo(tmp_path)
+    filename = "source" + suffix
+    policy = load_policy(policy_path)
+    policy["input_paths"] = ["policy.json", filename]
+    policy["volatile_text_rules"] = [
+        {
+            "id": "date-token",
+            "path_globs": ["**/*" + suffix],
+            "pattern": "generated [0-9]{4}-[0-9]{2}-[0-9]{2}",
+            "replacement": "generated <DAY>",
+        },
+        {
+            "id": "canonical-date",
+            "path_globs": ["**/*" + suffix],
+            "pattern": "<DAY>",
+            "replacement": "<GENERATED-DATE>",
+        },
+    ]
+    policy_path.write_text(json.dumps(policy), encoding="utf-8")
+    payload = "\ufeffMálaga 🙂 generated 2026-11-09\r\n".encode()
+    expected = payload.replace(b"2026-11-09", b"<GENERATED-DATE>")
+    (root / filename).write_bytes(payload)
+
+    entry = next(
+        row
+        for row in inventory_inputs(root, load_policy(policy_path))
+        if row.path == filename
+    )
+    assert entry.as_json() == {
+        "path": filename,
+        "kind": "file",
+        "size": len(payload),
+        "sha256": hashlib.sha256(payload).hexdigest(),
+        "canonical_sha256": hashlib.sha256(expected).hexdigest(),
+    }
+
+
+def test_date_only_input_drift_refuses_even_with_equal_canonical_hashes(
+    tmp_path: Path,
+) -> None:
+    root, policy_path = _fixture_repo(tmp_path, volatile=True)
+    policy = load_policy(policy_path)
+    policy["input_paths"] = ["policy.json", "source.json"]
+    policy_path.write_text(json.dumps(policy), encoding="utf-8")
+    source = root / "source.json"
+    source.write_text('{"generated_on": "2020-01-01"}\n', encoding="utf-8")
+    (root / "docs/report/report.json").write_text("{}\n", encoding="utf-8")
+    before = next(
+        row for row in inventory_inputs(root, policy) if row.path == "source.json"
+    )
+    calls = 0
+
+    def mutate_date(command: Sequence[str], cwd: Path) -> CommandResult:
+        nonlocal calls
+        calls += 1
+        output = Path(command[command.index("--output-root") + 1])
+        output.mkdir()
+        (output / "report.json").write_text("{}\n", encoding="utf-8")
+        if calls == 2:
+            (cwd / "source.json").write_text(
+                '{"generated_on": "2030-02-03"}\n', encoding="utf-8"
+            )
+        return CommandResult(0, "", "")
+
+    report = verify_reproducible_reports(
+        repo_root=root,
+        policy_path=policy_path,
+        evidence_root=root / "artifacts/evidence",
+        runner=mutate_date,
+    )
+    after = next(
+        row for row in inventory_inputs(root, policy) if row.path == "source.json"
+    )
+    assert before.canonical_sha256 == after.canonical_sha256
+    assert before.sha256 != after.sha256
+    assert report["status"] == "FAIL"
+    differences = cast(list[dict[str, object]], report["differences"])
+    assert any(row["kind"] == "changed_during_build" for row in differences)
