@@ -61,9 +61,10 @@ function renderRelationSummary(data, edgeHref = () => null, displayLimit = 25) {
     const directed = partition.orientation === 'directed';
     const description = directed ? 'Directed source → target country counts' : 'NON-DIRECTIONAL stored first / second endpoint country counts';
     const heading = directed ? 'Source / target' : 'Stored first / second endpoint';
-    const scopes = partition.featureScopes.map(scope => `Resolution: <code>${text(scope.resolution)}</code>; feature: <code>${text(scope.featureKey)}</code>`);
+    const scopes = partition.featureScopes.slice(0, 25).map(scope => `Resolution: <code>${text(scope.resolution)}</code>; feature: <code>${text(scope.featureKey)}</code>`);
+    const omittedScopes = partition.featureScopes.length - scopes.length;
     const scopeCaption = scopes.length === 1 ? `<span style="display:block;overflow-wrap:anywhere">${scopes[0]}</span>`
-      : `<details style="overflow-wrap:anywhere"><summary>Aggregated across ${scopes.length} supplied feature-resolution pairs</summary><ul>${scopes.map(scope => `<li>${scope}</li>`).join('')}</ul></details>`;
+      : `<details style="overflow-wrap:anywhere"><summary>Aggregated across ${partition.featureScopes.length} supplied feature-resolution pairs</summary>${omittedScopes ? `<p>Showing the first ${scopes.length} of ${partition.featureScopes.length} exact pairs. ${omittedScopes} pairs omitted here; narrow signal filters to inspect other supplied identities. The full pair set remains in the retained selection.</p>` : ''}<ul>${scopes.map(scope => `<li>${scope}</li>`).join('')}</ul></details>`;
     const cells = new Map(partition.cells.map(cell => [JSON.stringify([cell.sourceCountry, cell.targetCountry]), cell.edgeIds]));
     const rows = data.countries.map(country => `<tr><th scope="row">${text(country)}</th>${data.countries.map(target => {
       const ids = cells.get(JSON.stringify([country, target])) || [];

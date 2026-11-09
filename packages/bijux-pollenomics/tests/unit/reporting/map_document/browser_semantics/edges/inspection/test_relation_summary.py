@@ -257,6 +257,36 @@ def test_literal_scope_labels_are_escaped_and_legacy_metadata_remains_supported(
     ]
 
 
+def test_many_real_projected_scopes_keep_full_data_and_bound_caption_items() -> None:
+    rows = [
+        edge(f"scope-{index:03}", feature_key=f"taxon:scope-{index:03}")
+        for index in range(40)
+    ]
+    observed = summary(rows)
+    assert observed == summary(list(reversed(rows)))
+    data = observed["data"]
+    assert data["edgeCount"] == 40 and len(data["partitions"]) == 1
+    partition = data["partitions"][0]
+    assert partition["featureScopes"] == [
+        {"resolution": "taxon", "featureKey": f"taxon:scope-{index:03}"}
+        for index in range(40)
+    ]
+    assert partition["cells"][0]["edgeIds"] == sorted(row["edge_id"] for row in rows)
+    caption = ET.fromstring(observed["html"]).find(".//caption")
+    assert caption is not None
+    visible = " ".join(caption.itertext())
+    assert "Aggregated across 40 supplied feature-resolution pairs" in visible
+    assert "Showing the first 25 of 40 exact pairs" in visible
+    assert "15 pairs omitted here; narrow signal filters" in visible
+    assert "full pair set remains in the retained selection" in visible
+    items = caption.findall(".//li")
+    assert len(items) == 25
+    assert [list(item.itertext())[-1] for item in items] == [
+        f"taxon:scope-{index:03}" for index in range(25)
+    ]
+    assert "taxon:scope-039" not in visible
+
+
 @pytest.mark.parametrize("field", ["resolution", "feature_key"])
 def test_missing_scope_refuses_without_inventing_a_caption(field: str) -> None:
     row = edge()
