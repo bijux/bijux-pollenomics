@@ -5764,7 +5764,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/regions/europe-plus/europe-plus_summary.json",
-            "sha256": "24358db0708a661ed80e2f1b73029596d261c9154a361fd02e3992ca9908e1a8"
+            "sha256": "e44f7d7da8d577e3a43a59bc05a94dec912920806279a751c6a980c955713be8"
           }
         ]
       }
@@ -6002,7 +6002,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/regions/nordic/nordic_summary.json",
-            "sha256": "ea3a2c22d794479e8265180914325ff01b3cfe37becd9ff66acae2ee56018390"
+            "sha256": "0466dc727b8632f4709f8bcda39519f33bd3bac38390117f9e74a5b42bd248e2"
           }
         ]
       }
@@ -9869,7 +9869,7 @@
         "evidence_pins": [
           {
             "path": "docs/report/world/world_summary.json",
-            "sha256": "13fee7b55da5d1d942e98eea512b2e3715f12b862baaae7eeb88f99734e9f716"
+            "sha256": "c05488994ddc3942b2ee9437296febdfe04a1776f96b3b659ae8e6808161ed92"
           },
           {
             "path": "docs/report/world/world_map_publication_contract.json",

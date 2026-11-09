@@ -7,6 +7,8 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
     const nativeCalendarNumber = dependencies.nativeCalendarNumber;
     const staticAtlasBoundedGunzip = dependencies.boundedGunzip;
     const staticAtlasSha256 = dependencies.sha256;
+    const yieldTask = dependencies.yieldTask;
+    if (yieldTask !== undefined && typeof yieldTask !== 'function') staticAtlasFailure('index scheduler must be callable');
     const SEARCH_DOCUMENTS_SCHEMA = 'atlas-search-documents.v1';
     const SEARCH_COUNT_FIELDS = ['document_count', 'posting_key_count', 'posting_reference_count', 'utf16_unit_count'];
     function searchTransportCounts(payload) {
@@ -26,7 +28,7 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
     function validateSearchDocument(key, row) {
       if (!row || typeof row !== 'object' || Array.isArray(row) || Object.keys(row).sort().join('|') !== 'feature_index|layer_index|layer_key|record_id|text' || !Number.isSafeInteger(row.layer_index) || row.layer_index < 0 || !Number.isSafeInteger(row.feature_index) || row.feature_index < 0 || typeof row.layer_key !== 'string' || !row.layer_key || typeof row.text !== 'string' || key !== `d:${row.layer_index}:${row.feature_index}`) staticAtlasFailure('search transport document identity is invalid');
     }
-    function restoreSearchDocuments(index, counts) {
+    async function restoreSearchDocuments(index, counts) {
       const documents = index.text_search_index;
       if (typeof dependencies.searchGrams !== 'function') staticAtlasFailure('search documents require the published UTF-16 gram helper');
       const postings = Object.create(null);
@@ -35,7 +37,8 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
         actual[field] = integer(actual[field] + increment, `derived search ${field}`);
         if (actual[field] > counts[field]) staticAtlasFailure(`derived search ${field} exceeds its declared count`);
       }
-      for (const key of Object.keys(documents).sort()) {
+      const documentKeys = Object.keys(documents).sort();
+      for (const key of documentKeys) {
         const row = documents[key];
         validateSearchDocument(key, row);
         add('document_count', 1);
@@ -60,6 +63,8 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
         }
         // The cap is observed per yield; iterator completion may change it, so do not read it again here.
         actual.posting_reference_count = integer(actual.posting_reference_count + documentReferences, 'derived search posting_reference_count');
+        // Yield only between complete documents; no partial search state is published.
+        if (yieldTask && actual.document_count % 1024 === 0 && actual.document_count < documentKeys.length) await yieldTask();
       }
       if (SEARCH_COUNT_FIELDS.some(field => actual[field] !== counts[field])) staticAtlasFailure('derived search counts differ from their declaration');
       for (const key of Object.keys(postings).sort()) documents[key] = postings[key];
@@ -236,7 +241,7 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
         0
       ) + Object.keys(merged.detail_record_asset_keys).length;
       if (referenceCount !== payload.reference_count) staticAtlasFailure(`${row.asset_key} merged reference count mismatch`);
-      if (counts !== null) merged.text_search_index = restoreSearchDocuments(merged, counts);
+      if (counts !== null) merged.text_search_index = await restoreSearchDocuments(merged, counts);
       return merged;
     }
     const PART_SCHEMA = 'atlas-static-index-part.v1';

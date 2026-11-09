@@ -212,7 +212,7 @@
       },
       {
         "label": "Static atlas runtime",
-        "filename": "europe-plus_map.atlas-runtime.2ac42d741f12c16c.js"
+        "filename": "europe-plus_map.atlas-runtime.7226e3df5c0c63ba.js"
       },
       {
         "label": "Interactive evidence tools",
@@ -220,7 +220,7 @@
       },
       {
         "label": "Static atlas index transport",
-        "filename": "europe-plus_map.atlas-index-transport.96a71b74ad9d3dea.js"
+        "filename": "europe-plus_map.atlas-index-transport.8a5a782e368aa817.js"
       }
     ],
     "animal_localities_geojson": "europe-plus_animal_localities.geojson",
