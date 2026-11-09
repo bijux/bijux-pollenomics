@@ -17,7 +17,7 @@ def template_block(start: str, end: str) -> str:
     ]
 
 
-def index_transport_helpers(*, common: bool = True) -> str:
+def index_transport_helpers(*, common: bool = True, include_search: bool = True) -> str:
     """Execute the packaged index factory with the maintained browser callbacks."""
     source = (
         files("bijux_pollenomics.reporting.map_document")
@@ -29,14 +29,15 @@ def index_transport_helpers(*, common: bool = True) -> str:
         .joinpath("assets/search-index.js")
         .read_text()
     )
-    source = (
-        search[
-            search.index("function atlasSearchGrams") : search.index(
-                "function atlasPublishedSearch"
-            )
-        ]
-        + source
-    )
+    if include_search:
+        source = (
+            search[
+                search.index("const ATLAS_SEARCH_CODE_UNITS") : search.index(
+                    "function atlasPublishedSearch"
+                )
+            ]
+            + source
+        )
     if common:
         source = (
             template_block(

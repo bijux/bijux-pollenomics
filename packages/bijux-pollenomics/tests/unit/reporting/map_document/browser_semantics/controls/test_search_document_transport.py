@@ -125,7 +125,7 @@ def observe(data: dict[str, Any]) -> dict[str, Any]:
                 "async function staticAtlasBoundedGunzip",
             )
             + native
-            + index_transport_helpers()
+            + index_transport_helpers(include_search=False)
             + assets.joinpath("search-index.js").read_text()
             + r"""
 (async()=>{try{
