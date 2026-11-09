@@ -34,6 +34,9 @@ this is not a sandbox for a malicious repository maintainer.
 configuration files, keys/token markers, unadmitted extensions/maps, executable URL
 attributes, inline handlers, HTTP resource URLs and bad production canonicals.
 Errors print classifications and file paths, never matching private bytes.
+Successful admission and verification print a concise JSON summary; complete file,
+qualification and producer evidence remains in the manifest selected by `--output`
+or `--manifest`. Stdout is not a replacement for that retained manifest.
 `policy.json` records size/file budgets and narrowly purpose-owned public exceptions;
 pinned Material runtime/styles source maps are intentionally public. Heuristic
 private-marker scanning is defense in depth and cannot prove every conceivable

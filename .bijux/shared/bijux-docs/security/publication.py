@@ -839,7 +839,7 @@ def main() -> int:
                 if args.require_qualified:
                     require(retained.get("schema") == 2, "publication: qualified identity manifest required")
                 result = verify_manifest(args.repo_root, retained, load_policy(args.policy))
-        summary = {k: v for k, v in result.items() if k not in {"files", "qualification"}}
+        summary = {k: v for k, v in result.items() if k not in {"files", "qualification", "producer_authority"}}
         if "qualification" in result:
             summary["qualification_receipts"] = {key: {"path": value["path"], "sha256": value["sha256"]}
                                                   for key, value in result["qualification"].items()}
