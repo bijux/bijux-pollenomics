@@ -101,7 +101,7 @@
       "source": "bijux-docs/styles/03-header.css"
     },
     "docs/assets/styles/04-nav.css": {
-      "sha256": "98a3f4a0fef99cad9c044f2822459d20994801146bed359cacac87245810d1f6",
+      "sha256": "a7d54e2a68c933ac431da6b20282269124a99eccf18c75c7dbbec4fcac47075f",
       "source": "bijux-docs/styles/04-nav.css"
     },
     "docs/assets/styles/05-content.css": {
@@ -185,6 +185,6 @@
   "source": {
     "mode": "accepted-github",
     "origin": "https://github.com/bijux/bijux-std.git",
-    "sha": "5826a99f978740ccddb35486c56c88cde922e278"
+    "sha": "58aaa1f15f23f668b7958df4149a85664a02d663"
   }
 }

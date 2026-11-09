@@ -100,6 +100,10 @@
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
 }
 
+.bijux-tabs__link > [data-bijux-link-indication] {
+  margin-inline-start: 0.25em;
+}
+
 .bijux-tabs__link::after {
   background: var(--bijux-nav-indicator);
   border-radius: 999px;
