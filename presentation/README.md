@@ -9,8 +9,8 @@ reader needs:
 | Implementers | [Developer](developer.tex) | [Developer PDF](developer.pdf) |
 | Researchers | [Scientific evidence](scientific-evidence.tex) | [Scientific evidence PDF](scientific-evidence.pdf) |
 
-The current PDFs were compiled from Git revision `520c083fec40e16e64f4fbcd16a662ccd3ecd685`
-on 8 November 2026: 14 big-picture, 13 developer and 43 scientific pages.
+The current PDFs were compiled from Git revision `7408e286203ac3b147a084d5b2edff86176cb69c`
+on 9 November 2026: 14 big-picture, 13 developer and 43 scientific pages.
 All three compiler commands completed successfully from the five committed
 inputs using the existing native PGFPlots path.
 
@@ -21,9 +21,10 @@ and positive lower bound passes in that captured-A law; historical A and
 field accuracy remain unqualified. The [exact coefficient result](../reports/science/pollen-reconstruction/spatial-field-forward/continuous-receiver/receiver-angle-moments-result.json)
 owns the plotted values. The page 23 training-error comparison is unchanged.
 
-All 70 pages pass embedded-font and text-bound checks. All 69 original page
-texts are preserved after frame-number normalization; only the new scientific
-frame is added. The other two decks retain their full text, and all twelve
+All 70 pages pass embedded-font and text-bound checks. The first 42 scientific
+page texts and all 14 big-picture and 13 developer page texts are preserved
+after frame-number normalization. The last scientific frame displays the
+retained synthetic coverage and transport-mismatch diagnostics. All twelve
 paper/deck download bytes pass their existing source checks. Full human
 reading, tagged accessibility and online availability remain unqualified.
 Earlier exports retain their source and execution identities in Git history.
