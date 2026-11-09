@@ -19,6 +19,31 @@ checks the installed engine's distribution, version, entry point and API
 descriptor. Those are current package contracts, not a promise of a future
 public release.
 
+## Current installed host input boundaries
+
+At source [`e29bee7c`](https://github.com/bijux/bijux-pollenomics/commit/e29bee7c30d94052a5b33106a7813c83a94eaebc),
+the host wheel `0.1.9.dev2863` passed a fresh, noneditable base installation
+on CPython 3.11.13, macOS ARM64. Isolated probes used installed dependencies
+and a neutral working directory, without the optional engine, NumPy, SciPy
+or pandas.
+
+The [synthetic source-projection boundary](../../packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/requests/api.py)
+refuses inconsistent native pollen labels before publishing counts. The
+[event boundary](../../packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/models.py)
+refuses scalar observation identifiers rather than splitting strings into
+characters. The [sample-identity regressions](../../packages/bijux-pollenomics/tests/unit/analysis/propagation/test_event_estimation.py)
+also pass through the installed API: whitespace aliases refuse across all
+four threshold profiles, while distinct padded identities retain their results.
+Valid tuple/list event identifiers and consistent pollen labels remain accepted.
+
+Source and installed probes produced identical complete outcomes, including
+both complete 49-file synthetic projections. All 1,481 host namespace and
+resource files matched frozen source and wheel bytes; installed RECORD entries,
+legal files, version and import origins passed authentication. This is a
+base-host API qualification. The optional-engine and source-distribution
+results below retain their separate source epochs; no new field application,
+historical custody or public-release qualification follows.
+
 ## Installed host and optional engine
 
 Accepted source `07b9a9a53cfc34822da1c520d41ba26f6629cde9` was qualified on
