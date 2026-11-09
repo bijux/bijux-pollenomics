@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Keep visible navigation warnings separated from their labels in both text orientations while preserving accessible notices and ordinary inline spacing ([#379](https://github.com/bijux/bijux-pollenomics/pull/379)).
+
 - Prepare immutable LOVE objective inputs once per search and record measured callback costs while preserving numerical and scientific limits ([#378](https://github.com/bijux/bijux-pollenomics/pull/378)).
 
 - Wait for scientific reader table reflow before checking layout, preserving permanent overflow refusals and diagnostic geometry ([#377](https://github.com/bijux/bijux-pollenomics/pull/377)).
