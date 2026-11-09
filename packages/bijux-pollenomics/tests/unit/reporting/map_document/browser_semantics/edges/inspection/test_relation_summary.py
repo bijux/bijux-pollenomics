@@ -46,12 +46,16 @@ def edge(
     source_bounds: tuple[int, int] = (100, 100),
     target_bounds: tuple[int, int] | None = (0, 0),
     scenario_id: str = "rectangular_100km_100yr_v1",
+    resolution: str = "taxon",
+    feature_key: str = "taxon:triticum_aestivum",
 ) -> dict[str, Any]:
     source = event(
         "source-" + name,
         country_code=source_country,
         younger_bp=source_bounds[0],
         older_bp=source_bounds[1],
+        resolution=resolution,
+        feature_key=feature_key,
     )
     target = event(
         "target-" + name,
@@ -59,6 +63,8 @@ def edge(
         younger_bp=target_bounds[0] if target_bounds else None,
         older_bp=target_bounds[1] if target_bounds else None,
         comparability_status="comparable" if target_bounds else "unresolved",
+        resolution=resolution,
+        feature_key=feature_key,
     )
     scenario = CandidatePropagationScenario(scenario_id, 100, 100)
     candidate = evaluate_propagation_pair(source, target, scenario=scenario)
@@ -170,6 +176,98 @@ def test_scenarios_and_candidate_statuses_stay_separate() -> None:
         ("rectangular_100km_100yr_v1", "possible_candidate"),
     }
     assert sum(len(c["edgeIds"]) for p in data["partitions"] for c in p["cells"]) == 3
+
+
+@pytest.mark.parametrize(
+    ("resolution", "feature_key"),
+    [("taxon", "taxon:pinus"), ("ecological_role", "role:forest")],
+)
+def test_real_projected_feature_scope_changes_the_country_caption(
+    resolution: str, feature_key: str
+) -> None:
+    original = summary([edge()])
+    row = edge(resolution=resolution, feature_key=feature_key)
+    observed = summary([row])
+    partition = observed["data"]["partitions"][0]
+    assert partition["featureScopes"] == [
+        {"resolution": resolution, "featureKey": feature_key}
+    ]
+    assert partition["cells"] == [
+        {"sourceCountry": "NO", "targetCountry": "SE", "edgeIds": [row["edge_id"]]}
+    ]
+    caption = ET.fromstring(observed["html"]).find(".//caption")
+    original_caption = ET.fromstring(original["html"]).find(".//caption")
+    assert caption is not None and original_caption is not None
+    visible = " ".join(caption.itertext())
+    assert resolution in visible and feature_key in visible
+    assert visible != " ".join(original_caption.itertext())
+    assert "overflow-wrap:anywhere" in observed["html"]
+    assert "do not select an analysis chronology" in observed["html"]
+    assert "scientific-event denominators are not established here" in observed["html"]
+
+
+def test_mixed_feature_scopes_disclose_aggregation_without_repartitioning() -> None:
+    rows = [
+        edge("wheat"),
+        edge("forest", resolution="ecological_role", feature_key="role:forest"),
+        edge("more-wheat"),
+    ]
+    before = deepcopy(rows)
+    observed = summary(rows)
+    assert observed == summary(list(reversed(rows)))
+    data = observed["data"]
+    assert data["edgeCount"] == 3 and len(data["partitions"]) == 1
+    partition = data["partitions"][0]
+    assert partition["featureScopes"] == [
+        {"resolution": "ecological_role", "featureKey": "role:forest"},
+        {"resolution": "taxon", "featureKey": "taxon:triticum_aestivum"},
+    ]
+    assert partition["cells"] == [
+        {
+            "sourceCountry": "NO",
+            "targetCountry": "SE",
+            "edgeIds": sorted(row["edge_id"] for row in rows),
+        }
+    ]
+    caption = ET.fromstring(observed["html"]).find(".//caption")
+    assert caption is not None
+    assert "Aggregated across 2 supplied feature-resolution pairs" in " ".join(
+        caption.itertext()
+    )
+    assert len(caption.findall(".//li")) == 2
+    assert rows == before
+
+
+def test_literal_scope_labels_are_escaped_and_legacy_metadata_remains_supported() -> (
+    None
+):
+    row = edge()
+    del row["relation_details"]
+    hostile = '<img src=x onerror="unsafe()">'
+    row["feature_key"] = hostile
+    for side in ["source", "target"]:
+        row[f"{side}_event"]["feature_key"] = hostile
+    observed = summary([row])
+    assert observed["data"]["status"] == "available"
+    caption = ET.fromstring(observed["html"]).find(".//caption")
+    assert caption is not None and caption.find(".//img") is None
+    assert hostile in " ".join(caption.itertext())
+    assert observed["data"]["partitions"][0]["featureScopes"] == [
+        {"resolution": "taxon", "featureKey": hostile}
+    ]
+
+
+@pytest.mark.parametrize("field", ["resolution", "feature_key"])
+def test_missing_scope_refuses_without_inventing_a_caption(field: str) -> None:
+    row = edge()
+    del row[field]
+    observed = summary([row])
+    assert observed["data"]["status"] == "refused"
+    assert "<caption>" not in observed["html"]
+    assert "Aggregated across" not in observed["html"]
+    empty = summary([])
+    assert empty["data"]["partitions"] == [] and "<caption>" not in empty["html"]
+    assert "No retained active relation rows were supplied" in empty["html"]
 
 
 @pytest.mark.parametrize("arrow", [False, None, 0, 1, "true", [], {}, "absent"])
