@@ -189,32 +189,34 @@ not have to infer product status from prose.
 
 ## Governed State Today
 
-The checked-in state demonstrates all four responsibilities at meaningful
-scale. Collection spans seven independently governed source families. The
-normalized context includes 490 LandClim site sequences, 200 Neotoma sites,
-and 2,069 assigned four-country SEAD sites. RAÄ authority is refused because its source inventory,
-summary, and scientific review do not reconcile in the repository. SVAR
-authority is refused because the governing normalized lake registry is absent.
-Their retained receipts and derived review material remain provenance, not
-admitted scientific evidence.
+Read the [source families](../pollenomics-data/sources/index.md) for collection
+and normalization scope, and each map's publication contract for admitted
+members. Source rows, curated samples and locality features have different
+units; their totals cannot substitute for one another. RAÄ
+authority is refused because its source inventory, summary, and scientific
+review do not reconcile in the repository. SVAR authority is refused because
+the governing normalized lake registry is absent. Their retained receipts and
+derived review material remain provenance, not admitted scientific evidence.
 
-Animal aDNA demonstrates the deeper evidence model. The 40-project registry
-contains 1,475 recovered raw sample rows and 1,468 final sample rows from 22
-contributing projects. The public animal point review admits 165 locality
-features representing 322 distinct samples: 117 domesticated-core and 48
-wild/progenitor-context features. Only four projects have a trustworthy
-expected sample count, so identity recovery is auditable without being
-misrepresented as collection completeness.
+Animal evidence illustrates that distinction. The [retained intake
+review](../../report/animal_intake_recovery_review.md), [sample database
+review](../../report/animal_sample_database_review.md) and [point evidence
+review](../../report/animal_point_evidence_review.md) describe their recorded
+review populations. They are snapshots, not live collection totals. Inspect the current
+[governed point candidates](https://github.com/bijux/bijux-pollenomics/blob/main/data/adna/final/atlas/animal_atlas_point_candidates.json)
+for source candidates; the selected geographic publication contract determines
+which members appear on its map. Recovery remains partial;
+an admitted subset does not establish collection completeness.
 
 ```mermaid
 flowchart LR
-    Project["40 tracked animal projects"] --> Raw["1,475 recovered raw rows"]
-    Raw --> Sample["1,468 final sample rows"]
+    Project["tracked source projects"] --> Raw["recovered source rows"]
+    Raw --> Sample["curated sample identities"]
     Sample --> Place["locality and coordinate review"]
     Sample --> Time["chronology review"]
     Place --> Admission{"point-product admission"}
     Time --> Admission
-    Admission -->|accepted| Point["165 locality features<br/>322 distinct samples"]
+    Admission -->|accepted| Point["locality features with represented samples"]
     Admission -->|not supported| VisibleGap["exclusion, refusal, or recovery evidence"]
 ```
 

@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-07
+last_reviewed: 2026-11-09
 ---
 
 # Nordic Evidence Atlas
@@ -60,27 +60,21 @@ flowchart TB
 
 ## Current Nordic Bundle
 
-The checked-in `v66` Nordic bundle was generated on `2026-09-06`. Its map
-contract publishes these governed layer populations:
+The [generated Nordic report](../../report/regions/nordic/README.md),
+[machine-readable summary](../../report/regions/nordic/nordic_summary.json) and
+[publication contract](../../report/regions/nordic/nordic_map_publication_contract.md)
+own the bundle version, generation date and typed layer populations. Use those
+values when citing the current map; this guide does not keep a second inventory.
 
-| Layer | Features | Role |
-| --- | ---: | --- |
-| AADR human samples | 1,231 | shared direct evidence |
-| admitted cattle progenitor-context, sheep, and pig aDNA localities | 8 | shared animal evidence; cattle remains wild-or-progenitor context rather than domesticated-core support |
-| LandClim pollen sites | 490 | Nordic environmental context |
-| Neotoma pollen sites | 193 | Nordic environmental context |
-| Neotoma sample-presence nodes | 9,988 | dated source-observation chronology |
-| Neotoma ecological-code nodes | 25,165 | literal source-code chronology, including TRSH, UPHE, and AQVP |
-| Neotoma exact-taxon nodes | 215,751 | source-native taxa without inferred equivalence |
-| SEAD sites | 2,069 | Nordic archaeology context |
-| Sweden archaeology discovery features | 8,799 | interval and unresolved features from 1,925 Swedish sites |
-| Lyngsjön fieldwork | 1 | Nordic direct-visit evidence |
-| LandClim REVEALS time-window cells | 2,515 | vegetation-reconstruction context |
-| country boundaries | 4 | filtered geographic framing |
+Animal localities retain their domesticated-core or wild/progenitor context
+roles; cattle progenitor context is not domesticated-core support. Source
+chronology records and mapped localities are distinct populations, even when
+they refer to the same species.
 
-The map also carries optional Sweden lake overlays: aggregate and consensus
-top 40, five radius-specific top 40 layers, and a fieldwork-preparation top 20.
-Those overlays are derived decision support and are disabled by default.
+Optional Sweden lake overlays provide aggregate, consensus, radius-specific
+and fieldwork-preparation rankings. These are derived decision support and are
+disabled by default; their selected scenario and membership belong to the
+published layer contract.
 
 Counts remain typed by layer. Adding samples, source observations, sites,
 localities, and modeled cells would not produce a meaningful total because the
