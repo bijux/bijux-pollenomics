@@ -356,3 +356,50 @@ console.log(JSON.stringify({
         },
         "invalidViews": ["refused"] * 6,
     }
+
+
+def test_capture_readiness_waits_for_completion_and_refuses_unavailable_selection() -> (
+    None
+):
+    readiness = template_block(
+        "async function awaitAtlasCaptureReady", "function atlasCaptureSnapshot"
+    )
+    observed = run_node_json(
+        r"""
+const assert=require('node:assert/strict');
+let busy='true',callback,frames=0,snapshots=0,invalidations=0,fontReads=0,fontWait=null,onFrame=null;
+const emptyState={dataset:{reason:'loading'}};
+const document={getElementById(){return {getAttribute(){return busy}}},
+ fonts:{get ready(){fontReads++;return fontWait??Promise.resolve()}}};
+const window={setTimeout(fn,ms){assert.equal(ms,30000);return 1},clearTimeout(){},
+ scrollTo(){},requestAnimationFrame(fn){frames++;setImmediate(()=>{onFrame?.();fn()})}};
+const map={invalidateSize(){invalidations++}};
+class MutationObserver{constructor(fn){callback=fn}observe(){}disconnect(){}}
+function atlasCaptureSnapshot(){snapshots++;return {complete:true}}
+"""
+        + readiness
+        + r"""
+(async()=>{
+ let settled=false;const ready=awaitAtlasCaptureReady().then(value=>{settled=true;return value});
+ await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(settled,false);assert.equal(fontReads,0);assert.equal(frames,0);assert.equal(snapshots,0);
+ busy='false';emptyState.dataset.reason='not_empty';callback();assert.deepEqual(await ready,{complete:true});
+ assert.equal(frames,4);assert.equal(fontReads,2);assert.equal(invalidations,2);assert.equal(snapshots,1);
+ emptyState.dataset.reason='loading_unavailable';await assert.rejects(awaitAtlasCaptureReady(),/selection is unavailable/);
+ assert.equal(frames,4);assert.equal(snapshots,1);
+ emptyState.dataset.reason='not_empty';let releaseFonts;fontWait=new Promise(resolve=>releaseFonts=resolve);
+ const duringFonts=awaitAtlasCaptureReady();busy='true';emptyState.dataset.reason='loading';releaseFonts();
+ await assert.rejects(duringFonts,/changed before readiness/);assert.equal(snapshots,1);
+ busy='false';emptyState.dataset.reason='not_empty';fontWait=null;
+ onFrame=()=>{emptyState.dataset.reason='loading_unavailable'};
+ await assert.rejects(awaitAtlasCaptureReady(),/changed before readiness/);assert.equal(snapshots,1);
+ console.log(JSON.stringify({settled,snapshots,unavailableRefused:true,fontAndFrameRacesRefused:true}));
+})().catch(error=>{console.error(error);process.exitCode=1});
+"""
+    )
+    assert observed == {
+        "settled": True,
+        "snapshots": 1,
+        "unavailableRefused": True,
+        "fontAndFrameRacesRefused": True,
+    }

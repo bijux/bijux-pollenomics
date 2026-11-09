@@ -515,3 +515,106 @@ def test_document_bound_refuses_before_decoding_a_later_frame() -> None:
     bundle["search_transport_counts"]["document_count"] = 0
     observed = observe(data)
     assert "merged search documents exceed" in observed["refusal"]
+
+
+@pytest.mark.parametrize("completion", ("success", "scheduler_error", "live_cap"))
+def test_scheduled_restoration_keeps_shared_assembly_private_until_complete(
+    completion: str,
+) -> None:
+    data = packet()
+    expected = data["expected"]
+    count = 1025
+    expected["country_feature_indexes"] = {"Sweden": {"pollen": list(range(count))}}
+    expected["text_search_index"] = build_search_index(
+        [
+            {
+                "key": "pollen",
+                "features": [{"record_id": i, "title": "Åa💠"} for i in range(count)],
+            }
+        ]
+    )
+    bundle = build_index_bundle(expected, search_transport_schema=CODEC)
+    data["manifest"]["domains"]["indexes"]["record_count"] = count
+    data["manifest"]["compatibility"]["index_transport_schema"] = (
+        "atlas-static-index-part.v1"
+    )
+    shards = cast(list[dict[str, Any]], bundle["shards"])
+    middle = len(shards) // 2
+    data["parts"] = []
+    for number, (first, stop) in enumerate(((0, middle), (middle, len(shards))), 1):
+        data["parts"].append(
+            {
+                **{key: value for key, value in bundle.items() if key != "shards"},
+                "schema_version": "atlas-static-index-part.v1",
+                "bundle_schema": bundle["schema_version"],
+                "bundle_sha256": sha256(
+                    json.dumps(bundle, sort_keys=True, separators=(",", ":")).encode()
+                ).hexdigest(),
+                "part_number": number,
+                "part_count": 2,
+                "first_shard_number": first + 1,
+                "last_shard_number": stop,
+                "shards": shards[first:stop],
+                "asset_key": f"indexes:{5 + number}",
+            }
+        )
+    data["completion"] = completion
+    observed = run_node_json(
+        "const data="
+        + json.dumps(data)
+        + ";const STATIC_ATLAS_BOOTSTRAP=data.manifest;"
+        + template_block(
+            "function staticAtlasFailure", "function normalizeStaticAtlasBootstrap"
+        )
+        + template_block(
+            "async function staticAtlasSha256",
+            "async function staticAtlasBoundedGunzip",
+        )
+        + files("bijux_pollenomics.reporting.map_document")
+        .joinpath("assets/search-index.js")
+        .read_text()
+        + index_transport_helpers(include_search=False)
+        + r"""
+(async()=>{
+ const assert=require('node:assert/strict'),original=JSON.stringify(data);
+ let calls=0,remember=0,yields=0,release,entered,accepted=null,settled=false;
+ const pause=new Promise(resolve=>release=resolve),atYield=new Promise(resolve=>entered=resolve),sentinel=new Error('scheduler failed');
+ const dependencies={bootstrap:STATIC_ATLAS_BOOTSTRAP,failure:staticAtlasFailure,
+  temporalIdentity:staticAtlasTemporalIdentity,nonnegativeInteger:staticAtlasNonnegativeInteger,
+  nativeCalendarNumber:()=>false,boundedGunzip:staticAtlasBoundedGunzip,sha256:staticAtlasSha256,
+  searchGrams(text){calls++;return atlasSearchGrams(text)},
+  rememberRestoredSearch(index,postings){remember++;atlasRememberRestoredSearch(index,postings)},
+  yieldTask(){yields++;entered();return pause.then(()=>{if(data.completion==='scheduler_error')throw sentinel;})}};
+ const controller=BijuxPollenomicsIndexTransport.create(dependencies);
+ dependencies.yieldTask=()=>{throw Error('scheduler dependency was reread')};
+ const rows=data.parts.map((part,i)=>({asset_key:part.asset_key,domain:'indexes',sequence:6+i,record_count:part.shards.length}));
+ assert.equal(await controller.consume(rows[0],data.parts[0],rows),null);
+ const consume=controller.consume(rows[1],data.parts[1],rows);
+ const observed=consume.then(value=>{accepted=value;settled=true},error=>{settled=true;return error});
+ await atYield;
+ let heartbeat=false;await new Promise(resolve=>setTimeout(()=>{heartbeat=true;resolve()},0));
+ assert.equal(calls,1024);assert.equal(remember,0);assert.equal(settled,false);assert.equal(accepted,null);
+ const repeated=controller.consume(rows[1],data.parts[1],rows);
+ const repeatedObserved=repeated.then(value=>value,error=>error);
+ if(data.completion==='live_cap')for(const part of data.parts)part.search_transport_counts.posting_reference_count=0;
+ release();const error=await observed,again=await repeatedObserved;
+ if(data.completion==='success'){
+  assert.equal(accepted,again);assert.equal(calls,1025);assert.equal(remember,1);
+  assert.deepEqual({...accepted.text_search_index},data.expected.text_search_index);
+  assert.equal(Object.isFrozen(accepted.text_search_index),true);
+  const metadata=[{layer_kind:'point',layer_index:0,feature_count:1025,layer:{key:'pollen'}}];
+  assert.equal(atlasPublishedSearch(accepted,metadata),atlasPublishedSearch(again,metadata));
+  assert.equal(JSON.stringify(data),original);
+ }else{
+  assert.equal(accepted,null);assert.equal(remember,0);assert.equal(error,again);
+  if(data.completion==='scheduler_error')assert.equal(error,sentinel);
+  else assert.match(error.message,/posting_reference_count exceeds its declared count/);
+ }
+ console.log(JSON.stringify({heartbeat,yields,calls,remember,accepted:accepted!==null}));
+})().catch(error=>{console.error(error);process.exitCode=1});
+"""
+    )
+    assert observed["heartbeat"] is True
+    assert observed["yields"] == 1
+    assert observed["remember"] == (1 if completion == "success" else 0)
+    assert observed["accepted"] is (completion == "success")
