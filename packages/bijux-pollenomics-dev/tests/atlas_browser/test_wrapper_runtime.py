@@ -617,3 +617,149 @@ def test_extracted_transport_preserves_protocol_success_error_and_events() -> No
     assert result["loaded"] == {"timestamp": 1}
     assert result["refused"] is True
     assert result["events"] == ["Page.loadEventFired", "Page.loadEventFired"]
+
+
+@pytest.mark.parametrize(
+    "damage",
+    [
+        "load-timeout",
+        "navigate-error",
+        "connect-error",
+        "close-error",
+        "event-overflow",
+    ],
+)
+def test_provider_open_failure_retains_case_and_closes_only_owned_targets(
+    damage: str,
+) -> None:
+    # Controlled CDP replies exercise the real owner and provider-case loop;
+    # they are not browser, publication or scientific qualification evidence.
+    provider = MODULE.with_name("provider-failures.mjs").as_uri()
+    result = _node(
+        f"""
+      const provider=await import({json.dumps(provider)});
+      const damage={json.dumps(damage)}, trace=[], records=[], sockets=[], targets=[];
+      const authority={{parentUrl:'https://bijux.io/bijux-pollenomics/public/nordic-atlas/index.html',childUrl:'https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html'}};
+      const facts={{title:'Nordic atlas',iframe_visible:true,navigation_available:true}};
+      let active, captureCalls=0, evaluates=0;
+      const closeCounts={{}}, socketCounts={{}}, waits=[];
+      const fetchTarget=async(url,options)=>{{
+        if(url.includes('/json/new')){{
+          const target={{id:`target-${{targets.length+1}}`,webSocketDebuggerUrl:`ws://target-${{targets.length+1}}`}};
+          targets.push(target);trace.push(['create',target.id]);
+          return {{ok:true,json:async()=>target}};
+        }}
+        const id=url.split('/').at(-1);trace.push(['close-target',id]);
+        closeCounts[id]=(closeCounts[id]??0)+1;
+        return {{ok:!(damage==='close-error'&&id==='target-2'),status:500,text:async()=>'Target is closing'}};
+      }};
+      const connect=async(url)=>{{
+        const id=url.slice(5);if(damage==='connect-error'&&id==='target-2')throw Error('controlled connection failure');
+        const listeners=[];let rejectLoad;
+        const raw={{
+          onEvent(listener){{listeners.push(listener)}},
+          emit(event){{for(const listener of listeners)listener(event)}},
+          waitFor(method,timeout){{
+            trace.push(['wait',id]);waits.push(timeout);
+            return new Promise((resolve,reject)=>{{
+              rejectLoad=reject;
+              if(id==='target-1')resolve({{timestamp:1}});
+              else if(damage!=='navigate-error')queueMicrotask(()=>reject(Error('Page.loadEventFired timed out')));
+            }});
+          }},
+          async send(method,params={{}}){{
+            if(method==='Runtime.enable')raw.emit({{method:'Runtime.executionContextCreated',params:{{context:{{id:42,auxData:{{isDefault:true,frameId:'child'}}}}}}}});
+            if(method==='Page.navigate'){{
+              trace.push(['navigate',id]);
+              if(id==='target-2'&&damage==='navigate-error')throw Error('controlled navigation refusal');
+              if(id==='target-2'&&damage==='event-overflow')for(let i=0;i<300;i++){{
+                raw.emit({{method:'Page.frameNavigated',params:{{frame:{{id:'x'.repeat(2000),loaderId:`loader-${{i}}`}}}}}});
+                if(i<80)raw.emit({{method:'Runtime.consoleAPICalled',params:{{type:'error',args:[{{value:'y'.repeat(20000)}}]}}}});
+              }}
+              return {{frameId:'parent',loaderId:`loader-${{id}}`}};
+            }}
+            if(method==='Page.getFrameTree')return {{frameTree:{{frame:{{id:'parent'}},childFrames:[{{frame:{{id:'child',loaderId:'child-loader',url:authority.childUrl}}}}]}}}};
+            if(method==='Runtime.evaluate')return {{result:{{value:facts}}}};
+            return {{}};
+          }},
+          close(){{
+            trace.push(['close-socket',id]);socketCounts[id]=(socketCounts[id]??0)+1;
+            rejectLoad?.(Error('controlled transport closed'));
+          }},
+        }};
+        sockets.push(raw);return raw;
+      }};
+      const owner=wrapper.createWrapperAtlasOwner({{site:'/unused',authority,debuggerOrigin:new URL('http://debugger.invalid'),requests:[],serverErrors:[],externalRefusals:[],timeoutMs:15000,fetchTarget,connect}});
+      const controls=Object.fromEntries(['legend_toggles_and_restores','country_filter_changes','country_filter_restores','time_control_changes','time_control_restores','counts_restore','popup_opens_and_closes','evidence_rendered'].map(key=>[key,true]));
+      const evaluate=async()=>{{
+        evaluates++;
+        if(evaluates===1||evaluates===6)return 'payload-identity';
+        if(evaluates===3){{
+          for(const [i,host]of ['tile.openstreetmap.org','tile.openstreetmap.org','tile.openstreetmap.org','tile.opentopomap.org'].entries())active.raw.emit({{method:'Fetch.requestPaused',params:{{requestId:`request-${{i}}`,networkId:`network-${{i}}`,request:{{url:`https://${{host}}/4/${{i}}/1.png`,headers:{{}}}}}}}});
+        }}
+        if(evaluates===4)return {{snapshot:{{build_id:'build',basemap:'terrain'}},readout:'terrain available',transitions:[{{readout:'street unavailable'}}],failure_counts:[{{provider:'street',count:3,threshold:3}}],elapsed_ms:1,timed_out:false}};
+        if(evaluates===5)return controls;
+        if(evaluates===7)return true;
+      }};
+      let error;
+      try{{await provider.verifyProviderFailureMatrix({{name:'nordic-wrapper'}},'http://debugger.invalid',{{
+        candidate:{{build_id:'build'}},timeoutMs:15000,evidenceIdentity:row=>row.build_id,
+        openAtlas:async(...args)=>{{active=await owner.openAtlas(...args);return active}},
+        closeAtlas:owner.closeAtlas,
+        captureReady:async()=>{{captureCalls++;return {{build_id:'build'}}}},
+        evaluate,screenshot:async()=>{{}},writeScenario:async(_scope,row)=>records.push(structuredClone(row)),
+      }})}}catch(value){{error=String(value)}}
+      // Cleanup is idempotent after both successful and failed acquisitions.
+      await owner.closeAtlas(active);
+      console.log(JSON.stringify({{error,records,lifecycle:owner.lifecycle,closeCounts,socketCounts,targets,trace,waits,captureCalls,assertionKeys:provider.PROVIDER_MATRIX_ASSERTIONS}}));
+    """
+    )
+    assert result["error"]
+    assert [row["name"] for row in result["records"]] == [
+        "provider-http-401",
+        "provider-http-403",
+    ]
+    first, failed = result["records"]
+    assert all(first["assertions"].values())
+    assert all(first["ui"].values())
+    lifecycle = first["lifecycle"]
+    assert lifecycle["navigation"]["frame_id"] == "parent"
+    assert lifecycle["navigation"]["loader_id"] == "loader-target-1"
+    assert lifecycle["child_frame_id"] == "child"
+    assert lifecycle["child_loader_id"] == "child-loader"
+    phases = [row["phase"] for row in lifecycle["events"]]
+    assert phases.index("load_wait_registered") < phases.index("navigate_requested")
+    assert phases.index("navigate_requested") < phases.index("navigate_response")
+    assert "load_event_received" in phases
+    times = [row["elapsed_ms"] for row in lifecycle["events"]]
+    assert times == sorted(times) and times[0] >= 0
+    assert not any(failed["assertions"].values())
+    assert set(failed["assertions"]) == set(result["assertionKeys"])
+    assert failed["status"] == "open_failed"
+    assert failed["lifecycle"]["case"] == "provider-http-403"
+    assert failed["lifecycle"]["target_id"] == "target-2"
+    assert result["captureCalls"] == 1
+    assert result["closeCounts"] == {"target-1": 1, "target-2": 1}
+    assert result["socketCounts"] == (
+        {"target-1": 1} if damage == "connect-error" else {"target-1": 1, "target-2": 1}
+    )
+    assert [row["id"] for row in result["targets"]] == ["target-1", "target-2"]
+    assert result["waits"] == ([15000] if damage == "connect-error" else [15000, 15000])
+    assert failed["lifecycle"]["failure_phase"] == (
+        "connect_target" if damage == "connect-error" else "navigate"
+    )
+    assert failed["lifecycle"]["teardown"]["target_close_acknowledged"] is (
+        damage != "close-error"
+    )
+    if damage == "close-error":
+        assert "owned target close failed" in failed["lifecycle"]["cleanup_error"]
+        assert "Page.loadEventFired timed out" in result["error"]
+    if damage == "event-overflow":
+        events = failed["lifecycle"]["events"]
+        assert len(events) == 128
+        assert failed["lifecycle"]["omitted_events"] > 0
+        assert all(len(str(row.get("frame_id", ""))) <= 512 for row in events)
+        assert len(failed["runtime_failures"]) == 32
+        assert failed["omitted_runtime_failures"] == 48
+        assert all(len(row["detail"]) <= 2048 for row in failed["runtime_failures"])
+        assert len(json.dumps(failed).encode()) < 200_000

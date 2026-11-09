@@ -161,12 +161,13 @@ export async function verifyProviderFailureMatrix(scope, debuggerOrigin, helpers
   const scenarios = [], receipts = [];
   for (const failure of PROVIDER_FAILURE_CASES) {
     const name = `provider-${failure.name}`;
-    const atlas = await openAtlas(scope, debuggerOrigin, {
-      name, blockProviders: true, providerFailure: failure, hash: '#basemap=none',
-    });
+    let atlas, fatalError;
     const result = {scope: scope.name, name, failure,
       assertions: Object.fromEntries(PROVIDER_MATRIX_ASSERTIONS.map(key => [key, false]))};
     try {
+      atlas = await openAtlas(scope, debuggerOrigin, {
+        name, blockProviders: true, providerFailure: failure, hash: '#basemap=none',
+      });
       const before = await captureReady(atlas.cdp);
       result.baseline_snapshot = before;
       const payloadBefore = await evaluate(atlas.cdp, `(${providerPayloadIdentity.toString()})()`);
@@ -246,14 +247,29 @@ export async function verifyProviderFailureMatrix(scope, debuggerOrigin, helpers
         },
       });
     } catch (error) {
-      result.error = String(error.stack || error);
+      result.error = String(error.stack || error).slice(0,4096);
+      if(!atlas) {
+        result.status='open_failed';fatalError=error;
+        Object.assign(result,error.wrapperFailure??{});
+      }
     } finally {
       // A real offline session must not survive even a failed assertion/journey.
-      if (failure.name === 'offline') await atlas.cdp.send('Network.emulateNetworkConditions', {
-        offline: false, latency: 0, downloadThroughput: -1, uploadThroughput: -1,
-      });
-      await closeAtlas(atlas, debuggerOrigin);
+      if(atlas) {
+        try {
+          if (failure.name === 'offline') await atlas.cdp.send('Network.emulateNetworkConditions', {
+            offline: false, latency: 0, downloadThroughput: -1, uploadThroughput: -1,
+          });
+        } catch(error) {fatalError=error;result.error=String(error.stack||error).slice(0,4096);}
+        finally {
+          try {await closeAtlas(atlas,debuggerOrigin);}
+          catch(error) {fatalError??=error;result.error??=String(error.stack||error).slice(0,4096);}
+        }
+      }
     }
+    if(!atlas) {
+      await writeScenario(scope,result,receipts);scenarios.push(result);throw fatalError;
+    }
+    result.lifecycle=atlas.lifecycle;
     result.final_provider_requests = atlas.providerRequests;
     result.final_request_policy = providerAttemptFacts(atlas.providerRequests);
     result.assertions.provider_matrix_no_live_requests = result.final_request_policy.all_locally_handled;
@@ -263,6 +279,7 @@ export async function verifyProviderFailureMatrix(scope, debuggerOrigin, helpers
     result.assertions.provider_matrix_credential_free &&= !credentialPattern.test(JSON.stringify(atlas.runtimeFailures));
     await writeScenario(scope, result, receipts);
     scenarios.push(result);
+    if(fatalError)throw fatalError;
   }
   return {scenarios, receipts};
 }
