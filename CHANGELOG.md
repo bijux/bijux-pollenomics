@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Normalize governed sample identities before first-observed duplicate and persistence checks so whitespace aliases cannot supply independent support ([#394](https://github.com/bijux/bijux-pollenomics/pull/394)).
+
 - Retire historical cross-border and keyboard-navigation atlas capture reports while preserving active consumers and accepted Git evidence ([#393](https://github.com/bijux/bijux-pollenomics/pull/393)).
 
 - Keep atlas search restoration responsive, distinguish pending or unavailable evidence from ready views, record browser readiness milestones and avoid duplicate publication reconstruction while retaining full admission checks ([#392](https://github.com/bijux/bijux-pollenomics/pull/392)).

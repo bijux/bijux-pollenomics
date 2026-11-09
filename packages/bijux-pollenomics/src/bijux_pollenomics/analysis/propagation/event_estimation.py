@@ -79,6 +79,9 @@ class GovernedSample:
                 or not getattr(self, name).strip()
             ):
                 raise ValueError(f"{name} must be nonempty")
+        # Use the event identity convention before ordering, deduplication and hashing.
+        object.__setattr__(self, "observation_id", self.observation_id.strip())
+        object.__setattr__(self, "source_record_id", self.source_record_id.strip())
         if isinstance(self.sequence_position, bool) or not isinstance(
             self.sequence_position, int
         ):
