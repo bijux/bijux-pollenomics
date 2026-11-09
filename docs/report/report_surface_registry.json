@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v2",
-  "surface_count": 2241,
+  "surface_count": 2233,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "validation_scope": "path inventory and Markdown structure; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1324,
+    "maintenance": 1316,
     "maps": 88,
     "portal": 2,
     "reviews": 37,
     "scopes": 780
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1326,
+    "maintainer_diagnostic": 1318,
     "public_reading_surface": 789,
     "scientific_review_surface": 126
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 502,
     "norway": 14,
-    "report_root": 1376,
+    "report_root": 1368,
     "sweden": 55,
     "world": 165
   },
@@ -490,54 +490,6 @@
       "reader_route": "evidence_review"
     },
     {
-      "repository_path": "docs/report/atlas/cross-border-neighbor/README.md",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Reader-facing entry page for one scope bundle.",
-      "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/atlas/cross-border-neighbor/evidence/selected/1440-tile-free-sweden.png",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "png",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/atlas/cross-border-neighbor/evidence/selected/320-tile-free-sweden.png",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "png",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/atlas/cross-border-neighbor/evidence/selected/receipt.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
       "repository_path": "docs/report/atlas/frame-url-replay/README.md",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
@@ -875,54 +827,6 @@
     },
     {
       "repository_path": "docs/report/atlas/keyless-cache-matrix/candidate-inputs.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/atlas/map-keyboard-navigation/README.md",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Reader-facing entry page for one scope bundle.",
-      "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/atlas/map-keyboard-navigation/evidence/selected/320-tile-free-attribution-focus.png",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "png",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/atlas/map-keyboard-navigation/evidence/selected/320-tile-free-help-dialog.png",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "png",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/atlas/map-keyboard-navigation/evidence/selected/receipt.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
