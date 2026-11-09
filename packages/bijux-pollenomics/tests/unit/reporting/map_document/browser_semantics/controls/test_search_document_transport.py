@@ -210,6 +210,213 @@ def repack(shard: dict[str, Any], transform: Callable[[dict[str, Any]], None]) -
     )
 
 
+def probe_iteration(
+    body: str, *, keys: int = 2, references: int = 2, header_bigint: bool = False
+) -> dict[str, Any]:
+    data = packet()
+    data["initialBigIntCap"] = header_bigint
+    data["bundle"]["search_transport_counts"].update(
+        posting_key_count=keys, posting_reference_count=references
+    )
+    native = NATIVE_LRA_CONTROLLER[
+        NATIVE_LRA_CONTROLLER.index(
+            "function nativeCalendarNumber"
+        ) : NATIVE_LRA_CONTROLLER.index("function nativeCalendarSame")
+    ]
+    return cast(
+        dict[str, Any],
+        run_node_json(
+            "const data="
+            + json.dumps(data)
+            + ";const STATIC_ATLAS_BOOTSTRAP=data.manifest;"
+            + template_block(
+                "function staticAtlasFailure", "function normalizeStaticAtlasBootstrap"
+            )
+            + template_block(
+                "async function staticAtlasSha256",
+                "async function staticAtlasBoundedGunzip",
+            )
+            + native
+            + index_transport_helpers(include_search=False)
+            + r"""
+const trace={calls:0,pushed:[],regex:[],capReads:[],sizeReads:0,coercions:0,remember:0};
+const counts=data.bundle.search_transport_counts;
+let cap=data.initialBigIntCap?BigInt(counts.posting_reference_count):counts.posting_reference_count,active=false;
+Object.defineProperty(counts,'posting_reference_count',{
+ enumerable:true,get(){if(active)trace.capReads.push(typeof cap==='bigint'?`${cap}n`:cap);return cap},set(value){cap=value}
+});
+const originalPush=Array.prototype.push,originalTest=RegExp.prototype.test;
+Array.prototype.push=function(...values){
+ if(values.length===1&&typeof values[0]==='string'&&values[0].startsWith('d:'))originalPush.call(trace.pushed,values[0]);
+ return originalPush.apply(this,values);
+};
+RegExp.prototype.test=function(value){
+ if(this.source==='^(?:[a-f0-9]{4}){1,3}$')trace.regex.push(value);
+ return originalTest.call(this,value);
+};
+const transport=globalThis.BijuxPollenomicsIndexTransport.create({
+ bootstrap:STATIC_ATLAS_BOOTSTRAP,failure:staticAtlasFailure,
+ temporalIdentity:staticAtlasTemporalIdentity,nonnegativeInteger:staticAtlasNonnegativeInteger,
+ nativeCalendarNumber,boundedGunzip:staticAtlasBoundedGunzip,sha256:staticAtlasSha256,
+ rememberRestoredSearch(){trace.remember++},
+ searchGrams(){
+  trace.calls++;if(trace.calls>1)return new Set();active=true;
+  const set=new Set();
+  Object.defineProperty(set,'size',{get(){trace.sizeReads++;throw Error('untrusted size read')}});
+"""
+            + body
+            + r"""
+ }
+});
+(async()=>{let result;
+ try{
+  const row={asset_key:'indexes:6',domain:'indexes',record_count:13};
+  const decoded=await transport.consume(row,data.bundle,[row]);
+  result={postings:Object.fromEntries(Object.entries(decoded.text_search_index).filter(([key])=>key.startsWith('p:')))};
+ }catch(error){result={refusal:error.message}}
+ finally{Array.prototype.push=originalPush;RegExp.prototype.test=originalTest}
+ console.log(JSON.stringify({...result,...trace}));
+})();
+""",
+        ),
+    )
+
+
+def test_live_reference_budget_refuses_before_the_second_posting_append() -> None:
+    observed = probe_iteration(
+        "set[Symbol.iterator]=function*(){yield '0061';"
+        "counts.posting_reference_count=1;yield '0062';"
+        "counts.posting_reference_count=2};return set;"
+    )
+    assert "posting_reference_count exceeds its declared count" in observed["refusal"]
+    assert observed["pushed"] == ["d:0:0"]
+    assert observed["capReads"] == [2, 1]
+    assert observed["remember"] == observed["sizeReads"] == 0
+
+
+@pytest.mark.parametrize("cap", [1, 2])
+def test_temporary_bigint_cap_retains_relational_comparison_semantics(cap: int) -> None:
+    observed = probe_iteration(
+        "set[Symbol.iterator]=function*(){yield '0061';"
+        f"counts.posting_reference_count={cap}n;yield '0062';"
+        "counts.posting_reference_count=2};return set;"
+    )
+    if cap == 2:
+        assert "refusal" not in observed
+        assert observed["postings"] == {
+            "p:0061": ["d:0:0"],
+            "p:0062": ["d:0:0"],
+        }
+        assert observed["pushed"] == ["d:0:0"] * 2
+        assert observed["capReads"] == [2, "2n", 2]
+        assert observed["remember"] == 1
+    else:
+        assert (
+            "posting_reference_count exceeds its declared count" in observed["refusal"]
+        )
+        assert observed["pushed"] == ["d:0:0"]
+        assert observed["capReads"] == [2, "1n"] and observed["remember"] == 0
+    assert observed["sizeReads"] == 0
+
+
+def test_initial_bigint_header_remains_refused_before_calling_the_helper() -> None:
+    observed = probe_iteration("throw Error('helper called');", header_bigint=True)
+    assert "search posting_reference_count is invalid" in observed["refusal"]
+    assert observed["calls"] == observed["remember"] == 0
+    assert observed["pushed"] == []
+
+
+def test_iterator_final_count_change_keeps_the_global_mismatch_refusal() -> None:
+    observed = probe_iteration(
+        "set[Symbol.iterator]=function*(){yield '0061';yield '0062';"
+        "counts.posting_reference_count=1};return set;"
+    )
+    assert "derived search counts differ from their declaration" in observed["refusal"]
+    assert observed["pushed"] == ["d:0:0"] * 2
+    assert observed["capReads"] == [2, 2, 1]
+    assert observed["remember"] == observed["sizeReads"] == 0
+
+
+def test_actual_yielded_references_are_counted_without_reading_set_size() -> None:
+    observed = probe_iteration(
+        "set[Symbol.iterator]=function*(){yield '0061';yield '0062';yield '0061'};"
+        "return set;",
+        references=3,
+    )
+    assert "refusal" not in observed
+    assert observed["postings"] == {
+        "p:0061": ["d:0:0", "d:0:0"],
+        "p:0062": ["d:0:0"],
+    }
+    assert observed["regex"] == ["0061", "0062"]
+    assert observed["pushed"] == ["d:0:0"] * 3
+    assert observed["remember"] == 1 and observed["sizeReads"] == 0
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        "null",
+        "42",
+        "Symbol('0061')",
+        "new String('0061')",
+        "{toString(){trace.coercions++;throw Error('coercion')}}",
+    ],
+)
+def test_nonstring_gram_is_never_coerced_even_after_a_valid_key(value: str) -> None:
+    observed = probe_iteration(
+        "set[Symbol.iterator]=function*(){yield '0061';yield " + value + "};return set;"
+    )
+    assert "search UTF-16 gram identity is invalid" in observed["refusal"]
+    assert observed["pushed"] == ["d:0:0"] and observed["regex"] == ["0061"]
+    assert observed["coercions"] == observed["remember"] == 0
+
+
+@pytest.mark.parametrize(
+    ("gram", "keys", "references", "message"),
+    [
+        ("zzzz", 0, 0, "search UTF-16 gram identity is invalid"),
+        ("0061", 0, 0, "posting_key_count exceeds its declared count"),
+        ("0061", 1, 0, "posting_reference_count exceeds its declared count"),
+    ],
+)
+def test_new_gram_format_and_key_budget_precede_reference_budget(
+    gram: str, keys: int, references: int, message: str
+) -> None:
+    observed = probe_iteration(
+        "set[Symbol.iterator]=function*(){yield " + json.dumps(gram) + "};return set;",
+        keys=keys,
+        references=references,
+    )
+    assert message in observed["refusal"]
+    assert observed["pushed"] == [] and observed["remember"] == 0
+    assert observed["capReads"] == ([0] if keys else [])
+
+
+def test_custom_iterator_failure_is_not_replaced_by_a_count_error() -> None:
+    observed = probe_iteration(
+        "set[Symbol.iterator]=function*(){yield '0061';throw Error('gram iterator failed')};"
+        "return set;"
+    )
+    assert observed["refusal"] == "gram iterator failed"
+    assert observed["pushed"] == ["d:0:0"] and observed["remember"] == 0
+
+
+def test_non_set_iterable_remains_refused_before_iteration() -> None:
+    observed = probe_iteration(
+        "return {[Symbol.iterator]:function*(){trace.coercions++;yield '0061'}};"
+    )
+    assert "did not return unique grams" in observed["refusal"]
+    assert observed["pushed"] == [] and observed["coercions"] == 0
+
+
+def test_unsafe_reference_declaration_refuses_before_calling_the_helper() -> None:
+    observed = probe_iteration("throw Error('helper called');", references=2**53)
+    assert "search posting_reference_count is invalid" in observed["refusal"]
+    assert observed["calls"] == observed["remember"] == 0
+    assert observed["pushed"] == []
+
+
 @pytest.mark.parametrize(
     "defect",
     [
