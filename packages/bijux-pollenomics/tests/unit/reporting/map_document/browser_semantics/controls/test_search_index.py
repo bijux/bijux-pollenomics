@@ -58,6 +58,28 @@ def layers() -> list[dict[str, Any]]:
     ]
 
 
+def test_utf16_gram_encoding_preserves_exact_reference_order() -> None:
+    helper = template_block(
+        "function atlasSearchGrams", "function atlasRememberRestoredSearch"
+    )
+    observed = run_node_json(
+        helper
+        + r"""
+function reference(text,sizes){
+ const units=Array.from({length:text.length},(_,i)=>text.charCodeAt(i).toString(16).padStart(4,'0'));
+ const grams=new Set();
+ for(const size of sizes)for(let i=0;i+size<=units.length;i++)grams.add(units.slice(i,i+size).join(''));
+ return [...grams];
+}
+const texts=['','a','ab','abc','Åa','💠','\ud83d','\udc00','a\u0308','.(a)','𐐀a','a💠Å'.repeat(2048)];
+const sizes=[[1,2,3],[1],[2],[3],[3,1,2],[1,1,2]];
+console.log(JSON.stringify(texts.every(text=>sizes.every(widths=>
+ JSON.stringify([...atlasSearchGrams(text,widths)])===JSON.stringify(reference(text,widths))))));
+"""
+    )
+    assert observed is True
+
+
 def logical() -> dict[str, Any]:
     return {
         **build_indexes(layers()),
