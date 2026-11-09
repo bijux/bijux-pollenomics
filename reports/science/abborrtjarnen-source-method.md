@@ -24,6 +24,11 @@ age labels differ from Neotoma's across the sequence and do not declare their
 unit or model. No source establishes that either later export selected the
 published polynomial.
 
+The qualified control producer now reproduces the complete retained report from
+the October 2026 provider capture. The [tested reproduction route](../../docs/report/source-relations/neotoma/abbo-age-controls/README.md#reproduce-the-control-comparison)
+is an attributed local noncommercial source check. Original acquisition history,
+sample uncertainty and broader input/use decisions remain unresolved.
+
 We also joined the [LegacyAge 1.0 depth estimates](../../docs/report/source-relations/neotoma/legacyage-chronology/README.md)
 to all 107 ABBO Neotoma sample depths. Its AWI Bacon chronology is a separate
 published age model. The LegacyAge mean differs from the Neotoma point age by
@@ -253,7 +258,7 @@ to a historical LRA reconstruction.
 
 **Unsupported claim.** Historical ABB LRA input or a fixed 500-grain denominator. General missing-to-zero rules, species-level equivalence, biological absence, independent measurements and automatic historical core admission are not established.
 
-**Actual verification performed.** Retained core/count/control reports compare 107 depths, 2,183 same-label counts and six controls. The actual joint sensitivity consumer at 3344c0d78 scored 123,480 complete memberships; 998 depth-order tests passed. Independent source joins and exact arithmetic confirm all 13 retained age witnesses, 52 pooled vectors/scores and 20 endpoint claims without rerunning the full search. The original-count producer and independent Fraction checker at efcae7412 both exited zero: 107 depth owners, all 535 slots, 527 reported matches, eight absent-native counterparts, five morphological comments and three source identities. All eight original counterparts are numeric zero. The producer used 0.182657 s/28704768 B RSS and the independent process 0.241958 s/38764544 B RSS, within 60 s/512 MiB/16 KiB. Thirty-two source/comparison controls, six mutable-source guards and 33 independent controls passed; no age consumer or model ran.
+**Actual verification performed.** Retained source checks cover 107 depths, 2,183 same-label counts and six controls. Joint sensitivity at 3344c0d78 scores 123,480 memberships; 998 depth-order tests and independent checks verify 13 age witnesses, 52 pooled vectors/scores and 20 endpoints. The original-count producer and independent Fraction observer at efcae7412 verify all 535 slots: 527 reported matches and eight original zeros, five morphological comments and three input identities; 32 source/comparison controls, six mutable-source guards and 33 independent controls pass. The unchanged qualified age-control wrapper at b522783bc35aa5238b607f4d89143bfef6b42bcc reproduces the complete retained report. Independent Decimal readback verifies six lab joins and all 30 depth/thickness/radiocarbon-age/error comparisons, seven native controls and 107 missing sample-age bounds. This attributed local noncommercial source comparison does not establish historical acquisition or broader use/admission authority; no calibration or model was rerun.
 
 **Remaining input or review.** 107-depth ABBO correspondence and six dated controls do not identify LandClim-selected ages, time-specific basin, eligible pollen/spore denominator, reviewed taxon/PPE profile or Rootsi workbook use rights. The eight original recorded zeros resolve only those count states under exact source/depth/field correspondence; original CC BY-NC 3.0 terms and morphological comments remain distinct from current native metadata and do not establish historical inputs. Resolver: ABB core/author custodian and qualified chronology, basin and palynology reviewer Reopen when: One source-bound ABB sample/window packet supplies selected age, dated geometry, denominator, parameters and permitted use.
 
