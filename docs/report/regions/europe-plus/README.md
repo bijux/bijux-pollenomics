@@ -42,29 +42,6 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 - Animal atlas evidence JSON: [`europe-plus_animal_atlas_evidence.json`](./europe-plus_animal_atlas_evidence.json)
 - Animal point traceability JSON: [`europe-plus_animal_point_traceability.json`](./europe-plus_animal_point_traceability.json)
 - Static atlas bootstrap manifest: [`europe-plus_map_assets.json`](./europe-plus_map_assets.json)
-- Static atlas data chunk: [`europe-plus.atlas-provenance.0000.2a1d9e7199a44307.js`](./europe-plus.atlas-provenance.0000.2a1d9e7199a44307.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0001.2be1447f6a98c2b0.js`](./europe-plus.atlas-nodes.0001.2be1447f6a98c2b0.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0002.5c14bd51712255e4.js`](./europe-plus.atlas-nodes.0002.5c14bd51712255e4.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0003.24a504b56e9439c3.js`](./europe-plus.atlas-nodes.0003.24a504b56e9439c3.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0004.0460fce851d7ec2f.js`](./europe-plus.atlas-nodes.0004.0460fce851d7ec2f.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0005.8420bba88e3ed902.js`](./europe-plus.atlas-nodes.0005.8420bba88e3ed902.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0006.cd154db28ba5b2ef.js`](./europe-plus.atlas-nodes.0006.cd154db28ba5b2ef.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0007.b05b2f4f8c082543.js`](./europe-plus.atlas-nodes.0007.b05b2f4f8c082543.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0008.4bb73316f076fc59.js`](./europe-plus.atlas-nodes.0008.4bb73316f076fc59.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0009.1e54dd9723b40fca.js`](./europe-plus.atlas-nodes.0009.1e54dd9723b40fca.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0010.4e91916b4aa3f70c.js`](./europe-plus.atlas-nodes.0010.4e91916b4aa3f70c.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0011.3cf41ff597625f22.js`](./europe-plus.atlas-nodes.0011.3cf41ff597625f22.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0012.3ef66f1b7154ced4.js`](./europe-plus.atlas-nodes.0012.3ef66f1b7154ced4.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0013.88d30b4ccf44c186.js`](./europe-plus.atlas-nodes.0013.88d30b4ccf44c186.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0014.a180e286d77122aa.js`](./europe-plus.atlas-nodes.0014.a180e286d77122aa.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0015.4e329c431ed61d66.js`](./europe-plus.atlas-nodes.0015.4e329c431ed61d66.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0016.cc08afc482eb1706.js`](./europe-plus.atlas-nodes.0016.cc08afc482eb1706.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0017.6a05caabad06bbbe.js`](./europe-plus.atlas-nodes.0017.6a05caabad06bbbe.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0018.b1f944a78c19f0fe.js`](./europe-plus.atlas-nodes.0018.b1f944a78c19f0fe.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0019.040e511312b0b9e4.js`](./europe-plus.atlas-nodes.0019.040e511312b0b9e4.js)
-- Static atlas data chunk: [`europe-plus.atlas-edges.0020.0fd208deba688dd3.js`](./europe-plus.atlas-edges.0020.0fd208deba688dd3.js)
-- Static atlas data chunk: [`europe-plus.atlas-sequences.0021.2ce6bd5cdce9bdde.js`](./europe-plus.atlas-sequences.0021.2ce6bd5cdce9bdde.js)
-- Static atlas data chunk: [`europe-plus.atlas-indexes.0022.4539359428d2609d.js`](./europe-plus.atlas-indexes.0022.4539359428d2609d.js)
 - Animal source-sample chronology accountability: [`europe-plus_animal_sample_chronology_context.json`](./europe-plus_animal_sample_chronology_context.json)
 - Candidate site ranking CSV: [`europe-plus_candidate_sites.csv`](./europe-plus_candidate_sites.csv)
 - Candidate site ranking JSON: [`europe-plus_candidate_sites.json`](./europe-plus_candidate_sites.json)
@@ -76,9 +53,8 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 - Atlas evidence surface markdown: [`europe-plus_evidence_surface.md`](./europe-plus_evidence_surface.md)
 - Atlas scientific review JSON: [`europe-plus_scientific_review.json`](./europe-plus_scientific_review.json)
 - Atlas scientific review markdown: [`europe-plus_scientific_review.md`](./europe-plus_scientific_review.md)
-- Static atlas runtime: [`europe-plus_map.atlas-runtime.6eb0f22ce261f2f0.js`](./europe-plus_map.atlas-runtime.6eb0f22ce261f2f0.js)
-- Interactive evidence tools: [`europe-plus_map.atlas-evidence-tools.bac3f9295a5c95bb.js`](./europe-plus_map.atlas-evidence-tools.bac3f9295a5c95bb.js)
-- Static atlas index transport: [`europe-plus_map.atlas-index-transport.513b4ed69afc60fb.js`](./europe-plus_map.atlas-index-transport.513b4ed69afc60fb.js)
+
+JavaScript data chunks, runtime and optional controllers are listed in the [complete file inventory](./europe-plus_summary.json).
 
 ## Visible Layer Contract
 
@@ -187,7 +163,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** Four-country display:1,231 human samples (SE416/NO130/FI32/DK653), eight animal locality points across three species; these are publication populations, not independent ecological samples.
 
-- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_summary.json](europe-plus_summary.json) (SHA-256 `8fd0d89a19c69a0242c1079442d460f51e958ece0d3a73a79ea4f76184fa7859`).
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_summary.json](europe-plus_summary.json) (SHA-256 `42c5baad7e0a000ba9a7085ea62bf891cd88d21f141cb06285b091482ea923ba`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

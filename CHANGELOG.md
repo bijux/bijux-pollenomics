@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Expose pollen source identity and refusal context, replace script listings with inventory links, reuse UTF-16 code-unit strings and retain failed iframe navigation evidence with current publication bindings ([#385](https://github.com/bijux/bijux-pollenomics/pull/385)).
+
 - Restore scientific source and result links, distinguish retained review snapshots from current publication scope, and retire the historical schematic desktop-zoom report ([#384](https://github.com/bijux/bijux-pollenomics/pull/384)).
 
 - Retire the historical schematic mobile-attribution publication and restore the Abborrtjärnen chronology-result link, preserving active browser controls and scientific evidence ([#383](https://github.com/bijux/bijux-pollenomics/pull/383)).

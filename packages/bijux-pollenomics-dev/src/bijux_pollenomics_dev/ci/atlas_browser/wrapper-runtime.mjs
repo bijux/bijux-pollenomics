@@ -228,6 +228,141 @@ async function savePublicationVerification(output, completed) {
   await writeFile(join(output,'publication-verification.json'),JSON.stringify(summary,null,2)+'\n');
 }
 
+// Own each target from creation through failed acquisition and normal teardown.
+export function createWrapperAtlasOwner({site, authority, debuggerOrigin, requests, serverErrors,
+  externalRefusals, timeoutMs, fetchTarget=fetch, connect=connectCdp}) {
+  const lifecycle = [];
+  const detail = error => String(error?.stack || error).slice(0,4096);
+  function note(atlas, phase, fields={}) {
+    const bounded=Object.fromEntries(Object.entries(fields).map(([key,value])=>[key,typeof value==='string'?value.slice(0,512):value]));
+    const row={phase,elapsed_ms:performance.now()-atlas.started,...bounded};
+    if(atlas.lifecycle.events.length<128)atlas.lifecycle.events.push(row);
+    else atlas.lifecycle.omitted_events++;
+  }
+  function stage(atlas, phase) {atlas.lifecycle.phase=phase;note(atlas,phase);}
+  function closeTarget(atlas) {
+    if(!atlas.target)return Promise.resolve();
+    return atlas.targetClose ??= (async()=>{
+      atlas.lifecycle.teardown.target_close_attempted=true;note(atlas,'target_close_requested');
+      const response=await fetchTarget(`${debuggerOrigin.origin}/json/close/${atlas.target.id}`);
+      if(!response.ok)throw Error(`owned target close failed: ${response.status}`);
+      // This is the debugger HTTP acknowledgement, not a target-destroyed event.
+      await response.text();atlas.lifecycle.teardown.target_close_acknowledged=true;
+      note(atlas,'target_close_acknowledged');
+    })();
+  }
+  async function closeAtlas(atlas) {
+    return atlas.closing ??= (async()=>{
+      const start=performance.now();stage(atlas,'teardown');let failure;
+      try {
+        if(atlas.raw && atlas.parentBefore) {
+          const parentAfter=await wrapperFacts(atlas.raw);
+          if(JSON.stringify(parentAfter)!==JSON.stringify(atlas.parentBefore))atlas.runtimeFailures.push({kind:'wrapper-state',detail:'parent title/navigation/iframe changed during child journey'});
+        }
+      } catch(error) {failure=error;}
+      try {
+        if(atlas.interception)await atlas.interception.settle(async()=>{
+          await Promise.all(atlas.localReplies);await closeTarget(atlas);
+        });
+      } catch(error) {failure ??= error;}
+      finally {
+        try {await closeTarget(atlas);} catch(error) {failure ??= error;}
+        if(atlas.raw) {
+          try {atlas.raw.close();atlas.lifecycle.teardown.transport_close_requested=true;}
+          catch(error) {failure ??= error;}
+        }
+        atlas.lifecycle.teardown.elapsed_ms=performance.now()-start;
+        atlas.lifecycle.status=failure?'teardown_failed':'closed';note(atlas,'teardown_finished');
+      }
+      if(failure) {
+        atlas.runtimeFailures.push({kind:'wrapper-teardown',detail:detail(failure)});
+        atlas.lifecycle.teardown.error=detail(failure);throw failure;
+      }
+    })();
+  }
+  async function openAtlas(_scope, _debuggerOrigin, options) {
+    const atlas={started:performance.now(),runtimeFailures:[],providerRequests:[],contexts:new Map(),localReplies:new Set()};
+    atlas.lifecycle={case:options.name,status:'opening',phase:'create_target',target_id:null,
+      events:[],omitted_events:0,teardown:{target_close_attempted:false,target_close_acknowledged:false,transport_close_requested:false}};
+    lifecycle.push(atlas.lifecycle);
+    try {
+      stage(atlas,'create_target');
+      const response=await fetchTarget(`${debuggerOrigin.origin}/json/new?about:blank`,{method:'PUT'});
+      if(!response.ok)throw Error(`owned target creation failed: ${response.status}`);
+      const target=atlas.target=await response.json();atlas.lifecycle.target_id=String(target.id).slice(0,256);
+      stage(atlas,'connect_target');const raw=atlas.raw=await connect(target.webSocketDebuggerUrl);
+      const {runtimeFailures, providerRequests, contexts, localReplies} = atlas;
+      const interception = atlas.interception = providerInterception(raw, providerRequests, runtimeFailures, true, options.providerFailure);
+      raw.onEvent(event => {
+        if (['Page.frameStartedLoading','Page.frameStoppedLoading','Page.frameNavigated','Page.domContentEventFired','Page.loadEventFired','Runtime.executionContextCreated'].includes(event.method)) note(atlas, event.method, {
+          frame_id:event.params.frameId ?? event.params.frame?.id ?? event.params.context?.auxData?.frameId ?? null,
+          loader_id:event.params.loaderId ?? event.params.frame?.loaderId ?? null,
+        });
+        if (event.method === 'Runtime.executionContextCreated' && event.params.context.auxData?.isDefault) contexts.set(event.params.context.auxData.frameId, event.params.context.id);
+        if (event.method === 'Runtime.exceptionThrown') runtimeFailures.push({kind:'exception', detail:event.params.exceptionDetails?.text ?? ''});
+        if (event.method === 'Runtime.consoleAPICalled' && event.params.type === 'error') runtimeFailures.push({kind:'console-error', detail:event.params.args.map(row => row.description ?? row.value ?? '').join(' ')});
+        const url = event.params?.request?.url;
+        const provider = url && ['tile.openstreetmap.org','tile.opentopomap.org'].includes(new URL(url).hostname);
+        if (event.method !== 'Fetch.requestPaused' || provider) interception.handle(event);
+        if (event.method === 'Fetch.requestPaused' && !provider) {
+          const task = (async () => {
+            try {
+              const reply = await fulfillPublicationRequest(raw, site, event.params, authority);
+              requests.push({url, path:reply.path, status:200, bytes:reply.bytes, case:options.name, target_id:target.id, elapsed_ms:performance.now()-atlas.started});
+            } catch (error) {
+              externalRefusals.push(url);
+              serverErrors.push({url, error:String(error)});
+              await raw.send('Fetch.failRequest', {requestId:event.params.requestId, errorReason:'BlockedByClient'});
+            }
+          })().catch(error => runtimeFailures.push({kind:'request-reply', detail:String(error)})).finally(() => localReplies.delete(task));
+          localReplies.add(task);
+        }
+        if (event.method === 'Network.requestWillBeSent' && provider) providerRequests.push({url,request_id:event.params.requestId,...(interception.requestsBlocked ? {blocked_during_teardown:true} : {})});
+      });
+
+      stage(atlas,'configure_target');
+      for (const domain of ['Page','Runtime','Network']) await raw.send(`${domain}.enable`);
+      await raw.send('Network.setCacheDisabled',{cacheDisabled:true});
+      await raw.send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});
+      await raw.send('Fetch.enable',{patterns:[{urlPattern:'http*',requestStage:'Request'}]});
+      // Controlled reader input before child bootstrap; neither HTML file changes.
+      await raw.send('Page.addScriptToEvaluateOnNewDocument',{source:`if(location.href===${JSON.stringify(authority.childUrl)})history.replaceState(null,'',${JSON.stringify(options.hash)});`});
+      stage(atlas,'navigate');
+      note(atlas,'load_wait_registered');
+      const loaded=raw.waitFor('Page.loadEventFired',timeoutMs).then(event=>{note(atlas,'load_event_received');return event;});
+      // Generic load events stay separate from frame/loader navigation evidence.
+      note(atlas,'navigate_requested');
+      const navigation=raw.send('Page.navigate',{url:authority.parentUrl}).then(reply=>{
+        atlas.lifecycle.navigation={frame_id:reply.frameId?.slice(0,512)??null,loader_id:reply.loaderId?.slice(0,512)??null,error:reply.errorText?.slice(0,512)??null};
+        note(atlas,'navigate_response',atlas.lifecycle.navigation);
+        if(reply.errorText)throw Error(`owned navigation failed: ${reply.errorText}`);
+        return reply;
+      });
+      // Observe both rejections immediately, including a delayed navigate reply.
+      await Promise.all([navigation,loaded]);
+      stage(atlas,'resolve_child');
+      const tree=(await raw.send('Page.getFrameTree')).frameTree;
+      const child=(tree.childFrames??[]).find(row=>{const url=new URL(row.frame.url);url.hash='';return url.href===authority.childUrl;});
+      if(!child||!contexts.has(child.frame.id))throw Error('real child execution context is unavailable');
+      atlas.lifecycle.child_frame_id=child.frame.id.slice(0,512);atlas.lifecycle.child_loader_id=child.frame.loaderId?.slice(0,512)??null;
+      const contextId=contexts.get(child.frame.id);
+      await evaluate(raw, `document.querySelector('iframe').scrollIntoView({block:'center'})`);
+      atlas.cdp=childRuntime(raw,contextId);atlas.parentBefore=await wrapperFacts(raw);
+      if(!atlas.parentBefore.title||!atlas.parentBefore.iframe_visible||!atlas.parentBefore.navigation_available)throw Error('real docs wrapper is not visibly usable');
+      atlas.lifecycle.status='ready';stage(atlas,'ready');return atlas;
+    } catch(value) {
+      const error=value instanceof Error?value:Error(String(value));
+      atlas.lifecycle.failure_phase=atlas.lifecycle.phase;atlas.lifecycle.error=detail(error);
+      try {await closeAtlas(atlas);} catch(cleanupError) {atlas.lifecycle.cleanup_error=detail(cleanupError);}
+      atlas.lifecycle.status='open_failed';
+      error.wrapperFailure={lifecycle:atlas.lifecycle,provider_requests:atlas.providerRequests.slice(0,128).map(row=>({...row,url:row.url?.slice(0,2048),request_id:row.request_id?.slice(0,256),network_id:row.network_id?.slice(0,256)??null,interception_error:row.interception_error?.slice(0,4096)})),runtime_failures:atlas.runtimeFailures.slice(0,32).map(row=>({...row,detail:detail(row.detail).slice(0,2048)})),
+        omitted_provider_requests:Math.max(0,atlas.providerRequests.length-128),omitted_runtime_failures:Math.max(0,atlas.runtimeFailures.length-32)};
+      throw error;
+    }
+  }
+  return {openAtlas,closeAtlas,lifecycle};
+}
+
 export async function runWrapper({repository, site, output, browserBinary}) {
   repository = resolve(repository); site = resolve(site); output = resolve(output);
   if (!relative(join(repository, 'artifacts'), output) || relative(join(repository, 'artifacts'), output).startsWith('..')) throw Error('output must be a child of repository artifacts');
@@ -243,7 +378,7 @@ export async function runWrapper({repository, site, output, browserBinary}) {
     ...verifierPaths];
   requireScopedCandidate(repository,paths,revision);
   const requests = [], serverErrors = [], externalRefusals = [], browserLog = [];
-  let browser, runtime, profile, outcome, failure;
+  let browser, runtime, profile, outcome, failure, atlasOwner;
   try {
     profile = await mkdtemp(join(output,'browser-profile-'));
     runtime = await launchChromium(browserBinary, profile);
@@ -256,63 +391,11 @@ export async function runWrapper({repository, site, output, browserBinary}) {
     const browserIdentity = await browserCdp.send('Browser.getVersion'); browserCdp.close();
     const timeoutMs = 15000;
     const scope = {name:'nordic-wrapper', document:authority.parent.output};
+    atlasOwner=createWrapperAtlasOwner({site,authority,debuggerOrigin,requests,serverErrors,externalRefusals,timeoutMs});
     const result = await verifyProviderFailureMatrix(scope, debuggerOrigin.origin, {
       candidate:{build_id:authority.buildId}, timeoutMs, evidenceIdentity,
-      async openAtlas(_scope, _debuggerOrigin, options) {
-        const response = await fetch(`${debuggerOrigin.origin}/json/new?about:blank`, {method:'PUT'});
-        if (!response.ok) throw Error(`owned target creation failed: ${response.status}`);
-        const target = await response.json(), raw = await connectCdp(target.webSocketDebuggerUrl);
-        const runtimeFailures = [], providerRequests = [], contexts = new Map(), localReplies = new Set();
-        const interception = providerInterception(raw, providerRequests, runtimeFailures, true, options.providerFailure);
-        raw.onEvent(event => {
-          if (event.method === 'Runtime.executionContextCreated' && event.params.context.auxData?.isDefault) contexts.set(event.params.context.auxData.frameId, event.params.context.id);
-          if (event.method === 'Runtime.exceptionThrown') runtimeFailures.push({kind:'exception', detail:event.params.exceptionDetails?.text ?? ''});
-          if (event.method === 'Runtime.consoleAPICalled' && event.params.type === 'error') runtimeFailures.push({kind:'console-error', detail:event.params.args.map(row => row.description ?? row.value ?? '').join(' ')});
-          const url = event.params?.request?.url;
-          const provider = url && ['tile.openstreetmap.org','tile.opentopomap.org'].includes(new URL(url).hostname);
-          if (event.method !== 'Fetch.requestPaused' || provider) interception.handle(event);
-          if (event.method === 'Fetch.requestPaused' && !provider) {
-            const task = (async () => {
-              try {
-                const reply = await fulfillPublicationRequest(raw, site, event.params, authority);
-                requests.push({url, path:reply.path, status:200, bytes:reply.bytes});
-              } catch (error) {
-                externalRefusals.push(url);
-                serverErrors.push({url, error:String(error)});
-                await raw.send('Fetch.failRequest', {requestId:event.params.requestId, errorReason:'BlockedByClient'});
-              }
-            })().catch(error => runtimeFailures.push({kind:'request-reply', detail:String(error)})).finally(() => localReplies.delete(task));
-            localReplies.add(task);
-          }
-          if (event.method === 'Network.requestWillBeSent' && provider) providerRequests.push({url,request_id:event.params.requestId,...(interception.requestsBlocked ? {blocked_during_teardown:true} : {})});
-        });
-        for (const domain of ['Page','Runtime','Network']) await raw.send(`${domain}.enable`);
-        await raw.send('Network.setCacheDisabled',{cacheDisabled:true});
-        await raw.send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});
-        await raw.send('Fetch.enable',{patterns:[{urlPattern:'http*',requestStage:'Request'}]});
-        // Controlled reader input before child bootstrap; neither HTML file changes.
-        await raw.send('Page.addScriptToEvaluateOnNewDocument',{source:`if(location.href===${JSON.stringify(authority.childUrl)})history.replaceState(null,'',${JSON.stringify(options.hash)});`});
-        const loaded = raw.waitFor('Page.loadEventFired',timeoutMs);
-        await raw.send('Page.navigate',{url:authority.parentUrl}); await loaded;
-        const tree = (await raw.send('Page.getFrameTree')).frameTree;
-        const child = (tree.childFrames ?? []).find(row => {const url=new URL(row.frame.url);url.hash='';return url.href===authority.childUrl;});
-        if (!child || !contexts.has(child.frame.id)) throw Error('real child execution context is unavailable');
-        const contextId = contexts.get(child.frame.id);
-        await evaluate(raw, `document.querySelector('iframe').scrollIntoView({block:'center'})`);
-        const cdp = childRuntime(raw,contextId), parentBefore=await wrapperFacts(raw);
-        if(!parentBefore.title||!parentBefore.iframe_visible||!parentBefore.navigation_available)throw Error('real docs wrapper is not visibly usable');
-        return {cdp,raw,target,runtimeFailures,providerRequests,interception,localReplies,parentBefore};
-      },
-      async closeAtlas(atlas) {
-        try {
-          const parentAfter=await wrapperFacts(atlas.raw);
-          if(JSON.stringify(parentAfter)!==JSON.stringify(atlas.parentBefore))atlas.runtimeFailures.push({kind:'wrapper-state',detail:'parent title/navigation/iframe changed during child journey'});
-          await atlas.interception.settle(async () => {
-          await Promise.all(atlas.localReplies);
-          const response = await fetch(`${debuggerOrigin.origin}/json/close/${atlas.target.id}`);
-          if (!response.ok) throw Error(`owned target close failed: ${response.status}`); await response.text();
-        });} finally {atlas.cdp.close();}
-      },
+      openAtlas: atlasOwner.openAtlas,
+      closeAtlas: atlasOwner.closeAtlas,
       captureReady(cdp) {return evaluate(cdp, `(() => new Promise((resolve,reject)=>{const start=performance.now();const inspect=()=>{const api=globalThis.BijuxPollenomicsAtlasCapture;if(api?.version==='atlas-capture.v1')resolve(api.awaitReady());else if(performance.now()-start>${timeoutMs})reject(Error('child capture readiness timed out'));else setTimeout(inspect,25);};inspect();}))()`);},
       evaluate,
       async screenshot(cdp, path) {await mkdir(join(output,'nordic-wrapper'),{recursive:true}); const result=await cdp.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false}); await writeFile(join(output,path),Buffer.from(result.data,'base64'));},
@@ -321,7 +404,7 @@ export async function runWrapper({repository, site, output, browserBinary}) {
     requireScopedCandidate(repository,paths,revision);
     const after = await readWrapperAuthority(repository,site);
     if (JSON.stringify(after.publication) !== JSON.stringify(authority.publication)) throw Error('publication inventory changed during browser journey');
-    outcome = {source_revision:revision, publication:authority.publication, parent:authority.parent, map:{output:authority.report.output,source:authority.report.source,build_id:authority.buildId,version:authority.version}, browser:browserIdentity, scenarios:result.scenarios, requests, external_refusals:externalRefusals, server_errors:serverErrors,
+    outcome = {source_revision:revision, publication:authority.publication, parent:authority.parent, map:{output:authority.report.output,source:authority.report.source,build_id:authority.buildId,version:authority.version}, browser:browserIdentity, scenarios:result.scenarios, lifecycle:atlasOwner.lifecycle, requests, external_refusals:externalRefusals, server_errors:serverErrors,
       scope:'Production-origin Nordic docs iframe fulfilled only from local source-bound publication bytes after the owning publication verifier. No hosted website requests, HTML/CSP rewriting, scientific or human-reader qualification. Direct results are reused, not rerun.'};
     if (result.scenarios.length !== 10 || result.scenarios.some(row=>!Object.values(row.assertions).every(value=>value===true)) || serverErrors.length || externalRefusals.length) throw Error('actual wrapper matrix did not qualify');
   } catch(error) {failure=error;}
@@ -329,7 +412,7 @@ export async function runWrapper({repository, site, output, browserBinary}) {
     if (runtime) try {await runtime.close();} catch(error) {failure ??= error; outcome=null;}
     if (profile) await rm(profile,{recursive:true,force:true});
     await writeFile(join(output,'browser.log'),browserLog.join(''));
-    await writeFile(join(output,'report.json'),JSON.stringify(outcome ?? {error:String(failure),requests,server_errors:serverErrors},null,2)+'\n');
+    await writeFile(join(output,'report.json'),JSON.stringify(outcome ?? {error:String(failure),lifecycle:atlasOwner?.lifecycle??[],requests,server_errors:serverErrors},null,2)+'\n');
   }
   if(failure) throw failure;
   return outcome;

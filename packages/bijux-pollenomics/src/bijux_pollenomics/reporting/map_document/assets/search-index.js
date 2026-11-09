@@ -2,9 +2,10 @@
 const ATLAS_SEARCH_ABI = 'atlas-substring-postings.v1';
 const atlasSearchIndexes = new WeakMap();
 let atlasVisibleSearch = null;
+const ATLAS_SEARCH_CODE_UNITS = Object.freeze(Array.from({length:65536}, (_, unit) => unit.toString(16).padStart(4, '0')));
 function atlasSearchGrams(text, sizes = [1, 2, 3]) {
   let encoded = '';
-  for (let i = 0; i < text.length; i++) encoded += text.charCodeAt(i).toString(16).padStart(4, '0');
+  for (let i = 0; i < text.length; i++) encoded += ATLAS_SEARCH_CODE_UNITS[text.charCodeAt(i)];
   const result = new Set();
   for (const size of sizes) for (let i = 0; i + size * 4 <= encoded.length; i += 4) result.add(encoded.slice(i, i + size * 4));
   return result;

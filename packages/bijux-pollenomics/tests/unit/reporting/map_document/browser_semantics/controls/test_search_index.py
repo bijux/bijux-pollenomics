@@ -90,7 +90,7 @@ def test_utf16_gram_encoding_preserves_exact_reference_order() -> None:
             ]
         )
     helper = template_block(
-        "function atlasSearchGrams", "function atlasRememberRestoredSearch"
+        "const ATLAS_SEARCH_CODE_UNITS", "function atlasRememberRestoredSearch"
     )
     observed = run_node_json(
         helper
@@ -104,7 +104,7 @@ function reference(text,sizes){
  for(const size of sizes)for(let i=0;i+size<=units.length;i++)grams.add(units.slice(i,i+size).join(''));
  return [...grams];
 }
-console.log(JSON.stringify(data.texts.every((text,i)=>data.sizes.every((widths,j)=>{
+console.log(JSON.stringify(Object.isFrozen(ATLAS_SEARCH_CODE_UNITS)&&data.texts.every((text,i)=>data.sizes.every((widths,j)=>{
  const actual=JSON.stringify([...atlasSearchGrams(text,widths)]);
  return actual===JSON.stringify(reference(text,widths))&&actual===JSON.stringify(data.expected[i][j]);
 }))));
@@ -238,7 +238,7 @@ function focusPointAtVisibleIndex(index){focused=index};function setSearchOpen()
 const map={flyTo(){},getZoom(){return 5}},window={setTimeout(){}},reducedMotionQuery={matches:false};
 """
         + decoder
-        + index_transport_helpers(common=False)
+        + index_transport_helpers(common=False, include_search=False)
         + selection
         + helper
         + renderer

@@ -20,7 +20,7 @@ from bijux_pollenomics.reporting.source_chronology.features import build_atlas_f
 
 from .....analysis.propagation.source_chronology.support import source_rows
 from ..chronology import test_age_depth_diagram as age
-from ..support import run_node_json
+from ..support import run_node_json, template_block
 from .test_pollen_diagram import add_row, decoded, set_cell
 from .test_pollen_small_multiples import add_variable, script
 
@@ -80,7 +80,9 @@ def feature(
     return cast(dict[str, Any], build_atlas_feature(node))
 
 
-def observe(tabs: dict[str, Any], signal: object) -> dict[str, Any]:
+def observe(
+    tabs: dict[str, Any], signal: object, countries: object = None
+) -> dict[str, Any]:
     source = (
         script()
         + (
@@ -95,9 +97,142 @@ def observe(tabs: dict[str, Any], signal: object) -> dict[str, Any]:
             + json.dumps(tabs)
             + ",signal="
             + json.dumps(signal)
-            + ";const before=JSON.stringify([tabs,signal]);console.log(JSON.stringify({data:pollenFocusedSignalData(tabs,signal),html:renderPollenFocusedSignal(tabs,signal),unchanged:before===JSON.stringify([tabs,signal])}));"
+            + ",countries="
+            + json.dumps(countries)
+            + ";const before=JSON.stringify([tabs,signal,countries]);console.log(JSON.stringify({data:pollenFocusedSignalData(tabs,signal),html:renderPollenFocusedSignal(tabs,signal,undefined,countries),unchanged:before===JSON.stringify([tabs,signal,countries])}));"
         ),
     )
+
+
+def caption_text(result: dict[str, Any]) -> str:
+    return " ".join(" ".join(ET.fromstring(result["html"]).itertext()).split())
+
+
+def test_producer_owned_identity_and_posture_are_readable_without_admission(
+    tabs: dict[str, Any],
+) -> None:
+    signal = feature(tabs)
+    output = observe(tabs, signal, ["Denmark", "Sweden"])
+    text = caption_text(output)
+    for field in (
+        "node_id",
+        "feature_key",
+        "node_level",
+        "country",
+        "chronology_id",
+        "chronology_claim_id",
+        "chronology_selection_posture",
+        "candidate_generation_status",
+        "candidate_refusal_reason",
+    ):
+        assert str(signal[field]) in text
+    assert "propagation eligible: false" in text
+    assert "Active map countries: Denmark, Sweden" in text
+    assert "Not applicable: this display-only source context" in text
+    assert "scientific-event denominators are not established" in text
+    assert "native join counts, not scientific admission counts" in text
+    assert output["unchanged"]
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("feature_key", "distinct-source-feature-key"),
+        ("chronology_selection_posture", "distinct-source-selection-posture"),
+        ("country", "Distinct source country"),
+    ],
+)
+def test_caption_changes_with_identity_posture_or_country_not_native_matches(
+    tabs: dict[str, Any], field: str, value: str
+) -> None:
+    signal = feature(tabs)
+    before = observe(tabs, signal, ["Sweden"])
+    signal[field] = value
+    after = observe(tabs, signal, ["Sweden"])
+    assert before["data"] == after["data"]
+    assert caption_text(before) != caption_text(after)
+    assert value in caption_text(after)
+    assert before["unchanged"] and after["unchanged"]
+
+
+def test_missing_caption_metadata_is_not_an_inferred_country_or_posture(
+    tabs: dict[str, Any],
+) -> None:
+    signal = feature(tabs)
+    for field in (
+        "node_id",
+        "feature_key",
+        "country",
+        "chronology_id",
+        "chronology_claim_id",
+        "chronology_selection_posture",
+        "candidate_generation_status",
+        "candidate_refusal_reason",
+        "propagation_eligible",
+    ):
+        del signal[field]
+    output = observe(tabs, signal)
+    text = caption_text(output)
+    for label in (
+        "Node",
+        "feature key",
+        "Source country",
+        "Active map countries",
+        "Chronology",
+        "claim",
+        "selection posture",
+        "Candidate generation",
+        "refusal reason",
+        "propagation eligible",
+    ):
+        assert f"{label}: not supplied" in text
+    assert "propagation eligible: false" not in text
+    assert output["unchanged"]
+
+
+def test_source_identity_is_escaped_and_long_keys_can_wrap(
+    tabs: dict[str, Any],
+) -> None:
+    signal = feature(tabs)
+    signal["feature_key"] = "<script>&owned-source-key"
+    signal["country"] = 'Source <country> & "label"'
+    output = observe(tabs, signal, ["<selected-country>"])
+    root = ET.fromstring(output["html"])
+    assert not root.findall(".//script") and not root.findall(".//selected-country")
+    assert signal["feature_key"] in caption_text(output)
+    assert signal["country"] in caption_text(output)
+    assert "Active map countries: <selected-country>" in caption_text(output)
+    assert root.find("details/dl").get("style") == "overflow-wrap:anywhere"  # type: ignore[union-attr]
+    assert output["unchanged"]
+
+
+def test_actual_detail_caller_passes_country_selection_without_changing_source(
+    tabs: dict[str, Any],
+) -> None:
+    signal = feature(tabs)
+    source = (
+        script()
+        + (
+            Path(template.__file__).parent / "assets/focused-source-signal.js"
+        ).read_text()
+        + template_block("const pollenDepthSelections", "let sourceDetailRenderers")
+    )
+    result = run_node_json(
+        source
+        + "const tabs="
+        + json.dumps(tabs)
+        + ",signal="
+        + json.dumps(signal)
+        + ";const before=JSON.stringify([tabs,signal]);const focusState={sourceSignal:signal};"
+        + "const COUNTRIES=['Denmark','Finland','Norway','Sweden'];"
+        + "const activeCountries=new Set(['Sweden','Denmark']);"
+        + "const first=renderPollenObservationDiagram(tabs);activeCountries.clear();"
+        + "const empty=renderPollenObservationDiagram(tabs);console.log(JSON.stringify({first,empty,unchanged:before===JSON.stringify([tabs,signal])}));"
+    )
+    assert "Active map countries: Denmark, Sweden" in result["first"]
+    assert "Active map countries: none selected" in result["empty"]
+    assert f"Source country: {signal['country']}" in result["empty"]
+    assert result["unchanged"]
 
 
 def test_real_feature_producer_selects_51_instead_of_first_native_50(
