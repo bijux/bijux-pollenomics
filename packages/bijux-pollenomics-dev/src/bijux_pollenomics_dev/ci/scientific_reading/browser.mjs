@@ -17,6 +17,13 @@ export function relativePath(requestUrl) {
   return relative.endsWith('/') || relative === '' ? relative + 'index.html' : relative;
 }
 
+export function readerLayoutReady() {
+  const article = document.querySelector('article');
+  return document.readyState === 'complete' && document.fonts.status === 'loaded' && !!article &&
+    [...article.querySelectorAll('table:not([class])')]
+      .every(table => table.closest('.md-typeset__scrollwrap'));
+}
+
 async function main(planPath) {
   const started = Date.now();
   const plan = JSON.parse(await readFile(planPath, 'utf8'));
@@ -40,12 +47,17 @@ async function main(planPath) {
     }
     throw Error(`${description} did not become ready`);
   };
+  const settleLayout = async () => {
+    // Instant navigation exposes headings before Material wraps Markdown tables.
+    await waitFor(`(${readerLayoutReady.toString()})()`, 'reader layout');
+    await evaluate(cdp, 'new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))');
+  };
   const navigate = async (path) => {
     const loaded = cdp.waitFor('Page.loadEventFired', 15000);
     await cdp.send('Page.navigate', {url:origin + prefix + path});
     await loaded;
     await waitFor("document.readyState === 'complete' && !!document.querySelector('main h1')", 'reader page');
-    await new Promise(accept => setTimeout(accept, 150));
+    await settleLayout();
   };
   const pathExpression = (path) => JSON.stringify(prefix + path);
   try {
@@ -125,10 +137,10 @@ async function main(planPath) {
           await cdp.send('Input.dispatchMouseEvent', {type:'mousePressed', ...position, button:'left', clickCount:1});
           await cdp.send('Input.dispatchMouseEvent', {type:'mouseReleased', ...position, button:'left', clickCount:1});
           await waitFor(`location.pathname === ${pathExpression(path)} && document.querySelector('main h1')?.textContent.trim() !== ${JSON.stringify(viewport.entry_heading)}`, 'clicked reader route');
-          await new Promise(accept => setTimeout(accept, 150));
+          await settleLayout();
           const observed = await evaluate(cdp, `({heading:document.querySelector('main h1')?.textContent.trim(), overflow:document.documentElement.scrollWidth > innerWidth + 1, url:location.href})`);
-          if (!observed.heading || observed.overflow) throw Error(`unusable reader route ${path}`);
           viewport.routes.push({path, clicked:true, ...observed});
+          if (!observed.heading || observed.overflow) throw Error(`unusable reader route ${path}`);
         }
         for (const page of [...new Set(plan.downloads.map(row => row.page))]) {
           await navigate(page);
@@ -153,7 +165,16 @@ async function main(planPath) {
       receipt.status = 'PASS';
     };
     await Promise.race([work(), new Promise((_, reject) => {timer=setTimeout(() => reject(Error('browser work deadline reached')),Math.max(1,165000-(Date.now()-started)));})]);
-  } catch (error) { fail(error.stack || error.message); }
+  } catch (error) {
+    fail(error.stack || error.message);
+    if (cdp) try {
+      receipt.failure_layout = await evaluate(cdp, `({url:location.href, width:innerWidth,
+        scroll_width:document.documentElement.scrollWidth, fonts:document.fonts?.status,
+        heading:document.querySelector('main h1')?.textContent.trim(),
+        unwrapped_tables:[...document.querySelectorAll('article table:not([class])')]
+          .filter(table => !table.closest('.md-typeset__scrollwrap')).length})`);
+    } catch {}
+  }
   finally {
     clearTimeout(timer);
     if (cdp) { try { await Promise.race([cdp.send('Browser.close'),new Promise(accept => setTimeout(accept,1000))]); } catch {} cdp.close(); }

@@ -114,6 +114,36 @@ for(const path of ['/outside','/bijux-pollenomics/%2e%2e/outside','/bijux-pollen
     )
 
 
+def test_reader_waits_for_fonts_and_table_reflow() -> None:
+    script = (
+        ROOT
+        / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/scientific_reading/browser.mjs"
+    )
+    program = """import assert from 'node:assert/strict';
+const {readerLayoutReady}=await import(process.argv[1]);
+let wrapped=false;
+globalThis.document={readyState:'complete', fonts:{status:'loaded'},
+  querySelector:()=>({querySelectorAll:()=>[{closest:()=>wrapped?{}:null}]})};
+assert.equal(readerLayoutReady(), false, 'A visible heading does not establish table readiness');
+wrapped=true;
+assert.equal(readerLayoutReady(), true);
+document.fonts.status='loading';
+assert.equal(readerLayoutReady(), false);
+document.fonts.status='loaded';
+document.querySelector=()=>null;
+assert.equal(readerLayoutReady(), false);
+let selected;
+document.querySelector=()=>({querySelectorAll:selector=>(selected=selector,[])});
+assert.equal(readerLayoutReady(), true);
+assert.equal(selected, 'table:not([class])', 'Readiness follows the native Material enhancement selector');
+"""
+    subprocess.run(
+        ("node", "--input-type=module", "-e", program, script.as_uri()),
+        check=True,
+        timeout=10,
+    )
+
+
 @pytest.mark.parametrize(
     "name",
     [
