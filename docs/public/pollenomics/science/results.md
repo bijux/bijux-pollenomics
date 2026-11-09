@@ -244,27 +244,23 @@ Norway-excluded methods provide eight predictions across those two bins;
 change bins, so the paired same-sample scores are identical under the
 nominal and strict rules. Differences from the original full-bin scores
 reflect fewer counted samples, not a new model result or LRA validation.
-The separate [31-author-target analysis]
-(../../../report/regions/nordic/dalmutladdo-author-target-age-interval/README.md)
+The separate [31-author-target analysis](../../../report/regions/nordic/dalmutladdo-author-target-age-interval/README.md)
 reuses six frozen predictions on those two bins. Its inverse-distance-squared
 two-bin MAE is 0.006445, compared with 0.006341 for the parent's full
 compositions on the same bins. Those scores have a different taxon axis and
 denominator from the 16-label result; the two studies cannot be pooled.
 
-At Danish Solsø, a [primary LegacyAge depth join]
-(../../../report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md)
+At Danish Solsø, a [primary LegacyAge depth join](../../../report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md)
 matches all 92 Neotoma samples across two cores. The 1981 and 1983 core
 chronologies have different agreement with these alternative age intervals.
 The join does not recover LandClim II's published selection of 79 samples or
 its historical basin inputs.
-A separate [Denmark-held-out pollen sensitivity]
-(../../../report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md)
+A separate [Denmark-held-out pollen sensitivity](../../../report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md)
 retains 15 of 91 comparable samples whose full age intervals fit their
 original bins. Eight of 24 scored bins and 32 frozen four-method predictions
 remain supported. This is a previously exposed direct-pollen result on one
 physical lake, with no new LRA or vegetation validation claim.
-The distinct [31-author-target Solsø sensitivity]
-(../../../report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md)
+The distinct [31-author-target Solsø sensitivity](../../../report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md)
 uses author-assigned pollen counts and 24 frozen three-method predictions on
 the same 15 supported samples and eight bins. Its nearest-site eight-bin MAE
 is 0.025673, compared with 0.025513 on the parent's complete counts in those
