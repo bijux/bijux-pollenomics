@@ -55,6 +55,7 @@ def observe(
             + json.dumps(signals)
             + r""";
 const before=JSON.stringify([tabs,signals]),callbacks={},selectors={};
+const COUNTRIES=['Denmark','Finland','Norway','Sweden'],activeCountries=new Set(['Sweden']);
 const detailTablePages=new Map(),DETAIL_TABLE_PAGE_SIZE=25;
 const focusTabs={innerHTML:'',contains(){return false;},querySelectorAll(){return ['overview','pollen_composition'].map(key=>({dataset:{focusTab:key},addEventListener(event,cb){callbacks[key]=cb;}}));}};
 const focusDetail={_html:'',get innerHTML(){return this._html;},set innerHTML(value){this._html=value;for(const key of Object.keys(selectors))delete selectors[key];},dataset:{},contains(){return false;},setAttribute(){},querySelectorAll(selector){

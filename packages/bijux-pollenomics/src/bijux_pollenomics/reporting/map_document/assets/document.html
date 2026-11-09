@@ -5594,7 +5594,8 @@ __URL_STATE_CONTROLLER__
       function renderPollenObservationDiagram(tabs) {
         const selected = pollenDisplaySelection(tabs);
         const ageKey = pollenAgeSelections.get(selected.owner) ?? null;
-        return (selected.signal ? renderPollenFocusedSignal(tabs, selected.signal, selected.focused) : '')
+        return (selected.signal ? renderPollenFocusedSignal(tabs, selected.signal, selected.focused,
+          COUNTRIES.filter(country => activeCountries.has(country))) : '')
           + renderPollenDepthDiagram(tabs, selected.key,
             (group, ids) => renderPollenAgeDiagram(tabs, group.key, ageKey, false, ids)
               + renderPollenSmallMultiples(tabs, group.key, ageKey, ids),
