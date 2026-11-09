@@ -24,6 +24,183 @@ from bijux_pollenomics_lra.reconstruction import optimized
 from bijux_pollenomics_lra.version import COMPATIBILITY_MODE
 
 
+def _objective_inputs(layout: str = "C") -> list[np.ndarray]:
+    kernels = np.array([[0.003, 1700.0, 0.09], [20.1, 0.000002, 1.3], [0.2, 0.7, 91.0]])
+    if layout == "F":
+        kernels = np.asfortranarray(kernels)
+    elif layout == "strided":
+        storage = np.zeros((6, 6))
+        storage[::2, ::2] = kernels
+        kernels = storage[::2, ::2]
+    elif layout == "reversed":
+        kernels = kernels[::-1, ::-1]
+    return [
+        np.array([0.01, 0.4, 1.7]),
+        kernels,
+        np.array([0.3, 0.0, 1.4]),
+        np.array([0.17, 0.61, 0.22]),
+        np.array([0.7, 2.2, 5.5]),
+    ]
+
+
+@pytest.mark.parametrize("layout", ["C", "F", "strided", "reversed"])
+@pytest.mark.parametrize(
+    "candidate",
+    [np.array([0.2, 0.5, 0.3]), np.array([0.0, 1.0, 0.0]), np.zeros(3)],
+)
+def test_prepared_objective_preserves_exact_public_arithmetic_and_layouts(
+    layout: str, candidate: np.ndarray
+) -> None:
+    inputs = _objective_inputs(layout)
+    original = [value.copy() for value in inputs]
+    expected = optimized.tf(candidate, *inputs)
+    objective = optimized._prepare_objective(*inputs)
+    actual = objective(candidate)
+    if np.isnan(expected):
+        assert np.isnan(actual)
+    else:
+        assert actual.hex() == expected.hex()
+    for value, before in zip(inputs, original, strict=True):
+        np.testing.assert_array_equal(value, before)
+
+
+@pytest.mark.parametrize("layout", ["C", "F", "strided", "reversed"])
+def test_prepared_objective_preserves_cancellation_sensitive_layouts(
+    layout: str,
+) -> None:
+    inputs = _objective_inputs()
+    kernels = np.array(
+        [[1e16, 2.0, 3.0], [1.0, 4.0, 5.0], [-1e16, 6.0, 7.0]] * 5
+        + [[0.13, 0.17, 0.19], [0.23, 0.29, 0.31]],
+        order="F" if layout in ("F", "strided") else "C",
+    )
+    if layout == "strided":
+        storage = np.zeros((34, 6), order="F")
+        storage[::2, ::2] = kernels
+        kernels = storage[::2, ::2]
+    elif layout == "reversed":
+        kernels = kernels[::-1, ::-1]
+    inputs[1] = kernels
+    inputs[2] = np.ones(17)
+    for index in (0, 2, 3, 4):
+        if layout == "strided":
+            vector_storage = np.zeros(inputs[index].size * 2)
+            vector_storage[::2] = inputs[index]
+            inputs[index] = vector_storage[::2]
+        elif layout == "reversed":
+            inputs[index] = inputs[index][::-1]
+    candidate = np.array([0.2, 0.5, 0.3])
+    expected = optimized.tf(candidate, *inputs)
+    actual = optimized._prepare_objective(*inputs)(candidate)
+    assert actual.hex() == expected.hex()
+
+
+def test_prepared_objective_owns_readonly_invariants(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    inputs = _objective_inputs("strided")
+    candidate = np.array([0.2, 0.5, 0.3])
+    expected = optimized.tf(candidate, *inputs)
+    objective = optimized._prepare_objective(*inputs)
+    original_forward = optimized._love_pollen_arrays
+    original_distance = optimized.logeuclidean
+
+    def forward(
+        cover: np.ndarray,
+        regional: np.ndarray,
+        kernels: np.ndarray,
+        fractions: np.ndarray,
+        productivity: np.ndarray,
+    ) -> np.ndarray:
+        for owned, caller in zip(
+            (regional, kernels, fractions, productivity),
+            (inputs[0], inputs[1], inputs[2], inputs[4]),
+            strict=True,
+        ):
+            assert not owned.flags.writeable
+            assert not np.shares_memory(owned, caller)
+        return original_forward(cover, regional, kernels, fractions, productivity)
+
+    def distance(first: object, second: object) -> float:
+        assert isinstance(second, np.ndarray)
+        assert not second.flags.writeable
+        assert not np.shares_memory(second, inputs[3])
+        return original_distance(first, second)
+
+    monkeypatch.setattr(optimized, "_love_pollen_arrays", forward)
+    monkeypatch.setattr(optimized, "logeuclidean", distance)
+    for value in inputs:
+        value.fill(0)
+    assert objective(candidate).hex() == expected.hex()
+    assert objective(candidate).hex() == expected.hex()
+
+
+@pytest.mark.parametrize("index", range(5))
+def test_prepared_objective_refuses_masked_search_invariants(index: int) -> None:
+    inputs = _objective_inputs()
+    inputs[index] = np.ma.array(inputs[index], mask=True)
+    with pytest.raises(ValidationError, match="masked"):
+        optimized._prepare_objective(*inputs)
+    with pytest.raises(ValidationError, match="masked"):
+        optimized.tf(np.array([0.2, 0.5, 0.3]), *inputs)
+
+
+@pytest.mark.parametrize("index", [0, 1, 2, 3])
+def test_prepared_objective_preserves_nonfinite_source_intermediates(
+    index: int,
+) -> None:
+    inputs = _objective_inputs()
+    inputs[index].flat[0] = np.nan
+    candidate = np.array([0.2, 0.5, 0.3])
+    expected = optimized.tf(candidate, *inputs)
+    actual = optimized._prepare_objective(*inputs)(candidate)
+    assert np.isnan(expected)
+    assert np.isnan(actual)
+
+
+@pytest.mark.parametrize(
+    "candidate",
+    [
+        np.array([-0.1, 0.5, 0.6]),
+        np.array([np.nan, 0.5, 0.5]),
+        np.array([np.inf, 0.5, 0.5]),
+        np.array([0.5, 0.5]),
+        np.array([[0.2, 0.5, 0.3]]),
+        np.ma.array([0.2, 0.5, 0.3], mask=[True, False, False]),
+    ],
+)
+def test_prepared_objective_keeps_candidate_refusals(candidate: np.ndarray) -> None:
+    inputs = _objective_inputs()
+    objective = optimized._prepare_objective(*inputs)
+    with pytest.raises(ValidationError) as original:
+        optimized.tf(candidate, *inputs)
+    with pytest.raises(ValidationError) as prepared:
+        objective(candidate)
+    assert str(prepared.value) == str(original.value)
+
+
+@pytest.mark.parametrize(
+    ("index", "value"),
+    [
+        (0, np.array([0.1, 0.2])),
+        (1, np.ones((2, 3))),
+        (2, np.array([[0.3, 0.0, 1.4]])),
+        (3, np.array([0.1, 0.2])),
+        (4, np.array([0.7, 0.0, 5.5])),
+    ],
+)
+def test_prepared_objective_refuses_invalid_invariant_dimensions_and_ppe(
+    index: int, value: np.ndarray
+) -> None:
+    inputs = _objective_inputs()
+    inputs[index] = value
+    with pytest.raises(ValidationError) as original:
+        optimized.tf(np.array([0.2, 0.5, 0.3]), *inputs)
+    with pytest.raises(ValidationError) as prepared:
+        optimized._prepare_objective(*inputs)
+    assert str(prepared.value) == str(original.value)
+
+
 def _inputs(
     fractions: list[float], *, taxa_count: int = 3
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:

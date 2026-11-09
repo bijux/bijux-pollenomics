@@ -146,3 +146,74 @@ decision stands.
 Complete API outputs and receipts are retained through the existing
 scientific-artifact recovery owner, keyed by logical path
 `artifacts/verification/love-optimizer-search/run/`.
+
+## Unprofiled objective boundary in the full search
+
+At source `2de02934d88803640396e3dd5f441e53d219925c`, the same full-search
+workload and runtime were measured around `optimized.tf` only. Three fresh
+workers each saved one warmup and nine measured calls: three unwrapped
+baselines, three no-clock passthroughs and three clocked calls, in balanced
+orders. Complete outputs were written after timing; the original function was
+restored after every call.
+
+The existing rule subtracts empty-clock cost and worst passthrough spread from
+the minimum inside time, then divides by the maximum baseline time.
+Instrumentation overhead uses the instrumented and baseline medians. Every
+worker must reach at least 50% conservative share with at most 5% overhead;
+averaging workers or selecting the best observation cannot qualify it.
+
+| Worker | Conservative objective share | Instrumentation overhead |
+| --- | ---: | ---: |
+| 1 | 54.5094% | 1.4335% |
+| 2 | 55.5239% | 0.6323% |
+| 3 | 58.2293% | 0.7006% |
+
+All workers passed. Independent review checked all 30,480 saved CSV cells,
+including 11,160 missing values, and 240 solver diagnostics against the
+original search reference. All outputs matched; six undefined requested rings
+and the geometry warning remain. The aggregate took 60.6836 s, peak observed
+RSS was 177,635,328 bytes and counted output was 1,189,204 bytes, within the
+unchanged resource limits; source/index/input guards passed.
+
+This unprofiled result qualifies bounded objective-kernel investigation only.
+It establishes no C++ benefit, global-optimum quality, source-R parity or field
+admission. Production remains Python. The original search evidence is
+unchanged; complete boundary outputs and receipts use the existing recovery
+owner under `artifacts/verification/love-objective-boundary-cost/run/`.
+
+## Preparing fixed inputs once per LOVE search
+
+The Python change at candidate `380a3e783dfce9facbdf12a05358ba0234c0db7f`
+was compared with baseline `490bb893d04cafc5d56a7e89df1bd0e408008c05`.
+Each search now owns read-only copies of its regional deposition, ring kernels,
+land fractions, productivity and offset observations. Candidate validation and
+the shared floating-point arithmetic remain unchanged; public `tf` retains its
+standalone refusals. There is no global cache or dependency/ABI addition.
+
+On the same Mac runtime and full-search fixture, three fresh workers per
+variant each made one first and three warm calls. Pair order was
+baseline/prepared, prepared/baseline, baseline/prepared. Preparation and copies
+are included in the full-call timing.
+
+| Pair | Baseline warm median, s | Prepared warm median, s | Reduction |
+| --- | ---: | ---: | ---: |
+| 1 | 1.7830 | 1.4887 | 16.5051% |
+| 2 | 1.7948 | 1.5032 | 16.2461% |
+| 3 | 1.7830 | 1.4817 | 16.8998% |
+
+First calls fell from 1.8505–1.8779 s to 1.5387–1.5415 s. Separately measured
+loading was 0.00147–0.00150 s, imports 1.278–1.308 s, process startup
+0.0224–0.0259 s and writing/projection 0.0045–0.0075 s. Peak observed RSS was
+172,916,736 bytes; the 50.2590 s aggregate and 1,125,097 counted output bytes
+met the unchanged limits.
+
+Independent review found all 24 scientific outputs and 192 solver diagnostics
+exact to the retained reference, including 8,928 missing CSV values. Solver
+settings/RNG, six undefined rings and the geometry warning are preserved. We
+accept this small Python change for its consistent measured benefit. The earlier `tf`
+share describes source `2de02934d`, before preparation; it is not a measurement
+of the changed callback. This fixture result establishes no field accuracy,
+global-optimum quality, R-trajectory, platform, installed-package or C++
+benefit, and does not close all performance outcomes. The prior forward-native
+rejection retains its original scope. Complete paired evidence is keyed by
+`artifacts/verification/love-prepared-objective-comparison/run/`.
