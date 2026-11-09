@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Guide atlas readers through seven evidence questions with source, interpretation and limitation links ([#386](https://github.com/bijux/bijux-pollenomics/pull/386)).
+
 - Expose pollen source identity and refusal context, replace script listings with inventory links, reuse UTF-16 code-unit strings and retain failed iframe navigation evidence with current publication bindings ([#385](https://github.com/bijux/bijux-pollenomics/pull/385)).
 
 - Restore scientific source and result links, distinguish retained review snapshots from current publication scope, and retire the historical schematic desktop-zoom report ([#384](https://github.com/bijux/bijux-pollenomics/pull/384)).
