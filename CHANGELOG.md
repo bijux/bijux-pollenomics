@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Narrow source interpretation report producer declarations while preserving whole-repository replay guards and qualified input/output boundaries ([#399](https://github.com/bijux/bijux-pollenomics/pull/399)).
+
 - Validate both native pollen labels before synthetic request publication, require observation identity arrays and qualify the current installed host API boundaries ([#398](https://github.com/bijux/bijux-pollenomics/pull/398)).
 
 - Show retained synthetic marginal interval coverage limits in the scientific briefing and refresh source-bound presentation downloads ([#397](https://github.com/bijux/bijux-pollenomics/pull/397)).
