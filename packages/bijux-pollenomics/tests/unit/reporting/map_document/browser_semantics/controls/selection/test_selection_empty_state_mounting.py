@@ -78,7 +78,9 @@ for(const name of ['refreshTimeControls','renderCountryControls','renderScientif
  'renderAnimalControls','renderSourceChronologyControls','refreshTimeStepperStatus','renderModeledContextControls',
  'renderLegend','renderControlPanelSummary','updateStats','renderEvidenceDisplayPanel','preparePublishedSearch',
  'buildSearchResults','renderFocusCard','syncPresetButtons','syncTimePresetButtons','syncHashState','renderEvidenceToolPanels'])globalThis[name]=()=>{};
-function snapshot(){return {hidden:emptyState.hidden,reason:emptyState.dataset.reason,html:emptyState.innerHTML,
+let searchRefreshes=[];
+globalThis.buildSearchResults=()=>searchRefreshes.push({busy:mapElement['aria-busy'],reason:emptyState.dataset.reason,points:visiblePointEntries.length});
+function snapshot(){return {searchRefreshes:[...searchRefreshes],hidden:emptyState.hidden,reason:emptyState.dataset.reason,html:emptyState.innerHTML,
  points:visiblePointEntries.length,polygons:renderedPolygonLayers.length,edges:{...edgeRenderSummary},
  busy:mapElement['aria-busy'],renders,untimedReads,errors:[...errors],sourceUnchanged:JSON.stringify(supplied)===original,
  retainedUnchanged:JSON.stringify(retainedRows)===beforeRetained}}
@@ -207,3 +209,23 @@ def test_helper_is_in_main_runtime_and_empty_panel_announces_status() -> None:
     assert "function selectionEmptyState" in main
     panel = template_block('<div id="empty-state"', '<div id="floating-legend"')
     assert 'role="status"' in panel and 'aria-live="polite"' in panel
+
+
+def test_latest_selection_alone_refreshes_ready_search_counts() -> None:
+    observed = mounted(
+        "delayed=true;const old=renderMapState();const current=renderMapState();"
+        "pending[0].resolve([]);await old;const during=snapshot();"
+        "pending[1].resolve([]);await current;const ready=snapshot();"
+        "process.stdout.write(JSON.stringify({during,ready}));",
+        pointCount=2,
+    )
+    assert observed["during"]["busy"] == "true"
+    assert observed["during"]["renders"] == 0
+    assert all(row["busy"] == "true" for row in observed["during"]["searchRefreshes"])
+    assert observed["ready"]["busy"] == "false"
+    assert observed["ready"]["renders"] == 1
+    assert observed["ready"]["searchRefreshes"][-1] == {
+        "busy": "false",
+        "reason": "not_empty",
+        "points": 2,
+    }

@@ -236,6 +236,8 @@ function escapeHtml(value){return String(value)}
 function featureCoordinatePair(feature){return feature}
 function focusPointAtVisibleIndex(index){focused=index};function setSearchOpen(){};
 const map={flyTo(){},getZoom(){return 5}},window={setTimeout(){}},reducedMotionQuery={matches:false};
+const mapElement={busy:'false',getAttribute(){return this.busy}},emptyState={dataset:{reason:'not_empty'}};
+const document={getElementById(){return mapElement}};
 """
         + decoder
         + index_transport_helpers(common=False, include_search=False)
@@ -254,6 +256,13 @@ STATIC_ATLAS_BOOTSTRAP.assets=data.assetRows.filter(row=>row.domain!=='indexes')
 STATIC_ATLAS_BOOTSTRAP.assets=[...data.assetRows,data.indexRow];assert.throws(()=>requiredStaticAtlasNodeAssets(),/missing|duplicated/);
 STATIC_ATLAS_BOOTSTRAP.assets=data.assetRows;const budget=STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes;STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes=0;assert.throws(()=>requiredStaticAtlasNodeAssets(),/interaction budget/);STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes=budget;
 STATIC_ATLAS_BOOTSTRAP.assets=originalAssets;
+const initialEntries=visiblePointEntries;visiblePointEntries=[];searchInput.value='a';
+mapElement.busy='true';emptyState.dataset.reason='loading';buildSearchResults();
+assert.match(searchCount.textContent,/pending/);assert.equal(searchResults.hidden,true);assert.equal(searchResults.innerHTML,'');
+mapElement.busy='false';emptyState.dataset.reason='loading_unavailable';buildSearchResults();
+assert.match(searchCount.textContent,/unavailable/);assert.equal(searchResults.hidden,true);
+visiblePointEntries=initialEntries;emptyState.dataset.reason='not_empty';preparePublishedSearch();buildSearchResults();
+assert.doesNotMatch(searchCount.textContent,/pending|unavailable/);atlasVisibleSearch=null;
 const restoredPublished=atlasPublishedSearch(STATIC_ATLAS_CHUNKS.indexes,STATIC_ATLAS_CHUNKS.provenance.layers);
 for(const [key,posting] of restoredPublished.postings){assert.equal(posting instanceof Set,false);assert.equal(Object.isFrozen(posting),true);assert.deepEqual([...posting],data.index.text_search_index[key]);}
 const completeVisible=visiblePointEntries;visiblePointEntries=[];assert.deepEqual(publishedSearchCounts(),{focalCount:0,neighborCount:0});assert.deepEqual(publishedSearchResults('early'),[]);visiblePointEntries=completeVisible;

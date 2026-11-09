@@ -723,6 +723,16 @@ def test_provider_open_failure_retains_case_and_closes_only_owned_targets(
     assert all(first["assertions"].values())
     assert all(first["ui"].values())
     lifecycle = first["lifecycle"]
+    started = lifecycle["started_monotonic_ms"]
+    capture_ready = first["initial_capture_ready_monotonic_ms"]
+    assert 0 <= started < capture_ready < float("inf")
+    milestones = {row["phase"]: row["elapsed_ms"] for row in lifecycle["events"]}
+    assert (
+        started + milestones["load_event_received"]
+        <= started + milestones["ready"]
+        <= capture_ready
+        <= started + milestones["target_close_requested"]
+    )
     assert lifecycle["navigation"]["frame_id"] == "parent"
     assert lifecycle["navigation"]["loader_id"] == "loader-target-1"
     assert lifecycle["child_frame_id"] == "child"
@@ -736,6 +746,7 @@ def test_provider_open_failure_retains_case_and_closes_only_owned_targets(
     assert not any(failed["assertions"].values())
     assert set(failed["assertions"]) == set(result["assertionKeys"])
     assert failed["status"] == "open_failed"
+    assert "initial_capture_ready_monotonic_ms" not in failed
     assert failed["lifecycle"]["case"] == "provider-http-403"
     assert failed["lifecycle"]["target_id"] == "target-2"
     assert result["captureCalls"] == 1

@@ -244,8 +244,9 @@ const first=renderMapState();await Promise.resolve();await Promise.resolve();
 const second=renderMapState();await Promise.resolve();await Promise.resolve();
 if(oldFirst){releases[0]();await first;}else{releases[1]();await second;}
 const intermediate={pending:pendingEdgeFocus!==null,kind:focusState?.kind||null};
+const intermediateRefreshes=searchRefreshes.length;
 if(oldFirst){releases[1]();await second;}else{releases[0]();await first;}
-console.log(JSON.stringify({loads,intermediate,kind:focusState?.kind,tab:activeFocusTab,pending:pendingEdgeFocus,unlocked:edgeFocusLoadState.restoring===null}));
+console.log(JSON.stringify({loads,intermediate,intermediateRefreshes,searchRefreshes,kind:focusState?.kind,tab:activeFocusTab,pending:pendingEdgeFocus,unlocked:edgeFocusLoadState.restoring===null}));
 """,
     )
     assert observed["loads"] == 2
@@ -256,6 +257,12 @@ console.log(JSON.stringify({loads,intermediate,kind:focusState?.kind,tab:activeF
     )
     assert observed["kind"] == "edge" and observed["tab"] == "relation"
     assert observed["pending"] is None and observed["unlocked"] is True
+    assert observed["intermediateRefreshes"] == (2 if old_finishes_first else 3)
+    assert observed["searchRefreshes"] == [
+        {"generation": 1, "busy": "true", "reason": "loading"},
+        {"generation": 2, "busy": "true", "reason": "loading"},
+        {"generation": 2, "busy": "false", "reason": "loading"},
+    ]
 
 
 @pytest.mark.parametrize("route", ["copy", "render"])

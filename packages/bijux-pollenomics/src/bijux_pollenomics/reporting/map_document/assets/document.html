@@ -2917,6 +2917,8 @@ __NATIVE_LRA_SCRIPT_TAG__
                   temporalIdentity: staticAtlasTemporalIdentity, nonnegativeInteger: staticAtlasNonnegativeInteger,
                   nativeCalendarNumber: value => typeof nativeCalendarNumber === 'function' && nativeCalendarNumber(value),
                   boundedGunzip: staticAtlasBoundedGunzip, sha256: staticAtlasSha256,
+                  yieldTask: () => typeof globalThis.scheduler?.yield === 'function'
+                    ? globalThis.scheduler.yield() : new Promise(resolve => window.setTimeout(resolve, 0)),
                   searchGrams: text => atlasSearchGrams(text),
                   rememberRestoredSearch: (index, postings) => atlasRememberRestoredSearch(index, postings)});
                 if (!controller || !['validatePayload', 'consume'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
@@ -7359,6 +7361,15 @@ __URL_STATE_CONTROLLER__
       function buildSearchResults() {
         const query = searchInput.value.trim().toLowerCase();
         searchClearButton.hidden = !query;
+        const loading = document.getElementById('map').getAttribute('aria-busy') === 'true';
+        if (loading || ['loading', 'loading_unavailable'].includes(emptyState.dataset.reason)) {
+          searchCount.textContent = loading || emptyState.dataset.reason === 'loading'
+            ? 'Search is pending while selected evidence loads.'
+            : 'Search is unavailable because selected evidence could not be loaded.';
+          searchResults.hidden = true;
+          searchResults.innerHTML = '';
+          return;
+        }
         const {focalCount, neighborCount} = publishedSearchCounts();
         if (!query) {
           searchCount.textContent = neighborCount
@@ -7417,6 +7428,7 @@ __URL_STATE_CONTROLLER__
         topbarStatePill.setAttribute('aria-live', 'polite');
         document.getElementById('map').setAttribute('aria-busy', 'true');
         renderSelectionEmptyStatePanel('loading');
+        buildSearchResults();
         try {
           const requested = await ensureStaticAtlasSelectionLoaded();
           if (generation !== staticAtlasLoadGeneration) return;
@@ -7442,7 +7454,10 @@ __URL_STATE_CONTROLLER__
           renderSelectionEmptyStatePanel('unavailable');
           console.error(error);
         } finally {
-          if (generation === staticAtlasLoadGeneration) document.getElementById('map').setAttribute('aria-busy', 'false');
+          if (generation === staticAtlasLoadGeneration) {
+            document.getElementById('map').setAttribute('aria-busy', 'false');
+            buildSearchResults();
+          }
         }
       }
       function renderLoadedMapState() {
@@ -7633,6 +7648,7 @@ __URL_STATE_CONTROLLER__
             observer.observe(mapElement, { attributes: true, attributeFilter: ['aria-busy'] });
           });
         }
+        if (['loading', 'loading_unavailable'].includes(emptyState.dataset.reason)) throw new Error('atlas capture selection is unavailable');
         if (document.fonts && document.fonts.ready) await document.fonts.ready;
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
         map.invalidateSize({ animate: false });
@@ -7640,6 +7656,7 @@ __URL_STATE_CONTROLLER__
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
         map.invalidateSize({ animate: false });
         await new Promise((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
+        if (mapElement.getAttribute('aria-busy') === 'true' || ['loading', 'loading_unavailable'].includes(emptyState.dataset.reason)) throw new Error('atlas capture selection changed before readiness');
         return atlasCaptureSnapshot();
       }
       function atlasCaptureSnapshot() {
@@ -7693,7 +7710,7 @@ __URL_STATE_CONTROLLER__
           scientific_picker: scientificPickerMetadata(),
           evidence_display: evidenceDisplayMetadata(activeEvidenceDisplay),
           version: STATIC_ATLAS_BOOTSTRAP.version,
-          ready: document.getElementById('map').getAttribute('aria-busy') !== 'true',
+          ready: document.getElementById('map').getAttribute('aria-busy') !== 'true' && !['loading', 'loading_unavailable'].includes(emptyState.dataset.reason),
           basemap: currentBasemap,
           view: {
             latitude: map.getCenter().lat,

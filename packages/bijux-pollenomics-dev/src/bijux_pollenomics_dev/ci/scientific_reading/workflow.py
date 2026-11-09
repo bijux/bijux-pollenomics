@@ -84,10 +84,10 @@ def verify_workflow(document: dict[str, Any]) -> None:
         by_name["Install admitted documentation renderer"].get("run")
         == "make gh-docs-install"
         and by_name["Build and verify the production-site artifact"].get("run")
-        == "make gh-docs-build gh-docs-verify"
+        == "make gh-docs-build"
         and by_name["Build and verify the production-site artifact"].get("id")
         == "publication",
-        "the admitted build and verifier must both execute",
+        "the fully admitted build must execute under its retention identity",
     )
     downloads = by_name["Check retained publication downloads"]
     download_commands = downloads.get("run")
