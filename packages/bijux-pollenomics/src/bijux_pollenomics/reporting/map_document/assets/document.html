@@ -2917,7 +2917,8 @@ __NATIVE_LRA_SCRIPT_TAG__
                   temporalIdentity: staticAtlasTemporalIdentity, nonnegativeInteger: staticAtlasNonnegativeInteger,
                   nativeCalendarNumber: value => typeof nativeCalendarNumber === 'function' && nativeCalendarNumber(value),
                   boundedGunzip: staticAtlasBoundedGunzip, sha256: staticAtlasSha256,
-                  searchGrams: text => atlasSearchGrams(text)});
+                  searchGrams: text => atlasSearchGrams(text),
+                  rememberRestoredSearch: (index, postings) => atlasRememberRestoredSearch(index, postings)});
                 if (!controller || !['validatePayload', 'consume'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
                 staticAtlasIndexTransport = controller;
                 resolve(controller);

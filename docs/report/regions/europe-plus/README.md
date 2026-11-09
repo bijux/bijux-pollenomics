@@ -76,9 +76,9 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 - Atlas evidence surface markdown: [`europe-plus_evidence_surface.md`](./europe-plus_evidence_surface.md)
 - Atlas scientific review JSON: [`europe-plus_scientific_review.json`](./europe-plus_scientific_review.json)
 - Atlas scientific review markdown: [`europe-plus_scientific_review.md`](./europe-plus_scientific_review.md)
-- Static atlas runtime: [`europe-plus_map.atlas-runtime.75daf45e8363273d.js`](./europe-plus_map.atlas-runtime.75daf45e8363273d.js)
+- Static atlas runtime: [`europe-plus_map.atlas-runtime.6eb0f22ce261f2f0.js`](./europe-plus_map.atlas-runtime.6eb0f22ce261f2f0.js)
 - Interactive evidence tools: [`europe-plus_map.atlas-evidence-tools.bac3f9295a5c95bb.js`](./europe-plus_map.atlas-evidence-tools.bac3f9295a5c95bb.js)
-- Static atlas index transport: [`europe-plus_map.atlas-index-transport.2168d29af8354bcb.js`](./europe-plus_map.atlas-index-transport.2168d29af8354bcb.js)
+- Static atlas index transport: [`europe-plus_map.atlas-index-transport.513b4ed69afc60fb.js`](./europe-plus_map.atlas-index-transport.513b4ed69afc60fb.js)
 
 ## Visible Layer Contract
 
@@ -187,7 +187,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** Four-country display:1,231 human samples (SE416/NO130/FI32/DK653), eight animal locality points across three species; these are publication populations, not independent ecological samples.
 
-- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_summary.json](europe-plus_summary.json) (SHA-256 `b9471fab7c7a6f56884db5a75c438347ed1067a01122a7a19a24cb7d1aefeea8`).
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_summary.json](europe-plus_summary.json) (SHA-256 `8fd0d89a19c69a0242c1079442d460f51e958ece0d3a73a79ea4f76184fa7859`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

@@ -359,7 +359,8 @@
                   temporalIdentity: staticAtlasTemporalIdentity, nonnegativeInteger: staticAtlasNonnegativeInteger,
                   nativeCalendarNumber: value => typeof nativeCalendarNumber === 'function' && nativeCalendarNumber(value),
                   boundedGunzip: staticAtlasBoundedGunzip, sha256: staticAtlasSha256,
-                  searchGrams: text => atlasSearchGrams(text)});
+                  searchGrams: text => atlasSearchGrams(text),
+                  rememberRestoredSearch: (index, postings) => atlasRememberRestoredSearch(index, postings)});
                 if (!controller || !['validatePayload', 'consume'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
                 staticAtlasIndexTransport = controller;
                 resolve(controller);
@@ -625,7 +626,7 @@ async function fetchStaticAtlasNodeAsset(row, signal) {
             return { ...layer, geojson: { ...(entry.layer.geojson || {}), features } };
           });
       }
-      const SCOPE_KEY = "world";
+      const SCOPE_KEY = "nordic";
       const COUNTRIES = ["Sweden","Norway","Finland","Denmark"];
 
       const NATIVE_LRA_BINDING = JSON.parse(document.getElementById('atlas-native-lra-binding').textContent);
@@ -745,7 +746,7 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
       const POINT_LAYERS = hydrateStaticAtlasLayers('point');
       const POLYGON_LAYERS = hydrateStaticAtlasLayers('polygon');
       const MODELED_CONTEXT = JSON.parse(document.getElementById('atlas-modeled-context-binding').textContent);
-      const INITIAL_BOUNDS = [[-20.0,-165.0],[82.0,180.0]];
+      const INITIAL_BOUNDS = [[54.0,4.0],[72.0,35.0]];
       const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
       const ATLAS_EVIDENCE = STATIC_ATLAS_INLINE
         ? { details_status: 'unavailable', details_reason_code: 'record_level_evidence_not_available', classifications_status: 'unavailable', classifications_reason_code: 'accepted_scientific_classifications_not_available', detail_records: [], scientific_signals: [] }
@@ -818,11 +819,11 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
         )
       );
       const TIME_MIN_BP = 0;
-      const TIME_MAX_BP = 68764;
+      const TIME_MAX_BP = 2700000;
       const TIME_HAS_DATA = true;
       const DEFAULT_TIME_START_BP = 0;
-      const DEFAULT_TIME_INTERVAL_YEARS = 68764;
-      const TIME_INTERVAL_MAX = 68764;
+      const DEFAULT_TIME_INTERVAL_YEARS = 2700000;
+      const TIME_INTERVAL_MAX = 2700000;
       const map = L.map('map', { preferCanvas: true, zoomControl: false, maxZoom: 20 });
       let initialMapFitPending = false;
       let mapViewReady = false;
@@ -1090,7 +1091,7 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
       }
       function clampDiameter(value) {
         const numeric = finiteControlNumber(value);
-        const selected = numeric === null ? 40 : numeric;
+        const selected = numeric === null ? 20 : numeric;
         return Math.max(0, Math.min(100, Math.round(selected / 5) * 5));
       }
       function clampTimeInterval(value) {
@@ -2835,7 +2836,7 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
           if (activeSourceChronologyPreset !== 'none') params.set('source_label_preset', activeSourceChronologyPreset);
           if (sourceRecordConcentrationActive) params.set('source_record_concentration', 'captured');
         }
-        if (Number(slider.value) !== 40) params.set('diameter', String(Number(slider.value)));
+        if (Number(slider.value) !== 20) params.set('diameter', String(Number(slider.value)));
         const modeledWindow = currentModeledContextWindow();
         if (modeledContextActive && modeledWindow) {
           params.set('modeled_context', modeledWindow.label);
@@ -3938,7 +3939,7 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
         if (activeAnimalTemporalWindow !== 'all') count += 1;
         if (animalNordicOnly) count += 1;
         if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) count += 1;
-        if (Number(slider.value) !== 40) count += 1;
+        if (Number(slider.value) !== 20) count += 1;
         if (Math.round(densityOpacity * 100) !== 60) count += 1;
         if (currentBasemap !== DEFAULT_BASEMAP) count += 1;
         return count;
@@ -5921,15 +5922,29 @@ const ATLAS_SEARCH_ABI = 'atlas-substring-postings.v1';
 const atlasSearchIndexes = new WeakMap();
 let atlasVisibleSearch = null;
 function atlasSearchGrams(text, sizes = [1, 2, 3]) {
-  const units = Array.from({length:text.length}, (_, i) => text.charCodeAt(i).toString(16).padStart(4, '0'));
+  let encoded = '';
+  for (let i = 0; i < text.length; i++) encoded += text.charCodeAt(i).toString(16).padStart(4, '0');
   const result = new Set();
-  for (const size of sizes) for (let i = 0; i + size <= units.length; i++) result.add(units.slice(i, i + size).join(''));
+  for (const size of sizes) for (let i = 0; i + size * 4 <= encoded.length; i += 4) result.add(encoded.slice(i, i + size * 4));
   return result;
+}
+function atlasRememberRestoredSearch(index, derivedPostings) {
+  // Only the owned document decoder calls this after deriving and checking every
+  // posting. Freeze that exact input so later layer validation can reuse it.
+  const rows = index.text_search_index, docs = new Map(), postings = new Map();
+  for (const [key, row] of Object.entries(rows)) {
+    Object.freeze(row);
+    if (!key.startsWith('p:')) docs.set(key, row);
+  }
+  Object.freeze(rows);
+  for (const [key, values] of Object.entries(derivedPostings)) postings.set(key, new Set(values));
+  atlasSearchIndexes.set(index, {restored:{rows, docs, postings}});
 }
 function atlasPublishedSearch(index, layers) {
   if (!index || typeof index !== 'object') staticAtlasFailure('published search index is missing');
-  if (atlasSearchIndexes.has(index)) return atlasSearchIndexes.get(index);
+  const cached = atlasSearchIndexes.get(index);
   if (index.search_index_abi !== ATLAS_SEARCH_ABI || !index.text_search_index || typeof index.text_search_index !== 'object' || Array.isArray(index.text_search_index)) staticAtlasFailure('search index ABI or object is invalid');
+  const restored = cached?.restored?.rows === index.text_search_index ? cached.restored : null;
   if (!Array.isArray(layers)) staticAtlasFailure('search layer metadata is missing');
   const metadata = new Map();
   for (const row of layers) {
@@ -5939,27 +5954,39 @@ function atlasPublishedSearch(index, layers) {
     metadata.set(row.layer_index, row);
   }
   if ([...metadata.keys()].sort((a,b)=>a-b).some((value,i)=>value!==i)) staticAtlasFailure('search layer membership is incomplete');
-  const docs = new Map(), postings = new Map(), expected = new Map();
+  const layerIdentity = JSON.stringify([...metadata].sort(([a],[b])=>a-b).map(([i,row])=>[i,row.feature_count,row.layer.key]));
+  if (cached?.published && cached.rows === index.text_search_index && cached.layerIdentity === layerIdentity) return cached.published;
+  const docs = restored?.docs ?? new Map(), postings = restored?.postings ?? new Map(), expected = new Map();
   for (const [key, row] of Object.entries(index.text_search_index)) {
     if (key.startsWith('p:')) continue;
     if (!row || typeof row !== 'object' || Array.isArray(row) || Object.keys(row).sort().join(',') !== 'feature_index,layer_index,layer_key,record_id,text' || !Number.isSafeInteger(row.layer_index) || !Number.isSafeInteger(row.feature_index) || row.feature_index < 0 || typeof row.text !== 'string') staticAtlasFailure('search document shape is invalid');
     const layer = metadata.get(row.layer_index);
     if (!layer || row.layer_key !== layer.layer.key || row.feature_index >= layer.feature_count || key !== `d:${row.layer_index}:${row.feature_index}`) staticAtlasFailure('search document representation is foreign');
-    docs.set(key, row);
-    for (const gram of atlasSearchGrams(row.text)) {
-      const posting = expected.get('p:' + gram) || [];
-      posting.push(key); expected.set('p:' + gram, posting);
+    if (!restored) {
+      docs.set(key, row);
+      for (const gram of atlasSearchGrams(row.text)) {
+        const posting = expected.get('p:' + gram) || [];
+        posting.push(key); expected.set('p:' + gram, posting);
+      }
     }
   }
   for (const layer of metadata.values()) for (let i = 0; i < layer.feature_count; i++) if (!docs.has(`d:${layer.layer_index}:${i}`)) staticAtlasFailure('search document membership is incomplete');
-  for (const [key, value] of Object.entries(index.text_search_index)) {
-    if (!key.startsWith('p:')) continue;
-    const wanted = expected.get(key);
-    if (!Array.isArray(value) || !wanted || JSON.stringify(value) !== JSON.stringify(wanted.sort())) staticAtlasFailure('search posting membership differs');
-    postings.set(key, new Set(value));
+  if (!restored) {
+    for (const [key, value] of Object.entries(index.text_search_index)) {
+      if (!key.startsWith('p:')) continue;
+      const wanted = expected.get(key);
+      if (!Array.isArray(value) || !wanted || JSON.stringify(value) !== JSON.stringify(wanted.sort())) staticAtlasFailure('search posting membership differs');
+      postings.set(key, new Set(value));
+    }
+    if (postings.size !== expected.size) staticAtlasFailure('search posting membership is incomplete');
   }
-  if (postings.size !== expected.size) staticAtlasFailure('search posting membership is incomplete');
-  const result = {docs, postings}; atlasSearchIndexes.set(index, result); return result;
+  if (!restored) {
+    for (const row of Object.values(index.text_search_index)) Object.freeze(row);
+    Object.freeze(index.text_search_index);
+  }
+  const result = {docs, postings};
+  atlasSearchIndexes.set(index, {restored, rows:index.text_search_index, layerIdentity, published:result});
+  return result;
 }
 function atlasSearchText(layer, feature, timeLabel) {
   return `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''} ${timeLabel(feature)}`.toLowerCase();
@@ -6744,7 +6771,7 @@ function publishedSearchCounts() {
         sourceRecordConcentrationActive = false;
         sourceRecordConcentrationSnapshot = null;
         sourceChronologyTaxonQuery.value = '';
-        slider.value = 40;
+        slider.value = 20;
         timeStartBp = DEFAULT_TIME_START_BP;
         timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
         if (signedNativeTime) signedNativeTime.set(signedNativeTime.extent());

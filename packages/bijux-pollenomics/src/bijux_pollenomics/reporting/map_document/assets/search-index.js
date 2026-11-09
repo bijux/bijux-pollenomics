@@ -3,15 +3,29 @@ const ATLAS_SEARCH_ABI = 'atlas-substring-postings.v1';
 const atlasSearchIndexes = new WeakMap();
 let atlasVisibleSearch = null;
 function atlasSearchGrams(text, sizes = [1, 2, 3]) {
-  const units = Array.from({length:text.length}, (_, i) => text.charCodeAt(i).toString(16).padStart(4, '0'));
+  let encoded = '';
+  for (let i = 0; i < text.length; i++) encoded += text.charCodeAt(i).toString(16).padStart(4, '0');
   const result = new Set();
-  for (const size of sizes) for (let i = 0; i + size <= units.length; i++) result.add(units.slice(i, i + size).join(''));
+  for (const size of sizes) for (let i = 0; i + size * 4 <= encoded.length; i += 4) result.add(encoded.slice(i, i + size * 4));
   return result;
+}
+function atlasRememberRestoredSearch(index, derivedPostings) {
+  // Only the owned document decoder calls this after deriving and checking every
+  // posting. Freeze that exact input so later layer validation can reuse it.
+  const rows = index.text_search_index, docs = new Map(), postings = new Map();
+  for (const [key, row] of Object.entries(rows)) {
+    Object.freeze(row);
+    if (!key.startsWith('p:')) docs.set(key, row);
+  }
+  Object.freeze(rows);
+  for (const [key, values] of Object.entries(derivedPostings)) postings.set(key, new Set(values));
+  atlasSearchIndexes.set(index, {restored:{rows, docs, postings}});
 }
 function atlasPublishedSearch(index, layers) {
   if (!index || typeof index !== 'object') staticAtlasFailure('published search index is missing');
-  if (atlasSearchIndexes.has(index)) return atlasSearchIndexes.get(index);
+  const cached = atlasSearchIndexes.get(index);
   if (index.search_index_abi !== ATLAS_SEARCH_ABI || !index.text_search_index || typeof index.text_search_index !== 'object' || Array.isArray(index.text_search_index)) staticAtlasFailure('search index ABI or object is invalid');
+  const restored = cached?.restored?.rows === index.text_search_index ? cached.restored : null;
   if (!Array.isArray(layers)) staticAtlasFailure('search layer metadata is missing');
   const metadata = new Map();
   for (const row of layers) {
@@ -21,27 +35,39 @@ function atlasPublishedSearch(index, layers) {
     metadata.set(row.layer_index, row);
   }
   if ([...metadata.keys()].sort((a,b)=>a-b).some((value,i)=>value!==i)) staticAtlasFailure('search layer membership is incomplete');
-  const docs = new Map(), postings = new Map(), expected = new Map();
+  const layerIdentity = JSON.stringify([...metadata].sort(([a],[b])=>a-b).map(([i,row])=>[i,row.feature_count,row.layer.key]));
+  if (cached?.published && cached.rows === index.text_search_index && cached.layerIdentity === layerIdentity) return cached.published;
+  const docs = restored?.docs ?? new Map(), postings = restored?.postings ?? new Map(), expected = new Map();
   for (const [key, row] of Object.entries(index.text_search_index)) {
     if (key.startsWith('p:')) continue;
     if (!row || typeof row !== 'object' || Array.isArray(row) || Object.keys(row).sort().join(',') !== 'feature_index,layer_index,layer_key,record_id,text' || !Number.isSafeInteger(row.layer_index) || !Number.isSafeInteger(row.feature_index) || row.feature_index < 0 || typeof row.text !== 'string') staticAtlasFailure('search document shape is invalid');
     const layer = metadata.get(row.layer_index);
     if (!layer || row.layer_key !== layer.layer.key || row.feature_index >= layer.feature_count || key !== `d:${row.layer_index}:${row.feature_index}`) staticAtlasFailure('search document representation is foreign');
-    docs.set(key, row);
-    for (const gram of atlasSearchGrams(row.text)) {
-      const posting = expected.get('p:' + gram) || [];
-      posting.push(key); expected.set('p:' + gram, posting);
+    if (!restored) {
+      docs.set(key, row);
+      for (const gram of atlasSearchGrams(row.text)) {
+        const posting = expected.get('p:' + gram) || [];
+        posting.push(key); expected.set('p:' + gram, posting);
+      }
     }
   }
   for (const layer of metadata.values()) for (let i = 0; i < layer.feature_count; i++) if (!docs.has(`d:${layer.layer_index}:${i}`)) staticAtlasFailure('search document membership is incomplete');
-  for (const [key, value] of Object.entries(index.text_search_index)) {
-    if (!key.startsWith('p:')) continue;
-    const wanted = expected.get(key);
-    if (!Array.isArray(value) || !wanted || JSON.stringify(value) !== JSON.stringify(wanted.sort())) staticAtlasFailure('search posting membership differs');
-    postings.set(key, new Set(value));
+  if (!restored) {
+    for (const [key, value] of Object.entries(index.text_search_index)) {
+      if (!key.startsWith('p:')) continue;
+      const wanted = expected.get(key);
+      if (!Array.isArray(value) || !wanted || JSON.stringify(value) !== JSON.stringify(wanted.sort())) staticAtlasFailure('search posting membership differs');
+      postings.set(key, new Set(value));
+    }
+    if (postings.size !== expected.size) staticAtlasFailure('search posting membership is incomplete');
   }
-  if (postings.size !== expected.size) staticAtlasFailure('search posting membership is incomplete');
-  const result = {docs, postings}; atlasSearchIndexes.set(index, result); return result;
+  if (!restored) {
+    for (const row of Object.values(index.text_search_index)) Object.freeze(row);
+    Object.freeze(index.text_search_index);
+  }
+  const result = {docs, postings};
+  atlasSearchIndexes.set(index, {restored, rows:index.text_search_index, layerIdentity, published:result});
+  return result;
 }
 function atlasSearchText(layer, feature, timeLabel) {
   return `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''} ${timeLabel(feature)}`.toLowerCase();

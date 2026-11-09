@@ -52,7 +52,10 @@ const staticAtlasIndexTransport=globalThis.BijuxPollenomicsIndexTransport.create
  bootstrap:STATIC_ATLAS_BOOTSTRAP,failure:staticAtlasFailure,
  temporalIdentity:staticAtlasTemporalIdentity,nonnegativeInteger:staticAtlasNonnegativeInteger,
  nativeCalendarNumber:value=>typeof nativeCalendarNumber==='function'&&nativeCalendarNumber(value),
- boundedGunzip:staticAtlasBoundedGunzip,sha256:staticAtlasSha256,searchGrams:atlasSearchGrams});
+ boundedGunzip:staticAtlasBoundedGunzip,sha256:staticAtlasSha256,searchGrams:text=>atlasSearchGrams(text),
+ rememberRestoredSearch:(index,postings)=>{
+   if(typeof atlasSearchIndexes!=='undefined')atlasRememberRestoredSearch(index,postings);
+ }});
 const staticAtlasMergeIndexShards=staticAtlasIndexTransport.mergeShards;
 """
     )

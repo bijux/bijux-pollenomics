@@ -58,6 +58,61 @@ def layers() -> list[dict[str, Any]]:
     ]
 
 
+def test_utf16_gram_encoding_preserves_exact_reference_order() -> None:
+    texts = [
+        "",
+        "a",
+        "ab",
+        "abc",
+        "Åa",
+        "💠",
+        "\ud83d",
+        "\udc00",
+        "a\u0308",
+        ".(a)",
+        "𐐀a",
+        "a💠Å" * 2048,
+    ]
+    sizes = [[1, 2, 3], [1], [2], [3], [3, 1, 2], [1, 1, 2], [0]]
+    expected = []
+    for text in texts:
+        encoded = text.encode("utf-16-be", errors="surrogatepass").hex()
+        expected.append(
+            [
+                list(
+                    dict.fromkeys(
+                        encoded[offset : offset + size * 4]
+                        for size in widths
+                        for offset in range(0, len(encoded) - size * 4 + 1, 4)
+                    )
+                )
+                for widths in sizes
+            ]
+        )
+    helper = template_block(
+        "function atlasSearchGrams", "function atlasRememberRestoredSearch"
+    )
+    observed = run_node_json(
+        helper
+        + "const data="
+        + json.dumps({"texts": texts, "sizes": sizes, "expected": expected})
+        + ";"
+        + r"""
+function reference(text,sizes){
+ const units=Array.from({length:text.length},(_,i)=>text.charCodeAt(i).toString(16).padStart(4,'0'));
+ const grams=new Set();
+ for(const size of sizes)for(let i=0;i+size<=units.length;i++)grams.add(units.slice(i,i+size).join(''));
+ return [...grams];
+}
+console.log(JSON.stringify(data.texts.every((text,i)=>data.sizes.every((widths,j)=>{
+ const actual=JSON.stringify([...atlasSearchGrams(text,widths)]);
+ return actual===JSON.stringify(reference(text,widths))&&actual===JSON.stringify(data.expected[i][j]);
+}))));
+"""
+    )
+    assert observed is True
+
+
 def logical() -> dict[str, Any]:
     return {
         **build_indexes(layers()),

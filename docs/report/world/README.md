@@ -176,9 +176,9 @@ World is the governing publication surface. It keeps every published country ins
 - Atlas evidence surface markdown: [`world_evidence_surface.md`](./world_evidence_surface.md)
 - Atlas scientific review JSON: [`world_scientific_review.json`](./world_scientific_review.json)
 - Atlas scientific review markdown: [`world_scientific_review.md`](./world_scientific_review.md)
-- Static atlas runtime: [`world_map.atlas-runtime.a333c0c242dd81a3.js`](./world_map.atlas-runtime.a333c0c242dd81a3.js)
+- Static atlas runtime: [`world_map.atlas-runtime.1d7fc9ba8b688208.js`](./world_map.atlas-runtime.1d7fc9ba8b688208.js)
 - Interactive evidence tools: [`world_map.atlas-evidence-tools.bac3f9295a5c95bb.js`](./world_map.atlas-evidence-tools.bac3f9295a5c95bb.js)
-- Static atlas index transport: [`world_map.atlas-index-transport.2168d29af8354bcb.js`](./world_map.atlas-index-transport.2168d29af8354bcb.js)
+- Static atlas index transport: [`world_map.atlas-index-transport.513b4ed69afc60fb.js`](./world_map.atlas-index-transport.513b4ed69afc60fb.js)
 
 ## Visible Layer Contract
 
@@ -298,7 +298,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** 1,733 point-layer record uses across fifteen point layers: 1,231 human metadata records + 167 animal locality features + 335 source-chronology uses. Human metadata retains 447 localities. The 335 mapped animal records and 335 source-chronology uses have different identity populations despite equal counts. Global animal accounting is 1,482 normalized records = 335 mapped + 1,147 exclusions. All 1,493 source chronology owners = 335 displayable + 1,158 refusals. Do not pool these units.
 
-- [Retained qualification evidence: docs/report/world/world_summary.json](world_summary.json) (SHA-256 `c48e8e8e6c47521f275c865dfcbd336accd9c19312859932f80eb01f812931dc`).
+- [Retained qualification evidence: docs/report/world/world_summary.json](world_summary.json) (SHA-256 `8a10b7d4123dff417689ae5ea0f396ef15c78635bcf0b426b02616fea0deca37`).
 
 - [Retained qualification evidence: docs/report/world/world_map_publication_contract.json](world_map_publication_contract.json) (SHA-256 `538b0f03c55f12d0da43f79ca585cf471e16a9b6d1dd551501c4fd7d7d824d9b`).
 
