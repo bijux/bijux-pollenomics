@@ -254,10 +254,12 @@ STATIC_ATLAS_BOOTSTRAP.assets=data.assetRows.filter(row=>row.domain!=='indexes')
 STATIC_ATLAS_BOOTSTRAP.assets=[...data.assetRows,data.indexRow];assert.throws(()=>requiredStaticAtlasNodeAssets(),/missing|duplicated/);
 STATIC_ATLAS_BOOTSTRAP.assets=data.assetRows;const budget=STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes;STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes=0;assert.throws(()=>requiredStaticAtlasNodeAssets(),/interaction budget/);STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes=budget;
 STATIC_ATLAS_BOOTSTRAP.assets=originalAssets;
+const restoredPublished=atlasPublishedSearch(STATIC_ATLAS_CHUNKS.indexes,STATIC_ATLAS_CHUNKS.provenance.layers);
+for(const [key,posting] of restoredPublished.postings){assert.equal(posting instanceof Set,false);assert.equal(Object.isFrozen(posting),true);assert.deepEqual([...posting],data.index.text_search_index[key]);}
 const completeVisible=visiblePointEntries;visiblePointEntries=[];assert.deepEqual(publishedSearchCounts(),{focalCount:0,neighborCount:0});assert.deepEqual(publishedSearchResults('early'),[]);visiblePointEntries=completeVisible;
 let cases=0;
-for(const subset of [visiblePointEntries,visiblePointEntries.filter((_,i)=>i%2===1),[...visiblePointEntries].reverse()]){
- visiblePointEntries=subset;preparePublishedSearch();
+for(const subset of [visiblePointEntries,visiblePointEntries.filter((_,i)=>i%2===1),[...visiblePointEntries].reverse(),[visiblePointEntries[29],visiblePointEntries[10]]]){
+ visiblePointEntries=subset;preparePublishedSearch();assert.deepEqual(publishedSearchResults(''),[]);
  for(const raw of ['ÄLG','ä','💠','\ud83d','.(','source c14','SWEDEN','pollen layer','missing','x','a']){
   const query=raw.trim().toLowerCase();assert.deepEqual(publishedSearchResults(query),oracle(query));
   searchInput.value=raw;buildSearchResults();assert.equal(searchResults.hidden,false);if(buttons.length){buttons[0]();assert.equal(focused,visiblePointEntries.indexOf(oracle(query)[0]))}cases++;
@@ -295,7 +297,7 @@ console.log(JSON.stringify({cases,first12:12,normalizationFallback:state.normali
 """
     )
     observed = run_node_json(js)
-    assert observed["cases"] == 36 and observed["normalizationFallback"] == 1
+    assert observed["cases"] == 48 and observed["normalizationFallback"] == 1
     assert observed["browserRefusals"] == 6
     assert (
         cast(dict[str, Any], assets.manifest["compatibility"])["search_index_abi"]
@@ -347,3 +349,106 @@ def test_missing_or_changed_document_payload_refuses() -> None:
         else:
             with pytest.raises(ValueError):
                 validate_search_index(value)
+
+
+def test_owned_posting_views_keep_literal_membership_and_readonly_identity() -> None:
+    helper = template_block(
+        "// Published UTF-16 postings", "function buildSearchResults"
+    )
+    observed = run_node_json(
+        "const data="
+        + json.dumps(logical())
+        + ";function staticAtlasFailure(message){throw Error(message)};"
+        + helper
+        + r"""
+const assert=require('node:assert/strict');
+const unregistered=JSON.parse(JSON.stringify(data));
+const metadata=[0,1].map(layer_index=>({layer_kind:'point',layer_index,feature_count:15,layer:{key:`layer:${layer_index}`}}));
+const fallback=atlasPublishedSearch(unregistered,metadata);
+assert([...fallback.postings.values()].every(value=>value instanceof Set));
+const rows=data.text_search_index,derived=Object.fromEntries(Object.entries(rows).filter(([key])=>key.startsWith('p:')));
+atlasRememberRestoredSearch(data,derived);
+const restored=atlasSearchIndexes.get(data).restored;
+let checked=0;
+for(const [key,view] of restored.postings){
+ const values=rows[key],reference=new Set(values);
+ assert.equal(view instanceof Set,false);assert(Object.isFrozen(view));
+ assert.equal(view.size,reference.size);assert.deepEqual([...view],[...reference]);
+ for(const value of [...values,'d:0:10','d:0:2','d:0:999','missing',''])assert.equal(view.has(value),reference.has(value));
+ assert.equal(Reflect.set(view,'size',999),false);assert.equal(view.add,undefined);assert.equal(view.delete,undefined);assert.equal(view.clear,undefined);
+ assert.equal(Reflect.set(rows,key,[]),false);assert.equal(Reflect.set(values,'0','foreign'),false);
+ const hostile={toString(){throw Error('coercion')},valueOf(){throw Error('coercion')}};
+ for(const value of [null,undefined,1,1n,Symbol('key'),hostile,new String(values[0])])assert.equal(view.has(value),false);
+ checked++;
+}
+const literals=['','d:0:10','d:0:2','\ud800','\udc00','💠'].sort();
+for(const values of [literals,[]]){
+ const owned={'p:literal':values},index={text_search_index:owned};atlasRememberRestoredSearch(index,owned);
+ const view=atlasSearchIndexes.get(index).restored.postings.get('p:literal');
+ assert.equal(view instanceof Set,false);assert.equal(view.size,values.length);assert.deepEqual([...view],values);
+ for(const value of [...literals,'d:0:1','d:0:20','\ud801'])assert.equal(view.has(value),new Set(values).has(value));
+}
+assert(literals.indexOf('d:0:10')<literals.indexOf('d:0:2'));
+console.log(JSON.stringify({checked,readonly:true,literalOrder:true,empty:true}));
+"""
+    )
+    assert observed["checked"] > 0
+    assert observed["readonly"] and observed["literalOrder"] and observed["empty"]
+
+
+def test_ineligible_postings_retain_native_set_snapshot_semantics() -> None:
+    helper = template_block(
+        "// Published UTF-16 postings", "function buildSearchResults"
+    )
+    observed = run_node_json(
+        "function staticAtlasFailure(message){throw Error(message)};"
+        + helper
+        + r"""
+const assert=require('node:assert/strict');
+let checked=0;
+function snapshot(values,mutate=()=>{},foreign=false,setSnapshot=true){
+ const rows={'p:test':foreign?['owned']:values},index={text_search_index:rows};
+ const expected=[...new Set(values)];atlasRememberRestoredSearch(index,{'p:test':values});
+ const view=atlasSearchIndexes.get(index).restored.postings.get('p:test');
+ assert.equal(view instanceof Set,setSnapshot);assert.deepEqual([...view],expected);mutate();assert.deepEqual([...view],expected);checked++;
+}
+snapshot(['d:0:0','d:0:0']);snapshot(['d:0:2','d:0:10']);snapshot(['d:0:0',1]);
+snapshot(Object.freeze(new Array(2)));
+let accessor='before',accessorReads=0;const accessorArray=[];Object.defineProperty(accessorArray,'0',{get(){accessorReads++;return accessor},enumerable:true,configurable:true});accessorArray.length=1;
+snapshot(accessorArray,()=>{accessor='after'},false,false);assert.equal(accessorReads,2);
+const prototype=Object.create(Array.prototype);prototype[0]='inherited';const inherited=new Array(1);Object.setPrototypeOf(inherited,prototype);
+snapshot(inherited,()=>{prototype[0]='changed'});
+let reverse=true;const custom=['d:0:10','d:0:2'];custom[Symbol.iterator]=function*(){yield* (reverse?['d:0:2','d:0:10']:['changed'])};
+snapshot(custom,()=>{reverse=false});
+const duplicateIterator=['d:0:10','d:0:2'];duplicateIterator[Symbol.iterator]=function*(){yield 'd:0:2';yield 'd:0:2'};snapshot(duplicateIterator);
+let captured='d:0:0';const customOrdered=[];customOrdered[Symbol.iterator]=function*(){yield captured};snapshot(customOrdered,()=>{captured='changed'});
+const object={field:'before'};snapshot([NaN,NaN,0,-0,object],()=>{object.field='after'});
+let iteratorReads=0,yields=0;const duplicateCapture=[];
+Object.defineProperty(duplicateCapture,Symbol.iterator,{get(){iteratorReads++;return function*(){yields++;yield 'same';yields++;yield 'same'};}});
+const duplicateIndex={text_search_index:{'p:test':duplicateCapture}};atlasRememberRestoredSearch(duplicateIndex,{'p:test':duplicateCapture});
+assert.equal(iteratorReads,1);assert.equal(yields,2);assert.deepEqual([...atlasSearchIndexes.get(duplicateIndex).restored.postings.get('p:test')],['same']);
+for(const method of [null,undefined,42]){
+ const invalid=[];Object.defineProperty(invalid,Symbol.iterator,{value:method});
+ assert.throws(()=>atlasRememberRestoredSearch({text_search_index:{'p:test':invalid}},{'p:test':invalid}),TypeError);
+}
+let throwingReads=0;const throwingMarker=new Error('index getter'),throwingArray=[];
+Object.defineProperty(throwingArray,'0',{get(){throwingReads++;throw throwingMarker},enumerable:true,configurable:true});throwingArray.length=1;
+assert.throws(()=>atlasRememberRestoredSearch({text_search_index:{'p:test':throwingArray}},{'p:test':throwingArray}),error=>error===throwingMarker);assert.equal(throwingReads,1);
+for(const stage of ['get-iterator','call-iterator','next','done','value']){
+ function execute(candidate){
+  const events=[],marker=new Error(stage),values=[];
+  Object.defineProperty(values,Symbol.iterator,{get(){events.push('get-iterator');if(stage==='get-iterator')throw marker;return function(){events.push('call-iterator');if(stage==='call-iterator')throw marker;return {next(){events.push('next');if(stage==='next')throw marker;return {get done(){events.push('done');if(stage==='done')throw marker;return false},get value(){events.push('value');throw marker}}},return(){events.push('return');return {done:true}}}};}});
+  Object.freeze(values);assert.throws(()=>candidate?atlasRememberRestoredSearch({text_search_index:{'p:test':values}},{'p:test':values}):new Set(values),error=>error===marker);
+  return events;
+ }
+ assert.deepEqual(execute(true),execute(false));
+}
+
+const mutable=['foreign'];snapshot(mutable,()=>mutable.push('later'),true);
+snapshot(Object.freeze(['foreign']),()=>{},true);
+const values=['mutable'],rows=Object.freeze({'p:test':values});
+const view=atlasRestoredPostingMembership(rows,'p:test',values);assert(view instanceof Set);values[0]='changed';assert.deepEqual([...view],['mutable']);checked++;
+console.log(JSON.stringify({checked}));
+"""
+    )
+    assert observed["checked"] == 13

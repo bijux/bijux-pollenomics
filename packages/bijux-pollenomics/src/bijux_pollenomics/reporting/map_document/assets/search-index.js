@@ -10,6 +10,30 @@ function atlasSearchGrams(text, sizes = [1, 2, 3]) {
   for (const size of sizes) for (let i = 0; i + size * 4 <= encoded.length; i += 4) result.add(encoded.slice(i, i + size * 4));
   return result;
 }
+function atlasRestoredPostingMembership(rows, key, values) {
+  // Capture the original iterator once; only the private snapshot backs the view.
+  if (!Object.isFrozen(rows) || Object.getOwnPropertyDescriptor(rows, key)?.value !== values || !Array.isArray(values) || !Object.isFrozen(values) || Object.getPrototypeOf(values) !== Array.prototype || Object.hasOwn(values, Symbol.iterator)) return new Set(values);
+  const snapshot = [...values], iterator = Array.prototype[Symbol.iterator];
+  for (let i = 0; i < snapshot.length; i++) {
+    if (typeof snapshot[i] !== 'string' || (i > 0 && snapshot[i - 1] >= snapshot[i])) return new Set(snapshot);
+  }
+  Object.freeze(snapshot);
+  return Object.freeze({
+    size:snapshot.length,
+    has(value) {
+      if (typeof value !== 'string') return false;
+      let low = 0, high = snapshot.length;
+      while (low < high) {
+        const middle = low + Math.floor((high - low) / 2), candidate = snapshot[middle];
+        if (candidate === value) return true;
+        if (candidate < value) low = middle + 1;
+        else high = middle;
+      }
+      return false;
+    },
+    [Symbol.iterator]() { return iterator.call(snapshot); }
+  });
+}
 function atlasRememberRestoredSearch(index, derivedPostings) {
   // Only the owned document decoder calls this after deriving and checking every
   // posting. Freeze that exact input so later layer validation can reuse it.
@@ -19,7 +43,7 @@ function atlasRememberRestoredSearch(index, derivedPostings) {
     if (!key.startsWith('p:')) docs.set(key, row);
   }
   Object.freeze(rows);
-  for (const [key, values] of Object.entries(derivedPostings)) postings.set(key, new Set(values));
+  for (const [key, values] of Object.entries(derivedPostings)) postings.set(key, atlasRestoredPostingMembership(rows, key, values));
   atlasSearchIndexes.set(index, {restored:{rows, docs, postings}});
 }
 function atlasPublishedSearch(index, layers) {
@@ -96,9 +120,9 @@ function atlasLookupSearch(state, query) {
   const postings = grams.map(gram => state.published.postings.get('p:' + gram) || new Set()).sort((a, b) => a.size - b.size);
   const results = new Map();
   for (const key of postings[0] || []) {
-    if (!postings.every(posting => posting.has(key))) continue;
     const row = state.visible.get(key);
-    if (row && row.text.includes(query)) results.set(row.order, row);
+    if (!row || !postings.every(posting => posting.has(key))) continue;
+    if (row.text.includes(query)) results.set(row.order, row);
   }
   // Only explicitly detected JS/Python text differences and runtime-only views scan.
   for (const row of state.fallback) if (row.text.includes(query)) results.set(row.order, row);
