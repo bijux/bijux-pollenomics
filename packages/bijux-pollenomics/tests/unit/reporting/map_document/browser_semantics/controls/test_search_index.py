@@ -447,8 +447,39 @@ for(const stage of ['get-iterator','call-iterator','next','done','value']){
 const mutable=['foreign'];snapshot(mutable,()=>mutable.push('later'),true);
 snapshot(Object.freeze(['foreign']),()=>{},true);
 const values=['mutable'],rows=Object.freeze({'p:test':values});
-const view=atlasRestoredPostingMembership(rows,'p:test',values);assert(view instanceof Set);values[0]='changed';assert.deepEqual([...view],['mutable']);checked++;
+const view=atlasRestoredPostingFactory(rows)('p:test',values);assert(view instanceof Set);values[0]='changed';assert.deepEqual([...view],['mutable']);checked++;
+const laterValues=Object.freeze(['later']),laterRows={'p:test':laterValues},laterMembership=atlasRestoredPostingFactory(laterRows);
+Object.freeze(laterRows);const later=laterMembership('p:test',laterValues);assert(later instanceof Set);assert.deepEqual([...later],['later']);
 console.log(JSON.stringify({checked}));
 """
     )
     assert observed["checked"] == 13
+
+
+def test_restored_registration_checks_each_owned_dictionary_once() -> None:
+    helper = template_block(
+        "// Published UTF-16 postings", "function buildSearchResults"
+    )
+    observed = run_node_json(
+        "const data="
+        + json.dumps([build_indexes([]), logical()])
+        + ";function staticAtlasFailure(message){throw Error(message)};"
+        + helper
+        + r"""
+const assert=require('node:assert/strict'),observations=[];
+for(const index of data){
+ const rows=index.text_search_index,derived=Object.fromEntries(Object.entries(rows).filter(([key])=>key.startsWith('p:')));
+ const original=Object.isFrozen;let dictionaryChecks=0,arrayChecks=0;
+ Object.isFrozen=function(value){if(value===rows)dictionaryChecks++;else if(Array.isArray(value))arrayChecks++;return Reflect.apply(original,this,[value]);};
+ try{atlasRememberRestoredSearch(index,derived);}finally{Object.isFrozen=original;}
+ assert.equal(Object.isFrozen,original);assert.equal(dictionaryChecks,1);assert.equal(arrayChecks,Object.keys(derived).length);
+ const restored=atlasSearchIndexes.get(index).restored;
+ for(const [key,view] of restored.postings){assert(Object.isFrozen(view));assert.deepEqual([...view],rows[key]);}
+ observations.push({dictionaryChecks,postingKeys:Object.keys(derived).length,arrayChecks});
+}
+console.log(JSON.stringify(observations));
+"""
+    )
+    assert [row["dictionaryChecks"] for row in observed] == [1, 1]
+    assert observed[0]["postingKeys"] == 0
+    assert observed[1]["postingKeys"] > 1
