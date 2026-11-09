@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 import asyncio
+from contextlib import suppress
 import json
 import os
 from pathlib import Path
+import signal
 import socket
+import subprocess
 import sys
 import time
 import venv
@@ -277,3 +280,123 @@ def test_executable_link_target_must_still_be_available_regular_and_executable(
         process_execution.run_bounded_argv(
             (str(executable),), cwd=tmp_path, timeout_seconds=5
         )
+
+
+@pytest.mark.skipif(os.name != "posix", reason="POSIX caller-interruption contract")
+@pytest.mark.parametrize("resist_term", [False, True])
+def test_public_caller_sigint_reaps_producer_and_preserves_interruption(
+    tmp_path: Path, resist_term: bool
+) -> None:
+    ready_path = tmp_path / "producer-ready.json"
+    child_code = (
+        "import json,os,signal,time;from pathlib import Path;"
+        + ("signal.signal(signal.SIGTERM,signal.SIG_IGN);" if resist_term else "")
+        + f"ready=Path({str(ready_path)!r});"
+        "ready.with_suffix('.pending').write_text(json.dumps("
+        "{'pid':os.getpid(),'pgid':os.getpgrp()}));"
+        "ready.with_suffix('.pending').replace(ready);time.sleep(60)"
+    )
+    wrapper_code = (
+        "from pathlib import Path;"
+        "from bijux_pollenomics_dev.ci.atlas_media.process_execution "
+        "import run_bounded_argv;"
+        f"run_bounded_argv(({sys.executable!r},'-c',{child_code!r}),"
+        f"cwd=Path({str(tmp_path)!r}),timeout_seconds=5,max_output_bytes=4096);"
+        "print('unexpected completion')"
+    )
+    process_group: int | None = None
+    with (
+        (tmp_path / "caller.stdout").open("wb") as stdout,
+        (tmp_path / "caller.stderr").open("wb") as stderr,
+    ):
+        caller = subprocess.Popen(
+            (sys.executable, "-c", wrapper_code),
+            stdout=stdout,
+            stderr=stderr,
+            start_new_session=True,
+        )
+        try:
+            deadline = time.monotonic() + 4
+            while not ready_path.exists():
+                assert caller.poll() is None, "public caller exited before readiness"
+                assert time.monotonic() < deadline, (
+                    "producer did not announce readiness"
+                )
+                time.sleep(0.01)
+            child = json.loads(ready_path.read_text())
+            pid = int(child["pid"])
+            process_group = int(child["pgid"])
+            assert process_group == pid and process_group != os.getpgrp()
+            os.kill(caller.pid, signal.SIGINT)
+            returncode = caller.wait(timeout=8)
+            assert returncode != 0
+            assert b"KeyboardInterrupt" in (tmp_path / "caller.stderr").read_bytes()
+            assert (
+                b"unexpected completion"
+                not in (tmp_path / "caller.stdout").read_bytes()
+            )
+            with pytest.raises(ProcessLookupError):
+                os.kill(pid, 0)
+            with pytest.raises(ProcessLookupError):
+                os.killpg(process_group, 0)
+        finally:
+            # If startup failed before its PID was known, allow the owned
+            # bounded invocation to reach its own deadline before stopping it.
+            if process_group is None and caller.poll() is None:
+                with suppress(subprocess.TimeoutExpired):
+                    caller.wait(timeout=8)
+            if process_group is None and ready_path.exists():
+                process_group = int(json.loads(ready_path.read_text())["pgid"])
+            if process_group is not None:
+                with suppress(ProcessLookupError):
+                    os.killpg(process_group, signal.SIGKILL)
+            if caller.poll() is None:
+                os.killpg(caller.pid, signal.SIGKILL)
+            caller.wait(timeout=3)
+
+
+@pytest.mark.skipif(os.name != "posix", reason="POSIX task-cancellation contract")
+def test_async_cancellation_reaps_process_and_reraises(tmp_path: Path) -> None:
+    ready_path = tmp_path / "async-ready.json"
+    command = (
+        sys.executable,
+        "-c",
+        "import os,time;from pathlib import Path;"
+        f"ready=Path({str(ready_path)!r});"
+        "ready.with_suffix('.pending').write_text(str(os.getpid()));"
+        "ready.with_suffix('.pending').replace(ready);time.sleep(60)",
+    )
+
+    async def exercise() -> None:
+        task = asyncio.create_task(
+            process_execution._run_bounded_argv(
+                command, cwd=tmp_path, timeout_seconds=5, max_output_bytes=4096
+            )
+        )
+        pid: int | None = None
+        try:
+            deadline = time.monotonic() + 4
+            while not ready_path.exists():
+                assert not task.done(), "producer exited before readiness"
+                assert time.monotonic() < deadline, (
+                    "producer did not announce readiness"
+                )
+                await asyncio.sleep(0.01)
+            pid = int(ready_path.read_text())
+            assert os.getpgid(pid) == pid and pid != os.getpgrp()
+            task.cancel()
+            with pytest.raises(asyncio.CancelledError):
+                await asyncio.wait_for(task, timeout=5)
+            with pytest.raises(ProcessLookupError):
+                os.kill(pid, 0)
+        finally:
+            if not task.done():
+                with suppress(TimeoutError, asyncio.CancelledError):
+                    await asyncio.wait_for(task, timeout=8)
+            if pid is None and ready_path.exists():
+                pid = int(ready_path.read_text())
+            if pid is not None:
+                with suppress(ProcessLookupError):
+                    os.killpg(pid, signal.SIGKILL)
+
+    asyncio.run(exercise())
