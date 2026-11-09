@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Retire the historical schematic mobile-attribution publication and restore the Abborrtjärnen chronology-result link, preserving active browser controls and scientific evidence ([#383](https://github.com/bijux/bijux-pollenomics/pull/383)).
+
 - Reuse checked atlas search postings during startup while preserving substring search and publication identity checks ([#382](https://github.com/bijux/bijux-pollenomics/pull/382)).
 
 - Bind LegacyAge report consumers to the reviewed expanded custody receipt while preserving exact selected tables and scientific limits ([#381](https://github.com/bijux/bijux-pollenomics/pull/381)).
