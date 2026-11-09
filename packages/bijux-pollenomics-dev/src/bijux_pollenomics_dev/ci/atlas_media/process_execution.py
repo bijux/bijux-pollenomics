@@ -88,17 +88,20 @@ async def _run_bounded_argv(
             ) from error
         timed_out = False
         termination = "not_required"
+        grace_seconds = min(_TERMINATION_GRACE_SECONDS, max(0.2, timeout_seconds))
         try:
-            await asyncio.wait_for(process.wait(), timeout=timeout_seconds)
-        except TimeoutError:
-            timed_out = True
-            termination = await _terminate_async_process_tree(
-                process,
-                grace_seconds=min(
-                    _TERMINATION_GRACE_SECONDS,
-                    max(0.2, timeout_seconds),
-                ),
-            )
+            try:
+                await asyncio.wait_for(process.wait(), timeout=timeout_seconds)
+            except TimeoutError:
+                timed_out = True
+                termination = await _terminate_async_process_tree(
+                    process, grace_seconds=grace_seconds
+                )
+        except (asyncio.CancelledError, KeyboardInterrupt):
+            # The producer owns a separate session and will not receive the
+            # caller's interruption. Reap that session before propagating it.
+            await _terminate_async_process_tree(process, grace_seconds=grace_seconds)
+            raise
         duration_seconds = time.perf_counter() - started
         stdout = _read_bounded_output(
             stdout_file, max_output_bytes=max_output_bytes, label="stdout"

@@ -1,10 +1,13 @@
 from __future__ import annotations
 
 from collections.abc import Sequence
+import hashlib
 import json
+import os
 from pathlib import Path
+import stat
 import sys
-from typing import cast
+from typing import Any, cast
 
 import pytest
 
@@ -273,3 +276,201 @@ def test_repository_policy_binds_canonical_report_command() -> None:
         in input_paths
     )
     assert sys.version_info >= (3, 11)
+
+
+@pytest.mark.parametrize(
+    ("filename", "payload"),
+    (
+        ("source.txt", b"\xef\xbb\xbfliteral\r\n"),
+        ("source.txt", "Málaga 🙂\r\n".encode()),
+        ("source.txt", b'{"generated_on": "2026-11-09"}\n'),
+        ("source.json", b'\xff{"generated_on": "2026-11-09"}\r\n'),
+        ("source.txt", b""),
+    ),
+)
+def test_input_inventory_keeps_literal_content_when_not_normalized(
+    tmp_path: Path, filename: str, payload: bytes
+) -> None:
+    root, policy_path = _fixture_repo(tmp_path, volatile=True)
+    policy = load_policy(policy_path)
+    policy["input_paths"] = ["policy.json", filename]
+    policy_path.write_text(json.dumps(policy), encoding="utf-8")
+    (root / filename).write_bytes(payload)
+
+    entry = next(
+        row
+        for row in inventory_inputs(root, load_policy(policy_path))
+        if row.path == filename
+    )
+    digest = hashlib.sha256(payload).hexdigest()
+    assert entry.as_json() == {
+        "path": filename,
+        "kind": "file",
+        "size": len(payload),
+        "sha256": digest,
+        "canonical_sha256": digest,
+    }
+
+
+@pytest.mark.parametrize(
+    "payload",
+    (
+        bytes(range(256)) * 12_289,
+        "\ufeffMálaga 🙂\r\n".encode() * 300_001,
+    ),
+    ids=("binary", "utf8"),
+)
+def test_literal_inventory_reads_bounded_chunks_and_keeps_complete_identity(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, payload: bytes
+) -> None:
+    root, policy_path = _fixture_repo(tmp_path, volatile=True)
+    policy = load_policy(policy_path)
+    policy["input_paths"] = ["literal.bin"]
+    source = root / "literal.bin"
+    source.write_bytes(payload)
+    original_open = Path.open
+    reads: list[int] = []
+
+    def bounded_open(path: Path, *args: Any, **kwargs: Any) -> Any:
+        stream = original_open(path, *args, **kwargs)
+        if path == source:
+            original_read = stream.read
+
+            def bounded_read(size: int = -1) -> bytes:
+                assert 0 < size <= 1024 * 1024
+                chunk = original_read(size)
+                assert isinstance(chunk, bytes)
+                reads.append(len(chunk))
+                return chunk
+
+            monkeypatch.setattr(stream, "read", bounded_read)
+        return stream
+
+    monkeypatch.setattr(Path, "open", bounded_open)
+    entries = inventory_inputs(root, policy)
+    assert len(entries) == 1
+    assert len([size for size in reads if size]) > 1
+    assert reads[-1] == 0 and sum(reads) == len(payload)
+    digest = hashlib.sha256(payload).hexdigest()
+    assert entries[0].as_json() == {
+        "path": "literal.bin",
+        "kind": "file",
+        "size": len(payload),
+        "sha256": digest,
+        "canonical_sha256": digest,
+    }
+
+
+def test_literal_inventory_counts_read_bytes_instead_of_stat_size(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, policy_path = _fixture_repo(tmp_path)
+    policy = load_policy(policy_path)
+    policy["input_paths"] = ["source.txt"]
+    payload = b"literal\r\n" * 200_001
+    source = root / "source.txt"
+    source.write_bytes(payload)
+    original_lstat = Path.lstat
+
+    def misleading_size(path: Path) -> os.stat_result:
+        result = original_lstat(path)
+        if path == source:
+            fields = list(result)
+            fields[stat.ST_SIZE] = 1
+            return os.stat_result(fields)
+        return result
+
+    monkeypatch.setattr(Path, "lstat", misleading_size)
+    entry = inventory_inputs(root, policy)[0]
+    assert source.lstat().st_size == 1
+    assert entry.as_json() == {
+        "path": "source.txt",
+        "kind": "file",
+        "size": len(payload),
+        "sha256": hashlib.sha256(payload).hexdigest(),
+        "canonical_sha256": hashlib.sha256(payload).hexdigest(),
+    }
+
+
+@pytest.mark.parametrize("suffix", (".json", ".md", ".html"))
+def test_matching_rewrites_keep_order_unicode_and_line_endings(
+    tmp_path: Path, suffix: str
+) -> None:
+    root, policy_path = _fixture_repo(tmp_path)
+    filename = "source" + suffix
+    policy = load_policy(policy_path)
+    policy["input_paths"] = ["policy.json", filename]
+    policy["volatile_text_rules"] = [
+        {
+            "id": "date-token",
+            "path_globs": ["**/*" + suffix],
+            "pattern": "generated [0-9]{4}-[0-9]{2}-[0-9]{2}",
+            "replacement": "generated <DAY>",
+        },
+        {
+            "id": "canonical-date",
+            "path_globs": ["**/*" + suffix],
+            "pattern": "<DAY>",
+            "replacement": "<GENERATED-DATE>",
+        },
+    ]
+    policy_path.write_text(json.dumps(policy), encoding="utf-8")
+    payload = "\ufeffMálaga 🙂 generated 2026-11-09\r\n".encode()
+    expected = payload.replace(b"2026-11-09", b"<GENERATED-DATE>")
+    (root / filename).write_bytes(payload)
+
+    entry = next(
+        row
+        for row in inventory_inputs(root, load_policy(policy_path))
+        if row.path == filename
+    )
+    assert entry.as_json() == {
+        "path": filename,
+        "kind": "file",
+        "size": len(payload),
+        "sha256": hashlib.sha256(payload).hexdigest(),
+        "canonical_sha256": hashlib.sha256(expected).hexdigest(),
+    }
+
+
+def test_date_only_input_drift_refuses_even_with_equal_canonical_hashes(
+    tmp_path: Path,
+) -> None:
+    root, policy_path = _fixture_repo(tmp_path, volatile=True)
+    policy = load_policy(policy_path)
+    policy["input_paths"] = ["policy.json", "source.json"]
+    policy_path.write_text(json.dumps(policy), encoding="utf-8")
+    source = root / "source.json"
+    source.write_text('{"generated_on": "2020-01-01"}\n', encoding="utf-8")
+    (root / "docs/report/report.json").write_text("{}\n", encoding="utf-8")
+    before = next(
+        row for row in inventory_inputs(root, policy) if row.path == "source.json"
+    )
+    calls = 0
+
+    def mutate_date(command: Sequence[str], cwd: Path) -> CommandResult:
+        nonlocal calls
+        calls += 1
+        output = Path(command[command.index("--output-root") + 1])
+        output.mkdir()
+        (output / "report.json").write_text("{}\n", encoding="utf-8")
+        if calls == 2:
+            (cwd / "source.json").write_text(
+                '{"generated_on": "2030-02-03"}\n', encoding="utf-8"
+            )
+        return CommandResult(0, "", "")
+
+    report = verify_reproducible_reports(
+        repo_root=root,
+        policy_path=policy_path,
+        evidence_root=root / "artifacts/evidence",
+        runner=mutate_date,
+    )
+    after = next(
+        row for row in inventory_inputs(root, policy) if row.path == "source.json"
+    )
+    assert before.canonical_sha256 == after.canonical_sha256
+    assert before.sha256 != after.sha256
+    assert report["status"] == "FAIL"
+    differences = cast(list[dict[str, object]], report["differences"])
+    assert any(row["kind"] == "changed_during_build" for row in differences)
