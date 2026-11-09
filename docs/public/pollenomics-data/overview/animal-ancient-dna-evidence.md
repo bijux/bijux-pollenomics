@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-07
+last_reviewed: 2026-11-09
 ---
 
 # Animal Ancient DNA Evidence
@@ -67,37 +67,28 @@ result. It records what is known about the source and what remains unavailable.
 
 ## Current Evidence Depth
 
-The governed foundation currently contains **1,468 final sample rows** across
-**10 species and 22 contributing projects**. Of those rows, 323 are fully
-grounded, 355 are partly grounded, 11 are blocked by missing metadata, 367 by
-missing location detail, and 412 by weak chronology. This is the final sample
-evidence-preparation population, not a publication-feature count.
+The [retained intake review](../../../report/animal_intake_recovery_review.md),
+[sample database review](../../../report/animal_sample_database_review.md) and
+[point evidence review](../../../report/animal_point_evidence_review.md) retain
+the populations inspected in those reviews. Their preparation rows, recovered
+source samples and locality features are different units, and the recorded
+figures are not live collection totals. Inspect the current
+[governed point candidates](https://github.com/bijux/bijux-pollenomics/blob/main/data/adna/final/atlas/animal_atlas_point_candidates.json)
+for source candidates; the relevant geographic publication contract determines
+which members appear on its map.
 
-The generated project intake review separately covers **40 tracked projects**
-and contains **1,475 recovered raw sample-master rows**, of which **1,468 enter
-the final sample population**. Only four projects have an exact expected-sample
-denominator. The repository therefore does not present either total as a
-complete census of every deposited sample.
+Point publication requires admitted sample backing, with `domesticated_core`
+and `wild_or_progenitor_context` roles kept separate. This does not establish
+that every project, species, locality or chronology has reached the same
+maturity. Most projects lack an exact expected-sample denominator, so recovery
+and point publication cannot be presented as a complete deposited-sample census.
 
-The point-evidence review contains **165 published locality features**
-representing **322 distinct admitted samples**. The features comprise 117
-`domesticated_core` localities and 48 `wild_or_progenitor_context` localities.
-These are admitted evidence features, not proof that every project, species,
-locality, or chronology has reached the same maturity.
-
-All 165 published features are backed by at least one admitted sample. Wadi
-Halfa camel context for project `SRP073444` remains useful source context,
-but it is not published. The project now has 20 archive BioSample identities
-linked to 19 published specimen labels; none establishes a sample link to the
-paper's `C.thomasi` Wadi Halfa Site 1040 context. Map-readiness accounting
-retains that context among the 134 not-materialized rows with reason
+In the retained review, Wadi Halfa camel context for project `SRP073444`
+remains useful source context but is not published. The project has 20 archive
+BioSample identities linked to 19 published specimen labels; none establishes
+a sample link to the paper's `C.thomasi` Wadi Halfa Site 1040 context. The
+map-readiness account retains that refusal with reason
 `no_admitted_sample_backed_locality_candidate`.
-
-| Point population | Rows | Identity and coordinate posture |
-| --- | ---: | --- |
-| domesticated-core localities | 117 | admitted sample backing and product scope retained |
-| wild or progenitor context localities | 48 | admitted sample backing with context role retained |
-| total published locality features | 165 | represents 322 distinct admitted samples |
 
 ### Three Ledgers Answer Three Questions
 
@@ -131,12 +122,12 @@ different states instead of averaging them into one quality label.
 
 ```mermaid
 flowchart LR
-    Inventory["40 tracked projects"] --> Recovery["1,475 recovered raw rows"]
-    Recovery --> Foundation["1,468 final sample rows"]
+    Inventory["tracked projects"] --> Recovery["recovered source rows"]
+    Recovery --> Foundation["curated sample identities"]
     Foundation --> Review["identity, locality, chronology, coordinate review"]
-    Review --> Samples["322 distinct admitted samples"]
-    Samples --> Points["165 published locality features"]
-    Review --> Excluded["134 coordinate-ready rows not materialized"]
+    Review --> Samples["represented admitted samples"]
+    Samples --> Points["published locality features"]
+    Review --> Excluded["non-materialized reviewed candidates"]
     Inventory --> Gaps["blocked, under-recovered, and unresolved projects"]
     Gaps --> Accountability["recovery review and refusal surfaces"]
 ```

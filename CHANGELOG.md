@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Restore scientific source and result links, distinguish retained review snapshots from current publication scope, and retire the historical schematic desktop-zoom report ([#384](https://github.com/bijux/bijux-pollenomics/pull/384)).
+
 - Retire the historical schematic mobile-attribution publication and restore the Abborrtjärnen chronology-result link, preserving active browser controls and scientific evidence ([#383](https://github.com/bijux/bijux-pollenomics/pull/383)).
 
 - Reuse checked atlas search postings during startup while preserving substring search and publication identity checks ([#382](https://github.com/bijux/bijux-pollenomics/pull/382)).

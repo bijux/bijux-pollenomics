@@ -97,8 +97,7 @@ but does not include `LAIH`. Neither source proves the exact taxon/PPE mapping
 or covariance applied to Laihalampi's historical input, or grants analytical
 use of its `R`-marked pollen source.
 
-We checked the complete primary [LegacyAge S5/S6 deposit]
-(https://doi.org/10.1594/PANGAEA.933132) by its `Dataset_ID` field. Neither
+We checked the complete primary [LegacyAge S5/S6 deposit](https://doi.org/10.1594/PANGAEA.933132) by its `Dataset_ID` field. Neither
 table contains a row for this core's Neotoma dataset `52082`. The checked S5
 and S6 SHA-256 values are respectively
 `bbe0e8d5854acf091a11737ddedc10d5656f8a25c8eeb9637b85f9e69a37cb41`
