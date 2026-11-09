@@ -18,8 +18,10 @@ current Nordic, Europe-plus and world HTML documents are respectively 168069,
 23 and 123 members. Runtime scripts are separately owned and charged by the
 native resource budgets.
 
-The three documents and their selected producer files match accepted generation
-`9882a0916523b78eda22f392fedc463877781a75`. Their recipe selects the current
+The scientific registrations retain accepted generation
+`9882a0916523b78eda22f392fedc463877781a75`. The current document producer owns
+the HTML and browser controls; their exact identities are recorded in
+`report-owner.json`. The recipe selects the current
 `reporting/map_document/assets/document.html`, its literal controller expansions,
 and the finite native external-runtime transformation declared in `render.py`.
 The shared verifier reconstructs the runtime and evidence-tools factory, checks
@@ -29,8 +31,8 @@ the inline loader alone contributes its inline CSP hash.
 
 Scientific registration membership comes from each document's matching
 `*_map_assets.json` inventory. Publication ownership adds the existing vendor
-resources and three runtime/controller files. This descriptor refresh does not
-regenerate maps or transfer earlier browser receipts to current bytes. Historical
+resources and three runtime/controller files. Refreshing runtime ownership does not
+regenerate scientific registrations or transfer earlier browser receipts to changed bytes. Historical
 captures and the earlier inline-template publication retain their own scope.
 
 The Swedish chart has no inert bootstrap. Its independently reviewed original
