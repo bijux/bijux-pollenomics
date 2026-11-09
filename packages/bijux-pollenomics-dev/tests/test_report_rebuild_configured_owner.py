@@ -173,7 +173,7 @@ def test_analysis_value_components_use_absent_child_output() -> None:
     )
 
 
-def test_neotoma_entity_map_assets_resolve_as_code_only() -> None:
+def test_neotoma_entity_domain_inputs_resolve_with_publication_boundary() -> None:
     repository = Path(__file__).resolve().parents[3]
     owner_id = "regions/nordic/source-capability/neotoma-entities/derived-products"
     inventory = json.loads(
@@ -192,10 +192,18 @@ def test_neotoma_entity_map_assets_resolve_as_code_only() -> None:
             "url-state.js",
         )
     }
-    assert assets <= set(declaration["producer_paths"])
-    assert assets.isdisjoint(declaration["producer_inputs"])
+    code, data = set(declaration["producer_paths"]), set(declaration["producer_inputs"])
+    required_code = {
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+        "source_completion/neotoma_entity_decisions.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+        "ci/report_rebuild/artifact_paths.py",
+    }
+    assert required_code <= code
+    assert code.isdisjoint(data)
+    assert assets.isdisjoint(data)
     resolved = owner_runner.resolve_configured_owner(repository, owner_id)
-    assert assets <= set(resolved.inputs)
+    assert required_code <= set(resolved.inputs)
     assert set(resolved.inputs) == set(declaration["producer_paths"]) | set(
         declaration["producer_inputs"]
     )
