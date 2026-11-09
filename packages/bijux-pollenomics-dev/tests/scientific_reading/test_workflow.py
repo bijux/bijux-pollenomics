@@ -145,6 +145,49 @@ def test_omitted_site_verifier_is_refused(monkeypatch: pytest.MonkeyPatch) -> No
         verify_workflow(document)
 
 
+@pytest.mark.parametrize("change", ["missing", "foreign"])
+def test_site_retention_requires_the_qualified_build_step_identity(
+    monkeypatch: pytest.MonkeyPatch, change: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    selected = next(
+        step
+        for step in document["jobs"]["reading"]["steps"]
+        if step["name"] == "Build and verify the production-site artifact"
+    )
+    if change == "missing":
+        selected.pop("id")
+    else:
+        selected["id"] = "unqualified_build"
+    with pytest.raises(ValueError, match="both execute"):
+        verify_workflow(document)
+
+
+@pytest.mark.parametrize(
+    "condition",
+    [
+        "success()",
+        "always()",
+        "${{ steps.publication.outcome == 'success' }}",
+        "${{ always() && steps.browser.outcome == 'success' }}",
+        "${{ always() && steps.publication.outcome != 'skipped' }}",
+        "${{ always() && steps.publication.outcome == 'failure' }}",
+    ],
+)
+def test_site_retention_refuses_job_success_or_unqualified_build_predicates(
+    monkeypatch: pytest.MonkeyPatch, condition: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    selected = next(
+        step
+        for step in document["jobs"]["reading"]["steps"]
+        if step["name"] == "Retain verified site"
+    )
+    selected["if"] = condition
+    with pytest.raises(ValueError, match="qualified-build site upload"):
+        verify_workflow(document)
+
+
 @pytest.mark.parametrize("change", ["after_build", "replaced_command"])
 def test_download_boundary_must_execute_before_site_build(
     monkeypatch: pytest.MonkeyPatch, change: str
@@ -165,6 +208,44 @@ def test_download_boundary_must_execute_before_site_build(
     else:
         selected["run"] = "true"
     with pytest.raises(ValueError):
+        verify_workflow(document)
+
+
+@pytest.mark.parametrize(
+    "change",
+    ["omitted", "ambient_python", "ambient_sources", "masked_sources", "no_fail_fast"],
+)
+def test_reading_runtime_requires_early_admitted_interpreter_and_exact_sources(
+    monkeypatch: pytest.MonkeyPatch, change: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    selected = next(
+        step
+        for step in document["jobs"]["reading"]["steps"]
+        if step["name"] == "Check retained publication downloads"
+    )
+    command = selected["run"]
+    if change == "omitted":
+        command = "make docs-publication-controls"
+    elif change == "ambient_python":
+        command = command.replace(
+            "artifacts/docs/publication/python/bin/python", "python3"
+        )
+    elif change == "ambient_sources":
+        command = command.replace(
+            "PYTHONPATH=packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src \\\n",
+            "",
+        )
+    elif change == "masked_sources":
+        command = command.replace(
+            "PYTHONPATH=packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src",
+            "PYTHONPATH=" + selected["env"]["PYTHONPATH"],
+        )
+    else:
+        command = command.replace("set -euo pipefail", "set -uo pipefail")
+    assert command != selected["run"]
+    selected["run"] = command
+    with pytest.raises(ValueError, match="admitted reading runtime"):
         verify_workflow(document)
 
 

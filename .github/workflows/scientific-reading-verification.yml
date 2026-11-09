@@ -87,9 +87,15 @@ jobs:
         run: make gh-docs-install
 
       - name: Check retained publication downloads
+        shell: bash
         env:
           PYTHONPATH: packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics-lra/src:packages/pollenomics/src
-        run: make docs-publication-controls
+        run: |
+          set -euo pipefail
+          PYTHONPATH=packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src \
+            artifacts/docs/publication/python/bin/python -B \
+            -m bijux_pollenomics_dev.ci.scientific_reading.runner --help
+          make docs-publication-controls
 
       - name: Check native report configuration
         env:
@@ -97,6 +103,7 @@ jobs:
         run: artifacts/docs/publication/python/bin/python .bijux/shared/bijux-docs/security/render_publication.py --config mkdocs.yml --site-dir artifacts/docs/site --site-url https://bijux.io/bijux-pollenomics/ --interactive-report-owner configs/docs/maps/report-owner.json --preflight
 
       - name: Build and verify the production-site artifact
+        id: publication
         run: make gh-docs-build gh-docs-verify
 
       - name: Locate hosted Chromium
@@ -183,7 +190,7 @@ jobs:
           retention-days: 14
 
       - name: Retain verified site
-        if: success()
+        if: ${{ always() && steps.publication.outcome == 'success' }}
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: scientific-reading-site

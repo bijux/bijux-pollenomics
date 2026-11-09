@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Keep scientific reading checks independent of gallery runtime imports and retain qualified site artifacts after later reading failures ([#372](https://github.com/bijux/bijux-pollenomics/pull/372)).
+
 - Expose separately attributed Dalmutladdo archival window counts through a pinned-source API while preserving native missing values and LRA admission boundaries ([#371](https://github.com/bijux/bijux-pollenomics/pull/371)).
 
 - Qualify the partial Dalmutladdo archival count correspondence while preserving native missing values and unresolved LRA prerequisites ([#370](https://github.com/bijux/bijux-pollenomics/pull/370)).

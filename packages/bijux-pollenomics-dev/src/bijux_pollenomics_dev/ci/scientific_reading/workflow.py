@@ -83,11 +83,26 @@ def verify_workflow(document: dict[str, Any]) -> None:
     require(
         by_name["Install admitted documentation renderer"].get("run")
         == "make gh-docs-install"
-        and by_name["Check retained publication downloads"].get("run")
-        == "make docs-publication-controls"
         and by_name["Build and verify the production-site artifact"].get("run")
-        == "make gh-docs-build gh-docs-verify",
+        == "make gh-docs-build gh-docs-verify"
+        and by_name["Build and verify the production-site artifact"].get("id")
+        == "publication",
         "the admitted build and verifier must both execute",
+    )
+    downloads = by_name["Check retained publication downloads"]
+    download_commands = downloads.get("run")
+    require(
+        downloads.get("shell") == "bash"
+        and isinstance(download_commands, str)
+        and download_commands.strip()
+        == (
+            "set -euo pipefail\n"
+            "PYTHONPATH=packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src \\\n"
+            "  artifacts/docs/publication/python/bin/python -B \\\n"
+            "  -m bijux_pollenomics_dev.ci.scientific_reading.runner --help\n"
+            "make docs-publication-controls"
+        ),
+        "the admitted reading runtime and download controls must execute before build",
     )
     require(
         by_name["Check native report configuration"].get("run")
@@ -158,12 +173,13 @@ def verify_workflow(document: dict[str, Any]) -> None:
     )
     require(
         by_name["Retain verification evidence"].get("if") == "always()"
-        and by_name["Retain verified site"].get("if") == "success()"
+        and by_name["Retain verified site"].get("if")
+        == "${{ always() && steps.publication.outcome == 'success' }}"
         and all(
             by_name[name].get("with", {}).get("retention-days") == 14
             for name in required[-2:]
         ),
-        "evidence retention or success-only site upload differs",
+        "evidence retention or qualified-build site upload differs",
     )
     admissions = [
         step
