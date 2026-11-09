@@ -94,6 +94,9 @@ def source_observation_refusal_reason(
         return "ungoverned_country"
     if optional_text(observation.get("source_element_type")) != "pollen":
         return "non_pollen_observation"
+    source_element = optional_text(observation.get("source_element"))
+    if source_element is not None and source_element.casefold() != "pollen":
+        return "non_pollen_observation"
     if optional_text(observation.get("detection_status")) != "reported_value":
         return "non_positive_observation"
     value = observation.get("source_value")
