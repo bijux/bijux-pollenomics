@@ -169,6 +169,7 @@ export async function verifyProviderFailureMatrix(scope, debuggerOrigin, helpers
         name, blockProviders: true, providerFailure: failure, hash: '#basemap=none',
       });
       const before = await captureReady(atlas.cdp);
+      result.initial_capture_ready_monotonic_ms = performance.now();
       result.baseline_snapshot = before;
       const payloadBefore = await evaluate(atlas.cdp, `(${providerPayloadIdentity.toString()})()`);
       result.scientific_payload_manifest_sha256 = payloadBefore;

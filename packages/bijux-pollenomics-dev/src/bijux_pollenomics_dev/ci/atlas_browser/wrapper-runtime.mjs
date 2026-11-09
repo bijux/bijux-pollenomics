@@ -282,7 +282,7 @@ export function createWrapperAtlasOwner({site, authority, debuggerOrigin, reques
   }
   async function openAtlas(_scope, _debuggerOrigin, options) {
     const atlas={started:performance.now(),runtimeFailures:[],providerRequests:[],contexts:new Map(),localReplies:new Set()};
-    atlas.lifecycle={case:options.name,status:'opening',phase:'create_target',target_id:null,
+    atlas.lifecycle={case:options.name,status:'opening',phase:'create_target',target_id:null,started_monotonic_ms:atlas.started,
       events:[],omitted_events:0,teardown:{target_close_attempted:false,target_close_acknowledged:false,transport_close_requested:false}};
     lifecycle.push(atlas.lifecycle);
     try {

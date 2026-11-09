@@ -395,3 +395,48 @@ def test_unknown_network_failure_does_not_become_positive_cancellation() -> None
       })));
     """)
     assert result == [True, False, False]
+
+
+@pytest.mark.parametrize("rejected", [False, True])
+def test_initial_readiness_milestone_requires_fulfilled_capture(rejected: bool) -> None:
+    result = _node(
+        "const rejected="
+        + json.dumps(rejected)
+        + ";"
+        + r"""
+      const assert = (await import('node:assert/strict')).default;
+      let release, rejectCapture, enterCapture, resolvedAt, writtenAt, closes=0;
+      const captured=new Promise((resolve,reject)=>{release=resolve;rejectCapture=reject});
+      const entered=new Promise(resolve=>enterCapture=resolve), records=[];
+      const atlas={cdp:{},providerRequests:[],runtimeFailures:[],lifecycle:{}};
+      const run=provider.verifyProviderFailureMatrix({name:'fixture'},'http://unused',{
+        candidate:{build_id:'fixture'},timeoutMs:15000,evidenceIdentity:value=>value,
+        openAtlas:async()=>atlas,
+        captureReady:()=>{enterCapture();return captured},
+        evaluate:async()=>{throw Error('stop after initial readiness')},
+        screenshot:async()=>{throw Error('screenshot must not run')},
+        closeAtlas:async()=>{closes++;throw Error('stop after first retained case')},
+        writeScenario:async(_scope,row)=>{writtenAt=performance.now();records.push(row)},
+      }).then(()=>assert.fail('controlled failure must remain a refusal'),()=>{});
+      await entered;
+      await new Promise(resolve=>setImmediate(resolve));
+      assert.equal(records.length,0);
+      resolvedAt=performance.now();
+      if(rejected)rejectCapture(Error('initial capture refused'));
+      else release({build_id:'fixture'});
+      await run;
+      assert.equal(closes,1);assert.equal(records.length,1);
+      const row=records[0], present=Object.hasOwn(row,'initial_capture_ready_monotonic_ms');
+      if(rejected){
+        assert.equal(present,false);assert.equal(Object.hasOwn(row,'baseline_snapshot'),false);
+        assert.match(row.error,/initial capture refused/);
+      }else{
+        assert.equal(present,true);assert.ok(Number.isFinite(row.initial_capture_ready_monotonic_ms));
+        assert.ok(resolvedAt<=row.initial_capture_ready_monotonic_ms);
+        assert.ok(row.initial_capture_ready_monotonic_ms<=writtenAt);
+        assert.deepEqual(row.baseline_snapshot,{build_id:'fixture'});
+      }
+      console.log(JSON.stringify({present,closed:closes,retained:records.length}));
+    """
+    )
+    assert result == {"present": not rejected, "closed": 1, "retained": 1}
