@@ -1684,6 +1684,19 @@
     },
     {
       "artifact_output_flag": "--retained-artifacts-root",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/abbo-age-controls.json",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.abbo_age_controls",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/abbo-age-controls/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/abbo-age-controls/report.json"
+      },
+      "timeout_seconds": 60
+    },
+    {
+      "artifact_output_flag": "--retained-artifacts-root",
       "external_source_descriptor": "configs/ci/qualified-report-sources/rootsi-bokesjon-workbook.json",
       "module": "bijux_pollenomics_dev.source_completion.neotoma.native_correspondence",
       "output_mode": "directory",
