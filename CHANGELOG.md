@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Prepare immutable LOVE objective inputs once per search and record measured callback costs while preserving numerical and scientific limits ([#378](https://github.com/bijux/bijux-pollenomics/pull/378)).
+
 - Wait for scientific reader table reflow before checking layout, preserving permanent overflow refusals and diagnostic geometry ([#377](https://github.com/bijux/bijux-pollenomics/pull/377)).
 
 - Record complete public LOVE optimizer search costs, stopping outcomes and runtime context while preserving Python backend and scientific qualification limits ([#376](https://github.com/bijux/bijux-pollenomics/pull/376)).
