@@ -303,8 +303,8 @@ AGE_TABLE = "epd/pangaea/abbo-age-determination-pangaea-740080.tsv"
 def test_registered_age_owner_binds_wrapper_external_table_and_full_oracle(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    # Synthetic layout isolates registration; actual source authentication is
-    # exercised independently below and by the configured reference/replay.
+    # Source qualification has separate contract tests; this fixture isolates
+    # registration.
     monkeypatch.setattr(
         configured_owner, "validated_external_report_sources", _fixture_sources
     )
@@ -380,14 +380,12 @@ def test_registered_age_owner_rejects_substituted_binding(
         )
 
 
-def test_registered_age_owner_rejects_missing_or_internal_store(
-    tmp_path: Path,
-) -> None:
+def test_registered_age_owner_rejects_missing_or_internal_store() -> None:
     with pytest.raises(ReportRebuildError, match="requires --source-root"):
         configured_owner.resolve_configured_owner(IMPACT.REPO_ROOT, AGE_OWNER)
     with pytest.raises(ReportRebuildError, match="must be external"):
         configured_owner.resolve_configured_owner(
-            IMPACT.REPO_ROOT, AGE_OWNER, source_root=tmp_path
+            IMPACT.REPO_ROOT, AGE_OWNER, source_root=IMPACT.REPO_ROOT
         )
 
 
