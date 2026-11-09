@@ -70,12 +70,9 @@ test ! -e "$POLLENOMICS_OUTPUT" &&
 The qualified wrapper checks the exact descriptor, external table and
 sequence inputs before publishing. The configured execution owner at source
 `d9e6883db64be68d8d5b229d8390438f4ddf74c2` reproduced the complete retained
-1,784-byte report in both reference and replay lanes. Its source declaration
-contains 11 domain and guard paths rather than 1,052 incidental imports;
-all nine data inputs remain unchanged. The clean repository HEAD/tree and
-declared inputs are checked before and after execution, without claiming
-continuous mutation monitoring. Current technical ownership does not establish
-historical acquisition, broader source-use authority or LRA admission.
+1,784-byte report in both reference and replay lanes. Current technical
+ownership does not establish historical acquisition, broader source-use
+authority or LRA admission.
 
 
 <!-- scientific-account-route:begin -->
