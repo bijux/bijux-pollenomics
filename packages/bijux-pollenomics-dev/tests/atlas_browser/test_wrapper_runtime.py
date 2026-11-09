@@ -763,3 +763,93 @@ def test_provider_open_failure_retains_case_and_closes_only_owned_targets(
         assert failed["omitted_runtime_failures"] == 48
         assert all(len(row["detail"]) <= 2048 for row in failed["runtime_failures"])
         assert len(json.dumps(failed).encode()) < 200_000
+
+
+@pytest.mark.parametrize("receipt_store", ["missing-directory", "blocked-directory"])
+def test_first_failed_open_persists_without_a_screenshot_and_keeps_original_error(
+    tmp_path: Path, receipt_store: str
+) -> None:
+    output = tmp_path / "browser"
+    output.mkdir()
+    if receipt_store == "blocked-directory":
+        (output / "nordic-wrapper").write_text("not a directory\n")
+    provider = MODULE.with_name("provider-failures.mjs").as_uri()
+    result = _node(
+        f"""
+      import {{readFile}} from 'node:fs/promises';
+      const provider=await import({json.dumps(provider)}),output={json.dumps(str(output))};
+      const navigationError=Error('Page.loadEventFired timed out');
+      let targets=0,targetCloses=0,socketCloses=0,captureCalls=0,screenshots=0;
+      let receipts=[];
+      const raw={{onEvent(){{}},waitFor(method,timeout){{
+        if(method!=='Page.loadEventFired'||timeout!==15000)throw Error('wrong load gate');
+        return Promise.reject(navigationError);
+      }},async send(method){{
+        return method==='Page.navigate'?{{frameId:'parent',loaderId:'loader-first'}}:{{}};
+      }},close(){{socketCloses++}}}};
+      const fetchTarget=async url=>{{
+        if(url.includes('/json/new')){{targets++;return {{ok:true,json:async()=>({{id:'first-target',webSocketDebuggerUrl:'ws://controlled'}})}}}}
+        targetCloses++;return {{ok:true,text:async()=>'Target is closing'}};
+      }};
+      const owner=wrapper.createWrapperAtlasOwner({{site:'/unused',authority:{{
+        parentUrl:'https://bijux.io/bijux-pollenomics/public/nordic-atlas/index.html',
+        childUrl:'https://bijux.io/bijux-pollenomics/report/regions/nordic/nordic_map.html',
+      }},debuggerOrigin:new URL('http://debugger.invalid'),requests:[],serverErrors:[],
+        externalRefusals:[],timeoutMs:15000,fetchTarget,connect:async()=>raw}});
+      let caught;
+      try{{await provider.verifyProviderFailureMatrix({{name:'nordic-wrapper'}},'http://debugger.invalid',{{
+        candidate:{{build_id:'unused'}},timeoutMs:15000,evidenceIdentity:row=>row,
+        openAtlas:owner.openAtlas,closeAtlas:owner.closeAtlas,
+        captureReady:async()=>{{captureCalls++;throw Error('unexpected capture')}},
+        evaluate:async()=>{{throw Error('unexpected evaluation')}},
+        screenshot:async()=>{{screenshots++;throw Error('unexpected screenshot')}},
+        writeScenario:(_scope,scenario,paths)=>{{receipts=paths;return wrapper.writeWrapperScenario(output,scenario,paths)}},
+      }})}}catch(error){{caught=error}}
+      let persisted=null;
+      try{{persisted=JSON.parse(await readFile(output+'/nordic-wrapper/provider-http-401.json','utf8'))}}catch{{}}
+      console.log(JSON.stringify({{error:String(caught),sameOriginalError:caught===navigationError,
+        persisted,receipts,lifecycle:owner.lifecycle,targets,targetCloses,socketCloses,captureCalls,screenshots}}));
+    """
+    )
+    assert result["sameOriginalError"] is True
+    assert result["error"] == "Error: Page.loadEventFired timed out"
+    assert result["targets"] == result["targetCloses"] == result["socketCloses"] == 1
+    assert result["captureCalls"] == result["screenshots"] == 0
+    lifecycle = result["lifecycle"][0]
+    assert lifecycle["case"] == "provider-http-401"
+    assert lifecycle["status"] == "open_failed"
+    assert lifecycle["failure_phase"] == "navigate"
+    assert lifecycle["target_id"] == "first-target"
+    assert lifecycle["teardown"]["target_close_acknowledged"] is True
+    if receipt_store == "missing-directory":
+        persisted = result["persisted"]
+        assert persisted["status"] == "open_failed"
+        assert persisted["lifecycle"] == lifecycle
+        assert "Page.loadEventFired timed out" in persisted["error"]
+        assert len(persisted["assertions"]) == 10
+        assert not any(persisted["assertions"].values())
+        assert result["receipts"] == ["nordic-wrapper/provider-http-401.json"]
+        assert "receipt_error" not in lifecycle
+    else:
+        assert result["persisted"] is None
+        assert result["receipts"] == []
+        assert "EEXIST" in lifecycle["receipt_error"]
+        assert len(lifecycle["receipt_error"]) <= 4096
+
+
+def test_successful_scenario_receipt_write_failure_still_refuses(
+    tmp_path: Path,
+) -> None:
+    output = tmp_path / "browser"
+    output.mkdir()
+    (output / "nordic-wrapper").write_text("not a directory\n")
+    result = _node(
+        f"""
+      const scenario={{name:'provider-http-401'}},receipts=[];let error;
+      try{{await wrapper.writeWrapperScenario({json.dumps(str(output))},scenario,receipts)}}
+      catch(value){{error=String(value)}}
+      console.log(JSON.stringify({{error,receipts}}));
+    """
+    )
+    assert "EEXIST" in result["error"]
+    assert result["receipts"] == []
