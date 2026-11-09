@@ -178,6 +178,8 @@ const match={layer:{label:'Source'},feature:{title:'Exact source',country:'Swede
 const visiblePointEntries=[{feature:{title:'Other'}},match];
 const searchInput={value:'Exact source'},searchClearButton={},searchCount={};
 const searchResults={querySelectorAll:()=>[{addEventListener(type,fn){click=fn}}]};
+const document={getElementById:()=>({getAttribute:()=> 'false'})};
+const emptyState={dataset:{reason:'not_empty'}};
 const publishedSearchCounts=()=>({focalCount:2,neighborCount:0});
 const publishedSearchResults=()=>[match];
 const featureTimeDescriptor=()=>null,escapeHtml=String;

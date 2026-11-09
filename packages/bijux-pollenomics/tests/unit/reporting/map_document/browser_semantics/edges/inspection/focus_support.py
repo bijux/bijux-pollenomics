@@ -125,6 +125,8 @@ let staticAtlasLoadGeneration=0;const ALL_LAYERS=[],selectionReadout={dataset:{}
 const topbarStatePill={textContent:'',setAttribute(key,value){this[key]=value}};
 const mapElement={setAttribute(key,value){this[key]=value},getAttribute(key){return this[key]}};
 const emptyState={hidden:true,dataset:{},innerHTML:''};
+const searchRefreshes=[];
+function buildSearchResults(){searchRefreshes.push({generation:staticAtlasLoadGeneration,busy:mapElement['aria-busy'],reason:emptyState.dataset.reason})}
 const document={activeElement:null,getElementById(id){return id==='map'?mapElement:{focus(){}}}};
 const renderedEdgeLayers=[],callbacks=[],map={};
 const L={polyline(){const events={};callbacks.push(events);return {bindPopup(){},on(key,callback){events[key]=callback},addTo(){}}}};
