@@ -222,8 +222,17 @@ def render_multi_country_map_markdown(
     artifact_lines = "\n".join(
         f"- {label}: [`{filename}`](./{filename})"
         for label, filename in extra_artifacts
+        if not filename.endswith(".js")
     )
-    artifact_block = artifact_lines if artifact_lines else ""
+    inventory_note = (
+        "JavaScript data chunks, runtime and optional controllers are listed in "
+        f"the [complete file inventory](./{summary_json_name})."
+        if any(filename.endswith(".js") for _, filename in extra_artifacts)
+        else ""
+    )
+    artifact_block = "\n\n".join(
+        part for part in (artifact_lines, inventory_note) if part
+    )
     layer_rows = (
         "\n".join(
             f"| {escape_pipes(str(row['label']))} | `{row['publication_role']}` | {escape_pipes(str(row['coverage_label']))} | `{row['count']}` |"

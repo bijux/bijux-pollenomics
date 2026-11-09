@@ -16,7 +16,12 @@ from bijux_pollenomics.adna import (
     AdnaSampleIdentity,
     AdnaSampleRecord,
 )
-from bijux_pollenomics.reporting.models import CountryReport
+from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
+from bijux_pollenomics.reporting.bundles.summary_builders.atlas import (
+    build_multi_country_bundle_manifest,
+    build_multi_country_map_summary,
+)
+from bijux_pollenomics.reporting.models import CountryReport, MultiCountryMapReport
 from bijux_pollenomics.reporting.presentation.report_portal.scientific_accounts import (
     load_routes,
     verified_authored_reader,
@@ -50,6 +55,7 @@ def _render_world(
     *,
     map_contract: dict[str, object] | None = None,
     animal_summary: dict[str, object] | None = None,
+    extra_artifacts: list[tuple[str, str]] | None = None,
 ) -> str:
     summary = _world_summary()
     artifacts = cast(dict[str, object], summary["artifacts"])
@@ -73,7 +79,11 @@ def _render_world(
         point_traceability_markdown_name=cast(
             str, artifacts["point_traceability_markdown"]
         ),
-        extra_artifacts=[(row["label"], row["filename"]) for row in extra_files],
+        extra_artifacts=(
+            extra_artifacts
+            if extra_artifacts is not None
+            else [(row["label"], row["filename"]) for row in extra_files]
+        ),
         map_publication_contract=(
             map_contract
             if map_contract is not None
@@ -152,6 +162,99 @@ def test_world_readme_matches_tracked_publication_bytes() -> None:
     expected = (_repository_root() / "docs/report/world/README.md").read_bytes()
     route = load_routes()["docs/report/world/README.md"]
     assert _render_world().encode() == verified_authored_reader(expected, route)
+
+
+def test_map_readme_keeps_reader_links_and_full_machine_inventory(
+    tmp_path: Path,
+) -> None:
+    extra_artifacts = [
+        ("Static atlas bootstrap manifest", "atlas_assets.json"),
+        ("Source download", "sources.csv"),
+        ("Traceability", "traceability.md"),
+        ("Static atlas data chunk", "atlas-nodes.js"),
+        ("Static atlas runtime", "atlas-runtime.js"),
+        ("Static atlas index transport", "atlas-index-transport.js"),
+        ("Interactive evidence tools", "atlas-evidence-tools.js"),
+    ]
+    original_artifacts = list(extra_artifacts)
+    report = MultiCountryMapReport(
+        title="Reader inventory fixture",
+        slug="atlas",
+        version="v66",
+        generated_on="2026-09-29",
+        countries=(),
+        country_sample_counts={},
+        total_unique_samples=0,
+        output_dir=tmp_path,
+    )
+    paths = build_atlas_bundle_paths(tmp_path, "atlas", "v66")
+    before_summary = build_multi_country_map_summary(report, paths, extra_artifacts, {})
+    before_manifest = build_multi_country_bundle_manifest(
+        report, paths, extra_artifacts, {}
+    )
+
+    rendered = _render_world(extra_artifacts=extra_artifacts)
+
+    for filename in ("atlas_assets.json", "sources.csv", "traceability.md"):
+        assert f"[`{filename}`](./{filename})" in rendered
+    for filename in (
+        "atlas-nodes.js",
+        "atlas-runtime.js",
+        "atlas-index-transport.js",
+        "atlas-evidence-tools.js",
+    ):
+        assert filename not in rendered
+    assert "[complete file inventory](./world_summary.json)" in rendered
+    assert "JavaScript data chunks, runtime and optional controllers" in rendered
+    for filename in (
+        "world_map.html",
+        "world_samples.geojson",
+        "world_summary.json",
+        "world_map_publication_contract.json",
+        "world_map_publication_contract.md",
+        "world_point_traceability.json",
+        "world_point_traceability.md",
+    ):
+        assert f"[`{filename}`](./{filename})" in rendered
+    assert extra_artifacts == original_artifacts
+    assert (
+        build_multi_country_map_summary(report, paths, extra_artifacts, {})
+        == before_summary
+    )
+    assert (
+        build_multi_country_bundle_manifest(report, paths, extra_artifacts, {})
+        == before_manifest
+    )
+    for payload in (before_summary, before_manifest):
+        artifacts = cast(dict[str, object], payload["artifacts"])
+        assert artifacts["extra_files"] == [
+            {
+                "label": "Static atlas bootstrap manifest",
+                "filename": "atlas_assets.json",
+            },
+            {"label": "Source download", "filename": "sources.csv"},
+            {"label": "Traceability", "filename": "traceability.md"},
+            {"label": "Static atlas data chunk", "filename": "atlas-nodes.js"},
+            {"label": "Static atlas runtime", "filename": "atlas-runtime.js"},
+            {
+                "label": "Static atlas index transport",
+                "filename": "atlas-index-transport.js",
+            },
+            {
+                "label": "Interactive evidence tools",
+                "filename": "atlas-evidence-tools.js",
+            },
+        ]
+
+
+@pytest.mark.parametrize("extra_artifacts", [[], [("Traceability", "traceability.md")]])
+def test_map_readme_without_javascript_retains_ordinary_artifacts(
+    extra_artifacts: list[tuple[str, str]],
+) -> None:
+    rendered = _render_world(extra_artifacts=extra_artifacts)
+    assert "complete file inventory" not in rendered
+    for _, filename in extra_artifacts:
+        assert f"[`{filename}`](./{filename})" in rendered
 
 
 def test_map_contract_refuses_malformed_layer_and_label_containers() -> None:
