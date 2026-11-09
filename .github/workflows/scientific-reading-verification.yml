@@ -23,7 +23,7 @@ jobs:
   reading:
     name: scientific reading / admitted source
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 90
     steps:
       - name: Checkout exact accepted source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -83,6 +83,23 @@ jobs:
           echo "BIJUX_STD_ROOT=$source_root" >> "$GITHUB_ENV"
           echo "BIJUX_STD_REF=$accepted_ref" >> "$GITHUB_ENV"
 
+      - name: Locate hosted Chromium
+        id: browser
+        shell: bash
+        run: |
+          set -euo pipefail
+          for command_name in google-chrome-stable google-chrome chromium chromium-browser; do
+            if browser_binary="$(command -v "$command_name" 2>/dev/null)"; then
+              echo "binary=$browser_binary" >> "$GITHUB_OUTPUT"
+              "$browser_binary" --version
+              node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/browser-transport.mjs \
+                --probe "$browser_binary" "$PWD/artifacts/scientific-reading/startup"
+              exit 0
+            fi
+          done
+          echo "No hosted Chromium browser is available." >&2
+          exit 1
+
       - name: Install admitted documentation renderer
         run: make gh-docs-install
 
@@ -105,21 +122,6 @@ jobs:
       - name: Build and verify the production-site artifact
         id: publication
         run: make gh-docs-build gh-docs-verify
-
-      - name: Locate hosted Chromium
-        id: browser
-        shell: bash
-        run: |
-          set -euo pipefail
-          for command_name in google-chrome-stable google-chrome chromium chromium-browser; do
-            if browser_binary="$(command -v "$command_name" 2>/dev/null)"; then
-              echo "binary=$browser_binary" >> "$GITHUB_OUTPUT"
-              "$browser_binary" --version
-              exit 0
-            fi
-          done
-          echo "No hosted Chromium browser is available." >&2
-          exit 1
 
       - name: Verify actual scientific reading and download routes
         env:

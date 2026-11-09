@@ -2213,3 +2213,175 @@ def test_status_actions_do_not_manufacture_desktop_focus_restoration() -> None:
     )
     assert "status_describes_current_bp_window" in probe
     assert "close.dispatchEvent(new KeyboardEvent" not in probe
+
+
+def test_chromium_uses_private_short_ipc_and_reaps_its_process_group(
+    tmp_path: Path,
+) -> None:
+    transport = Path(atlas_browser.__file__).with_name("browser-transport.mjs")
+    fake = tmp_path / "chromium"
+    child = tmp_path / "chromium.mjs"
+    child.write_text("""import {spawn} from 'node:child_process';
+import {createServer} from 'node:net';
+import {join} from 'node:path';
+const descendant=spawn(process.execPath,['-e',"process.on('SIGTERM',()=>{});setInterval(()=>{},1000)"],{stdio:'ignore'});
+console.error('descendant='+descendant.pid);
+process.on('SIGTERM',()=>{});
+createServer().listen(join(process.env.TMPDIR,'SingletonSocket'),()=>{
+ console.error('DevTools listening on ws://127.0.0.1:1/devtools/browser/test');
+});
+""")
+    import shlex
+
+    fake.write_text(f"#!/bin/sh\nexec node {shlex.quote(str(child))}\n")
+    fake.chmod(0o700)
+    program = """import assert from 'node:assert/strict';
+import {stat} from 'node:fs/promises';
+const {launchChromium,debuggerEndpoint,requireChromiumSocketPath}=await import(process.argv[1]);
+assert.throws(()=>requireChromiumSocketPath('/tmp/'+'é'.repeat(50)),/socket budget/);
+const inherited=process.env.TMPDIR;
+const runtime=await launchChromium(process.argv[2],process.argv[3]);
+let log='';runtime.browser.stderr.on('data',chunk=>{log+=chunk;});
+try {
+ assert.notEqual(runtime.directory,inherited);
+ assert.ok(Buffer.byteLength(requireChromiumSocketPath(runtime.directory))<104);
+ assert.equal((await stat(runtime.directory)).mode&0o777,0o700);
+ assert.ok(!runtime.browser.spawnargs.includes('--no-sandbox'));
+ await debuggerEndpoint(runtime.browser,2000);
+} finally {await runtime.close();}
+await assert.rejects(stat(runtime.directory),{code:'ENOENT'});
+assert.notEqual(runtime.browser.exitCode===null && runtime.browser.signalCode===null,true);
+const descendant=Number(log.match(/descendant=([0-9]+)/)[1]);
+let gone=false;
+for(let attempt=0;attempt<50;attempt++){
+ try{process.kill(descendant,0);}catch(error){if(error.code==='ESRCH'){gone=true;break;}throw error;}
+ await new Promise(accept=>setTimeout(accept,20));
+}
+assert.ok(gone,'Chromium descendant survived process-group cleanup');
+"""
+    import os
+
+    environment = dict(os.environ, TMPDIR=str(tmp_path / ("long-artifact-path" * 10)))
+    subprocess.run(
+        (
+            "node",
+            "--input-type=module",
+            "-e",
+            program,
+            transport.as_uri(),
+            str(fake),
+            str(tmp_path),
+        ),
+        check=True,
+        capture_output=True,
+        text=True,
+        env=environment,
+        timeout=10,
+    )
+
+
+def test_chromium_startup_failure_retains_receipt_and_removes_ipc(
+    tmp_path: Path,
+) -> None:
+    transport = Path(atlas_browser.__file__).with_name("browser-transport.mjs")
+    output = tmp_path / "failed-startup"
+    result = subprocess.run(
+        (
+            "node",
+            str(transport),
+            "--probe",
+            str(tmp_path / "missing-browser"),
+            str(output),
+        ),
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+    assert result.returncode != 0
+    receipt = json.loads((output / "startup.json").read_text())
+    assert receipt["status"] == "FAIL"
+    assert "ENOENT" in receipt["error"]
+    assert receipt["ipc_removed"] is True
+    assert not Path(receipt["ipc_directory"]).exists()
+
+
+def test_chromium_debugger_deadline_cleans_listeners_and_ipc(tmp_path: Path) -> None:
+    transport = Path(atlas_browser.__file__).with_name("browser-transport.mjs")
+    fake = tmp_path / "silent-browser"
+    fake.write_text("#!/bin/sh\nexec sleep 30\n")
+    fake.chmod(0o700)
+    program = """import assert from 'node:assert/strict';
+import {stat} from 'node:fs/promises';
+const {launchChromium,debuggerEndpoint}=await import(process.argv[1]);
+const runtime=await launchChromium(process.argv[2],process.argv[3]);
+try {await assert.rejects(debuggerEndpoint(runtime.browser,30),/debugger endpoint/);
+ assert.equal(runtime.browser.stdout.listenerCount('data'),0);
+} finally {await runtime.close();}
+await assert.rejects(stat(runtime.directory),{code:'ENOENT'});
+"""
+    subprocess.run(
+        (
+            "node",
+            "--input-type=module",
+            "-e",
+            program,
+            transport.as_uri(),
+            str(fake),
+            str(tmp_path),
+        ),
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+
+
+def test_chromium_parent_cancellation_removes_private_ipc(tmp_path: Path) -> None:
+    transport = Path(atlas_browser.__file__).with_name("browser-transport.mjs")
+    fake = tmp_path / "waiting-browser"
+    fake.write_text("#!/bin/sh\nexec sleep 30\n")
+    fake.chmod(0o700)
+    program = """const {launchChromium}=await import(process.argv[1]);
+const runtime=await launchChromium(process.argv[2],process.argv[3]);
+console.log(runtime.directory);
+setInterval(()=>{},1000);
+"""
+    child = subprocess.Popen(
+        (
+            "node",
+            "--input-type=module",
+            "-e",
+            program,
+            transport.as_uri(),
+            str(fake),
+            str(tmp_path),
+        ),
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+    try:
+        assert child.stdout is not None
+        directory = Path(child.stdout.readline().strip())
+        assert directory.is_dir()
+        child.terminate()
+        _, error = child.communicate(timeout=10)
+        assert child.returncode == 143, error
+        assert not directory.exists()
+    finally:
+        if child.poll() is None:
+            child.kill()
+            child.communicate(timeout=10)
+
+
+def test_artifact_length_unix_socket_path_is_rejected_by_the_kernel(
+    tmp_path: Path,
+) -> None:
+    import socket
+
+    with (
+        socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as connection,
+        pytest.raises(OSError, match="AF_UNIX path too long"),
+    ):
+        connection.bind(str(tmp_path / ("chromium-ipc" * 20)))
