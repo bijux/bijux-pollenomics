@@ -21,7 +21,7 @@
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
-      "sha256": "0be72b8f0f7770151ef09d24d5b61b124cdbbad64ae59833c97b95084375a3bf"
+      "sha256": "b68ecd80d9a09a41aae102a68bedae1a69220bccb2363177326c93470620d5f1"
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/edge-display.js",
@@ -81,7 +81,7 @@
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/focused-source-signal.js",
-      "sha256": "b76059fc7a1746536ee91e83e0e6d674b222bbfe3076e2f9429d18c5d8c1cc50"
+      "sha256": "ea592b880951631b3badc147ef2b10f4a8bd27055b6404b256ec0847023cd26e"
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/selection-export.js",
@@ -126,7 +126,7 @@
       "output": "report/regions/nordic/nordic_map.html",
       "source": {
         "path": "docs/report/regions/nordic/nordic_map.html",
-        "sha256": "9fda7eefe77bb51f498b4a5e9fa0e2b17a9693fdbe389c88de8b841caf734c7f"
+        "sha256": "3f1ca9465ec95af7ca67eef7d6f8840181e0295a5e146cb52539c220934f08b8"
       },
       "resources": {
         "report/regions/nordic/_map_assets/leaflet/images/layers-2x.png": {
@@ -3308,10 +3308,10 @@
           "bytes": 26876,
           "kind": "reviewed-script"
         },
-        "report/regions/nordic/nordic_map.atlas-runtime.39538025d3ac5810.js": {
-          "source": "docs/report/regions/nordic/nordic_map.atlas-runtime.39538025d3ac5810.js",
-          "sha256": "39538025d3ac58102ffda46c7f25542dda427abeb8b06f9a28657f5689a86003",
-          "bytes": 518316,
+        "report/regions/nordic/nordic_map.atlas-runtime.f8e697554387d7d9.js": {
+          "source": "docs/report/regions/nordic/nordic_map.atlas-runtime.f8e697554387d7d9.js",
+          "sha256": "f8e697554387d7d943fc657d9c4340ecd2efd83d750e87ea71c8253d477dd0d1",
+          "bytes": 520475,
           "kind": "reviewed-script"
         }
       },
@@ -3319,7 +3319,7 @@
         "09af0d2f699ad51b5906c5e52dd972d940d108fbb4a7a505d9915a5804fec206"
       ],
       "bootstrap_id": "atlas-static-bootstrap",
-      "bootstrap_sha256": "d9be994c20a5e7f535e20dd33e14cc1faae18aa1160edb45d57c34bd74c1cfc5",
+      "bootstrap_sha256": "90120f2dc3cad039cb8990f9c971e35184df112fc08de26871dfde1ea9385be5",
       "recipe": {
         "template": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
         "expansions": [
@@ -3521,7 +3521,7 @@
       "output": "report/regions/europe-plus/europe-plus_map.html",
       "source": {
         "path": "docs/report/regions/europe-plus/europe-plus_map.html",
-        "sha256": "124e39deaaabdc2ec3a12e261fab6f9a3cc6384752743c3cfd65d864467069f5"
+        "sha256": "7feb6a93efd6825c3645f316ed631dd67bae7c7ddf68692fdc218d7535081bcd"
       },
       "resources": {
         "report/regions/europe-plus/_map_assets/leaflet/images/layers-2x.png": {
@@ -3895,10 +3895,10 @@
           "bytes": 26876,
           "kind": "reviewed-script"
         },
-        "report/regions/europe-plus/europe-plus_map.atlas-runtime.6eb0f22ce261f2f0.js": {
-          "source": "docs/report/regions/europe-plus/europe-plus_map.atlas-runtime.6eb0f22ce261f2f0.js",
-          "sha256": "6eb0f22ce261f2f032b6c492e41f38e7db2bd42cb68e890bd780a93f168679aa",
-          "bytes": 518317,
+        "report/regions/europe-plus/europe-plus_map.atlas-runtime.a07470b184af363d.js": {
+          "source": "docs/report/regions/europe-plus/europe-plus_map.atlas-runtime.a07470b184af363d.js",
+          "sha256": "a07470b184af363d240ff6be96211340848b388fc9785d766391f6d9e430321b",
+          "bytes": 520476,
           "kind": "reviewed-script"
         }
       },
@@ -3906,7 +3906,7 @@
         "09af0d2f699ad51b5906c5e52dd972d940d108fbb4a7a505d9915a5804fec206"
       ],
       "bootstrap_id": "atlas-static-bootstrap",
-      "bootstrap_sha256": "d2d4319c453eff585c066c48ea209f12709810b02fbcb91c95f4c7106029bdff",
+      "bootstrap_sha256": "3250d4eee316fc89a009ab6400f28e152c50b93babfe37b5bdbb7d7e408549f9",
       "recipe": {
         "template": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
         "expansions": [
@@ -4108,7 +4108,7 @@
       "output": "report/world/world_map.html",
       "source": {
         "path": "docs/report/world/world_map.html",
-        "sha256": "01f753c5c5add069ecb014d5754aae7ec2de7abe7f1e6ac001f806ab728122e9"
+        "sha256": "37c85e925ce2c16d59372efc1c6ae2e6c4ba0133ebe5cb41b988905bbee10e43"
       },
       "resources": {
         "report/world/_map_assets/leaflet/images/layers-2x.png": {
@@ -5782,10 +5782,10 @@
           "bytes": 26876,
           "kind": "reviewed-script"
         },
-        "report/world/world_map.atlas-runtime.1d7fc9ba8b688208.js": {
-          "source": "docs/report/world/world_map.atlas-runtime.1d7fc9ba8b688208.js",
-          "sha256": "1d7fc9ba8b688208cbc0b0e97ac6443ef1f955c6a72e9a9576488c729e0be4c8",
-          "bytes": 518314,
+        "report/world/world_map.atlas-runtime.66f99c9e7c0c376c.js": {
+          "source": "docs/report/world/world_map.atlas-runtime.66f99c9e7c0c376c.js",
+          "sha256": "66f99c9e7c0c376c2565143cbcbccebf0f4cd4fe7e48dbcc20134bb82dd3908c",
+          "bytes": 520473,
           "kind": "reviewed-script"
         }
       },
@@ -5793,7 +5793,7 @@
         "09af0d2f699ad51b5906c5e52dd972d940d108fbb4a7a505d9915a5804fec206"
       ],
       "bootstrap_id": "atlas-static-bootstrap",
-      "bootstrap_sha256": "540f67491e9564d7e8bb51eb17918911d690ddf640a374832ae343f9d408f612",
+      "bootstrap_sha256": "e80588ccaa36b4222f08d3f0dcb95865cec4372e889182db6a5538544ec7259f",
       "recipe": {
         "template": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
         "expansions": [
@@ -6068,12 +6068,12 @@
       "output": "public/nordic-atlas/index.html",
       "source": {
         "path": "docs/public/nordic-atlas/index.md",
-        "sha256": "7442273ea24f118a9f6a7e61decf10cc93afb2441fa89201cfb89d54bd2750d8"
+        "sha256": "a6bfaf65956ce7679a4abc147a9716faa69cfe89f90aee81d3c3fa0fd3850575"
       },
       "reports": [
         "report/regions/nordic/nordic_map.html"
       ],
-      "built_html_sha256": "b29b7f716f02c988a4a38e5c47740501f6f73cc0e50059972bc24e283296f195"
+      "built_html_sha256": "bf38e6643928483ca67b4cf6e2ec67a74bc0ca896b126cfed758523616db1a8b"
     }
   ],
   "reader_purpose": {
