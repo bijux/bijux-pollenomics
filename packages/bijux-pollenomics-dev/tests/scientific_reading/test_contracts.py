@@ -15,8 +15,10 @@ from bijux_pollenomics_dev.ci.scientific_reading.contracts import (
     DATA,
     ENTRY,
     PREFIX,
+    PUBLICATION_RECEIPT,
     ROUTES,
     download_records,
+    read_publication_receipt,
     read_regular,
     verify_receipt,
 )
@@ -176,6 +178,26 @@ def test_symbolic_reader_roots_and_members_are_refused(tmp_path: Path) -> None:
     (tmp_path / "root-alias").symlink_to(tmp_path, target_is_directory=True)
     with pytest.raises(ValueError, match="symbolic"):
         read_regular(tmp_path / "root-alias", "body")
+
+
+def test_only_the_publication_receipt_has_the_larger_metadata_budget(
+    tmp_path: Path,
+) -> None:
+    receipt = tmp_path / PUBLICATION_RECEIPT
+    receipt.parent.mkdir(parents=True)
+    payload = b" " * 20_182_989
+    receipt.write_bytes(payload)
+    assert read_publication_receipt(tmp_path) == payload
+    with pytest.raises(ValueError, match="oversized"):
+        read_regular(tmp_path, PUBLICATION_RECEIPT)
+    ordinary = tmp_path / "public.json"
+    ordinary.write_bytes(payload)
+    with pytest.raises(ValueError, match="oversized"):
+        read_regular(tmp_path, "public.json")
+    with receipt.open("wb") as stream:
+        stream.truncate(32 * 1024 * 1024 + 1)
+    with pytest.raises(ValueError, match="oversized"):
+        read_publication_receipt(tmp_path)
 
 
 def test_failed_source_admission_preserves_a_failed_terminal_receipt(

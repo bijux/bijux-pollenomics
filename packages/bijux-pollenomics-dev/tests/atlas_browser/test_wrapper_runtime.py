@@ -469,6 +469,39 @@ def test_meaningful_resource_integrity_remains_enforced(
         assert result == {"bytes": "original raw chunk"}
 
 
+@pytest.mark.parametrize("size", [20_182_989, 32 * 1024 * 1024 + 1])
+def test_wrapper_receipt_metadata_budget_covers_the_qualified_manifest(
+    authority: tuple[Path, Path, dict[str, Any]], size: int
+) -> None:
+    repository, site, _ = authority
+    path = repository / "artifacts/website-security/publication.json"
+    original = path.read_bytes()
+    path.write_bytes(original + b" " * (size - len(original)))
+    result = _node(f"""
+      try{{const value=await wrapper.readWrapperAuthority({json.dumps(str(repository))},{json.dumps(str(site))});console.log(JSON.stringify({{publication:value.publication}}));}}
+      catch(error){{console.log(JSON.stringify({{error:String(error)}}));}}
+    """)
+    if size > 32 * 1024 * 1024:
+        assert "publication receipt exceeds byte budget" in result["error"]
+    else:
+        assert result["publication"]["sha256"] == _sha(path.read_bytes())
+
+
+def test_wrapper_public_resource_budget_stays_at_sixteen_mebibytes(
+    tmp_path: Path,
+) -> None:
+    site = tmp_path / "site"
+    site.mkdir()
+    path = site / "public.json"
+    with path.open("wb") as stream:
+        stream.truncate(16 * 1024 * 1024 + 1)
+    result = _node(f"""
+      try{{await wrapper.readSiteMember({json.dumps(str(site))},'/public.json',new Map());console.log(JSON.stringify({{accepted:true}}));}}
+      catch(error){{console.log(JSON.stringify({{error:String(error)}}));}}
+    """)
+    assert "oversized" in result["error"]
+
+
 def test_site_path_and_symlink_escape_refuse(tmp_path: Path) -> None:
     site = tmp_path / "site"
     site.mkdir()

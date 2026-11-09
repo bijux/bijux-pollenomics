@@ -2,13 +2,15 @@
 import {execFileSync, spawn} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {mkdir, mkdtemp, readFile, realpath, rm, stat, writeFile} from 'node:fs/promises';
-import {extname, join, relative, resolve} from 'node:path';
+import {delimiter, extname, join, relative, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {connectCdp, debuggerEndpoint, evaluate} from './browser-transport.mjs';
 import {providerInterception, verifyProviderFailureMatrix} from './provider-failures.mjs';
 
 const moduleDirectory = fileURLToPath(new URL('.', import.meta.url));
 const ownerPath = 'configs/docs/maps/report-owner.json';
+const publicationOwnerPath = 'configs/docs/publication/admission.py';
+const publicationReceiptLimit = 32 * 1024 * 1024;
 const productionSite = 'https://bijux.io/bijux-pollenomics/';
 export const parentOutput = 'public/nordic-atlas/index.html';
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -19,7 +21,7 @@ async function readPublication(repository, site) {
   // A serialized inventory supplies expected bytes, never publication authority.
   const checkpointRaw = await readFile(join(repository, 'artifacts/website-security/source-identity.json'));
   const publicationRaw = await readFile(join(repository, 'artifacts/website-security/publication.json'));
-  if (checkpointRaw.length > 16777216 || publicationRaw.length > 16777216) throw Error('publication receipt exceeds byte budget');
+  if (checkpointRaw.length > 16777216 || publicationRaw.length > publicationReceiptLimit) throw Error('publication receipt exceeds byte budget');
   const checkpoint = JSON.parse(checkpointRaw), publication = JSON.parse(publicationRaw);
   const source = publication.qualification?.source;
   const standard = (await readFile(join(repository, '.github/standards/bijux-docs.sha'), 'utf8')).trim();
@@ -150,19 +152,96 @@ function evidenceIdentity(snapshot) {
     'visible_governed_candidate_count', 'scientific_posture'].map(key => [key, snapshot[key]]));
 }
 
+export async function verifyPublication(repository, {timeoutMs=900000, maxOutputBytes=16777216, signal}={}) {
+  if (!Number.isInteger(timeoutMs) || timeoutMs <= 0 || timeoutMs > 900000
+      || !Number.isInteger(maxOutputBytes) || maxOutputBytes <= 0 || maxOutputBytes > 16777216) throw Error('publication verification bounds are invalid');
+  if (process.platform === 'win32') throw Error('publication verification requires owned POSIX process groups');
+  if (signal !== undefined && !(signal instanceof AbortSignal)) throw Error('publication cancellation signal is invalid');
+  if (signal?.aborted) throw Error('publication verification cancelled before launch');
+  repository = resolve(repository);
+  const command = [join(repository,'artifacts/docs/publication/python/bin/python'), '-B', join(repository,publicationOwnerPath), 'verify'];
+  const environment={...process.env,PYTHONDONTWRITEBYTECODE:'1',PYTHONNOUSERSITE:'1',
+    PYTHONPATH:['bijux-pollenomics','bijux-pollenomics-dev','bijux-pollenomics-lra','pollenomics'].map(name=>join(repository,'packages',name,'src')).join(delimiter)};
+  delete environment.PYTHONHOME;
+  const started = performance.now(), stdout = [], stderr = [];
+  let reason=null, spawnFailure=null, captured=0, observed=0, forceTimer;
+  const child = spawn(command[0],command.slice(1),{cwd:repository,env:environment,detached:true,stdio:['ignore','pipe','pipe']});
+  const groupExists = () => {
+    if (!child.pid) return false;
+    try {process.kill(-child.pid,0);return true;} catch(error) {if(error.code==='ESRCH')return false;throw error;}
+  };
+  const send = value => {
+    if (!child.pid) return;
+    try {process.kill(-child.pid,value);} catch(error) {if(error.code!=='ESRCH')spawnFailure ??= error;}
+  };
+  const stop = why => {
+    reason ??= why;
+    send('SIGTERM');
+    forceTimer ??= setTimeout(()=>send('SIGKILL'),250);
+  };
+  const capture = (parts, chunk) => {
+    observed += chunk.length;
+    const kept=chunk.subarray(0,Math.max(0,maxOutputBytes-captured));
+    if(kept.length){parts.push(kept);captured+=kept.length;}
+    if(observed>maxOutputBytes)stop('output byte limit exceeded');
+  };
+  child.stdout.on('data',chunk=>capture(stdout,chunk));
+  child.stderr.on('data',chunk=>capture(stderr,chunk));
+  child.on('error',error=>{spawnFailure=error;});
+  const closed = new Promise(accept=>child.once('close',(code,exitSignal)=>accept({code,signal:exitSignal})));
+  const cancel = () => stop('cancelled');
+  process.on('SIGTERM',cancel);process.on('SIGINT',cancel);
+  signal?.addEventListener('abort',cancel,{once:true});
+  const timer=setTimeout(()=>stop('deadline exceeded'),timeoutMs);
+  if(signal?.aborted)cancel();
+  let exit;
+  try {
+    exit=await closed;
+    if(groupExists()) {
+      stop(reason ?? 'verifier left surviving descendants');
+      await new Promise(accept=>setTimeout(accept,250));
+      send('SIGKILL');
+      const deadline=performance.now()+1000;
+      while(groupExists() && performance.now()<deadline)await new Promise(accept=>setTimeout(accept,20));
+      if(groupExists())spawnFailure ??= Error('verification process group did not close');
+    }
+  } finally {
+    clearTimeout(timer);clearTimeout(forceTimer);
+    signal?.removeEventListener('abort',cancel);
+    process.removeListener('SIGTERM',cancel);process.removeListener('SIGINT',cancel);
+  }
+  const completed={command,returncode:exit.code,signal:exit.signal,duration_seconds:(performance.now()-started)/1000,
+    timeout_seconds:timeoutMs/1000,max_output_bytes:maxOutputBytes,captured_output_bytes:captured,
+    observed_output_bytes:observed,reason,process_group_closed:!groupExists(),stdout:Buffer.concat(stdout),stderr:Buffer.concat(stderr)};
+  if(reason || spawnFailure || exit.code!==0) {
+    const error=Error(`owning publication verification refused: ${reason ?? spawnFailure?.message ?? 'exit '+exit.code}`);
+    error.verification=completed;
+    throw error;
+  }
+  return completed;
+}
+
+async function savePublicationVerification(output, completed) {
+  const {stdout,stderr,...summary}=completed;
+  await writeFile(join(output,'publication-verification.stdout.log'),stdout);
+  await writeFile(join(output,'publication-verification.stderr.log'),stderr);
+  await writeFile(join(output,'publication-verification.json'),JSON.stringify(summary,null,2)+'\n');
+}
+
 export async function runWrapper({repository, site, output, browserBinary}) {
   repository = resolve(repository); site = resolve(site); output = resolve(output);
   if (!relative(join(repository, 'artifacts'), output) || relative(join(repository, 'artifacts'), output).startsWith('..')) throw Error('output must be a child of repository artifacts');
-  execFileSync(join(repository, 'artifacts/docs/publication/python/bin/python'),
-    [join(repository, '.bijux/shared/bijux-docs/security/publication.py'), '--repo-root', repository, 'verify',
-      '--manifest', join(repository, 'artifacts/website-security/publication.json'), '--require-qualified'],
-    {cwd:repository, timeout:180000, maxBuffer:16777216});
+  const verifierPaths=[publicationOwnerPath,'configs/docs/publication/downloads.json',
+    ...['wrapper-runtime.mjs','browser-transport.mjs','provider-failures.mjs'].map(name=>relative(repository,join(moduleDirectory,name)))];
+  const revision=requireScopedCandidate(repository,verifierPaths);
+  await mkdir(output,{recursive:false});
+  try {await savePublicationVerification(output,await verifyPublication(repository));}
+  catch(error) {if(error.verification)await savePublicationVerification(output,error.verification);throw error;}
   const authority = await readWrapperAuthority(repository, site);
   const paths = [ownerPath, authority.parent.source.path, authority.report.source.path,
     ...Object.values(authority.report.resources).map(row => row.source),
-    ...['wrapper-runtime.mjs', 'browser-transport.mjs', 'provider-failures.mjs'].map(name => relative(repository, join(moduleDirectory, name)))];
-  const revision = requireScopedCandidate(repository, paths);
-  await mkdir(output, {recursive: false});
+    ...verifierPaths];
+  requireScopedCandidate(repository,paths,revision);
   const requests = [], serverErrors = [], externalRefusals = [], browserLog = [];
   let browser, closed, profile, outcome, failure;
   try {

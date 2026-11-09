@@ -23,6 +23,8 @@ DATA = tuple(
     for name in ("input-manifest.json", "coverage.csv", "scores.csv")
 )
 LIMIT = 16 * 1024 * 1024
+PUBLICATION_RECEIPT = "artifacts/website-security/publication.json"
+PUBLICATION_RECEIPT_LIMIT = 32 * 1024 * 1024
 
 
 def require(condition: object, message: str) -> None:
@@ -33,6 +35,15 @@ def require(condition: object, message: str) -> None:
 
 def read_regular(root: Path, relative: str) -> bytes:
     """Read a bounded regular file without traversing symbolic source paths."""
+    return _read_regular(root, relative, LIMIT)
+
+
+def read_publication_receipt(root: Path) -> bytes:
+    """Bound full qualification evidence separately from served/source files."""
+    return _read_regular(root, PUBLICATION_RECEIPT, PUBLICATION_RECEIPT_LIMIT)
+
+
+def _read_regular(root: Path, relative: str, maximum: int) -> bytes:
     require(
         root.is_dir() and not root.is_symlink(), "reader root is missing or symbolic"
     )
@@ -50,7 +61,7 @@ def read_regular(root: Path, relative: str) -> bytes:
         current /= part
         require(not current.is_symlink(), "reader path is symbolic")
     require(
-        current.is_file() and current.stat().st_size <= LIMIT,
+        current.is_file() and current.stat().st_size <= maximum,
         "reader file missing or oversized",
     )
     return current.read_bytes()
