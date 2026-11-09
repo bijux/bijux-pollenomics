@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Require boolean values for propagation event admission flags while preserving existing defaults, refusals and valid-input report results ([#391](https://github.com/bijux/bijux-pollenomics/pull/391)).
+
 - Bind propagation estimator receipts to full event evaluation identity and refresh synthetic receipt lineage without changing numerical results ([#390](https://github.com/bijux/bijux-pollenomics/pull/390)).
 
 - Reduce repeated atlas search restoration checks and store validated postings in compact immutable snapshots while preserving live budgets, substring results and publication bindings ([#389](https://github.com/bijux/bijux-pollenomics/pull/389)).

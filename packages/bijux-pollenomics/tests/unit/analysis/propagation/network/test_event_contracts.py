@@ -6,7 +6,12 @@ from dataclasses import replace
 
 import pytest
 
-from bijux_pollenomics.analysis.propagation.network import EventValidationError
+from bijux_pollenomics.analysis.propagation.network import (
+    EventValidationError,
+    PropagationCandidate,
+    PropagationPairRefusal,
+    evaluate_propagation_pair,
+)
 from bijux_pollenomics.analysis.propagation.network.codec import _event_manifest_digest
 
 from .support import event
@@ -47,3 +52,68 @@ def test_invalid_or_presentation_level_events_are_refused(
         event("invalid", **overrides)  # type: ignore[arg-type]
 
     assert refusal.value.reason_code == "invalid_event_schema"
+
+
+@pytest.mark.parametrize("field", ("preaggregation_valid", "role_membership_explicit"))
+@pytest.mark.parametrize("value", ("false", "true", 0, 1, None, [], {}, [False]))
+@pytest.mark.parametrize("role", (False, True))
+def test_nonboolean_admission_flags_are_refused(
+    field: str, value: object, role: bool
+) -> None:
+    template = (
+        event("flags", resolution="ecological_role", feature_key="role:crop")
+        if role
+        else event("flags")
+    )
+    with pytest.raises(
+        EventValidationError, match=f"{field} must be a boolean"
+    ) as error:
+        if field == "preaggregation_valid":
+            replace(template, preaggregation_valid=value)  # type: ignore[arg-type]
+        else:
+            replace(template, role_membership_explicit=value)  # type: ignore[arg-type]
+    assert error.value.reason_code == "invalid_event_schema"
+
+
+def test_valid_boolean_flags_preserve_publication_and_pair_refusal() -> None:
+    baseline = event("source")
+    explicit = replace(
+        baseline, preaggregation_valid=True, role_membership_explicit=False
+    )
+    assert explicit == baseline
+    assert baseline.preaggregation_valid is True
+    assert baseline.role_membership_explicit is False
+    invalid_preaggregation = replace(baseline, preaggregation_valid=False)
+    assert invalid_preaggregation.preaggregation_valid is False
+    assert invalid_preaggregation.event_id == baseline.event_id
+    assert invalid_preaggregation.as_dict() == baseline.as_dict()
+    assert _event_manifest_digest((invalid_preaggregation,)) != _event_manifest_digest(
+        (baseline,)
+    )
+    target = event("target", younger_bp=5500, older_bp=5500)
+    accepted = evaluate_propagation_pair(baseline, target)
+    refused = evaluate_propagation_pair(invalid_preaggregation, target)
+    assert isinstance(accepted, PropagationCandidate)
+    assert accepted.candidate_status == "definite_candidate"
+    assert isinstance(refused, PropagationPairRefusal)
+    assert refused.reason_code == "invalid_preaggregation"
+
+
+def test_ecological_role_still_requires_explicit_true_membership() -> None:
+    source = event("source", resolution="ecological_role", feature_key="role:crop")
+    target = event(
+        "target",
+        resolution="ecological_role",
+        feature_key="role:crop",
+        younger_bp=5500,
+        older_bp=5500,
+    )
+    assert source.role_membership_explicit is True
+    with pytest.raises(
+        EventValidationError, match="membership must be explicit"
+    ) as error:
+        replace(source, role_membership_explicit=False)
+    assert error.value.reason_code == "invalid_event_schema"
+    accepted = evaluate_propagation_pair(source, target)
+    assert isinstance(accepted, PropagationCandidate)
+    assert accepted.candidate_status == "definite_candidate"
