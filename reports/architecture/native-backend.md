@@ -146,3 +146,37 @@ decision stands.
 Complete API outputs and receipts are retained through the existing
 scientific-artifact recovery owner, keyed by logical path
 `artifacts/verification/love-optimizer-search/run/`.
+
+## Unprofiled objective boundary in the full search
+
+At source `2de02934d88803640396e3dd5f441e53d219925c`, the same full-search
+workload and runtime were measured around `optimized.tf` only. Three fresh
+workers each saved one warmup and nine measured calls: three unwrapped
+baselines, three no-clock passthroughs and three clocked calls, in balanced
+orders. Complete outputs were written after timing; the original function was
+restored after every call.
+
+The existing rule subtracts empty-clock cost and worst passthrough spread from
+the minimum inside time, then divides by the maximum baseline time.
+Instrumentation overhead uses the instrumented and baseline medians. Every
+worker must reach at least 50% conservative share with at most 5% overhead;
+averaging workers or selecting the best observation cannot qualify it.
+
+| Worker | Conservative objective share | Instrumentation overhead |
+| --- | ---: | ---: |
+| 1 | 54.5094% | 1.4335% |
+| 2 | 55.5239% | 0.6323% |
+| 3 | 58.2293% | 0.7006% |
+
+All workers passed. Independent review checked all 30,480 saved CSV cells,
+including 11,160 missing values, and 240 solver diagnostics against the
+original search reference. All outputs matched; six undefined requested rings
+and the geometry warning remain. The aggregate took 60.6836 s, peak observed
+RSS was 177,635,328 bytes and counted output was 1,189,204 bytes, within the
+unchanged resource limits; source/index/input guards passed.
+
+This unprofiled result qualifies bounded objective-kernel investigation only.
+It establishes no C++ benefit, global-optimum quality, source-R parity or field
+admission. Production remains Python. The original search evidence is
+unchanged; complete boundary outputs and receipts use the existing recovery
+owner under `artifacts/verification/love-objective-boundary-cost/run/`.
