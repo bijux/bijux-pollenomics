@@ -129,17 +129,32 @@ def observe(data: dict[str, Any]) -> dict[str, Any]:
             + assets.joinpath("search-index.js").read_text()
             + r"""
 (async()=>{try{
+ let gramCalls=0;const originalGrams=atlasSearchGrams;
+ atlasSearchGrams=(...args)=>{gramCalls++;return originalGrams(...args)};
  const row={asset_key:'indexes:6',domain:'indexes',record_count:13};
  const decoded=await staticAtlasIndexTransport.consume(row,data.bundle,[row]);
+ const decodeGramCalls=gramCalls;
  const original=data.expected.text_search_index;
  const expectedKeys=Object.keys(original),actualKeys=Object.keys(decoded.text_search_index);
  const same=JSON.stringify(actualKeys)===JSON.stringify(expectedKeys)&&expectedKeys.every(key=>Array.isArray(original[key])?JSON.stringify(decoded.text_search_index[key])===JSON.stringify(original[key]):Object.keys(original[key]).every(field=>JSON.stringify(decoded.text_search_index[key][field])===JSON.stringify(original[key][field])));
- const published=atlasPublishedSearch(decoded,[{layer_kind:'point',layer_index:0,feature_count:13,layer:{key:'pollen'}}]);
+ const metadata=[{layer_kind:'point',layer_index:0,feature_count:13,layer:{key:'pollen'}}];
+ let layerRefused=false;try{atlasPublishedSearch(decoded,[{...metadata[0],feature_count:12}])}catch{layerRefused=true}
+ const frozen=Object.isFrozen(decoded.text_search_index)&&Object.values(decoded.text_search_index).every(Object.isFrozen);
+ // A copied object and a public claim of validation cannot borrow the private cache.
+ const foreign=JSON.parse(JSON.stringify(decoded));foreign.validated=true;
+ delete foreign.text_search_index[Object.keys(foreign.text_search_index).find(key=>key.startsWith('p:'))];
+ const restoredRows=decoded.text_search_index;decoded.text_search_index=foreign.text_search_index;
+ let reboundRefused=false;try{atlasPublishedSearch(decoded,metadata)}catch{reboundRefused=true}
+ decoded.text_search_index=restoredRows;
+ const beforePublishCalls=gramCalls;
+ const published=atlasPublishedSearch(decoded,metadata);
+ const publishAdditionalGramCalls=gramCalls-beforePublishCalls;
+ let missingRefused=false;try{atlasPublishedSearch(foreign,metadata)}catch{missingRefused=true}
  const visible=new Map(Object.entries(original).filter(([key])=>key.startsWith('d:')).reverse().map(([key,row],order)=>[key,{order,text:row.text,entry:{key}}]));
  const state={published,visible,fallback:[]};
  const queries=['a','ab','abc','💠','\ud83d','\udc00','a\u0308','.(a)','same','𐐨','absent'];
  const answers=queries.every(query=>JSON.stringify(atlasLookupSearch(state,query).map(row=>row.key))===JSON.stringify([...visible.values()].filter(row=>row.text.includes(query)).slice(0,12).map(row=>row.entry.key)));
- console.log(JSON.stringify({same,answers,keys:actualKeys.filter(key=>key.startsWith('d:')),transportMetadata:Object.hasOwn(decoded,'search_transport_schema')||Object.hasOwn(decoded,'search_transport_counts')}));
+ console.log(JSON.stringify({same,answers,decodeGramCalls,publishAdditionalGramCalls,frozen,layerRefused,missingRefused,reboundRefused,keys:actualKeys.filter(key=>key.startsWith('d:')),transportMetadata:Object.hasOwn(decoded,'search_transport_schema')||Object.hasOwn(decoded,'search_transport_counts')}));
 }catch(error){console.log(JSON.stringify({refusal:error.message}))}})();
 """
         ),
@@ -153,6 +168,12 @@ def test_document_codec_preserves_exact_map_and_literal_query_order(mode: str) -
     assert observed["same"] is True
     assert observed["answers"] is True
     assert observed["transportMetadata"] is False
+    assert observed["decodeGramCalls"] == 13
+    assert observed["publishAdditionalGramCalls"] == 0
+    assert observed["frozen"] is True
+    assert observed["layerRefused"] is True
+    assert observed["missingRefused"] is True
+    assert observed["reboundRefused"] is True
     assert observed["keys"].index("d:0:10") < observed["keys"].index("d:0:2")
 
 
