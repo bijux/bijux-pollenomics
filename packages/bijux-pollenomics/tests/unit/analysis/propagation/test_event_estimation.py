@@ -375,3 +375,115 @@ def test_template_receipts_distinguish_actual_pair_admission(
     assert accepted.candidate_status == "definite_candidate"
     assert isinstance(rejected, PropagationPairRefusal)
     assert rejected.reason_code == refusal
+
+
+@pytest.mark.parametrize(
+    "profile",
+    (
+        "reported_positive_v1",
+        "count_ge_3_v1",
+        "percentage_ge_1_v1",
+        "two_consecutive_positive_v1",
+    ),
+)
+@pytest.mark.parametrize("identity_field", ("observation_id", "source_record_id"))
+def test_canonical_identity_alias_refuses_the_entire_sample_sequence(
+    profile: str, identity_field: str
+) -> None:
+    samples = list(_samples())
+    if profile == "percentage_ge_1_v1":
+        samples = [
+            replace(
+                row,
+                measure_kind="percentage",
+                source_unit="percent",
+                percentage_denominator=100,
+            )
+            for row in samples
+        ]
+    duplicate = " \t" + getattr(samples[1], identity_field) + "\n"
+    samples[2] = replace(samples[2], **{identity_field: duplicate})
+    result = estimate_first_observed(
+        samples, event_template=event("template"), threshold_profile_id=profile
+    )
+    assert result.reason_code == "ambiguous_sample_order"
+    assert result.event is None
+    assert result.input_sample_count == 4
+    assert result.ordered_observation_ids == tuple(
+        row.observation_id for row in samples
+    )
+    assert result.supporting_observation_ids == ()
+    assert getattr(samples[2], identity_field) == getattr(samples[1], identity_field)
+
+
+@pytest.mark.parametrize(
+    "profile",
+    (
+        "reported_positive_v1",
+        "count_ge_3_v1",
+        "percentage_ge_1_v1",
+        "two_consecutive_positive_v1",
+    ),
+)
+def test_distinct_padded_sample_identities_preserve_the_canonical_result(
+    profile: str,
+) -> None:
+    samples = _samples()
+    if profile == "percentage_ge_1_v1":
+        samples = tuple(
+            replace(
+                row,
+                measure_kind="percentage",
+                source_unit="percent",
+                percentage_denominator=100,
+            )
+            for row in samples
+        )
+    padded = tuple(
+        replace(
+            row,
+            observation_id=" \t" + row.observation_id + "\n",
+            source_record_id="\n" + row.source_record_id + " ",
+        )
+        for row in samples
+    )
+    expected = estimate_first_observed(
+        samples, event_template=event("template"), threshold_profile_id=profile
+    )
+    actual = estimate_first_observed(
+        tuple(reversed(padded)),
+        event_template=event("template"),
+        threshold_profile_id=profile,
+    )
+    assert actual == expected
+    assert actual.event is not None
+    assert actual.event.source_record_id in {row.source_record_id for row in samples}
+    assert actual.event.observation_ids == actual.supporting_observation_ids
+    assert padded == samples
+
+
+@pytest.mark.parametrize("identity_field", ("observation_id", "source_record_id"))
+def test_sample_identity_rejects_blank_and_preserves_literal_internal_text(
+    identity_field: str,
+) -> None:
+    sample = _samples()[0]
+    with pytest.raises(ValueError, match="nonempty"):
+        replace(
+            sample,
+            observation_id=" \t\n"
+            if identity_field == "observation_id"
+            else sample.observation_id,
+            source_record_id=" \t\n"
+            if identity_field == "source_record_id"
+            else sample.source_record_id,
+        )
+    row = replace(
+        sample,
+        observation_id="  Sample : Ä  "
+        if identity_field == "observation_id"
+        else sample.observation_id,
+        source_record_id="  Sample : Ä  "
+        if identity_field == "source_record_id"
+        else sample.source_record_id,
+    )
+    assert getattr(row, identity_field) == "Sample : Ä"
