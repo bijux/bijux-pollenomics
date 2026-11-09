@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Bind LegacyAge report consumers to the reviewed expanded custody receipt while preserving exact selected tables and scientific limits ([#381](https://github.com/bijux/bijux-pollenomics/pull/381)).
+
 - Bind qualified ABBO report execution to compact source guards and exact external inputs while preserving historical custody and scientific admission limits ([#380](https://github.com/bijux/bijux-pollenomics/pull/380)).
 
 - Keep visible navigation warnings separated from their labels in both text orientations while preserving accessible notices and ordinary inline spacing ([#379](https://github.com/bijux/bijux-pollenomics/pull/379)).

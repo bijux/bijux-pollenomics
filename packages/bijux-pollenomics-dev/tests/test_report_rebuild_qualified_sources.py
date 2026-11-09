@@ -255,3 +255,42 @@ def test_repository_descriptor_cannot_replace_external_input_label(
     _write(repository / path, descriptor)
     with pytest.raises(ReportRebuildError, match="overlaps external input namespace"):
         validated_external_report_sources(repository, store, path)
+
+
+def test_reviewed_receipt_growth_preserves_the_selected_read_set(
+    packet: tuple[Path, Path, dict[str, Any]],
+) -> None:
+    repository, store, descriptor = packet
+    receipt_path = store / SOURCE_ID / "source-manifest.json"
+    original = receipt_path.read_bytes()
+    selected_before = validated_external_report_sources(repository, store, DESCRIPTOR)
+    receipt = json.loads(original)
+    # An added capture is not a declared producer input or a required local file.
+    receipt["files"].append(
+        {
+            "file": "other-cohort.csv",
+            "sha256": "a" * 64,
+            "http_status": 200,
+            "http": {"content-length": "123"},
+            "url": "https://example.org/other-cohort.csv",
+        }
+    )
+    _write(receipt_path, receipt)
+    reviewed = receipt_path.read_bytes()
+    with pytest.raises(ReportRebuildError, match="bytes differ"):
+        validated_external_report_sources(repository, store, DESCRIPTOR)
+
+    descriptor["custody"] = _spec(receipt_path)
+    _write(repository / DESCRIPTOR, descriptor)
+    selected_after = validated_external_report_sources(repository, store, DESCRIPTOR)
+    assert selected_after.inputs == selected_before.inputs
+    assert not (store / SOURCE_ID / "other-cohort.csv").exists()
+    assert descriptor["files"] == [_spec(store / SOURCE_ID / "depths.csv")]
+
+    # The reviewed descriptor refuses both the older receipt and later drift.
+    receipt_path.write_bytes(original)
+    with pytest.raises(ReportRebuildError, match="bytes differ"):
+        validated_external_report_sources(repository, store, DESCRIPTOR)
+    receipt_path.write_bytes(reviewed + b"\n")
+    with pytest.raises(ReportRebuildError, match="bytes differ"):
+        validated_external_report_sources(repository, store, DESCRIPTOR)
