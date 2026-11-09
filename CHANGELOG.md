@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Focus geodesic report source declarations on maintained producers while retaining complete-repository and exact-input replay guards ([#395](https://github.com/bijux/bijux-pollenomics/pull/395)).
+
 - Normalize governed sample identities before first-observed duplicate and persistence checks so whitespace aliases cannot supply independent support ([#394](https://github.com/bijux/bijux-pollenomics/pull/394)).
 
 - Retire historical cross-border and keyboard-navigation atlas capture reports while preserving active consumers and accepted Git evidence ([#393](https://github.com/bijux/bijux-pollenomics/pull/393)).
