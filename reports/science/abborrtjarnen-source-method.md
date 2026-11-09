@@ -36,8 +36,7 @@ published age model. The LegacyAge mean differs from the Neotoma point age by
 95% range. These comparisons support a new age-aware sensitivity study, not
 the age vector used in the 2005 paper, the Rootsi workbook or LandClim.
 
-We ran that separate [interval-contained observed-pollen sensitivity]
-(../../docs/report/pollen-reconstruction/age-interval-sensitivity/README.md)
+We ran that separate [interval-contained observed-pollen sensitivity](../../docs/report/pollen-reconstruction/age-interval-sensitivity/README.md)
 on the previously exposed three-site Swedish development cohort. Eight ABBO
 samples have their entire reported LegacyAge 95% range within one of four
 shared 500-year bins. Four fixed methods scored the same 12 site-bin targets
