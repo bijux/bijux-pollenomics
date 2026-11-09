@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Keep Chromium IPC paths within Unix socket limits, clean private browser runtime directories and probe startup before scientific site builds ([#375](https://github.com/bijux/bijux-pollenomics/pull/375)).
+
 - Record the qualified ABBO age-control report replay and its tested local noncommercial reproduction route while preserving historical-source and LRA limits ([#374](https://github.com/bijux/bijux-pollenomics/pull/374)).
 
 - Bind Nordic reading checks to the finite publication policy, bound verifier process groups and separate full qualification receipts from public resource limits ([#373](https://github.com/bijux/bijux-pollenomics/pull/373)).
