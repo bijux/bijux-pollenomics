@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from typing import NotRequired, TypedDict
 import warnings
 
@@ -73,6 +73,17 @@ def love_pollen(
     local_k = np.atleast_2d(np.asarray(mKlocal, dtype=float))
     local_fraction = vector(vFlocal, "vFlocal", finite=False)
     productivity = vector(ppes, "ppes", positive=True)
+    return _love_pollen_arrays(cover, regional, local_k, local_fraction, productivity)
+
+
+def _love_pollen_arrays(
+    cover: np.ndarray,
+    regional: np.ndarray,
+    local_k: np.ndarray,
+    local_fraction: np.ndarray,
+    productivity: np.ndarray,
+) -> np.ndarray:
+    """Keep the source arithmetic shared after caller-specific validation."""
     if (
         local_k.shape != (len(local_fraction), len(cover))
         or regional.shape != cover.shape
@@ -105,6 +116,41 @@ def tf(
     _reject_masked_values(vSampleLocPro, "vSampleLocPro")
     observed = np.asarray(vSampleLocPro, dtype=float) + 0.001
     return logeuclidean(predicted, observed)
+
+
+def _prepare_objective(
+    vPoldepRegio: object,
+    mKlocal: object,
+    vFlocal: object,
+    vSampleLocPro: object,
+    ppes: object,
+) -> Callable[[np.ndarray], float]:
+    """Own immutable search invariants without revalidating them per candidate."""
+    regional = vector(vPoldepRegio, "vPoldepRegio", finite=False).copy(order="K")
+    _reject_masked_values(mKlocal, "mKlocal")
+    local_k = np.atleast_2d(np.asarray(mKlocal, dtype=float)).copy(order="K")
+    local_fraction = vector(vFlocal, "vFlocal", finite=False).copy(order="K")
+    productivity = vector(ppes, "ppes", positive=True).copy(order="K")
+    if (
+        local_k.shape != (len(local_fraction), len(productivity))
+        or regional.shape != productivity.shape
+    ):
+        raise ValidationError("LOVE forward-model dimensions disagree")
+    _reject_masked_values(vSampleLocPro, "vSampleLocPro")
+    observed = vector(np.asarray(vSampleLocPro, dtype=float) + 0.001, "b", finite=False)
+    if observed.shape != productivity.shape:
+        raise ValidationError("logeuclidean vectors must have equal dimensions")
+    for invariant in (regional, local_k, local_fraction, productivity, observed):
+        invariant.setflags(write=False)
+
+    def objective(candidate: np.ndarray) -> float:
+        cover = vector(candidate, "a", nonnegative=True)
+        predicted = _love_pollen_arrays(
+            cover, regional, local_k, local_fraction, productivity
+        )
+        return logeuclidean(predicted, observed)
+
+    return objective
 
 
 def calK(
@@ -288,21 +334,9 @@ def LOVEoptim(
             )
             local_k = k_matrix[: ring_index + 1]
 
-            def objective(
-                candidate: np.ndarray,
-                regional_deposition: np.ndarray = regional_deposition,
-                local_k: np.ndarray = local_k,
-                local_fraction: np.ndarray = local_fraction,
-                observed: np.ndarray = observed,
-            ) -> float:
-                return tf(
-                    candidate,
-                    regional_deposition,
-                    local_k,
-                    local_fraction,
-                    observed,
-                    nominal_ppe,
-                )
+            objective = _prepare_objective(
+                regional_deposition, local_k, local_fraction, observed, nominal_ppe
+            )
 
             optimization_result = optimize_box(
                 objective,
