@@ -701,13 +701,51 @@ Sweden & ABB/ABBO, BUS and BOKE: one jointly qualified core/window packet, inclu
 \evidence{docs/report/vegetation-reference/pyrenees-botanical-projection/README.md; docs/report/vegetation-reference/pyrenees-botanical-projection/source-account.json}
 \end{frame}
 
-\begin{frame}{Synthetic coverage diagnoses a declared model}
-\small
-\begin{itemize}
-\item Six-site, ten-taxon experiments retain 3,000 multinomial replicates across three declared cases. Their 30,000 marginal intervals and 60,000 scalar checks are repeated simulations.
-\item One uniform case has taxon coverage between 93.4\% and 96.3\%. The rare-Alnus case retains 427/1,000 intervals covering truth and 525 zero standard errors.
-\item Deliberately multiplying the Alnus transport coefficient by 1.5 retains 0/1,000 covering intervals and a mean bias of $-0.0309513$.
-\end{itemize}
+\begin{frame}{Synthetic coverage: rare counts and transport mismatch}
+\small Observed Alnus marginal normal-interval frequencies: 1,000 draws per case.
+\medskip
+\begin{columns}[T,onlytextwidth]
+\begin{column}{0.59\textwidth}
+\begin{tikzpicture}
+\begin{axis}[
+  scale only axis,width=5.2cm,height=2.9cm,
+  xmin=0,xmax=100,ymin=0.5,ymax=3.65,
+  xtick={0,25,50,75,100},ytick={1,2,3},
+  yticklabels={Transport $\times1.5$,Rare Alnus,Uniform matched},
+  tick label style={font=\scriptsize},
+  xlabel={Intervals containing Alnus truth (\%)},
+  xlabel style={font=\footnotesize},
+  axis x line*=bottom,axis y line*=left,
+  xmajorgrids,grid style={gray!20},bar width=14pt,
+]
+\addplot[xbar,fill=teal!75!black,draw=none] coordinates {(95.6,3)};
+\addplot[xbar,fill=orange!65!black,draw=none] coordinates {(42.7,2)};
+\addplot[only marks,mark=square*,mark size=3pt,color=red!75!black] coordinates {(0,1)};
+\draw[densely dashed,black!75] (axis cs:95,0.6) -- (axis cs:95,3.25);
+\node[anchor=south east,font=\scriptsize] at (axis cs:95,3.25) {Nominal 95\% reference};
+\node[anchor=east,font=\scriptsize\bfseries,text=white] at (axis cs:93,3) {956/1,000};
+\node[anchor=west,font=\scriptsize\bfseries,text=white] at (axis cs:2,2) {427/1,000};
+\node[anchor=west,font=\scriptsize\bfseries] at (axis cs:2,1) {0/1,000};
+\end{axis}
+\end{tikzpicture}
+\end{column}
+\begin{column}{0.38\textwidth}
+\footnotesize
+\textbf{Uniform truth 0.1, matched}\par
+Across-taxon range: 93.4--96.3\%.
+\medskip
+
+\textbf{Rare truth 0.00001, matched}\par
+525/1,000 zero-SE draws; all retained.
+\medskip
+
+\textbf{Uniform truth 0.1; mismatch}\par
+Assumed Alnus deposition $\times1.5$.
+Mean bias $-0.0309513$ vegetation fraction.
+\end{column}
+\end{columns}
+{\scriptsize Six fixed sites, ten taxa; 3,000 repeated six-site replicates,
+30,000 marginal intervals and 60,000 independent scalar cover/variance comparisons.}
 \scope{These conditional synthetic diagnostics do not certify general interval coverage, biological sources or field accuracy. The rare-count and mismatched-law failures remain part of the result.}
 \evidence{docs/report/synthetic-validation/recovery-evidence/README.md}
 \end{frame}
