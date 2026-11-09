@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {mkdir, mkdtemp, readFile, realpath, rm, stat, writeFile} from 'node:fs/promises';
 import {delimiter, extname, join, relative, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {connectCdp, debuggerEndpoint, evaluate} from './browser-transport.mjs';
+import {connectCdp, debuggerEndpoint, evaluate, launchChromium} from './browser-transport.mjs';
 import {providerInterception, verifyProviderFailureMatrix} from './provider-failures.mjs';
 
 const moduleDirectory = fileURLToPath(new URL('.', import.meta.url));
@@ -243,11 +243,11 @@ export async function runWrapper({repository, site, output, browserBinary}) {
     ...verifierPaths];
   requireScopedCandidate(repository,paths,revision);
   const requests = [], serverErrors = [], externalRefusals = [], browserLog = [];
-  let browser, closed, profile, outcome, failure;
+  let browser, runtime, profile, outcome, failure;
   try {
-    profile = await mkdtemp(join(output, 'browser-profile-'));
-    browser = spawn(browserBinary, ['--headless=new', '--disable-gpu', '--disable-background-networking', '--disable-component-update', '--disable-default-apps', '--no-default-browser-check', '--no-first-run', '--remote-allow-origins=*', '--remote-debugging-port=0', `--user-data-dir=${profile}`, 'about:blank'], {stdio:['ignore','pipe','pipe']});
-    closed = new Promise(accept => browser.once('close', (code, signal) => accept({code, signal})));
+    profile = await mkdtemp(join(output,'browser-profile-'));
+    runtime = await launchChromium(browserBinary, profile);
+    browser = runtime.browser;
     browser.stdout.on('data', value => browserLog.push(value.toString()));
     browser.stderr.on('data', value => browserLog.push(value.toString()));
     const endpoint = await debuggerEndpoint(browser, 15000);
@@ -326,11 +326,7 @@ export async function runWrapper({repository, site, output, browserBinary}) {
     if (result.scenarios.length !== 10 || result.scenarios.some(row=>!Object.values(row.assertions).every(value=>value===true)) || serverErrors.length || externalRefusals.length) throw Error('actual wrapper matrix did not qualify');
   } catch(error) {failure=error;}
   finally {
-    if (browser && browser.exitCode === null && browser.signalCode === null) browser.kill('SIGTERM');
-    if (closed) {
-      let timer; const stopped=await Promise.race([closed.then(()=>true),new Promise(accept=>{timer=setTimeout(()=>accept(false),5000);})]); clearTimeout(timer);
-      if (!stopped) {browser.kill('SIGKILL'); await closed;}
-    }
+    if (runtime) try {await runtime.close();} catch(error) {failure ??= error; outcome=null;}
     if (profile) await rm(profile,{recursive:true,force:true});
     await writeFile(join(output,'browser.log'),browserLog.join(''));
     await writeFile(join(output,'report.json'),JSON.stringify(outcome ?? {error:String(failure),requests,server_errors:serverErrors},null,2)+'\n');

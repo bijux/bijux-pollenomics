@@ -1,10 +1,9 @@
 import {createServer} from 'node:http';
-import {spawn} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {readFile, writeFile, realpath, stat, mkdtemp, rm} from 'node:fs/promises';
 import {join, resolve, sep, extname} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {connectCdp, debuggerEndpoint, evaluate} from '../atlas_browser/browser-transport.mjs';
+import {connectCdp, debuggerEndpoint, evaluate, launchChromium} from '../atlas_browser/browser-transport.mjs';
 
 const prefix = '/bijux-pollenomics/';
 const limit = 16 * 1024 * 1024;
@@ -24,7 +23,7 @@ async function main(planPath) {
   const site = await realpath(plan.site_directory);
   const output = plan.output_directory;
   const receipt = {status:'FAIL', candidate:plan.candidate, errors:[], viewports:[], responses:[], served:[]};
-  let browser, cdp, server, profile, timer, origin;
+  let browser, cdp, server, runtime, profile, timer, origin;
   const browserLogs = [];
   let logBytes = 0;
   const fail = (message) => { if (receipt.errors.length < 1000) receipt.errors.push(message); };
@@ -77,8 +76,9 @@ async function main(planPath) {
     await new Promise(accept => server.listen(0, '127.0.0.1', accept));
     origin = `http://127.0.0.1:${server.address().port}`;
     receipt.local_origin = origin;
-    profile = await mkdtemp(join(output, 'browser-profile-'));
-    browser = spawn(plan.browser_binary, ['--headless=new', '--disable-gpu', '--disable-background-networking', '--disable-component-update', '--disable-default-apps', '--no-default-browser-check', '--no-first-run', '--remote-allow-origins=*', '--remote-debugging-port=0', `--user-data-dir=${profile}`, 'about:blank'], {stdio:['ignore','pipe','pipe']});
+    profile = await mkdtemp(join(output,'browser-profile-'));
+    runtime = await launchChromium(plan.browser_binary, profile);
+    browser = runtime.browser;
     browser.stdout.on('data', browserLog); browser.stderr.on('data', browserLog);
     const endpoint = new URL(await debuggerEndpoint(browser, 15000));
     const target = await (await fetch(`http://${endpoint.host}/json/new?about:blank`, {method:'PUT'})).json();
@@ -157,12 +157,9 @@ async function main(planPath) {
   finally {
     clearTimeout(timer);
     if (cdp) { try { await Promise.race([cdp.send('Browser.close'),new Promise(accept => setTimeout(accept,1000))]); } catch {} cdp.close(); }
-    if (browser && browser.exitCode === null) {
-      browser.kill('SIGTERM');
-      await new Promise(accept => {const done=setTimeout(() => {browser.kill('SIGKILL');accept();},1000);browser.once('exit',()=>{clearTimeout(done);accept();});});
-    }
-    if (server) {server.closeAllConnections(); await new Promise(accept => server.close(accept));}
+    if (runtime) try {await runtime.close();} catch(error) {receipt.status='FAIL';fail(`Chromium cleanup failed: ${error}`);}
     if (profile) await rm(profile,{recursive:true,force:true});
+    if (server) {server.closeAllConnections(); await new Promise(accept => server.close(accept));}
     let serialized=JSON.stringify(receipt,null,2)+'\n';
     if(Buffer.byteLength(serialized)+Math.min(logBytes,limit)>limit) {
       receipt.status='FAIL'; fail('combined browser receipt/log exceeds 16 MiB');

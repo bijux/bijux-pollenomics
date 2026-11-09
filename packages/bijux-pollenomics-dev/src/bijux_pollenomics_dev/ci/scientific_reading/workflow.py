@@ -46,7 +46,7 @@ def verify_workflow(document: dict[str, Any]) -> None:
     require(
         "if" not in job
         and job.get("runs-on") == "ubuntu-24.04"
-        and job.get("timeout-minutes") == 60,
+        and job.get("timeout-minutes") == 90,
         "verification runtime or exact main admission differs",
     )
     require(
@@ -63,11 +63,11 @@ def verify_workflow(document: dict[str, Any]) -> None:
         "Set up Node.js",
         "Check nonpublishing workflow contract",
         "Admit exact documentation standards",
+        "Locate hosted Chromium",
         "Install admitted documentation renderer",
         "Check retained publication downloads",
         "Check native report configuration",
         "Build and verify the production-site artifact",
-        "Locate hosted Chromium",
         "Verify actual scientific reading and download routes",
         "Verify production-origin Nordic iframe",
         "Retain verification evidence",
@@ -138,6 +138,17 @@ def verify_workflow(document: dict[str, Any]) -> None:
         and by_name["Set up supported uv"].get("with", {}).get("version") == "0.11.17"
         and by_name["Set up Node.js"].get("with", {}).get("node-version") == "24.21.0",
         "supported renderer or browser transport runtime differs",
+    )
+    startup = by_name["Locate hosted Chromium"]
+    require(
+        startup.get("id") == "browser"
+        and startup.get("shell") == "bash"
+        and "node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/browser-transport.mjs"
+        in startup.get("run", "")
+        and '--probe "$browser_binary" "$PWD/artifacts/scientific-reading/startup"'
+        in startup.get("run", "")
+        and '"$browser_binary" --version' in startup.get("run", ""),
+        "Chromium must publish a real debugger before the long site build",
     )
     browser_step = by_name["Verify actual scientific reading and download routes"]
     require(

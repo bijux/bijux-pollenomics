@@ -347,3 +347,33 @@ def test_documentation_source_checks_accept_reordered_distinct_package_sources(
         reversed(selected["env"]["PYTHONPATH"].split(":"))
     )
     verify_workflow(document)
+
+
+@pytest.mark.parametrize(
+    "change", ["version_only", "wrong_binary", "late", "old_job_limit"]
+)
+def test_real_chromium_startup_precedes_the_site_build(
+    monkeypatch: pytest.MonkeyPatch, change: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    job = document["jobs"]["reading"]
+    steps = job["steps"]
+    startup = next(step for step in steps if step["name"] == "Locate hosted Chromium")
+    if change == "version_only":
+        startup["run"] = '"$browser_binary" --version'
+    elif change == "wrong_binary":
+        startup["run"] = startup["run"].replace(
+            '--probe "$browser_binary"', "--probe /other/browser"
+        )
+    elif change == "late":
+        steps.remove(startup)
+        index = next(
+            i
+            for i, step in enumerate(steps)
+            if step["name"] == "Build and verify the production-site artifact"
+        )
+        steps.insert(index + 1, startup)
+    else:
+        job["timeout-minutes"] = 60
+    with pytest.raises(ValueError):
+        verify_workflow(document)
