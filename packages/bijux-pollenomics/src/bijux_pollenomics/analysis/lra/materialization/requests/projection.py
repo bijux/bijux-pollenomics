@@ -10,6 +10,7 @@ from ...engine.errors import LRARefusal
 from ..chronology import chronology_projection
 from ..models import canonical_bytes
 from ..neotoma.accounting import SourceAccounting, source_accounting
+from ..neotoma.series import source_element_status
 from ..reading import NeotomaEvidence
 from .inputs import verify_raw_projection
 from .models import SampleChronologyBinding, SourceCellBinding
@@ -93,6 +94,11 @@ def project_cells(
                 observation["sample_id"] != sample_id
                 or observation["source_reported_name"] != taxon
                 or observation.get("source_element_type") != "pollen"
+                or source_element_status(
+                    observation.get("source_element"),
+                    observation.get("source_element_type"),
+                )
+                != "source_label_pollen"
             ):
                 raise LRARefusal(
                     "source_cell_identity_mismatch", binding.observation_id
