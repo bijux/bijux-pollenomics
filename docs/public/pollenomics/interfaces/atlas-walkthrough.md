@@ -32,15 +32,48 @@ order before following the modeled-cell reproduction below. Each step asks
 what the selected evidence supports; a visible feature is not scientific
 admission.
 
-| Read | What to inspect in the browser |
-| --- | --- |
-| **Coverage** | Choose the map countries, then consult the [generated summary](../../../report/regions/nordic/nordic_summary.json), [publication contract](../../../report/regions/nordic/nordic_map_publication_contract.md) and [country source account](../science/country-status.md) for current coverage, dates and typed populations. Sites, samples, observations and modeled cells are different units. A source country and the active map countries are separate identities. |
-| **All pollen before a facet** | Open **Samples** and **Pollen/composition** to inspect the retained source observations, then choose an **Exact native source group**. Keep its reported unit, context and denominator. A count is not a percentage; percentages depend on their source denominator. Neither total pollen nor a composition is measured vegetation cover. |
-| **Ecological roles** | Use forest/woody, open/herb, aquatic/wetland, direct crop, other indicator or non-pollen fire roles only where the source supplies them and their interpretation is reviewed. The native observation display accepts no ecological classification. An unsupported grouping is unavailable, not an invitation to infer it from totals. Keep [source roles](../../pollenomics-data/sources/cross-domain-source-roles.md) distinct. |
-| **Taxa** | Read the source-native name, identifier and reported material. An ambiguous crosswalk remains ambiguous; similar names do not establish equivalent taxa. Distinguish a directly identified crop from a broader indicator. Compare values only on compatible units and denominators. |
-| **Chronology** | Expand **Source signal identity and display scope** for the exact feature, resolution, selected map chronology and its posture. Inspect the source epoch and supplied age bounds separately. Choosing a source-age display axis does not select an analysis chronology, fill uncertainty or override a refusal. |
-| **Candidates and sensitivity** | Inspect supplied scenarios, relation status, arrow direction and source/target countries before interpreting cross-border links. Source-context pollen has no candidate scenario; native join counts are not scientific-event admission denominators. Read [provided sensitivity results](../science/results.md) in their declared scope. If none is supplied for the selected result, sensitivity is unavailable. |
-| **Limits** | Consider collection and observation bias, pollen transport, taphonomy, spatial and temporal resolution, taxon ambiguity, uncertain ages and uneven coverage. Hidden, uncaptured, unresolved and refused records are not ecological absences. Presence, crop use or causation cannot be inferred from a total or a connecting line alone. |
+1. **Coverage**: Choose the map countries, then consult the [generated
+   summary](../../../report/regions/nordic/nordic_summary.json), [publication
+   contract](../../../report/regions/nordic/nordic_map_publication_contract.md) and
+   [country source account](../science/country-status.md) for current coverage, dates
+   and typed populations. Sites, samples, observations and modeled cells are different
+   units. A source country and the active map countries are separate identities.
+
+2. **All pollen before a facet**: Open **Samples** and **Pollen/composition** to inspect
+   the retained source observations, then choose an **Exact native source group**. Keep
+   its reported unit, context and denominator. A count is not a percentage; percentages
+   depend on their source denominator. Neither total pollen nor a composition is
+   measured vegetation cover.
+
+3. **Ecological roles**: Use forest/woody, open/herb, aquatic/wetland, direct crop,
+   other indicator or non-pollen fire roles only where the source supplies them and
+   their interpretation is reviewed. The native observation display accepts no
+   ecological classification. An unsupported grouping is unavailable, not an invitation
+   to infer it from totals. Keep [source
+   roles](../../pollenomics-data/sources/cross-domain-source-roles.md) distinct.
+
+4. **Taxa**: Read the source-native name, identifier and reported material. An ambiguous
+   crosswalk remains ambiguous; similar names do not establish equivalent taxa.
+   Distinguish a directly identified crop from a broader indicator. Compare values only
+   on compatible units and denominators.
+
+5. **Chronology**: Expand **Source signal identity and display scope** for the exact
+   feature, resolution, selected map chronology and its posture. Inspect the source
+   epoch and supplied age bounds separately. Choosing a source-age display axis does not
+   select an analysis chronology, fill uncertainty or override a refusal.
+
+6. **Candidates and sensitivity**: Inspect supplied scenarios, relation status, arrow
+   direction and source/target countries before interpreting cross-border links.
+   Source-context pollen has no candidate scenario; native join counts are not
+   scientific-event admission denominators. Read [provided sensitivity
+   results](../science/results.md) in their declared scope. If none is supplied for the
+   selected result, sensitivity is unavailable.
+
+7. **Limits**: Consider collection and observation bias, pollen transport, taphonomy,
+   spatial and temporal resolution, taxon ambiguity, uncertain ages and uneven coverage.
+   Hidden, uncaptured, unresolved and refused records are not ecological absences.
+   Presence, crop use or causation cannot be inferred from a total or a connecting line
+   alone.
 
 ## Install and inspect the scope
 
