@@ -166,12 +166,24 @@ def test_omitted_critical_execution_is_refused(
         verify_workflow(document)
 
 
-def test_omitted_site_verifier_is_refused(monkeypatch: pytest.MonkeyPatch) -> None:
+@pytest.mark.parametrize(
+    "command",
+    [
+        "make gh-docs-verify",
+        "mkdocs build --strict",
+        "python .bijux/shared/bijux-docs/security/render_publication.py --config mkdocs.yml",
+        "python .bijux/shared/bijux-docs/security/publication.py verify --bytes-only",
+        "make gh-docs-build || true",
+    ],
+)
+def test_unqualified_or_masked_build_command_is_refused(
+    monkeypatch: pytest.MonkeyPatch, command: str
+) -> None:
     document, _ = workflow(monkeypatch)
     for step in document["jobs"]["reading"]["steps"]:
         if step.get("name") == "Build and verify the production-site artifact":
-            step["run"] = "make gh-docs-build"
-    with pytest.raises(ValueError, match="both execute"):
+            step["run"] = command
+    with pytest.raises(ValueError, match="fully admitted build"):
         verify_workflow(document)
 
 
@@ -189,7 +201,7 @@ def test_site_retention_requires_the_qualified_build_step_identity(
         selected.pop("id")
     else:
         selected["id"] = "unqualified_build"
-    with pytest.raises(ValueError, match="both execute"):
+    with pytest.raises(ValueError, match="fully admitted build"):
         verify_workflow(document)
 
 

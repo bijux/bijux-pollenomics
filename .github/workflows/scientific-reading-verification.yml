@@ -121,7 +121,7 @@ jobs:
 
       - name: Build and verify the production-site artifact
         id: publication
-        run: make gh-docs-build gh-docs-verify
+        run: make gh-docs-build
 
       - name: Verify actual scientific reading and download routes
         env:
