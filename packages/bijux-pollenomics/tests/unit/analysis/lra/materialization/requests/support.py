@@ -46,15 +46,19 @@ def authorities(
     first_value: object = 0,
     unit: str = "NISP",
     age_type: str = "Calendar years BP",
+    source_element: object = "pollen",
+    source_element_type: object = "pollen",
 ) -> tuple[Path, Path]:
     raw, normalized = root / "raw", root / "normalized"
     parts = []
     ids = list(range(1, 10))
     for identity in ids:
+        first_datum = datum(first_value if identity == 1 else 70, unit=unit)
+        first_datum.update(element=source_element, elementtype=source_element_type)
         sample = {
             "sampleid": identity * 100,
             "datum": [
-                datum(first_value if identity == 1 else 70, unit=unit),
+                first_datum,
                 datum(100 if identity == 1 else 30, taxon=11),
             ],
             "ages": [

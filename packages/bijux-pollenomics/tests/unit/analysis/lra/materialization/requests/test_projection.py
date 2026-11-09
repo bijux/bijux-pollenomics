@@ -155,3 +155,55 @@ def test_output_overlap_and_foreign_destination_refuse_before_writes(
     with pytest.raises(FileExistsError):
         project_synthetic_neotoma_request(**inputs)
     assert (output / "keep").read_text() == "foreign"
+
+
+@pytest.mark.parametrize(
+    ("element", "element_type"),
+    [
+        (None, "pollen"),
+        ("", "pollen"),
+        ("seed", "pollen"),
+        ("pollen", None),
+        ("seed", "seed"),
+        ("pollen", "Pollen"),
+    ],
+)
+def test_raw_source_element_labels_refuse_before_request_publication(
+    tmp_path: Path, element: object, element_type: object
+) -> None:
+    inputs = projection_fixture(
+        tmp_path,
+        first_value=60,
+        source_element=element,
+        source_element_type=element_type,
+    )
+    raw_part = inputs["raw_root"] / "part-001.json"
+    original = raw_part.read_bytes()
+    datum = json.loads(original)["rows"][0]["site"]["collectionunit"]["dataset"][
+        "samples"
+    ][0]["datum"][0]
+    assert datum["element"] == element
+    assert datum["elementtype"] == element_type
+    with _refuses("source_cell_identity_mismatch"):
+        project_synthetic_neotoma_request(**inputs)
+    assert not inputs["output_directory"].exists()
+    assert raw_part.read_bytes() == original
+    assert "counts" not in inputs["request_template"]["regional"]["samples"][0]
+
+
+@pytest.mark.parametrize("element", ["pollen", "POLLEN"])
+def test_consistent_raw_pollen_labels_preserve_selected_count_denominators(
+    tmp_path: Path, element: str
+) -> None:
+    inputs = projection_fixture(tmp_path, first_value=60, source_element=element)
+    result = project_synthetic_neotoma_request(**inputs)
+    request = json.loads((result.output_directory / "request.json").read_bytes())
+    assert result.selected_samples == 2
+    assert result.selected_cells == 4
+    assert request["regional"]["samples"][0]["counts"] == [60, 100]
+    assert request["local"]["samples"][0]["counts"] == [70, 30]
+    assert len(request["exclusions"]) == 7
+    assert (
+        validate_request(request, input_root=result.output_directory).sha256
+        == result.request_sha256
+    )

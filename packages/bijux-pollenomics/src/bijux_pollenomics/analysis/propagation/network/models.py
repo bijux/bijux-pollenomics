@@ -152,6 +152,8 @@ class PhenomenonEvent:
             _invalid("comparability_status must be comparable or unresolved")
         if self.subject_granularity not in _SUBJECT_GRANULARITIES:
             _invalid("site envelopes and midpoint presentation records are not events")
+        if not isinstance(self.observation_ids, (tuple, list)):
+            _invalid("observation_ids must be a tuple or list of source identities")
         observation_ids = tuple(
             sorted({_required_text(value) for value in self.observation_ids})
         )
