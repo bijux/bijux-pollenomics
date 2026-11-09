@@ -169,6 +169,44 @@ def test_download_boundary_must_execute_before_site_build(
 
 
 @pytest.mark.parametrize(
+    "change",
+    ["omitted", "ambient_python", "ambient_sources", "masked_sources", "no_fail_fast"],
+)
+def test_reading_runtime_requires_early_admitted_interpreter_and_exact_sources(
+    monkeypatch: pytest.MonkeyPatch, change: str
+) -> None:
+    document, _ = workflow(monkeypatch)
+    selected = next(
+        step
+        for step in document["jobs"]["reading"]["steps"]
+        if step["name"] == "Check retained publication downloads"
+    )
+    command = selected["run"]
+    if change == "omitted":
+        command = "make docs-publication-controls"
+    elif change == "ambient_python":
+        command = command.replace(
+            "artifacts/docs/publication/python/bin/python", "python3"
+        )
+    elif change == "ambient_sources":
+        command = command.replace(
+            "PYTHONPATH=packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src \\\n",
+            "",
+        )
+    elif change == "masked_sources":
+        command = command.replace(
+            "PYTHONPATH=packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src",
+            "PYTHONPATH=" + selected["env"]["PYTHONPATH"],
+        )
+    else:
+        command = command.replace("set -euo pipefail", "set -uo pipefail")
+    assert command != selected["run"]
+    selected["run"] = command
+    with pytest.raises(ValueError, match="admitted reading runtime"):
+        verify_workflow(document)
+
+
+@pytest.mark.parametrize(
     "change", ["after_build", "missing_preflight", "foreign_owner"]
 )
 def test_native_configuration_requires_early_selected_source_preflight(

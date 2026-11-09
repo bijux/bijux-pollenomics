@@ -87,9 +87,15 @@ jobs:
         run: make gh-docs-install
 
       - name: Check retained publication downloads
+        shell: bash
         env:
           PYTHONPATH: packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics-lra/src:packages/pollenomics/src
-        run: make docs-publication-controls
+        run: |
+          set -euo pipefail
+          PYTHONPATH=packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src \
+            artifacts/docs/publication/python/bin/python -B \
+            -m bijux_pollenomics_dev.ci.scientific_reading.runner --help
+          make docs-publication-controls
 
       - name: Check native report configuration
         env:

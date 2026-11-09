@@ -7,10 +7,6 @@ import json
 import math
 from pathlib import Path
 
-from bijux_pollenomics.reporting.source_chronology.source_label_presets import (
-    build_neotoma_source_label_preset_catalog,
-)
-
 from .capture_evidence import capture_frame_evidence_valid, expected_capture_layer_key
 from .contracts import AtlasMediaError, SelectedStory, story_interpretation
 from .poster_selection import poster_frame_ordinal
@@ -41,6 +37,10 @@ def canonical_json_bytes(value: object) -> bytes:
 
 def validate_source_preset_catalog(value: object) -> tuple[dict[str, object], str]:
     """Reconstruct and validate the governed literal source-label catalog."""
+    from bijux_pollenomics.reporting.source_chronology.source_label_presets import (
+        build_neotoma_source_label_preset_catalog,
+    )
+
     if not isinstance(value, dict):
         raise AtlasMediaError("source-label preset catalog is absent")
     catalog = dict(value)
