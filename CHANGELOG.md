@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Bind propagation estimator receipts to full event evaluation identity and refresh synthetic receipt lineage without changing numerical results ([#390](https://github.com/bijux/bijux-pollenomics/pull/390)).
+
 - Reduce repeated atlas search restoration checks and store validated postings in compact immutable snapshots while preserving live budgets, substring results and publication bindings ([#389](https://github.com/bijux/bijux-pollenomics/pull/389)).
 
 - Preserve first failed browser scenario receipts and retain the original navigation error when receipt storage fails ([#388](https://github.com/bijux/bijux-pollenomics/pull/388)).

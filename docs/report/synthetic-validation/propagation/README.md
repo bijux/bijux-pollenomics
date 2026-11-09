@@ -111,7 +111,7 @@ Known constructed method/identity challenge; no empirical biological accuracy or
 
 **Matched denominator.** Nine derivation attempts yield eight events and one refusal; eight events×seven ordered partners×16 scenarios=896 pair attempts/comparisons. At 100 km/100 years there are 14 directed candidates, not 14 observed routes.
 
-- [Retained qualification evidence: docs/report/synthetic-validation/propagation/report.json](report.json) (SHA-256 `6221c2efb076e2136b48d6d4330ab97aa407141d192b6efcd3478c2cc40e0540`).
+- [Retained qualification evidence: docs/report/synthetic-validation/propagation/report.json](report.json) (SHA-256 `c184576dca6b16896828f0e11132f7559a06e530d78d76a351da7b2cf2dd3a04`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 

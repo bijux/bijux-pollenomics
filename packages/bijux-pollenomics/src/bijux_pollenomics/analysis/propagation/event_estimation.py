@@ -167,7 +167,8 @@ def estimate_first_observed(
     )
     payload = {
         "samples": [asdict(row) for row in ordered],
-        "template": event_template.as_dict(),
+        # Public fields omit internal semantics used by event admission.
+        "template": event_template._identity_dict(),
         "threshold_profile_id": threshold_profile_id,
     }
     digest = hashlib.sha256(

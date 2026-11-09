@@ -62,7 +62,7 @@ def test_release_inventory_preserves_producer_contract_and_retained_source_paths
     artifacts = {row["identity"]: row for row in policy["required_artifacts"]}
     # The configured location retains its recorded producer source identity.
     # execution still authenticates current raw source bytes independently.
-    retained_source = "1286cd6b74e3cbe87a2cc94851a11cc8f941375c"
+    retained_source = "c9b2047155e999d6a6164b52ec73b5fd95cd31be"
     subprocess.run(
         ["git", "merge-base", "--is-ancestor", retained_source, "HEAD"],
         cwd=REPOSITORY_ROOT,
@@ -91,17 +91,7 @@ def test_release_inventory_preserves_producer_contract_and_retained_source_paths
     )
     assert isinstance(retained_paths, tuple)
     assert all(isinstance(path, str) for path in retained_paths)
-    relation_path = (
-        "packages/bijux-pollenomics/src/bijux_pollenomics/"
-        "analysis/propagation/projection/relation.py"
-    )
-    assert relation_path not in retained_paths
-    assert (
-        tuple(
-            path for path in PROPAGATION_PRODUCER_SOURCE_PATHS if path != relation_path
-        )
-        == retained_paths
-    )
+    assert retained_paths == PROPAGATION_PRODUCER_SOURCE_PATHS
     retained_records = [
         {
             "path": relative,
@@ -117,6 +107,9 @@ def test_release_inventory_preserves_producer_contract_and_retained_source_paths
     retained_digest = hashlib.sha256(
         json.dumps(retained_records, sort_keys=True, separators=(",", ":")).encode()
     ).hexdigest()
+    assert retained_digest == (
+        "2072b0721285f9bcca07ade74f62affc7e57d6db3203aedb2d7da3d1809af661"
+    )
     expected = (
         "artifacts/release-verification/propagation/"
         f"neotoma-audit-{retained_digest[:8]}"

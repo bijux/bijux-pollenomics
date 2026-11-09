@@ -115,7 +115,7 @@ Known constructed method/identity challenge; no empirical biological accuracy or
 
 **Matched denominator.** Nineteen requested attempts: seven estimates and twelve refusals; four estimates exactly recover truth and three are biased. All 19 contract expectations pass; estimate-only MAE is 300/7 years, not zero over all attempts.
 
-- [Retained qualification evidence: docs/report/synthetic-validation/change-time/report.json](report.json) (SHA-256 `04a0150e0b4157a79cfdb36b7b4bc3681a3651fe3cad8023f96fd3420c17a4e1`).
+- [Retained qualification evidence: docs/report/synthetic-validation/change-time/report.json](report.json) (SHA-256 `6ea16822d8eb3f72d10af1b3bfc2548ba18e3f8ebbf0285d0175b1284472cd32`).
 
 - [Canonical scientific account: reports/science/method-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md).
 
