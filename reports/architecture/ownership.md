@@ -88,6 +88,14 @@ changed tracked oracle, unsafe path or generated-owner cycle. Directory producer
 export their complete declared set; a single-file producer owns exactly one output. A
 missing expected input becoming present reopens its source closure.
 
+`producer_paths` identifies code directly responsible for a report's transformation or
+publication. It does not enumerate every module imported during startup. Production replay
+also binds the clean tracked repository's commit and tree before and after each producer;
+an unlisted tracked helper left dirty or a different committed revision between lanes is
+refused. Declared data inputs and qualified external sources keep their separate identity
+and admission checks. These endpoint guards do not continuously monitor a change restored
+before the next check, or authenticate every foreign import and dependency environment.
+
 Some preparation writers carry upstream profiles into a larger retained stage before
 exporting their smaller owned output set. For example, the [Abborrtjärnen age-input
 preparer](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne.py)
