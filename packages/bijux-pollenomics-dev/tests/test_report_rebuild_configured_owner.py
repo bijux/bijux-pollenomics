@@ -155,7 +155,7 @@ def test_analysis_value_components_use_absent_child_output() -> None:
     code, data = set(declaration["producer_paths"]), set(declaration["producer_inputs"])
     assert code.isdisjoint(data)
     assert selected.inputs == {name: repository / name for name in sorted(code | data)}
-    required_helpers = {
+    cold_helpers = {
         "packages/bijux-pollenomics/src/bijux_pollenomics/" + suffix
         for suffix in (
             "collection/contracts/occurrence_chronology.py",
@@ -165,8 +165,15 @@ def test_analysis_value_components_use_absent_child_output() -> None:
             "core/chronology/source_metadata.py",
         )
     }
-    assert required_helpers <= code
-    assert required_helpers.isdisjoint(data)
+    required_code = {
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+        "source_completion/sead/analysis_value_components.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/"
+        "ci/report_rebuild/artifact_paths.py",
+    }
+    assert required_code <= code
+    assert required_code.isdisjoint(data)
+    assert cold_helpers.isdisjoint(data)
     assert (
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_relations.py"
         not in code
