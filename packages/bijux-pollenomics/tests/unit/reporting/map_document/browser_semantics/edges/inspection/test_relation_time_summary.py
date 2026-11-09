@@ -92,6 +92,16 @@ def test_actual_projection_preserves_zero_intervals_and_descriptive_gaps() -> No
     before = deepcopy(rows)
     # Keep a single exact status group without changing endpoint source facts.
     assert rows[0]["candidate_status"] == rows[1]["candidate_status"]
+    assert {
+        row[f"{side}_event"]["chronology_claim_id"]
+        for row in rows
+        for side in ("source", "target")
+    } == {
+        "chronology-source-first",
+        "chronology-target-first",
+        "chronology-source-older",
+        "chronology-target-older",
+    }
     observed = summary(rows)
     group = observed["data"]["groups"][0]
     assert observed["data"]["status"] == "available"
@@ -115,6 +125,11 @@ def test_actual_projection_preserves_zero_intervals_and_descriptive_gaps() -> No
     )
     assert "before endpoint time, layer and viewport eligibility" in observed["html"]
     assert "No midpoint, time bin, calibration or interpolation" in observed["html"]
+    visible = " ".join(tree.itertext())
+    assert "may combine supplied endpoint chronology claims and countries" in visible
+    assert "within the current relation filters" in visible
+    assert "temporal rule contract, not a selected analysis chronology" in visible
+    assert "retained endpoint details for their exact supplied support" in visible
     assert observed["unchanged"] is True and rows == before
 
 
