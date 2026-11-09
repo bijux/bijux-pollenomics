@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Expose separately attributed Dalmutladdo archival window counts through a pinned-source API while preserving native missing values and LRA admission boundaries ([#371](https://github.com/bijux/bijux-pollenomics/pull/371)).
+
 - Qualify the partial Dalmutladdo archival count correspondence while preserving native missing values and unresolved LRA prerequisites ([#370](https://github.com/bijux/bijux-pollenomics/pull/370)).
 
 - Keep retained scientific ledgers and environment locks outside the website, link readers to source evidence and check selected static files before publication ([#369](https://github.com/bijux/bijux-pollenomics/pull/369)).
