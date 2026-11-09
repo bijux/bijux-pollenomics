@@ -180,3 +180,40 @@ It establishes no C++ benefit, global-optimum quality, source-R parity or field
 admission. Production remains Python. The original search evidence is
 unchanged; complete boundary outputs and receipts use the existing recovery
 owner under `artifacts/verification/love-objective-boundary-cost/run/`.
+
+## Preparing fixed inputs once per LOVE search
+
+The Python change at candidate `380a3e783dfce9facbdf12a05358ba0234c0db7f`
+was compared with baseline `490bb893d04cafc5d56a7e89df1bd0e408008c05`.
+Each search now owns read-only copies of its regional deposition, ring kernels,
+land fractions, productivity and offset observations. Candidate validation and
+the shared floating-point arithmetic remain unchanged; public `tf` retains its
+standalone refusals. There is no global cache or dependency/ABI addition.
+
+On the same Mac runtime and full-search fixture, three fresh workers per
+variant each made one first and three warm calls. Pair order was
+baseline/prepared, prepared/baseline, baseline/prepared. Preparation and copies
+are included in the full-call timing.
+
+| Pair | Baseline warm median, s | Prepared warm median, s | Reduction |
+| --- | ---: | ---: | ---: |
+| 1 | 1.7830 | 1.4887 | 16.5051% |
+| 2 | 1.7948 | 1.5032 | 16.2461% |
+| 3 | 1.7830 | 1.4817 | 16.8998% |
+
+First calls fell from 1.8505–1.8779 s to 1.5387–1.5415 s. Separately measured
+loading was 0.00147–0.00150 s, imports 1.278–1.308 s, process startup
+0.0224–0.0259 s and writing/projection 0.0045–0.0075 s. Peak observed RSS was
+172,916,736 bytes; the 50.2590 s aggregate and 1,125,097 counted output bytes
+met the unchanged limits.
+
+Independent review found all 24 scientific outputs and 192 solver diagnostics
+exact to the retained reference, including 8,928 missing CSV values. Solver
+settings/RNG, six undefined rings and the geometry warning are preserved. We
+accept this small Python change for its consistent measured benefit. The earlier `tf`
+share describes source `2de02934d`, before preparation; it is not a measurement
+of the changed callback. This fixture result establishes no field accuracy,
+global-optimum quality, R-trajectory, platform, installed-package or C++
+benefit, and does not close all performance outcomes. The prior forward-native
+rejection retains its original scope. Complete paired evidence is keyed by
+`artifacts/verification/love-prepared-objective-comparison/run/`.
