@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Reduce repeated atlas search restoration checks and store validated postings in compact immutable snapshots while preserving live budgets, substring results and publication bindings ([#389](https://github.com/bijux/bijux-pollenomics/pull/389)).
+
 - Preserve first failed browser scenario receipts and retain the original navigation error when receipt storage fails ([#388](https://github.com/bijux/bijux-pollenomics/pull/388)).
 
 - Expose bounded feature/resolution identities in country-relation captions and clarify mixed endpoint chronology support in time summaries ([#387](https://github.com/bijux/bijux-pollenomics/pull/387)).
