@@ -41,9 +41,9 @@ Known constructed method/identity challenge; no empirical biological accuracy or
 
 **Matched denominator.** Own population: zero new observations, fits or checks. Linked families: 19 change-time attempts, nine event derivations with 16 propagation scenarios, eight reconstruction runs, 24 site-leakage attempts and 18 spatial attempts; these are different denominators.
 
-- [Retained qualification evidence: docs/report/synthetic-validation/change-time/report.json](change-time/report.json) (SHA-256 `04a0150e0b4157a79cfdb36b7b4bc3681a3651fe3cad8023f96fd3420c17a4e1`).
+- [Retained qualification evidence: docs/report/synthetic-validation/change-time/report.json](change-time/report.json) (SHA-256 `6ea16822d8eb3f72d10af1b3bfc2548ba18e3f8ebbf0285d0175b1284472cd32`).
 
-- [Retained qualification evidence: docs/report/synthetic-validation/propagation/report.json](propagation/report.json) (SHA-256 `6221c2efb076e2136b48d6d4330ab97aa407141d192b6efcd3478c2cc40e0540`).
+- [Retained qualification evidence: docs/report/synthetic-validation/propagation/report.json](propagation/report.json) (SHA-256 `c184576dca6b16896828f0e11132f7559a06e530d78d76a351da7b2cf2dd3a04`).
 
 - [Retained qualification evidence: docs/report/synthetic-validation/reconstruction/report.json](reconstruction/report.json) (SHA-256 `5023c8d46e58680492ce3bc821d1db6ff10af1c0ad7f7bb75907aa3562e19e84`).
 
