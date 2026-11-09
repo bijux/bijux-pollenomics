@@ -6,8 +6,8 @@
   "authority_url": "https://doi.pangaea.de/10.1594/PANGAEA.933132",
   "custody": {
     "path": "source-manifest.json",
-    "sha256": "fbfbcff24e2564090f302888eee062bfd104c17590badf0f61c315edf234db7d",
-    "size": 2210
+    "sha256": "2cbbbd8897b974e49bfaa3a5b44f6a82e381e4a21dd3bbac18f554b83fa3ee5a",
+    "size": 4433
   },
   "files": [
     {
