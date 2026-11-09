@@ -107,19 +107,22 @@ The [representative public-call report](../../docs/report/numerical-performance/
 
 ## Full optimized LOVE search through the public API
 
-At source `3621ce70301de9571f4d72e1154b8155db5717ab`, unchanged `run_love`
-used the exposed `LOVEexample`: ten taxa, 36 input ring rows, ten
-requested rings and two repeats. The source-compatible profile used SciPy
-differential evolution, seed 7, no stochastic draws, 200 iterations,
-tolerance 0.01 and a 20,100-evaluation ceiling per search. No fixed candidates
-were supplied.
+At source `3621ce70301de9571f4d72e1154b8155db5717ab`, `run_love` used the
+exposed `LOVEexample`: ten taxa, 36 input ring rows, ten requested rings and
+two repeats. The source-compatible profile used SciPy differential evolution,
+seed 7, `stochastic=False`, a 200-iteration cap, tolerance 0.01 and a
+20,100-evaluation ceiling per search. No fixed candidates were supplied.
+
+This source-run used CPython 3.11.13 on arm64 macOS 26.6.2, NumPy 2.4.6,
+SciPy 1.17.1 and pandas 3.1.1. Five thread-limit environment variables requested
+one thread each; vendor thread counts were not measured.
 
 Three fresh workers each made one first call and three warm calls. All twelve
-calls completed, each with eight searches reporting successful stopping and six
-undefined rings. Scientific-output signatures and solver diagnostics matched
-across calls. Searches used 4,300–8,400 evaluations. The geometry warning remains:
-terrestrial area exceeds geometric ring area, and the source ratio is retained
-without clipping.
+calls completed, each with eight searches reporting successful stopping and
+six undefined requested rings. Scientific signatures and solver diagnostics
+matched across calls; searches used 4,300–8,400 evaluations. The geometry
+warning remains: terrestrial area exceeds geometric ring area, and the source
+ratio is retained without clipping.
 
 | Worker | First call, s | Warm median, s | Warm range, s | Peak RSS, MiB |
 | --- | ---: | ---: | ---: | ---: |
@@ -127,19 +130,19 @@ without clipping.
 | 2 | 1.8357 | 1.8071 | 1.7741–1.9026 | 164.8906 |
 | 3 | 1.8955 | 1.8637 | 1.8628–1.8810 | 163.9375 |
 
-Calls exclude separately measured loading/conversion (0.0015–0.0045 s),
-output writing/projection (0.0045–0.0063 s), process startup (0.0224–0.0268 s)
-and imports (1.279–1.555 s). The measurement aggregate took 32.9884 s within
-the 180 s worker and 600 s aggregate limits. Counted output was 812,019 bytes
-against 32 MiB; observed RSS stayed below 1 GiB without an OS quota. Dependency
-metadata and source/index/input guards remained unchanged.
+Calls exclude loading/conversion (0.0015–0.0045 s), writing/projection
+(0.0045–0.0063 s), process startup (0.0224–0.0268 s) and imports
+(1.279–1.555 s). The 32.9884 s aggregate met the 180 s worker/600 s aggregate
+limits. Counted output was 812,019 bytes against 32 MiB; observed RSS stayed
+below 1 GiB without an OS quota. Metadata and source/index/input guards stayed
+unchanged.
 
-One separate profiled call took 3.6659 s. Its diagnostic stack does not establish
-the low-overhead hotspot gate or a C++ benefit. This extends Python full-search
+The separate profiled call took 3.6659 s. Its diagnostic stack establishes
+neither the low-overhead hotspot gate nor a C++ benefit. This adds full-search
 performance evidence, not global-optimum quality, R search-trajectory parity,
 ecological, installed-package or platform qualification. The Python backend
 decision stands.
 
-Native outputs and receipts retain the logical run path below; durable custody
-belongs to the existing scientific-artifact recovery owner:
+Complete API outputs and receipts are retained through the existing
+scientific-artifact recovery owner, keyed by logical path
 `artifacts/verification/love-optimizer-search/run/`.
