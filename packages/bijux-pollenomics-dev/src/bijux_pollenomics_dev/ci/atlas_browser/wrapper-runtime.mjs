@@ -363,6 +363,21 @@ export function createWrapperAtlasOwner({site, authority, debuggerOrigin, reques
   return {openAtlas,closeAtlas,lifecycle};
 }
 
+export async function writeWrapperScenario(output, scenario, receipts) {
+  const path=`nordic-wrapper/${scenario.name}.json`;
+  try {
+    await mkdir(join(output,'nordic-wrapper'),{recursive:true});
+    await writeFile(join(output,path),JSON.stringify(scenario,null,2)+'\n');
+    receipts.push(path);
+  } catch(error) {
+    if(scenario.status!=='open_failed')throw error;
+    // Receipt IO must not replace an already-fatal navigation error. The shared
+    // lifecycle also reaches runWrapper's top-level failure report.
+    scenario.receipt_error=String(error.stack||error).slice(0,4096);
+    if(scenario.lifecycle)scenario.lifecycle.receipt_error=scenario.receipt_error;
+  }
+}
+
 export async function runWrapper({repository, site, output, browserBinary}) {
   repository = resolve(repository); site = resolve(site); output = resolve(output);
   if (!relative(join(repository, 'artifacts'), output) || relative(join(repository, 'artifacts'), output).startsWith('..')) throw Error('output must be a child of repository artifacts');
@@ -399,7 +414,7 @@ export async function runWrapper({repository, site, output, browserBinary}) {
       captureReady(cdp) {return evaluate(cdp, `(() => new Promise((resolve,reject)=>{const start=performance.now();const inspect=()=>{const api=globalThis.BijuxPollenomicsAtlasCapture;if(api?.version==='atlas-capture.v1')resolve(api.awaitReady());else if(performance.now()-start>${timeoutMs})reject(Error('child capture readiness timed out'));else setTimeout(inspect,25);};inspect();}))()`);},
       evaluate,
       async screenshot(cdp, path) {await mkdir(join(output,'nordic-wrapper'),{recursive:true}); const result=await cdp.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false}); await writeFile(join(output,path),Buffer.from(result.data,'base64'));},
-      async writeScenario(_scope, scenario, receipts) {const path=`nordic-wrapper/${scenario.name}.json`; await writeFile(join(output,path),JSON.stringify(scenario,null,2)+'\n'); receipts.push(path);},
+      writeScenario(_scope, scenario, receipts) {return writeWrapperScenario(output,scenario,receipts);},
     });
     requireScopedCandidate(repository,paths,revision);
     const after = await readWrapperAuthority(repository,site);
