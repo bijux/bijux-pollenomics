@@ -10,6 +10,11 @@ from bijux_pollenomics.analysis.propagation.event_estimation import (
     GovernedSample,
     estimate_first_observed,
 )
+from bijux_pollenomics.analysis.propagation.network import (
+    PropagationCandidate,
+    PropagationPairRefusal,
+    evaluate_propagation_pair,
+)
 
 from .network.support import event
 
@@ -270,3 +275,103 @@ def test_first_observed_requires_strict_older_sequence_without_boundary_overlap(
         assert result.supporting_observation_ids == ("sample:1",)
     else:
         assert result.reason_code == "chronology_order_indeterminate"
+
+
+@pytest.mark.parametrize(
+    "field",
+    (
+        "measurement_semantics_id",
+        "evidence_method_id",
+        "method_compatibility_key",
+        "subject_granularity",
+        "preaggregation_valid",
+        "role_membership_explicit",
+        "temporal_contract_version",
+    ),
+)
+@pytest.mark.parametrize("sequence", ("valid", "empty", "unresolved"))
+def test_attempted_input_receipt_binds_private_template_semantics(
+    field: str, sequence: str
+) -> None:
+    samples = _samples()
+    if sequence == "empty":
+        samples = ()
+    elif sequence == "unresolved":
+        samples = (
+            replace(
+                samples[0],
+                younger_bp=None,
+                older_bp=None,
+                comparability_status="unresolved",
+            ),
+            *samples[1:],
+        )
+    template = event("template")
+    changed = {
+        "measurement_semantics_id": replace(
+            template, measurement_semantics_id="different-measure.v1"
+        ),
+        "evidence_method_id": replace(template, evidence_method_id="different-method"),
+        "method_compatibility_key": replace(
+            template, method_compatibility_key="different-compatibility.v1"
+        ),
+        "subject_granularity": replace(template, subject_granularity="physical_sample"),
+        "preaggregation_valid": replace(template, preaggregation_valid=False),
+        "role_membership_explicit": replace(template, role_membership_explicit=True),
+        "temporal_contract_version": replace(
+            template, temporal_contract_version="different-temporal-contract"
+        ),
+    }[field]
+    assert template.as_dict() == changed.as_dict()
+    baseline = estimate_first_observed(samples, event_template=template)
+    altered = estimate_first_observed(samples, event_template=changed)
+    assert baseline.input_sha256 != altered.input_sha256
+    assert baseline.input_sample_count == altered.input_sample_count == len(samples)
+    if sequence != "valid":
+        assert baseline.event is None and altered.event is None
+
+
+@pytest.mark.parametrize(
+    ("mutation", "refusal"),
+    (
+        ("method", "incompatible_evidence_method"),
+        ("preaggregation", "invalid_preaggregation"),
+    ),
+)
+def test_template_receipts_distinguish_actual_pair_admission(
+    mutation: str, refusal: str
+) -> None:
+    template = event("template")
+    changed = (
+        replace(template, method_compatibility_key="different-method.v1")
+        if mutation == "method"
+        else replace(template, preaggregation_valid=False)
+    )
+    baseline = estimate_first_observed(_samples(), event_template=template)
+    altered = estimate_first_observed(_samples(), event_template=changed)
+    assert baseline.event is not None and altered.event is not None
+    assert baseline.input_sha256 != altered.input_sha256
+    assert baseline.event.input_digest != altered.event.input_digest
+    assert baseline.event.event_id == altered.event.event_id
+    assert baseline.supporting_observation_ids == altered.supporting_observation_ids
+    assert baseline.reason_code == altered.reason_code
+    assert {
+        key: value
+        for key, value in baseline.event.as_dict().items()
+        if key != "input_digest"
+    } == {
+        key: value
+        for key, value in altered.event.as_dict().items()
+        if key != "input_digest"
+    }
+    target = replace(
+        event("target", younger_bp=5400, older_bp=5400),
+        event_id="",
+        event_type="derived_first_observed",
+    )
+    accepted = evaluate_propagation_pair(baseline.event, target)
+    rejected = evaluate_propagation_pair(altered.event, target)
+    assert isinstance(accepted, PropagationCandidate)
+    assert accepted.candidate_status == "definite_candidate"
+    assert isinstance(rejected, PropagationPairRefusal)
+    assert rejected.reason_code == refusal
