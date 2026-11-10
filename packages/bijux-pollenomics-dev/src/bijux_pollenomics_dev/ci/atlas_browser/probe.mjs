@@ -1892,6 +1892,7 @@ async function fieldworkReadingJourney(cdp, scope, receipts) {
     await wait(() => document.getElementById('focus-title').textContent === ${JSON.stringify(title)}
       && document.getElementById('focus-detail').dataset.detailStatus === 'available');
   })()`);
+  let originalError;
   try {
     await openRecord('Lyngsjön Lake field sampling', 'Lyngsjön Lake field sampling');
     const fieldwork = await evaluate(cdp, `(() => {
@@ -1939,8 +1940,11 @@ async function fieldworkReadingJourney(cdp, scope, receipts) {
     const facts = {fieldwork,keyboard,after_tab:afterTab,zoom_reached_record:zoomReachedRecord,ordinary,screenshots,clipboard_write_exercised:false};
     if (!fieldworkReadingPasses(facts)) throw Error('Fieldwork record reading contract failed: '+JSON.stringify(facts));
     return facts;
+  } catch (error) {
+    originalError = error;
+    throw error;
   } finally {
-    await restoreRecordReadingView(cdp, originalUrl);
+    await finalizeBrowserVerification(originalError, [['record restoration', () => restoreRecordReadingView(cdp, originalUrl)]]);
   }
 }
 

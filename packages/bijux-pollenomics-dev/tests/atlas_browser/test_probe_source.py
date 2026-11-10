@@ -2582,3 +2582,42 @@ console.log(JSON.stringify(observed));
     assert observed["wrong_url"]["error"] == (
         "Record reading did not restore the original URL"
     )
+
+
+def test_fieldwork_restoration_failure_preserves_original_reading_failure() -> None:
+    finalizer = _probe_function_block(
+        "async function finalizeBrowserVerification",
+        "async function verifyNordicSourceChronologyScope",
+    )
+    journey = _probe_function_block(
+        "async function fieldworkReadingJourney",
+        "async function restoreRecordReadingView",
+    )
+    script = (
+        finalizer
+        + "\n"
+        + journey
+        + r"""
+const timeoutMs=15000,primary=Error('fieldwork failure with original facts'),secondary=Error('restoration load timeout'),messages=[];
+async function evaluate(_cdp,expression){if(expression==='location.href')return 'http://127.0.0.1/map.html#original';throw primary;}
+async function restoreRecordReadingView(){throw secondary;}
+console.error=message=>messages.push(message);
+let caught;
+try{await fieldworkReadingJourney({}, {name:'nordic'}, []);}catch(error){caught=error;}
+console.log(JSON.stringify({same_primary:caught===primary,message:caught?.message,secondary:messages}));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "same_primary": True,
+        "message": "fieldwork failure with original facts",
+        "secondary": [
+            "atlas browser cleanup also failed (record restoration): restoration load timeout"
+        ],
+    }
