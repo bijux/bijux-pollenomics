@@ -64,7 +64,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A display circle, layer visibility rule or software contract is not a pollen basin radius, physical dispersal support, scientific source admission or an observed ecological boundary.
 
-**Actual verification performed.** Retained scientific data and review artifacts keep their existing source identities and limitations. This bounded presentation rebuild uses the authenticated published layers, reserves map space for controls and the complete record reader, and removes the duplicate search popup. Earlier browser qualifications remain tied to their original layout and runtime. This presentation rebuild receipt establishes no new browser qualification, scientific result or admission.
+**Actual verification performed.** Retained scientific data and review artifacts keep their recorded source identities and limits. This bounded presentation rebuild adds fieldwork documentation and a private search-gram controller while preserving published search membership and results. Earlier browser qualifications remain tied to their recorded runtime; this source and compositor receipt establishes no new browser or scientific qualification.
 
 **Remaining input or review.** Broader browser/provider/export behavior, query latency and each layer's scientific/source-rights decisions remain separate from the completed source-bound preservation/index and narrow served-temporal checks.
 

@@ -160,7 +160,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** World is a scope name, not worldwide source completeness, genotype analysis, scientific country/chronology admission or validated fieldwork advice.
 
-**Actual verification performed.** Retained scientific data and review artifacts keep their existing source identities and limitations. This bounded presentation rebuild uses the authenticated published layers, reserves map space for controls and the complete record reader, and removes the duplicate search popup. Earlier browser qualifications remain tied to their original layout and runtime. This presentation rebuild receipt establishes no new browser qualification, scientific result or admission.
+**Actual verification performed.** Retained scientific data and review artifacts keep their recorded source identities and limits. This bounded presentation rebuild adds fieldwork documentation and a private search-gram controller while preserving published search membership and results. Earlier browser qualifications remain tied to their recorded runtime; this source and compositor receipt establishes no new browser or scientific qualification.
 
 **Remaining input or review.** Broader source coverage, sample chronology/geography/rights and scientific admission remain incomplete. The narrow served World temporal cases do not qualify all browser/network behavior or query latency.
 
@@ -174,7 +174,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** 1,733 point-layer record uses across fifteen point layers: 1,231 human metadata records + 167 animal locality features + 335 source-chronology uses. Human metadata retains 447 localities. The 335 mapped animal records and 335 source-chronology uses have different identity populations despite equal counts. Global animal accounting is 1,482 normalized records = 335 mapped + 1,147 exclusions. All 1,493 source chronology owners = 335 displayable + 1,158 refusals. Do not pool these units.
 
-- [Retained qualification evidence: docs/report/world/world_summary.json](world_summary.json) (SHA-256 `5a22c489452d34d8d2684f670060c05d8e63970302d64fb27d34d13011180aff`).
+- [Retained qualification evidence: docs/report/world/world_summary.json](world_summary.json) (SHA-256 `3a6fea4a3ec31189c12ecab651b61379c369ec315979a9fd9c6bed92262f1a7a`).
 
 - [Retained qualification evidence: docs/report/world/world_map_publication_contract.json](world_map_publication_contract.json) (SHA-256 `538b0f03c55f12d0da43f79ca585cf471e16a9b6d1dd551501c4fd7d7d824d9b`).
 

@@ -49,7 +49,7 @@ Author/source lineage, transformations and distinct modeled products; chronology
 
 - [Retained qualification evidence: docs/report/source-relations/landclim/browser-export/report.json](report.json) (SHA-256 `e7c9788fbac97ecc2564a9e0bc431f965510260a054f9ac15480cbf373c72d9c`).
 
-- [Retained qualification evidence: docs/report/source-relations/landclim/map-export-lineage/report.json](../map-export-lineage/report.json) (SHA-256 `78dcf08ab690e06a4821715f0c2f6f32bd6c90581dde2eb9fa6cab5ac22bea4d`).
+- [Retained qualification evidence: docs/report/source-relations/landclim/map-export-lineage/report.json](../map-export-lineage/report.json) (SHA-256 `ed1b569142f8a137217c226e0abb90930a1870a8571a785ba580a11de35783d8`).
 
 - [Canonical scientific account: reports/science/publication-correspondence.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence.md).
 

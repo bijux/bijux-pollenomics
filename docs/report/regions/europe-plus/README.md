@@ -149,7 +149,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** The bundle is not a second independent source collection, genotype-aware analysis, excavation recommendation, historical ecological reconstruction or vegetation validation.
 
-**Actual verification performed.** Retained scientific data and review artifacts keep their existing source identities and limitations. This bounded presentation rebuild uses the authenticated published layers, reserves map space for controls and the complete record reader, and removes the duplicate search popup. Earlier browser qualifications remain tied to their original layout and runtime. This presentation rebuild receipt establishes no new browser qualification, scientific result or admission.
+**Actual verification performed.** Retained scientific data and review artifacts keep their recorded source identities and limits. This bounded presentation rebuild adds fieldwork documentation and a private search-gram controller while preserving published search membership and results. Earlier browser qualifications remain tied to their recorded runtime; this source and compositor receipt establishes no new browser or scientific qualification.
 
 **Remaining input or review.** Source chronology, biological/locality authority and rights need their own decisions. The current shared runtime has narrow World served-temporal qualification; external provider behavior, broader browser cases and latency remain separate.
 
@@ -163,7 +163,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** Four-country display:1,231 human samples (SE416/NO130/FI32/DK653), eight animal locality points across three species; these are publication populations, not independent ecological samples.
 
-- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_summary.json](europe-plus_summary.json) (SHA-256 `ef867b58fa0f96ea2e45dcdde9b2a35ed793faca9a50a12d36729ece6109cb15`).
+- [Retained qualification evidence: docs/report/regions/europe-plus/europe-plus_summary.json](europe-plus_summary.json) (SHA-256 `d0370d70f8d2bd0d2a4c9d04909ff438045bffbdbc332e3c4c643aecde48bf09`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

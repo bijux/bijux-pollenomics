@@ -209,15 +209,28 @@ def build_detail_focus_candidate(directory: Path) -> Path:
     return document
 
 
-def test_detail_tabs_keyboard_wrap_home_end_and_leave_tab_to_browser() -> None:
+@pytest.mark.parametrize(
+    "tab_keys",
+    [("overview", "samples", "provenance"), ("overview",)],
+    ids=["evidence-sections", "fieldwork-documentation"],
+)
+def test_detail_tabs_keyboard_wrap_home_end_and_leave_tab_to_browser(
+    tab_keys: tuple[str, ...],
+) -> None:
     handler = template_block(
         "focusTabs.addEventListener('keydown'", "focusPreviousButton.addEventListener"
     )
     observed = run_node_json(
-        """
-const DETAIL_TAB_DEFINITIONS=[['overview','Overview'],['samples','Samples'],['provenance','Provenance']];
+        "const renderedKeys="
+        + json.dumps(tab_keys)
+        + ";"
+        + """
 let activeFocusTab='overview',renderCount=0,listener;
-const focusTabs={addEventListener(type,callback){listener=callback;}};
+const focusTabs={addEventListener(type,callback){listener=callback;},
+  querySelectorAll(selector){
+    if(selector!=='[data-focus-tab]')throw Error('Unexpected tab selector');
+    return renderedKeys.map(key=>({dataset:{focusTab:key}}));
+  }};
 function renderFocusDetail(){renderCount++;}
 """
         + handler
@@ -233,9 +246,9 @@ console.log(JSON.stringify({moves,renderCount}));
     )
     assert observed == {
         "moves": [
-            {"key": "ArrowLeft", "selected": "provenance", "prevented": True},
+            {"key": "ArrowLeft", "selected": tab_keys[-1], "prevented": True},
             {"key": "ArrowRight", "selected": "overview", "prevented": True},
-            {"key": "End", "selected": "provenance", "prevented": True},
+            {"key": "End", "selected": tab_keys[-1], "prevented": True},
             {"key": "Home", "selected": "overview", "prevented": True},
             {"key": "Tab", "selected": "overview", "prevented": False},
         ],
@@ -294,3 +307,110 @@ console.log(JSON.stringify(pages));
             assert 'data-detail-table-page="samples"' in button
         assert ("disabled" in buttons[0]) is (page == 0)
         assert ("disabled" in buttons[1]) is (page == 2)
+
+
+def test_actual_fieldwork_record_shows_documentation_without_pollen_failure(
+    tmp_path: Path,
+) -> None:
+    from bijux_pollenomics.reporting.context.points.fieldwork import (
+        build_fieldwork_point_layer,
+    )
+    from bijux_pollenomics.reporting.map_document.template import (
+        SOURCE_RECORD_EXPORT_CONTROLLER,
+    )
+
+    gallery = tmp_path / "docs/gallery"
+    gallery.mkdir(parents=True)
+    (gallery / "2026-02-26-data-collection.JPG").write_bytes(
+        b"controlled gallery fixture"
+    )
+    output = tmp_path / "docs/report/regions/nordic"
+    output.mkdir(parents=True)
+    layer = build_fieldwork_point_layer(output)
+    assert layer is not None
+    feature = deepcopy(cast(list[dict[str, object]], layer["features"])[0])
+    rows = feature["popup_rows"]
+    assert isinstance(rows, list)
+    rows.append({"label": "<script>", "value": "<img onerror='changed'>"})
+    source = (
+        SOURCE_RECORD_EXPORT_CONTROLLER
+        + template_block("const DETAIL_TAB_DEFINITIONS", "const DEFAULT_COUNTRIES")
+        + template_block("function escapeHtml", "function titleCaseWords")
+        + template_block("function detailTableShape", "function renderFocusCard")
+    )
+    observed = run_node_json(
+        source
+        + """
+const focusTabs={innerHTML:'',contains(){return false;},querySelectorAll(){return [];}};
+const focusDetail={innerHTML:'',dataset:{},contains(){return false;},setAttribute(){},querySelectorAll(){return [];}};
+const focusExportButton={},focusCopyLinkButton={},focusExportStatus={};
+const document={activeElement:null},detailTablePages=new Map();
+const DETAIL_TABLE_PAGE_SIZE=25;let activeFocusTab='pollen_composition';
+function syncHashState(){}
+let evidenceToolsError=null;function currentEvidenceTools(){return null;}
+let focusState={kind:'point',layerKey:'fieldwork-documentation',sourceSignal:"""
+        + json.dumps(feature)
+        + """,detailTabs:{}};
+const original=JSON.stringify(focusState.sourceSignal);renderFocusDetail();
+const fieldwork={html:focusDetail.innerHTML,tabs:focusTabs.innerHTML,exportHidden:focusExportButton.hidden,
+ disabled:focusExportButton.disabled,status:focusExportStatus.textContent,detailStatus:focusDetail.dataset.detailStatus,
+ unchanged:original===JSON.stringify(focusState.sourceSignal)};
+focusState={kind:'point',layerKey:'neotoma-pollen',detailTabs:{overview:{status:'unavailable',reason_code:'detail_record_not_indexed'}}};
+renderFocusDetail();
+const ordinary={html:focusDetail.innerHTML,tabs:focusTabs.innerHTML,exportHidden:focusExportButton.hidden};
+const table=(fields,records)=>({fields,records,record_count:records.length});
+focusState={kind:'point',recordId:'neotoma:site:12',layerKey:'neotoma-pollen',featureKey:'evidence:12',title:'Controlled source record',detailTabs:{
+ overview:{source_family:'neotoma'},
+ samples:{samples:table(['sample_id','depth'],[['sample:1',0],['sample:2',null]])},
+ chronology:table(['sample_id','comparability_status','younger_bp','refusal_reason'],[['sample:1','comparable',0,null],['sample:2','context_only',null,null],['sample:2','refused',null,'negative_bp']]),
+ pollen_composition:table(['sample_id','source_value','source_unit','source_denominator'],[['sample:1',0,'NISP',null],['sample:2',null,'NISP digitized',null]]),
+ provenance:{source_snapshot_id:'snapshot',record_locator:'surfaces/sites#site_id=neotoma:site:12'},
+}};
+const completeOriginal=JSON.stringify(focusState.detailTabs);renderFocusDetail();
+const exported=buildSourcePollenRecordExport(focusState,{},decodeDetailTableRow);
+const validOrdinary={exportHidden:focusExportButton.hidden,disabled:focusExportButton.disabled,
+ ready:sourcePollenExportAvailable(focusState),observations:exported.pollen_observations.records,
+ statuses:exported.chronology_claims.records.map(row=>row.comparability_status),
+ unchanged:completeOriginal===JSON.stringify(focusState.detailTabs)};
+console.log(JSON.stringify({fieldwork,ordinary,validOrdinary}));
+"""
+    )
+    fieldwork = observed["fieldwork"]
+    assert (
+        fieldwork["unchanged"] and fieldwork["exportHidden"] and fieldwork["disabled"]
+    )
+    assert fieldwork["detailStatus"] == "available"
+    assert (
+        "sampling visit" in fieldwork["html"].lower()
+        and "2026-02-26" in fieldwork["html"]
+    )
+    assert "2026-02-26-data-collection.JPG" in fieldwork["html"]
+    assert "&lt;script&gt;" in fieldwork["html"] and "<img" not in fieldwork["html"]
+    assert fieldwork["tabs"].count('role="tab"') == 1
+    assert (
+        "Documentation" in fieldwork["tabs"]
+        and "Pollen/composition" not in fieldwork["tabs"]
+    )
+    assert fieldwork["status"] == ""
+    assert "detail_record_not_indexed" in observed["ordinary"]["html"]
+    assert not observed["ordinary"]["exportHidden"]
+    assert "Pollen/composition" in observed["ordinary"]["tabs"]
+
+    valid = observed["validOrdinary"]
+    assert valid["ready"] and not valid["exportHidden"] and not valid["disabled"]
+    assert valid["unchanged"]
+    assert valid["observations"] == [
+        {
+            "sample_id": "sample:1",
+            "source_value": 0,
+            "source_unit": "NISP",
+            "source_denominator": None,
+        },
+        {
+            "sample_id": "sample:2",
+            "source_value": None,
+            "source_unit": "NISP digitized",
+            "source_denominator": None,
+        },
+    ]
+    assert valid["statuses"] == ["comparable", "context_only", "refused"]

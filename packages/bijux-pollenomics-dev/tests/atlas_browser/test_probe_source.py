@@ -2385,3 +2385,360 @@ def test_artifact_length_unix_socket_path_is_rejected_by_the_kernel(
         pytest.raises(OSError, match="AF_UNIX path too long"),
     ):
         connection.bind(str(tmp_path / ("chromium-ipc" * 20)))
+
+
+def test_fieldwork_reader_checks_require_documentation_and_restore_source_export() -> (
+    None
+):
+    media = [
+        {
+            "href": "../../../gallery/" + filename,
+            "filename": filename,
+            "same_origin": True,
+            "target": "_blank",
+            "rel": "noreferrer",
+        }
+        for filename in (
+            "2026-02-26-data-collection.JPG",
+            "2026-02-26-data-collection.mp4",
+        )
+    ]
+    fieldwork: dict[str, object] = {
+        "title": "Lyngsjön Lake field sampling",
+        "detail_status": "available",
+        "tabs": [{"key": "overview", "label": "Documentation", "selected": "true"}],
+        "panel_label": "focus-tab-overview",
+        "text": "Sampling visit and media; no pollen observations or age-depth series. Sampling date: 2026-02-26 Place: Lyngsjön Lake, southwest of Kristianstad Context: Winter lake sampling",
+        "media": media,
+        "source_hidden": False,
+        "source_href": media[0]["href"],
+        "export_hidden": True,
+        "export_disabled": True,
+        "copy_disabled": False,
+        "focus_layer": "fieldwork-documentation",
+        "focus_record": "bijux:fieldwork:lyngsjon-lake:2026-02-26",
+    }
+    ordinary: dict[str, object] = {
+        "title": "Ageröds Mosse",
+        "export_hidden": False,
+        "export_disabled": False,
+        "tabs": [
+            "overview",
+            "samples",
+            "chronology",
+            "pollen_composition",
+            "relation",
+            "classification",
+            "provenance",
+        ],
+    }
+    facts: dict[str, object] = {
+        "fieldwork": fieldwork,
+        "keyboard": [{"focus": "focus-tab-overview", "selected": "true"}] * 4,
+        "after_tab": "focus-detail",
+        "zoom_reached_record": True,
+        "ordinary": ordinary,
+    }
+    scenarios = {
+        "complete": facts,
+        "wrong_identity": {
+            **facts,
+            "fieldwork": {**fieldwork, "focus_record": "other"},
+        },
+        "pollen_tabs": {
+            **facts,
+            "fieldwork": {
+                **fieldwork,
+                "tabs": [{"key": "overview", "label": "Overview", "selected": "true"}],
+            },
+        },
+        "missing_media": {**facts, "fieldwork": {**fieldwork, "media": media[:1]}},
+        "foreign_media": {
+            **facts,
+            "fieldwork": {
+                **fieldwork,
+                "media": [{**media[0], "same_origin": False}, media[1]],
+            },
+        },
+        "pollen_failure": {
+            **facts,
+            "fieldwork": {
+                **fieldwork,
+                "text": str(fieldwork["text"]) + " detail_record_not_indexed",
+            },
+        },
+        "pollen_action": {**facts, "fieldwork": {**fieldwork, "export_hidden": False}},
+        "wrong_source": {**facts, "fieldwork": {**fieldwork, "source_href": "other"}},
+        "disabled_copy": {**facts, "fieldwork": {**fieldwork, "copy_disabled": True}},
+        "keyboard_escape": {
+            **facts,
+            "keyboard": [{"focus": "focus-tab-provenance", "selected": "true"}] * 4,
+        },
+        "native_tab_blocked": {**facts, "after_tab": "focus-tab-overview"},
+        "zoom_wrong_record": {**facts, "zoom_reached_record": False},
+        "source_export_not_restored": {
+            **facts,
+            "ordinary": {**ordinary, "export_hidden": True},
+        },
+        "ordinary_tabs_lost": {**facts, "ordinary": {**ordinary, "tabs": ["overview"]}},
+    }
+    function = _probe_function_block(
+        "function fieldworkReadingPasses", "async function fieldworkReadingJourney"
+    )
+    script = (
+        function
+        + "\nconst cases="
+        + json.dumps(scenarios)
+        + ";console.log(JSON.stringify(Object.fromEntries(Object.entries(cases).map(([key,value])=>[key,fieldworkReadingPasses(value)]))));"
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        name: name == "complete" for name in scenarios
+    }
+
+
+def test_record_journey_restoration_reacquires_only_after_owned_navigation() -> None:
+    function = _probe_function_block(
+        "async function restoreRecordReadingView", "async function fitActiveJourney"
+    )
+    script = (
+        "const timeoutMs=15000;let evaluate,captureReady;\n"
+        + function
+        + r"""
+async function exercise(mode){
+ const original='http://127.0.0.1/atlas.html#layers=source&time_start=0';
+ let href=mode==='same'?original:'http://127.0.0.1/atlas.html#focus_record=fieldwork';
+ let destroyed=false,registered=false,ready=false,resolveLoad,rejectLoad;
+ const events=[];
+ evaluate=async(_cdp,expression)=>{
+  if(destroyed)throw Error('Runtime.evaluate used a destroyed context');
+  if(expression==='location.href'){events.push('read_url');return href;}
+  events.push('close_controls');return true;
+ };
+ captureReady=async()=>{if(destroyed)throw Error('readiness used a destroyed context');ready=true;events.push('ready');return {ready:true};};
+ const cdp={
+  waitFor(name,timeout){if(name!=='Page.loadEventFired'||timeout!==timeoutMs)throw Error('wrong navigation deadline');
+   registered=true;events.push('wait_load');return new Promise((resolve,reject)=>{resolveLoad=resolve;rejectLoad=reject;});},
+  async send(name,params){
+   if(name!=='Page.navigate'||params.url!==original||!registered)throw Error('navigation preceded registration or changed URL');
+   events.push('navigate');destroyed=true;
+   if(mode==='navigation_failure'){rejectLoad(Error('navigation failure'));throw Error('navigation failure');}
+   queueMicrotask(()=>{
+    if(mode==='load_timeout'){rejectLoad(Error('load timeout'));return;}
+    destroyed=false;href=mode==='wrong_url'?original+'&unexpected=true':original;events.push('load');resolveLoad({});
+   });
+  },
+ };
+ let result,error=null;
+ try{result=await restoreRecordReadingView(cdp,original);}catch(caught){error=caught.message;}
+ return {events,ready,error,restored:href===original,result};
+}
+const observed={};
+for(const mode of ['moved','same','navigation_failure','load_timeout','wrong_url'])observed[mode]=await exercise(mode);
+console.log(JSON.stringify(observed));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    observed = json.loads(completed.stdout)
+    assert observed["moved"] == {
+        "events": [
+            "close_controls",
+            "read_url",
+            "wait_load",
+            "navigate",
+            "load",
+            "ready",
+            "read_url",
+        ],
+        "ready": True,
+        "error": None,
+        "restored": True,
+        "result": {"ready": True},
+    }
+    assert observed["same"]["events"] == [
+        "close_controls",
+        "read_url",
+        "ready",
+        "read_url",
+    ]
+    for mode, reason in (
+        ("navigation_failure", "navigation failure"),
+        ("load_timeout", "load timeout"),
+    ):
+        assert observed[mode]["error"] == reason
+        assert observed[mode]["ready"] is False
+    assert observed["wrong_url"]["error"] == (
+        "Record reading did not restore the original URL"
+    )
+
+
+def test_fieldwork_restoration_failure_preserves_original_reading_failure() -> None:
+    finalizer = _probe_function_block(
+        "async function finalizeBrowserVerification",
+        "async function verifyNordicSourceChronologyScope",
+    )
+    journey = _probe_function_block(
+        "async function fieldworkReadingJourney",
+        "async function restoreRecordReadingView",
+    )
+    script = (
+        finalizer
+        + "\n"
+        + journey
+        + r"""
+const timeoutMs=15000,primary=Error('fieldwork failure with original facts'),secondary=Error('restoration load timeout'),messages=[];
+async function evaluate(_cdp,expression){if(expression==='location.href')return 'http://127.0.0.1/map.html#original';throw primary;}
+async function restoreRecordReadingView(){throw secondary;}
+console.error=message=>messages.push(message);
+let caught;
+try{await fieldworkReadingJourney({}, {name:'nordic'}, []);}catch(error){caught=error;}
+console.log(JSON.stringify({same_primary:caught===primary,message:caught?.message,secondary:messages}));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "same_primary": True,
+        "message": "fieldwork failure with original facts",
+        "secondary": [
+            "atlas browser cleanup also failed (record restoration): restoration load timeout"
+        ],
+    }
+
+
+def test_record_centering_uses_css_pixels_at_the_observed_zoom() -> None:
+    function = _probe_function_block(
+        "function recordCenterOffset", "async function fieldworkMapView"
+    )
+    script = (
+        function
+        + r"""
+const actual={latitude:55.93227936568622,longitude:14.067993164062502,zoom:8};
+const cases={actual,wrapped:{...actual,longitude:actual.longitude+360},
+  wrong:{...actual,longitude:14.0659044+2*360/65536},
+  nonfinite:{...actual,latitude:NaN},polar:{...actual,latitude:90},
+  badzoom:{...actual,zoom:Infinity}};
+console.log(JSON.stringify(Object.fromEntries(Object.entries(cases).map(([key,view])=>[key,recordCenterOffset(view)]))));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    observed = json.loads(completed.stdout)
+    assert observed["actual"]["distance"] == pytest.approx(0.39477136315244304)
+    assert observed["wrapped"]["distance"] == pytest.approx(
+        observed["actual"]["distance"]
+    )
+    assert observed["wrong"]["distance"] > 1
+    assert all(observed[key] is None for key in ("nonfinite", "polar", "badzoom"))
+
+
+def test_record_zoom_requires_ui_movement_and_settled_finite_center() -> None:
+    functions = _probe_function_block(
+        "function recordCenterOffset", "function fieldworkReadingPasses"
+    )
+    script = (
+        functions
+        + r"""
+const observed={latitude:55.93227936568622,longitude:14.067993164062502,zoom:8};
+const results={};
+for(const mode of ['rounded','wrapped','wrong_center','bad_zoom','nonfinite','moving','animating','zoom_out_noop']){
+ let time=0,view={...observed},phase='initial',calls=[];
+ globalThis.performance={now:()=>time};
+ globalThis.requestAnimationFrame=callback=>{time+=16;
+   if(phase==='focus'&&mode==='moving')view.longitude+=0.000001;
+   queueMicrotask(callback);};
+ const map={querySelectorAll:()=>[{transform:'matrix(1,0,0,1,0,0)'}],
+   querySelector:()=>null,classList:{contains:()=>phase==='focus'&&mode==='animating'}};
+ const zoomOut={classList:{contains:()=>false},click:()=>{
+   calls.push('zoom-out');phase='out';if(mode!=='zoom_out_noop')view={...view,zoom:7};}};
+ const focus={click:()=>{calls.push('focus-zoom');phase='focus';view={...observed};
+   if(mode==='wrapped')view.longitude+=360;
+   if(mode==='wrong_center')view.longitude=14.0659044+2*360/65536;
+   if(mode==='bad_zoom')view.zoom=7;
+   if(mode==='nonfinite')view.latitude=NaN;}};
+ globalThis.document={getElementById:id=>id==='map'?map:focus,querySelector:()=>zoomOut};
+ globalThis.getComputedStyle=element=>element;
+ globalThis.BijuxPollenomicsAtlasCapture={snapshot:()=>({view:{...view}})};
+ const facts=await fieldworkMapView({},true);
+ results[mode]={passed:facts.passed,calls,elapsed_ms:facts.elapsed_ms,
+   before_zoom:facts.before.view.zoom,last_zoom:facts.last.view.zoom,
+   last_offset:facts.last.offset,stable_frames:facts.stable_frames};
+}
+console.log(JSON.stringify(results));
+async function evaluate(_cdp,expression){return eval(expression);}
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    observed = json.loads(completed.stdout)
+    for mode, facts in observed.items():
+        assert facts["passed"] is (mode in {"rounded", "wrapped"})
+        assert facts["calls"] == (
+            ["zoom-out"] if mode == "zoom_out_noop" else ["zoom-out", "focus-zoom"]
+        )
+        if facts["passed"]:
+            assert facts["before_zoom"] == 7
+            assert facts["last_zoom"] == 8
+            assert facts["last_offset"]["distance"] <= 1
+            assert facts["stable_frames"] >= 2
+        else:
+            assert 3000 < facts["elapsed_ms"] <= 3016
+
+
+def test_fieldwork_media_scroll_repeats_in_the_same_page_script_context() -> None:
+    journey = _probe_function_block(
+        "async function fieldworkReadingJourney",
+        "async function restoreRecordReadingView",
+    )
+    match = re.search(
+        r'await evaluate\(cdp, ("[^"\n]*#focus-detail \.popup-media-link[^"\n]*")\);',
+        journey,
+    )
+    assert match is not None
+    expression = json.loads(match.group(1))
+    script = (
+        "import vm from 'node:vm';\nconst expression="
+        + json.dumps(expression)
+        + r""";
+const calls=[],media={focus:()=>calls.push('focus'),scrollIntoView:options=>calls.push(options.block)};
+const page=vm.createContext({document:{querySelector:selector=>{
+ if(selector!=='#focus-detail .popup-media-link')throw Error('wrong media selector');return media;}}});
+for(const width of [1440,390])vm.runInContext(expression,page);
+console.log(JSON.stringify(calls));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == ["focus", "center", "focus", "center"]
