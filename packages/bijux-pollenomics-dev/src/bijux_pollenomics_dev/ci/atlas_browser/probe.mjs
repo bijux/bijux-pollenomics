@@ -1972,7 +1972,7 @@ async function fieldworkReadingJourney(cdp, scope, receipts) {
       await screenshot(cdp, path);
       screenshots.push(path);
       receipts.push(path);
-      await evaluate(cdp, "const media=document.querySelector('#focus-detail .popup-media-link');media.focus();media.scrollIntoView({block:'center'});true");
+      await evaluate(cdp, "(() => {const media=document.querySelector('#focus-detail .popup-media-link');media.focus();media.scrollIntoView({block:'center'});return true;})()");
       const mediaPath = `${scope.name}/fieldwork-media-${width}.png`;
       await screenshot(cdp, mediaPath);
       screenshots.push(mediaPath);

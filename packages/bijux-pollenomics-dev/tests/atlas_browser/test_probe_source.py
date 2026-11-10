@@ -2710,3 +2710,35 @@ async function evaluate(_cdp,expression){return eval(expression);}
             assert facts["stable_frames"] >= 2
         else:
             assert 3000 < facts["elapsed_ms"] <= 3016
+
+
+def test_fieldwork_media_scroll_repeats_in_the_same_page_script_context() -> None:
+    journey = _probe_function_block(
+        "async function fieldworkReadingJourney",
+        "async function restoreRecordReadingView",
+    )
+    match = re.search(
+        r'await evaluate\(cdp, ("[^"\n]*#focus-detail \.popup-media-link[^"\n]*")\);',
+        journey,
+    )
+    assert match is not None
+    expression = json.loads(match.group(1))
+    script = (
+        "import vm from 'node:vm';\nconst expression="
+        + json.dumps(expression)
+        + r""";
+const calls=[],media={focus:()=>calls.push('focus'),scrollIntoView:options=>calls.push(options.block)};
+const page=vm.createContext({document:{querySelector:selector=>{
+ if(selector!=='#focus-detail .popup-media-link')throw Error('wrong media selector');return media;}}});
+for(const width of [1440,390])vm.runInContext(expression,page);
+console.log(JSON.stringify(calls));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == ["focus", "center", "focus", "center"]
