@@ -2779,3 +2779,230 @@ def test_landclim_capture_startup_failure_closes_owned_runtime(tmp_path: Path) -
     assert "browser exited before debugger readiness: 42" in result.stderr
     assert (output / "browser.log").exists()
     assert not (output / "browser-profile").exists()
+
+
+def _keyless_process_record(pid: int) -> dict[str, int | str] | None:
+    result = subprocess.run(
+        ("ps", "-o", "pid=,pgid=,stat=,lstart=", "-p", str(pid)),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    fields = result.stdout.strip().split(None, 3)
+    if len(fields) != 4 or fields[2].startswith("Z"):
+        return None
+    return {"pid": int(fields[0]), "pgid": int(fields[1]), "start": fields[3]}
+
+
+@pytest.mark.parametrize("failure", ["exit42", "log_refusal", "existing_profile"])
+def test_keyless_cli_failure_owns_short_ipc_and_closes_descendants(
+    tmp_path: Path, failure: str
+) -> None:
+    from contextlib import suppress
+    import os
+    import shutil
+    import signal
+    import sys
+
+    cli = Path(atlas_browser.__file__).with_name("keyless-cache-matrix.mjs")
+    candidate, output = tmp_path / "candidate", tmp_path / "observation"
+    candidate.mkdir()
+    output.mkdir()
+    (candidate / "generation.json").write_text(
+        json.dumps(
+            {
+                "countries": ["Denmark", "Finland", "Norway", "Sweden"],
+                "candidate_build_id": "synthetic-lifecycle-only",
+            }
+        )
+    )
+    inherited = tmp_path / ("long-owned-artifact-path" * 6)
+    inherited.mkdir()
+    witness = output / "processes.json"
+    fake = tmp_path / "failed-chromium"
+    fake.write_text(
+        "#!"
+        + sys.executable
+        + "\n"
+        + r"""
+import json,os,stat,subprocess,sys
+from pathlib import Path
+witness=Path(os.environ['KEYLESS_TEST_WITNESS'])
+def identity(pid):
+ text=subprocess.check_output(['ps','-o','lstart=','-p',str(pid)],text=True).strip()
+ return {'pid':pid,'pgid':os.getpgid(pid),'start':text}
+record={'processes':[identity(os.getpid())],'ipc':os.environ['TMPDIR'],
+ 'ipc_mode':stat.S_IMODE(Path(os.environ['TMPDIR']).stat().st_mode),'argv':sys.argv[1:]}
+witness.write_text(json.dumps(record))
+program="import json,os,signal,subprocess,time;signal.signal(signal.SIGTERM,signal.SIG_IGN);print(json.dumps({'pid':os.getpid(),'pgid':os.getpgid(0),'start':subprocess.check_output(['ps','-o','lstart=','-p',str(os.getpid())],text=True).strip()}),flush=True);time.sleep(60)"
+child=subprocess.Popen([sys.executable,'-c',program],stdout=subprocess.PIPE,text=True)
+record['processes'].append(identity(child.pid));witness.write_text(json.dumps(record))
+record['processes'][-1]=json.loads(child.stdout.readline());witness.write_text(json.dumps(record))
+print('owned descendant ready',file=sys.stderr,flush=True)
+sys.exit(42)
+"""
+    )
+    fake.chmod(0o700)
+    if failure == "existing_profile":
+        (output / "browser-profile").mkdir()
+        (output / "browser-profile/user-state").write_text("preserve")
+    if failure == "log_refusal":
+        (output / "browser.log").mkdir()
+    environment = dict(
+        os.environ, TMPDIR=str(inherited), KEYLESS_TEST_WITNESS=str(witness)
+    )
+    child = subprocess.Popen(
+        ("node", str(cli), str(candidate), str(output), str(fake)),
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        env=environment,
+        start_new_session=True,
+    )
+    own = _keyless_process_record(child.pid)
+    records = [own] if own else []
+    completed_before_fallback = False
+    observed_closed = False
+    try:
+        _, stderr = child.communicate(timeout=10)
+        completed_before_fallback = True
+        if witness.exists():
+            records.extend(json.loads(witness.read_text())["processes"])
+        observed_closed = all(
+            _keyless_process_record(int(row["pid"])) != row for row in records
+        )
+        assert child.returncode != 0, stderr
+        receipt = json.loads((output / "receipt.json").read_text())
+        assert receipt["status"] == "FAIL"
+        assert receipt["scenarios"] == []
+        if failure == "existing_profile":
+            assert "EEXIST" in receipt["error"]
+            assert (output / "browser-profile/user-state").read_text() == "preserve"
+            assert not witness.exists()
+        else:
+            assert "browser exited before debugger readiness: 42" in receipt["error"]
+            details = json.loads(witness.read_text())
+            ipc = Path(details["ipc"])
+            assert ipc != inherited and details["ipc_mode"] == 0o700
+            assert (
+                len(os.fsencode(ipc / "com.google.Chrome.XXXXXX/SingletonSocket")) < 104
+            )
+            assert not ipc.exists()
+            assert not (output / "browser-profile").exists()
+            assert any(
+                argument == "--user-data-dir=" + str(output / "browser-profile")
+                for argument in details["argv"]
+            )
+            if failure == "log_refusal":
+                assert any(
+                    row["name"] == "browser log" for row in receipt["cleanup_errors"]
+                )
+            else:
+                assert "owned descendant ready" in (output / "browser.log").read_text()
+        assert observed_closed, "CLI returned with a live owned descendant"
+    finally:
+        if witness.exists():
+            records.extend(json.loads(witness.read_text())["processes"])
+        # The fallback may signal only unchanged PID/start identities and their owned group.
+        allowed = {int(row["pid"]) for row in records}
+        for row in records:
+            current = _keyless_process_record(int(row["pid"]))
+            if current != row:
+                continue
+            processes = subprocess.check_output(("ps", "-axo", "pid=,pgid="), text=True)
+            members = {
+                int(line.split()[0])
+                for line in processes.splitlines()
+                if int(line.split()[1]) == int(row["pgid"])
+            }
+            if members <= allowed:
+                with suppress(ProcessLookupError):
+                    os.killpg(int(row["pgid"]), signal.SIGKILL)
+        if child.poll() is None:
+            child.kill()
+        child.communicate(timeout=5)
+        if witness.exists():
+            details = json.loads(witness.read_text())
+            ipc = Path(details["ipc"])
+            owned_ipc = ipc.is_relative_to(tmp_path) or (
+                ipc.parent == Path("/private/tmp")
+                and ipc.name.startswith("bjx-")
+                and details["ipc_mode"] == 0o700
+            )
+            if owned_ipc and ipc.exists():
+                shutil.rmtree(ipc)
+        if failure != "existing_profile" and (output / "browser-profile").exists():
+            shutil.rmtree(output / "browser-profile")
+    assert completed_before_fallback and observed_closed
+
+
+def test_keyless_watchdog_cancels_pending_connection_requests_and_page_waits() -> None:
+    source = (
+        Path(atlas_browser.__file__).with_name("keyless-cache-matrix.mjs").read_text()
+    )
+    deadline = (
+        "async function withDeadline"
+        + source.split("async function withDeadline", 1)[1].split(
+            "async function boundedCleanup", 1
+        )[0]
+    )
+    navigation = (
+        "async function navigate"
+        + source.split("async function navigate", 1)[1].split(
+            "async function evaluate", 1
+        )[0]
+    )
+    connection = "async function connect" + source.split("async function connect", 1)[1]
+    script = (
+        "import assert from 'node:assert/strict';\n"
+        + deadline
+        + navigation
+        + connection
+        + r"""
+let cancellation,cdp,next=0;
+const timers=new Map(),sockets=[];
+globalThis.setTimeout=(callback,delay)=>{const id=++next;timers.set(id,{callback,delay});return id;};
+globalThis.clearTimeout=id=>timers.delete(id);
+globalThis.WebSocket=class{
+ constructor(){this.events={};this.closed=false;sockets.push(this);}
+ addEventListener(name,callback){this.events[name]=callback;}
+ send(){}
+ close(){this.closed=true;}
+};
+const results={};
+for(const mode of ['connecting','request','page']){
+ cancellation=new AbortController();
+ const pending=connect('ws://owned');const socket=sockets.at(-1);
+ if(mode==='connecting'){
+  const refused=assert.rejects(pending,/cancelled/);cancellation.abort(Error('cancelled'));await refused;
+ }else{
+  socket.events.open();cdp=await pending;
+  const work=mode==='page'?navigate('http://owned'):cdp.send('Runtime.evaluate');
+  const refused=assert.rejects(work,/cancelled/);
+  assert.ok([...timers.values()].every(timer=>timer.delay===20000));
+  cancellation.abort(Error('cancelled'));await refused;
+ }
+ assert.equal(socket.closed,true);assert.equal(timers.size,0);results[mode]=true;
+}
+cancellation=new AbortController();
+const guarded=withDeadline(new Promise(()=>{}),cancellation);
+const refused=assert.rejects(guarded,/watchdog timed out/);
+const timer=[...timers.values()][0];assert.equal(timer.delay,120000);timer.callback();
+await refused;assert.equal(cancellation.signal.aborted,true);assert.equal(timers.size,0);
+console.log(JSON.stringify({...results,watchdog:true}));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "connecting": True,
+        "request": True,
+        "page": True,
+        "watchdog": True,
+    }

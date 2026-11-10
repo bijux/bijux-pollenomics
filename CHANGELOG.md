@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Own browser sessions and cancel pending work in the keyless cache CLI, preserve existing profiles, and retain primary failures through bounded cleanup ([#408](https://github.com/bijux/bijux-pollenomics/pull/408)).
+
 - Retire duplicate historical keyless-cache presentation and redundant owner/execution entries while preserving immutable observations, replay tooling and historical navigation ([#407](https://github.com/bijux/bijux-pollenomics/pull/407)).
 
 - Authenticate LandClim download metadata against current atlas runtimes, bind captures to actual browser and source identities, reap owned browser sessions, and declare narrow development import capabilities ([#406](https://github.com/bijux/bijux-pollenomics/pull/406)).
