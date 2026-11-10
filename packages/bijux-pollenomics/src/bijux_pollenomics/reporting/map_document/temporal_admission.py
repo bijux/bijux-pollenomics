@@ -138,6 +138,12 @@ def feature_temporal_admission(
             "admitted",
             (min(pair[0] for pair in intervals), max(pair[1] for pair in intervals)),
         )
+    if not _declared_temporal_interval_matches(
+        temporal_semantics,
+        feature.get("time_start_bp"),
+        feature.get("time_end_bp"),
+    ):
+        return ("refused", None)
     interval: tuple[float, float] | None = None
     declaration_status = "absent"
     if "time_start_bp" in feature or "time_end_bp" in feature:
@@ -155,7 +161,9 @@ def feature_temporal_admission(
             if key not in feature or feature.get(key) is None:
                 continue
             point = finite_number(feature.get(key))
-            if point is None:
+            if point is None or not _declared_temporal_interval_matches(
+                temporal_semantics, None, None, point=point
+            ):
                 return ("refused", None)
             interval = (point, point)
             declaration_status = "admitted"
@@ -202,6 +210,28 @@ def finite_number(value: object) -> float | None:
     if isinstance(value, int) and number != value:
         return None
     return number if math.isfinite(number) and number >= 0 else None
+
+
+def _declared_temporal_interval_matches(
+    semantics: object, start: object, end: object, *, point: object = None
+) -> bool:
+    """Check declared bounds against a duplicate interval or an effective fallback point."""
+    if not isinstance(semantics, Mapping):
+        return True
+    raw_start = semantics.get("time_start_bp")
+    raw_end = semantics.get("time_end_bp")
+    if raw_start is None and raw_end is None:
+        return True
+    declared_start = finite_number(raw_start)
+    declared_end = finite_number(raw_end)
+    if declared_start is None or declared_end is None or declared_start > declared_end:
+        return False
+    if start is None and end is None:
+        if point is None:
+            return True
+        number = finite_number(point)
+        return number is not None and declared_start <= number <= declared_end
+    return declared_start == finite_number(start) and declared_end == finite_number(end)
 
 
 def calendar_profile_metadata(profile: str | None) -> dict[str, str]:

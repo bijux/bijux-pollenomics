@@ -19,7 +19,10 @@ from ..map_document.adna_exports import (
     is_public_chronology_export,
     validate_public_geojson_schemas,
 )
-from ..map_document.temporal_admission import feature_temporal_admission
+from ..map_document.temporal_admission import (
+    _declared_temporal_interval_matches,
+    feature_temporal_admission,
+)
 
 __all__ = [
     "extract_layer_identity",
@@ -158,6 +161,16 @@ def feature_time_payload(properties: JsonObject) -> dict[str, object]:
             "comparability_posture": "refused",
             "refusal_reason_code": "malformed_temporal_semantics",
         }
+    if (
+        not refusal_reason
+        and not temporal_semantics.get("refusal_reason_code")
+        and temporal_semantics.get("comparability_posture") in NUMERIC_POSTURES
+        and not _declared_temporal_interval_matches(
+            raw_semantics, time_start_bp, time_end_bp, point=time_mean_bp
+        )
+    ):
+        refusal_reason = "conflicting_temporal_bounds"
+        time_start_bp = time_end_bp = time_mean_bp = None
     if temporal_semantics:
         posture = temporal_semantics.get("comparability_posture")
         semantics_refusal = temporal_semantics.get("refusal_reason_code")
