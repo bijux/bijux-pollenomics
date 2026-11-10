@@ -7,10 +7,8 @@ from typing import cast
 
 import pytest
 
-from bijux_pollenomics.adna.domain.locality import (
-    locality_sample_intervals,
-    summarize_sample_localities,
-)
+from bijux_pollenomics.adna import summarize_sample_localities
+from bijux_pollenomics.adna.domain.locality import locality_sample_intervals
 from bijux_pollenomics.adna.domain.models import AdnaLocalitySummary, AdnaSampleRecord
 from bijux_pollenomics.analysis.fieldwork.land_use.context import (
     overlapping_human_context,
@@ -159,3 +157,142 @@ def test_fractional_locality_bp_is_refused_without_integer_truncation() -> None:
         locality_sample_intervals(replace(locality, sample_chronologies=(fractional,)))
         == ()
     )
+
+
+def test_mixed_native_locality_populations_are_order_independent() -> None:
+    human = _sample_with_interval(0, 0)
+    cattle = replace(
+        _sample_with_interval(300, 310),
+        species_latin_name="Bos taurus",
+        species_common_name="cattle",
+        source_family="archive",
+        identity=replace(human.identity, namespace="cattle-native"),
+        locality_identity=replace(
+            human.locality_identity,
+            namespace="cattle-locality",
+            stable_token="cattle-site",
+        ),
+    )
+    before = (human.as_dict(), cattle.as_dict())
+    summaries = summarize_sample_localities((human, cattle))
+    assert summaries == summarize_sample_localities((cattle, human))
+    assert (human.as_dict(), cattle.as_dict()) == before
+    assert len(summaries) == 2
+    for sample in (human, cattle):
+        locality = next(
+            row
+            for row in summaries
+            if row.species_latin_name == sample.species_latin_name
+        )
+        assert locality.identity == sample.locality_identity
+        assert locality.source_family == sample.source_family
+        assert locality.sample_namespace == sample.sample_namespace
+        assert locality.sample_count == 1
+        assert locality.sample_ids == (sample.genetic_id,)
+        assert locality.sample_chronologies[0].chronology == sample.chronology
+
+
+def test_same_sample_id_in_distinct_namespaces_keeps_owned_chronology() -> None:
+    first = _sample_with_interval(0, 0)
+    second = replace(
+        _sample_with_interval(300, 310),
+        identity=replace(first.identity, namespace="another-archive"),
+    )
+    assert first.genetic_id == second.genetic_id
+    summaries = summarize_sample_localities((second, first))
+    assert summaries == summarize_sample_localities((first, second))
+    assert len(summaries) == 2
+    assert {row.sample_namespace for row in summaries} == {
+        first.sample_namespace,
+        second.sample_namespace,
+    }
+    assert all(
+        row.sample_ids == (first.genetic_id,) and row.sample_count == 1
+        for row in summaries
+    )
+    assert sorted((row.time_start_bp, row.time_end_bp) for row in summaries) == [
+        (0, 0),
+        (300, 310),
+    ]
+
+
+@pytest.mark.parametrize(
+    "conflict", ["native_metadata", "label", "display", "coordinates"]
+)
+def test_one_canonical_population_refuses_contradictory_metadata(conflict: str) -> None:
+    first = _sample_with_interval(0, 0)
+    second = replace(first, identity=replace(first.identity, stable_token="sample-2"))
+    if conflict == "native_metadata":
+        second = replace(
+            second,
+            locality_identity=replace(
+                second.locality_identity,
+                source_anchor_tokens=("contradictory-native-anchor",),
+            ),
+        )
+    elif conflict == "label":
+        second = replace(second, species_common_name="contradictory source label")
+    elif conflict == "display":
+        second = replace(second, locality="Contradictory display site")
+    else:
+        second = replace(
+            second,
+            coordinates=replace(
+                second.coordinates, latitude=60.0, latitude_text="60.0"
+            ),
+        )
+    before = (first.as_dict(), second.as_dict())
+    for samples in ((first, second), (second, first)):
+        with pytest.raises(ValueError, match="Locality population has conflicting"):
+            summarize_sample_localities(samples)
+    assert (first.as_dict(), second.as_dict()) == before
+
+
+def test_compatible_population_retains_aggregation_and_each_sample_support() -> None:
+    first = _sample_with_interval(0, 0)
+    second = replace(
+        _sample_with_interval(300, 310),
+        identity=replace(first.identity, stable_token="sample-2"),
+        source_release="another-release",
+        datasets=("another-dataset",),
+    )
+    summaries = summarize_sample_localities((second, first))
+    assert summaries == summarize_sample_localities((first, second))
+    assert len(summaries) == 1
+    locality = summaries[0]
+    assert locality.identity == first.locality_identity
+    assert locality.sample_namespace == first.sample_namespace
+    assert locality.sample_ids == (first.genetic_id, second.genetic_id)
+    assert locality.sample_count == 2
+    assert locality.source_releases == ("another-release", "test-release")
+    assert locality.datasets == ("another-dataset", "test")
+    assert tuple(row.chronology for row in locality.sample_chronologies) == (
+        first.chronology,
+        second.chronology,
+    )
+    assert [
+        (sample_id, interval.younger_bp, interval.older_bp)
+        for sample_id, interval in locality_sample_intervals(locality)
+    ] == [(first.genetic_id, 0, 0), (second.genetic_id, 300, 310)]
+
+
+def test_distinct_native_sites_at_one_display_location_remain_distinct() -> None:
+    first = _sample_with_interval(0, 0)
+    second = replace(
+        _sample_with_interval(300, 310),
+        identity=replace(first.identity, stable_token="sample-2"),
+        locality_identity=replace(
+            first.locality_identity, stable_token="another-native-site"
+        ),
+    )
+    summaries = summarize_sample_localities((first, second))
+    assert summaries == summarize_sample_localities((second, first))
+    assert len(summaries) == 2
+    assert {row.identity.stable_token for row in summaries} == {
+        "locality-1",
+        "another-native-site",
+    }
+    assert {row.sample_ids for row in summaries} == {
+        (first.genetic_id,),
+        (second.genetic_id,),
+    }

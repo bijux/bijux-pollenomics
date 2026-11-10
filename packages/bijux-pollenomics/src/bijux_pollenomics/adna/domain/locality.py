@@ -65,16 +65,43 @@ def summarize_sample_localities(
     samples: Iterable[AdnaSampleRecord],
 ) -> list[AdnaLocalitySummary]:
     """Aggregate species-aware samples into locality summaries."""
-    grouped: dict[tuple[str | None, str, str], list[AdnaSampleRecord]] = defaultdict(
+    grouped: dict[tuple[str, str, str, str, str], list[AdnaSampleRecord]] = defaultdict(
         list
     )
     for sample in samples:
-        grouped[(sample.locality, sample.latitude_text, sample.longitude_text)].append(
-            sample
-        )
+        grouped[
+            (
+                sample.species_latin_name,
+                sample.source_family,
+                sample.sample_namespace,
+                sample.locality_namespace,
+                sample.locality_token,
+            )
+        ].append(sample)
 
     summaries: list[AdnaLocalitySummary] = []
-    for (locality, latitude_text, longitude_text), records in grouped.items():
+    for records in grouped.values():
+        first = records[0]
+        if any(
+            (
+                record.locality_identity,
+                record.species_common_name,
+                record.locality,
+                record.coordinates,
+            )
+            != (
+                first.locality_identity,
+                first.species_common_name,
+                first.locality,
+                first.coordinates,
+            )
+            for record in records[1:]
+        ):
+            raise ValueError(
+                "Locality population has conflicting identity or display metadata"
+            )
+        locality = first.locality
+        latitude_text, longitude_text = first.latitude_text, first.longitude_text
         datasets = tuple(
             sorted({dataset for record in records for dataset in record.datasets})
         )
@@ -152,7 +179,15 @@ def summarize_sample_localities(
         )
 
     summaries.sort(
-        key=lambda item: (-item.sample_count, (item.locality or "").casefold())
+        key=lambda item: (
+            -item.sample_count,
+            (item.locality or "").casefold(),
+            item.species_latin_name,
+            item.source_family,
+            item.sample_namespace,
+            item.identity.namespace,
+            item.identity.stable_token,
+        )
     )
     return summaries
 
