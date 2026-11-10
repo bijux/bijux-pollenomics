@@ -333,6 +333,7 @@ def prepare(root: Path, config_name: str, shared: Path, templates: Path, output:
     prepared.selected_site=site_dir
     prepared.source_recipe=source_recipe
     prepared.derivation=catalogue.record if catalogue else None
+    prepared.source_sha=source_sha
     prepared.unchanged()
     return prepared
 
@@ -453,7 +454,7 @@ def verify(site: Path, prepared: PreparedProducer, renderer: dict, csp_report: d
                       'No browser/live/header/privacy/security sandbox qualification is asserted.']}
 
 
-def verify_publication(root: Path, site: Path, shared: Path, build_receipt: dict, csp_receipt: dict, checkpoint: dict):
+def verify_publication(root: Path, site: Path, shared: Path, build_receipt: dict, csp_receipt: dict, checkpoint: dict, *, prepared=None):
     """Called from qualified_manifest under the owned DOCS_PYTHON environment."""
     import tempfile
     identity = module(shared/'security/build_identity.py')
@@ -476,6 +477,29 @@ def verify_publication(root: Path, site: Path, shared: Path, build_receipt: dict
     interactive_owner = interactive.configured_owner(configuration)
     require(configuration.site_url == checkpoint['site_url'], 'Producer: actual config site URL differs')
     require(identity.renderer(configuration,catalogue) == build_receipt['renderer'], 'Producer: publication must use actual trusted renderer environment, never receipt executable')
+    if prepared is not None:
+        require(type(prepared) is PreparedProducer, 'Producer: original live reconstruction object required')
+        require(getattr(prepared, 'publication_scope', None) is True
+                and prepared.root == root and prepared.shared == shared
+                and getattr(prepared, 'selected_site', None) == site
+                and prepared.config == (record['configuration']['path'] if record else checkpoint['config']['path'])
+                and getattr(prepared, 'source_sha', None) == checkpoint['repository_source']['sha']
+                and prepared.source_recipe == source_recipe and prepared.derivation == record,
+                'Producer: live reconstruction belongs to another publication context')
+        require(prepared.config_sha == build_receipt['resolved_config_sha256'],
+                'Producer: resolved config differs from live reconstruction')
+        require(identity.configuration_identity(configuration, root) == prepared.config_sha,
+                'Producer: current resolved config differs from live reconstruction')
+        requested_reader = (Path(csp_receipt['embedded']['descriptor_path']).relative_to(root).as_posix()
+                            if csp_receipt.get('embedded') and interactive_owner is None else interactive_owner)
+        reader = getattr(prepared, 'reader_source', None)
+        require((reader is None and requested_reader is None)
+                or (reader is not None and reader.repository == root and reader.descriptor_name == requested_reader),
+                'Producer: live reconstruction selects another report descriptor')
+        report = verify(site, prepared, build_receipt['renderer'], csp_receipt, checkpoint['site_url'],
+                        completed_build=build_receipt, checkpoint=checkpoint)
+        identity.verify_source(root, checkpoint)
+        return report | {'verification_only':False}
     parent = root/'artifacts/website-security/producer-reconstruction';parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=parent) as scratch:
         prepared = prepare(root, record['configuration']['path'] if record else checkpoint['config']['path'], shared, Path(material.__file__).parent/'templates', Path(scratch)/'site', site, publication_scope=True, source_recipe=source_recipe,
