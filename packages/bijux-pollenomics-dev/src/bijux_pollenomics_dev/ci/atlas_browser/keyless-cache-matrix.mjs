@@ -1,10 +1,10 @@
 // Observe cold, warm, and offline keyless atlas behavior in an actual browser.
 import assert from 'node:assert/strict';
-import { spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { createServer } from 'node:http';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { extname, join, relative, resolve } from 'node:path';
+import { debuggerEndpoint, launchChromium } from './browser-transport.mjs';
 
 const [candidateArgument, outputArgument, browserBinary] = process.argv.slice(2);
 if (!candidateArgument || !outputArgument || !browserBinary) {
@@ -29,37 +29,33 @@ const server = createServer(async (request, response) => {
     response.writeHead(200, { 'Content-Type': type, 'Cache-Control': 'public, max-age=3600' }).end(bytes);
   } catch { response.writeHead(404).end(); }
 });
-await new Promise(accept => server.listen(0, '127.0.0.1', accept));
-
-const browser = spawn(browserBinary, [
-  '--headless=new', '--disable-gpu', '--disable-background-networking',
-  '--no-first-run', '--no-default-browser-check', '--remote-debugging-port=0',
-  `--user-data-dir=${join(output, 'browser-profile')}`, 'about:blank',
-], { stdio: ['ignore', 'pipe', 'pipe'] });
-const closed = new Promise(accept => browser.once('close', accept));
+const profile = join(output, 'browser-profile');
+let profileOwned = false;
 const receipt = {
   schema_version: 'atlas-keyless-cache-matrix.v1', status: 'FAIL',
   candidate_build_id: generation.candidate_build_id,
   generation_sha256: hash(generationBytes), scenarios: [], runtime_errors: [],
 };
-let log = '', cdp;
+let log = '', cdp, runtime;
+const cancellation = new AbortController();
 const tileRequests = [];
 const cachedRequests = [];
-const budget = setTimeout(() => browser.kill('SIGKILL'), 120000);
-try {
-  const endpoint = await new Promise((accept, reject) => {
-    const timer = setTimeout(() => reject(Error('debugger readiness timed out')), 20000);
-    browser.once('error', reject);
-    browser.stderr.on('data', bytes => {
-      log += bytes.toString();
-      const match = log.match(/DevTools listening on (ws:\/\/[^\s]+)/);
-      if (match) { clearTimeout(timer); accept(match[1]); }
-    });
-  });
+async function runMatrix() {
+  await mkdir(profile);
+  profileOwned = true;
+  if (cancellation.signal.aborted) {await rm(profile,{recursive:true,force:true});cancellation.signal.throwIfAborted();}
+  await new Promise((accept, reject) => {server.once('error', reject);server.listen(0, '127.0.0.1', accept);});
+  if (cancellation.signal.aborted) {server.close();server.closeAllConnections();cancellation.signal.throwIfAborted();}
+  runtime = await launchChromium(browserBinary, profile);
+  if (cancellation.signal.aborted) {await runtime.close();cancellation.signal.throwIfAborted();}
+  runtime.browser.stdout.on('data', bytes => {log += bytes.toString();});
+  runtime.browser.stderr.on('data', bytes => {log += bytes.toString();});
+  cancellation.signal.throwIfAborted();
+  const endpoint = await debuggerEndpoint(runtime.browser, 20000);
   const debuggerOrigin = new URL(endpoint);
   debuggerOrigin.protocol = 'http:';
   debuggerOrigin.pathname = '';
-  const target = await (await fetch(`${debuggerOrigin.origin}/json/new?about:blank`, { method: 'PUT' })).json();
+  const target = await (await fetch(`${debuggerOrigin.origin}/json/new?about:blank`, { method: 'PUT', signal:cancellation.signal })).json();
   cdp = await connect(target.webSocketDebuggerUrl);
   await cdp.send('Page.enable');
   await cdp.send('Runtime.enable');
@@ -122,32 +118,74 @@ try {
     assert.equal(tileFree.local_server_requests, 0, 'offline load reached the local server');
   }
   assert.equal(receipt.runtime_errors.length, 0);
+  cancellation.signal.throwIfAborted();
   receipt.status = 'PASS';
-} catch (error) { receipt.error = String(error.stack || error); process.exitCode = 1; }
+}
+
+async function withDeadline(work, controller) {
+  let timer;
+  try {
+    return await Promise.race([work, new Promise((_, reject) => {
+      timer = setTimeout(() => {
+        const error = Error('keyless cache matrix watchdog timed out');
+        reject(error);
+        controller.abort(error);
+      }, 120000);
+    })]);
+  } finally {clearTimeout(timer);}
+}
+async function boundedCleanup(action, milliseconds = 2000) {
+  let timer;
+  try {return await Promise.race([action(), new Promise((_, reject) => {
+    timer = setTimeout(() => reject(Error('cleanup deadline exceeded')), milliseconds);
+  })]);} finally {clearTimeout(timer);}
+}
+let primary;
+try {await withDeadline(runMatrix(), cancellation);}
+catch (error) {primary = error;receipt.status = 'FAIL';receipt.error = String(error.stack || error);process.exitCode = 1;}
 finally {
-  clearTimeout(budget);
-  if (cdp) cdp.close();
-  browser.kill('SIGTERM');
-  const kill = setTimeout(() => browser.kill('SIGKILL'), 4000);
-  await closed; clearTimeout(kill);
-  await new Promise(accept => server.close(accept));
+  cancellation.abort(primary || Error('cache observation finished'));
+  const cleanupErrors = [];
+  for (const [name, action, milliseconds] of [
+    ['CDP', async () => cdp?.close(), 2000],
+    ['browser', async () => runtime?.close(), 4000],
+    ['server', () => new Promise((accept, reject) => {
+      if (!server.listening) {accept();return;}
+      server.close(error => error ? reject(error) : accept());
+      server.closeAllConnections();
+    }), 2000],
+    ['profile', async () => {if (profileOwned) await rm(profile, {recursive:true, force:true, maxRetries:5, retryDelay:50});}, 2000],
+  ]) {
+    try {await boundedCleanup(action, milliseconds);} catch (error) {cleanupErrors.push({name,error:String(error)});}
+  }
   receipt.served_files = Object.fromEntries([...served].sort());
-  receipt.verifier_sha256 = hash(await readFile(new URL(import.meta.url)));
-  await writeFile(join(output, 'receipt.json'), `${JSON.stringify(receipt, null, 2)}\n`);
-  await writeFile(join(output, 'browser.log'), log);
-  await rm(join(output, 'browser-profile'), { recursive: true, force: true });
+  try {receipt.verifier_sha256 = hash(await boundedCleanup(() => readFile(new URL(import.meta.url))));}
+  catch (error) {cleanupErrors.push({name:'verifier identity',error:String(error)});}
+  try {await boundedCleanup(() => writeFile(join(output, 'browser.log'), log));}
+  catch (error) {cleanupErrors.push({name:'browser log',error:String(error)});}
+  if (cleanupErrors.length) {
+    receipt.status = 'FAIL';process.exitCode = 1;receipt.cleanup_errors = cleanupErrors;
+    if (primary === undefined) receipt.error = 'keyless cache matrix cleanup failed';
+  }
+  try {await boundedCleanup(() => writeFile(join(output, 'receipt.json'), `${JSON.stringify(receipt, null, 2)}\n`));}
+  catch (error) {cleanupErrors.push({name:'receipt',error:String(error)});process.exitCode = 1;}
+  for (const error of cleanupErrors) console.error(`cache observation cleanup also failed (${error.name}): ${error.error}`);
 }
 
 function hash(bytes) { return createHash('sha256').update(bytes).digest('hex'); }
 async function navigate(url) {
-  let waiting = true;
+  cancellation.signal.throwIfAborted();
+  let timer, unlisten, cancel;
   const loaded = new Promise((accept, reject) => {
-    const timer = setTimeout(() => { waiting = false; reject(Error('page load timed out')); }, 20000);
-    cdp.listen(event => { if (waiting && event.method === 'Page.loadEventFired') { waiting = false; clearTimeout(timer); accept(); } });
+    timer = setTimeout(() => reject(Error('page load timed out')), 20000);
+    unlisten = cdp.listen(event => {if (event.method === 'Page.loadEventFired') accept();});
+    cancel = () => reject(cancellation.signal.reason);
+    cancellation.signal.addEventListener('abort', cancel, {once:true});
   });
-  await cdp.send('Page.navigate', { url });
-  await loaded;
+  try {await Promise.all([cdp.send('Page.navigate', {url}), loaded]);}
+  finally {clearTimeout(timer);unlisten?.();cancellation.signal.removeEventListener('abort', cancel);}
 }
+
 async function evaluate(expression) {
   const value = await cdp.send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true });
   if (value.exceptionDetails) throw Error(JSON.stringify(value.exceptionDetails));
@@ -156,34 +194,53 @@ async function evaluate(expression) {
 async function waitFor(expression) {
   const deadline = Date.now() + 20000;
   while (Date.now() < deadline) {
+    cancellation.signal.throwIfAborted();
     if (await evaluate(expression)) return;
     await new Promise(accept => setTimeout(accept, 50));
   }
   throw Error(`timed out: ${expression}`);
 }
 async function connect(url) {
+  cancellation.signal.throwIfAborted();
   return new Promise((accept, reject) => {
-    const socket = new WebSocket(url), pending = new Map(), listeners = new Set(); let id = 0;
-    socket.addEventListener('error', reject);
+    const socket = new WebSocket(url), pending = new Map(), listeners = new Set();let id = 0, opened = false, closed = false, closeError;
+    const disconnect = error => {
+      if (!closed) {
+        closed = true;cancellation.signal.removeEventListener('abort', abort);
+        for (const request of pending.values()) {clearTimeout(request.timeout);request.reject(error);}
+        pending.clear();listeners.clear();
+        if (!opened) reject(error);
+        try {socket.close();} catch (caught) {closeError = caught;}
+      }
+      if (closeError) throw closeError;
+    };
+    const abort = () => {try {disconnect(cancellation.signal.reason);} catch (error) {closeError = error;}};
+    cancellation.signal.addEventListener('abort', abort, {once:true});
+    socket.addEventListener('error', () => {try {disconnect(Error('CDP socket failed'));} catch (error) {closeError = error;}});
+    socket.addEventListener('close', () => {try {disconnect(Error('CDP socket closed'));} catch (error) {closeError = error;}});
     socket.addEventListener('open', () => {
+      if (closed) return;
+      opened = true;
       socket.addEventListener('message', event => {
         const value = JSON.parse(event.data);
-        if (!value.id) { listeners.forEach(listener => listener(value)); return; }
-        const request = pending.get(value.id); if (!request) return;
-        pending.delete(value.id); clearTimeout(request.timeout);
-        if (value.error) request.reject(Error(JSON.stringify(value.error)));
-        else request.accept(value.result);
+        if (!value.id) {listeners.forEach(listener => listener(value));return;}
+        const request = pending.get(value.id);if (!request) return;
+        pending.delete(value.id);clearTimeout(request.timeout);
+        if (value.error) request.reject(Error(JSON.stringify(value.error)));else request.accept(value.result);
       });
       accept({
         send(method, params = {}) {
+          cancellation.signal.throwIfAborted();
           const requestId = ++id;
           return new Promise((acceptRequest, rejectRequest) => {
-            const timeout = setTimeout(() => { pending.delete(requestId); rejectRequest(Error(`CDP timeout: ${method}`)); }, 20000);
-            pending.set(requestId, { accept: acceptRequest, reject: rejectRequest, timeout });
-            socket.send(JSON.stringify({ id: requestId, method, params }));
+            const timeout = setTimeout(() => {pending.delete(requestId);rejectRequest(Error(`CDP timeout: ${method}`));}, 20000);
+            pending.set(requestId, {accept:acceptRequest,reject:rejectRequest,timeout});
+            try {socket.send(JSON.stringify({id:requestId,method,params}));}
+            catch (error) {clearTimeout(timeout);pending.delete(requestId);rejectRequest(error);}
           });
         },
-        listen(callback) { listeners.add(callback); }, close() { socket.close(); },
+        listen(callback) {listeners.add(callback);return () => listeners.delete(callback);},
+        close() {disconnect(Error('CDP connection closed'));},
       });
     });
   });
