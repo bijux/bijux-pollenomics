@@ -2501,3 +2501,84 @@ def test_fieldwork_reader_checks_require_documentation_and_restore_source_export
     assert json.loads(completed.stdout) == {
         name: name == "complete" for name in scenarios
     }
+
+
+def test_record_journey_restoration_reacquires_only_after_owned_navigation() -> None:
+    function = _probe_function_block(
+        "async function restoreRecordReadingView", "async function fitActiveJourney"
+    )
+    script = (
+        "const timeoutMs=15000;let evaluate,captureReady;\n"
+        + function
+        + r"""
+async function exercise(mode){
+ const original='http://127.0.0.1/atlas.html#layers=source&time_start=0';
+ let href=mode==='same'?original:'http://127.0.0.1/atlas.html#focus_record=fieldwork';
+ let destroyed=false,registered=false,ready=false,resolveLoad,rejectLoad;
+ const events=[];
+ evaluate=async(_cdp,expression)=>{
+  if(destroyed)throw Error('Runtime.evaluate used a destroyed context');
+  if(expression==='location.href'){events.push('read_url');return href;}
+  events.push('close_controls');return true;
+ };
+ captureReady=async()=>{if(destroyed)throw Error('readiness used a destroyed context');ready=true;events.push('ready');return {ready:true};};
+ const cdp={
+  waitFor(name,timeout){if(name!=='Page.loadEventFired'||timeout!==timeoutMs)throw Error('wrong navigation deadline');
+   registered=true;events.push('wait_load');return new Promise((resolve,reject)=>{resolveLoad=resolve;rejectLoad=reject;});},
+  async send(name,params){
+   if(name!=='Page.navigate'||params.url!==original||!registered)throw Error('navigation preceded registration or changed URL');
+   events.push('navigate');destroyed=true;
+   if(mode==='navigation_failure'){rejectLoad(Error('navigation failure'));throw Error('navigation failure');}
+   queueMicrotask(()=>{
+    if(mode==='load_timeout'){rejectLoad(Error('load timeout'));return;}
+    destroyed=false;href=mode==='wrong_url'?original+'&unexpected=true':original;events.push('load');resolveLoad({});
+   });
+  },
+ };
+ let result,error=null;
+ try{result=await restoreRecordReadingView(cdp,original);}catch(caught){error=caught.message;}
+ return {events,ready,error,restored:href===original,result};
+}
+const observed={};
+for(const mode of ['moved','same','navigation_failure','load_timeout','wrong_url'])observed[mode]=await exercise(mode);
+console.log(JSON.stringify(observed));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    observed = json.loads(completed.stdout)
+    assert observed["moved"] == {
+        "events": [
+            "close_controls",
+            "read_url",
+            "wait_load",
+            "navigate",
+            "load",
+            "ready",
+            "read_url",
+        ],
+        "ready": True,
+        "error": None,
+        "restored": True,
+        "result": {"ready": True},
+    }
+    assert observed["same"]["events"] == [
+        "close_controls",
+        "read_url",
+        "ready",
+        "read_url",
+    ]
+    for mode, reason in (
+        ("navigation_failure", "navigation failure"),
+        ("load_timeout", "load timeout"),
+    ):
+        assert observed[mode]["error"] == reason
+        assert observed[mode]["ready"] is False
+    assert observed["wrong_url"]["error"] == (
+        "Record reading did not restore the original URL"
+    )

@@ -354,7 +354,7 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
     scopeReceipts.push(path);
   }
   await normal.cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
-  const fieldworkReading = await fieldworkReadingJourney(normal.cdp);
+  const fieldworkReading = await fieldworkReadingJourney(normal.cdp, scope, scopeReceipts);
   const fitActive = await fitActiveJourney(normal.cdp);
   const chronologyJourneys = {};
   await shortcutFrame(normal.cdp, 'sample');
@@ -1869,8 +1869,8 @@ function fieldworkReadingPasses(facts) {
     && JSON.stringify(facts.ordinary.tabs) === JSON.stringify(['overview', 'samples', 'chronology', 'pollen_composition', 'relation', 'classification', 'provenance']);
 }
 
-async function fieldworkReadingJourney(cdp) {
-  const originalHash = await evaluate(cdp, 'location.hash');
+async function fieldworkReadingJourney(cdp, scope, receipts) {
+  const originalUrl = await evaluate(cdp, 'location.href');
   const openRecord = async (query, title) => evaluate(cdp, `(async () => {
     const wait = predicate => new Promise((resolve, reject) => {
       const started = performance.now();
@@ -1904,6 +1904,17 @@ async function fieldworkReadingJourney(cdp) {
         export_hidden:byId('focus-export').hidden,export_disabled:byId('focus-export').disabled,copy_disabled:byId('focus-copy-link').disabled,
         focus_layer:params.get('focus_layer'),focus_record:params.get('focus_record')};
     })()`);
+    const screenshots = [];
+    for (const width of [1440, 390]) {
+      await cdp.send('Emulation.setDeviceMetricsOverride', {width,height:900,deviceScaleFactor:1,mobile:width===390});
+      await captureReady(cdp);
+      const path = `${scope.name}/fieldwork-record-${width}.png`;
+      await screenshot(cdp, path);
+      screenshots.push(path);
+      receipts.push(path);
+    }
+    await cdp.send('Emulation.setDeviceMetricsOverride', {width:1440,height:900,deviceScaleFactor:1,mobile:false});
+    await captureReady(cdp);
     const keyboard = [];
     await evaluate(cdp, "document.getElementById('focus-tab-overview').focus()");
     for (const [key, code] of [['ArrowLeft',37],['ArrowRight',39],['Home',36],['End',35],['Tab',9]]) {
@@ -1925,21 +1936,23 @@ async function fieldworkReadingJourney(cdp) {
     const ordinary = await evaluate(cdp, `({title:document.getElementById('focus-title').textContent,
       tabs:[...document.querySelectorAll('#focus-tabs [role=tab]')].map(row=>row.dataset.focusTab),
       export_hidden:document.getElementById('focus-export').hidden,export_disabled:document.getElementById('focus-export').disabled})`);
-    const facts = {fieldwork,keyboard,after_tab:afterTab,zoom_reached_record:zoomReachedRecord,ordinary,clipboard_write_exercised:false};
+    const facts = {fieldwork,keyboard,after_tab:afterTab,zoom_reached_record:zoomReachedRecord,ordinary,screenshots,clipboard_write_exercised:false};
     if (!fieldworkReadingPasses(facts)) throw Error('Fieldwork record reading contract failed: '+JSON.stringify(facts));
     return facts;
   } finally {
-    await evaluate(cdp, `(async () => {
-      document.getElementById('focus-close').click();
-      document.getElementById('search-clear').click();
-      if (location.hash !== ${JSON.stringify(originalHash)}) {
-        const changed = new Promise(resolve => window.addEventListener('hashchange', resolve, {once:true}));
-        location.hash = ${JSON.stringify(originalHash)};
-        await changed;
-      }
-      return BijuxPollenomicsAtlasCapture.awaitReady();
-    })()`);
+    await restoreRecordReadingView(cdp, originalUrl);
   }
+}
+
+async function restoreRecordReadingView(cdp, originalUrl) {
+  await evaluate(cdp, "document.getElementById('focus-close').click();document.getElementById('search-clear').click();true");
+  if (await evaluate(cdp, 'location.href') !== originalUrl) {
+    const loaded = cdp.waitFor('Page.loadEventFired', timeoutMs);
+    await Promise.all([cdp.send('Page.navigate', {url:originalUrl}), loaded]);
+  }
+  const snapshot = await captureReady(cdp);
+  if (await evaluate(cdp, 'location.href') !== originalUrl) throw Error('Record reading did not restore the original URL');
+  return snapshot;
 }
 
 async function fitActiveJourney(cdp) {
