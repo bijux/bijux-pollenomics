@@ -1,7 +1,9 @@
-import { spawn } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { createServer } from 'node:http';
 import { readFile, mkdir, readdir, rm, writeFile } from 'node:fs/promises';
-import { dirname, extname, join, relative, resolve } from 'node:path';
+import { basename, dirname, extname, join, relative, resolve } from 'node:path';
+import { debuggerEndpoint, launchChromium } from '../browser-transport.mjs';
 
 const [repositoryArg, artifactArg, browserBinary] = process.argv.slice(2);
 if (!repositoryArg || !artifactArg || !browserBinary) throw new Error('repository, artifact directory, and browser binary are required');
@@ -12,8 +14,9 @@ if (!relative(repository, artifact).startsWith('artifacts/')) throw new Error('o
 await mkdir(dirname(artifact), { recursive: true });
 await mkdir(artifact, { recursive: false });
 const downloads = join(artifact, 'downloads');
-const profile = join(artifact, 'brave-profile');
+const profile = join(artifact, 'browser-profile');
 await mkdir(downloads);
+await mkdir(profile);
 const requests = [];
 const server = createServer(async (request, response) => {
   const pathname = new URL(request.url, 'http://127.0.0.1').pathname;
@@ -27,16 +30,7 @@ const server = createServer(async (request, response) => {
   } catch { response.writeHead(404).end(); }
 });
 await new Promise((ok) => server.listen(0, '127.0.0.1', ok));
-const browser = spawn(browserBinary, [
-  '--headless=new', '--disable-gpu', '--disable-background-networking', '--disable-component-update',
-  '--disable-default-apps', '--no-default-browser-check', '--disable-extensions', '--disable-sync',
-  '--no-first-run', '--remote-allow-origins=*', '--remote-debugging-port=0',
-  '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1',
-  `--user-data-dir=${profile}`, 'about:blank',
-], { stdio: ['ignore', 'pipe', 'pipe'] });
 let browserLog = '';
-browser.stdout.on('data', (part) => { browserLog += part.toString(); });
-browser.stderr.on('data', (part) => { browserLog += part.toString(); });
 const timeout = 60000;
 function until(check, label) {
   return new Promise((ok, fail) => {
@@ -84,15 +78,43 @@ async function evaluate(cdp, expression) {
   if (result.exceptionDetails) throw new Error(JSON.stringify(result.exceptionDetails));
   return result.result.value;
 }
-let cdp;
+function captureBrowserIdentity(version) {
+  for (const key of ['product', 'revision', 'userAgent', 'jsVersion', 'protocolVersion']) {
+    if (typeof version?.[key] !== 'string' || !version[key].trim()) throw Error('Browser identity field unavailable: '+key);
+  }
+  return version;
+}
+async function captureSourceIdentity(repository, runtime) {
+  const document = 'docs/report/regions/nordic/nordic_map.html';
+  const paths = [document, 'docs/report/regions/nordic/nordic_map_assets.json'];
+  for (const row of [runtime, ...Object.values(runtime.optional_controllers || {})]) {
+    if (typeof row.path !== 'string' || basename(row.path) !== row.path) throw Error('Unconfined runtime identity path');
+    paths.push(join(dirname(document), row.path));
+  }
+  const files = [];
+  for (const path of paths.sort()) {
+    const content = await readFile(join(repository, path));
+    files.push({path,bytes:content.length,sha256:createHash('sha256').update(content).digest('hex')});
+  }
+  const git = ref => execFileSync('git', ['--no-optional-locks', '--no-replace-objects', 'rev-parse', ref], {cwd:repository,timeout:5000}).toString().trim();
+  return {head:git('HEAD'),tree:git('HEAD^{tree}'),files};
+}
+let cdp, runtime, captureError;
 try {
-  const debuggerUrl = await until(() => browserLog.match(/DevTools listening on (ws:\/\/[^\s]+)/)?.[1], 'debugger endpoint');
+  runtime = await launchChromium(browserBinary, profile, [
+    '--disable-extensions', '--disable-sync',
+    '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1',
+  ]);
+  runtime.browser.stdout.on('data', (part) => { browserLog += part.toString(); });
+  runtime.browser.stderr.on('data', (part) => { browserLog += part.toString(); });
+  const debuggerUrl = await debuggerEndpoint(runtime.browser, timeout);
   const debuggerOrigin = new URL(debuggerUrl);
   debuggerOrigin.protocol = 'http:';
   const targetResponse = await fetch(`${debuggerOrigin.origin}/json/new?about:blank`, { method: 'PUT' });
   if (!targetResponse.ok) throw new Error(`target creation: ${targetResponse.status}`);
   const target = await targetResponse.json();
   cdp = await connect(target.webSocketDebuggerUrl);
+  const browserIdentity = captureBrowserIdentity(await cdp.send('Browser.getVersion'));
   await cdp.send('Page.enable');
   await cdp.send('Runtime.enable');
   await cdp.send('Browser.setDownloadBehavior', { behavior: 'allow', downloadPath: downloads, eventsEnabled: true });
@@ -123,8 +145,12 @@ try {
     catch { return null; }
   }, 'complete GeoJSON');
   await until(() => cdp.events.find((event) => event.method === 'Browser.downloadProgress' && event.params?.state === 'completed' && event.params?.receivedBytes === content.length), 'completed download event');
+  const runtimeBinding = await evaluate(cdp, `JSON.parse(document.getElementById('atlas-static-bootstrap').textContent).runtime`);
+  const candidate = await captureSourceIdentity(repository, runtimeBinding);
   const observation = {
     browser_binary: browserBinary,
+    browser_runtime: browserIdentity,
+    candidate,
     control_state: controls,
     visible_state: visibleState,
     download_filename: filename,
@@ -134,11 +160,27 @@ try {
   };
   await writeFile(join(artifact, 'browser-observation.json'), `${JSON.stringify(observation, null, 2)}\n`);
   console.log(JSON.stringify({ artifact, filename, bytes: content.length, controls, visibleState }));
+} catch (error) {
+  captureError = error;
 } finally {
-  cdp?.close();
-  browser.kill();
-  server.close();
-  await writeFile(join(artifact, 'browser.log'), browserLog);
-  if (browser.exitCode === null) await new Promise((ok) => browser.once('exit', ok));
-  await rm(profile, { recursive: true, force: true });
+  const cleanupErrors = [];
+  for (const [name, cleanup] of [
+    ['CDP', async () => cdp?.close()],
+    ['browser', async () => runtime?.close()],
+    ['server', () => new Promise((accept, reject) => {
+      const timer = setTimeout(() => reject(Error('Capture server close deadline exceeded')), 2000);
+      server.close(error => {clearTimeout(timer); if (error) reject(error); else accept();});
+      server.closeAllConnections();
+    })],
+    ['browser log', () => writeFile(join(artifact, 'browser.log'), browserLog)],
+    ['profile', () => rm(profile, {recursive:true, force:true, maxRetries:5, retryDelay:50})],
+  ]) {
+    try {await cleanup();} catch (error) {cleanupErrors.push({name, error});}
+  }
+  if (captureError !== undefined) {
+    for (const {name, error} of cleanupErrors) console.error(`LandClim capture cleanup also failed (${name}): ${error}`);
+  } else if (cleanupErrors.length) {
+    throw new AggregateError(cleanupErrors.map(({error}) => error), 'LandClim capture cleanup failed');
+  }
 }
+if (captureError !== undefined) throw captureError;

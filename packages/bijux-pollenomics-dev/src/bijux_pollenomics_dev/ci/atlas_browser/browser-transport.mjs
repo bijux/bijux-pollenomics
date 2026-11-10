@@ -10,7 +10,7 @@ export function requireChromiumSocketPath(directory) {
   return socket;
 }
 
-export async function launchChromium(binary, profile) {
+export async function launchChromium(binary, profile, additionalArguments = []) {
   const directory = await mkdtemp(join(await realpath('/tmp'), 'bjx-'));
   let browser, closing, closed;
   const signalGroup = signal => {
@@ -36,7 +36,7 @@ export async function launchChromium(binary, profile) {
     requireChromiumSocketPath(directory);
     if(typeof profile!=='string' || resolve(profile)!==profile || !(await stat(profile)).isDirectory())throw Error('Owned Chromium profile directory required');
     if (((await stat(directory)).mode & 0o777) !== 0o700) throw Error('Chromium IPC directory is not private');
-    browser = spawn(binary, ['--headless=new', '--disable-gpu', '--disable-background-networking', '--disable-component-update', '--disable-default-apps', '--no-default-browser-check', '--no-first-run', '--remote-allow-origins=*', '--remote-debugging-port=0', `--user-data-dir=${profile}`, 'about:blank'], {
+    browser = spawn(binary, ['--headless=new', '--disable-gpu', '--disable-background-networking', '--disable-component-update', '--disable-default-apps', '--no-default-browser-check', '--no-first-run', '--remote-allow-origins=*', '--remote-debugging-port=0', ...additionalArguments, `--user-data-dir=${profile}`, 'about:blank'], {
       env:{...process.env, TMPDIR:directory, TMP:directory, TEMP:directory},
       detached:true, stdio:['ignore','pipe','pipe'],
     });

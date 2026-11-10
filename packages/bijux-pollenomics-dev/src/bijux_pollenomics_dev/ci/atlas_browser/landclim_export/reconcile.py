@@ -55,6 +55,75 @@ def _modeled_manifest(repository: Path, page: str) -> dict[str, Any]:
     return cast(dict[str, Any], value)
 
 
+def _capture_identity(
+    repository: Path, observation: dict[str, Any], browser: Path
+) -> dict[str, Any]:
+    """Bind a fresh observation to its actual browser and executable source."""
+    from bijux_pollenomics_dev.ci.atlas_browser.published_runtime import (
+        read_published_runtime,
+    )
+
+    version = observation.get("browser_runtime")
+    require(
+        isinstance(version, dict)
+        and all(
+            isinstance(version.get(key), str) and version[key].strip()
+            for key in (
+                "product",
+                "revision",
+                "userAgent",
+                "jsVersion",
+                "protocolVersion",
+            )
+        ),
+        "actual browser identity unavailable",
+    )
+    require(
+        Path(observation["browser_binary"]).resolve() == browser.resolve(),
+        "observed browser binary differs",
+    )
+    document = repository / "docs/report/regions/nordic/nordic_map.html"
+    manifest = document.with_name("nordic_map_assets.json")
+    runtime = read_published_runtime(
+        document, manifest, document.read_text(), json.loads(manifest.read_bytes())
+    )
+    files = []
+    for path in sorted((document, manifest, *runtime.paths)):
+        content = path.read_bytes()
+        files.append(
+            {
+                "path": path.relative_to(repository).as_posix(),
+                "bytes": len(content),
+                "sha256": digest(content),
+            }
+        )
+    candidate = {
+        "head": subprocess.check_output(
+            ["git", "--no-optional-locks", "--no-replace-objects", "rev-parse", "HEAD"],
+            cwd=repository,
+            text=True,
+            timeout=5,
+        ).strip(),
+        "tree": subprocess.check_output(
+            [
+                "git",
+                "--no-optional-locks",
+                "--no-replace-objects",
+                "rev-parse",
+                "HEAD^{tree}",
+            ],
+            cwd=repository,
+            text=True,
+            timeout=5,
+        ).strip(),
+        "files": files,
+    }
+    require(
+        observation.get("candidate") == candidate, "observed candidate identity differs"
+    )
+    return candidate
+
+
 def digest(content: bytes) -> str:
     """Return the SHA-256 digest of an exact map export payload."""
     return hashlib.sha256(content).hexdigest()
@@ -162,6 +231,7 @@ def reconcile(repository: Path, artifact: Path, browser: Path) -> dict[str, obje
         }
 
     observation = json.loads((artifact / "browser-observation.json").read_bytes())
+    candidate = _capture_identity(repository, observation, browser)
     require(
         observation["control_state"]["selected_countries"] == ["Denmark", "Sweden"],
         "browser country controls differ",
@@ -420,6 +490,8 @@ def reconcile(repository: Path, artifact: Path, browser: Path) -> dict[str, obje
         "status": "executed_browser_download_reconciled",
         "reference_product_head": "555ef191dbd8fe3672b30e2c60dbb9ad790c0e0d",
         "browser": browser_version,
+        "browser_runtime": observation["browser_runtime"],
+        "candidate": candidate,
         "download_filename": filename,
         "download_bytes": len(raw),
         "download_sha256": digest(raw),

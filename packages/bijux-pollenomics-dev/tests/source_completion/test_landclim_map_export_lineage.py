@@ -310,3 +310,79 @@ def test_browser_export_refuses_missing_actual_model_binding_declaration(
     (repository / owner.MAP).write_text(page)
     with pytest.raises(ValueError, match="modeled-context binding unavailable"):
         browser_export._modeled_manifest(repository, page)
+
+
+def test_capture_identity_binds_actual_runtime_graph_and_preserves_browser_fields() -> (
+    None
+):
+    import subprocess
+
+    capture = (
+        ROOT
+        / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/capture.mjs"
+    ).read_text()
+    functions = capture.split("function captureBrowserIdentity", 1)[1].split(
+        "let cdp, runtime, captureError;", 1
+    )[0]
+    script = (
+        "import {readFile} from 'node:fs/promises';\n"
+        "import {execFileSync} from 'node:child_process';\n"
+        "import {createHash} from 'node:crypto';\n"
+        "import {basename,dirname,join} from 'node:path';\n"
+        "function captureBrowserIdentity"
+        + functions
+        + "\nconst repository="
+        + json.dumps(str(ROOT))
+        + r""";
+const page=await readFile(join(repository,'docs/report/regions/nordic/nordic_map.html'),'utf8');
+const bootstrap=JSON.parse(page.match(/<script id="atlas-static-bootstrap" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+const version={product:'SyntheticChrome/1',revision:'test-revision',userAgent:'test-agent',jsVersion:'test-js',protocolVersion:'1.3'};
+const refused=[];
+for(const key of Object.keys(version)){
+ try{captureBrowserIdentity({...version,[key]:''});}catch{refused.push(key);}
+}
+console.log(JSON.stringify({browser_runtime:captureBrowserIdentity(version),
+ candidate:await captureSourceIdentity(repository,bootstrap.runtime),refused}));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+    assert completed.returncode == 0, completed.stderr
+    observation = json.loads(completed.stdout)
+    assert observation.pop("refused") == [
+        "product",
+        "revision",
+        "userAgent",
+        "jsVersion",
+        "protocolVersion",
+    ]
+    browser = ROOT / "artifacts/synthetic-browser"
+    observation["browser_binary"] = str(browser)
+    assert (
+        browser_export._capture_identity(ROOT, observation, browser)
+        == observation["candidate"]
+    )
+    for key in ("head", "tree", "files"):
+        changed = deepcopy(observation)
+        changed["candidate"][key] = [] if key == "files" else "0" * 40
+        with pytest.raises(ValueError, match="candidate identity differs"):
+            browser_export._capture_identity(ROOT, changed, browser)
+    for key in ("bytes", "sha256"):
+        changed = deepcopy(observation)
+        changed["candidate"]["files"][0][key] = 0 if key == "bytes" else "0" * 64
+        with pytest.raises(ValueError, match="candidate identity differs"):
+            browser_export._capture_identity(ROOT, changed, browser)
+    for key in observation["browser_runtime"]:
+        changed = deepcopy(observation)
+        changed["browser_runtime"][key] = ""
+        with pytest.raises(ValueError, match="browser identity unavailable"):
+            browser_export._capture_identity(ROOT, changed, browser)
+    with pytest.raises(ValueError, match="browser binary differs"):
+        browser_export._capture_identity(
+            ROOT, observation, ROOT / "artifacts/other-browser"
+        )
