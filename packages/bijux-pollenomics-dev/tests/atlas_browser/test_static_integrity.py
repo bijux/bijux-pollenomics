@@ -1,11 +1,20 @@
 from __future__ import annotations
 
+import base64
+from dataclasses import replace
+import hashlib
 import json
 from pathlib import Path
+import re
+from typing import Any, cast
 
 import pytest
 
-from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasBrowserContractError
+from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
+    AtlasBrowserContractError,
+    AtlasCandidate,
+    AtlasScope,
+)
 from bijux_pollenomics_dev.ci.atlas_browser.static_integrity import audit_static_atlas
 
 from .fixtures import candidate, write_static_atlas
@@ -444,3 +453,231 @@ def test_signed_static_requires_explicit_content_bound_profile(
         )
         assert report["status"] == "PASS"
         assert report["asset_count"] == 1
+
+
+@pytest.fixture(params=["nordic_map", "nordic"])
+def distributed_atlas(
+    tmp_path: Path, request: pytest.FixtureRequest
+) -> tuple[AtlasScope, AtlasCandidate]:
+    """Exercise the actual maintained writer, dynamic loader and controller graph."""
+    from bijux_pollenomics.reporting.map_document.render import (
+        write_static_map_document,
+    )
+    from bijux_pollenomics.reporting.map_document.static_assets import (
+        write_static_atlas_assets,
+    )
+    from bijux_pollenomics.reporting.scope_policy import MAP_SCOPE_POLICIES
+
+    folder = tmp_path / "docs/report/regions/nordic"
+    folder.mkdir(parents=True)
+    assets = write_static_atlas_assets(
+        folder, slug="nordic", version="fixture", point_layers=[], polygon_layers=[]
+    )
+    page, _ = write_static_map_document(
+        folder / (cast(str, request.param) + ".html"),
+        "Atlas",
+        "fixture",
+        "Fixed source",
+        (),
+        MAP_SCOPE_POLICIES["custom"],
+        [],
+        [],
+        "_map_assets",
+        assets,
+    )
+    return (
+        AtlasScope(
+            "nordic",
+            page.relative_to(tmp_path).as_posix(),
+            assets.manifest_path.relative_to(tmp_path).as_posix(),
+        ),
+        replace(candidate(), build_id=cast(str, assets.manifest["build_id"])),
+    )
+
+
+def _bootstrap(page: str) -> tuple[re.Match[str], dict[str, Any]]:
+    match = re.search(
+        r'<script id="atlas-static-bootstrap" type="application/json">(.*?)</script>',
+        page,
+        re.S,
+    )
+    assert match is not None
+    return match, cast(dict[str, Any], json.loads(match.group(1)))
+
+
+def _reseal_executable(document: Path, key: str | None, payload: bytes) -> None:
+    """Keep transport authentication valid so provider checks remain independent."""
+    page = document.read_text()
+    match, bootstrap = _bootstrap(page)
+    runtime = bootstrap["runtime"]
+    reference = runtime if key is None else runtime["optional_controllers"][key]
+    old = document.parent / reference["path"]
+    digest = hashlib.sha256(payload).digest()
+    name = reference["path"].rsplit(".", 2)[0] + "." + digest.hex()[:16] + ".js"
+    (document.parent / name).write_bytes(payload)
+    if name != old.name:
+        old.unlink()
+    reference.update(
+        path=name,
+        byte_count=len(payload),
+        integrity="sha256-" + base64.b64encode(digest).decode(),
+    )
+    document.write_text(
+        page[: match.start(1)] + json.dumps(bootstrap) + page[match.end(1) :]
+    )
+
+
+def test_current_distributed_graph_keeps_scientific_inventory_separate(
+    tmp_path: Path, distributed_atlas: tuple[AtlasScope, AtlasCandidate]
+) -> None:
+    scope, identity = distributed_atlas
+    report = audit_static_atlas(tmp_path, scope, identity)
+    assert report["status"] == "PASS"
+    assert report["runtime_asset_count"] == 3
+    assert report["asset_count"] == len(cast(list[Any], report["assets"]))
+    assert cast(int, report["runtime_asset_bytes"]) > 0
+
+
+def test_distributed_bootstrap_safely_refuses_noncanonical_owner_spelling(
+    tmp_path: Path, distributed_atlas: tuple[AtlasScope, AtlasCandidate]
+) -> None:
+    scope, identity = distributed_atlas
+    document = tmp_path / scope.document
+    document.write_text(
+        document.read_text().replace(
+            '<script id="atlas-static-bootstrap" type="application/json">',
+            '<script type="application/json" id="atlas-static-bootstrap">',
+        )
+    )
+    with pytest.raises(AtlasBrowserContractError, match="one bootstrap"):
+        audit_static_atlas(tmp_path, scope, identity)
+
+
+@pytest.mark.parametrize(
+    "shadow",
+    [
+        '<script type="application/json" id="atlas-static-bootstrap">{}</script>',
+        '<div id="atlas-static-bootstrap">{}</div>',
+        '<script id="atlas-static-bootstrap" id="shadow" type="application/json">{}</script>',
+    ],
+)
+def test_distributed_bootstrap_rejects_browser_selected_shadow(
+    tmp_path: Path, distributed_atlas: tuple[AtlasScope, AtlasCandidate], shadow: str
+) -> None:
+    scope, identity = distributed_atlas
+    document = tmp_path / scope.document
+    document.write_text(shadow + document.read_text())
+    with pytest.raises(AtlasBrowserContractError, match="bootstrap ID"):
+        audit_static_atlas(tmp_path, scope, identity)
+
+
+@pytest.mark.parametrize("key", [None, "evidence_tools", "index_transport"])
+def test_authenticated_executable_graph_refuses_hidden_credentials(
+    tmp_path: Path,
+    distributed_atlas: tuple[AtlasScope, AtlasCandidate],
+    key: str | None,
+) -> None:
+    scope, identity = distributed_atlas
+    document = tmp_path / scope.document
+    _, bootstrap = _bootstrap(document.read_text())
+    reference = (
+        bootstrap["runtime"]
+        if key is None
+        else bootstrap["runtime"]["optional_controllers"][key]
+    )
+    original = (document.parent / reference["path"]).read_bytes()
+    _reseal_executable(document, key, original + b"\\n// access_token=forbidden\\n")
+    with pytest.raises(AtlasBrowserContractError, match="provider markers"):
+        audit_static_atlas(tmp_path, scope, identity)
+
+
+def test_authenticated_runtime_still_requires_keyless_endpoint(
+    tmp_path: Path, distributed_atlas: tuple[AtlasScope, AtlasCandidate]
+) -> None:
+    scope, identity = distributed_atlas
+    document = tmp_path / scope.document
+    _, bootstrap = _bootstrap(document.read_text())
+    original = (document.parent / bootstrap["runtime"]["path"]).read_bytes()
+    changed = original.replace(
+        b"https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+        b"https://invalid.example/{z}/{x}/{y}.png",
+    )
+    assert changed != original
+    _reseal_executable(document, None, changed)
+    with pytest.raises(AtlasBrowserContractError, match="keyless OSM"):
+        audit_static_atlas(tmp_path, scope, identity)
+
+
+@pytest.mark.parametrize(
+    "damage",
+    [
+        "runtime",
+        "sri",
+        "size",
+        "loader",
+        "controller",
+        "controller_sri",
+        "missing_controller",
+        "bootstrap",
+    ],
+)
+def test_distributed_graph_refuses_transport_tamper(
+    tmp_path: Path, distributed_atlas: tuple[AtlasScope, AtlasCandidate], damage: str
+) -> None:
+    scope, identity = distributed_atlas
+    document = tmp_path / scope.document
+    page = document.read_text()
+    match, bootstrap = _bootstrap(page)
+    runtime = bootstrap["runtime"]
+    controller = runtime["optional_controllers"]["index_transport"]
+    if damage in {"runtime", "controller", "missing_controller"}:
+        path = (
+            document.parent / (runtime if damage == "runtime" else controller)["path"]
+        )
+        if damage == "missing_controller":
+            path.unlink()
+        else:
+            path.write_bytes(path.read_bytes() + b" ")
+    else:
+        if damage == "sri":
+            runtime["integrity"] = "sha256-invalid"
+        elif damage == "size":
+            runtime["byte_count"] = True
+        elif damage == "controller_sri":
+            controller["integrity"] = "sha256-invalid"
+        elif damage == "bootstrap":
+            bootstrap["scope_slug"] = "unbound"
+        else:
+            page = page.replace(
+                "script.src = runtime.path;", "script.src = 'unbound.js';"
+            )
+        if damage != "loader":
+            page = page[: match.start(1)] + json.dumps(bootstrap) + page[match.end(1) :]
+        document.write_text(page)
+    with pytest.raises(AtlasBrowserContractError, match="Published runtime"):
+        audit_static_atlas(tmp_path, scope, identity)
+
+
+@pytest.mark.parametrize(
+    "budget", ["static_assets_max_files", "static_assets_max_bytes"]
+)
+def test_executables_are_charged_to_declared_global_budget(
+    tmp_path: Path, distributed_atlas: tuple[AtlasScope, AtlasCandidate], budget: str
+) -> None:
+    scope, identity = distributed_atlas
+    document = tmp_path / scope.document
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text())
+    report = audit_static_atlas(tmp_path, scope, identity)
+    manifest["budgets"][budget] = (
+        report["asset_count"] if budget.endswith("files") else report["asset_bytes"]
+    )
+    manifest_path.write_text(json.dumps(manifest))
+    page = document.read_text()
+    match, bootstrap = _bootstrap(page)
+    bootstrap["budgets"] = manifest["budgets"]
+    document.write_text(
+        page[: match.start(1)] + json.dumps(bootstrap) + page[match.end(1) :]
+    )
+    with pytest.raises(AtlasBrowserContractError, match="budget"):
+        audit_static_atlas(tmp_path, scope, identity)

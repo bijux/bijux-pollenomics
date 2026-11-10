@@ -57,8 +57,28 @@
     },
     {
       "path": "docs/report/regions/nordic/nordic_map.html",
-      "bytes": 523944,
-      "sha256": "aaa96b85ad38b8e33ac2f5689f356b85dde857b1704a3ca8cf81adfe120d16f7"
+      "bytes": 178654,
+      "sha256": "0d86a9683e2373cee918185ebd0b27a5b93d4afc1774479be35c1b71deecac35"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic_map_assets.json",
+      "bytes": 77517,
+      "sha256": "925faff2988d8e0fb8f8e297dbe3b2ff4b9a258062ec1bc71158d46bc965e542"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic_map.atlas-runtime.1f0ad99d8a2e40be.js",
+      "bytes": 523203,
+      "sha256": "1f0ad99d8a2e40bec90b06fd4a687fdf6071af55c2f71465264a5ce25eb7641b"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic_map.atlas-evidence-tools.19778c51517063e7.js",
+      "bytes": 57276,
+      "sha256": "19778c51517063e705ecec0e8497c4268b42ec77f5a5b16222bd2eaa5c643035"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic_map.atlas-index-transport.8a5a782e368aa817.js",
+      "bytes": 28123,
+      "sha256": "8a5a782e368aa81757a4c8eb71153959b006f9904b90603cf2a92e8124f6c378"
     },
     {
       "path": "docs/report/source-relations/rootsi-landclim-overlap/report.json",
@@ -93,34 +113,34 @@
   ],
   "published_landclim_shards": [
     {
-      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0164.ddb45b83c9d713bc.js",
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0200.31227b26cff10f9d.js",
       "bytes": 88653,
-      "sha256": "ddb45b83c9d713bcb294eb23fb529c5685280f42f722a508a246e168601aa5b4"
+      "sha256": "31227b26cff10f9d51f9351720f2cdd6db10614658f5ac9914366c9e0049b929"
     },
     {
-      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0165.ed7d4a52244ea7f7.js",
-      "bytes": 362465,
-      "sha256": "ed7d4a52244ea7f72813fc04222affb4fdb11302252ff71d804b3e9a0e01a94d"
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0201.544b320224b0941f.js",
+      "bytes": 362469,
+      "sha256": "544b320224b0941f54e2e701dcac1a3cd20439de2e221aea8c737b0333f8560f"
     },
     {
-      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0166.b2c4ce8da9a3a25b.js",
-      "bytes": 452045,
-      "sha256": "b2c4ce8da9a3a25bf0f0f06480077787ee476b26d33d0613bad16fe57882c83c"
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0202.c8efec3fcb6ddbc9.js",
+      "bytes": 452049,
+      "sha256": "c8efec3fcb6ddbc9933ac889e8a141cb97528eebbb2f88ee93fb7b32a210835e"
     },
     {
-      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0167.3f94696e775aa8ca.js",
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0203.1f1cbf4c8d4cfec2.js",
       "bytes": 77545,
-      "sha256": "3f94696e775aa8cade01f289b63c2eee6dd4a91a5eefee1b246cd9afae0e15ef"
+      "sha256": "1f1cbf4c8d4cfec2a2c6393b78ec73d6740b506bb5f831a340ce829f5c451b57"
     },
     {
-      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0168.add0d856f3951703.js",
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0204.473b09c1baec3e28.js",
       "bytes": 476457,
-      "sha256": "add0d856f395170317b683e21aede23a4d8b6622d8e99bb265a1a26e683caee1"
+      "sha256": "473b09c1baec3e285eb7a6ff11535d4147f960cabb69cedbb11087b9ea87fca3"
     },
     {
-      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0169.59f03a96123093b7.js",
-      "bytes": 127785,
-      "sha256": "59f03a96123093b7daa8c460292d921802ec7e68f07943e9d6f6cadb31cfea4d"
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0205.e3e6f7d66f2a5ef1.js",
+      "bytes": 127789,
+      "sha256": "e3e6f7d66f2a5ef117661b90634b6cb6a1d4e0dfa41ad04015fab0d3624f5adb"
     }
   ],
   "rows_csv_sha256": "fefa4a3a3462e1d9cdf36109ebb3b53e01fc44843206b2ae3ccc07ea8acfa5e5"

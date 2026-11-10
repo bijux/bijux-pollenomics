@@ -121,970 +121,6 @@
         "filename": "nordic_animal_point_traceability.json"
       },
       {
-        "label": "Static atlas bootstrap manifest",
-        "filename": "nordic_map_assets.json"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-provenance.0000.06c399b9eb416c75.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0001.8a0e2b1a5005eb83.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0002.478cdfc0c05c1549.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0003.7f63e2b0c617859d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0004.03577d85f6e78b36.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0005.a2cb54ce0991e2bc.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0006.7eb19e5bc354081d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0007.999b6af1955cc075.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0008.e7dac3c1499c042b.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0009.ded63832ba8f8527.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0010.cb1cfa6ca01703d7.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0011.568cc86fbd6d766b.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0012.be7c91f190a96a2c.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0013.3c388d69a96aca66.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0014.ac1446054a4fe63d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0015.787aaa06663eec2b.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0016.3e6da6f29f838c72.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0017.484db697e8247ae4.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0018.ec43d82e3cad977d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0019.057f054af9b444fb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0020.60fbed024d253672.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0021.92b6e8ed87ea6b2d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0022.26503fbd1483b296.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0023.bc1489cb04bb13ba.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0024.3569b70b33851e1c.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0025.77dcbf312d5bdbac.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0026.d99e91d5278b097d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0027.a56793fac6053f62.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0028.b591353c2062ba94.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0029.82b115fc76f95f7e.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0030.334d99d2eabe093a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0031.eaaac18963d7b539.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0032.72f5e8af1e4a7e65.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0033.d5bd7d3748ef6acb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0034.cfcc56ef86fe57f0.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0035.9602dde435ce1290.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0036.8d6b68e1cf392606.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0037.1ec082a737a156c2.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0038.025b79bffa81ec21.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0039.6a463ede69318ab6.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0040.bf0e8e52bbc58ba6.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0041.0e86ec0608f3be96.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0042.87fd228f3bc4c552.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0043.5e53fc43fce0b2ff.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0044.7f77447999dbe1e2.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0045.bd6b92dfa51c49ae.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0046.45ae1580eadf33cb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0047.ded3a5b92b3e5470.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0048.4b6b6bd54f76d384.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0049.cd9ba6cb24ab6126.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0050.edec78b82b27d29b.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0051.f477e8510184fc1a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0052.84e5eb36af6775fa.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0053.f21e0d54302e6f2e.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0054.2edfbf66495e4989.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0055.5be030bb4bf70fa7.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0056.24df2acae6957820.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0057.b35be96dfce30c2a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0058.47d84ab5f5d51803.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0059.61c25a8114b6041f.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0060.296021b0ae07cf5f.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0061.857e89047d523b6e.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0062.008cda15d414139f.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0063.b0a2a0998438d6b7.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0064.1f2f779b60efa769.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0065.8a9c06752c363225.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0066.c7d5cad0342e0bba.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0067.cc7fdbe2d09b130f.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0068.8470af5f4f94dbe8.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0069.27b70ef50b0b7df8.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0070.26e498c023154e35.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0071.dd4389ec34aaa3a1.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0072.46d77968b6278f84.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0073.0162d9b624d68dde.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0074.97f4e749ed076d0f.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0075.febe590e8d33ed44.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0076.baad35467f79bc06.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0077.9876529c6480b330.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0078.fa9539e7f689fae3.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0079.f09d128a6b15c344.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0080.6c9358a6681178c7.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0081.fe4a76f63506e08a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0082.6aaa2fdf5f3610bb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0083.fadaaee5b7f60bf8.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0084.2569c5cdc86b74a2.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0085.5f205418c82a2bdf.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0086.086432ab0c508dc2.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0087.fe70c5800e504bc3.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0088.8933a16029f5956d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0089.11359687f4ee54a2.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0090.e04c0d688b744345.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0091.5f4902aff477031a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0092.fb1f60e75bd4cc59.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0093.3175348722174ffe.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0094.ddb0dd32b214f918.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0095.ceb4a28380590f2e.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0096.058d7c3facefdbe7.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0097.8c0d6dc315f99190.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0098.1daf5c1ea2d390cb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0099.3b83ab3c93cb18b3.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0100.48b467fc35eb5926.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0101.a771f81c7477ca33.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0102.332892fb8afdeb33.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0103.ac9e1cc64222e95b.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0104.03730eb2d879bfdd.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0105.2ffc7cad80d2b938.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0106.807f4479851b0af5.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0107.62e559a44f8e3dc1.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0108.a9fb46061f587e3a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0109.68c633d1b5cb7b2a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0110.c868ed6280699303.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0111.1ba9463acb980fc3.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0112.1d050c03d226cc5a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0113.02f2e8a96524ad11.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0114.12d9e1e00d5f41d1.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0115.4176fcd43d048ba9.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0116.bbba2064153f425d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0117.ea6c1cdb935165df.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0118.9efa46a7b927f2f2.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0119.fba2db1184afee1b.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0120.18c094e337250151.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0121.0a07df36008ede81.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0122.87b88ebbfc529abb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0123.c36b7c5bd68219f1.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0124.0aae47b49d9bb307.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0125.60b198d93e7d325c.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0126.1581c381f414901d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0127.9cca12c5878f878c.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0128.164df7436191d3e0.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0129.34d50cb2ee192e49.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0130.d61e4aae5cdb13c5.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0131.f087cb525bf3cc8a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0132.ae9f7e0a0450d46b.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0133.3f2c68e4e50c5cdb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0134.066102070c4e5471.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0135.b5f23dd6c3606c55.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0136.0ce0f6c3ec5daa6e.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0137.20da8416f44c0e95.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0138.2059dcd49d5862f3.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0139.fff8b30f3b2e9b23.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0140.beb14f0b9f288b40.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0141.339a270d6d5819e4.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0142.f29a98a286e3e5ca.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0143.4852f144f8f0f051.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0144.30d1b9e84aebbb9a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0145.52f6f13be4dc72b3.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0146.67d304c68a242cd6.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0147.15a853ce8244e540.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0148.21ebdeff6840e786.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0149.d275f0117d6d902c.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0150.dcdecd6dd1d50ea3.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0151.87fa1e2997a2eaa7.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0152.5651b2e4ff9ab90b.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0153.a62611565e8f0a55.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0154.3632de6b679ae0bb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0155.5d23f8dbe5406f8d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0156.052405fd90e6eb54.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0157.83f48b321f46b968.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0158.35bab5eb754c1827.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0159.19a3a7d9db56f1e0.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0160.b3424eefc45d49f1.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0161.774a53d43cae788d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0162.177dd6a3869bc753.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0163.cf90cf5d778788a8.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0164.141e19497aadfb45.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0165.ea892ce501351419.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0166.f7521fc86823ed5b.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0167.00cc42f6846283c9.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0168.236dda785e1009eb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0169.256f39eebedf5d7c.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-nodes.0170.43ad9fc90c16c989.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0171.da3dde265258528d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0172.c5658d08b90bbcc7.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0173.ac798029e3ff4be0.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0174.24bb0ebd82ab0773.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0175.d5a2d12991254cbb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0176.b444284416da6bd1.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0177.872fc38d0a3fa0de.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0178.3d7ab12ac38322d9.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0179.6f6c9eba5d085e3d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0180.4216c656edae3419.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0181.5c2ef8aac6366e0e.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0182.f40cae4df0468493.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0183.e8ad021376c42444.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0184.633dd32a2ead6210.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0185.4516c34fe3d341b7.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0186.96d115608635e230.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0187.47b85ef72fe85f14.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0188.c333d6b06ef8c6ff.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0189.b3badfc0b9b94e8e.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0190.105c846b513fe36c.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0191.1701cec62c6c24d6.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0192.183fa02abea29bff.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0193.e0e2a9a9fb79bde1.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0194.25bdec00a38caa42.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0195.3442aa5919b6e753.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0196.9ce133b516b1aa0b.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0197.87bc72d1b33a1416.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0198.927a6ca41ed25499.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0199.b9758526769084d1.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0200.6f72016c28eb270f.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0201.fc82180e199efd31.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0202.c151df7b89e81b47.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0203.e4f26322141fd393.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0204.2ec59d5986fb673e.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0205.8d927ca91da0384a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0206.9c231af72ff68a95.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0207.b9f542a7d63ccae7.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0208.5c8ddfd345b4ea14.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0209.27271253c4fc0211.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0210.03df37c27a592bc7.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0211.04c5b479c988438a.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0212.295b97c636cbb086.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0213.94a4a1587cef984c.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0214.ae68a1b8ee0cdc7f.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0215.a1433ee6f7661896.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0216.13050544dc4515bb.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0217.fbfe5730ac4c1d00.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0218.b1ec4702829ff4e4.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0219.28d1bce1d3f1bc1d.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0220.a36b3e03d2777220.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0221.8e2ce2e3637d4b1f.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0222.f7ffbaa2f37ca361.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0223.9855da0c89c64e45.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0224.59b05573efe418b1.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0225.3c3b5ec4e7bfcdf4.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0226.da98d423b75004c8.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0227.8a96cd2ab5b9665f.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0228.e4930eca98565c18.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0229.ef8f31496bbe9a92.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0230.4b3885f9877ae9a9.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0231.a4e1e3f95cac25d1.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0232.def05891a0dbb366.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0233.3972c5b9549b6e27.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-details.0234.6c799e73f4bed672.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-edges.0235.e023f73a7068c3bd.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-sequences.0236.5cd1758b77646373.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-indexes.0237.cc545de0fd4f9298.js"
-      },
-      {
-        "label": "Static atlas data chunk",
-        "filename": "nordic.atlas-indexes.0238.d0efdb7902e8ee91.js"
-      },
-      {
-        "label": "Animal source-sample chronology accountability",
-        "filename": "nordic_animal_sample_chronology_context.json"
-      },
-      {
         "label": "Candidate site ranking CSV",
         "filename": "nordic_candidate_sites.csv"
       },
@@ -1125,12 +161,1124 @@
         "filename": "nordic_scientific_review.md"
       },
       {
+        "label": "Static atlas bootstrap manifest",
+        "filename": "nordic_map_assets.json"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-provenance.0000.f5b2a46105f53e1e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0001.8a849b62cb84a05d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0002.12b6b84f49e283d7.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0003.4a5b3d202b2f3425.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0004.66aeef0946a55dbc.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0005.6d390271b8490b64.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0006.6757a79282152e57.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0007.41b2d4fc2d37002a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0008.2e8b0b9c04ac2dd1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0009.61218f2d84a54ebf.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0010.86848d408b710ecd.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0011.8c96afbeeb0ffb3c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0012.8704ad04459685e2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0013.e2517e54b3fbe5a2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0014.3edeb4f2f7db8af4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0015.ba93be057a0ebb6e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0016.5217757497121d49.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0017.2b164d0fcb852d4a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0018.74fb1ab1e699012a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0019.b082ed1422fd6067.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0020.c84ff25d241b7082.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0021.fdeeef87b7f0aa7e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0022.7519283c7943f0fe.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0023.bb12e03bfed39483.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0024.bc33e5ba8591c5a0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0025.d3d0ea19a6c3d9e9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0026.03922d7b739a6788.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0027.762e754f7f862947.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0028.ff825c658a0b34c6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0029.0c299961201aeb48.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0030.57b6ab8b14fdc10c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0031.483ae313dbb4c63f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0032.c6c0f978097a342a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0033.ba2fb9dd88ae655e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0034.b20466404ec84478.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0035.5a7cc543d869b19a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0036.6b54082dcdb49c97.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0037.1ec6401bbc7f9a63.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0038.6c863963c00c9319.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0039.23923385264328db.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0040.3bff61b3f63e646a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0041.6d1e5aa347370f20.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0042.fe753e8f6130b23f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0043.3f088141e26601ff.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0044.2ba97fe3efbb776f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0045.9d653889ff0bc25b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0046.c4c959c3a2e4481d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0047.a4ad1e1912d327a8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0048.ad320f2267292ac3.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0049.803d7a195a0923f1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0050.e1acdd58fc7df158.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0051.0118e318e3060ec2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0052.9466175a918998d7.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0053.85a68407872fa87e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0054.92406e67b09b3a57.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0055.4d04fb599dddb48b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0056.aa7d5e317d5c3861.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0057.221716c590025eff.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0058.00e37b8763cc0218.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0059.77a6295da813af1b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0060.0caf6a487dad209b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0061.ef284edba9e6490a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0062.d15ef71e244f0498.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0063.0aa376a1c6199738.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0064.74b27595774652fd.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0065.50791a2848f50142.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0066.d37371f293a1336b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0067.52db2066e783fe05.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0068.b40168bc7239b346.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0069.1571ade5d9dde668.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0070.c6fdd453375a17f1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0071.142d5b6fb2b52d85.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0072.aeac1a099753593c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0073.59fe635e634721eb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0074.40fa6e1d1739dacc.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0075.992684e28276d9d0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0076.7804fa5acc8ba0d5.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0077.c4e16229376d15bb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0078.795ee3b323aba85b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0079.008435071eec4d61.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0080.c67754a014d0177a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0081.8d1d93a0d818b2eb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0082.4b6dfd535b816563.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0083.db11ea682ceb2e04.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0084.1ad5e1500075c19c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0085.f43cabb36d7c0da3.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0086.667b1735cf36e82d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0087.b0043c49ec5dc9da.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0088.51b186ccc761252e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0089.c709acaaec424563.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0090.e9021c6f153a4c7e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0091.784f25c49bb9239b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0092.fa8a3e667f2db2c7.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0093.7945b34929649446.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0094.f2db68c5e5161cfa.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0095.41549457a92a5e22.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0096.004686e5554c071c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0097.02df364a3df2271e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0098.d7324dd38c68ef0c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0099.bf137818b05a1df8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0100.5afc20f47a37caec.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0101.657ea6c76152f447.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0102.9c3e8b53e52f05f0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0103.784429985c5a7bc7.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0104.7505314a06d56ed4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0105.229d974349f81014.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0106.6fe67d43721ad74d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0107.646e69765324bf66.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0108.72c25fe72ad07add.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0109.6a182c301c409d0c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0110.deb808b849e968a0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0111.f2f5826f98b659e4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0112.430bc6c242c94c0d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0113.041a1190d8c85d04.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0114.2062ca4e4d9fbe21.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0115.03a56dc1e7f568c4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0116.9af6c187966c2614.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0117.3bed0c2ec615a590.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0118.73f090f7f9f35f18.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0119.b220b22e5f2a4e33.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0120.1ea918b81b0672fa.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0121.42bd47f81118b556.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0122.7ddebaa64f0afd08.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0123.09d804e451e6e03a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0124.4aac526c0e0c600a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0125.81f44a826ac92720.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0126.562c072f52103cbb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0127.7638826aef50af28.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0128.445a675222941dbe.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0129.6072ddc8a271aaaf.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0130.03612aae76101c6e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0131.29c5770ebd4bb3a5.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0132.09d583677705d66e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0133.0fe5228fd3898657.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0134.cde324ae6e041456.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0135.eb45f38c82abdae0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0136.5885c9bec00a521f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0137.01201eabdc7a17fa.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0138.5c25b44bf91b1e66.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0139.098dc13abf22e83b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0140.81d31cd471445c34.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0141.edcd8a3c742d1c80.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0142.fa5c647ffed13df5.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0143.ce7ca03532676a5d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0144.137b301c30720f79.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0145.a682ad65ff3d4978.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0146.448e8d86182a0fb1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0147.e3b022ee5a967b02.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0148.897493fb6b0de760.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0149.c28267fd0f88d3fb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0150.e5da304c17da42a5.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0151.4cd49ddd8b2a1d68.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0152.76bff9424622267d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0153.c3560c0f9dbe8fe2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0154.e739c6d33c8e8853.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0155.8ebe5a4a50eb1fb8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0156.5dc7f54c197d9467.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0157.414cf83a8430132e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0158.5b69130af1e3c0f8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0159.27848cb76950cbce.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0160.4bae5dca9898f9c8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0161.73667482deff60f9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0162.671be40a2a7ba0a9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0163.3c4a6f82dcf2b7b8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0164.897daf1ca30fb8a4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0165.dd88a08ed9eca94e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0166.8d9a7cd3421b0942.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0167.c5ea38031d9122fd.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0168.075741e06e6d69a1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0169.45bce73fe888a741.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0170.7fb329fb9c445392.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0171.1db817a9bd191dd0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0172.f0ce0904772fa042.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0173.31b4cec5136b63c9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0174.c604d4be34eb4fba.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0175.c18a7cd87104e170.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0176.40eef5158e30ac0b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0177.9d7c220a3e6fe7ac.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0178.13d6f250271c40a0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0179.272e034c5d97b0be.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0180.fa75b0175afcbf48.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0181.912994fb015b88c2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0182.7c7f7421851fd32f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0183.bdaf5ef46b61dab9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0184.e233aca32388fdf4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0185.b94473e85a63afd0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0186.f4fae22f2a37589d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0187.43a26270fbff0110.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0188.453544d575149331.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0189.046a5db24bc42583.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0190.c4f959a6a9aa78de.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0191.93217447d910be12.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0192.e3032287085d6abe.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0193.d7af694756f5cd86.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0194.a55748b57a7838b4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0195.30c6e730786f01c9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0196.a5d885f1896d8b81.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0197.a00cd7329ad2ee47.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0198.d1eb3b794632cde8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0199.d8624bbce1120df6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0200.31227b26cff10f9d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0201.544b320224b0941f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0202.c8efec3fcb6ddbc9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0203.1f1cbf4c8d4cfec2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0204.473b09c1baec3e28.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0205.e3e6f7d66f2a5ef1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-nodes.0206.5c0e9c891f3bff70.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0207.44f13011b48dab6c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0208.89f7d8a50222ae90.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0209.49fe0c564f63ea76.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0210.58c7a135ac7f51da.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0211.a62c3868143dcda1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0212.f2b0aed7d233338e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0213.4c49c21256438f85.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0214.b50dad252427ea60.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0215.a1414f8ce43f4e37.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0216.423d022efbb09c76.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0217.cadc8c85121c7594.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0218.c0fa546dfa9d61ec.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0219.31cf27c50f2a35ab.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0220.b20e96945e563d4a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0221.97e24938316a2ef5.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0222.a4dcdc43d8f6aea6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0223.362c965948baee8e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0224.1170b0cb5a820bf4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0225.a597d3217c575391.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0226.4eaa77cfb1e9c001.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0227.8a63bead98c14447.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0228.67023902142aa849.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0229.822d1eca5a9dbd9e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0230.2df7cef72f5dcafd.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0231.3d1bfc875c87a40a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0232.7d400ed335229f96.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0233.e7965b623308f32f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0234.f2cab2ad29a23016.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0235.32f38b6264eb2b9b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0236.a19ad3b17350e1e3.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0237.a17fe8d29f63ae4e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0238.df91aed077380c16.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0239.eff9778c28b337ba.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0240.0a746326b7e829b7.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0241.33541faaec7e7f21.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0242.17f5aee63f5774f9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0243.c58b20e907a56c5f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0244.fb81ebaae34cdb1f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0245.004ff1d6bda4c1e2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0246.5e2e2e635721aa73.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0247.431c5bb5ade97de4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0248.b54e467baed16ce4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0249.eec80dc17e7b9447.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0250.e4b85b9c5ea9303a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0251.1b8a35f1c85cc389.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0252.b59926334194c2ef.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0253.74f40add1274c0b8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0254.f56cc155b67588c9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0255.48ed6463b9f73162.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0256.27d4094d6f0259a8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0257.ba5483d00fa03137.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0258.88a2c9436b3fca0b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0259.41f2e7a2ffdb6039.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0260.e2896e58e6929ef0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0261.321777b5c11c7ffc.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0262.9f0d1de01027a7a8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0263.643fbf2b5c31ac15.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0264.2586e672b2b3bd9d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0265.b84ec044cd10d7dd.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0266.3a2fd97269923c84.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0267.bec173a54f19c989.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0268.29d50370cd2e02f6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0269.79f64b1ebae3b852.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0270.e4a67b872a52f219.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-details.0271.3aea47c22db3bf6b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-edges.0272.2bcf85f13e41ad9e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-sequences.0273.1b218bf2aba5bcf7.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-indexes.0274.866d2ff3812f6a70.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "nordic.atlas-indexes.0275.1cae59dde27996c3.js"
+      },
+      {
+        "label": "Animal source-sample chronology accountability",
+        "filename": "nordic_animal_sample_chronology_context.json"
+      },
+      {
         "label": "Governed oldest-to-present playback storyboards",
         "filename": "nordic_playback_storyboards.json"
       },
       {
         "label": "Static atlas runtime",
-        "filename": "nordic_map.atlas-runtime.bb19aa980206b96d.js"
+        "filename": "nordic_map.atlas-runtime.1f0ad99d8a2e40be.js"
       },
       {
         "label": "Interactive evidence tools",
@@ -1779,7 +1927,9 @@
             "samples": 12388,
             "age_claims": 23281,
             "observations": 370936,
-            "variables": 1262
+            "variables": 1262,
+            "chronologies": 384,
+            "chronology_controls": 2798
           },
           "detail_row_denominators": {
             "collection_units": 206,
@@ -1787,7 +1937,9 @@
             "samples": 12388,
             "age_claims": 23281,
             "observations": 370936,
-            "variables": 1262
+            "variables": 1262,
+            "chronologies": 384,
+            "chronology_controls": 2798
           },
           "source_chronology": {
             "schema_version": "neotoma-source-chronology-atlas-reconciliation.v2",

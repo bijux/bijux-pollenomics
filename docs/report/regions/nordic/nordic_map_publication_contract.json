@@ -86,7 +86,7 @@
       "key": "fieldwork-documentation",
       "label": "Fieldwork documentation",
       "source_name": "Bijux fieldwork",
-      "coverage_label": "Observed sampling location documented on 2026-02-26 at Lyngsjön Lake.",
+      "coverage_label": "Observed sampling location documented on 2026-02-26 at Lyngsj\u00f6n Lake.",
       "count": 1,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
@@ -137,7 +137,7 @@
     {
       "key": "sweden-archaeology-site-discovery",
       "label": "Sweden archaeology site discovery",
-      "source_name": "SEAD with RAÄ density context",
+      "source_name": "SEAD with RA\u00c4 density context",
       "coverage_label": "Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record.",
       "count": 8799,
       "publication_role": "scope_specific_overlay",
@@ -409,9 +409,9 @@
     },
     {
       "key": "raa-archaeology",
-      "label": "RAÄ archaeology density",
-      "source_name": "RAÄ Fornsök",
-      "coverage_label": "Sweden only. Density cells summarize `Fornlämning` counts.",
+      "label": "RA\u00c4 archaeology density",
+      "source_name": "RA\u00c4 Forns\u00f6k",
+      "coverage_label": "Sweden only. Density cells summarize `Fornl\u00e4mning` counts.",
       "count": 106,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
@@ -448,7 +448,7 @@
         "status": "observed_retained_normalized_pair"
       },
       "density_value_label": "Retained cell count (unreconciled)",
-      "density_count_label": "Retained Swedish one-degree cell values: 339,412 summed cell counts versus 318,265 metadata Fornlämning; display only, source authority refused."
+      "density_count_label": "Retained Swedish one-degree cell values: 339,412 summed cell counts versus 318,265 metadata Fornl\u00e4mning; display only, source authority refused."
     }
   ],
   "static_assets": {
@@ -628,7 +628,9 @@
           "samples": 12388,
           "age_claims": 23281,
           "observations": 370936,
-          "variables": 1262
+          "variables": 1262,
+          "chronologies": 384,
+          "chronology_controls": 2798
         },
         "detail_row_denominators": {
           "collection_units": 206,
@@ -636,7 +638,9 @@
           "samples": 12388,
           "age_claims": 23281,
           "observations": 370936,
-          "variables": 1262
+          "variables": 1262,
+          "chronologies": 384,
+          "chronology_controls": 2798
         },
         "source_chronology": {
           "schema_version": "neotoma-source-chronology-atlas-reconciliation.v2",

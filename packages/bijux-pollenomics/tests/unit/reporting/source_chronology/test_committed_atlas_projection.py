@@ -2,9 +2,13 @@
 
 from __future__ import annotations
 
+import base64
 from collections.abc import Mapping
+from copy import deepcopy
+import hashlib
 import json
 from pathlib import Path
+import re
 from typing import cast
 
 import pytest
@@ -113,7 +117,18 @@ def _assert_committed_static_publication_budgets() -> None:
     )
     rows = normalize_asset_inventory(manifest["assets"])
     paths = [bundle_root / cast(str, row["path"]) for row in rows]
-    assert len(rows) == 238
+    published = json.loads((bundle_root / "nordic_bundle.json").read_text("utf-8"))
+    published_assets = [
+        row["filename"]
+        for row in published["artifacts"]["extra_files"]
+        if row["label"] == "Static atlas data chunk"
+    ]
+    assert len(published_assets) == len(set(published_assets))
+    assert set(published_assets) == {row["path"] for row in rows}
+    assert set(published_assets) == {
+        path.relative_to(bundle_root).as_posix()
+        for path in bundle_root.glob(f"{manifest['scope_slug']}.atlas-*.js")
+    }
     raa_rows = [row for row in rows if row.get("layer_key") == "raa-archaeology"]
     assert len(raa_rows) == 1
     assert raa_rows[0]["domain"] == "nodes"
@@ -122,7 +137,27 @@ def _assert_committed_static_publication_budgets() -> None:
     assert raa_rows[0]["chronology_absent_record_count"] == 106
     assert raa_rows[0]["scientific_signal_ids"] == []
     map_document = (bundle_root / "nordic_map.html").read_text(encoding="utf-8")
-    assert "const TIME_MIN_BP = 0;" in map_document
+    bootstraps = re.findall(
+        r'<script id="atlas-static-bootstrap" type="application/json">(.*?)</script>',
+        map_document,
+        re.S,
+    )
+    assert len(bootstraps) == 1
+    bootstrap = json.loads(bootstraps[0])
+    assert {
+        key: value for key, value in bootstrap.items() if key != "runtime"
+    } == manifest
+    runtime = bootstrap["runtime"]
+    runtime_path = (bundle_root / runtime["path"]).resolve(strict=True)
+    assert runtime_path.is_relative_to(bundle_root.resolve())
+    runtime_bytes = runtime_path.read_bytes()
+    assert len(runtime_bytes) == runtime["byte_count"]
+    runtime_integrity = "sha256-" + base64.b64encode(
+        hashlib.sha256(runtime_bytes).digest()
+    ).decode("ascii")
+    assert runtime_integrity == runtime["integrity"]
+    runtime_document = runtime_bytes.decode("utf-8")
+    assert "const TIME_MIN_BP = 0;" in runtime_document
     sead_rows = [row for row in rows if row.get("layer_key") == "sead-sites"]
     assert sum(cast(int, row["record_count"]) for row in sead_rows) == 2_069
     assert sum(cast(int, row["untimed_record_count"]) for row in sead_rows) == 1_219
@@ -146,13 +181,12 @@ def _assert_committed_static_publication_budgets() -> None:
         ATLAS_INITIAL_MAX_BYTES
     )
     index_rows = [row for row in rows if row["domain"] == "indexes"]
-    assert len(index_rows) == 1
-    assert index_rows[0]["initial_load"] is False
+    assert index_rows and all(row["initial_load"] is False for row in index_rows)
     map_document = (bundle_root / "nordic_map.html").read_text(encoding="utf-8")
     assert len(map_document.encode("utf-8")) <= ATLAS_DOCUMENT_MAX_BYTES
-    assert "function sourceChronologyPlaybackSelection()" in map_document
-    assert "const selection = sourceChronologyPlaybackSelection();" in map_document
-    assert "return selection || globalTimePlaybackExtent();" in map_document
+    assert "function sourceChronologyPlaybackSelection()" in runtime_document
+    assert "const selection = sourceChronologyPlaybackSelection();" in runtime_document
+    assert "return selection || globalTimePlaybackExtent();" in runtime_document
 
 
 def test_committed_source_nodes_reconcile() -> None:
@@ -243,5 +277,29 @@ def test_committed_static_bundle_fits_budgets_and_indexes() -> None:
         "neotoma-source-exact-taxon": 215_751,
     }
     assert_point_layer_index_coverage(
-        decode_committed_static_indexes(bundle_root, rows), layer_counts
+        decode_committed_static_indexes(bundle_root, rows, manifest=manifest),
+        layer_counts,
     )
+
+
+@pytest.mark.parametrize("damage", ["missing", "duplicate", "reordered"])
+def test_committed_index_parts_refuse_inventory_damage(damage: str) -> None:
+    bundle_root = ROOT / "docs/report/regions/nordic"
+    manifest = json.loads((bundle_root / "nordic_map_assets.json").read_text("utf-8"))
+    assert (
+        manifest["compatibility"]["index_transport_schema"]
+        == "atlas-static-index-part.v1"
+    )
+    rows = normalize_asset_inventory(manifest["assets"])
+    positions = [index for index, row in enumerate(rows) if row["domain"] == "indexes"]
+    assert len(positions) > 1
+    damaged = deepcopy(rows)
+    if damage == "missing":
+        damaged.pop(positions[-1])
+    elif damage == "duplicate":
+        damaged.append(deepcopy(damaged[positions[0]]))
+    else:
+        first, last = positions[0], positions[-1]
+        damaged[first], damaged[last] = damaged[last], damaged[first]
+    with pytest.raises(ValueError, match="index"):
+        decode_committed_static_indexes(bundle_root, damaged, manifest=manifest)

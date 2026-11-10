@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 import hashlib
 from pathlib import Path
 from typing import cast
@@ -13,6 +14,9 @@ from bijux_pollenomics.evidence.sources.sead import (
 )
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     build_map_evidence_projection,
+)
+from bijux_pollenomics.reporting.map_document.evidence_projection.service import (
+    _assemble_evidence_projection,
 )
 from tests.support.sead_evidence import (
     install_sead_projection_fixture,
@@ -321,3 +325,71 @@ def test_projection_refuses_self_consistent_evidence_with_unknown_entity(
 
     with pytest.raises(ValueError, match="unknown entity relation"):
         build_map_evidence_projection(root, sead_projection_layers())
+
+
+def test_assembly_matches_source_projection_without_mutating_supplied_records(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root = tmp_path.absolute()
+    _neotoma_fixture(root, monkeypatch)
+    install_sead_projection_fixture(root, monkeypatch)
+    layers = sead_projection_layers()
+    projected = build_map_evidence_projection(root, layers)
+    records = list(reversed(deepcopy(projected.detail_records)))
+    projected_layers = list(deepcopy(projected.point_layers))
+    source_accounting = cast(
+        dict[str, dict[str, object]], deepcopy(projected.reconciliation["sources"])
+    )
+    before = deepcopy((records, layers, projected_layers, source_accounting))
+
+    assembled = _assemble_evidence_projection(
+        detail_records=records,
+        source_layers=layers,
+        projected_point_layers=projected_layers,
+        source_accounting=source_accounting,
+    )
+
+    assert assembled == projected
+    assert (records, layers, projected_layers, source_accounting) == before
+    assert assembled.reconciliation["source_feature_count"] == 6
+    assert assembled.reconciliation["detail_record_count"] == 5
+    assert assembled.reconciliation["repeated_feature_reference_count"] == 1
+    assert (
+        assembled.reconciliation["tab_availability"]
+        == projected.reconciliation["tab_availability"]
+    )
+
+
+@pytest.mark.parametrize("damage", ["duplicate", "unmatched", "unreferenced"])
+def test_assembly_retains_exclusive_record_and_feature_coverage_refusals(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, damage: str
+) -> None:
+    root = tmp_path.absolute()
+    _neotoma_fixture(root, monkeypatch)
+    install_sead_projection_fixture(root, monkeypatch)
+    layers = sead_projection_layers()
+    projected = build_map_evidence_projection(root, layers)
+    records = list(deepcopy(projected.detail_records))
+    projected_layers = list(deepcopy(projected.point_layers))
+    if damage == "duplicate":
+        records.append(deepcopy(records[0]))
+        message = "duplicate detail records"
+    elif damage == "unmatched":
+        records.pop(0)
+        message = "unmatched_features="
+    else:
+        records.append({**deepcopy(records[0]), "record_id": "source:unreferenced"})
+        message = "unreferenced_details="
+    before = deepcopy((records, layers, projected_layers))
+
+    with pytest.raises(ValueError, match=message):
+        _assemble_evidence_projection(
+            detail_records=records,
+            source_layers=layers,
+            projected_point_layers=projected_layers,
+            source_accounting=cast(
+                dict[str, dict[str, object]], projected.reconciliation["sources"]
+            ),
+        )
+
+    assert (records, layers, projected_layers) == before

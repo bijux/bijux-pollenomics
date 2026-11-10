@@ -65,7 +65,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A traceable marker is not a unique independent sample, precise findspot, validated source chronology or qualified ecological event.
 
-**Actual verification performed.** The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.
+**Actual verification performed.** Retained scientific data and review artifacts keep their existing source identities and limitations. This bounded presentation rebuild uses the authenticated published layers, reserves map space for controls and the complete record reader, and removes the duplicate search popup. Earlier browser qualifications remain tied to their original layout and runtime. This presentation rebuild receipt establishes no new browser qualification, scientific result or admission.
 
 **Remaining input or review.** Primary source-family interpretation and identity/time/geographic admission remain separate from completed current preservation/index and narrow World served-temporal checks.
 

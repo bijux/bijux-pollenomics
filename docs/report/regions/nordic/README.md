@@ -52,8 +52,6 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 - Animal atlas evidence CSV: [`nordic_animal_atlas_evidence.csv`](./nordic_animal_atlas_evidence.csv)
 - Animal atlas evidence JSON: [`nordic_animal_atlas_evidence.json`](./nordic_animal_atlas_evidence.json)
 - Animal point traceability JSON: [`nordic_animal_point_traceability.json`](./nordic_animal_point_traceability.json)
-- Static atlas bootstrap manifest: [`nordic_map_assets.json`](./nordic_map_assets.json)
-- Animal source-sample chronology accountability: [`nordic_animal_sample_chronology_context.json`](./nordic_animal_sample_chronology_context.json)
 - Candidate site ranking CSV: [`nordic_candidate_sites.csv`](./nordic_candidate_sites.csv)
 - Candidate site ranking JSON: [`nordic_candidate_sites.json`](./nordic_candidate_sites.json)
 - Candidate site ranking markdown: [`nordic_candidate_sites.md`](./nordic_candidate_sites.md)
@@ -64,6 +62,8 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 - Atlas evidence surface markdown: [`nordic_evidence_surface.md`](./nordic_evidence_surface.md)
 - Atlas scientific review JSON: [`nordic_scientific_review.json`](./nordic_scientific_review.json)
 - Atlas scientific review markdown: [`nordic_scientific_review.md`](./nordic_scientific_review.md)
+- Static atlas bootstrap manifest: [`nordic_map_assets.json`](./nordic_map_assets.json)
+- Animal source-sample chronology accountability: [`nordic_animal_sample_chronology_context.json`](./nordic_animal_sample_chronology_context.json)
 - Governed oldest-to-present playback storyboards: [`nordic_playback_storyboards.json`](./nordic_playback_storyboards.json)
 
 JavaScript data chunks, runtime and optional controllers are listed in the [complete file inventory](./nordic_summary.json).
@@ -171,6 +171,10 @@ JavaScript data chunks, runtime and optional controllers are listed in the [comp
 | pig | Sus scrofa domesticus | domesticated_core | 2 |
 
 
+## Retained scientific review
+
+The map's source-chronology navigation uses current, source-selected BP support, including fractional dates. Scientific context uses an integer-year contract: fractional dates remain in raw source records and are explicitly refused rather than rounded into numeric chronology support. The [scientific review](https://github.com/bijux/bijux-pollenomics/blob/1cfe11c4c803ccf2e67e143ea678355ca613e4ec/docs/report/regions/nordic/nordic_scientific_review.md) and its [JSON](https://github.com/bijux/bijux-pollenomics/blob/1cfe11c4c803ccf2e67e143ea678355ca613e4ec/docs/report/regions/nordic/nordic_scientific_review.json) are retained snapshots, not a recomputation of current chronology overlaps or scenarios. The retained public human exports omit owned sample-chronology support, so their display dates cannot establish that comparison. Source-context time filtering does not admit propagation, field accuracy or LRA use.
+
 
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
@@ -181,7 +185,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** Overlay co-location is not causal farming history, scientific admission of pollen/LRA inputs, genotype-aware analysis or measured vegetation accuracy.
 
-**Actual verification performed.** The retained saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay. Current saved-source followthrough at `179de88d1` independently verifies all 121 corpus inputs, three sidecars and nine identity copies, unchanged 335 world/13 per-region nodes and 430 runtime files. Its 24-product consumer and independent readback pass original 60 s limits (producer 1 GiB/16 MiB; observer 512 MiB/8 MiB). Within these map products only matching input identities change; four goat provenance packets add reported paper references without specimen selection. Earlier map/index/browser qualifications retain their original epochs.
+**Actual verification performed.** Retained scientific data and review artifacts keep their existing source identities and limitations. This bounded presentation rebuild uses the authenticated published layers, reserves map space for controls and the complete record reader, and removes the duplicate search popup. Earlier browser qualifications remain tied to their original layout and runtime. This presentation rebuild receipt establishes no new browser qualification, scientific result or admission.
 
 **Remaining input or review.** Each layer retains its own chronology, entity, rights and scientific decisions. Actual shared-runtime World temporal cases do not substitute broader browser/provider, latency or ecological qualification.
 
@@ -195,7 +199,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** Four-country human display totals1,231 samples (SE416/NO130/FI32/DK653); eight animal locality points and one documented fieldwork location are separate evidence populations.
 
-- [Retained qualification evidence: docs/report/regions/nordic/nordic_summary.json](nordic_summary.json) (SHA-256 `0466dc727b8632f4709f8bcda39519f33bd3bac38390117f9e74a5b42bd248e2`).
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_summary.json](nordic_summary.json) (SHA-256 `e456892d71fb90f2f13661d4aa3f4ae06b0b9c6e3131bd5e298cd42e717a5a5b`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

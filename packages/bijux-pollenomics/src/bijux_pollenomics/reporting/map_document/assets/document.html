@@ -79,11 +79,15 @@
       .atlas-capture-overlay {
         display: none;
       }
-      html.atlas-capture-mode .map-stage {
+      html.atlas-capture-mode .map-stage,
+      html.atlas-capture-mode .map-stage:has(> .focus-card:not([hidden])) {
         position: fixed;
         inset: 0;
         min-height: 0;
         height: 100vh;
+        grid-template-areas: "map" "footer";
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) auto;
       }
       html.atlas-capture-mode .atlas-capture-overlay {
         position: fixed;
@@ -321,18 +325,25 @@
         font-size: 12px;
         line-height: 1.6;
       }
-      .map-stage { position: relative;         display: grid;
-        grid-template-rows: minmax(0, 1fr) auto;
+      .map-stage {
+        position: relative;
+        display: grid;
+        grid-template-areas: "toolbar" "map" "reader" "status" "footer";
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto minmax(min(260px, 30dvh), 1fr) auto auto auto;
         height: 100vh;
         height: 100dvh;
- overflow: hidden;}
+        overflow: hidden;
+      }
       .map-viewport {
+        grid-area: map;
         position: relative;
         min-height: 0;
         isolation: isolate;
       }
       #map { height: 100%; width: 100%; }
       .map-reader-footer {
+        grid-area: footer;
         display: flex;
         align-items: flex-end;
         gap: 12px;
@@ -500,9 +511,17 @@
       .toolbar-button,
       .preset-button,
       .inline-button {
+        min-height: 44px;
         padding: 8px 12px;
         font-size: 12px;
         font-weight: 700;
+      }
+      .legend-toggle,
+      .status-pill-action,
+      .time-stepper-status,
+      .search-clear {
+        min-width: 44px;
+        min-height: 44px;
       }
       .inline-actions,
       .preset-row,
@@ -813,10 +832,10 @@
         font-weight: 700;
       }
       .map-topbar {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        right: 16px;
+        grid-area: toolbar;
+        position: relative;
+        min-width: 0;
+        margin: 8px;
         z-index: 1100;
         display: grid;
         gap: 10px;
@@ -872,7 +891,7 @@
         display: flex;
         flex-direction: column;
         right: 16px;
-        bottom: 88px;
+        bottom: 12px;
         z-index: 1100;
         width: min(300px, calc(100vw - 32px));
         --legend-max-height: min(42vh, 360px);
@@ -893,19 +912,22 @@
         margin-bottom: 0;
       }
       .control-panel {
+        grid-area: map;
         position: absolute;
-        top: 116px;
-        right: 16px;
+        top: 12px;
+        bottom: 12px;
+        right: 12px;
         z-index: 1200;
         width: min(288px, calc(100vw - 32px));
         min-width: 0;
-        max-height: calc(100vh - 208px);
+        max-height: none;
         transition: transform 180ms ease, opacity 180ms ease;
       }
       @media (min-width: 901px) {
-        .map-topbar {
-          right: auto;
-          width: min(720px, calc(100vw - 352px));
+        .map-stage:has(> .focus-card:not([hidden])) {
+          grid-template-areas: "toolbar toolbar" "map reader" "status status" "footer footer";
+          grid-template-columns: minmax(0, 1fr) clamp(288px, 28vw, 360px);
+          grid-template-rows: auto minmax(min(260px, 30dvh), 1fr) auto auto;
         }
         .topbar-note {
           max-width: 58ch;
@@ -923,7 +945,7 @@
         flex-direction: column;
         min-width: 0;
         width: 100%;
-        max-height: inherit;
+        max-height: 100%;
         padding: 12px;
         border-radius: 24px;
         border: 1px solid var(--surface-edge);
@@ -1286,12 +1308,13 @@
         font-size: 11px;
       }
       .map-status {
-        position: absolute;
-        right: 16px;
-        bottom: 24px;
+        grid-area: status;
+        position: relative;
+        min-width: 0;
+        margin: 8px;
         z-index: 1100;
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, auto));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 16px;
         padding: 12px 16px;
         border-radius: 22px;
@@ -1333,7 +1356,8 @@
       .status-pill {
         display: grid;
         gap: 3px;
-        min-width: 92px;
+        min-width: 0;
+        overflow-wrap: anywhere;
       }
       .status-pill-label {
         color: var(--muted);
@@ -1348,12 +1372,14 @@
         font-weight: 700;
       }
       .focus-card {
-        position: absolute;
-        left: 16px;
-        bottom: 24px;
+        grid-area: reader;
+        position: relative;
+        min-width: 0;
+        min-height: 0;
+        margin: 8px;
         z-index: 1120;
-        width: min(560px, calc(100vw - 32px));
-        max-height: min(78vh, 760px);
+        width: auto;
+        max-height: 100%;
         overflow: auto;
         padding: 16px;
         border-radius: 22px;
@@ -1767,41 +1793,26 @@
         .map-topbar .topbar-state-pill {
           display: none;
         }
-        .map-topbar {
-          top: 12px;
-          left: 12px;
-          right: 12px;
-        }
         .floating-legend {
           right: 12px;
-          bottom: 76px;
-        }
-        .control-panel {
-          top: 112px;
-          right: 12px;
+          bottom: 12px;
         }
         .map-status {
-          left: 12px;
-          right: 12px;
-          bottom: 12px;
           border-radius: 18px;
           grid-template-columns: repeat(5, minmax(0, 1fr));
         }
-        .focus-card {
-          left: 12px;
-          right: auto;
-          bottom: 76px;
-          width: min(340px, 46vw);
-          max-height: min(32vh, 320px);
-        }
       }
       @media (max-width: 900px) {
+        .map-stage:has(> .focus-card:not([hidden])) {
+          grid-template-rows: auto minmax(min(260px, 30dvh), 1fr) min(22dvh, 224px) auto auto;
+        }
         body.has-mobile-panel-open .map-topbar,
         body.has-mobile-panel-open .floating-legend,
         body.has-mobile-panel-open .map-status {
           filter: blur(1px);
         }
         .control-panel {
+          grid-area: auto;
           position: fixed;
           left: 10px;
           right: 10px;
@@ -1817,10 +1828,6 @@
           display: inline-flex;
         }
         .map-topbar {
-          top: 10px;
-          left: 10px;
-          right: 82px;
-          bottom: auto;
           padding: 10px;
           border-radius: 18px;
         }
@@ -1844,7 +1851,7 @@
         }
         .floating-legend {
           right: 10px;
-          bottom: 76px;
+          bottom: 12px;
           width: min(264px, calc(100vw - 20px));
           --legend-max-height: min(38vh, 300px);
           padding: 12px;
@@ -1857,17 +1864,9 @@
           min-width: 0;
         }
         .focus-card {
-          left: 10px;
-          right: auto;
-          bottom: 76px;
-          width: min(560px, calc(100vw - 20px));
-          max-height: min(60vh, 560px);
           transition: opacity 160ms ease, transform 160ms ease;
         }
         .map-status {
-          left: 10px;
-          right: 10px;
-          bottom: 10px;
           border-radius: 18px;
           grid-template-columns: repeat(3, minmax(0, 1fr));
           transition: opacity 160ms ease, transform 160ms ease;
@@ -1881,10 +1880,7 @@
         }
       }
       @media (max-width: 640px) {
-        .north-orientation {
-          top: 176px;
-          right: 8px;
-        }
+        .north-orientation { right: 8px; }
         .leaflet-bottom.leaflet-right {
           top: 228px;
           bottom: auto;
@@ -1899,15 +1895,11 @@
         .map-topbar {
           gap: 6px;
           padding: 8px;
-          left: 8px;
-          right: 8px;
-          top: max(8px, env(safe-area-inset-top));
+          margin-top: max(8px, env(safe-area-inset-top));
         }
         .topbar-search {
-          position: absolute;
-          top: calc(100% + 8px);
-          right: 0;
-          width: min(220px, calc(100vw - 16px));
+          position: relative;
+          width: 100%;
           padding: 8px;
           border: 1px solid var(--surface-edge);
           border-radius: 16px;
@@ -1956,16 +1948,13 @@
         }
         .floating-legend {
           right: 8px;
-          bottom: calc(176px + env(safe-area-inset-bottom));
-          width: min(188px, calc(100vw - 16px));
+          bottom: 12px;
+          width: min(180px, calc(50vw - 16px));
           --legend-max-height: min(24vh, 184px);
           padding: 8px;
         }
         .legend-toggle {
           min-height: 44px;
-        }
-        .leaflet-bottom .leaflet-control-scale {
-          margin-bottom: calc(176px + env(safe-area-inset-bottom));
         }
         .control-panel {
           left: 8px;
@@ -1973,14 +1962,8 @@
           bottom: max(8px, env(safe-area-inset-bottom));
           max-height: min(60vh, calc(100dvh - 188px));
         }
-        .focus-card {
-          left: 8px;
-          right: 8px;
-          bottom: 72px;
-          width: auto;
-          max-height: min(65vh, calc(100dvh - 144px));
-          padding: 12px;
-        }
+        .focus-card { padding: 12px; }
+        .map-zoom-controls .leaflet-bar { display: flex; }
         .focus-meta-row {
           grid-template-columns: 1fr;
           gap: 4px;
@@ -2012,9 +1995,6 @@
           font-size: 11px;
         }
         .map-status {
-          left: 8px;
-          right: 8px;
-          bottom: 8px;
           gap: 8px;
           padding: 6px 10px;
           grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2045,22 +2025,12 @@
           grid-column: 1 / -1;
         }
       }
-      @media (max-width: 360px) {
-        .north-orientation {
-          top: 230px;
-        }
-        .leaflet-bottom.leaflet-right {
-          top: 282px;
-        }
-      }
     </style>
   </head>
   <body>
     <div class="app-shell">
 
       <main class="map-stage">
-        <div class="map-viewport">
-        <button id="mobile-scrim" class="mobile-scrim" type="button" tabindex="-1" aria-label="Close controls" aria-hidden="true"></button>
         <div class="map-topbar">
           <div class="map-topbar-main">
             <div class="topbar-context">
@@ -2093,6 +2063,7 @@
             <div id="search-results" class="search-results search-results--floating" hidden></div>
           </div>
         </div>
+        <div class="map-viewport">
         <div id="map" aria-label="__TITLE__"></div>
         <div id="north-orientation" class="north-orientation" role="img" aria-label="North is up"><span class="north-orientation-arrow" aria-hidden="true">↑</span><span aria-hidden="true">N</span></div>
         <section id="atlas-capture-overlay" class="atlas-capture-overlay" aria-label="Chronology frame evidence key">
@@ -2123,6 +2094,8 @@
             </div>
           </div>
         </div>
+      </div>
+        <button id="mobile-scrim" class="mobile-scrim" type="button" tabindex="-1" aria-label="Close controls" aria-hidden="true"></button>
         <aside id="sidebar" class="control-panel is-collapsed" aria-label="Map controls" inert>
           <div class="control-panel-card">
             <div class="control-panel-head">
@@ -2473,7 +2446,6 @@ __CHRONOLOGY_PLAYBACK_ACTION__
           <div class="status-pill"><span class="status-pill-label">Selection</span><span id="selection-readout" class="status-pill-value">No selection</span></div>
           <div class="status-pill"><span class="status-pill-label">Basemap</span><button id="basemap-readout" class="status-pill-value status-pill-action" type="button" aria-live="polite" aria-controls="basemap-switch">Starting</button></div>
         </div>
-      </div>
         <footer class="map-reader-footer" aria-label="Map attribution and navigation controls">
           <div class="map-reader-evidence">
             <div id="map-provider-credit" class="map-provider-credit"></div>
@@ -7397,7 +7369,6 @@ __URL_STATE_CONTROLLER__
             if (!coordinates) return;
             focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
             map.flyTo([coordinates.latitude, coordinates.longitude], Math.max(map.getZoom(), 8), { duration: 0.7, ...(reducedMotionQuery.matches ? { animate: false } : {}) });
-            window.setTimeout(() => match.marker.openPopup(), 250);
             setSearchOpen(false);
           });
         });

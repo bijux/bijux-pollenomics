@@ -367,7 +367,29 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"parser"}
         ),
     },
+    "bijux_pollenomics_dev/ci/atlas_browser/published_runtime.py": {
+        "bijux_pollenomics.reporting.map_document.render": frozenset(
+            {
+                "_FixedJsonBindings",
+                "_RUNTIME_LOADER",
+                "_runtime_resources",
+                "static_map_optional_controller_paths",
+            }
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
+            {"StaticAtlasAssets"}
+        ),
+    },
     "bijux_pollenomics_dev/source_completion/landclim_map_export_lineage.py": {
+        "bijux_pollenomics.reporting.map_document.render": frozenset(
+            {"_FixedJsonBindings"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.asset_inventory": frozenset(
+            {"normalize_asset_inventory"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.serialization": frozenset(
+            {"decode_chunk_script"}
+        ),
         "bijux_pollenomics.reporting.context.polygons": frozenset(
             {"build_external_polygon_layer"}
         ),

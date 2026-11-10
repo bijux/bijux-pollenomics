@@ -21,6 +21,7 @@ from .contracts import (
     BrowserCandidate,
     JsonObject,
 )
+from .published_runtime import read_published_runtime
 
 _ASSET_FIELDS = (
     "domain",
@@ -432,7 +433,11 @@ def audit_static_atlas(
         raise AtlasBrowserContractError(
             "document does not embed the candidate build_id"
         )
-    lower_document = document.lower()
+    runtime = read_published_runtime(
+        document_path, manifest_path, document.decode("utf-8"), manifest
+    )
+    executable_graph = b"\n".join((document, *runtime.payloads))
+    lower_document = executable_graph.lower()
     forbidden = [
         marker
         for marker in _FORBIDDEN_PROVIDER_MARKERS
@@ -442,7 +447,7 @@ def audit_static_atlas(
         raise AtlasBrowserContractError(
             f"document contains forbidden provider markers: {forbidden}"
         )
-    if b"https://tile.openstreetmap.org/{z}/{x}/{y}.png" not in document:
+    if b"https://tile.openstreetmap.org/{z}/{x}/{y}.png" not in executable_graph:
         raise AtlasBrowserContractError(
             "document does not use the keyless OSM endpoint"
         )
@@ -484,9 +489,10 @@ def audit_static_atlas(
     max_bytes = _nonnegative_integer(
         budgets.get("static_assets_max_bytes"), label="static asset byte budget"
     )
-    if len(assets) > max_files:
+    if len(assets) + len(runtime.paths) > max_files:
         raise AtlasBrowserContractError("static asset file budget is exceeded")
-    if total_bytes > max_bytes:
+    runtime_bytes = sum(len(body) for body in runtime.payloads)
+    if total_bytes + runtime_bytes + runtime.binding_bytes > max_bytes:
         raise AtlasBrowserContractError("static asset byte budget is exceeded")
     script_paths = {
         Path(match.decode("utf-8")).name
@@ -494,12 +500,22 @@ def audit_static_atlas(
         if b".atlas-" in match
     }
     declared_paths = {str(asset["path"]) for asset in assets}
+    runtime_paths = {path.name for path in runtime.paths}
     physical_paths = {path.name for path in output_dir.glob(f"{scope.name}.atlas-*.js")}
-    if physical_paths != declared_paths:
+    if physical_paths - runtime_paths != declared_paths:
         raise AtlasBrowserContractError(
             "physical static atlas scripts do not equal the manifest inventory"
         )
-    if not script_paths.issubset(declared_paths):
+    physical_runtime_paths = {
+        path.name
+        for kind in ("atlas-runtime", "atlas-evidence-tools", "atlas-index-transport")
+        for path in output_dir.glob(f"{document_path.stem}.{kind}.*.js")
+    }
+    if physical_runtime_paths != runtime_paths:
+        raise AtlasBrowserContractError(
+            "physical runtime scripts do not equal the authenticated graph"
+        )
+    if not script_paths.issubset(declared_paths | runtime_paths):
         raise AtlasBrowserContractError(
             "document references a static atlas script outside the manifest inventory"
         )
@@ -522,6 +538,16 @@ def audit_static_atlas(
         "assets": inventory,
         "asset_count": len(inventory),
         "asset_bytes": total_bytes,
+        "runtime_assets": [
+            {
+                "path": path.name,
+                "byte_count": len(body),
+                "sha256": _sha256(body),
+            }
+            for path, body in zip(runtime.paths, runtime.payloads, strict=True)
+        ],
+        "runtime_asset_count": len(runtime.paths),
+        "runtime_asset_bytes": runtime_bytes,
         "provider_policy": {
             "keyless_osm": True,
             "carto_absent": True,

@@ -2,11 +2,9 @@
 
 from __future__ import annotations
 
-from collections.abc import MutableMapping, Sequence
+from collections.abc import Mapping, MutableMapping, Sequence
 from pathlib import Path
-from typing import cast
 
-from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS
 
 from .constants import _NEOTOMA_LAYER_KEY, _SEAD_LAYER_KEYS, PROJECTION_SCHEMA_VERSION
@@ -77,12 +75,29 @@ def build_map_evidence_projection(
         records.extend(sead_records)
         source_accounting["sead"] = sead_accounting
 
+    return _assemble_evidence_projection(
+        detail_records=records,
+        source_layers=list(selected_layers.values()),
+        projected_point_layers=projected_point_layers,
+        source_accounting=source_accounting,
+    )
+
+
+def _assemble_evidence_projection(
+    *,
+    detail_records: Sequence[Mapping[str, object]],
+    source_layers: Sequence[MutableMapping[str, object]],
+    projected_point_layers: Sequence[Mapping[str, object]],
+    source_accounting: dict[str, dict[str, object]],
+) -> MapEvidenceProjection:
+    """Reconcile supplied source records and layers without acquiring source data."""
+    records = list(detail_records)
     records.sort(key=lambda row: str(row["record_id"]))
     record_ids = [str(row["record_id"]) for row in records]
     if len(record_ids) != len(set(record_ids)):
         raise ValueError("atlas evidence projection produced duplicate detail records")
 
-    evidence_layers = [*selected_layers.values(), *projected_point_layers]
+    evidence_layers = [*source_layers, *projected_point_layers]
     relevant_features = [
         feature for layer in evidence_layers for feature in _features(layer)
     ]
@@ -125,7 +140,7 @@ def build_map_evidence_projection(
         "sources": source_accounting,
     }
     return MapEvidenceProjection(
-        detail_records=tuple(cast(JsonObject, row) for row in records),
+        detail_records=tuple(records),
         reconciliation=reconciliation,
-        point_layers=tuple(cast(JsonObject, row) for row in projected_point_layers),
+        point_layers=tuple(projected_point_layers),
     )

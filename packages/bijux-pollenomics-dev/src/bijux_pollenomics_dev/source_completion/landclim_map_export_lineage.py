@@ -3,10 +3,8 @@
 from __future__ import annotations
 
 import argparse
-import base64
 from collections import Counter, defaultdict
 import csv
-import gzip
 import hashlib
 import io
 import json
@@ -15,9 +13,22 @@ from typing import Any, cast
 from zipfile import ZipFile
 
 from bijux_pollenomics.reporting.context.polygons import build_external_polygon_layer
+from bijux_pollenomics.reporting.map_document.render import (
+    _FixedJsonBindings,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+    normalize_asset_inventory,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.serialization import (
+    decode_chunk_script,
+)
 from bijux_pollenomics.reporting.modeled_context import build_modeled_context_manifest
 from bijux_pollenomics.reporting.modeled_context.publication_projection import (
     project_modeled_context_layers,
+)
+from bijux_pollenomics_dev.ci.atlas_browser.candidate_files import regular_bytes
+from bijux_pollenomics_dev.ci.atlas_browser.published_runtime import (
+    read_published_runtime,
 )
 
 SOURCE = Path("data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson")
@@ -47,11 +58,8 @@ FIELDS = (
     "null_pair_count",
     "selected_features_sha256",
 )
-PREFIX = (
-    "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__="
-    "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__||[];"
-    "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.push("
-)
+ASSETS = CHUNKS / "nordic_map_assets.json"
+_LAYER_KEY = "landclim-reveals-temporal-grid"
 
 
 def _digest(content: bytes) -> str:
@@ -78,7 +86,22 @@ def _require(condition: bool, message: str) -> None:
         raise ValueError(message)
 
 
-def _map_manifest(page: str) -> dict[str, Any]:
+def _map_manifest(page: str, *, script: str | None = None) -> dict[str, Any]:
+    if script is not None:
+        parser = _FixedJsonBindings()
+        parser.feed(page)
+        parser.close()
+        bindings = parser.bindings["atlas-modeled-context-binding"]
+        _require(
+            len(bindings) == 1
+            and bindings[0] is not None
+            and "const MODELED_CONTEXT = JSON.parse(document.getElementById('atlas-modeled-context-binding').textContent);"
+            in script,
+            "Published modeled-context JSON binding differs",
+        )
+        value = json.loads("".join(cast(list[str], bindings[0])))
+        _require(isinstance(value, dict), "Published modeled context is not an object")
+        return cast(dict[str, Any], value)
     marker = "const MODELED_CONTEXT = "
     matches = [line for line in page.splitlines() if marker in line]
     _require(len(matches) == 1, "Nordic map model manifest binding changed")
@@ -88,32 +111,96 @@ def _map_manifest(page: str) -> dict[str, Any]:
     )
 
 
-def _published_features(repository: Path) -> tuple[list[dict[str, Any]], list[Path]]:
+def _published_path(repository: Path, name: str) -> Path:
+    _require(
+        bool(name)
+        and Path(name).name == name
+        and name not in {".", ".."}
+        and "\\" not in name
+        and "\x00" not in name,
+        "Published asset path is not a confined basename",
+    )
+    return repository / CHUNKS / name
+
+
+def _published_script(repository: Path, page: str) -> tuple[str, list[Path]]:
+    """Use the shared authenticated executable graph and preserve inline inputs."""
+    manifest = json.loads(regular_bytes(repository / ASSETS))
+    runtime = read_published_runtime(
+        repository / MAP, repository / ASSETS, page, manifest
+    )
+    return runtime.script, list(runtime.paths)
+
+
+def _published_features(
+    repository: Path, projected: list[dict[str, Any]]
+) -> tuple[list[dict[str, Any]], list[Path]]:
+    manifest = json.loads(regular_bytes(repository / ASSETS))
+    rows = [
+        row
+        for row in normalize_asset_inventory(manifest["assets"])
+        if row["domain"] == "nodes" and row.get("layer_key") == _LAYER_KEY
+    ]
+    _require(bool(rows), "No published LandClim model shards")
+    expected_count = len(projected)
+    _require(
+        sum(cast(int, row["record_count"]) for row in rows) == expected_count,
+        "Published LandClim declared count differs from source",
+    )
     features: list[dict[str, Any]] = []
     paths: list[Path] = []
-    for path in sorted((repository / CHUNKS).glob("nordic.atlas-nodes.*.js")):
-        content = path.read_text()
+    indexes: set[int] = set()
+    layer_indexes = {row["layer_index"] for row in rows}
+    _require(len(layer_indexes) == 1, "LandClim layer identity differs")
+    for row in rows:
+        path = _published_path(repository, cast(str, row["path"]))
+        body = regular_bytes(path)
         _require(
-            content.startswith(PREFIX) and content.endswith(");\n"),
-            f"Atlas chunk wrapper changed: {path.name}",
+            len(body) == row["byte_count"] and _digest(body) == row["sha256"],
+            f"Atlas physical identity changed: {path.name}",
         )
-        envelope = json.loads(content[len(PREFIX) : -3])
-        if envelope["payload_encoding"] == "gzip_base64":
-            payload = gzip.decompress(
-                base64.b64decode(envelope["payload_gzip_base64"], validate=True)
+        chunk = decode_chunk_script(
+            body,
+            expected_asset_key=cast(str, row["asset_key"]),
+            expected_payload_sha256=cast(str, row["payload_sha256"]),
+            expected_payload_encoding=cast(str, row["payload_encoding"]),
+            expected_decoded_byte_count=cast(int, row["decoded_byte_count"]),
+        )
+        _require(
+            chunk.get("schema_version") == manifest["compatibility"]["node_schema"]
+            and chunk.get("build_id") == manifest["build_id"]
+            and chunk.get("layer_key") == _LAYER_KEY
+            and chunk.get("layer_index") == row["layer_index"]
+            and chunk.get("layer_kind") == row["layer_kind"] == "polygon",
+            "Published LandClim node identity differs",
+        )
+        raw_features = chunk.get("features")
+        raw_indexes = chunk.get("feature_indexes")
+        _require(
+            isinstance(raw_features, list)
+            and isinstance(raw_indexes, list)
+            and len(raw_features) == len(raw_indexes) == row["record_count"],
+            "Published LandClim node cardinality differs",
+        )
+        for index, feature in zip(
+            cast(list[object], raw_indexes),
+            cast(list[Any], raw_features),
+            strict=True,
+        ):
+            _require(
+                type(index) is int
+                and 0 <= index < expected_count
+                and index not in indexes
+                and isinstance(feature, dict)
+                and feature.get("type") == "Feature"
+                and isinstance(feature.get("properties"), dict)
+                and feature == projected[index],
+                "Published LandClim feature membership differs",
             )
-        else:
-            payload = envelope["payload_json"].encode()
-        _require(
-            _digest(payload) == envelope["payload_sha256"],
-            f"Atlas payload digest changed: {path.name}",
-        )
-        chunk = json.loads(payload)
-        if chunk.get("layer_key") != "landclim-reveals-temporal-grid":
-            continue
+            indexes.add(cast(int, index))
+            features.append(feature)
         paths.append(path)
-        features.extend(chunk["features"])
-    _require(bool(paths), "No published LandClim model shards")
+    _require(indexes == set(range(expected_count)), "LandClim index coverage differs")
     return features, paths
 
 
@@ -206,11 +293,14 @@ def derive(repository: Path) -> tuple[dict[str, object], bytes]:
     layer = build_external_polygon_layer(source, source_path=source_path)
     manifest = cast(dict[str, Any], build_modeled_context_manifest([layer]))
     page = map_path.read_text()
+    script, runtime_paths = _published_script(repository, page)
     _require(
-        _map_manifest(page) == manifest,
+        _map_manifest(page, script=script) == manifest
+        if runtime_paths
+        else _map_manifest(script) == manifest,
         "Published map model manifest differs from governed source",
     )
-    _export_contract(page)
+    _export_contract(script)
     projected = cast(
         list[dict[str, Any]],
         cast(dict[str, Any], project_modeled_context_layers([layer])[0]["geojson"])[
@@ -218,7 +308,7 @@ def derive(repository: Path) -> tuple[dict[str, object], bytes]:
         ],
     )
     expected = _by_id(projected)
-    actual_features, shard_paths = _published_features(repository)
+    actual_features, shard_paths = _published_features(repository, projected)
     actual = _by_id(actual_features)
     _require(
         set(expected) == set(actual),
@@ -425,6 +515,8 @@ def derive(repository: Path) -> tuple[dict[str, object], bytes]:
             for path in (
                 source_path,
                 map_path,
+                repository / ASSETS,
+                *runtime_paths,
                 repository / OVERLAP,
                 repository / NEOTOMA,
                 repository / SWEDISH_LINEAGE,

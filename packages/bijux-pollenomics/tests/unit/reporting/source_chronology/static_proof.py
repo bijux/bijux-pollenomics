@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
+import hashlib
 from pathlib import Path
 from typing import cast
 
-from bijux_pollenomics.reporting.map_document.static_assets.index_bundles import (
-    decode_index_bundle,
+from bijux_pollenomics.reporting.map_document.static_assets.index_transport import (
+    decode_index_payloads,
 )
 from bijux_pollenomics.reporting.map_document.static_assets.serialization import (
     decode_chunk_script,
@@ -14,21 +16,27 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
 
 
 def decode_committed_static_indexes(
-    bundle_root: Path, rows: list[dict[str, object]]
+    bundle_root: Path,
+    rows: list[dict[str, object]],
+    *,
+    manifest: Mapping[str, object],
 ) -> dict[str, object]:
-    """Authenticate and decode the checked-in bundle's unique index asset."""
+    """Authenticate every declared physical part before logical index restoration."""
     index_rows = [row for row in rows if row["domain"] == "indexes"]
-    if len(index_rows) != 1:
-        raise AssertionError("static atlas must contain exactly one index asset")
-    row = index_rows[0]
-    payload = decode_chunk_script(
-        (bundle_root / cast(str, row["path"])).read_bytes(),
-        expected_asset_key=cast(str, row["asset_key"]),
-        expected_payload_sha256=cast(str, row["payload_sha256"]),
-        expected_payload_encoding=cast(str, row["payload_encoding"]),
-        expected_decoded_byte_count=cast(int, row["decoded_byte_count"]),
-    )
-    return decode_index_bundle(payload)
+    payloads = {}
+    for row in index_rows:
+        body = (bundle_root / cast(str, row["path"])).read_bytes()
+        assert len(body) == row["byte_count"]
+        assert hashlib.sha256(body).hexdigest() == row["sha256"]
+        key = cast(str, row["asset_key"])
+        payloads[key] = decode_chunk_script(
+            body,
+            expected_asset_key=key,
+            expected_payload_sha256=cast(str, row["payload_sha256"]),
+            expected_payload_encoding=cast(str, row["payload_encoding"]),
+            expected_decoded_byte_count=cast(int, row["decoded_byte_count"]),
+        )
+    return decode_index_payloads(index_rows, payloads, manifest=manifest)
 
 
 def assert_point_layer_index_coverage(

@@ -1425,7 +1425,7 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
         "document.getElementById('time-playback-toggle')",
     ):
         assert selector in probe
-    assert "elements.topbar.right <= elements.sidebar.left - 1" in probe
+    assert "!boxesOverlap(elements.topbar, elements.sidebar)" in probe
     assert "layout.mobile.expanded.scrim_visible" in probe
     assert (
         "scrim.classList.contains('is-visible') && scrim.getAttribute('aria-hidden') === 'true' && visible(scrim)"
