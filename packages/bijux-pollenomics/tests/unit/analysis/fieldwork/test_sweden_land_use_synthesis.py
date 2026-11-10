@@ -4,14 +4,20 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
+import pytest
+
 from bijux_pollenomics.adna.domain.models.chronology import AdnaChronology
 from bijux_pollenomics.adna.domain.models.localities import AdnaSampleChronologySupport
 from bijux_pollenomics.analysis import build_sweden_land_use_synthesis
 from tests.unit.analysis.fieldwork.payload_views import require_rows
 
 
+@pytest.mark.parametrize(
+    ("human_iterator", "animal_iterator"),
+    [(False, False), (True, False), (False, True), (True, True)],
+)
 def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
-    tmp_path: Path,
+    tmp_path: Path, human_iterator: bool, animal_iterator: bool
 ) -> None:
     landclim_path = (
         tmp_path
@@ -66,6 +72,22 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
         ),
         encoding="utf-8",
     )
+    landclim = json.loads(landclim_path.read_text(encoding="utf-8"))
+    first_window = landclim["features"][0]
+    landclim["features"].append(
+        {
+            **first_window,
+            "properties": {
+                **first_window["properties"],
+                "record_id": "937075:test:0-1000-bp",
+                "time_start_bp": 0,
+                "time_end_bp": 1000,
+                "time_mean_bp": 500,
+                "time_label": "0-1000 BP",
+            },
+        }
+    )
+    landclim_path.write_text(json.dumps(landclim), encoding="utf-8")
     sead_path.write_text(
         json.dumps(
             {
@@ -158,13 +180,13 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
     payload = build_sweden_land_use_synthesis(
         context_root=tmp_path,
         lake_report=SimpleNamespace(assessments=tuple(candidates)),
-        human_localities=(human,),
-        animal_localities=(animal,),
+        human_localities=iter((human,)) if human_iterator else (human,),
+        animal_localities=iter((animal,)) if animal_iterator else (animal,),
     )
 
     assert payload["target_count"] == 8
     assert payload["schema_version"] == "sweden-land-use-synthesis.v2"
-    assert payload["time_row_count"] == 7
+    assert payload["time_row_count"] == 14
     assert payload["landclim_covered_target_count"] == 7
     assert payload["landclim_uncovered_target_count"] == 1
     finja = next(
@@ -194,7 +216,20 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
         if row["requested_name"] == "Registry Lake"
     )
     assert registry_lake["landclim_coverage_posture"] == "covered_by_governed_grid"
-    assert registry_lake["landclim_window_count"] == 1
+    assert registry_lake["landclim_window_count"] == 2
+    registry_context = next(
+        row
+        for row in require_rows(payload["rows"])
+        if row["target_name"] == "Registry Lake" and row["time_start_bp"] == 1000
+    )
+    assert registry_context["human_adna_sample_count_20km"] == 2
+    assert registry_context["animal_adna_sample_count_20km"] == 1
+    assert all(
+        row["human_adna_sample_count_20km"] == 0
+        and row["animal_adna_sample_count_20km"] == 0
+        for row in require_rows(payload["rows"])
+        if row["time_start_bp"] == 0
+    )
     outside_grid = next(
         row
         for row in require_rows(payload["target_decisions"])
