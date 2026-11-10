@@ -361,9 +361,9 @@
                   boundedGunzip: staticAtlasBoundedGunzip, sha256: staticAtlasSha256,
                   yieldTask: () => typeof globalThis.scheduler?.yield === 'function'
                     ? globalThis.scheduler.yield() : new Promise(resolve => window.setTimeout(resolve, 0)),
-                  searchGrams: text => atlasSearchGrams(text),
+                  searchGrams: text => staticAtlasIndexTransport.searchGrams(text),
                   rememberRestoredSearch: (index, postings) => atlasRememberRestoredSearch(index, postings)});
-                if (!controller || !['validatePayload', 'consume'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
+                if (!controller || !['validatePayload', 'consume', 'searchGrams'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
                 staticAtlasIndexTransport = controller;
                 resolve(controller);
               } catch (error) { reject(error); }
@@ -3761,14 +3761,22 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
         sourceDetailRenderers ||= tools.sourceDetails({detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, escapeHtml});
         return sourceDetailRenderers[kind](tabs, feature);
       }
+      function renderFieldworkDetail(feature) {
+        const rows = (Array.isArray(feature?.popup_rows) ? feature.popup_rows : [])
+          .filter(row => row && typeof row.label === 'string' && Object.hasOwn(row, 'value'))
+          .map(row => `<p>${escapeHtml(row.label)}: ${escapeHtml(row.value)}</p>`).join('');
+        return `<p>Sampling visit and media; no pollen observations or age-depth series.</p>${rows}${mediaLinksHtml(feature?.media_links)}`;
+      }
       function renderFocusDetail() {
         const focused = document.activeElement;
         const focusedTab = focusTabs.contains(focused) ? focused.dataset.focusTab : null;
         const focusedTable = focusDetail.contains(focused) ? focused.dataset.detailTablePage : null;
         const focusedDirection = focusedTable ? focused.dataset.pageDirection : null;
         const tabs = focusState && focusState.detailTabs ? focusState.detailTabs : unavailableDetailTabs('record_level_evidence_not_available');
+        const fieldwork = focusState?.kind === 'point' && focusState.layerKey === 'fieldwork-documentation';
+        const tabDefinitions = fieldwork ? [['overview', 'Documentation']] : DETAIL_TAB_DEFINITIONS;
         if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
-        focusTabs.innerHTML = DETAIL_TAB_DEFINITIONS.map(([key, label]) => `<button id="focus-tab-${key}" class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}" aria-controls="focus-detail" tabindex="${activeFocusTab === key ? '0' : '-1'}">${escapeHtml(label)}</button>`).join('');
+        focusTabs.innerHTML = tabDefinitions.map(([key, label]) => `<button id="focus-tab-${key}" class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}" aria-controls="focus-detail" tabindex="${activeFocusTab === key ? '0' : '-1'}">${escapeHtml(label)}</button>`).join('');
         focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
         const sourceDiagram = activeFocusTab === 'chronology' ? renderAgeDepthDiagram(tabs)
           : activeFocusTab === 'pollen_composition' ? renderPollenObservationDiagram(tabs) : '';
@@ -3781,11 +3789,14 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
           ? activeFocusTab === 'classification' ? renderSourceDetailContext('classification', tabs)
             : activeFocusTab === 'provenance' ? renderSourceDetailContext('provenance', tabs) : '' : '';
         const relationDetails = activeFocusTab === 'relation' ? renderRelationDetails(tabs.relation) : '';
-        focusDetail.innerHTML = sourceOverview + sourceDiagram + relationDetails + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations + sourceContext;
-        focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
+        focusDetail.innerHTML = fieldwork ? renderFieldworkDetail(focusState.sourceSignal)
+          : sourceOverview + sourceDiagram + relationDetails + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations + sourceContext;
+        focusDetail.dataset.detailStatus = !fieldwork && tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
+        focusExportButton.hidden = fieldwork;
         focusExportButton.disabled = !sourcePollenExportAvailable(focusState);
         focusCopyLinkButton.disabled = focusState?.kind !== 'point' && focusState?.edgeShareable !== true;
-        focusExportStatus.textContent = focusExportButton.disabled
+        focusExportStatus.textContent = fieldwork ? ''
+          : focusExportButton.disabled
           ? 'Pollen record export unavailable: complete sample, chronology and source observation tables are required.'
           : 'Download includes all source observations, samples and chronology claims, including contextual and refused claims. Map time filters do not trim this complete record.';
         if (focusState?.kind === 'edge' && !focusState.edgeShareable) focusExportStatus.textContent += ' Relation link unavailable: a published build and native relation scenario are required.';
@@ -3911,9 +3922,10 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
           latitude: coordinates.latitude,
           longitude: coordinates.longitude,
           sourceSignal: entry.feature,
-          detailTabs: unavailableDetailTabs('detail_record_loading'),
+          detailTabs: entry.layer.key === 'fieldwork-documentation' ? {} : unavailableDetailTabs('detail_record_loading'),
         };
         setFocusState(nextFocus);
+        if (entry.layer.key === 'fieldwork-documentation') return;
         const request = edgeFocusLoadState.request;
         const toolsReady = loadEvidenceTools().catch(() => null);
         const detailTabs = await detailTabsForFeature(entry.feature);
@@ -7216,7 +7228,7 @@ function publishedSearchCounts() {
       });
       focusTabs.addEventListener('keydown', (event) => {
         if (!event.target.matches('[data-focus-tab]')) return;
-        const keys = DETAIL_TAB_DEFINITIONS.map(([key]) => key);
+        const keys = [...focusTabs.querySelectorAll('[data-focus-tab]')].map(button => button.dataset.focusTab);
         const index = keys.indexOf(event.target.dataset.focusTab);
         let nextIndex;
         if (event.key === 'ArrowRight') nextIndex = (index + 1) % keys.length;

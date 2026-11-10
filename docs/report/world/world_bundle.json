@@ -618,7 +618,7 @@
       },
       {
         "label": "Static atlas runtime",
-        "filename": "world_map.atlas-runtime.aa9874ae7c26b469.js"
+        "filename": "world_map.atlas-runtime.949f39a746822048.js"
       },
       {
         "label": "Interactive evidence tools",
@@ -626,7 +626,7 @@
       },
       {
         "label": "Static atlas index transport",
-        "filename": "world_map.atlas-index-transport.8a5a782e368aa817.js"
+        "filename": "world_map.atlas-index-transport.debbabe66a2595fc.js"
       }
     ],
     "animal_localities_geojson": "world_animal_localities.geojson",

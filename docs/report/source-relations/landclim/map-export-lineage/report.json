@@ -58,7 +58,7 @@
     {
       "path": "docs/report/regions/nordic/nordic_map.html",
       "bytes": 178654,
-      "sha256": "0d86a9683e2373cee918185ebd0b27a5b93d4afc1774479be35c1b71deecac35"
+      "sha256": "9db69499382595f27a8f7e31a1b42f0d32c3df055fa0df41024c3f76bf68b620"
     },
     {
       "path": "docs/report/regions/nordic/nordic_map_assets.json",
@@ -66,9 +66,9 @@
       "sha256": "925faff2988d8e0fb8f8e297dbe3b2ff4b9a258062ec1bc71158d46bc965e542"
     },
     {
-      "path": "docs/report/regions/nordic/nordic_map.atlas-runtime.1f0ad99d8a2e40be.js",
-      "bytes": 523203,
-      "sha256": "1f0ad99d8a2e40bec90b06fd4a687fdf6071af55c2f71465264a5ce25eb7641b"
+      "path": "docs/report/regions/nordic/nordic_map.atlas-runtime.9afb9d8e8483f30e.js",
+      "bytes": 524235,
+      "sha256": "9afb9d8e8483f30e516b3d38f33ccf6662199dcc30c17251fe02edb741a57bd5"
     },
     {
       "path": "docs/report/regions/nordic/nordic_map.atlas-evidence-tools.19778c51517063e7.js",
@@ -76,9 +76,9 @@
       "sha256": "19778c51517063e705ecec0e8497c4268b42ec77f5a5b16222bd2eaa5c643035"
     },
     {
-      "path": "docs/report/regions/nordic/nordic_map.atlas-index-transport.8a5a782e368aa817.js",
-      "bytes": 28123,
-      "sha256": "8a5a782e368aa81757a4c8eb71153959b006f9904b90603cf2a92e8124f6c378"
+      "path": "docs/report/regions/nordic/nordic_map.atlas-index-transport.debbabe66a2595fc.js",
+      "bytes": 30286,
+      "sha256": "debbabe66a2595fcded8870394aacd74b90547a768869f2943080dcc40b49b27"
     },
     {
       "path": "docs/report/source-relations/rootsi-landclim-overlap/report.json",
