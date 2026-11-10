@@ -7381,20 +7381,20 @@
       "scope_reason": "Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.",
       "qualification": {
         "fields": {
-          "supported_claim": "The retained historical browser download agrees semantically with its pinned 32-feature modeled LandClim projection.",
-          "unsupported_claim": "It does not qualify the current renderer/browser after map-source changes, and modeled REVEALS percentages are not observed vegetation.",
-          "actual_verification_performed": "Read the historical Brave download receipt and source-window/metric reconciliation alongside the current transport lineage; no fresh browser run.",
-          "remaining_input_or_review": "A current browser receipt is needed for the changed renderer; contributor lineage, geometry authority and scientific use remain separate.",
+          "supported_claim": "The sampled Chrome 157 download at source abc002ad3 matches its pinned 32-feature modeled LandClim projection and the historical export bytes exactly.",
+          "unsupported_claim": "This selected-frame check does not qualify other browser/export scenarios or untested source/runtime changes; modeled REVEALS percentages are not observed vegetation.",
+          "actual_verification_performed": "Ran the maintained capture and full source/ledger reconciliation at source abc002ad3 with Chrome 157; recorded actual CDP and source identities and matched the historical export bytes exactly.",
+          "remaining_input_or_review": "Original Brave 154 raw/CDP custody remains unrecovered; contributor lineage, geometry authority, source rights and scientific admission remain separate.",
           "cause_category": "Historical browser custody and derived modeled context.",
-          "consequence": "Its completed download event is retained evidence only for the pinned historical build.",
-          "precise_next_acceptance_route": "Run the owned current browser consumer on the current candidate and retain exact download/selector evidence without transferring source admission.",
+          "consequence": "The completed event qualifies this current modeled-frame export; it does not restore original Brave custody or admit modeled context as observed vegetation.",
+          "precise_next_acceptance_route": "Resolve original historical browser custody separately; invalidate and requalify this frame only when its relevant source or runtime identities change.",
           "negative_or_refused_result": "3 no_pollen_data features retain 141 null metric pairs; historical browser evidence is refused as current qualification.",
           "matched_denominator": "32 features: 6 DK/26 SE, 47 paired metrics, 1,363 numeric pairs/141 null pairs and 408 numerical zeros in each metric family."
         },
         "evidence_pins": [
           {
             "path": "docs/report/source-relations/landclim/browser-export/report.json",
-            "sha256": "e7c9788fbac97ecc2564a9e0bc431f965510260a054f9ac15480cbf373c72d9c"
+            "sha256": "dabc41ef2daace7a363baac651f9c56b0940160bccd42e3749951301e1fc8a0c"
           },
           {
             "path": "docs/report/source-relations/landclim/map-export-lineage/report.json",
