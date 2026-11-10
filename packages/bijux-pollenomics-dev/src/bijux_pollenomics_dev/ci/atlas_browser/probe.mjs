@@ -1762,6 +1762,7 @@ async function responsiveFacts(cdp, width) {
       focusSearchResult.click();
       await settle();
       const focusBox = box(focusCard);
+      const focusTopbarBox = box(topbar);
       const focusStyle = getComputedStyle(focusCard);
       focusedRecord = {
         result_available: true,
@@ -1775,7 +1776,9 @@ async function responsiveFacts(cdp, width) {
         panel_hidden: !visible(sidebar),
         legend_collapsed: legendBody.classList.contains('is-collapsed'),
         search_collapsed: topbarSearch.hidden,
-        topbar_non_overlapping: !boxesOverlap(focusBox, box(topbar)),
+        topbar_non_overlapping: !boxesOverlap(focusBox, focusTopbarBox),
+        card_rect: focusBox,
+        topbar_rect: focusTopbarBox,
         map_visibility: sampleMapVisibility(),
         closed_after_journey: false,
       };
@@ -2130,7 +2133,26 @@ async function discoverabilityFacts(cdp, width) {
     }
     result.basemap_status_visible = visible(basemapStatus);
     result.basemap_status_bounded = bounded(basemapStatus);
-    result.basemap_status_uncovered = uncovered(basemapStatus);
+    const basemapBox = basemapStatus.getBoundingClientRect();
+    const basemapCenter = {
+      x: basemapBox.left + (basemapBox.width / 2),
+      y: basemapBox.top + (basemapBox.height / 2),
+    };
+    const basemapHit = document.elementFromPoint(basemapCenter.x, basemapCenter.y);
+    result.basemap_status_uncovered = basemapHit === basemapStatus || basemapStatus.contains(basemapHit);
+    result.basemap_hit_test = {
+      target_rect: {
+        left: basemapBox.left, right: basemapBox.right,
+        top: basemapBox.top, bottom: basemapBox.bottom,
+        width: basemapBox.width, height: basemapBox.height,
+      },
+      center: basemapCenter,
+      actual_hit: basemapHit ? {
+        tag: basemapHit.tagName,
+        id: basemapHit.id,
+        classes: basemapHit.getAttribute('class') || '',
+      } : null,
+    };
     viewControls.open = false;
     basemapStatus.focus();
     basemapStatus.click();

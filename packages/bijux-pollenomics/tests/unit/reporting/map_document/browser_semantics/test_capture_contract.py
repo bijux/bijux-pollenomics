@@ -198,7 +198,7 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
         in MAP_DOCUMENT_TEMPLATE
     )
     assert (
-        "html.atlas-capture-mode .map-stage {\n        position: fixed;"
+        "html.atlas-capture-mode .map-stage:has(> .focus-card:not([hidden])) {\n        position: fixed;"
         in MAP_DOCUMENT_TEMPLATE
     )
     assert "html.atlas-capture-mode .map-topbar" in MAP_DOCUMENT_TEMPLATE
