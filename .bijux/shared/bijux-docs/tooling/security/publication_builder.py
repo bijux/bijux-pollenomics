@@ -33,13 +33,17 @@ def arguments(command: str, options: argparse.Namespace, source_sha: str) -> lis
         if options.source_recipe:
             result.extend(["--source-recipe", options.source_recipe])
         return result
-    if command == "render":
+    if command in {"render", "build"}:
         result = [str(security / "render_publication.py"), "--config", options.config,
                   "--site-dir", options.site_dir, "--site-url", options.site_url, "--source-identity", SOURCE]
         for name in ("source_recipe", "reader_owner", "interactive_report_owner"):
             value = getattr(options, name)
             if value:
                 result.extend(["--" + name.replace("_", "-"), value])
+        if command == "build":
+            result.append("--admit")
+            if options.policy is not None:
+                result.extend(["--policy", options.policy])
         return result
     if command == "admit":
         return [str(security / "publication.py"), "admit", "--site-dir", options.site_dir,
@@ -55,21 +59,23 @@ def arguments(command: str, options: argparse.Namespace, source_sha: str) -> lis
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
-    for name in ("capture", "render", "admit", "verify"):
+    for name in ("capture", "render", "build", "admit", "verify"):
         selected = commands.add_parser(name)
         if name != "verify":
             selected.add_argument("--site-dir", required=True)
             selected.add_argument("--site-url", required=True)
-        if name in {"capture", "render"}:
+        if name in {"capture", "render", "build"}:
             selected.add_argument("--config", required=True)
             selected.add_argument("--source-recipe", choices=["masterclass-catalogue"])
         if name == "capture":
             selected.add_argument("--standard-root")
             selected.add_argument("--build-command", required=True)
             selected.add_argument("--verify-command", required=True)
-        if name in {"render", "admit"}:
+        if name in {"render", "build", "admit"}:
             selected.add_argument("--reader-owner")
             selected.add_argument("--interactive-report-owner")
+        if name == "build":
+            selected.add_argument("--policy", help="Explicit admission policy for the composed build")
     options = parser.parse_args()
     try:
         source_sha = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()

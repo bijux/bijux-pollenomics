@@ -148,6 +148,13 @@ fi
 std_root="${BIJUX_STD_ROOT}"
 std_manifest="${std_root}/shared/shared-dir-sha256.txt"
 
+# A declared documentation component has its own accepted source. Reuse the
+# component verifier instead of comparing every component to the docs source.
+documentation_pin="${repo_root}/.github/standards/bijux-docs.sha"
+if [[ "${shared_prefix}" == .bijux/shared && ( -e "${documentation_pin}" || -L "${documentation_pin}" ) ]]; then
+  exec bash "${repo_root}/${shared_prefix}/bijux-checks/scripts/verify-documentation-components.sh"
+fi
+
 if [[ -f "${std_manifest}" ]]; then
   for dir_rel in "${local_dirs[@]}"; do
     std_dir_rel="${dir_rel#.bijux/}"

@@ -22,11 +22,11 @@ def load(name,path):
     return module
 
 
-def build_artifact(root: Path, config_name: str, site_name: str, *, site_url='', source_identity=None, strict=True, source_recipe=None, reader_owner=None, interactive_report_owner=None, preflight=False):
+def build_artifact(root: Path, config_name: str, site_name: str, *, site_url='', source_identity=None, strict=True, source_recipe=None, reader_owner=None, interactive_report_owner=None, preflight=False, admission_policy=None):
     shared=Path(__file__).resolve().parents[1]
     identity=load('bijux_renderer_identity',shared/'security/build_identity.py')
     publication=load('bijux_renderer_publication',shared/'security/publication.py')
-    producer=load('bijux_renderer_producer',shared/'security/producer_authority.py')
+    producer=publication.producer_module(shared)
     policy=load('bijux_renderer_csp',shared/'security/csp.py')
     redirects=load('bijux_renderer_redirects',shared/'security/redirects.py')
     site=publication.site_directory(root,site_name)
@@ -46,6 +46,8 @@ def build_artifact(root: Path, config_name: str, site_name: str, *, site_url='',
         selected_config=record['configuration']['path'] if record else checkpoint.get('config',{}).get('path')
         if selected_config!=config_name:
             raise ValueError('Publication build: owner checkpoint must select the actual config')
+    if admission_policy is not None and (checkpoint is None or preflight):
+        raise ValueError('Publication admission requires a qualified source and an actual build')
     from mkdocs.config import load_config
     from mkdocs.commands.build import build
     import material
@@ -103,27 +105,49 @@ def build_artifact(root: Path, config_name: str, site_name: str, *, site_url='',
         reconstruction=producer.verify(site,prepared,receipt['renderer'],report,actual_url,completed_build=receipt,checkpoint=checkpoint)
         if checkpoint:
             identity.verify_source(root,checkpoint)
-    for name,value in [('build-identity',receipt),('csp',report),('producer-reconstruction',reconstruction)]:
-        output=identity.artifact(root,'artifacts/website-security/'+name+'.json')
-        if output.is_relative_to(site):raise ValueError('Publication build: evidence cannot be published')
-        output.write_text(json.dumps(value,indent=2)+'\n')
-    environment={**os.environ,'PYTHONDONTWRITEBYTECODE':'1'}
-    if source_identity:environment['DOCS_SOURCE_IDENTITY']=source_identity
-    else:environment.pop('DOCS_SOURCE_IDENTITY',None)
-    arguments=[sys.executable,str(shared/'tooling/quality/validate_site_routes.py'),
-               '--repo-root',str(root),'--site-dir',site_name,'--site-url',actual_url,
-               '--output','artifacts/website-security/site-verification.json']
-    if reader_owner is not None or interactive_report_owner is not None:
-        arguments.extend(['--embedded-csp-report', 'artifacts/website-security/csp.json',
-                          '--completed-build-receipt', 'artifacts/website-security/build-identity.json',
-                          '--source-sha', prepared.reader_source.source_sha])
-        arguments.extend(['--reader-owner', reader_owner] if reader_owner is not None else
-                         ['--interactive-report-owner', interactive_report_owner])
-        if source_identity: arguments.extend(['--source-identity', source_identity])
-    exception=os.environ.get('BIJUX_DOCS_DEVELOPMENT_LINK_POLICY')
-    if exception:arguments.extend(['--development-link-policy',exception])
-    subprocess.run(arguments,cwd=root,env=environment,check=True)
-    if checkpoint:identity.verify_source(root,checkpoint)
+        for name,value in [('build-identity',receipt),('csp',report),('producer-reconstruction',reconstruction)]:
+            output=identity.artifact(root,'artifacts/website-security/'+name+'.json')
+            if output.is_relative_to(site):raise ValueError('Publication build: evidence cannot be published')
+            output.write_text(json.dumps(value,indent=2)+'\n')
+        environment={**os.environ,'PYTHONDONTWRITEBYTECODE':'1'}
+        if source_identity:environment['DOCS_SOURCE_IDENTITY']=source_identity
+        else:environment.pop('DOCS_SOURCE_IDENTITY',None)
+        arguments=[sys.executable,str(shared/'tooling/quality/validate_site_routes.py'),
+                   '--repo-root',str(root),'--site-dir',site_name,'--site-url',actual_url,
+                   '--output','artifacts/website-security/site-verification.json']
+        if reader_owner is not None or interactive_report_owner is not None:
+            arguments.extend(['--embedded-csp-report', 'artifacts/website-security/csp.json',
+                              '--completed-build-receipt', 'artifacts/website-security/build-identity.json',
+                              '--source-sha', prepared.reader_source.source_sha])
+            arguments.extend(['--reader-owner', reader_owner] if reader_owner is not None else
+                             ['--interactive-report-owner', interactive_report_owner])
+            if source_identity: arguments.extend(['--source-identity', source_identity])
+        exception=os.environ.get('BIJUX_DOCS_DEVELOPMENT_LINK_POLICY')
+        if exception:arguments.extend(['--development-link-policy',exception])
+        subprocess.run(arguments,cwd=root,env=environment,check=True)
+        if checkpoint:identity.verify_source(root,checkpoint)
+        if admission_policy is not None:
+            # Keep the actual module/class and independent scratch reference alive.
+            # A retained JSON receipt cannot enter this path.
+            selected_policy=admission_policy() if callable(admission_policy) else admission_policy
+            environment.update(PYTHONNOUSERSITE='1',DOCS_PYTHON=sys.executable,DOCS_SITE_DIR=site_name,
+                               DOCS_BUILD_SITE_URL=actual_url,BIJUX_DOCS_SITE_REPORT='artifacts/website-security/site-verification.json')
+            for key in ('BIJUX_DOCS_READER_OWNER','BIJUX_DOCS_INTERACTIVE_REPORT_OWNER','BIJUX_DOCS_READER_SOURCE_SHA'):
+                environment.pop(key,None)
+            if interactive_report_owner:
+                environment.update(BIJUX_DOCS_INTERACTIVE_REPORT_OWNER=interactive_report_owner,
+                                   BIJUX_DOCS_READER_SOURCE_SHA=checkpoint['repository_source']['sha'])
+            elif reader_owner:
+                environment.update(BIJUX_DOCS_READER_OWNER=reader_owner,
+                                   BIJUX_DOCS_READER_SOURCE_SHA=checkpoint['repository_source']['sha'])
+            subprocess.run(['bash',str(shared/'tooling/scripts/verify_bijux_docs_site.sh')],cwd=root,env=environment,check=True)
+            manifest=publication.qualified_manifest(root,site_name,actual_url,checkpoint['repository_source']['sha'],
+                publication.load_policy(Path(selected_policy)),source_identity,'artifacts/website-security/build-identity.json',
+                'artifacts/website-security/site-verification.json','artifacts/website-security/csp.json',
+                prepared_producer=prepared)
+            destination=identity.artifact(root,'artifacts/website-security/publication.json')
+            if destination.is_relative_to(site):raise ValueError('Publication manifest cannot be published')
+            destination.write_text(json.dumps(manifest,indent=2)+'\n')
     return {'site_url':actual_url,'site_dir':site_name,'bundle_sha256':report['bundle_sha256'],
             'verification_only':checkpoint is None,'producer':reconstruction}
 
@@ -140,12 +164,16 @@ def main():
     parser.add_argument('--interactive-report-owner', help='Explicit committed config-selected interactive report ownership descriptor')
     parser.add_argument('--no-strict',action='store_true')
     parser.add_argument('--preflight',action='store_true',help='Validate report source selection without rendering or changing retained artifacts')
+    parser.add_argument('--admit',action='store_true',help='Admit this actual build using its live independent producer')
+    parser.add_argument('--policy',type=Path,help='Explicit admission policy; requires --admit')
     args=parser.parse_args()
+    if args.policy is not None and not args.admit:parser.error('--policy requires --admit')
     from mkdocs.exceptions import MkDocsException
     try:
         result=build_artifact(Path.cwd().resolve(),args.config,args.site_dir,site_url=args.site_url,
                               source_identity=args.source_identity,strict=not args.no_strict,source_recipe=args.source_recipe,reader_owner=args.reader_owner,
-                              interactive_report_owner=args.interactive_report_owner,preflight=args.preflight)
+                              interactive_report_owner=args.interactive_report_owner,preflight=args.preflight,
+                              admission_policy=(args.policy or Path(__file__).with_name('policy.json')) if args.admit else None)
         print(json.dumps({key:value for key,value in result.items() if key!='producer'}))
         return 0
     except (MkDocsException,OSError,ValueError,KeyError,subprocess.CalledProcessError) as error:

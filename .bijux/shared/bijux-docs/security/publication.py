@@ -20,6 +20,7 @@ from xml.etree import ElementTree
 sys.dont_write_bytecode = True
 
 POLICY = Path(__file__).with_name("policy.json")
+_PRODUCER_MODULES = {}
 SHA = re.compile(r"^[0-9a-f]{40}$")
 VERSION_REF = re.compile(r"^refs/tags/v[0-9]+\.[0-9]+\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$")
 PRIVATE_MARKERS = (
@@ -589,9 +590,24 @@ def qualified_redirects(canonical: Path, build: dict, csp: dict, site: Path, sit
     return admitted
 
 
+def producer_module(canonical: Path):
+    """Share captured owner code/class identity, never a qualification result."""
+    path = identity_module().regular(canonical, "security/producer_authority.py")
+    content = path.read_bytes()
+    previous = _PRODUCER_MODULES.get(path)
+    if previous is not None and previous[0] == content:
+        return previous[1]
+    producer = ModuleType("bijux_captured_publication_producer")
+    producer.__file__ = str(path)
+    exec(compile(content, str(path), "exec"), producer.__dict__)
+    require(path.read_bytes() == content, "Producer: canonical owner changed during module capture")
+    _PRODUCER_MODULES[path] = (content, producer)
+    return producer
+
+
 def qualified_manifest(repo_root: Path, site_dir: str, site_url: str, source_sha: str,
                        policy: dict, source_identity: str, build_identity: str,
-                       verification_report: str, csp_report: str) -> dict:
+                       verification_report: str, csp_report: str, *, prepared_producer=None) -> dict:
     """Bind honest source/build/mechanical policy evidence to the exact upload bytes."""
     identity = identity_module()
     root = repo_root.resolve()
@@ -738,10 +754,12 @@ def qualified_manifest(repo_root: Path, site_dir: str, site_url: str, source_sha
                 "Redirect receipt: executable hash admitted on another route")
         used_hashes.update(page_hashes)
     require(used_hashes == set(csp.get("script_hashes", [])), "CSP receipt: executable policy coverage differs")
-    producer_spec = importlib.util.spec_from_file_location("bijux_publication_producer", identity.regular(canonical, "security/producer_authority.py"))
-    producer = importlib.util.module_from_spec(producer_spec)
-    producer_spec.loader.exec_module(producer)
-    producer_evidence = producer.verify_publication(root, selected, canonical, build, csp, source)
+    producer = producer_module(canonical)
+    if prepared_producer is None:
+        producer_evidence = producer.verify_publication(root, selected, canonical, build, csp, source)
+    else:
+        producer_evidence = producer.verify_publication(root, selected, canonical, build, csp, source,
+                                                       prepared=prepared_producer)
     identity.verify_source(root, source)
     return result | {"schema": 2, "qualification": records, "producer_authority": producer_evidence,
                      "scope": "clean accepted source, actual renderer, route/search/public URLs and applied CSP",

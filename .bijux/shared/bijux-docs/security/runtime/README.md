@@ -67,6 +67,19 @@ accepted `BIJUX_STD_ROOT`, the tracked `.github/standards/bijux-docs.sha` public
 pointer, the actual tracked configuration, production site identity
 and reviewed build/verification command strings. Rendering independently reconstructs
 the producer and applies CSP. A consumer's own useful verifier runs before admission.
+After capture, `build` combines rendering and admission in one invocation. It keeps
+the original live producer object and its independent reference until the normal
+source/site checks and full admission finish; it does not transport authority in a
+receipt or cache. Separate `render` and `admit` commands remain supported.
+Both stages select captured owner code from the canonical regular source path
+and bytes; callers cannot supply an executable producer module.
+
+For a source-owned finite download policy that depends on the rendered site, the
+Python `render_publication.build_artifact` entry point accepts `admission_policy`
+as a policy path or an owning callable returning that path. The callable runs after
+rendering and before admission. It must retain the consumer's actual download
+checks; the composed path still validates the complete qualified manifest and
+rechecks the live producer's source, configuration, dependencies and reference.
 Final verification always requires the reconstructed qualified manifest; bytes-only
 recovery does not authorize a publisher.
 
