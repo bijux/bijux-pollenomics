@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Refuse contradictory temporal bounds and out-of-support fallback points during map intake, and discard unsupported means while retaining valid intervals and source records ([#403](https://github.com/bijux/bijux-pollenomics/pull/403)).
+
 - Keep publication-reader startup independent of scientific host imports while preserving full runtime authentication when requested ([#402](https://github.com/bijux/bijux-pollenomics/pull/402)).
 
 - Reserve map space for controls and the full record reader, remove duplicate search popups, publish current Nordic pollen chronology context and source model/control metadata, refresh temporal indexes with explicit scientific-context limits, and authenticate LandClim lineage against current atlas transport ([#401](https://github.com/bijux/bijux-pollenomics/pull/401)).

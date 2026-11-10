@@ -374,3 +374,63 @@ def test_integer_temporal_mean_refuses_invalid_or_unsafe_runtime_values(
     assert serialized["time_start_bp"] is None
     assert serialized["time_end_bp"] is None
     assert serialized["time_mean_bp"] is None
+
+
+@pytest.mark.parametrize("mean", [99, 5000])
+def test_builder_discards_out_of_support_mean_without_refusing_sound_interval(
+    mean: int,
+) -> None:
+    source = {"declared_mean_bp": mean, "source_label": "100 to 200 BP"}
+    original = deepcopy(source)
+    payload = build_temporal_semantics(
+        source_family="controlled_synthetic",
+        evidence_class="controlled_numeric_fixture",
+        precision_posture="controlled_interval",
+        comparability_posture="numeric_interval_with_caveat",
+        time_start_bp=100,
+        time_end_bp=200,
+        time_mean_bp=mean,
+        uncertainty_notes=("source_interval_only",),
+        source_metadata=source,
+    ).as_dict()
+    reopened = normalize_temporal_semantics_payload(payload)
+
+    assert source == original
+    assert payload["declared_mean_bp"] == mean
+    assert payload["comparability_posture"] == "numeric_interval_with_caveat"
+    assert payload["precision_posture"] == "controlled_interval"
+    assert payload["refusal_reason_code"] == ""
+    assert (payload["time_start_bp"], payload["time_end_bp"]) == (100, 200)
+    assert payload["time_mean_bp"] is None and payload["duration_years"] == 100
+    assert payload["temporal_window_key"] == "recent_historical"
+    assert payload["uncertainty_notes"] == [
+        "source_interval_only",
+        "mean_outside_interval",
+    ]
+    assert reopened == payload
+
+
+@pytest.mark.parametrize(
+    ("start", "end", "mean", "expected"),
+    ((100, 200, None, 150), (100, 200, 100, 100), (100, 200, 200, 200), (0, 0, 0, 0)),
+)
+def test_builder_keeps_supported_mean_endpoints_and_zero(
+    start: int, end: int, mean: int | None, expected: int
+) -> None:
+    payload = build_temporal_semantics(
+        source_family="controlled_synthetic",
+        evidence_class="controlled_numeric_fixture",
+        precision_posture="controlled_interval",
+        comparability_posture="numeric_interval_with_caveat",
+        time_start_bp=start,
+        time_end_bp=end,
+        time_mean_bp=mean,
+    ).as_dict()
+
+    assert (payload["time_start_bp"], payload["time_end_bp"]) == (start, end)
+    assert payload["time_mean_bp"] == expected
+    assert payload["refusal_reason_code"] == ""
+    assert payload["temporal_window_key"] == "recent_historical"
+    notes = payload["uncertainty_notes"]
+    assert isinstance(notes, list)
+    assert "mean_outside_interval" not in notes

@@ -271,6 +271,7 @@ def build_temporal_semantics(
     resolved_refusal = refusal_reason_code.strip() or admission.refusal_reason_code
     resolved_posture = "refused" if resolved_refusal else comparability_posture
     resolved_mean = None
+    resolved_notes = uncertainty_notes
     if not resolved_refusal:
         if time_mean_bp is None:
             resolved_mean = mean_bp_year_from_interval(interval)
@@ -282,6 +283,13 @@ def build_temporal_semantics(
                 interval = None
             else:
                 resolved_mean = int(time_mean_bp)
+                if (
+                    interval is not None
+                    and not interval[0] <= resolved_mean <= interval[1]
+                ):
+                    resolved_mean = None
+                    if "mean_outside_interval" not in resolved_notes:
+                        resolved_notes = (*resolved_notes, "mean_outside_interval")
     duration_years = None
     if interval is not None:
         duration_years = max(0, interval[1] - interval[0])
@@ -320,7 +328,7 @@ def build_temporal_semantics(
         provenance_excerpt=provenance_excerpt.strip(),
         original_labels=_normalize_string_tuple(original_labels),
         normalized_labels=_normalize_string_tuple(normalized_labels),
-        uncertainty_notes=_normalize_string_tuple(uncertainty_notes),
+        uncertainty_notes=_normalize_string_tuple(resolved_notes),
         source_metadata=source_metadata,
     )
 
