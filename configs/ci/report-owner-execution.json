@@ -1958,38 +1958,6 @@
       "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
-      "owner_id": "atlas/keyless-cache-matrix/browser-receipt",
-      "source_arguments": [
-        {
-          "flag": "--receipt",
-          "path": "configs/ci/report-capture-projections/atlas-source-views/keyless-cache-matrix-browser-receipt.json"
-        }
-      ],
-      "source_paths": {
-        "source-products/atlas/keyless-cache-matrix/browser-receipt.json": "docs/report/atlas/keyless-cache-matrix/browser-receipt.json"
-      },
-      "timeout_seconds": 180
-    },
-    {
-      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
-      "owner_id": "atlas/keyless-cache-matrix/candidate-identity",
-      "source_arguments": [
-        {
-          "flag": "--receipt",
-          "path": "configs/ci/report-capture-projections/atlas-source-views/keyless-cache-matrix-candidate-identity.json"
-        }
-      ],
-      "source_paths": {
-        "source-products/atlas/keyless-cache-matrix/candidate-inputs.json": "docs/report/atlas/keyless-cache-matrix/candidate-inputs.json"
-      },
-      "timeout_seconds": 180
-    },
-    {
-      "module": "bijux_pollenomics_dev.source_completion.atlas_browser.capture_projection",
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
       "owner_id": "atlas/modeled-panel-browser/browser-evidence",
       "source_arguments": [
         {
