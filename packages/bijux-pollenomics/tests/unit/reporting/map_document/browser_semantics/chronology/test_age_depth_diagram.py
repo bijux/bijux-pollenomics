@@ -99,6 +99,7 @@ def render_drawer(
 const focusTabs={innerHTML:'',contains(){return false;},querySelectorAll(){return [];}};
 const focusDetail={innerHTML:'',dataset:{},contains(){return false;},setAttribute(k,v){this[k]=v;},querySelectorAll(){return [];}};
 const focusExportButton={},focusCopyLinkButton={},focusExportStatus={};
+const COUNTRIES=['Denmark','Finland','Norway','Sweden'],activeCountries=new Set(['Sweden']);
 const document={activeElement:null};
 const detailTablePages=new Map(), DETAIL_TABLE_PAGE_SIZE=25;
 function sourcePollenExportAvailable(){return false;}

@@ -3944,8 +3944,7 @@ __URL_STATE_CONTROLLER__
             const properties = feature && feature.properties ? feature.properties : {};
             return polygonGeometryIsAdmitted(feature)
               && isModeledContextFeature(layer, properties)
-              && properties.time_label === sourceWindow.label
-              && activeCountries.has(properties.country);
+              && polygonFeatureVisible(layer, properties);
           })
           .sort((left, right) => String(left.properties.record_id || '').localeCompare(String(right.properties.record_id || '')));
       }
@@ -5599,7 +5598,7 @@ __URL_STATE_CONTROLLER__
         if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
         focusTabs.innerHTML = tabDefinitions.map(([key, label]) => `<button id="focus-tab-${key}" class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}" aria-controls="focus-detail" tabindex="${activeFocusTab === key ? '0' : '-1'}">${escapeHtml(label)}</button>`).join('');
         focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
-        const sourceDiagram = activeFocusTab === 'chronology' ? renderAgeDepthDiagram(tabs)
+        const sourceDiagram = activeFocusTab === 'chronology' ? renderSourceChronologyDiagram(tabs, focusState?.sourceSignal, COUNTRIES.filter(country => activeCountries.has(country)))
           : activeFocusTab === 'pollen_composition' ? renderPollenObservationDiagram(tabs) : '';
         const sourceOverview = activeFocusTab === 'overview' && tabs.overview?.status !== 'unavailable'
           && focusState?.sourceSignal?.semantic_role === 'source_chronology_context'
