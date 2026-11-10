@@ -57,8 +57,8 @@
     },
     {
       "path": "docs/report/regions/nordic/nordic_map.html",
-      "bytes": 178568,
-      "sha256": "3956d2d0d5c770001316c5cddc9ea1adbd74b0e2e9387ae323cfc944a8b33baa"
+      "bytes": 178654,
+      "sha256": "0d86a9683e2373cee918185ebd0b27a5b93d4afc1774479be35c1b71deecac35"
     },
     {
       "path": "docs/report/regions/nordic/nordic_map_assets.json",
@@ -66,9 +66,9 @@
       "sha256": "925faff2988d8e0fb8f8e297dbe3b2ff4b9a258062ec1bc71158d46bc965e542"
     },
     {
-      "path": "docs/report/regions/nordic/nordic_map.atlas-runtime.bb19aa980206b96d.js",
-      "bytes": 523271,
-      "sha256": "bb19aa980206b96d81c585aee145e14a95193b182c7d983d12e4f21226c8ae48"
+      "path": "docs/report/regions/nordic/nordic_map.atlas-runtime.1f0ad99d8a2e40be.js",
+      "bytes": 523203,
+      "sha256": "1f0ad99d8a2e40bec90b06fd4a687fdf6071af55c2f71465264a5ce25eb7641b"
     },
     {
       "path": "docs/report/regions/nordic/nordic_map.atlas-evidence-tools.19778c51517063e7.js",

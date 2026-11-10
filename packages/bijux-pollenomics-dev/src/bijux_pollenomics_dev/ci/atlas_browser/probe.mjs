@@ -344,7 +344,9 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
     await normal.cdp.send('Emulation.setDeviceMetricsOverride', {
       width, height, deviceScaleFactor: 1, mobile: width === 390,
     });
-    responsive[width] = await responsiveFacts(normal.cdp, width);
+    const focusedPath = `${scope.name}/focused-record-${width}.png`;
+    responsive[width] = await responsiveFacts(normal.cdp, width, focusedPath);
+    if (responsive[width].focused_record.result_available) scopeReceipts.push(focusedPath);
     responsive[width].discoverability = await discoverabilityFacts(normal.cdp, width);
     responsive[width].help_dialog = await helpDialogFacts(normal.cdp, width);
     const path = `${scope.name}/responsive-${width}.png`;
@@ -1409,8 +1411,8 @@ function northOrientationPasses(facts) {
       && (control.disabled === true || control.hit_points_uncovered === true));
 }
 
-async function responsiveFacts(cdp, width) {
-  return evaluate(cdp, `(async () => {
+async function responsiveFacts(cdp, width, focusedScreenshotPath = null) {
+  const layout = await evaluate(cdp, `(async () => {
     document.documentElement.classList.add('atlas-probe-motion-mode');
     const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const sidebar = document.getElementById('sidebar');
@@ -1782,16 +1784,6 @@ async function responsiveFacts(cdp, width) {
         map_visibility: sampleMapVisibility(),
         closed_after_journey: false,
       };
-      focusClose.click();
-      await settle();
-      focusedRecord.closed_after_journey = focusCard.hidden && !visible(focusCard);
-      await new Promise((resolve) => setTimeout(resolve, 300));
-      document.querySelector('.leaflet-popup-close-button')?.click();
-      fitActive.click();
-      await settle();
-    } else if (!sidebar.classList.contains('is-collapsed')) {
-      toggle.click();
-      await settle();
     }
     return {
       viewport: { width: innerWidth, height: innerHeight }, elements, mobile, clear_map: clearMap,
@@ -1806,13 +1798,52 @@ async function responsiveFacts(cdp, width) {
       chronology_controls_bounded: chronologyControlsBounded,
       chronology_controls_uncovered: chronologyControlsUncovered,
       chronology_controls_non_overlapping: chronologyControlsNonOverlapping,
-      document_scroll_width: document.documentElement.scrollWidth,
-      body_scroll_width: document.body.scrollWidth,
-      horizontally_bounded: horizontallyBounded && document.documentElement.scrollWidth <= innerWidth + 1
-        && document.body.scrollWidth <= innerWidth + 1,
-      desktop_non_overlap: ${width} >= 901 ? elements.topbar.right <= elements.sidebar.left - 1 : null,
+      horizontally_bounded: horizontallyBounded,
+      desktop_non_overlap: ${width} >= 901 ? !boxesOverlap(elements.topbar, elements.sidebar) : null,
     };
   })()`);
+  try {
+    if (focusedScreenshotPath && layout.focused_record.result_available) {
+      await screenshot(cdp, focusedScreenshotPath);
+    }
+  } finally {
+    const after = await evaluate(cdp, `(async () => {
+      const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      const visible = (element) => {
+        const style = getComputedStyle(element);
+        const box = element.getBoundingClientRect();
+        return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0
+          && box.width > 0 && box.height > 0 && box.right > 0 && box.left < innerWidth
+          && box.bottom > 0 && box.top < innerHeight;
+      };
+      let closed = false;
+      if (${layout.focused_record.result_available}) {
+        const card = document.getElementById('focus-card');
+        document.getElementById('focus-close').click();
+        await settle();
+        closed = card.hidden && !visible(card);
+        await new Promise((resolve) => setTimeout(resolve, 300));
+        document.querySelector('.leaflet-popup-close-button')?.click();
+        document.getElementById('fit-active').click();
+        await settle();
+      } else if (!document.getElementById('sidebar').classList.contains('is-collapsed')) {
+        document.getElementById('panel-toggle').click();
+        await settle();
+      }
+      return {
+        closed,
+        document_scroll_width: document.documentElement.scrollWidth,
+        body_scroll_width: document.body.scrollWidth,
+      };
+    })()`);
+    layout.focused_record.closed_after_journey = after.closed;
+    layout.document_scroll_width = after.document_scroll_width;
+    layout.body_scroll_width = after.body_scroll_width;
+    layout.horizontally_bounded = layout.horizontally_bounded
+      && after.document_scroll_width <= layout.viewport.width + 1
+      && after.body_scroll_width <= layout.viewport.width + 1;
+  }
+  return layout;
 }
 
 async function fitActiveJourney(cdp) {

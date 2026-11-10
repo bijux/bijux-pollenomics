@@ -185,7 +185,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** Overlay co-location is not causal farming history, scientific admission of pollen/LRA inputs, genotype-aware analysis or measured vegetation accuracy.
 
-**Actual verification performed.** Earlier saved-source, index and browser qualifications retain their original source epochs; they are not transferred to changed Nordic registrations by wire or semantic equality. The conditional source-chronology publication at 86e3efe5c81ab7c75070f38c801037fa295600e2 uses the current Neotoma owner with authenticated normalized inputs and retained accepted other-provider payloads. Checks cover the full native projection identity, unchanged source identities and shared feature values, exact float map intervals, integer-year scientific-context support with explicit fractional-date refusals, and all current chronology model/control tables against an independent raw-input audit. Existing primary age assignments and retained provider citations remain bound to their source identities. Actual static, document, contract, playback and reader owners derive the publication artifacts. This is a conditional source refresh, not a full publisher replay, a new browser qualification, a recomputed whole scientific review or scientific admission.
+**Actual verification performed.** Retained scientific data and review artifacts keep their existing source identities and limitations. This bounded presentation rebuild uses the authenticated published layers, reserves map space for controls and the complete record reader, and removes the duplicate search popup. Earlier browser qualifications remain tied to their original layout and runtime. This presentation rebuild receipt establishes no new browser qualification, scientific result or admission.
 
 **Remaining input or review.** Each layer retains its own chronology, entity, rights and scientific decisions. Actual shared-runtime World temporal cases do not substitute broader browser/provider, latency or ecological qualification.
 
@@ -199,7 +199,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** Four-country human display totals1,231 samples (SE416/NO130/FI32/DK653); eight animal locality points and one documented fieldwork location are separate evidence populations.
 
-- [Retained qualification evidence: docs/report/regions/nordic/nordic_summary.json](nordic_summary.json) (SHA-256 `86a9870c08d3c58314d41373bc16f1f0c3ac0b7bcb11cfb6027abbe5680f5078`).
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_summary.json](nordic_summary.json) (SHA-256 `e456892d71fb90f2f13661d4aa3f4ae06b0b9c6e3131bd5e298cd42e717a5a5b`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

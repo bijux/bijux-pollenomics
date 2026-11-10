@@ -6133,7 +6133,6 @@ function publishedSearchCounts() {
             if (!coordinates) return;
             focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
             map.flyTo([coordinates.latitude, coordinates.longitude], Math.max(map.getZoom(), 8), { duration: 0.7, ...(reducedMotionQuery.matches ? { animate: false } : {}) });
-            window.setTimeout(() => match.marker.openPopup(), 250);
             setSearchOpen(false);
           });
         });
