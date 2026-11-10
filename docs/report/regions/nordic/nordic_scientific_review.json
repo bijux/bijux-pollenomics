@@ -597,7 +597,7 @@
       "species_latin_name": "Homo sapiens",
       "period_label": "0-1000 BP",
       "evidence_scope": "mapped_direct",
-      "mapped_locality_count": 65,
+      "mapped_locality_count": 15,
       "contextual_project_count": 0,
       "chronology_confidence": "locality_level_bp_window",
       "caution_note": "Human period coverage remains locality-based metadata, not genotype-aware chronology."
@@ -606,7 +606,7 @@
       "species_latin_name": "Homo sapiens",
       "period_label": "1001-3000 BP",
       "evidence_scope": "mapped_direct",
-      "mapped_locality_count": 224,
+      "mapped_locality_count": 178,
       "contextual_project_count": 0,
       "chronology_confidence": "locality_level_bp_window",
       "caution_note": "Human period coverage remains locality-based metadata, not genotype-aware chronology."
@@ -615,7 +615,7 @@
       "species_latin_name": "Homo sapiens",
       "period_label": "3001-6000 BP",
       "evidence_scope": "mapped_direct",
-      "mapped_locality_count": 115,
+      "mapped_locality_count": 105,
       "contextual_project_count": 0,
       "chronology_confidence": "locality_level_bp_window",
       "caution_note": "Human period coverage remains locality-based metadata, not genotype-aware chronology."
@@ -624,10 +624,19 @@
       "species_latin_name": "Homo sapiens",
       "period_label": "6001+ BP",
       "evidence_scope": "mapped_direct",
-      "mapped_locality_count": 41,
+      "mapped_locality_count": 36,
       "contextual_project_count": 0,
       "chronology_confidence": "locality_level_bp_window",
       "caution_note": "Human period coverage remains locality-based metadata, not genotype-aware chronology."
+    },
+    {
+      "species_latin_name": "Homo sapiens",
+      "period_label": "project_level_or_unresolved",
+      "evidence_scope": "mapped_direct",
+      "mapped_locality_count": 113,
+      "contextual_project_count": 0,
+      "chronology_confidence": "unresolved_or_cross_period_sample_support",
+      "caution_note": "Available admitted sample supports do not place this locality in one period; absent or refused supports remain untested. No date is imputed and cross-period support is not forced into a bin."
     },
     {
       "species_latin_name": "Anas platyrhynchos domesticus",
@@ -788,28 +797,28 @@
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 25,
-      "non_overlapping_direct_localities": 420,
-      "noncomparable_records": 2,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 447,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "animal-ovis-aries",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 52,
-      "non_overlapping_direct_localities": 393,
-      "noncomparable_records": 2,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 447,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "animal-sus-scrofa-domesticus",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 104,
-      "non_overlapping_direct_localities": 341,
-      "noncomparable_records": 2,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 447,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Homo sapiens",
@@ -818,16 +827,16 @@
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 447,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "landclim-sites",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 445,
+      "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "noncomparable_records": 447,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Homo sapiens",
@@ -836,7 +845,7 @@
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 447,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Homo sapiens",
@@ -845,7 +854,7 @@
       "overlapping_direct_localities": 445,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 2,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Homo sapiens",
@@ -854,7 +863,7 @@
       "overlapping_direct_localities": 445,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 2,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Homo sapiens",
@@ -863,16 +872,16 @@
       "overlapping_direct_localities": 445,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 2,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "sead-sites",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 445,
+      "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "noncomparable_records": 447,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Homo sapiens",
@@ -881,7 +890,7 @@
       "overlapping_direct_localities": 114,
       "non_overlapping_direct_localities": 331,
       "noncomparable_records": 2,
-      "rationale": "Human locality chronology can be compared directly with time-aware context points."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association."
     },
     {
       "species_latin_name": "Anas platyrhynchos domesticus",
@@ -1085,100 +1094,100 @@
       "species_latin_name": "Bos taurus",
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 4,
+      "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "noncomparable_records": 4,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Bos taurus",
       "context_layer_key": "animal-ovis-aries",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 4,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "animal-sus-scrofa-domesticus",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 4,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "fieldwork-documentation",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 4,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "landclim-sites",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 4,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "neotoma-pollen",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 4,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "neotoma-source-ecological-code",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 4,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 0,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "neotoma-source-exact-taxon",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 4,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 0,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "neotoma-source-sample-pollen-context",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 4,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 0,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "sead-sites",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 4,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "sweden-archaeology-site-discovery",
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 4,
       "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "animal-sus-scrofa-domesticus",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 4,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "fieldwork-documentation",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 4,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "landclim-sites",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 4,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "neotoma-pollen",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 4,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "neotoma-source-ecological-code",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 4,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "neotoma-source-exact-taxon",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 4,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "neotoma-source-sample-pollen-context",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 4,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "sead-sites",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 4,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "sweden-archaeology-site-discovery",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 4,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -2076,27 +2085,27 @@
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 2,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Ovis aries",
       "context_layer_key": "animal-ovis-aries",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 2,
+      "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "noncomparable_records": 2,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Ovis aries",
       "context_layer_key": "animal-sus-scrofa-domesticus",
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 2,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Ovis aries",
@@ -2105,16 +2114,16 @@
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 2,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Ovis aries",
       "context_layer_key": "landclim-sites",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 2,
+      "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "noncomparable_records": 2,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Ovis aries",
@@ -2123,7 +2132,7 @@
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 2,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Ovis aries",
@@ -2132,7 +2141,7 @@
       "overlapping_direct_localities": 2,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Ovis aries",
@@ -2141,7 +2150,7 @@
       "overlapping_direct_localities": 2,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Ovis aries",
@@ -2150,16 +2159,16 @@
       "overlapping_direct_localities": 2,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Ovis aries",
       "context_layer_key": "sead-sites",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 2,
+      "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "noncomparable_records": 2,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Ovis aries",
@@ -2168,7 +2177,7 @@
       "overlapping_direct_localities": 1,
       "non_overlapping_direct_localities": 1,
       "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Rangifer tarandus",
@@ -2274,27 +2283,27 @@
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 2,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
       "context_layer_key": "animal-ovis-aries",
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 2,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
       "context_layer_key": "animal-sus-scrofa-domesticus",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 2,
+      "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "noncomparable_records": 2,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -2303,16 +2312,16 @@
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 2,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
       "context_layer_key": "landclim-sites",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 2,
+      "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "noncomparable_records": 2,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -2321,7 +2330,7 @@
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 2,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -2330,7 +2339,7 @@
       "overlapping_direct_localities": 2,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -2339,7 +2348,7 @@
       "overlapping_direct_localities": 2,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -2348,16 +2357,16 @@
       "overlapping_direct_localities": 2,
       "non_overlapping_direct_localities": 0,
       "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
       "context_layer_key": "sead-sites",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 2,
+      "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "noncomparable_records": 2,
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -2366,7 +2375,7 @@
       "overlapping_direct_localities": 1,
       "non_overlapping_direct_localities": 1,
       "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+      "rationale": "Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain."
     }
   ],
   "animal_coordinate_review": {

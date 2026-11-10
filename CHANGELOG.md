@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Clarify admitted-support limits, retain unresolved human period coverage, and refresh the Nordic overlap and period review from source-bound metadata while preserving unchanged country, uncertainty and scenario accounts ([#404](https://github.com/bijux/bijux-pollenomics/pull/404)).
+
 - Refuse contradictory temporal bounds and out-of-support fallback points during map intake, and discard unsupported means while retaining valid intervals and source records ([#403](https://github.com/bijux/bijux-pollenomics/pull/403)).
 
 - Keep publication-reader startup independent of scientific host imports while preserving full runtime authentication when requested ([#402](https://github.com/bijux/bijux-pollenomics/pull/402)).

@@ -78,7 +78,11 @@ def _build_chronology_overlaps(
                 overlapping_direct_localities=overlapping,
                 non_overlapping_direct_localities=non_overlapping,
                 noncomparable_records=noncomparable,
-                rationale="Human locality chronology can be compared directly with time-aware context points.",
+                rationale=(
+                    "Non-overlap concerns admitted sample supports only; missing or "
+                    "refused members remain untested. Temporal overlap is not spatial "
+                    "association."
+                ),
             )
         )
     for row in species_rows:
@@ -114,7 +118,12 @@ def _build_chronology_overlaps(
                         overlapping_direct_localities=overlapping,
                         non_overlapping_direct_localities=non_overlapping,
                         noncomparable_records=noncomparable,
-                        rationale="Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats.",
+                        rationale=(
+                            "Non-overlap concerns admitted sample supports only; missing or "
+                            "refused members remain untested. Temporal overlap is not "
+                            "spatial association; animal chronology and precision caveats "
+                            "remain."
+                        ),
                     )
                 )
                 continue

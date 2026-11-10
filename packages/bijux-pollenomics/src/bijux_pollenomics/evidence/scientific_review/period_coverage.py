@@ -32,6 +32,23 @@ def _build_period_coverage(
                 caution_note="Human period coverage remains locality-based metadata, not genotype-aware chronology.",
             )
         )
+    unresolved_count = len(grouped.get("project_level_or_unresolved", []))
+    if unresolved_count:
+        rows.append(
+            SpeciesPeriodCoverageRow(
+                species_latin_name="Homo sapiens",
+                period_label="project_level_or_unresolved",
+                evidence_scope="mapped_direct",
+                mapped_locality_count=unresolved_count,
+                contextual_project_count=0,
+                chronology_confidence="unresolved_or_cross_period_sample_support",
+                caution_note=(
+                    "Available admitted sample supports do not place this locality "
+                    "in one period; absent or refused supports remain untested. "
+                    "No date is imputed and cross-period support is not forced into a bin."
+                ),
+            )
+        )
     for row in species_rows:
         if row.species_latin_name == "Homo sapiens":
             continue
