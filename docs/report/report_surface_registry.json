@@ -15070,7 +15070,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus_map.atlas-runtime.1233a7489651c5c2.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus_map.atlas-runtime.dadb878bc50bbc62.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -19822,7 +19822,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic_map.atlas-runtime.9afb9d8e8483f30e.js",
+      "repository_path": "docs/report/regions/nordic/nordic_map.atlas-runtime.1ec8996a52ec76b7.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -27010,7 +27010,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world_map.atlas-runtime.949f39a746822048.js",
+      "repository_path": "docs/report/world/world_map.atlas-runtime.b3cec3d1b8eb49c3.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",

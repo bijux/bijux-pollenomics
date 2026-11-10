@@ -185,7 +185,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** Overlay co-location is not causal farming history, scientific admission of pollen/LRA inputs, genotype-aware analysis or measured vegetation accuracy.
 
-**Actual verification performed.** Retained scientific data and review artifacts keep their recorded source identities and limits. This bounded presentation rebuild adds fieldwork documentation and a private search-gram controller while preserving published search membership and results. Earlier browser qualifications remain tied to their recorded runtime; this source and compositor receipt establishes no new browser or scientific qualification.
+**Actual verification performed.** Retained scientific data and review artifacts keep their recorded source identities and limits. The bounded caption rebuild follows map layer eligibility and binds source chronology context to the selected site, snapshot, build and country selection. At source f84f86a3, 247 focused renderer checks pass; the current three-map compositor preserves all scientific registrations and optional controllers. This source/compositor evidence does not establish browser behavior, human comprehension or scientific admission; earlier browser qualifications retain their recorded sources.
 
 **Remaining input or review.** Each layer retains its own chronology, entity, rights and scientific decisions. Actual shared-runtime World temporal cases do not substitute broader browser/provider, latency or ecological qualification.
 
@@ -199,7 +199,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** Four-country human display totals1,231 samples (SE416/NO130/FI32/DK653); eight animal locality points and one documented fieldwork location are separate evidence populations.
 
-- [Retained qualification evidence: docs/report/regions/nordic/nordic_summary.json](nordic_summary.json) (SHA-256 `55a8b0ce613adb35149cf40af09f5126c2ca1742be12defa280c0fcf989c5bff`).
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_summary.json](nordic_summary.json) (SHA-256 `ff7366dd66f25f04351910939d98df024c13f6cbc2e9466bfa44f5868ad23034`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 
