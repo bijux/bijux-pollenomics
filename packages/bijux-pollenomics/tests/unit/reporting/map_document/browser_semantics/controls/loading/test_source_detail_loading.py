@@ -145,3 +145,38 @@ def test_current_focus_survives_rebuilt_display_entry_with_same_exact_identity()
         {"id": "a", "raw": True, "tools": False},
         {"id": "a", "raw": True, "tools": True},
     ]
+
+
+def test_fieldwork_focus_does_not_request_pollen_details_or_optional_tools() -> None:
+    actual = observe(
+        "visiblePointEntries[0].layer.key='fieldwork-documentation';"
+        "detailTabsForFeature=()=>{throw Error('Fieldwork requested pollen detail transport')};"
+        "loadEvidenceTools=()=>{throw Error('Fieldwork requested optional pollen tools')};"
+        "await focusPointAtVisibleIndex(0);"
+        "console.log(JSON.stringify({id:focusState.recordId,tabs:focusState.detailTabs,loads}));"
+    )
+    assert actual == {"id": "a", "tabs": {}, "loads": 0}
+
+
+def test_late_pollen_details_and_tools_cannot_replace_fieldwork_focus() -> None:
+    actual = observe(
+        "let releaseRaw;detailTabsForFeature=()=>new Promise(resolve=>{releaseRaw=resolve});"
+        "visiblePointEntries[1].layer.key='fieldwork-documentation';"
+        "const first=focusPointAtVisibleIndex(0);await tick();"
+        "await focusPointAtVisibleIndex(1);"
+        "const original=JSON.stringify(focusState),before=events.length;"
+        "releaseRaw({overview:{source_family:'neotoma'},raw:true});await tick();"
+        "pending[0]();await first;"
+        "console.log(JSON.stringify({id:focusState.recordId,layer:focusState.layerKey,"
+        "tabs:focusState.detailTabs,loads,before,after:events.length,"
+        "unchanged:original===JSON.stringify(focusState)}));"
+    )
+    assert actual == {
+        "id": "b",
+        "layer": "fieldwork-documentation",
+        "tabs": {},
+        "loads": 1,
+        "before": 0,
+        "after": 0,
+        "unchanged": True,
+    }
