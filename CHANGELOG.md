@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Retain bounded Chromium startup diagnostics and primary failures, and prevent late CDP completion from overriding a startup timeout ([#410](https://github.com/bijux/bijux-pollenomics/pull/410)).
+
 - Preserve native species, source and sample-namespace populations in locality summaries and refuse contradictory locality metadata while retaining compatible sample chronology aggregation ([#409](https://github.com/bijux/bijux-pollenomics/pull/409)).
 
 - Own browser sessions and cancel pending work in the keyless cache CLI, preserve existing profiles, and retain primary failures through bounded cleanup ([#408](https://github.com/bijux/bijux-pollenomics/pull/408)).
