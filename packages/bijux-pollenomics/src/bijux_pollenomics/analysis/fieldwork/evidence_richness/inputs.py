@@ -7,6 +7,9 @@ from pathlib import Path
 
 from bijux_pollenomics.collection.contracts.cardinality import resolve_declared_count
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.occurrence_chronology import (
+    ContextOccurrenceSupport,
+)
 from bijux_pollenomics.collection.spatial.representative_points import (
     geometry_to_representative_point,
 )
@@ -27,6 +30,48 @@ from .temporal import (
 )
 
 __all__ = []
+
+
+def _decode_occurrence_supports(
+    properties: dict[str, object], *, context: str
+) -> tuple[ContextOccurrenceSupport, ...] | None:
+    if "occurrence_supports" not in properties:
+        return None
+    raw = properties["occurrence_supports"]
+    if not isinstance(raw, list):
+        raise ValueError(f"{context} occurrence_supports must be a list")
+    aggregate = properties.get("temporal_semantics")
+    if aggregate is not None and not isinstance(aggregate, dict):
+        raise ValueError(f"{context} temporal_semantics must be a dictionary or null")
+    supports: list[ContextOccurrenceSupport] = []
+    identifiers: set[str] = set()
+    for index, row in enumerate(raw):
+        prefix = f"{context} occurrence_supports[{index}]"
+        if not isinstance(row, dict) or set(row) != {
+            "support_id",
+            "time_start_bp",
+            "time_end_bp",
+            "temporal_semantics",
+        }:
+            raise ValueError(f"{prefix} requires the complete component fields")
+        support_id = row["support_id"]
+        if not isinstance(support_id, str) or not support_id.strip():
+            raise ValueError(f"{prefix} requires a nonblank support_id")
+        if support_id in identifiers:
+            raise ValueError(f"{prefix} has duplicate support_id {support_id!r}")
+        start, end = row["time_start_bp"], row["time_end_bp"]
+        if any(
+            value is not None
+            and (isinstance(value, bool) or not isinstance(value, int))
+            for value in (start, end)
+        ):
+            raise ValueError(f"{prefix} endpoints must be integers or null")
+        semantics = row["temporal_semantics"]
+        if not isinstance(semantics, dict):
+            raise ValueError(f"{prefix} temporal_semantics must be a dictionary")
+        supports.append(ContextOccurrenceSupport(support_id, start, end, semantics))
+        identifiers.add(support_id)
+    return tuple(supports)
 
 
 def _load_sweden_pollen_points(context_root: Path) -> tuple[ContextPointRecord, ...]:
@@ -111,6 +156,10 @@ def _load_sweden_context_points(
                 temporal_semantics=properties.get("temporal_semantics")
                 if isinstance(properties.get("temporal_semantics"), dict)
                 else None,
+                occurrence_supports=_decode_occurrence_supports(
+                    properties,
+                    context=f"{path.name} context feature {properties.get('record_id')!r}",
+                ),
             )
         )
     return tuple(records)
