@@ -30,7 +30,7 @@ node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/p
 
 This is a local two-viewport provider failure and keyboard interaction check for the retained point-source candidate. It does not establish provider service availability or terms, a cross-browser accessibility or contrast audit, country-boundary behavior, or scientific approval. The source chronology's unavailable, context-only, and refused states remain explicit.
 
-The separate [cold, warm and offline browser matrix](../keyless-cache-matrix/README.md) records current four-country source candidate behavior under explicit cache and provider network conditions. It leaves the user's original failing URL and browser context open for diagnosis.
+The retained [cold, warm and offline browser matrix](https://github.com/bijux/bijux-pollenomics/blob/650e9a959a4b5d47f09adeb470e767c41d549c7f/docs/report/atlas/keyless-cache-matrix/README.md) records a historical four-country, eight-source-site candidate under explicit cache and provider network conditions. It leaves the user's original failing URL and browser context open for diagnosis.
 
 ## Source-owned retained capture
 
