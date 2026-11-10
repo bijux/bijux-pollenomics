@@ -295,9 +295,9 @@ def _summarize_candidate_temporal_context(
             max(time_start_bp, round(sum(means) / len(means))),
         )
         _, window_label = resolve_temporal_window(
-            time_start_bp=points[0].time_start_bp,
-            time_end_bp=points[0].time_end_bp,
-            time_mean_bp=points[0].time_mean_bp,
+            time_start_bp=time_start_bp,
+            time_end_bp=time_end_bp,
+            time_mean_bp=time_mean_bp,
         )
         source_records = tuple(
             sorted({point.source_record for point in points if point.source_record})

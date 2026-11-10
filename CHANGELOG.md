@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Preserve occurrence windows and explicit refusals through fieldwork context exports and reports, label each navigation window correctly, and reject invalid coordinates without coercion or integer overflow ([#414](https://github.com/bijux/bijux-pollenomics/pull/414)).
+
 - Keep modeled cell captions and exports consistent with map filters, preserve selected source context in chronology drawers, and verify the shared export contract ([#413](https://github.com/bijux/bijux-pollenomics/pull/413)).
 
 - Bind embedded-atlas publication ownership to the selected MkDocs configuration while retaining report, resource and iframe-parent identities ([#412](https://github.com/bijux/bijux-pollenomics/pull/412)).

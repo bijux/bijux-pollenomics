@@ -161,6 +161,11 @@ def write_context_points_geojson(
             ):
                 properties.pop("temporal_semantics", None)
         if record.occurrence_supports is not None:
+            if record.temporal_semantics is None and (
+                record.source_record is None
+                or "temporal_semantics" not in record.source_record
+            ):
+                properties.pop("temporal_semantics", None)
             properties["occurrence_supports"] = [
                 support.as_dict() for support in record.occurrence_supports
             ]

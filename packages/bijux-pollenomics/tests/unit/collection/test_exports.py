@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+from dataclasses import replace
 import json
 from pathlib import Path
 import tempfile
@@ -10,6 +11,9 @@ from typing import cast
 import unittest
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.occurrence_chronology import (
+    ContextOccurrenceSupport,
+)
 from bijux_pollenomics.collection.exports import (
     write_context_points_csv,
     write_context_points_geojson,
@@ -17,6 +21,64 @@ from bijux_pollenomics.collection.exports import (
 
 
 class ContextExportTests(unittest.TestCase):
+    def test_component_exports_preserve_absent_and_explicit_aggregate_declarations(
+        self,
+    ) -> None:
+        record = ContextPointRecord(
+            source="controlled",
+            layer_key="controlled",
+            layer_label="controlled",
+            category="context",
+            country="Sweden",
+            record_id="one",
+            name="Lake One",
+            latitude=59,
+            longitude=18,
+            geometry_type="Point",
+            subtitle="",
+            description="",
+            source_url="",
+            record_count=1,
+            popup_rows=(),
+            occurrence_supports=(ContextOccurrenceSupport("owned", 0, 0, {}),),
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "context.geojson"
+            overlays: tuple[dict[str, object] | None, ...] = (
+                None,
+                {},
+                {"temporal_semantics": {}},
+                {"temporal_semantics": {"refusal_reason_code": "source_refused"}},
+            )
+            for overlay in overlays:
+                with self.subTest(overlay=overlay):
+                    write_context_points_geojson(
+                        path, [replace(record, source_record=overlay)]
+                    )
+                    properties = json.loads(path.read_text())["features"][0][
+                        "properties"
+                    ]
+                    if overlay is not None and "temporal_semantics" in overlay:
+                        self.assertEqual(
+                            properties["temporal_semantics"],
+                            overlay["temporal_semantics"],
+                        )
+                    else:
+                        self.assertNotIn("temporal_semantics", properties)
+                    self.assertEqual(
+                        properties["occurrence_supports"],
+                        [
+                            support.as_dict()
+                            for support in record.occurrence_supports or ()
+                        ],
+                    )
+            write_context_points_geojson(
+                path, [replace(record, occurrence_supports=None)]
+            )
+            properties = json.loads(path.read_text())["features"][0]["properties"]
+            self.assertEqual(properties["temporal_semantics"], {})
+            self.assertNotIn("occurrence_supports", properties)
+
     def test_context_point_exports_preserve_temporal_fields(self) -> None:
         record = ContextPointRecord(
             source="LandClim",
