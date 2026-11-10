@@ -2891,9 +2891,9 @@ __NATIVE_LRA_SCRIPT_TAG__
                   boundedGunzip: staticAtlasBoundedGunzip, sha256: staticAtlasSha256,
                   yieldTask: () => typeof globalThis.scheduler?.yield === 'function'
                     ? globalThis.scheduler.yield() : new Promise(resolve => window.setTimeout(resolve, 0)),
-                  searchGrams: text => atlasSearchGrams(text),
+                  searchGrams: text => staticAtlasIndexTransport.searchGrams(text),
                   rememberRestoredSearch: (index, postings) => atlasRememberRestoredSearch(index, postings)});
-                if (!controller || !['validatePayload', 'consume'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
+                if (!controller || !['validatePayload', 'consume', 'searchGrams'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
                 staticAtlasIndexTransport = controller;
                 resolve(controller);
               } catch (error) { reject(error); }

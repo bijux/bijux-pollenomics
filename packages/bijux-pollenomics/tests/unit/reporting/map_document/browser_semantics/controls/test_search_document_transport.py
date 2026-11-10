@@ -618,3 +618,174 @@ def test_scheduled_restoration_keeps_shared_assembly_private_until_complete(
     assert observed["yields"] == 1
     assert observed["remember"] == (1 if completion == "success" else 0)
     assert observed["accepted"] is (completion == "success")
+
+
+def test_owned_gram_helper_preserves_ordered_utf16_values_and_cache_saturation() -> (
+    None
+):
+    texts = [
+        "",
+        "a",
+        "aaa",
+        "a\0a",
+        "Åe\u0301",
+        "💠",
+        "\ud800",
+        "\udfff",
+        "\0\uffff💠",
+        "a" * 4096,
+        "a" * 4097,
+    ]
+    expected: list[list[str]] = []
+    for text in texts:
+        encoded = text.encode("utf-16-be", errors="surrogatepass").hex()
+        expected.append(
+            list(
+                dict.fromkeys(
+                    encoded[i : i + 4 * width]
+                    for width in (1, 2, 3)
+                    for i in range(0, len(encoded) - width * 4 + 1, 4)
+                )
+            )
+        )
+    assets = files("bijux_pollenomics.reporting.map_document").joinpath("assets")
+    search = assets.joinpath("search-index.js").read_text()
+    observed = run_node_json(
+        assets.joinpath("index-transport.js").read_text()
+        + search[
+            search.index("const ATLAS_SEARCH_CODE_UNITS") : search.index(
+                "function atlasRestoredPostingFactory"
+            )
+        ]
+        + "const texts="
+        + json.dumps(texts)
+        + ";"
+        + r"""
+const controller=BijuxPollenomicsIndexTransport.create({}),helper=controller.searchGrams;
+const values=texts.map(text=>[...helper(text)]);
+let saturated=true;
+for(let i=0;i<17000;i++){
+ const text=String.fromCharCode(i,65535-i,i);
+ if(JSON.stringify([...helper(text)])!==JSON.stringify([...atlasSearchGrams(text)]))saturated=false;
+}
+console.log(JSON.stringify({values,saturated,arity:helper.length,frozen:Object.isFrozen(controller),
+ readonly:!Reflect.set(controller,'searchGrams',()=>new Set()),
+ privateKeys:Object.keys(controller).sort()}));
+"""
+    )
+    assert observed["values"] == expected
+    assert observed["saturated"] and observed["frozen"] and observed["readonly"]
+    assert observed["arity"] == 1
+    assert observed["privateKeys"] == [
+        "acceptPart",
+        "consume",
+        "mergeShards",
+        "searchGrams",
+        "validatePayload",
+    ]
+
+
+def test_owned_gram_helper_retains_literal_custom_width_and_throw_behavior() -> None:
+    assets = files("bijux_pollenomics.reporting.map_document").joinpath("assets")
+    search = assets.joinpath("search-index.js").read_text()
+    observed = run_node_json(
+        assets.joinpath("index-transport.js").read_text()
+        + search[
+            search.index("const ATLAS_SEARCH_CODE_UNITS") : search.index(
+                "function atlasRestoredPostingFactory"
+            )
+        ]
+        + r"""
+const helper=BijuxPollenomicsIndexTransport.create({}).searchGrams;
+function observe(fn,kind){
+ const log=[];let text='a\0💠a',widths;
+ if(kind==='ordered')widths=[3,1,2,1,0];
+ if(kind==='coercion')widths=[{valueOf(){log.push('width');return 1}},'2',1.5];
+ if(kind==='iterator')widths={[Symbol.iterator]:function*(){log.push('start');yield 2;yield 0;yield 1;log.push('end')}};
+ if(kind==='nonstring')text={length:2,charCodeAt(i){log.push(i);return i?65535:0}};
+ if(kind==='boxed')text=new String(text);
+ if(kind==='null')widths=null;
+ if(kind==='symbol')widths=[Symbol('width')];
+ if(kind==='bigint')widths=[1n];
+ if(kind==='throw'){
+  const sentinel={};widths={[Symbol.iterator]:function*(){yield 1;throw sentinel}};
+  try{fn(text,widths);return {failed:true}}catch(error){return {same:error===sentinel}}
+ }
+ try{return {values:[...fn(text,widths)],log}}catch(error){return {error:error.name,log}}
+}
+const kinds=['ordered','coercion','iterator','nonstring','boxed','null','symbol','bigint','throw'];
+console.log(JSON.stringify(kinds.map(kind=>({kind,same:JSON.stringify(observe(helper,kind))===JSON.stringify(observe(atlasSearchGrams,kind))}))));
+"""
+    )
+    assert all(row["same"] for row in observed)
+    assert len(observed) == 9
+
+
+@pytest.mark.parametrize("missing_helper", [False, True])
+def test_main_loader_assigns_owned_gram_controller_before_restoration(
+    missing_helper: bool,
+) -> None:
+    data = packet()
+    data["missing_helper"] = missing_helper
+    assets = files("bijux_pollenomics.reporting.map_document").joinpath("assets")
+    native = NATIVE_LRA_CONTROLLER[
+        NATIVE_LRA_CONTROLLER.index(
+            "function nativeCalendarNumber"
+        ) : NATIVE_LRA_CONTROLLER.index("function nativeCalendarSame")
+    ]
+    observed = run_node_json(
+        "const data="
+        + json.dumps(data)
+        + ";const STATIC_ATLAS_BOOTSTRAP=data.manifest;"
+        + template_block(
+            "function staticAtlasFailure", "function normalizeStaticAtlasBootstrap"
+        )
+        + template_block(
+            "async function staticAtlasSha256",
+            "async function staticAtlasBoundedGunzip",
+        )
+        + template_block(
+            "async function staticAtlasBoundedGunzip",
+            "function indexTransportDescriptor",
+        )
+        + native
+        + assets.joinpath("index-transport.js").read_text()
+        + template_block("function loadIndexTransport", "function staticAtlasIndexRows")
+        + r"""
+let staticAtlasIndexTransport=null,staticAtlasIndexTransportRequest=null,calls=0,created=false,remembers=0;
+function atlasRememberRestoredSearch(){remembers++}
+const factory=BijuxPollenomicsIndexTransport;
+globalThis.BijuxPollenomicsIndexTransport={create(dependencies){
+ const controller=factory.create(dependencies);
+ if(data.missing_helper){const {searchGrams,...incomplete}=controller;return Object.freeze(incomplete)}
+ return Object.freeze({...controller,searchGrams(text){
+  if(!created||!staticAtlasIndexTransport)throw Error('Gram callback preceded controller assignment');
+  calls++;return controller.searchGrams(text);
+ }});
+}};
+function indexTransportDescriptor(){return {path:'fixture.js',integrity:'fixed'}}
+const window={location:{protocol:'https:'}},scripts=[];
+const document={createElement(){const listeners={};return {listeners,addEventListener(name,fn){listeners[name]=fn}}},
+ head:{appendChild(script){scripts.push(script);queueMicrotask(()=>{created=true;script.listeners.load()})}}};
+(async()=>{try{
+ const controller=await loadIndexTransport();
+ const row={asset_key:'indexes:6',domain:'indexes',record_count:13};
+ const decoded=await controller.consume(row,data.bundle,[row]);
+ require('node:assert/strict').deepEqual(JSON.parse(JSON.stringify(decoded.text_search_index)),data.expected.text_search_index);
+ console.log(JSON.stringify({calls,remembers,reused:await loadIndexTransport()===controller,scripts:scripts.length,
+ integrity:scripts[0].integrity,crossOrigin:scripts[0].crossOrigin}));
+}catch(error){console.log(JSON.stringify({refusal:error.message,calls}))}})();
+"""
+    )
+    if missing_helper:
+        assert "Index transport interface is incomplete" in observed["refusal"]
+        assert observed["calls"] == 0
+    else:
+        assert observed == {
+            "calls": 13,
+            "remembers": 1,
+            "reused": True,
+            "scripts": 1,
+            "integrity": "fixed",
+            "crossOrigin": "anonymous",
+        }

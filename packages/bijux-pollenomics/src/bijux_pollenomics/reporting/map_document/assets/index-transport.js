@@ -9,6 +9,50 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
     const staticAtlasSha256 = dependencies.sha256;
     const yieldTask = dependencies.yieldTask;
     if (yieldTask !== undefined && typeof yieldTask !== 'function') staticAtlasFailure('index scheduler must be callable');
+    // Keep bounded gram storage private and allocate it only for search restoration.
+    let ATLAS_SEARCH_CODE_UNITS, gramUnits, twoUnitGrams, threeUnitGrams;
+    const gramCacheLimit = 16384;
+    function searchGrams(text, sizes = [1, 2, 3]) {
+      if (!ATLAS_SEARCH_CODE_UNITS) {
+        ATLAS_SEARCH_CODE_UNITS = Object.freeze(Array.from({length:65536}, (_, unit) => unit.toString(16).padStart(4, '0')));
+        gramUnits = new Uint16Array(4096);
+        twoUnitGrams = new Map();
+        threeUnitGrams = new Map();
+      }
+      if (typeof text === 'string' && text.length <= gramUnits.length && (arguments.length < 2 || arguments[1] === undefined)) {
+        const result = new Set(), count = text.length;
+        for (let i = 0; i < count; i++) {
+          const unit = text.charCodeAt(i);
+          gramUnits[i] = unit;
+          result.add(ATLAS_SEARCH_CODE_UNITS[unit]);
+        }
+        for (let i = 0; i + 1 < count; i++) {
+          const a = gramUnits[i], b = gramUnits[i + 1], key = a * 65536 + b;
+          let gram = twoUnitGrams.get(key);
+          if (gram === undefined) {
+            gram = ATLAS_SEARCH_CODE_UNITS[a] + ATLAS_SEARCH_CODE_UNITS[b];
+            if (twoUnitGrams.size < gramCacheLimit) twoUnitGrams.set(key, gram);
+          }
+          result.add(gram);
+        }
+        for (let i = 0; i + 2 < count; i++) {
+          const a = gramUnits[i], b = gramUnits[i + 1], c = gramUnits[i + 2];
+          const key = a * 4294967296 + b * 65536 + c;
+          let gram = threeUnitGrams.get(key);
+          if (gram === undefined) {
+            gram = ATLAS_SEARCH_CODE_UNITS[a] + ATLAS_SEARCH_CODE_UNITS[b] + ATLAS_SEARCH_CODE_UNITS[c];
+            if (threeUnitGrams.size < gramCacheLimit) threeUnitGrams.set(key, gram);
+          }
+          result.add(gram);
+        }
+        return result;
+      }
+      let encoded = '';
+      for (let i = 0; i < text.length; i++) encoded += ATLAS_SEARCH_CODE_UNITS[text.charCodeAt(i)];
+      const result = new Set();
+      for (const size of sizes) for (let i = 0; i + size * 4 <= encoded.length; i += 4) result.add(encoded.slice(i, i + size * 4));
+      return result;
+    }
     const SEARCH_DOCUMENTS_SCHEMA = 'atlas-search-documents.v1';
     const SEARCH_COUNT_FIELDS = ['document_count', 'posting_key_count', 'posting_reference_count', 'utf16_unit_count'];
     function searchTransportCounts(payload) {
@@ -362,6 +406,6 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
       const decoded = LOGICAL_SCHEMAS.includes(payload.schema_version) ? await staticAtlasMergeIndexShards(row, payload) : payload;
       return validateReferences(decoded, rows, false);
     }
-    return Object.freeze({validatePayload, mergeShards: staticAtlasMergeIndexShards, acceptPart, consume});
+    return Object.freeze({searchGrams, validatePayload, mergeShards: staticAtlasMergeIndexShards, acceptPart, consume});
   }
 });
