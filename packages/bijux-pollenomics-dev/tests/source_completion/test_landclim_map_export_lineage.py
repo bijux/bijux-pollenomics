@@ -64,7 +64,7 @@ def published(tmp_path: Path) -> tuple[Path, dict[str, Any], list[dict[str, Any]
 def runtime() -> bytes:
     page = (ROOT / owner.MAP).read_text()
     source, paths = owner._published_script(ROOT, page)
-    assert len(paths) == 1
+    assert len(paths) == 3
     return source.encode()
 
 
@@ -77,7 +77,7 @@ def page_for(repository: Path, manifest: dict[str, Any], body: bytes) -> str:
         **manifest,
         "runtime": {"path": name, "byte_count": len(body), "integrity": integrity},
     }
-    return (
+    page = (
         '<script id="atlas-static-bootstrap" type="application/json">'
         + json.dumps(bootstrap)
         + '</script><script id="atlas-modeled-context-binding" type="application/json">'
@@ -85,8 +85,11 @@ def page_for(repository: Path, manifest: dict[str, Any], body: bytes) -> str:
             owner._map_manifest((ROOT / owner.MAP).read_text(), script=body.decode())
         )
         + "</script>"
+        + '<script id="atlas-native-lra-binding" type="application/json">null</script>'
         + _RUNTIME_LOADER
     )
+    (repository / owner.MAP).write_text(page)
+    return page
 
 
 def test_actual_external_runtime_retains_manifest_and_export_contract(

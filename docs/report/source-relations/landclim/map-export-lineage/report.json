@@ -71,6 +71,16 @@
       "sha256": "bb19aa980206b96d81c585aee145e14a95193b182c7d983d12e4f21226c8ae48"
     },
     {
+      "path": "docs/report/regions/nordic/nordic_map.atlas-evidence-tools.19778c51517063e7.js",
+      "bytes": 57276,
+      "sha256": "19778c51517063e705ecec0e8497c4268b42ec77f5a5b16222bd2eaa5c643035"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic_map.atlas-index-transport.8a5a782e368aa817.js",
+      "bytes": 28123,
+      "sha256": "8a5a782e368aa81757a4c8eb71153959b006f9904b90603cf2a92e8124f6c378"
+    },
+    {
       "path": "docs/report/source-relations/rootsi-landclim-overlap/report.json",
       "bytes": 4264,
       "sha256": "c948f235313ddf7b99a3a941cf8167caabe18cbb22580671ae696a7d0aaee264"

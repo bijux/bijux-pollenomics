@@ -44,7 +44,7 @@ Author/source lineage, transformations and distinct modeled products; chronology
 
 **Matched denominator.** 2,515 full source features; LandClim II 1,875 cell-windows=75 centers×25 windows; 47 metrics yield 73,696 numeric/14,429 null pairs across 100 country-window slices.
 
-- [Retained qualification evidence: docs/report/source-relations/landclim/map-export-lineage/report.json](report.json) (SHA-256 `b23dc072953d34c561d844fa6ed4b77c380843b1b4c94b613ad4d68608479b6c`).
+- [Retained qualification evidence: docs/report/source-relations/landclim/map-export-lineage/report.json](report.json) (SHA-256 `7eae9961aea111ad87c66c42a3a778247f53d3d66e372106b6bde663759744b7`).
 
 - [Retained qualification evidence: docs/report/source-relations/landclim/map-export-lineage/rows.csv](rows.csv) (SHA-256 `fefa4a3a3462e1d9cdf36109ebb3b53e01fc44843206b2ae3ccc07ea8acfa5e5`).
 

@@ -3,20 +3,17 @@
 from __future__ import annotations
 
 import argparse
-import base64
 from collections import Counter, defaultdict
 import csv
 import hashlib
 import io
 import json
 from pathlib import Path
-import re
 from typing import Any, cast
 from zipfile import ZipFile
 
 from bijux_pollenomics.reporting.context.polygons import build_external_polygon_layer
 from bijux_pollenomics.reporting.map_document.render import (
-    _RUNTIME_LOADER,
     _FixedJsonBindings,
 )
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
@@ -30,6 +27,9 @@ from bijux_pollenomics.reporting.modeled_context.publication_projection import (
     project_modeled_context_layers,
 )
 from bijux_pollenomics_dev.ci.atlas_browser.candidate_files import regular_bytes
+from bijux_pollenomics_dev.ci.atlas_browser.published_runtime import (
+    read_published_runtime,
+)
 
 SOURCE = Path("data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson")
 MAP = Path("docs/report/regions/nordic/nordic_map.html")
@@ -124,48 +124,12 @@ def _published_path(repository: Path, name: str) -> Path:
 
 
 def _published_script(repository: Path, page: str) -> tuple[str, list[Path]]:
-    """Read the actual bound runtime while retaining the legacy inline contract."""
-    matches = re.findall(
-        r'<script id="atlas-static-bootstrap" type="application/json">(.*?)</script>',
-        page,
-        re.S,
-    )
-    if not matches:
-        return page, []
-    _require(len(matches) == 1, "Published bootstrap is not unique")
-    bootstrap = json.loads(matches[0])
+    """Use the shared authenticated executable graph and preserve inline inputs."""
     manifest = json.loads(regular_bytes(repository / ASSETS))
-    _require(
-        {key: value for key, value in bootstrap.items() if key != "runtime"}
-        == manifest,
-        "Published bootstrap and asset manifest differ",
+    runtime = read_published_runtime(
+        repository / MAP, repository / ASSETS, page, manifest
     )
-    if "runtime" not in bootstrap:
-        return page, []
-    runtime = bootstrap["runtime"]
-    _require(isinstance(runtime, dict), "Published runtime binding is invalid")
-    name = runtime.get("path")
-    _require(isinstance(name, str), "Published runtime path is invalid")
-    name = cast(str, name)
-    filename = re.fullmatch(r"nordic_map\.atlas-runtime\.([0-9a-f]{16})\.js", name)
-    _require(filename is not None, "Published runtime digest filename differs")
-    path = _published_path(repository, name)
-    body = regular_bytes(path)
-    digest = _digest(body)
-    integrity = "sha256-" + base64.b64encode(hashlib.sha256(body).digest()).decode()
-    _require(
-        type(runtime.get("byte_count")) is int
-        and runtime["byte_count"] == len(body)
-        and filename is not None
-        and filename.group(1) == digest[:16]
-        and runtime.get("integrity") == integrity,
-        "Published runtime bytes or SRI differ",
-    )
-    _require(
-        page.count(_RUNTIME_LOADER) == 1,
-        "Published runtime loader differs from its maintained owner",
-    )
-    return body.decode("utf-8"), [path]
+    return runtime.script, list(runtime.paths)
 
 
 def _published_features(

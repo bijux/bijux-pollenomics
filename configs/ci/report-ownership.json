@@ -50714,6 +50714,7 @@
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/candidate_files.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/published_runtime.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_map_export_lineage.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/geojson.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/__init__.py",
@@ -50744,6 +50745,8 @@
         "docs/report/regions/nordic/nordic.atlas-nodes.0203.1f1cbf4c8d4cfec2.js",
         "docs/report/regions/nordic/nordic.atlas-nodes.0204.473b09c1baec3e28.js",
         "docs/report/regions/nordic/nordic.atlas-nodes.0205.e3e6f7d66f2a5ef1.js",
+        "docs/report/regions/nordic/nordic_map.atlas-evidence-tools.19778c51517063e7.js",
+        "docs/report/regions/nordic/nordic_map.atlas-index-transport.8a5a782e368aa817.js",
         "docs/report/regions/nordic/nordic_map.atlas-runtime.bb19aa980206b96d.js",
         "docs/report/regions/nordic/nordic_map.html",
         "docs/report/regions/nordic/nordic_map_assets.json",
