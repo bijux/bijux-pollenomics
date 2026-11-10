@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Clarify that chronology overlap counts concern admitted sample supports, leave missing or refused members untested, and do not establish spatial association.
+
 - Refuse contradictory temporal bounds and out-of-support fallback points during map intake, and discard unsupported means while retaining valid intervals and source records ([#403](https://github.com/bijux/bijux-pollenomics/pull/403)).
 
 - Keep publication-reader startup independent of scientific host imports while preserving full runtime authentication when requested ([#402](https://github.com/bijux/bijux-pollenomics/pull/402)).
