@@ -251,11 +251,19 @@ def _score_row(
             if x.role == "observed_source"
         }
     )
-    observed_training = set(fold.train_record_ids) | {
+    training_records = set(fold.train_record_ids)
+    observed_training = training_records.intersection(closure)
+    for channels in scope.observation_channels:
+        if channels.record_id in training_records and (
+            set(channels.vegetation_input_ids)
+            | {item.input_id for item in channels.pollen_channels}
+        ).intersection(closure):
+            observed_training.add(channels.record_id)
+    observed_training.update(
         x.input_id
         for x in scope.external_inputs
         if x.role == "observed_source" and x.input_id in closure
-    }
+    )
     for key in observed_training:
         support = supports[key]
         if support is None:
