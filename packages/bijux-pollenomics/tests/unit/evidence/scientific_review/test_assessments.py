@@ -2,6 +2,11 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
+
+import pytest
+
+from bijux_pollenomics.adna.domain.models.localities import AdnaSampleChronologySupport
 from bijux_pollenomics.evidence.scientific_review import (
     _build_chronology_overlaps,
     _build_scenarios,
@@ -104,3 +109,83 @@ def test_scenarios_never_promote_exploration_to_causal_inference() -> None:
     assert "field_sampling_gate_not_cleared" in (
         by_key["lake_selection_for_domestication_signal"].blockers
     )
+
+
+@pytest.mark.parametrize("species", ["Homo sapiens", "Ovis aries"])
+@pytest.mark.parametrize(
+    ("support_names", "context_bounds", "expected"),
+    [
+        (("known", "other"), (500, 510), (0, 1, 0)),
+        (("known", "unknown"), (500, 510), (0, 1, 0)),
+        (("known", "other"), (150, 160), (0, 1, 0)),
+        (("known", "other"), (110, 110), (1, 0, 0)),
+        (("known", "unknown"), (105, 105), (1, 0, 0)),
+        (("unknown-a", "unknown"), (500, 510), (0, 0, 1)),
+    ],
+    ids=[
+        "complete-negative",
+        "partial-unknown-negative",
+        "gap-not-hull",
+        "closed-endpoint",
+        "partial-known-positive",
+        "all-unknown",
+    ],
+)
+def test_overlap_counts_explain_tested_support_and_untested_members(
+    species: str,
+    support_names: tuple[str, str],
+    context_bounds: tuple[int, int],
+    expected: tuple[int, int, int],
+) -> None:
+    base = locality(species=species, younger_bp=100, older_bp=210, mean_bp=None)
+    known = AdnaSampleChronologySupport(
+        "sample-a",
+        replace(base.chronology, time_start_bp=100, time_end_bp=110),
+    )
+    other = AdnaSampleChronologySupport(
+        "sample-b",
+        replace(base.chronology, time_start_bp=200, time_end_bp=210),
+    )
+    unknown = AdnaSampleChronologySupport(
+        "sample-b",
+        replace(
+            base.chronology,
+            time_start_bp=None,
+            time_end_bp=None,
+            refusal_reason_code="source_chronology_missing",
+        ),
+    )
+    supports = {
+        "known": known,
+        "other": other,
+        "unknown": unknown,
+        "unknown-a": replace(unknown, sample_id="sample-a"),
+    }
+    selected = replace(
+        base,
+        sample_count=2,
+        sample_ids=("sample-a", "sample-b"),
+        sample_chronologies=tuple(supports[name] for name in support_names),
+    )
+    original = selected.as_dict()
+    rows = _build_chronology_overlaps(
+        direct_localities=(selected,) if species == "Homo sapiens" else (),
+        animal_localities=(selected,) if species != "Homo sapiens" else (),
+        context_points=(
+            context_point(younger_bp=context_bounds[0], older_bp=context_bounds[1]),
+        ),
+        species_rows=(species_row(species=species),)
+        if species != "Homo sapiens"
+        else (),
+    )
+    row = next(value for value in rows if value.species_latin_name == species)
+    assert (
+        row.overlapping_direct_localities,
+        row.non_overlapping_direct_localities,
+        row.noncomparable_records,
+    ) == expected
+    assert sum(expected) == 1
+    assert selected.as_dict() == original
+    assert "admitted sample supports only" in row.rationale
+    assert "missing or refused members remain untested" in row.rationale
+    assert "not spatial association" in row.rationale
