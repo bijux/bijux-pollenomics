@@ -2215,8 +2215,20 @@ def test_status_actions_do_not_manufacture_desktop_focus_restoration() -> None:
     assert "close.dispatchEvent(new KeyboardEvent" not in probe
 
 
+@pytest.mark.parametrize(
+    "extra_browser_args",
+    [
+        [],
+        [
+            "--disable-extensions",
+            "--disable-sync",
+            "--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1",
+        ],
+    ],
+)
 def test_chromium_uses_private_short_ipc_and_reaps_its_process_group(
     tmp_path: Path,
+    extra_browser_args: list[str],
 ) -> None:
     transport = Path(atlas_browser.__file__).with_name("browser-transport.mjs")
     fake = tmp_path / "chromium"
@@ -2239,8 +2251,13 @@ createServer().listen(join(process.env.TMPDIR,'SingletonSocket'),()=>{
 import {stat} from 'node:fs/promises';
 const {launchChromium,debuggerEndpoint,requireChromiumSocketPath}=await import(process.argv[1]);
 assert.throws(()=>requireChromiumSocketPath('/tmp/'+'é'.repeat(50)),/socket budget/);
-const inherited=process.env.TMPDIR;
-const runtime=await launchChromium(process.argv[2],process.argv[3]);
+const inherited=process.env.TMPDIR,extra=JSON.parse(process.argv[4]);
+const runtime=extra.length ? await launchChromium(process.argv[2],process.argv[3],Object.freeze(extra)) : await launchChromium(process.argv[2],process.argv[3]);
+assert.deepEqual(runtime.browser.spawnargs.slice(1),[
+ '--headless=new','--disable-gpu','--disable-background-networking','--disable-component-update',
+ '--disable-default-apps','--no-default-browser-check','--no-first-run','--remote-allow-origins=*',
+ '--remote-debugging-port=0',...extra,`--user-data-dir=${process.argv[3]}`,'about:blank',
+]);
 let log='';runtime.browser.stderr.on('data',chunk=>{log+=chunk;});
 try {
  assert.notEqual(runtime.directory,inherited);
@@ -2271,6 +2288,7 @@ assert.ok(gone,'Chromium descendant survived process-group cleanup');
             transport.as_uri(),
             str(fake),
             str(tmp_path),
+            json.dumps(extra_browser_args),
         ),
         check=True,
         capture_output=True,
@@ -2742,3 +2760,22 @@ console.log(JSON.stringify(calls));
     )
     assert completed.returncode == 0, completed.stderr
     assert json.loads(completed.stdout) == ["focus", "center", "focus", "center"]
+
+
+def test_landclim_capture_startup_failure_closes_owned_runtime(tmp_path: Path) -> None:
+    capture = Path(atlas_browser.__file__).parent / "landclim_export" / "capture.mjs"
+    fake = tmp_path / "failed-browser"
+    fake.write_text("#!/bin/sh\nexit 42\n")
+    fake.chmod(0o700)
+    output = tmp_path / "artifacts" / "capture"
+    result = subprocess.run(
+        ("node", str(capture), str(tmp_path), str(output), str(fake)),
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+    assert result.returncode != 0
+    assert "browser exited before debugger readiness: 42" in result.stderr
+    assert (output / "browser.log").exists()
+    assert not (output / "browser-profile").exists()

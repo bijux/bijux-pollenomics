@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Authenticate LandClim download metadata against current atlas runtimes, bind captures to actual browser and source identities, reap owned browser sessions, and declare narrow development import capabilities ([#406](https://github.com/bijux/bijux-pollenomics/pull/406)).
+
 - Show sampling visits and media in the atlas record reader, preserve keyboard navigation and ordinary source exports, and intern restoration grams in private bounded transport caches ([#405](https://github.com/bijux/bijux-pollenomics/pull/405)).
 
 - Clarify admitted-support limits, retain unresolved human period coverage, and refresh the Nordic overlap and period review from source-bound metadata while preserving unchanged country, uncertainty and scenario accounts ([#404](https://github.com/bijux/bijux-pollenomics/pull/404)).

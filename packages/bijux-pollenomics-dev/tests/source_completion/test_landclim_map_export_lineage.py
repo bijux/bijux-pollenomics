@@ -24,6 +24,9 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
     decode_chunk_script,
 )
 from bijux_pollenomics_dev.ci.atlas_browser.candidate_files import regular_bytes
+from bijux_pollenomics_dev.ci.atlas_browser.landclim_export import (
+    reconcile as browser_export,
+)
 from bijux_pollenomics_dev.source_completion import landclim_map_export_lineage as owner
 
 ROOT = Path(__file__).resolve().parents[4]
@@ -252,3 +255,134 @@ def test_resealed_swapped_source_indexes_are_refused(
     )
     with pytest.raises(ValueError, match="feature membership"):
         owner._published_features(repository, projected)
+
+
+def test_browser_export_reads_authenticated_current_and_legacy_metadata(
+    published: tuple[Path, dict[str, Any], list[dict[str, Any]]], runtime: bytes
+) -> None:
+    repository, manifest, _ = published
+    page = page_for(repository, manifest, runtime)
+    expected = owner._map_manifest(page, script=runtime.decode())
+    assert browser_export._modeled_manifest(repository, page) == expected
+    legacy = 'const MODELED_CONTEXT = {"legacy":true};'
+    (repository / owner.MAP).write_text(legacy)
+    assert browser_export._modeled_manifest(repository, legacy) == {"legacy": True}
+
+
+def test_browser_export_refuses_runtime_tamper_before_reading_metadata(
+    published: tuple[Path, dict[str, Any], list[dict[str, Any]]], runtime: bytes
+) -> None:
+    repository, manifest, _ = published
+    page = page_for(repository, manifest, runtime)
+    digest = hashlib.sha256(runtime).hexdigest()
+    (
+        repository / owner.CHUNKS / f"nordic_map.atlas-runtime.{digest[:16]}.js"
+    ).write_bytes(runtime + b" ")
+    with pytest.raises(ValueError, match="Published runtime graph differs"):
+        browser_export._modeled_manifest(repository, page)
+
+
+def test_browser_export_refuses_missing_actual_model_binding_declaration(
+    published: tuple[Path, dict[str, Any], list[dict[str, Any]]], runtime: bytes
+) -> None:
+    repository, manifest, _ = published
+    changed = runtime.replace(
+        b"const MODELED_CONTEXT = JSON.parse(document.getElementById('atlas-modeled-context-binding').textContent);",
+        b"const MODELED_CONTEXT = {};",
+    )
+    assert changed != runtime
+    page = page_for(repository, manifest, runtime)
+    original_digest = hashlib.sha256(runtime).hexdigest()
+    changed_digest = hashlib.sha256(changed).hexdigest()
+    original_name = f"nordic_map.atlas-runtime.{original_digest[:16]}.js"
+    changed_name = f"nordic_map.atlas-runtime.{changed_digest[:16]}.js"
+    (repository / owner.CHUNKS / changed_name).write_bytes(changed)
+    original_sri = (
+        "sha256-" + base64.b64encode(hashlib.sha256(runtime).digest()).decode()
+    )
+    changed_sri = (
+        "sha256-" + base64.b64encode(hashlib.sha256(changed).digest()).decode()
+    )
+    page = page.replace(original_name, changed_name).replace(original_sri, changed_sri)
+    page = page.replace(
+        f'"byte_count": {len(runtime)}', f'"byte_count": {len(changed)}'
+    )
+    (repository / owner.MAP).write_text(page)
+    with pytest.raises(ValueError, match="modeled-context binding unavailable"):
+        browser_export._modeled_manifest(repository, page)
+
+
+def test_capture_identity_binds_actual_runtime_graph_and_preserves_browser_fields() -> (
+    None
+):
+    import subprocess
+
+    capture = (
+        ROOT
+        / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/capture.mjs"
+    ).read_text()
+    functions = capture.split("function captureBrowserIdentity", 1)[1].split(
+        "let cdp, runtime, captureError;", 1
+    )[0]
+    script = (
+        "import {readFile} from 'node:fs/promises';\n"
+        "import {execFileSync} from 'node:child_process';\n"
+        "import {createHash} from 'node:crypto';\n"
+        "import {basename,dirname,join} from 'node:path';\n"
+        "function captureBrowserIdentity"
+        + functions
+        + "\nconst repository="
+        + json.dumps(str(ROOT))
+        + r""";
+const page=await readFile(join(repository,'docs/report/regions/nordic/nordic_map.html'),'utf8');
+const bootstrap=JSON.parse(page.match(/<script id="atlas-static-bootstrap" type="application\/json">([\s\S]*?)<\/script>/)[1]);
+const version={product:'SyntheticChrome/1',revision:'test-revision',userAgent:'test-agent',jsVersion:'test-js',protocolVersion:'1.3'};
+const refused=[];
+for(const key of Object.keys(version)){
+ try{captureBrowserIdentity({...version,[key]:''});}catch{refused.push(key);}
+}
+console.log(JSON.stringify({browser_runtime:captureBrowserIdentity(version),
+ candidate:await captureSourceIdentity(repository,bootstrap.runtime),refused}));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+    assert completed.returncode == 0, completed.stderr
+    observation = json.loads(completed.stdout)
+    assert observation.pop("refused") == [
+        "product",
+        "revision",
+        "userAgent",
+        "jsVersion",
+        "protocolVersion",
+    ]
+    browser = ROOT / "artifacts/synthetic-browser"
+    observation["browser_binary"] = str(browser)
+    assert (
+        browser_export._capture_identity(ROOT, observation, browser)
+        == observation["candidate"]
+    )
+    for key in ("head", "tree", "files"):
+        changed = deepcopy(observation)
+        changed["candidate"][key] = [] if key == "files" else "0" * 40
+        with pytest.raises(ValueError, match="candidate identity differs"):
+            browser_export._capture_identity(ROOT, changed, browser)
+    for key in ("bytes", "sha256"):
+        changed = deepcopy(observation)
+        changed["candidate"]["files"][0][key] = 0 if key == "bytes" else "0" * 64
+        with pytest.raises(ValueError, match="candidate identity differs"):
+            browser_export._capture_identity(ROOT, changed, browser)
+    for key in observation["browser_runtime"]:
+        changed = deepcopy(observation)
+        changed["browser_runtime"][key] = ""
+        with pytest.raises(ValueError, match="browser identity unavailable"):
+            browser_export._capture_identity(ROOT, changed, browser)
+    with pytest.raises(ValueError, match="browser binary differs"):
+        browser_export._capture_identity(
+            ROOT, observation, ROOT / "artifacts/other-browser"
+        )

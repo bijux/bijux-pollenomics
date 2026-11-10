@@ -1,6 +1,6 @@
 # LandClim modeled frame browser export
 
-The [machine result](report.json) records an executed Brave 154 download from the published [Nordic map](../../../regions/nordic/nordic_map.html). The browser selected the **0–100 BP** source window and the Denmark and Sweden country controls, then clicked **Download visible frame**. Chrome DevTools Protocol reported a completed download of `pangaea-937075-ol-0-100-bp.geojson` (237,793 bytes; SHA-256 `90d7ca58dfa0a6dc3f17a6a3d3ca12393929cb87aaf1b8314b74b3449d9327e6`). The retained process output and downloaded file are under `artifacts/jobs/landclim-browser-export-ready/`.
+The [machine result](report.json) records a completed Chrome 157 download from the published [Nordic map](../../../regions/nordic/nordic_map.html) at [committed source abc002ad3](https://github.com/bijux/bijux-pollenomics/tree/abc002ad3c2f3d67d189723de475d6fb3629fa19). The browser selected the **0–100 BP** source window and the Denmark and Sweden country controls, then clicked **Download visible frame**. Chrome DevTools Protocol reported a completed download of `pangaea-937075-ol-0-100-bp.geojson` (237,793 bytes; SHA-256 `90d7ca58dfa0a6dc3f17a6a3d3ca12393929cb87aaf1b8314b74b3449d9327e6`), byte-identical to the historical export. The current observation and downloaded file are under `artifacts/verification/landclim-download-runtime/qualification/capture/`. The historical `555ef191` reference remains a baseline; this run does not recover the original Brave 154 raw/CDP custody.
 
 The 32 downloaded cell/window features have the exact record IDs, parsed properties, and polygon coordinates of the [pinned normalized-to-map projection](../map-export-lineage/README.md). Denmark contributes 6 cells and Sweden 26. All 47 estimate keys and the matching 47 standard-error keys were compared for every feature. There are 1,363 numeric pairs and 141 null pairs; the three `no_pollen_data` cells account for all null pairs. Among numeric pairs, 408 estimates and 408 standard errors are genuinely zero. The normalized projection for each country matches the pinned country/window ledger digest. The browser's JSON serializer writes integral coordinates such as `8.0` as `8`, so the raw downloaded JSON is not byte-identical to the Python ledger serialization despite exact parsed numeric equality.
 
@@ -13,11 +13,11 @@ Replay from the repository root using an absent artifact destination:
 ```sh
 node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/capture.mjs \
   . artifacts/jobs/landclim-browser-export-replay \
-  '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'
+  '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
   .venv/bin/python packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/reconcile.py \
   --repository . --artifact artifacts/jobs/landclim-browser-export-replay \
-  --browser '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' \
+  --browser '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' \
   --output artifacts/jobs/landclim-browser-export-replay/reconciled-report.json
 ```
 
@@ -29,25 +29,25 @@ The reconciliation refuses changes in the pinned source/map identities, record I
 
 Author/source lineage, transformations and distinct modeled products; chronology and historical run admission remain separate.
 
-**Supported claim.** The retained historical browser download agrees semantically with its pinned 32-feature modeled LandClim projection.
+**Supported claim.** The sampled Chrome 157 download at source abc002ad3 matches its pinned 32-feature modeled LandClim projection and the historical export bytes exactly.
 
-**Unsupported claim.** It does not qualify the current renderer/browser after map-source changes, and modeled REVEALS percentages are not observed vegetation.
+**Unsupported claim.** This selected-frame check does not qualify other browser/export scenarios or untested source/runtime changes; modeled REVEALS percentages are not observed vegetation.
 
-**Actual verification performed.** Read the historical Brave download receipt and source-window/metric reconciliation alongside the current transport lineage; no fresh browser run.
+**Actual verification performed.** Ran the maintained capture and full source/ledger reconciliation at source abc002ad3 with Chrome 157; recorded actual CDP and source identities and matched the historical export bytes exactly.
 
-**Remaining input or review.** A current browser receipt is needed for the changed renderer; contributor lineage, geometry authority and scientific use remain separate.
+**Remaining input or review.** Original Brave 154 raw/CDP custody remains unrecovered; contributor lineage, geometry authority, source rights and scientific admission remain separate.
 
 **Cause category.** Historical browser custody and derived modeled context.
 
-**Consequence.** Its completed download event is retained evidence only for the pinned historical build.
+**Consequence.** The completed event qualifies this current modeled-frame export; it does not restore original Brave custody or admit modeled context as observed vegetation.
 
-**Precise next acceptance route.** Run the owned current browser consumer on the current candidate and retain exact download/selector evidence without transferring source admission.
+**Precise next acceptance route.** Resolve original historical browser custody separately; invalidate and requalify this frame only when its relevant source or runtime identities change.
 
 **Negative or refused result.** 3 no_pollen_data features retain 141 null metric pairs; historical browser evidence is refused as current qualification.
 
 **Matched denominator.** 32 features: 6 DK/26 SE, 47 paired metrics, 1,363 numeric pairs/141 null pairs and 408 numerical zeros in each metric family.
 
-- [Retained qualification evidence: docs/report/source-relations/landclim/browser-export/report.json](report.json) (SHA-256 `e7c9788fbac97ecc2564a9e0bc431f965510260a054f9ac15480cbf373c72d9c`).
+- [Retained qualification evidence: docs/report/source-relations/landclim/browser-export/report.json](report.json) (SHA-256 `dabc41ef2daace7a363baac651f9c56b0940160bccd42e3749951301e1fc8a0c`).
 
 - [Retained qualification evidence: docs/report/source-relations/landclim/map-export-lineage/report.json](../map-export-lineage/report.json) (SHA-256 `ed1b569142f8a137217c226e0abb90930a1870a8571a785ba580a11de35783d8`).
 

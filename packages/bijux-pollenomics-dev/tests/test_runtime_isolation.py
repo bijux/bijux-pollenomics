@@ -177,6 +177,9 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         "bijux_pollenomics.analysis.lra.api": frozenset({"read_lra_product"}),
     },
     "bijux_pollenomics_dev/ci/atlas_browser/landclim_export/reconcile.py": {
+        "bijux_pollenomics.reporting.map_document.render": frozenset(
+            {"_FixedJsonBindings"}
+        ),
         "bijux_pollenomics.reporting.context.polygons": frozenset(
             {"build_external_polygon_layer"}
         ),
@@ -894,8 +897,8 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         "bijux_pollenomics.reporting.map_document.static_assets.asset_inventory": frozenset(
             {"normalize_asset_inventory"}
         ),
-        "bijux_pollenomics.reporting.map_document.static_assets.index_bundles": frozenset(
-            {"decode_index_bundle"}
+        "bijux_pollenomics.reporting.map_document.static_assets.index_transport": frozenset(
+            {"decode_index_payloads"}
         ),
         "bijux_pollenomics.reporting.map_document.static_assets.serialization": frozenset(
             {"decode_chunk_script"}
@@ -924,8 +927,8 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         "bijux_pollenomics.reporting.map_document.static_assets.asset_inventory": frozenset(
             {"normalize_asset_inventory"}
         ),
-        "bijux_pollenomics.reporting.map_document.static_assets.index_bundles": frozenset(
-            {"decode_index_bundle"}
+        "bijux_pollenomics.reporting.map_document.static_assets.index_transport": frozenset(
+            {"decode_index_payloads"}
         ),
         "bijux_pollenomics.reporting.map_document.static_assets.serialization": frozenset(
             {"decode_chunk_script"}
@@ -1271,6 +1274,165 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
         "bijux_pollenomics.analysis.lra_validation.splits": frozenset(
             {"grouped_leave_one_out"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/blocks/screen.py": {
+        "bijux_pollenomics.analysis.lra_validation.experiments.fitted.admission": frozenset(
+            {"Footprint"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.support": frozenset(
+            {"support_separation"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/evaluation.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/inputs.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"SiteRecord"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.splits": frozenset(
+            {"grouped_leave_one_out"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/prediction.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"ValidationRefusal"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.hellinger": frozenset(
+            {"gaussian_distance_weights", "hellinger_barycentre"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/thinning/cohort.py": {
+        "bijux_pollenomics.core.geospatial.distance": frozenset(
+            {"wgs84_inverse_geodesic"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/thinning/inputs.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"SiteRecord"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.splits": frozenset(
+            {"grouped_leave_one_out"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/thinning/prediction.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"closed_composition"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.hellinger": frozenset(
+            {"gaussian_distance_weights", "hellinger_barycentre"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"ValidationRefusal", "finite_number", "manifest_sha256"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/thinning/scoring.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/krageholm_regional.py": {
+        "bijux_pollenomics.analysis.lra_validation.splits": frozenset(
+            {"grouped_leave_one_out"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/geographic_transfer/geometry.py": {
+        "bijux_pollenomics.analysis.lra_validation.spatial.support": frozenset(
+            {"support_separation"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.experiments.fitted.admission": frozenset(
+            {"Footprint"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/geographic_transfer/predictions.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"ValidationRefusal"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.hellinger": frozenset(
+            {"gaussian_distance_weights", "hellinger_barycentre"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/geographic_transfer/scoring.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/physical_forward/country_transfer/evaluation.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/adna/aadr_country_support.py": {
+        "bijux_pollenomics.collection.spatial.country_classification": frozenset(
+            {"decide_country_attribution"}
+        ),
+        "bijux_pollenomics.core.geospatial.geojson": frozenset(
+            {"CountryBoundaryCollection"}
+        ),
+        "bijux_pollenomics.adna.species.homo_sapiens.materialization.models": frozenset(
+            {"AadrCoordinateEvidence"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/adna/mccoll_sample_context/workbook.py": {
+        "bijux_pollenomics.collection.intake.workbooks": frozenset(
+            {"cell_value", "load_shared_strings", "load_sheet_targets"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/adna/mccoll_sample_context/workflow.py": {
+        "bijux_pollenomics.collection.intake.workbooks": frozenset({"cell_value"}),
+    },
+    "bijux_pollenomics_dev/source_completion/archaeology/national_geometry.py": {
+        "bijux_pollenomics.collection.sources.raa.geometry.rows": frozenset(
+            {"iter_geometry_documents"}
+        ),
+        "bijux_pollenomics.collection.sources.raa.materialization.contracts": frozenset(
+            {"GEOMETRY_TYPES"}
+        ),
+        "bijux_pollenomics.collection.sources.raa.materialization.reading": frozenset(
+            {"quote_identifier", "read_only_database"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/archaeology/national_population.py": {
+        "bijux_pollenomics.collection.sources.raa.materialization.context": frozenset(
+            {"open_raa_source_context"}
+        ),
+        "bijux_pollenomics.collection.sources.raa.materialization.contracts": frozenset(
+            {"SOURCE_COLUMNS"}
+        ),
+        "bijux_pollenomics.collection.sources.raa.materialization.ownership": frozenset(
+            {"canonical_bytes", "iter_audit_documents"}
+        ),
+        "bijux_pollenomics.collection.sources.raa.materialization.reading": frozenset(
+            {"quote_identifier"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/neotoma/capture_comparison.py": {
+        "bijux_pollenomics.collection.sources.neotoma.relational": frozenset(
+            {"build_neotoma_relational_snapshot"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.roundtrip": frozenset(
+            {"SURFACES", "native_hierarchy", "reconcile_hierarchy"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/spatial_field_forward/producer.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance"}
+        ),
+        "bijux_pollenomics.collection.intake.workbooks": frozenset(
+            {"read_xlsx_sheet_rows"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/spatial_field_forward/scoring.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/spatial_field_forward/sources.py": {
+        "bijux_pollenomics.collection.intake.workbooks": frozenset(
+            {"read_xlsx_sheet_rows"}
         ),
     },
 }
@@ -1742,3 +1904,72 @@ def test_exhult_cached_cell_bindings_remain_file_module_and_symbol_specific() ->
             (f"importlib.import_module({module!r})", path),
         ):
             assert host_import_violations(text, reader)
+
+
+def test_reviewed_reproduction_and_source_clients_keep_narrow_host_access() -> None:
+    """Reviewed helpers grant no neighboring reader or additional capability."""
+    paths = (
+        "bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py",
+        "bijux_pollenomics_dev/ci/atlas_browser/source_detail_candidate.py",
+        "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/blocks/screen.py",
+        "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/evaluation.py",
+        "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/inputs.py",
+        "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/prediction.py",
+        "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/thinning/cohort.py",
+        "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/thinning/inputs.py",
+        "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/thinning/prediction.py",
+        "bijux_pollenomics_dev/essd_reproduction/author_lra_spatial/thinning/scoring.py",
+        "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/cohorts/krageholm_regional.py",
+        "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/geographic_transfer/geometry.py",
+        "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/geographic_transfer/predictions.py",
+        "bijux_pollenomics_dev/essd_reproduction/nordic_coupled/geographic_transfer/scoring.py",
+        "bijux_pollenomics_dev/essd_reproduction/physical_forward/country_transfer/evaluation.py",
+        "bijux_pollenomics_dev/source_completion/adna/aadr_country_support.py",
+        "bijux_pollenomics_dev/source_completion/adna/mccoll_sample_context/workbook.py",
+        "bijux_pollenomics_dev/source_completion/adna/mccoll_sample_context/workflow.py",
+        "bijux_pollenomics_dev/source_completion/archaeology/national_geometry.py",
+        "bijux_pollenomics_dev/source_completion/archaeology/national_population.py",
+        "bijux_pollenomics_dev/source_completion/neotoma/capture_comparison.py",
+        "bijux_pollenomics_dev/source_completion/pollen_reconstruction/spatial_field_forward/producer.py",
+        "bijux_pollenomics_dev/source_completion/pollen_reconstruction/spatial_field_forward/scoring.py",
+        "bijux_pollenomics_dev/source_completion/pollen_reconstruction/spatial_field_forward/sources.py",
+    )
+    for reader in paths:
+        for module, symbols in APPROVED_HOST_IMPORTS[reader].items():
+            for symbol in symbols:
+                statement = f"from {module} import {symbol}"
+                assert not host_import_violations(statement, reader)
+                for source, other in (
+                    (statement, str(Path(reader).with_name("other.py"))),
+                    (f"from {module}.other import {symbol}", reader),
+                    (f"from {module} import {symbol}_other", reader),
+                    (f"from {module} import {symbol}, unreviewed", reader),
+                    (f"from {module} import *", reader),
+                    (f"import {module}", reader),
+                    (f"__import__({module!r})", reader),
+                    (f"importlib.import_module({module!r})", reader),
+                    (
+                        "from bijux_pollenomics.reporting.service import generate_country_report",
+                        reader,
+                    ),
+                ):
+                    assert host_import_violations(source, other)
+
+
+def test_browser_index_readers_do_not_gain_encoding_or_old_codec_access() -> None:
+    """Current split-index decoding replaces the obsolete direct-bundle binding."""
+    module = "bijux_pollenomics.reporting.map_document.static_assets.index_transport"
+    for reader in (
+        "bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py",
+        "bijux_pollenomics_dev/ci/atlas_browser/source_detail_candidate.py",
+    ):
+        assert not host_import_violations(
+            f"from {module} import decode_index_payloads", reader
+        )
+        assert host_import_violations(
+            f"from {module} import assemble_index_payloads", reader
+        )
+        assert host_import_violations(
+            "from bijux_pollenomics.reporting.map_document.static_assets.index_bundles import decode_index_bundle",
+            reader,
+        )
