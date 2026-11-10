@@ -11,11 +11,21 @@ from bijux_pollenomics.analysis.lra_validation.channels import (
     ObservedPollenAdmission,
     PollenChannel,
 )
-from bijux_pollenomics.analysis.lra_validation.contracts import ValidationRefusal
+from bijux_pollenomics.analysis.lra_validation.contracts import (
+    ValidationRefusal,
+    canonical_json,
+    manifest_sha256,
+)
 from bijux_pollenomics.analysis.lra_validation.evaluation import scoring
 from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
+    EvaluationRow,
+    EvaluationScope,
+    ExternalInput,
     evaluate_final,
     validate_evaluation_policy,
+)
+from bijux_pollenomics.analysis.lra_validation.evaluation.contracts import (
+    prediction_payload,
 )
 
 from .support import (
@@ -28,6 +38,221 @@ from .support import (
     typed_policy_fixture,
     typed_rows_fixture,
 )
+
+
+def _with_fit_inputs(row: EvaluationRow, inputs: tuple[str, ...]) -> EvaluationRow:
+    row = replace(row, fit_input_ids=inputs)
+    envelope = prediction_payload(row)
+    return replace(
+        row,
+        prediction_manifest_json=canonical_json(envelope),
+        prediction_sha256=manifest_sha256(envelope),
+    )
+
+
+def _with_channels(scope: EvaluationScope) -> EvaluationScope:
+    return replace(
+        scope,
+        observation_channels=tuple(
+            ObservationChannels(
+                site.record_id,
+                site.group_id,
+                (PollenChannel(site.pollen_observation_id, "a" * 64),),
+                (site.vegetation_observation_id,),
+            )
+            for site in scope.sites
+        ),
+        dependency_graph=(
+            *scope.dependency_graph,
+            *(
+                (key, ())
+                for site in scope.sites
+                for key in (site.pollen_observation_id, site.vegetation_observation_id)
+            ),
+        ),
+    )
+
+
+def test_unused_training_support_cannot_change_frozen_scores_or_denominators() -> None:
+    scope = scope_fixture()
+    rows = tuple(_with_fit_inputs(row, ("p0",)) for row in typed_rows_fixture(scope))
+    expected = json.loads(
+        evaluate_final(
+            typed_policy_fixture(scope), scope=scope, rows=rows
+        ).canonical_result_json
+    )
+    for support in (scope.sites[2].support, None):
+        changed = replace(
+            scope,
+            sites=(
+                scope.sites[0],
+                replace(scope.sites[1], support=support),
+                *scope.sites[2:],
+            ),
+        )
+        result = json.loads(
+            evaluate_final(
+                typed_policy_fixture(changed), scope=changed, rows=rows
+            ).canonical_result_json
+        )
+        assert result["status"] == "passed"
+        assert result["row_statuses"] == expected["row_statuses"]
+        assert result["cells"] == expected["cells"]
+        assert result["paired_evidence"] == expected["paired_evidence"]
+        assert all(
+            cell["requested_records"] == cell["paired_scored_groups"] == 6
+            for cell in result["cells"]
+        )
+
+
+@pytest.mark.parametrize("kind", ["near", "missing", "time"])
+def test_baseline_consumed_training_support_still_constrains_the_pair(
+    kind: str,
+) -> None:
+    scope = scope_fixture()
+    support = scope.sites[2].support
+    assert support is not None
+    if kind == "missing":
+        support = None
+    elif kind == "time":
+        support = replace(support, older_bp=101)
+    scope = replace(
+        scope,
+        sites=(
+            scope.sites[0],
+            replace(scope.sites[1], support=support),
+            *scope.sites[2:],
+        ),
+    )
+    rows = tuple(
+        _with_fit_inputs(row, ("p0",) if row.model_id != "training_mean" else ("p1",))
+        for row in typed_rows_fixture(scope)
+    )
+    result = json.loads(
+        evaluate_final(
+            typed_policy_fixture(scope), scope=scope, rows=rows
+        ).canonical_result_json
+    )
+    reason = {
+        "near": "spatial_buffer_violation",
+        "missing": "missing_training_support",
+        "time": "incompatible_training_time_support",
+    }[kind]
+    assert any(row["status"] == reason for row in result["row_statuses"])
+    assert all(cell["requested_records"] == 6 for cell in result["cells"])
+    assert all(
+        cell["paired_scored_groups"] == (5 if kind == "near" else 0)
+        for cell in result["cells"]
+    )
+    assert sum(row["status"] == "scored" for row in result["row_statuses"]) == (
+        22 if kind == "near" else 12
+    )
+
+
+@pytest.mark.parametrize("channel", ["pollen:1", "vegetation:1"])
+def test_transitive_observation_channel_keeps_its_training_owner_support(
+    channel: str,
+) -> None:
+    scope = _with_channels(scope_fixture())
+    scope = replace(
+        scope,
+        sites=(
+            scope.sites[0],
+            replace(scope.sites[1], support=scope.sites[2].support),
+            *scope.sites[2:],
+        ),
+        dependency_graph=tuple(
+            (key, (channel,) if key == "p0" else parents)
+            for key, parents in scope.dependency_graph
+        ),
+    )
+    rows = tuple(_with_fit_inputs(row, ("p0",)) for row in rows_fixture(scope))
+    result = json.loads(
+        evaluate_final(
+            policy_fixture(scope), scope=scope, rows=rows
+        ).canonical_result_json
+    )
+    assert all(
+        row["status"] == "spatial_buffer_violation"
+        for row in result["row_statuses"]
+        if row["key"][1] == "p2"
+    )
+    assert all(
+        cell["requested_records"] == 6 and cell["paired_scored_groups"] == 5
+        for cell in result["cells"]
+    )
+
+
+def test_shared_channel_checks_every_training_owner_without_losing_aliases() -> None:
+    scope = scope_fixture()
+    scope = replace(
+        scope,
+        sites=(
+            scope.sites[0],
+            replace(
+                scope.sites[1],
+                group_id="g0",
+                block_id="b0",
+                support=scope.sites[2].support,
+            ),
+            *scope.sites[2:],
+        ),
+        folds=(replace(scope.folds[0], train_group_ids=("g0",)),),
+    )
+    scope = _with_channels(scope)
+    shared = PollenChannel("shared-training-pollen", "c" * 64)
+    scope = replace(
+        scope,
+        observation_channels=tuple(
+            replace(item, pollen_channels=(*item.pollen_channels, shared))
+            if item.record_id in {"p0", "p1"}
+            else item
+            for item in reversed(scope.observation_channels)
+        ),
+        dependency_graph=(*scope.dependency_graph, (shared.input_id, ())),
+    )
+    rows = tuple(
+        _with_fit_inputs(row, (shared.input_id,)) for row in rows_fixture(scope)
+    )
+    result = json.loads(
+        evaluate_final(
+            policy_fixture(scope), scope=scope, rows=rows
+        ).canonical_result_json
+    )
+    assert all(
+        row["status"] == "spatial_buffer_violation"
+        for row in result["row_statuses"]
+        if row["key"][1] == "p2"
+    )
+    assert all(cell["paired_scored_groups"] == 5 for cell in result["cells"])
+
+
+@pytest.mark.parametrize("used", [False, True])
+def test_external_observed_support_only_constrains_its_consumers(used: bool) -> None:
+    scope = scope_fixture()
+    support = scope.sites[2].support
+    assert support is not None
+    external = ExternalInput("external-observed", "observed_source", "e" * 64, support)
+    scope = replace(
+        scope,
+        external_inputs=(external,),
+        dependency_graph=(*scope.dependency_graph, (external.input_id, ())),
+    )
+    rows = tuple(
+        _with_fit_inputs(row, ("p0", external.input_id) if used else ("p0",))
+        for row in rows_fixture(scope)
+    )
+    result = json.loads(
+        evaluate_final(
+            policy_fixture(scope), scope=scope, rows=rows
+        ).canonical_result_json
+    )
+    assert result["status"] == ("failed" if used else "passed")
+    assert all(
+        cell["requested_records"] == 6
+        and cell["paired_scored_groups"] == (5 if used else 6)
+        for cell in result["cells"]
+    )
 
 
 def test_separate_target_success_keeps_independent_denominators() -> None:
