@@ -12,6 +12,9 @@ from bijux_pollenomics.analysis.fieldwork.evidence_richness.temporal import (
     _time_aware_ratio,
 )
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.collection.contracts.occurrence_chronology import (
+    ContextOccurrenceSupport,
+)
 from bijux_pollenomics.collection.sources.landclim.sites import (
     landclim_site_temporal_semantics,
 )
@@ -23,6 +26,126 @@ from bijux_pollenomics.evidence.scientific_review.chronology import _LayerInterv
 
 from ..lake_fieldwork_preparation.support import _candidate
 from .support import _context, _coverage, _semantics
+
+
+def _multiperiod_context(aggregate_mean: int | None) -> ContextPointRecord:
+    supports = tuple(
+        ContextOccurrenceSupport(
+            f"owned-{age}",
+            age,
+            age,
+            build_temporal_semantics(
+                source_family="controlled_source",
+                evidence_class="sead_dating_range",
+                precision_posture="linked_record_interval",
+                comparability_posture="numeric_interval",
+                time_start_bp=age,
+                time_end_bp=age,
+            ).as_dict(),
+        )
+        for age in (500, 4500, 7500)
+    )
+    refused = ContextOccurrenceSupport(
+        "refused",
+        None,
+        None,
+        {
+            "comparability_posture": "context_only",
+            "refusal_reason_code": "source_date_unavailable",
+        },
+    )
+    return replace(
+        _context(None, layer="controlled-multiperiod"),
+        time_start_bp=100,
+        time_end_bp=9000,
+        time_mean_bp=aggregate_mean,
+        occurrence_supports=(*supports, refused),
+    )
+
+
+@pytest.mark.parametrize("aggregate_mean", [None, 5000, 50])
+def test_navigation_labels_follow_owned_component_windows(
+    aggregate_mean: int | None,
+) -> None:
+    candidate = _candidate(
+        lake_name="Controlled lake",
+        lake_label="Controlled lake",
+        latitude=59,
+        longitude=18,
+        ambiguity_flags=(),
+        direct_pollen_source_count=1,
+    )
+    point = _multiperiod_context(aggregate_mean)
+    result = _attach_temporal_context(
+        [candidate],
+        pollen_points=[point],
+        human_points=(),
+        animal_points=(),
+        sead_points=(),
+    )[0]
+    anchors = result.temporal_context_points
+    assert [
+        (anchor.time_start_bp, anchor.time_end_bp, anchor.time_mean_bp)
+        for anchor in anchors
+    ] == [(6001, 7500, 7500), (3001, 6000, 4500), (0, 1000, 500)]
+    assert [anchor.time_label for anchor in anchors] == [
+        "Early Holocene and older (6001+ BP)",
+        "Mid-Holocene (3001-6000 BP)",
+        "Recent and historical (0-1000 BP)",
+    ]
+    for anchor in anchors:
+        row = anchor.as_dict()
+        semantics = row["temporal_semantics"]
+        assert isinstance(semantics, dict)
+        assert row["source_name"] == (
+            f"{anchor.time_label} nearby controlled-multiperiod context"
+        )
+        assert semantics["summary_label"] == anchor.time_label
+        assert semantics["temporal_window_label"] == anchor.time_label
+        assert f"provide {anchor.time_label} context" in str(
+            semantics["comparison_note"]
+        )
+        assert semantics["evidence_class"] == "nearby_lake_context_summary"
+        assert semantics["precision_posture"] == "source_interval_window_summary"
+        assert semantics["uncertainty_notes"] == [
+            "Underlying source intervals may extend beyond this navigation window.",
+            "The summary is nearby context and is not a lake-owned date.",
+        ]
+        assert anchor.record_count == anchor.sample_count == 1
+    assert point == _multiperiod_context(aggregate_mean)
+    assert not any(anchor.time_start_bp == 1001 for anchor in anchors)
+
+
+def test_component_navigation_is_independent_of_source_and_component_order() -> None:
+    candidate = _candidate(
+        lake_name="Controlled lake",
+        lake_label="Controlled lake",
+        latitude=59,
+        longitude=18,
+        ambiguity_flags=(),
+        direct_pollen_source_count=1,
+    )
+    first = _multiperiod_context(5000)
+    second = replace(_multiperiod_context(None), record_id="second")
+
+    def summarized(points: list[ContextPointRecord]) -> dict[str, object]:
+        return _attach_temporal_context(
+            [candidate],
+            pollen_points=points,
+            human_points=(),
+            animal_points=(),
+            sead_points=(),
+        )[0].as_dict()
+
+    assert first.occurrence_supports is not None
+    assert second.occurrence_supports is not None
+    reordered = [
+        replace(
+            second, occurrence_supports=tuple(reversed(second.occurrence_supports))
+        ),
+        replace(first, occurrence_supports=tuple(reversed(first.occurrence_supports))),
+    ]
+    assert summarized([first, second]) == summarized(reordered)
 
 
 def test_richness_attachment_and_ratio_apply_the_same_support_contract() -> None:
