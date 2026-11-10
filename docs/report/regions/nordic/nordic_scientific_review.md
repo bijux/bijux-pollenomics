@@ -90,10 +90,11 @@
 
 | Species | Period | Evidence scope | Mapped localities | Contextual projects | Chronology confidence | Caution |
 | --- | --- | --- | ---: | ---: | --- | --- |
-| Homo sapiens | 0-1000 BP | mapped_direct | 65 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
-| Homo sapiens | 1001-3000 BP | mapped_direct | 224 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
-| Homo sapiens | 3001-6000 BP | mapped_direct | 115 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
-| Homo sapiens | 6001+ BP | mapped_direct | 41 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
+| Homo sapiens | 0-1000 BP | mapped_direct | 15 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
+| Homo sapiens | 1001-3000 BP | mapped_direct | 178 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
+| Homo sapiens | 3001-6000 BP | mapped_direct | 105 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
+| Homo sapiens | 6001+ BP | mapped_direct | 36 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
+| Homo sapiens | project_level_or_unresolved | mapped_direct | 113 | 0 | unresolved_or_cross_period_sample_support | Available admitted sample supports do not place this locality in one period; absent or refused supports remain untested. No date is imputed and cross-period support is not forced into a bin. |
 | Anas platyrhynchos domesticus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Bos indicus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Bos taurus | 6001+ BP | mapped_direct | 4 | 1 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
@@ -116,17 +117,17 @@
 
 | Species | Context layer | Overlap status | Overlapping direct localities | Non-overlapping direct localities | Noncomparable records | Rationale |
 | --- | --- | --- | ---: | ---: | ---: | --- |
-| Homo sapiens | animal-bos-taurus-wild-or-progenitor-context | locality_level_overlap_available | 25 | 420 | 2 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | animal-ovis-aries | locality_level_overlap_available | 52 | 393 | 2 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | animal-sus-scrofa-domesticus | locality_level_overlap_available | 104 | 341 | 2 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | fieldwork-documentation | locality_level_overlap_available | 0 | 0 | 447 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | landclim-sites | locality_level_overlap_available | 445 | 0 | 2 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | neotoma-pollen | locality_level_overlap_available | 0 | 0 | 447 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | neotoma-source-ecological-code | locality_level_overlap_available | 445 | 0 | 2 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | neotoma-source-exact-taxon | locality_level_overlap_available | 445 | 0 | 2 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | neotoma-source-sample-pollen-context | locality_level_overlap_available | 445 | 0 | 2 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sead-sites | locality_level_overlap_available | 445 | 0 | 2 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | sweden-archaeology-site-discovery | locality_level_overlap_available | 114 | 331 | 2 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | animal-bos-taurus-wild-or-progenitor-context | locality_level_overlap_available | 0 | 0 | 447 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
+| Homo sapiens | animal-ovis-aries | locality_level_overlap_available | 0 | 0 | 447 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
+| Homo sapiens | animal-sus-scrofa-domesticus | locality_level_overlap_available | 0 | 0 | 447 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
+| Homo sapiens | fieldwork-documentation | locality_level_overlap_available | 0 | 0 | 447 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
+| Homo sapiens | landclim-sites | locality_level_overlap_available | 0 | 0 | 447 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
+| Homo sapiens | neotoma-pollen | locality_level_overlap_available | 0 | 0 | 447 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
+| Homo sapiens | neotoma-source-ecological-code | locality_level_overlap_available | 445 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
+| Homo sapiens | neotoma-source-exact-taxon | locality_level_overlap_available | 445 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
+| Homo sapiens | neotoma-source-sample-pollen-context | locality_level_overlap_available | 445 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
+| Homo sapiens | sead-sites | locality_level_overlap_available | 0 | 0 | 447 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
+| Homo sapiens | sweden-archaeology-site-discovery | locality_level_overlap_available | 114 | 331 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association. |
 | Anas platyrhynchos domesticus | animal-bos-taurus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | animal-ovis-aries | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
@@ -149,17 +150,17 @@
 | Bos indicus | neotoma-source-sample-pollen-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | sweden-archaeology-site-discovery | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 4 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | animal-ovis-aries | mapped_locality_overlap_with_caution | 0 | 4 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 4 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | fieldwork-documentation | mapped_locality_overlap_with_caution | 0 | 0 | 4 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | landclim-sites | mapped_locality_overlap_with_caution | 4 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | neotoma-pollen | mapped_locality_overlap_with_caution | 0 | 0 | 4 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | neotoma-source-ecological-code | mapped_locality_overlap_with_caution | 4 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | neotoma-source-exact-taxon | mapped_locality_overlap_with_caution | 4 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | neotoma-source-sample-pollen-context | mapped_locality_overlap_with_caution | 4 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | sead-sites | mapped_locality_overlap_with_caution | 4 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | sweden-archaeology-site-discovery | mapped_locality_overlap_with_caution | 0 | 4 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Bos taurus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 0 | 4 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Bos taurus | animal-ovis-aries | mapped_locality_overlap_with_caution | 0 | 0 | 4 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Bos taurus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 0 | 4 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Bos taurus | fieldwork-documentation | mapped_locality_overlap_with_caution | 0 | 0 | 4 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Bos taurus | landclim-sites | mapped_locality_overlap_with_caution | 0 | 0 | 4 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Bos taurus | neotoma-pollen | mapped_locality_overlap_with_caution | 0 | 0 | 4 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Bos taurus | neotoma-source-ecological-code | mapped_locality_overlap_with_caution | 4 | 0 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Bos taurus | neotoma-source-exact-taxon | mapped_locality_overlap_with_caution | 4 | 0 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Bos taurus | neotoma-source-sample-pollen-context | mapped_locality_overlap_with_caution | 4 | 0 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Bos taurus | sead-sites | mapped_locality_overlap_with_caution | 0 | 0 | 4 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Bos taurus | sweden-archaeology-site-discovery | mapped_locality_overlap_with_caution | 0 | 4 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
 | Camelus dromedarius | animal-bos-taurus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | animal-ovis-aries | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
@@ -259,17 +260,17 @@
 | Oryctolagus cuniculus | neotoma-source-sample-pollen-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | sweden-archaeology-site-discovery | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Ovis aries | animal-ovis-aries | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Ovis aries | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Ovis aries | fieldwork-documentation | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Ovis aries | landclim-sites | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Ovis aries | neotoma-pollen | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Ovis aries | neotoma-source-ecological-code | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Ovis aries | neotoma-source-exact-taxon | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Ovis aries | neotoma-source-sample-pollen-context | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Ovis aries | sead-sites | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Ovis aries | sweden-archaeology-site-discovery | mapped_locality_overlap_with_caution | 1 | 1 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Ovis aries | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Ovis aries | animal-ovis-aries | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Ovis aries | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Ovis aries | fieldwork-documentation | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Ovis aries | landclim-sites | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Ovis aries | neotoma-pollen | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Ovis aries | neotoma-source-ecological-code | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Ovis aries | neotoma-source-exact-taxon | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Ovis aries | neotoma-source-sample-pollen-context | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Ovis aries | sead-sites | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Ovis aries | sweden-archaeology-site-discovery | mapped_locality_overlap_with_caution | 1 | 1 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
 | Rangifer tarandus | animal-bos-taurus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | animal-ovis-aries | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
@@ -281,17 +282,17 @@
 | Rangifer tarandus | neotoma-source-sample-pollen-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | sead-sites | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | sweden-archaeology-site-discovery | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Sus scrofa domesticus | animal-ovis-aries | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Sus scrofa domesticus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Sus scrofa domesticus | fieldwork-documentation | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Sus scrofa domesticus | landclim-sites | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Sus scrofa domesticus | neotoma-pollen | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Sus scrofa domesticus | neotoma-source-ecological-code | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Sus scrofa domesticus | neotoma-source-exact-taxon | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Sus scrofa domesticus | neotoma-source-sample-pollen-context | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Sus scrofa domesticus | sead-sites | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Sus scrofa domesticus | sweden-archaeology-site-discovery | mapped_locality_overlap_with_caution | 1 | 1 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Sus scrofa domesticus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Sus scrofa domesticus | animal-ovis-aries | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Sus scrofa domesticus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Sus scrofa domesticus | fieldwork-documentation | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Sus scrofa domesticus | landclim-sites | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Sus scrofa domesticus | neotoma-pollen | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Sus scrofa domesticus | neotoma-source-ecological-code | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Sus scrofa domesticus | neotoma-source-exact-taxon | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Sus scrofa domesticus | neotoma-source-sample-pollen-context | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Sus scrofa domesticus | sead-sites | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
+| Sus scrofa domesticus | sweden-archaeology-site-discovery | mapped_locality_overlap_with_caution | 1 | 1 | 0 | Non-overlap concerns admitted sample supports only; missing or refused members remain untested. Temporal overlap is not spatial association; animal chronology and precision caveats remain. |
 
 ## Animal Coordinate Review
 
@@ -365,11 +366,11 @@
 
 Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.
 
-**Supported claim.** The retained nordic review surface separates descriptive locality inventory, comparative context and exploratory farming scenarios and records source-specific uncertainties.
+**Supported claim.** The Nordic review separates descriptive locality inventory, comparative context and exploratory farming scenarios. Its overlap and period accounts use source-bound individual chronology metadata; source and species review postures remain qualified inputs.
 
-**Unsupported claim.** The filename and populated review table are not a qualified independent scientist's decision, proof of farming causality or biological/event admission.
+**Unsupported claim.** This conditional reconstruction is not an independent scientist's decision, full provider-normalization reproduction, or human, biological/event, causal, spatial, joint-law or rights admission.
 
-**Actual verification performed.** Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.
+**Actual verification performed.** At source c0c3c7e0d, the 119-second published-context consumer checked all 176 overlap rows with an independent closed-interval oracle; all four scenarios reproduced exactly. At source 7d7770989, the 5.3-second locality-metadata consumer checked country, period and uncertainty accounts. Only overlap and period values changed; country and uncertainty accounts reproduced exactly, with other review sections retained. Generic provider checks begin at typed context records; source pollen bounds also have an independent raw-value check.
 
 **Remaining input or review.** An independent reviewer must assess the exact source entities, temporal scales and claimed relationship; current chronology and animal precision caveats remain.
 
@@ -379,11 +380,11 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Precise next acceptance route.** Select a named scenario and its source population, resolve each listed uncertainty with source evidence and obtain an actual independent claim-scoped decision.
 
-**Negative or refused result.** Farming-arrival interpretation remains exploratory; mapped animals and overlapping intervals do not remove species/precision asymmetry.
+**Negative or refused result.** Counts concern admitted individual supports; missing or refused members remain untested. Layerwide temporal overlap is not spatial association, and fractional map dates retain integer-context refusals. Of 113 unresolved human localities, 111 have cross-period admitted support and two have no admitted date. Animal chronology and precision caveats remain.
 
-**Matched denominator.** 64 country/species coverage rows, 21 period rows, 176 overlap rows, 46 uncertainty entries and four scenarios in the current Nordic retained review. These are review/accounting cells with reused source populations, not accepted hypotheses or independent experiments.
+**Matched denominator.** 64 country/species coverage rows, 22 period rows, 176 overlap rows, 46 uncertainty entries and four scenarios. Bound inputs retain 447 human localities with 1,231 sample members and eight animal localities with 12 members: 1,238 admitted, four refused and one unknown support. Coordinate classification remains six direct and two named-site points. These are review/accounting populations, not independent scientific decisions.
 
-- [Retained qualification evidence: docs/report/regions/nordic/nordic_scientific_review.json](nordic_scientific_review.json) (SHA-256 `ba1e4c9fdf16ce10fda1216edda7b761a1068e98afebddfd35ce00f5491f869b`).
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_scientific_review.json](nordic_scientific_review.json) (SHA-256 `99324accf44a362675ee82ea4e56e8ce40d5e0ad83303751ac8095b87267b043`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 

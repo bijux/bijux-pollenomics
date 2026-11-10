@@ -6557,20 +6557,20 @@
       "scope_reason": "Cross-domain map/evidence wrapper; country/source entity accounting and explicit ecological/chronological limits remain separate.",
       "qualification": {
         "fields": {
-          "supported_claim": "The retained nordic review surface separates descriptive locality inventory, comparative context and exploratory farming scenarios and records source-specific uncertainties.",
-          "unsupported_claim": "The filename and populated review table are not a qualified independent scientist's decision, proof of farming causality or biological/event admission.",
-          "actual_verification_performed": "Read this reader's scientific narrative and its retained machine account and checked the physical evidence identity. This qualification reran no producer, predictor, numerical oracle, browser or source-acquisition consumer.",
+          "supported_claim": "The Nordic review separates descriptive locality inventory, comparative context and exploratory farming scenarios. Its overlap and period accounts use source-bound individual chronology metadata; source and species review postures remain qualified inputs.",
+          "unsupported_claim": "This conditional reconstruction is not an independent scientist's decision, full provider-normalization reproduction, or human, biological/event, causal, spatial, joint-law or rights admission.",
+          "actual_verification_performed": "At source c0c3c7e0d, the 119-second published-context consumer checked all 176 overlap rows with an independent closed-interval oracle; all four scenarios reproduced exactly. At source 7d7770989, the 5.3-second locality-metadata consumer checked country, period and uncertainty accounts. Only overlap and period values changed; country and uncertainty accounts reproduced exactly, with other review sections retained. Generic provider checks begin at typed context records; source pollen bounds also have an independent raw-value check.",
           "remaining_input_or_review": "An independent reviewer must assess the exact source entities, temporal scales and claimed relationship; current chronology and animal precision caveats remain.",
           "cause_category": "Recorded review issues and exploratory scenario scope.",
           "consequence": "Scenario and overlap tables expose what still needs review rather than authorizing cross-species or historical causal inference.",
           "precise_next_acceptance_route": "Select a named scenario and its source population, resolve each listed uncertainty with source evidence and obtain an actual independent claim-scoped decision.",
-          "negative_or_refused_result": "Farming-arrival interpretation remains exploratory; mapped animals and overlapping intervals do not remove species/precision asymmetry.",
-          "matched_denominator": "64 country/species coverage rows, 21 period rows, 176 overlap rows, 46 uncertainty entries and four scenarios in the current Nordic retained review. These are review/accounting cells with reused source populations, not accepted hypotheses or independent experiments."
+          "negative_or_refused_result": "Counts concern admitted individual supports; missing or refused members remain untested. Layerwide temporal overlap is not spatial association, and fractional map dates retain integer-context refusals. Of 113 unresolved human localities, 111 have cross-period admitted support and two have no admitted date. Animal chronology and precision caveats remain.",
+          "matched_denominator": "64 country/species coverage rows, 22 period rows, 176 overlap rows, 46 uncertainty entries and four scenarios. Bound inputs retain 447 human localities with 1,231 sample members and eight animal localities with 12 members: 1,238 admitted, four refused and one unknown support. Coordinate classification remains six direct and two named-site points. These are review/accounting populations, not independent scientific decisions."
         },
         "evidence_pins": [
           {
             "path": "docs/report/regions/nordic/nordic_scientific_review.json",
-            "sha256": "ba1e4c9fdf16ce10fda1216edda7b761a1068e98afebddfd35ce00f5491f869b"
+            "sha256": "99324accf44a362675ee82ea4e56e8ce40d5e0ad83303751ac8095b87267b043"
           }
         ]
       }
