@@ -318,6 +318,66 @@ def test_component_reader_preserves_zero_and_refused_negative_intervals(
     ) == (BpInterval(0, 0),)
 
 
+@pytest.mark.parametrize(
+    ("latitude", "longitude", "accepted"),
+    [
+        (True, 18, False),
+        (59, False, False),
+        (float("nan"), 18, False),
+        (59, float("nan"), False),
+        (float("-inf"), 18, False),
+        (59, float("inf"), False),
+        (91, 18, False),
+        (-91, 18, False),
+        (59, 181, False),
+        (59, -181, False),
+        (10**400, 18, False),
+        (-(10**400), 18, False),
+        (59, 10**400, False),
+        (59, -(10**400), False),
+        (0, 0, True),
+        (90, 180, True),
+        (-90, -180, True),
+        (59, 18, True),
+    ],
+)
+def test_public_fieldwork_reader_applies_geographic_coordinate_contract(
+    tmp_path: Path, latitude: float, longitude: float, accepted: bool
+) -> None:
+    point = replace(
+        _multiperiod_context(None),
+        name="Controlled Lake",
+        latitude=latitude,
+        longitude=longitude,
+    )
+    path = tmp_path / "neotoma/normalized/nordic_pollen_sites.geojson"
+    path.parent.mkdir(parents=True)
+    write_context_points_geojson(path, [point])
+    loaded = _load_sweden_context_points(path, country="Sweden")
+    report = build_sweden_lake_evidence_richness_report(
+        context_root=tmp_path, human_localities=(), animal_localities=()
+    )
+    assert len(loaded) == report.candidate_count == int(accepted)
+    if accepted:
+        candidate = report.assessments[0].candidate
+        assert (candidate.latitude, candidate.longitude) == (latitude, longitude)
+    json.dumps(report.as_dict(), allow_nan=False)
+
+
+def test_invalid_coordinate_feature_does_not_discard_valid_lake(tmp_path: Path) -> None:
+    valid = replace(_multiperiod_context(None), name="Controlled Lake")
+    invalid = replace(valid, record_id="invalid", name="Invalid Lake", longitude=True)
+    path = tmp_path / "neotoma/normalized/nordic_pollen_sites.geojson"
+    path.parent.mkdir(parents=True)
+    write_context_points_geojson(path, [invalid, valid])
+    assert _load_sweden_context_points(path, country="Sweden") == (valid,)
+    report = build_sweden_lake_evidence_richness_report(
+        context_root=tmp_path, human_localities=(), animal_localities=()
+    )
+    assert report.candidate_count == 1
+    assert report.assessments[0].candidate.lake_name == "Controlled Lake"
+
+
 def test_richness_attachment_and_ratio_apply_the_same_support_contract() -> None:
     coverage = [
         _context(semantics, layer=f"coverage-{index}")

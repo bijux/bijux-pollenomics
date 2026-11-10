@@ -88,6 +88,25 @@ def test_strict_boundary_and_coordinate_refusals_are_distinct() -> None:
 
 
 @pytest.mark.parametrize(
+    ("longitude", "latitude", "reason"),
+    [
+        (10**400, 0, "longitude_out_of_range"),
+        (-(10**400), 0, "longitude_out_of_range"),
+        (0, 10**400, "latitude_out_of_range"),
+        (0, -(10**400), "latitude_out_of_range"),
+        (10**400, math.nan, "non_finite_coordinate"),
+        (math.inf, -(10**400), "non_finite_coordinate"),
+    ],
+)
+def test_extreme_integers_refuse_without_float_conversion(
+    longitude: float, latitude: float, reason: str
+) -> None:
+    decision = _decision(longitude, latitude)
+    assert decision.decision_status == "refused"
+    assert decision.refusal_reason == reason
+
+
+@pytest.mark.parametrize(
     ("digest", "version", "tolerance", "message"),
     (
         ("", "v", 0.15, "boundary_artifact_digest must be supplied"),

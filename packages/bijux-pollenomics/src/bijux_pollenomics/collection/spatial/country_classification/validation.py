@@ -17,7 +17,9 @@ def coordinate_refusal_reason(longitude: float, latitude: float) -> str | None:
         or not isinstance(latitude, (int, float))
     ):
         return "non_numeric_coordinate"
-    if not math.isfinite(longitude) or not math.isfinite(latitude):
+    if (isinstance(longitude, float) and not math.isfinite(longitude)) or (
+        isinstance(latitude, float) and not math.isfinite(latitude)
+    ):
         return "non_finite_coordinate"
     if longitude < -180 or longitude > 180:
         return "longitude_out_of_range"

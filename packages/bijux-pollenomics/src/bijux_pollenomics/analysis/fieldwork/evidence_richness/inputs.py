@@ -10,6 +10,9 @@ from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.collection.contracts.occurrence_chronology import (
     ContextOccurrenceSupport,
 )
+from bijux_pollenomics.collection.spatial.country_classification.validation import (
+    coordinate_refusal_reason,
+)
 from bijux_pollenomics.collection.spatial.representative_points import (
     geometry_to_representative_point,
 )
@@ -118,6 +121,8 @@ def _load_sweden_context_points(
         if not isinstance(latitude, (int, float)) or not isinstance(
             longitude, (int, float)
         ):
+            continue
+        if coordinate_refusal_reason(longitude, latitude) is not None:
             continue
         popup_rows = tuple(
             (
