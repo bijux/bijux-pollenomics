@@ -1790,10 +1790,10 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/README.md",
-      "prose_paragraph_count": 22,
+      "prose_paragraph_count": 23,
       "link_bullet_count": 4,
       "bullet_sentence_count": 70,
-      "heading_count": 15,
+      "heading_count": 16,
       "table_line_count": 38,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."

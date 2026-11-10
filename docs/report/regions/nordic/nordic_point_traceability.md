@@ -65,7 +65,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A complete traceability chain does not independently authenticate historical observation, assign an epoch, resolve biological identity or admit ecological comparisons.
 
-**Actual verification performed.** The current saved atlas consumer at 1b338ee91 reconciles all 1,481 normalized source records. Native map assembly at that source passed in 333.12 seconds, RSS 5,366,333,440 B; independent decoded preservation and search references passed in 35.10 seconds, RSS 708,460,544 B. All unrelated scientific payloads, dates and coordinates are preserved. Current world/Europe index factories pass; Nordic qualification is reused only after exact code, bootstrap, controller, wire and semantic equality. Actual served runtime passes 27 cases, including four contextual Qinghai dates and a recovered horse owner. Seventeen targeted reader guards pass. Prior failures and their corrections are retained; no model or source census replay.
+**Actual verification performed.** Earlier saved-source, index and browser qualifications retain their original source epochs; they are not transferred to changed Nordic registrations by wire or semantic equality. The conditional source-chronology publication at 86e3efe5c81ab7c75070f38c801037fa295600e2 uses the current Neotoma owner with authenticated normalized inputs and retained accepted other-provider payloads. Checks cover the full native projection identity, unchanged source identities and shared feature values, exact float map intervals, integer-year scientific-context support with explicit fractional-date refusals, and all current chronology model/control tables against an independent raw-input audit. Existing primary age assignments and retained provider citations remain bound to their source identities. Actual static, document, contract, playback and reader owners derive the publication artifacts. This is a conditional source refresh, not a full publisher replay, a new browser qualification, a recomputed whole scientific review or scientific admission.
 
 **Remaining input or review.** Deeper source-family identity, chronology, biological and rights decisions remain required. Current decoded preservation and actual index-factory checks do not independently validate historical observations.
 
@@ -79,7 +79,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Matched denominator.** 263,708 point rows across18 visible point layers in the retained ledger; repeated temporal/context features are not distinct independent sites.
 
-- [Retained qualification evidence: docs/report/regions/nordic/nordic_point_traceability.json](nordic_point_traceability.json) (SHA-256 `30dccdec39417b6e703a05dbbe34c808278aebe72417a4813c56316d6fac4deb`).
+- [Retained qualification evidence: docs/report/regions/nordic/nordic_point_traceability.json](nordic_point_traceability.json) (SHA-256 `3d6f0c2fa4e57d79db57b35469579374cd2becf12d957acae34a844b9f9a3ecd`).
 
 - [Canonical scientific account: reports/science/country-evidence-status.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md).
 
