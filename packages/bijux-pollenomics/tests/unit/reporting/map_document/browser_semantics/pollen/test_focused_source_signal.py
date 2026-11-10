@@ -128,9 +128,14 @@ def test_producer_owned_identity_and_posture_are_readable_without_admission(
         assert str(signal[field]) in text
     assert "propagation eligible: false" in text
     assert "Active map countries: Denmark, Sweden" in text
-    assert "Not applicable: this display-only source context" in text
-    assert "scientific-event denominators are not established" in text
-    assert "native join counts, not scientific admission counts" in text
+    assert "Not applicable: source context, no relation scenario" in text
+    assert (
+        "Scientific events: admitted/indeterminate/refused counts unavailable" in text
+    )
+    assert (
+        "Native joins do not establish scientific admission, taxonomy or chronology"
+        in text
+    )
     assert output["unchanged"]
 
 
@@ -181,8 +186,8 @@ def test_missing_caption_metadata_is_not_an_inferred_country_or_posture(
         "Chronology",
         "claim",
         "selection posture",
-        "Candidate generation",
-        "refusal reason",
+        "Candidate status",
+        "refusal",
         "propagation eligible",
     ):
         assert f"{label}: not supplied" in text
@@ -235,6 +240,108 @@ def test_actual_detail_caller_passes_country_selection_without_changing_source(
     assert result["unchanged"]
 
 
+def test_chronology_drawer_keeps_selected_source_scope_and_raw_assignments(
+    tabs: dict[str, Any],
+) -> None:
+    from . import test_focused_pollen_drawer as drawer
+
+    signal = feature(tabs)
+    result = drawer.observe(
+        tabs,
+        [signal],
+        """
+await focusPointAtVisibleIndex(0);snapshot('pollen');
+activeFocusTab='chronology';renderFocusDetail();snapshot('sweden');
+activeCountries.clear();activeCountries.add('Denmark');renderFocusDetail();snapshot('denmark');
+snapshots.raw=renderAgeDepthDiagram(tabs)+renderDetailValue(tabs.chronology,'chronology');
+""",
+    )
+    snapshots = result["snapshots"]
+    for name in ("sweden", "denmark"):
+        html = snapshots[name]
+        assert html.endswith(snapshots["raw"])
+        assert "Source scope" in html
+        for field in (
+            "feature_key",
+            "node_level",
+            "chronology_id",
+            "chronology_claim_id",
+            "chronology_selection_posture",
+        ):
+            assert str(signal[field]) in html
+        assert "Not applicable: source context, no relation scenario" in html
+        assert (
+            "Scientific events: admitted/indeterminate/refused counts unavailable"
+            in html
+        )
+        assert "3 of 3 claims" in html
+        assert "reported age point 0;" in html
+        assert "No preferred chronology is selected" in html
+        assert 'stroke-dasharray="2 3"' in html
+        assert "drawable observations" not in html
+    assert "Active map countries: Sweden" in snapshots["sweden"]
+    assert "Active map countries: Denmark" in snapshots["denmark"]
+    assert f"Source country: {signal['country']}" in snapshots["denmark"]
+    assert result["sourceRetained"] and result["cached"] and result["unchanged"]
+
+
+@pytest.mark.parametrize(
+    "signal",
+    [
+        None,
+        {"source_family": "neotoma", "semantic_role": "site"},
+        {"source_family": "sead", "semantic_role": "source_chronology_context"},
+        {"source_family": "fieldwork", "semantic_role": "documentation"},
+    ],
+)
+def test_ordinary_chronology_does_not_invent_a_selected_source_signal(
+    tabs: dict[str, Any], signal: object
+) -> None:
+    source = (
+        script()
+        + (
+            Path(template.__file__).parent / "assets/focused-source-signal.js"
+        ).read_text()
+    )
+    result = run_node_json(
+        source
+        + "const tabs="
+        + json.dumps(tabs)
+        + ",signal="
+        + json.dumps(signal)
+        + ";const before=JSON.stringify([tabs,signal]);const plain=renderAgeDepthDiagram(tabs);"
+        + "const actual=renderSourceChronologyDiagram(tabs,signal,['Sweden']);"
+        + "console.log(JSON.stringify({same:actual===plain,html:actual,unchanged:before===JSON.stringify([tabs,signal])}));"
+    )
+    assert result["same"] and result["unchanged"]
+    assert "Source scope" not in result["html"]
+
+
+@pytest.mark.parametrize("field", ["record_id", "source_snapshot_id", "build_id"])
+def test_chronology_scope_requires_the_selected_feature_to_match_its_detail(
+    tabs: dict[str, Any], field: str
+) -> None:
+    signal = feature(tabs)
+    signal[field] = "different-source-identity"
+    source = (
+        script()
+        + (
+            Path(template.__file__).parent / "assets/focused-source-signal.js"
+        ).read_text()
+    )
+    result = run_node_json(
+        source
+        + "const tabs="
+        + json.dumps(tabs)
+        + ",signal="
+        + json.dumps(signal)
+        + ";const before=JSON.stringify([tabs,signal]);const plain=renderAgeDepthDiagram(tabs);"
+        + "const actual=renderSourceChronologyDiagram(tabs,signal,['Sweden']);"
+        + "console.log(JSON.stringify({same:actual===plain,matches:sourceSignalMatchesDetails(tabs,signal),unchanged:before===JSON.stringify([tabs,signal])}));"
+    )
+    assert result["same"] and result["unchanged"] and not result["matches"]
+
+
 def test_real_feature_producer_selects_51_instead_of_first_native_50(
     tabs: dict[str, Any],
 ) -> None:
@@ -250,7 +357,7 @@ def test_real_feature_producer_selects_51_instead_of_first_native_50(
     assert [tabs, signal] == original and result["unchanged"] is True
     assert (
         "Selected map signal:" in result["html"]
-        and "manual display anchor is separate" in result["html"]
+        and "Manual anchors leave" in result["html"]
     )
     assert "no drawable match" in result["html"]
 
@@ -286,7 +393,7 @@ def test_caption_reuses_already_computed_native_matches(tabs: dict[str, Any]) ->
         + "pollenFocusedSignalData=()=>{throw Error('unexpected second decoding')};"
         + "console.log(JSON.stringify(renderPollenFocusedSignal(tabs,signal,data)));"
     )
-    assert "1 drawable source observations in 1 native measurement groups" in output
+    assert "1 drawable observations; 1 matching native groups" in output
 
 
 def test_sample_presence_does_not_announce_an_unselected_taxon_or_code(
@@ -295,10 +402,7 @@ def test_sample_presence_does_not_announce_an_unselected_taxon_or_code(
     output = observe(tabs, feature(tabs, level="source_sample_presence"))
     assert output["data"]["status"] == "unavailable"
     assert output["data"]["observationIds"] == []
-    assert (
-        "sample presence without one selected taxon or ecological code"
-        in output["html"]
-    )
+    assert "sample presence; no selected taxon or ecological code" in output["html"]
     assert "literal source code not supplied" not in output["html"]
 
 
@@ -474,7 +578,8 @@ def test_ecological_map_code_keeps_all_native_taxa_without_claiming_one_taxon(
     assert result["data"]["matchBasisCounts"] == {"raw_source_code": 2}
     assert (
         "literal source code CROP" in result["html"]
-        and "approve ecological taxonomy" in result["html"]
+        and "do not establish scientific admission, taxonomy or chronology"
+        in result["html"]
     )
 
 
@@ -525,7 +630,7 @@ def test_mixed_code_group_only_marks_matching_observation_ids(
     result = observe(tabs, feature(tabs, level="source_ecological_code"))
     assert "other-code-observation" not in result["data"]["observationIds"]
     assert len(result["data"]["groupKeys"]) == 2
-    assert "Matching groups can contain other source observations" in result["html"]
+    assert "Groups may contain other observations" in result["html"]
 
 
 @pytest.mark.parametrize("which", ["observations", "variables", "samples"])
@@ -559,7 +664,7 @@ def test_incompatible_matching_contexts_never_choose_an_arbitrary_anchor(
     )
     assert result["data"]["anchorStatus"] == "ambiguous_measurement_context"
     assert result["data"]["defaultAnchorKey"] is None
-    assert "choose a display anchor explicitly" in result["html"]
+    assert "choose an explicit anchor" in result["html"]
 
 
 def test_opaque_source_ids_are_escaped_not_guessed_as_names(

@@ -210,26 +210,104 @@ def _by_id(features: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     return indexed
 
 
+def _published_section(script: str, start: str, end: str) -> str:
+    """Select one known source section without accepting tokens from other code."""
+    message = "Published modeled export selector or identity contract changed"
+    _require(script.count(start) == script.count(end) == 1, message)
+    beginning, ending = script.index(start), script.index(end)
+    _require(beginning < ending, message)
+    return script[beginning:ending]
+
+
 def _export_contract(page: str) -> None:
-    # These are the actual published selectors and serializer, not a parallel export.
-    required = (
-        "function modeledContextFrameFeatures()",
-        "properties.time_label === sourceWindow.label",
-        "activeCountries.has(properties.country)",
-        "function modeledContextFrameGeoJson()",
-        "reconstruction_values: Object.fromEntries",
-        "standard_errors: Object.fromEntries",
-        "schema_version: MODELED_CONTEXT.download_schema_version",
-        "evidence_role: 'context_only'",
-        "propagation_use_allowed: false",
-        "interpolation_allowed: false",
-        "function downloadModeledContextFrame()",
-        "modeledContextDownload.addEventListener('click', downloadModeledContextFrame)",
+    # Bind the export chain; temporal admission remains owned by its helper.
+    sections = (
+        (
+            "function modeledContextFrameFeatures()",
+            "function modeledContextFrameGeoJson()",
+            (
+                "const sourceWindow = currentModeledContextWindow();",
+                "if (!modeledContextActive || !sourceWindow) return [];",
+                "const layer = POLYGON_LAYERS.find((candidate) => candidate.key === MODELED_CONTEXT.layer_key);",
+                "if (!layer || !layer.geojson || !Array.isArray(layer.geojson.features)) return [];",
+                "return layer.geojson.features",
+                "return polygonGeometryIsAdmitted(feature)",
+                "&& isModeledContextFeature(layer, properties)",
+                "&& polygonFeatureVisible(layer, properties)",
+            ),
+        ),
+        (
+            "function polygonFeatureVisible(layer, properties)",
+            "function geoJsonPositionIsAdmitted(value)",
+            (
+                "const country = properties.country || '';",
+                "activeLayerKeys.has(layer.key)",
+                "&& (!layer.applies_country_filter || activeCountries.has(country))",
+                "&& modeledContextFeatureVisible(layer, properties)",
+                "&& featureInTimeWindow(layer, properties)",
+            ),
+        ),
+        (
+            "function isModeledContextFeature(layer, properties)",
+            "function modeledContextFeatureVisible(layer, properties)",
+            (
+                "layer.key === MODELED_CONTEXT.layer_key",
+                "&& String(properties.dataset_id || '') === String(MODELED_CONTEXT.dataset_id || '')",
+            ),
+        ),
+        (
+            "function modeledContextFeatureVisible(layer, properties)",
+            "function modeledContextNumber(value)",
+            (
+                "if (!modeledContextActive || layer.key !== MODELED_CONTEXT.layer_key) return true;",
+                "const window = currentModeledContextWindow();",
+                "return Boolean(window && isModeledContextFeature(layer, properties) && properties.time_label === window.label);",
+            ),
+        ),
+        (
+            "function modeledContextFrameGeoJson()",
+            "function modeledContextFrameQualitySummary()",
+            (
+                "const sourceFeatures = modeledContextFrameFeatures();",
+                "const features = sourceFeatures.map((feature) => {",
+                "if (!feature.properties || feature.properties.quality_class !== 'no_pollen_data') return feature;",
+                "reconstruction_values: Object.fromEntries(Object.keys(feature.properties.reconstruction_values || {}).map((key) => [key, null]))",
+                "standard_errors: Object.fromEntries(Object.keys(feature.properties.standard_errors || {}).map((key) => [key, null]))",
+                "return { ...feature, properties };",
+                "schema_version: MODELED_CONTEXT.download_schema_version",
+                "quality_class_count_denominator: features.length",
+                "evidence_role: 'context_only'",
+                "propagation_use_allowed: false",
+                "interpolation_allowed: false",
+                "no_pollen_data_display_posture: 'null_not_zero'",
+                "features,",
+            ),
+        ),
+        (
+            "function downloadModeledContextFrame()",
+            "function renderModeledContextControls()",
+            (
+                "if (!modeledContextActive) return;",
+                "const payload = modeledContextFrameGeoJson();",
+                "JSON.stringify(payload, null, 2)",
+                "link.click();",
+                "URL.revokeObjectURL(url);",
+            ),
+        ),
+        (
+            "modeledContextPlayback.addEventListener('click', () => {",
+            "document.getElementById('selection-export').addEventListener",
+            (
+                "modeledContextDownload.addEventListener('click', downloadModeledContextFrame)",
+            ),
+        ),
     )
-    _require(
-        all(part in page for part in required),
-        "Published modeled export selector or identity contract changed",
-    )
+    for start, end, required in sections:
+        actual = _published_section(page, start, end)
+        _require(
+            all(part in actual for part in required),
+            "Published modeled export selector or identity contract changed",
+        )
 
 
 def _source_geometry(repository: Path, features: list[dict[str, Any]]) -> int:

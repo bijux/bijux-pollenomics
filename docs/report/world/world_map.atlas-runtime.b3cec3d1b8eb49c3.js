@@ -628,7 +628,7 @@ async function fetchStaticAtlasNodeAsset(row, signal) {
             return { ...layer, geojson: { ...(entry.layer.geojson || {}), features } };
           });
       }
-      const SCOPE_KEY = "nordic";
+      const SCOPE_KEY = "world";
       const COUNTRIES = ["Sweden","Norway","Finland","Denmark"];
 
       const NATIVE_LRA_BINDING = JSON.parse(document.getElementById('atlas-native-lra-binding').textContent);
@@ -748,7 +748,7 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
       const POINT_LAYERS = hydrateStaticAtlasLayers('point');
       const POLYGON_LAYERS = hydrateStaticAtlasLayers('polygon');
       const MODELED_CONTEXT = JSON.parse(document.getElementById('atlas-modeled-context-binding').textContent);
-      const INITIAL_BOUNDS = [[54.0,4.0],[72.0,35.0]];
+      const INITIAL_BOUNDS = [[-20.0,-165.0],[82.0,180.0]];
       const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
       const ATLAS_EVIDENCE = STATIC_ATLAS_INLINE
         ? { details_status: 'unavailable', details_reason_code: 'record_level_evidence_not_available', classifications_status: 'unavailable', classifications_reason_code: 'accepted_scientific_classifications_not_available', detail_records: [], scientific_signals: [] }
@@ -821,11 +821,11 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
         )
       );
       const TIME_MIN_BP = 0;
-      const TIME_MAX_BP = 2700000;
+      const TIME_MAX_BP = 68764;
       const TIME_HAS_DATA = true;
       const DEFAULT_TIME_START_BP = 0;
-      const DEFAULT_TIME_INTERVAL_YEARS = 2700000;
-      const TIME_INTERVAL_MAX = 2700000;
+      const DEFAULT_TIME_INTERVAL_YEARS = 68764;
+      const TIME_INTERVAL_MAX = 68764;
       const map = L.map('map', { preferCanvas: true, zoomControl: false, maxZoom: 20 });
       let initialMapFitPending = false;
       let mapViewReady = false;
@@ -1093,7 +1093,7 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
       }
       function clampDiameter(value) {
         const numeric = finiteControlNumber(value);
-        const selected = numeric === null ? 20 : numeric;
+        const selected = numeric === null ? 40 : numeric;
         return Math.max(0, Math.min(100, Math.round(selected / 5) * 5));
       }
       function clampTimeInterval(value) {
@@ -1575,8 +1575,7 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
             const properties = feature && feature.properties ? feature.properties : {};
             return polygonGeometryIsAdmitted(feature)
               && isModeledContextFeature(layer, properties)
-              && properties.time_label === sourceWindow.label
-              && activeCountries.has(properties.country);
+              && polygonFeatureVisible(layer, properties);
           })
           .sort((left, right) => String(left.properties.record_id || '').localeCompare(String(right.properties.record_id || '')));
       }
@@ -2838,7 +2837,7 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
           if (activeSourceChronologyPreset !== 'none') params.set('source_label_preset', activeSourceChronologyPreset);
           if (sourceRecordConcentrationActive) params.set('source_record_concentration', 'captured');
         }
-        if (Number(slider.value) !== 20) params.set('diameter', String(Number(slider.value)));
+        if (Number(slider.value) !== 40) params.set('diameter', String(Number(slider.value)));
         const modeledWindow = currentModeledContextWindow();
         if (modeledContextActive && modeledWindow) {
           params.set('modeled_context', modeledWindow.label);
@@ -3648,16 +3647,20 @@ function renderPollenSmallMultiples(tabs, anchorNativeGroupKey, selectedAgeGroup
 }
 
       // Bind a clicked source facet to native observations, never accepted taxonomy.
+function sourceSignalMatchesDetails(tabs, signal) {
+  return [[signal?.record_id,tabs?.overview?.site_id],
+    [signal?.source_snapshot_id,tabs?.provenance?.source_snapshot_id],
+    [signal?.build_id,tabs?.provenance?.build_id]]
+    .every(([left,right]) => typeof left === 'string' && left.length && left.trim() === left && left === right);
+}
 function pollenFocusedSignalData(tabs, signal) {
   const empty = (status, reason) => ({status,reason,groupKeys:[],matches:[],observationIds:[],unmatchedVariableIds:[],ambiguousObservationIds:[],matchBasisCounts:{},defaultAnchorKey:null,anchorStatus:'unavailable'});
   const text = value => typeof value === 'string' && value.trim() ? value.trim() : null;
   if (!signal) return empty('unavailable','No source map signal is selected.');
   if (signal.source_family !== 'neotoma' || signal.semantic_role !== 'source_chronology_context'
     || tabs?.overview?.source_family !== 'neotoma') return empty('unavailable','This map feature has no supported native source facet.');
-  if (![signal.record_id,signal.source_record_id,tabs.overview.site_id,signal.source_snapshot_id,tabs.provenance?.source_snapshot_id,signal.build_id,tabs.provenance?.build_id].every(value => text(value) === value && value !== null && value !== undefined)
-    || signal.record_id !== tabs.overview.site_id
-    || signal.source_snapshot_id !== tabs.provenance?.source_snapshot_id
-    || signal.build_id !== tabs.provenance?.build_id) return empty('unavailable','Selected feature and detail source identities do not agree.');
+  if (!sourceSignalMatchesDetails(tabs, signal) || !signal.source_record_id
+    || text(signal.source_record_id) !== signal.source_record_id) return empty('unavailable','Selected feature and detail source identities do not agree.');
   const ids = signal.source_variable_ids, taxon = signal.source_taxon_id, code = signal.source_ecological_code;
   const taxonMode = signal.node_level === 'source_taxon', codeMode = signal.node_level === 'source_ecological_code';
   if (signal.node_level === 'source_sample_presence') return empty('unavailable','Sample presence does not select one native taxon or ecological code.');
@@ -3718,7 +3721,7 @@ function pollenFocusedSignalData(tabs, signal) {
     return empty('unavailable','Source signal tables could not be decoded consistently.');
   }
 }
-function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(tabs,signal), activeCountrySelection = null) {
+function renderSourceSignalScope(signal, activeCountrySelection) {
   const text = value => escapeHtml(pollenDepthText(value));
   const countries = Array.isArray(activeCountrySelection)
     && activeCountrySelection.every(value => typeof value === 'string' && value.trim() === value && value.length)
@@ -3726,11 +3729,20 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
     ? activeCountrySelection.length ? activeCountrySelection.join(', ') : 'none selected'
     : 'not supplied';
   const sourceContext = signal?.source_family === 'neotoma' && signal?.semantic_role === 'source_chronology_context';
-  const scope = `<details><summary>Source signal identity and display scope</summary><dl style="overflow-wrap:anywhere"><dt>Identity</dt><dd>Node: <code>${text(signal?.node_id)}</code>; feature key: <code>${text(signal?.feature_key)}</code>; resolution: ${text(signal?.node_level)}.</dd><dt>Geography</dt><dd>Source country: ${text(signal?.country)}. Active map countries: ${text(countries)}. Source country and display selection are separate.</dd><dt>Selected map chronology</dt><dd>Chronology: <code>${text(signal?.chronology_id)}</code>; claim: <code>${text(signal?.chronology_claim_id)}</code>; selection posture: ${text(signal?.chronology_selection_posture)}. This is separate from the source-age display axis chosen below.</dd><dt>Candidate and propagation posture</dt><dd>Candidate generation: ${text(signal?.candidate_generation_status)}; refusal reason: ${text(signal?.candidate_refusal_reason)}; propagation eligible: ${text(signal?.propagation_eligible)}.</dd><dt>Scenario applicability</dt><dd>${sourceContext ? 'Not applicable: this display-only source context is not a candidate relation scenario. Relation filters do not select an analysis scenario for these observations.' : 'Not established: no supported source-context scenario applicability is supplied.'}</dd><dt>Scientific admission denominators</dt><dd>Admitted, indeterminate and refused scientific-event denominators are not established here. The matched, unmatched and ambiguous observations above are native join counts, not scientific admission counts.</dd></dl></details>`;
+  return `<details><summary>Source scope</summary><dl style="overflow-wrap:anywhere"><dt>Identity</dt><dd>Node: <code>${text(signal?.node_id)}</code>; feature key: <code>${text(signal?.feature_key)}</code>; resolution: ${text(signal?.node_level)}.</dd><dt>Geography</dt><dd>Source country: ${text(signal?.country)}. Active map countries: ${text(countries)}. Separate scopes.</dd><dt>Map chronology</dt><dd>Chronology: <code>${text(signal?.chronology_id)}</code>; claim: <code>${text(signal?.chronology_claim_id)}</code>; selection posture: ${text(signal?.chronology_selection_posture)}. Not the source-age axis.</dd><dt>Propagation</dt><dd>Candidate status: ${text(signal?.candidate_generation_status)}; refusal: ${text(signal?.candidate_refusal_reason)}; propagation eligible: ${text(signal?.propagation_eligible)}.</dd><dt>Scenario</dt><dd>${sourceContext ? 'Not applicable: source context, no relation scenario or analysis selected.' : 'Unknown for this source.'}</dd><dt>Admission</dt><dd>Scientific events: admitted/indeterminate/refused counts unavailable. Native joins do not establish scientific admission, taxonomy or chronology.</dd></dl></details>`;
+}
+function renderSourceChronologyDiagram(tabs, signal, countries) {
+  return (signal?.source_family === 'neotoma' && signal.semantic_role === 'source_chronology_context'
+    && tabs?.overview?.source_family === 'neotoma' && sourceSignalMatchesDetails(tabs, signal)
+    ? renderSourceSignalScope(signal, countries) : '')
+    + renderAgeDepthDiagram(tabs);
+}
+function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(tabs,signal), activeCountrySelection = null) {
+  const text = value => escapeHtml(pollenDepthText(value));
   const label = signal?.node_level === 'source_taxon' ? `native taxon ${pollenDepthText(signal.source_taxon_id)}; variables ${pollenDepthText(signal.source_variable_ids)}`
     : signal?.node_level === 'source_ecological_code' ? `literal source code ${pollenDepthText(signal.source_ecological_code)}`
-    : signal?.node_level === 'source_sample_presence' ? 'sample presence without one selected taxon or ecological code' : 'native source facet unavailable';
-  return `<section data-pollen-focused-signal="${data.status}"><p><strong>Selected map signal:</strong> ${signal ? text(label) : 'none'}; source sample ${text(signal?.source_record_id)}. ${text(data.reason)} ${data.observationIds.length} drawable source observations in ${data.groupKeys.length} native measurement groups match. ${data.unmatchedVariableIds.length} requested variables have no drawable match; ${data.ambiguousObservationIds.length} observation identities or code assignments are ambiguous. Basis: ${data.matchBasisCounts.exact_variable_taxon_unit || 0} exact variable/taxon/unit, ${data.matchBasisCounts.raw_source_code || 0} raw source code, ${data.matchBasisCounts.unique_variable_source_code || 0} uniquely supplied variable code. ${data.anchorStatus === 'ambiguous_measurement_context' ? 'Matching measurement contexts differ; choose a display anchor explicitly.' : ''} Matching groups can contain other source observations. A manual display anchor is separate from the selected map signal; neither literal source codes nor this highlight approve ecological taxonomy or a chronology.</p>${scope}</section>`;
+    : signal?.node_level === 'source_sample_presence' ? 'sample presence; no selected taxon or ecological code' : 'source facet unavailable';
+  return `<section data-pollen-focused-signal="${data.status}"><p><strong>Selected map signal:</strong> ${signal ? text(label) : 'none'}; source sample ${text(signal?.source_record_id)}. ${text(data.reason)} ${data.observationIds.length} drawable observations; ${data.groupKeys.length} matching native groups. ${data.unmatchedVariableIds.length} requested variables have no drawable match; ${data.ambiguousObservationIds.length} ambiguous observation IDs/codes. Basis: ${data.matchBasisCounts.exact_variable_taxon_unit || 0} variable/taxon/unit; ${data.matchBasisCounts.raw_source_code || 0} raw code; ${data.matchBasisCounts.unique_variable_source_code || 0} unique variable code. ${data.anchorStatus === 'ambiguous_measurement_context' ? 'Different contexts; choose an explicit anchor.' : ''} Manual anchors leave the selected signal unchanged. Groups may contain other observations.</p>${renderSourceSignalScope(signal,activeCountrySelection)}</section>`;
 }
 
       const pollenDepthSelections = new WeakMap();
@@ -3778,7 +3790,7 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
         if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
         focusTabs.innerHTML = tabDefinitions.map(([key, label]) => `<button id="focus-tab-${key}" class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}" aria-controls="focus-detail" tabindex="${activeFocusTab === key ? '0' : '-1'}">${escapeHtml(label)}</button>`).join('');
         focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
-        const sourceDiagram = activeFocusTab === 'chronology' ? renderAgeDepthDiagram(tabs)
+        const sourceDiagram = activeFocusTab === 'chronology' ? renderSourceChronologyDiagram(tabs, focusState?.sourceSignal, COUNTRIES.filter(country => activeCountries.has(country)))
           : activeFocusTab === 'pollen_composition' ? renderPollenObservationDiagram(tabs) : '';
         const sourceOverview = activeFocusTab === 'overview' && tabs.overview?.status !== 'unavailable'
           && focusState?.sourceSignal?.semantic_role === 'source_chronology_context'
@@ -3961,7 +3973,7 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
         if (activeAnimalTemporalWindow !== 'all') count += 1;
         if (animalNordicOnly) count += 1;
         if (TIME_HAS_DATA && (timeStartBp !== DEFAULT_TIME_START_BP || timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS)) count += 1;
-        if (Number(slider.value) !== 20) count += 1;
+        if (Number(slider.value) !== 40) count += 1;
         if (Math.round(densityOpacity * 100) !== 60) count += 1;
         if (currentBasemap !== DEFAULT_BASEMAP) count += 1;
         return count;
@@ -6837,7 +6849,7 @@ function publishedSearchCounts() {
         sourceRecordConcentrationActive = false;
         sourceRecordConcentrationSnapshot = null;
         sourceChronologyTaxonQuery.value = '';
-        slider.value = 20;
+        slider.value = 40;
         timeStartBp = DEFAULT_TIME_START_BP;
         timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
         if (signedNativeTime) signedNativeTime.set(signedNativeTime.extent());

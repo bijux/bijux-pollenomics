@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Keep modeled cell captions and exports consistent with map filters, preserve selected source context in chronology drawers, and verify the shared export contract ([#413](https://github.com/bijux/bijux-pollenomics/pull/413)).
+
 - Bind embedded-atlas publication ownership to the selected MkDocs configuration while retaining report, resource and iframe-parent identities ([#412](https://github.com/bijux/bijux-pollenomics/pull/412)).
 
 - Compose documentation rendering and finite-download admission around one live independent native producer, adopt its accepted shared standards, and retain standalone publication reconstruction ([#411](https://github.com/bijux/bijux-pollenomics/pull/411)).

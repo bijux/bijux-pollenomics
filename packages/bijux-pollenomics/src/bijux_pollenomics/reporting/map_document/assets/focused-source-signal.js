@@ -1,14 +1,18 @@
 // Bind a clicked source facet to native observations, never accepted taxonomy.
+function sourceSignalMatchesDetails(tabs, signal) {
+  return [[signal?.record_id,tabs?.overview?.site_id],
+    [signal?.source_snapshot_id,tabs?.provenance?.source_snapshot_id],
+    [signal?.build_id,tabs?.provenance?.build_id]]
+    .every(([left,right]) => typeof left === 'string' && left.length && left.trim() === left && left === right);
+}
 function pollenFocusedSignalData(tabs, signal) {
   const empty = (status, reason) => ({status,reason,groupKeys:[],matches:[],observationIds:[],unmatchedVariableIds:[],ambiguousObservationIds:[],matchBasisCounts:{},defaultAnchorKey:null,anchorStatus:'unavailable'});
   const text = value => typeof value === 'string' && value.trim() ? value.trim() : null;
   if (!signal) return empty('unavailable','No source map signal is selected.');
   if (signal.source_family !== 'neotoma' || signal.semantic_role !== 'source_chronology_context'
     || tabs?.overview?.source_family !== 'neotoma') return empty('unavailable','This map feature has no supported native source facet.');
-  if (![signal.record_id,signal.source_record_id,tabs.overview.site_id,signal.source_snapshot_id,tabs.provenance?.source_snapshot_id,signal.build_id,tabs.provenance?.build_id].every(value => text(value) === value && value !== null && value !== undefined)
-    || signal.record_id !== tabs.overview.site_id
-    || signal.source_snapshot_id !== tabs.provenance?.source_snapshot_id
-    || signal.build_id !== tabs.provenance?.build_id) return empty('unavailable','Selected feature and detail source identities do not agree.');
+  if (!sourceSignalMatchesDetails(tabs, signal) || !signal.source_record_id
+    || text(signal.source_record_id) !== signal.source_record_id) return empty('unavailable','Selected feature and detail source identities do not agree.');
   const ids = signal.source_variable_ids, taxon = signal.source_taxon_id, code = signal.source_ecological_code;
   const taxonMode = signal.node_level === 'source_taxon', codeMode = signal.node_level === 'source_ecological_code';
   if (signal.node_level === 'source_sample_presence') return empty('unavailable','Sample presence does not select one native taxon or ecological code.');
@@ -69,7 +73,7 @@ function pollenFocusedSignalData(tabs, signal) {
     return empty('unavailable','Source signal tables could not be decoded consistently.');
   }
 }
-function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(tabs,signal), activeCountrySelection = null) {
+function renderSourceSignalScope(signal, activeCountrySelection) {
   const text = value => escapeHtml(pollenDepthText(value));
   const countries = Array.isArray(activeCountrySelection)
     && activeCountrySelection.every(value => typeof value === 'string' && value.trim() === value && value.length)
@@ -77,9 +81,18 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
     ? activeCountrySelection.length ? activeCountrySelection.join(', ') : 'none selected'
     : 'not supplied';
   const sourceContext = signal?.source_family === 'neotoma' && signal?.semantic_role === 'source_chronology_context';
-  const scope = `<details><summary>Source signal identity and display scope</summary><dl style="overflow-wrap:anywhere"><dt>Identity</dt><dd>Node: <code>${text(signal?.node_id)}</code>; feature key: <code>${text(signal?.feature_key)}</code>; resolution: ${text(signal?.node_level)}.</dd><dt>Geography</dt><dd>Source country: ${text(signal?.country)}. Active map countries: ${text(countries)}. Source country and display selection are separate.</dd><dt>Selected map chronology</dt><dd>Chronology: <code>${text(signal?.chronology_id)}</code>; claim: <code>${text(signal?.chronology_claim_id)}</code>; selection posture: ${text(signal?.chronology_selection_posture)}. This is separate from the source-age display axis chosen below.</dd><dt>Candidate and propagation posture</dt><dd>Candidate generation: ${text(signal?.candidate_generation_status)}; refusal reason: ${text(signal?.candidate_refusal_reason)}; propagation eligible: ${text(signal?.propagation_eligible)}.</dd><dt>Scenario applicability</dt><dd>${sourceContext ? 'Not applicable: this display-only source context is not a candidate relation scenario. Relation filters do not select an analysis scenario for these observations.' : 'Not established: no supported source-context scenario applicability is supplied.'}</dd><dt>Scientific admission denominators</dt><dd>Admitted, indeterminate and refused scientific-event denominators are not established here. The matched, unmatched and ambiguous observations above are native join counts, not scientific admission counts.</dd></dl></details>`;
+  return `<details><summary>Source scope</summary><dl style="overflow-wrap:anywhere"><dt>Identity</dt><dd>Node: <code>${text(signal?.node_id)}</code>; feature key: <code>${text(signal?.feature_key)}</code>; resolution: ${text(signal?.node_level)}.</dd><dt>Geography</dt><dd>Source country: ${text(signal?.country)}. Active map countries: ${text(countries)}. Separate scopes.</dd><dt>Map chronology</dt><dd>Chronology: <code>${text(signal?.chronology_id)}</code>; claim: <code>${text(signal?.chronology_claim_id)}</code>; selection posture: ${text(signal?.chronology_selection_posture)}. Not the source-age axis.</dd><dt>Propagation</dt><dd>Candidate status: ${text(signal?.candidate_generation_status)}; refusal: ${text(signal?.candidate_refusal_reason)}; propagation eligible: ${text(signal?.propagation_eligible)}.</dd><dt>Scenario</dt><dd>${sourceContext ? 'Not applicable: source context, no relation scenario or analysis selected.' : 'Unknown for this source.'}</dd><dt>Admission</dt><dd>Scientific events: admitted/indeterminate/refused counts unavailable. Native joins do not establish scientific admission, taxonomy or chronology.</dd></dl></details>`;
+}
+function renderSourceChronologyDiagram(tabs, signal, countries) {
+  return (signal?.source_family === 'neotoma' && signal.semantic_role === 'source_chronology_context'
+    && tabs?.overview?.source_family === 'neotoma' && sourceSignalMatchesDetails(tabs, signal)
+    ? renderSourceSignalScope(signal, countries) : '')
+    + renderAgeDepthDiagram(tabs);
+}
+function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(tabs,signal), activeCountrySelection = null) {
+  const text = value => escapeHtml(pollenDepthText(value));
   const label = signal?.node_level === 'source_taxon' ? `native taxon ${pollenDepthText(signal.source_taxon_id)}; variables ${pollenDepthText(signal.source_variable_ids)}`
     : signal?.node_level === 'source_ecological_code' ? `literal source code ${pollenDepthText(signal.source_ecological_code)}`
-    : signal?.node_level === 'source_sample_presence' ? 'sample presence without one selected taxon or ecological code' : 'native source facet unavailable';
-  return `<section data-pollen-focused-signal="${data.status}"><p><strong>Selected map signal:</strong> ${signal ? text(label) : 'none'}; source sample ${text(signal?.source_record_id)}. ${text(data.reason)} ${data.observationIds.length} drawable source observations in ${data.groupKeys.length} native measurement groups match. ${data.unmatchedVariableIds.length} requested variables have no drawable match; ${data.ambiguousObservationIds.length} observation identities or code assignments are ambiguous. Basis: ${data.matchBasisCounts.exact_variable_taxon_unit || 0} exact variable/taxon/unit, ${data.matchBasisCounts.raw_source_code || 0} raw source code, ${data.matchBasisCounts.unique_variable_source_code || 0} uniquely supplied variable code. ${data.anchorStatus === 'ambiguous_measurement_context' ? 'Matching measurement contexts differ; choose a display anchor explicitly.' : ''} Matching groups can contain other source observations. A manual display anchor is separate from the selected map signal; neither literal source codes nor this highlight approve ecological taxonomy or a chronology.</p>${scope}</section>`;
+    : signal?.node_level === 'source_sample_presence' ? 'sample presence; no selected taxon or ecological code' : 'source facet unavailable';
+  return `<section data-pollen-focused-signal="${data.status}"><p><strong>Selected map signal:</strong> ${signal ? text(label) : 'none'}; source sample ${text(signal?.source_record_id)}. ${text(data.reason)} ${data.observationIds.length} drawable observations; ${data.groupKeys.length} matching native groups. ${data.unmatchedVariableIds.length} requested variables have no drawable match; ${data.ambiguousObservationIds.length} ambiguous observation IDs/codes. Basis: ${data.matchBasisCounts.exact_variable_taxon_unit || 0} variable/taxon/unit; ${data.matchBasisCounts.raw_source_code || 0} raw code; ${data.matchBasisCounts.unique_variable_source_code || 0} unique variable code. ${data.anchorStatus === 'ambiguous_measurement_context' ? 'Different contexts; choose an explicit anchor.' : ''} Manual anchors leave the selected signal unchanged. Groups may contain other observations.</p>${renderSourceSignalScope(signal,activeCountrySelection)}</section>`;
 }

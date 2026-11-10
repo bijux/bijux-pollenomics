@@ -343,7 +343,10 @@ const sourceFeatures=[
   {type:'Feature',geometry:{type:'Polygon',coordinates:[]},properties:{record_id:'norway',dataset_id:'937075',country:'Norway',time_label:'0-100 BP',quality_class:'high',reconstruction_values:{OL:8},standard_errors:{OL:1}}},
   {type:'Feature',geometry:{type:'Polygon',coordinates:[]},properties:{record_id:'missing-country',dataset_id:'937075',time_label:'0-100 BP',quality_class:'high',reconstruction_values:{OL:9},standard_errors:{OL:1}}},
 ];
-const POLYGON_LAYERS=[{key:'landclim-reveals-temporal-grid',geojson:{features:sourceFeatures}}];
+const POLYGON_LAYERS=[{key:'landclim-reveals-temporal-grid',applies_country_filter:true,geojson:{features:sourceFeatures}}];
+const activeLayerKeys=new Set([MODELED_CONTEXT.layer_key]);
+function modeledContextFeatureVisible(layer, properties){return properties.time_label===sourceWindow.label}
+function featureInTimeWindow(){return true}
 const activeCountries=new Set(['Sweden']);
 const modeledContextActive=true;
 function currentModeledContextWindow(){return sourceWindow}
@@ -352,6 +355,9 @@ function currentModeledContextMetric(){return metric}
 function polygonGeometryIsAdmitted(){return true}
 function isModeledContextFeature(layer,properties){return layer.key===MODELED_CONTEXT.layer_key && properties.dataset_id===MODELED_CONTEXT.dataset_id}
 """
+        + template_block(
+            "function polygonFeatureVisible", "function geoJsonPositionIsAdmitted"
+        )
         + frame_block
         + """
 const frame=modeledContextFrameGeoJson();
@@ -379,3 +385,76 @@ console.log(JSON.stringify({
             {"OL": 9},
         ],
     }
+
+
+def test_hidden_modeled_layer_has_no_visible_count_or_download_rows() -> None:
+    observed = run_node_json(
+        """
+const MODELED_CONTEXT={layer_key:'landclim-reveals-temporal-grid',dataset_id:'937075',metric_count:1,value_unit:'percentage_cover',palette:[]};
+const sourceWindow={label:'0-100 BP',feature_count:2};
+const metric={key:'OL',label:'Open land',source_label:'Open land (OL)'};
+const family={key:'source_land_cover_types',label:'Land cover',metric_count:1,metrics:[metric]};
+const MODELED_CONTEXT_FAMILIES=[family],MODELED_CONTEXT_WINDOWS=[sourceWindow],MODELED_CONTEXT_PALETTE=[];
+let modeledContextActive=true,modeledContextWindowIndex=0,modeledContextFamilyKey=family.key,modeledContextMetricKey='OL';
+const layer={key:MODELED_CONTEXT.layer_key,applies_country_filter:true,geojson:{features:[
+{type:'Feature',geometry:{type:'Polygon',coordinates:[[[0,0],[1,0],[1,1],[0,0]]]},properties:{record_id:'zero',dataset_id:'937075',country:'Sweden',time_label:'0-100 BP',quality_class:'high',reconstruction_values:{OL:0},standard_errors:{OL:0}}},
+{type:'Feature',geometry:{type:'Polygon',coordinates:[[[0,0],[1,0],[1,1],[0,0]]]},properties:{record_id:'no-pollen',dataset_id:'937075',country:'Sweden',time_label:'0-100 BP',quality_class:'no_pollen_data',reconstruction_values:{OL:null},standard_errors:{OL:null}}}
+]}};
+const ALL_LAYERS=[layer],POLYGON_LAYERS=[layer],activeCountries=new Set(['Sweden']),activeLayerKeys=new Set([layer.key]);
+const original=JSON.stringify(layer);
+function currentModeledContextWindow(){return sourceWindow}function currentModeledContextMetric(){return metric}function currentModeledContextFamily(){return family}
+function modeledContextAvailable(){return true}function polygonGeometryIsAdmitted(){return true}let timeEligible=true;
+function featureInTimeWindow(){return timeEligible}function escapeHtml(x){return String(x)}
+const modeledContextControls={},modeledContextFamily={},modeledContextMetric={},modeledContextWindow={},modeledContextDownload={},modeledContextSummary={},modeledContextState={},modeledContextLegend={};
+const modeledContextToggle={setAttribute(){}},modeledContextPlayback={};const reducedMotionQuery={matches:false};
+"""
+        + template_block(
+            "function isModeledContextFeature", "function modeledContextNumber"
+        )
+        + template_block(
+            "function modeledContextFrameFeatures",
+            "function downloadModeledContextFrame",
+        )
+        + template_block(
+            "function renderModeledContextControls",
+            "const SOURCE_CHRONOLOGY_LEVEL_ORDER",
+        )
+        + template_block(
+            "function toggleLayerSelection", "function renderSourceTimeDensity"
+        )
+        + template_block(
+            "function polygonFeatureVisible", "function geoJsonPositionIsAdmitted"
+        )
+        + """
+function snapshot(){
+  renderModeledContextControls();
+  const frame=modeledContextFrameGeoJson();
+  return {eligible:layer.geojson.features.filter(f=>polygonFeatureVisible(layer,f.properties)).length,
+    frameCount:frame.features.length,denominator:frame.modeled_context.quality_class_count_denominator,
+    quality:modeledContextFrameQualitySummary(),caption:modeledContextState.textContent,
+    downloadEnabled:!modeledContextDownload.disabled,
+    values:frame.features.map(f=>f.properties.reconstruction_values.OL)};
+}
+const visible=snapshot();
+toggleLayerSelection(layer.key,false);
+const hidden=snapshot();
+toggleLayerSelection(layer.key,true);
+const restored=snapshot();
+timeEligible=false;
+console.log(JSON.stringify({visible,hidden,restored,outsideTime:snapshot(),sourceUnchanged:original===JSON.stringify(layer)}));
+"""
+    )
+    assert observed["visible"] == observed["restored"]
+    assert observed["visible"]["eligible"] == observed["visible"]["frameCount"] == 2
+    assert observed["visible"]["values"] == [None, 0]
+    assert observed["visible"]["downloadEnabled"] is True
+    assert observed["hidden"]["eligible"] == observed["hidden"]["frameCount"] == 0
+    assert observed["hidden"]["denominator"] == 0
+    assert observed["hidden"]["quality"] == {"high": 0, "low": 0, "no_pollen_data": 0}
+    assert observed["hidden"]["caption"].startswith(
+        "0 visible cells · 0/0 explicitly have no pollen data"
+    )
+    assert observed["hidden"]["downloadEnabled"] is False
+    assert observed["hidden"]["values"] == []
+    assert observed["outsideTime"] == observed["hidden"]
+    assert observed["sourceUnchanged"] is True

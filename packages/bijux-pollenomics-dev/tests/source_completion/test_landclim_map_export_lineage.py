@@ -154,6 +154,132 @@ def test_authenticated_runtime_still_requires_real_export_functions(
         owner._export_contract(script)
 
 
+@pytest.mark.parametrize(
+    "name,next_name,guard,replacement",
+    [
+        (
+            "modeledContextFrameFeatures",
+            "modeledContextFrameGeoJson",
+            "if (!modeledContextActive || !sourceWindow) return [];",
+            "",
+        ),
+        (
+            "modeledContextFrameFeatures",
+            "modeledContextFrameGeoJson",
+            "polygonGeometryIsAdmitted(feature)",
+            "true",
+        ),
+        (
+            "modeledContextFrameFeatures",
+            "modeledContextFrameGeoJson",
+            "&& polygonFeatureVisible(layer, properties)",
+            "",
+        ),
+        (
+            "polygonFeatureVisible",
+            "geoJsonPositionIsAdmitted",
+            "activeLayerKeys.has(layer.key)",
+            "true",
+        ),
+        (
+            "polygonFeatureVisible",
+            "geoJsonPositionIsAdmitted",
+            "&& (!layer.applies_country_filter || activeCountries.has(country))",
+            "",
+        ),
+        (
+            "polygonFeatureVisible",
+            "geoJsonPositionIsAdmitted",
+            "&& featureInTimeWindow(layer, properties)",
+            "",
+        ),
+        (
+            "polygonFeatureVisible",
+            "geoJsonPositionIsAdmitted",
+            "&& modeledContextFeatureVisible(layer, properties)",
+            "",
+        ),
+        (
+            "isModeledContextFeature",
+            "modeledContextFeatureVisible",
+            "&& String(properties.dataset_id || '') === String(MODELED_CONTEXT.dataset_id || '')",
+            "",
+        ),
+        (
+            "modeledContextFeatureVisible",
+            "modeledContextNumber",
+            "properties.time_label === window.label",
+            "true",
+        ),
+        (
+            "modeledContextFrameGeoJson",
+            "modeledContextFrameQualitySummary",
+            "const sourceFeatures = modeledContextFrameFeatures();",
+            "const sourceFeatures = [];",
+        ),
+        (
+            "modeledContextFrameGeoJson",
+            "modeledContextFrameQualitySummary",
+            "reconstruction_values: Object.fromEntries(Object.keys(feature.properties.reconstruction_values || {}).map((key) => [key, null]))",
+            "reconstruction_values: feature.properties.reconstruction_values",
+        ),
+        (
+            "modeledContextFrameGeoJson",
+            "modeledContextFrameQualitySummary",
+            "standard_errors: Object.fromEntries(Object.keys(feature.properties.standard_errors || {}).map((key) => [key, null]))",
+            "standard_errors: feature.properties.standard_errors",
+        ),
+        (
+            "modeledContextFrameGeoJson",
+            "modeledContextFrameQualitySummary",
+            "propagation_use_allowed: false",
+            "propagation_use_allowed: true",
+        ),
+    ],
+)
+def test_removed_selector_guard_cannot_be_replaced_by_an_unrelated_decoy(
+    runtime: bytes, name: str, next_name: str, guard: str, replacement: str
+) -> None:
+    script = runtime.decode()
+    start = script.index(f"function {name}(")
+    end = script.index(f"function {next_name}(", start)
+    actual = script[start:end]
+    assert actual.count(guard) == 1
+    changed = (
+        script[:start]
+        + actual.replace(guard, replacement, 1)
+        + script[end:]
+        + "\n/* Unrelated retained text: "
+        + guard
+        + " */\n"
+    )
+    assert guard in changed
+    with pytest.raises(ValueError, match="selector or identity"):
+        owner._export_contract(changed)
+
+
+def test_download_listener_must_be_in_the_actual_control_binding_section(
+    runtime: bytes,
+) -> None:
+    listener = (
+        "modeledContextDownload.addEventListener('click', downloadModeledContextFrame)"
+    )
+    script = runtime.decode()
+    assert script.count(listener) == 1
+    changed = script.replace(listener, "modeledContextDownload.disabled = true", 1)
+    changed += "\n/* " + listener + " */\n"
+    with pytest.raises(ValueError, match="selector or identity"):
+        owner._export_contract(changed)
+
+
+def test_ambiguous_published_selector_definitions_are_refused(runtime: bytes) -> None:
+    changed = (
+        runtime.decode() + "\nfunction polygonFeatureVisible(layer, properties) {}"
+    )
+    with pytest.raises(ValueError, match="selector or identity"):
+        owner._export_contract(changed)
+
+
 def test_only_declared_landclim_nodes_are_read_and_membership_is_complete(
     published: tuple[Path, dict[str, Any], list[dict[str, Any]]],
     monkeypatch: pytest.MonkeyPatch,

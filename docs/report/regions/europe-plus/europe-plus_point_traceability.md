@@ -65,7 +65,7 @@ Cross-domain map/evidence wrapper; country/source entity accounting and explicit
 
 **Unsupported claim.** A complete traceability chain does not independently authenticate historical observation, assign an epoch, resolve biological identity or admit ecological comparisons.
 
-**Actual verification performed.** Retained scientific data and review artifacts keep their recorded source identities and limits. This bounded presentation rebuild adds fieldwork documentation and a private search-gram controller while preserving published search membership and results. Earlier browser qualifications remain tied to their recorded runtime; this source and compositor receipt establishes no new browser or scientific qualification.
+**Actual verification performed.** Retained scientific data and review artifacts keep their recorded source identities and limits. The bounded caption rebuild follows map layer eligibility and binds source chronology context to the selected site, snapshot, build and country selection. At source f84f86a3, 247 focused renderer checks pass; the current three-map compositor preserves all scientific registrations and optional controllers. This source/compositor evidence does not establish browser behavior, human comprehension or scientific admission; earlier browser qualifications retain their recorded sources.
 
 **Remaining input or review.** Deeper source-family identity, chronology, biological and rights decisions remain required. Current decoded preservation and actual index-factory checks do not independently validate historical observations.
 
