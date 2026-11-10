@@ -1848,6 +1848,62 @@ async function responsiveFacts(cdp, width, focusedScreenshotPath = null) {
   return layout;
 }
 
+function recordCenterOffset(view) {
+  if (!view || !['latitude', 'longitude', 'zoom'].every(key => typeof view[key] === 'number' && Number.isFinite(view[key]))
+    || Math.abs(view.latitude) > 85.0511287798066) return null;
+  const scale = 256 * 2 ** view.zoom;
+  const mercator = latitude => (0.5 - Math.log(Math.tan(Math.PI / 4 + latitude * Math.PI / 360)) / (2 * Math.PI)) * scale;
+  const dx = (((view.longitude - 14.0659044 + 540) % 360 + 360) % 360 - 180) / 360 * scale;
+  const dy = mercator(view.latitude) - mercator(55.9319529);
+  return Number.isFinite(dx) && Number.isFinite(dy) ? {dx,dy,distance:Math.hypot(dx,dy)} : null;
+}
+
+async function fieldworkMapView(cdp, exerciseZoom = false) {
+  return evaluate(cdp, `(async () => {
+    ${recordCenterOffset.toString()}
+    const mapElement = document.getElementById('map');
+    const sample = () => {
+      const view = BijuxPollenomicsAtlasCapture.snapshot().view;
+      const transforms = [...mapElement.querySelectorAll('.leaflet-map-pane, .leaflet-zoom-animated')]
+        .map(element => getComputedStyle(element).transform).join('|');
+      return {view,offset:recordCenterOffset(view),transforms,animating:mapElement.classList.contains('leaflet-zoom-anim')
+        || Boolean(mapElement.querySelector('.leaflet-zoom-anim'))};
+    };
+    const observe = (action, accepts) => {
+      const before = sample();
+      action();
+      return new Promise(resolve => {
+        const start = performance.now();
+        let previous = '', stable = 0, frames = 0;
+        const inspect = () => {
+          const last = sample(), signature = JSON.stringify(last);
+          stable = last.offset && !last.animating && signature === previous ? stable + 1 : 0;
+          previous = signature;
+          frames += 1;
+          // Existing viewport/panel invalidation timers finish within 180 ms.
+          const passed = performance.now() - start >= 200 && stable >= 2 && accepts(last);
+          if (passed || performance.now() - start > 3000) {
+            resolve({passed,before,last,frames,elapsed_ms:performance.now()-start,stable_frames:stable});
+            return;
+          }
+          requestAnimationFrame(inspect);
+        };
+        requestAnimationFrame(inspect);
+      });
+    };
+    const initial = await observe(() => {}, () => true);
+    if (!initial.passed || !${exerciseZoom}) return initial;
+    const zoomOut = document.querySelector('.leaflet-control-zoom-out');
+    if (!zoomOut || zoomOut.classList.contains('leaflet-disabled')) throw Error('Record zoom-out control unavailable');
+    const zoom_out = await observe(() => zoomOut.click(), row => row.view.zoom < initial.last.view.zoom);
+    if (!zoom_out.passed) return {...zoom_out,initial,zoom_out};
+    // Display centering allows one CSS pixel; degree equality cannot represent Leaflet pixel rounding.
+    const focused = await observe(() => document.getElementById('focus-zoom').click(),
+      row => row.view.zoom >= 8 && row.offset.distance <= 1);
+    return {...focused,initial,zoom_out};
+  })()`);
+}
+
 function fieldworkReadingPasses(facts) {
   const record = facts.fieldwork;
   return record?.title === 'Lyngsjön Lake field sampling' && record.detail_status === 'available'
@@ -1909,10 +1965,18 @@ async function fieldworkReadingJourney(cdp, scope, receipts) {
     for (const width of [1440, 390]) {
       await cdp.send('Emulation.setDeviceMetricsOverride', {width,height:900,deviceScaleFactor:1,mobile:width===390});
       await captureReady(cdp);
+      const settled = await fieldworkMapView(cdp);
+      if (!settled.passed) throw Error('Fieldwork screenshot view did not settle: '+JSON.stringify(settled));
+      await evaluate(cdp, "document.getElementById('focus-tab-overview').focus();document.getElementById('focus-tab-overview').scrollIntoView({block:'start'});true");
       const path = `${scope.name}/fieldwork-record-${width}.png`;
       await screenshot(cdp, path);
       screenshots.push(path);
       receipts.push(path);
+      await evaluate(cdp, "const media=document.querySelector('#focus-detail .popup-media-link');media.focus();media.scrollIntoView({block:'center'});true");
+      const mediaPath = `${scope.name}/fieldwork-media-${width}.png`;
+      await screenshot(cdp, mediaPath);
+      screenshots.push(mediaPath);
+      receipts.push(mediaPath);
     }
     await cdp.send('Emulation.setDeviceMetricsOverride', {width:1440,height:900,deviceScaleFactor:1,mobile:false});
     await captureReady(cdp);
@@ -1924,20 +1988,13 @@ async function fieldworkReadingJourney(cdp, scope, receipts) {
       if (key !== 'Tab') keyboard.push(await evaluate(cdp, "({focus:document.activeElement.id,selected:document.getElementById('focus-tab-overview').getAttribute('aria-selected')})"));
     }
     const afterTab = await evaluate(cdp, 'document.activeElement.id');
-    const zoomReachedRecord = await evaluate(cdp, `(async () => {
-      document.getElementById('focus-zoom').click();
-      return new Promise(resolve => {
-        const start=performance.now();
-        const inspect=()=>{const view=BijuxPollenomicsAtlasCapture.snapshot().view;
-          if(Math.abs(view.latitude-55.9319529)<0.00001 && Math.abs(view.longitude-14.0659044)<0.00001 && view.zoom>=8){resolve(true);return;}
-          if(performance.now()-start>3000){resolve(false);return;}requestAnimationFrame(inspect);};inspect();
-      });
-    })()`);
+    const zoom = await fieldworkMapView(cdp, true);
+    const zoomReachedRecord = zoom.passed;
     await openRecord('Ageröds Mosse', 'Ageröds Mosse');
     const ordinary = await evaluate(cdp, `({title:document.getElementById('focus-title').textContent,
       tabs:[...document.querySelectorAll('#focus-tabs [role=tab]')].map(row=>row.dataset.focusTab),
       export_hidden:document.getElementById('focus-export').hidden,export_disabled:document.getElementById('focus-export').disabled})`);
-    const facts = {fieldwork,keyboard,after_tab:afterTab,zoom_reached_record:zoomReachedRecord,ordinary,screenshots,clipboard_write_exercised:false};
+    const facts = {fieldwork,keyboard,after_tab:afterTab,zoom_reached_record:zoomReachedRecord,zoom,ordinary,screenshots,clipboard_write_exercised:false};
     if (!fieldworkReadingPasses(facts)) throw Error('Fieldwork record reading contract failed: '+JSON.stringify(facts));
     return facts;
   } catch (error) {

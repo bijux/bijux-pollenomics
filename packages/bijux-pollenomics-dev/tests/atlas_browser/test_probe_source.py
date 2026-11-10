@@ -2621,3 +2621,92 @@ console.log(JSON.stringify({same_primary:caught===primary,message:caught?.messag
             "atlas browser cleanup also failed (record restoration): restoration load timeout"
         ],
     }
+
+
+def test_record_centering_uses_css_pixels_at_the_observed_zoom() -> None:
+    function = _probe_function_block(
+        "function recordCenterOffset", "async function fieldworkMapView"
+    )
+    script = (
+        function
+        + r"""
+const actual={latitude:55.93227936568622,longitude:14.067993164062502,zoom:8};
+const cases={actual,wrapped:{...actual,longitude:actual.longitude+360},
+  wrong:{...actual,longitude:14.0659044+2*360/65536},
+  nonfinite:{...actual,latitude:NaN},polar:{...actual,latitude:90},
+  badzoom:{...actual,zoom:Infinity}};
+console.log(JSON.stringify(Object.fromEntries(Object.entries(cases).map(([key,view])=>[key,recordCenterOffset(view)]))));
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    observed = json.loads(completed.stdout)
+    assert observed["actual"]["distance"] == pytest.approx(0.39477136315244304)
+    assert observed["wrapped"]["distance"] == pytest.approx(
+        observed["actual"]["distance"]
+    )
+    assert observed["wrong"]["distance"] > 1
+    assert all(observed[key] is None for key in ("nonfinite", "polar", "badzoom"))
+
+
+def test_record_zoom_requires_ui_movement_and_settled_finite_center() -> None:
+    functions = _probe_function_block(
+        "function recordCenterOffset", "function fieldworkReadingPasses"
+    )
+    script = (
+        functions
+        + r"""
+const observed={latitude:55.93227936568622,longitude:14.067993164062502,zoom:8};
+const results={};
+for(const mode of ['rounded','wrapped','wrong_center','bad_zoom','nonfinite','moving','animating','zoom_out_noop']){
+ let time=0,view={...observed},phase='initial',calls=[];
+ globalThis.performance={now:()=>time};
+ globalThis.requestAnimationFrame=callback=>{time+=16;
+   if(phase==='focus'&&mode==='moving')view.longitude+=0.000001;
+   queueMicrotask(callback);};
+ const map={querySelectorAll:()=>[{transform:'matrix(1,0,0,1,0,0)'}],
+   querySelector:()=>null,classList:{contains:()=>phase==='focus'&&mode==='animating'}};
+ const zoomOut={classList:{contains:()=>false},click:()=>{
+   calls.push('zoom-out');phase='out';if(mode!=='zoom_out_noop')view={...view,zoom:7};}};
+ const focus={click:()=>{calls.push('focus-zoom');phase='focus';view={...observed};
+   if(mode==='wrapped')view.longitude+=360;
+   if(mode==='wrong_center')view.longitude=14.0659044+2*360/65536;
+   if(mode==='bad_zoom')view.zoom=7;
+   if(mode==='nonfinite')view.latitude=NaN;}};
+ globalThis.document={getElementById:id=>id==='map'?map:focus,querySelector:()=>zoomOut};
+ globalThis.getComputedStyle=element=>element;
+ globalThis.BijuxPollenomicsAtlasCapture={snapshot:()=>({view:{...view}})};
+ const facts=await fieldworkMapView({},true);
+ results[mode]={passed:facts.passed,calls,elapsed_ms:facts.elapsed_ms,
+   before_zoom:facts.before.view.zoom,last_zoom:facts.last.view.zoom,
+   last_offset:facts.last.offset,stable_frames:facts.stable_frames};
+}
+console.log(JSON.stringify(results));
+async function evaluate(_cdp,expression){return eval(expression);}
+"""
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    observed = json.loads(completed.stdout)
+    for mode, facts in observed.items():
+        assert facts["passed"] is (mode in {"rounded", "wrapped"})
+        assert facts["calls"] == (
+            ["zoom-out"] if mode == "zoom_out_noop" else ["zoom-out", "focus-zoom"]
+        )
+        if facts["passed"]:
+            assert facts["before_zoom"] == 7
+            assert facts["last_zoom"] == 8
+            assert facts["last_offset"]["distance"] <= 1
+            assert facts["stable_frames"] >= 2
+        else:
+            assert 3000 < facts["elapsed_ms"] <= 3016
