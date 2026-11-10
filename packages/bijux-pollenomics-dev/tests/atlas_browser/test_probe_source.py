@@ -3006,3 +3006,274 @@ console.log(JSON.stringify({...results,watchdog:true}));
         "page": True,
         "watchdog": True,
     }
+
+
+@pytest.mark.parametrize(
+    "port_kind", ["two-lines", "symlink", "oversized", "invalid-utf8", "fifo"]
+)
+def test_chromium_failed_startup_observes_only_bounded_owned_evidence(
+    tmp_path: Path, port_kind: str
+) -> None:
+    import shlex
+
+    transport = Path(atlas_browser.__file__).with_name("browser-transport.mjs")
+    script = tmp_path / "fake-chromium.mjs"
+    script.write_text("""import {writeFileSync,symlinkSync,renameSync} from 'node:fs';
+import {join} from 'node:path';
+const profile=process.argv.find(value=>value.startsWith('--user-data-dir=')).split('=').slice(1).join('=');
+const path=join(profile,'DevToolsActivePort');
+const kind=process.env.BIJUX_PORT_KIND;
+if(kind==='fifo')renameSync(process.env.BIJUX_FIFO_PATH,path);
+else if(kind==='symlink'){
+ const target=join(profile,'outside-port');writeFileSync(target,'must-not-read');symlinkSync(target,path);
+}else writeFileSync(path,kind==='oversized'?'x'.repeat(4097):kind==='invalid-utf8'?Buffer.from([255]):'9222\\n/devtools/browser/evidence-only\\n');
+process.stderr.write('owned startup output\\n');
+setTimeout(()=>process.exit(42),250);
+""")
+    fake = tmp_path / "fake-chromium"
+    fake.write_text(f'#!/bin/sh\nexec node {shlex.quote(str(script))} "$@"\n')
+    fake.chmod(0o700)
+    import os
+
+    environment = {**os.environ, "BIJUX_PORT_KIND": port_kind}
+    if port_kind == "fifo":
+        if not hasattr(os, "mkfifo"):
+            pytest.skip("FIFO fixture requires a POSIX filesystem")
+        fifo = tmp_path / "port-fifo"
+        os.mkfifo(fifo)
+        environment["BIJUX_FIFO_PATH"] = str(fifo)
+    output = tmp_path / "startup"
+    result = subprocess.run(
+        ("node", str(transport), "--probe", str(fake), str(output)),
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=10,
+        env=environment,
+    )
+    assert result.returncode != 0
+    receipt = json.loads((output / "startup.json").read_text())
+    assert receipt["status"] == "FAIL"
+    assert "browser exited before debugger readiness: 42" in receipt["error"]
+    assert receipt["process"]["pid"] > 0
+    assert receipt["process"]["spawnfile"] == str(fake)
+    assert receipt["process"]["exit"] == {"code": 42, "signal": None}
+    assert receipt["process"]["close"] == {"code": 42, "signal": None}
+    assert receipt["process"]["exit_observed"] and receipt["process"]["close_observed"]
+    assert receipt["cleanup"]["runtime_close"] == "fulfilled"
+    assert receipt["cleanup"]["profile"]["removed"] is True
+    assert receipt["ipc_removed"] is True
+    assert receipt["cleanup"]["process_group_absence"] == "not_independently_observed"
+    assert receipt["logs"] == {
+        "observed_bytes": 21,
+        "retained_bytes": 21,
+        "truncated": False,
+        "budget_bytes": 1048576,
+    }
+    assert (output / "browser.log").read_bytes() == b"owned startup output\n"
+    assert (
+        receipt["milestones"]["first_output"]
+        <= receipt["milestones"]["primary_failure"]
+    )
+    assert "endpoint_observed" not in receipt["milestones"]
+    port = receipt["observations"]["failure"]["devtools_active_port"]
+    if port_kind == "two-lines":
+        assert port["status"] == "available"
+        assert port["lines"] == ["9222", "/devtools/browser/evidence-only"]
+        assert port["read_bytes"] < 4096
+    elif port_kind == "symlink":
+        assert port["type"] == "symlink" and port["content"] == "not_read"
+        assert "must-not-read" not in (output / "startup.json").read_text()
+    elif port_kind == "fifo":
+        assert port["type"] == "not_regular" and port["content"] == "not_read"
+        assert "read_bytes" not in port
+    elif port_kind == "oversized":
+        assert port["bytes"] == 4097 and port["content"] == "not_read_over_budget"
+        assert "lines" not in port
+    else:
+        assert port["status"] == "unavailable"
+    assert (
+        receipt["observations"]["failure"]["at_ms"]
+        <= receipt["milestones"]["cleanup_requested"]
+    )
+
+
+def test_chromium_silent_failure_keeps_endpoint_deadline_and_live_process_facts(
+    tmp_path: Path,
+) -> None:
+    transport = Path(atlas_browser.__file__).with_name("browser-transport.mjs")
+    fake = tmp_path / "silent-chromium"
+    fake.write_text("#!/bin/sh\nexec sleep 30\n")
+    fake.chmod(0o700)
+    output = tmp_path / "silent-startup"
+    result = subprocess.run(
+        ("node", str(transport), "--probe", str(fake), str(output)),
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=20,
+    )
+    assert result.returncode != 0
+    receipt = json.loads((output / "startup.json").read_text())
+    assert receipt["error"] == "Error: browser did not publish a debugger endpoint"
+    assert (
+        receipt["milestones"]["primary_failure"]
+        - receipt["milestones"]["endpoint_wait_started"]
+        >= 14900
+    )
+    assert (
+        receipt["observations"]["failure"]["devtools_active_port"]["code"] == "ENOENT"
+    )
+    assert receipt["logs"]["observed_bytes"] == 0
+    assert "first_output" not in receipt["milestones"]
+    process = receipt["observations"]["failure"]["process"]
+    if receipt["node"]["platform"] == "linux":
+        assert process["status"] == "available" and process["start_ticks"].isdigit()
+        assert process["pid"] == receipt["process"]["pid"]
+        assert process["state"] not in ("Z", "X")
+    else:
+        assert process["status"] == "unavailable"
+    assert receipt["process"]["exit_observed"] and receipt["process"]["close_observed"]
+    assert receipt["ipc_removed"] is True
+
+
+def test_chromium_primary_failure_survives_independent_cleanup_failure(
+    tmp_path: Path,
+) -> None:
+    transport = (
+        Path(atlas_browser.__file__).with_name("browser-transport.mjs").read_text()
+    )
+    probe = transport[
+        transport.index("export async function probeChromium(") : transport.index(
+            "export function debuggerEndpoint("
+        )
+    ].replace("export async function", "async function", 1)
+    endpoint = transport[
+        transport.index("export function debuggerEndpoint(") : transport.index(
+            "export function connectCdp("
+        )
+    ].replace("export function", "function", 1)
+    program = (
+        """import assert from 'node:assert/strict';
+import {spawn} from 'node:child_process';
+import {mkdtemp,mkdir,rm,stat,writeFile,readFile} from 'node:fs/promises';
+import {join} from 'node:path';
+async function launchChromium(binary,profile){
+ const directory=await mkdtemp(join(process.argv[1],'owned-ipc-'));
+ const browser=spawn(process.execPath,['-e','process.exit(42)'],{stdio:['ignore','pipe','pipe']});
+ const closed=new Promise(accept=>browser.once('close',accept));
+ return {browser,directory,close:async()=>{await closed;throw Error('controlled cleanup rejection');}};
+}
+"""
+        + probe
+        + endpoint
+        + """
+const output=join(process.argv[1],'failure');
+await assert.rejects(probeChromium('controlled-fake',output),error=>{
+ assert.match(error.message,/browser exited before debugger readiness: 42/);
+ assert.equal(error.cleanup_errors.length,1);
+ assert.equal(error.cleanup_errors[0].where,'runtime_close');return true;
+});
+const receipt=JSON.parse(await readFile(join(output,'startup.json'),'utf8'));
+assert.match(receipt.primary_error.error,/browser exited before debugger readiness: 42/);
+assert.equal(receipt.cleanup.runtime_close,'rejected');
+assert.equal(receipt.cleanup.profile.removed,true);
+assert.equal(receipt.ipc_removed,false);
+assert.equal(receipt.process.close_observed,true);
+await rm(receipt.ipc_directory,{recursive:true});
+"""
+    )
+    subprocess.run(
+        ("node", "--input-type=module", "-e", program, str(tmp_path)),
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+
+
+@pytest.mark.parametrize("late_version", [False, True])
+def test_chromium_startup_success_cannot_overwrite_a_primary_deadline(
+    tmp_path: Path, late_version: bool
+) -> None:
+    transport = (
+        Path(atlas_browser.__file__).with_name("browser-transport.mjs").read_text()
+    )
+    probe = transport[
+        transport.index("export async function probeChromium(") : transport.index(
+            "export function debuggerEndpoint("
+        )
+    ].replace("export async function", "async function", 1)
+    assert probe.count("await import('node:fs/promises')") == 1
+    probe = probe.replace("await import('node:fs/promises')", "controlledFs", 1)
+    program = (
+        """import assert from 'node:assert/strict';
+import {EventEmitter} from 'node:events';
+import {PassThrough} from 'node:stream';
+import * as fs from 'node:fs/promises';
+import {mkdtemp,mkdir,rm,stat,writeFile,readFile} from 'node:fs/promises';
+import {join} from 'node:path';
+const late=JSON.parse(process.argv[2]);
+let profilePath,releaseObservation,releaseVersion,deadlineFired=false,versionDelivered=false;
+const observationGate=new Promise(accept=>{releaseObservation=accept;});
+const versionGate=new Promise(accept=>{releaseVersion=accept;});
+const controlledFs={...fs,lstat:async path=>{
+ if(late && path===profilePath)await observationGate;
+ return fs.lstat(path);
+}};
+const nativeTimeout=globalThis.setTimeout;
+globalThis.setTimeout=(callback,delay,...args)=>nativeTimeout(()=>{
+ if(delay===30000){
+  deadlineFired=true;callback(...args);
+  nativeTimeout(()=>{versionDelivered=true;releaseVersion({product:'Controlled/1'});releaseObservation();},0);
+ }else callback(...args);
+},delay===30000&&late?5:delay);
+async function launchChromium(binary,profile){
+ profilePath=profile;
+ const directory=await mkdtemp(join(process.argv[1],'owned-ipc-'));
+ const browser=Object.assign(new EventEmitter(),{
+  pid:null,spawnfile:binary,spawnargs:[],stdout:new PassThrough(),stderr:new PassThrough(),exitCode:null,signalCode:null,
+ });
+ return {browser,directory,close:async()=>{
+  browser.exitCode=0;browser.emit('exit',0,null);browser.emit('close',0,null);
+  await rm(directory,{recursive:true});
+ }};
+}
+async function debuggerEndpoint(){return 'ws://controlled';}
+async function connectCdp(){return {send:()=>late?versionGate:Promise.resolve({product:'Controlled/1'}),close(){}};}
+"""
+        + probe
+        + """
+const output=join(process.argv[1],'startup');
+if(late){
+ await assert.rejects(probeChromium('controlled-fake',output),/Chromium startup deadline exceeded/);
+ assert.equal(deadlineFired,true);assert.equal(versionDelivered,true);
+}else{
+ const value=await probeChromium('controlled-fake',output);
+ assert.equal(value.status,'PASS');assert.equal(deadlineFired,false);
+}
+const receipt=JSON.parse(await readFile(join(output,'startup.json'),'utf8'));
+assert.equal(receipt.status,late?'FAIL':'PASS');
+assert.equal(receipt.browser.product,'Controlled/1');
+assert.equal(receipt.cleanup.runtime_close,'fulfilled');
+assert.equal(receipt.ipc_removed,true);assert.equal(receipt.cleanup.profile.removed,true);
+if(late){
+ assert.match(receipt.primary_error.error,/Chromium startup deadline exceeded/);
+ assert.ok(receipt.milestones.primary_failure<=receipt.milestones.cleanup_requested);
+}else assert.equal(receipt.primary_error,undefined);
+"""
+    )
+    subprocess.run(
+        (
+            "node",
+            "--input-type=module",
+            "-e",
+            program,
+            str(tmp_path),
+            json.dumps(late_version),
+        ),
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
