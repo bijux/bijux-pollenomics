@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Check frozen-prediction training support against consumed observation owners, preserving baseline, channel-alias and held-out safeguards without excluding unused training candidates ([#416](https://github.com/bijux/bijux-pollenomics/pull/416)).
+
 - Preserve complete human and animal context populations across every land-use target and time window, including one-pass input iterators ([#415](https://github.com/bijux/bijux-pollenomics/pull/415)).
 
 - Preserve occurrence windows and explicit refusals through fieldwork context exports and reports, label each navigation window correctly, and reject invalid coordinates without coercion or integer overflow ([#414](https://github.com/bijux/bijux-pollenomics/pull/414)).
