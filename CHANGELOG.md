@@ -12,7 +12,7 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
-- Show sampling visits and media in the atlas record reader without pollen-detail failures, preserving keyboard navigation and ordinary source exports.
+- Show sampling visits and media in the atlas record reader, preserve keyboard navigation and ordinary source exports, and intern restoration grams in private bounded transport caches ([#405](https://github.com/bijux/bijux-pollenomics/pull/405)).
 
 - Clarify admitted-support limits, retain unresolved human period coverage, and refresh the Nordic overlap and period review from source-bound metadata while preserving unchanged country, uncertainty and scenario accounts ([#404](https://github.com/bijux/bijux-pollenomics/pull/404)).
 
