@@ -2385,3 +2385,119 @@ def test_artifact_length_unix_socket_path_is_rejected_by_the_kernel(
         pytest.raises(OSError, match="AF_UNIX path too long"),
     ):
         connection.bind(str(tmp_path / ("chromium-ipc" * 20)))
+
+
+def test_fieldwork_reader_checks_require_documentation_and_restore_source_export() -> (
+    None
+):
+    media = [
+        {
+            "href": "../../../gallery/" + filename,
+            "filename": filename,
+            "same_origin": True,
+            "target": "_blank",
+            "rel": "noreferrer",
+        }
+        for filename in (
+            "2026-02-26-data-collection.JPG",
+            "2026-02-26-data-collection.mp4",
+        )
+    ]
+    fieldwork: dict[str, object] = {
+        "title": "Lyngsjön Lake field sampling",
+        "detail_status": "available",
+        "tabs": [{"key": "overview", "label": "Documentation", "selected": "true"}],
+        "panel_label": "focus-tab-overview",
+        "text": "Sampling visit and media; no pollen observations or age-depth series. Sampling date: 2026-02-26 Place: Lyngsjön Lake, southwest of Kristianstad Context: Winter lake sampling",
+        "media": media,
+        "source_hidden": False,
+        "source_href": media[0]["href"],
+        "export_hidden": True,
+        "export_disabled": True,
+        "copy_disabled": False,
+        "focus_layer": "fieldwork-documentation",
+        "focus_record": "bijux:fieldwork:lyngsjon-lake:2026-02-26",
+    }
+    ordinary: dict[str, object] = {
+        "title": "Ageröds Mosse",
+        "export_hidden": False,
+        "export_disabled": False,
+        "tabs": [
+            "overview",
+            "samples",
+            "chronology",
+            "pollen_composition",
+            "relation",
+            "classification",
+            "provenance",
+        ],
+    }
+    facts: dict[str, object] = {
+        "fieldwork": fieldwork,
+        "keyboard": [{"focus": "focus-tab-overview", "selected": "true"}] * 4,
+        "after_tab": "focus-detail",
+        "zoom_reached_record": True,
+        "ordinary": ordinary,
+    }
+    scenarios = {
+        "complete": facts,
+        "wrong_identity": {
+            **facts,
+            "fieldwork": {**fieldwork, "focus_record": "other"},
+        },
+        "pollen_tabs": {
+            **facts,
+            "fieldwork": {
+                **fieldwork,
+                "tabs": [{"key": "overview", "label": "Overview", "selected": "true"}],
+            },
+        },
+        "missing_media": {**facts, "fieldwork": {**fieldwork, "media": media[:1]}},
+        "foreign_media": {
+            **facts,
+            "fieldwork": {
+                **fieldwork,
+                "media": [{**media[0], "same_origin": False}, media[1]],
+            },
+        },
+        "pollen_failure": {
+            **facts,
+            "fieldwork": {
+                **fieldwork,
+                "text": str(fieldwork["text"]) + " detail_record_not_indexed",
+            },
+        },
+        "pollen_action": {**facts, "fieldwork": {**fieldwork, "export_hidden": False}},
+        "wrong_source": {**facts, "fieldwork": {**fieldwork, "source_href": "other"}},
+        "disabled_copy": {**facts, "fieldwork": {**fieldwork, "copy_disabled": True}},
+        "keyboard_escape": {
+            **facts,
+            "keyboard": [{"focus": "focus-tab-provenance", "selected": "true"}] * 4,
+        },
+        "native_tab_blocked": {**facts, "after_tab": "focus-tab-overview"},
+        "zoom_wrong_record": {**facts, "zoom_reached_record": False},
+        "source_export_not_restored": {
+            **facts,
+            "ordinary": {**ordinary, "export_hidden": True},
+        },
+        "ordinary_tabs_lost": {**facts, "ordinary": {**ordinary, "tabs": ["overview"]}},
+    }
+    function = _probe_function_block(
+        "function fieldworkReadingPasses", "async function fieldworkReadingJourney"
+    )
+    script = (
+        function
+        + "\nconst cases="
+        + json.dumps(scenarios)
+        + ";console.log(JSON.stringify(Object.fromEntries(Object.entries(cases).map(([key,value])=>[key,fieldworkReadingPasses(value)]))));"
+    )
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        name: name == "complete" for name in scenarios
+    }
