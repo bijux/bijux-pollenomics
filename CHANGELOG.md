@@ -12,6 +12,8 @@ change contributor and maintainer workflows across the repository.
 
 ### Changed
 
+- Keep publication-reader startup independent of scientific host imports while preserving full runtime authentication when requested ([#402](https://github.com/bijux/bijux-pollenomics/pull/402)).
+
 - Reserve map space for controls and the full record reader, remove duplicate search popups, publish current Nordic pollen chronology context and source model/control metadata, refresh temporal indexes with explicit scientific-context limits, and authenticate LandClim lineage against current atlas transport ([#401](https://github.com/bijux/bijux-pollenomics/pull/401)).
 
 - Refuse contradictory non-pollen element labels in pollen chronology context admission while preserving unknown-label compatibility ([#400](https://github.com/bijux/bijux-pollenomics/pull/400)).

@@ -98,3 +98,57 @@ def test_unknown_media_export_remains_an_attribute_error() -> None:
     name = "unowned_export"
     with pytest.raises(AttributeError, match="has no attribute"):
         getattr(media, name)
+
+
+@pytest.mark.parametrize(
+    "entry",
+    [
+        "bijux_pollenomics_dev.ci.atlas_media.contracts",
+        "bijux_pollenomics_dev.ci.scientific_reading.runner",
+    ],
+)
+def test_reader_cli_and_media_contracts_do_not_import_scientific_host(
+    tmp_path: Path, entry: str
+) -> None:
+    program = """
+import importlib.abc
+import runpy
+import sys
+
+sys.path[:0] = sys.argv[1:3]
+entry = sys.argv[3]
+class RefuseScientificHost(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        if fullname.split('.')[0] in {'bijux_pollenomics', 'numpy', 'scipy', 'pyproj'}:
+            raise AssertionError('unexpected scientific dependency: ' + fullname)
+sys.meta_path.insert(0, RefuseScientificHost())
+if entry.endswith('.runner'):
+    sys.argv = [entry, '--help']
+    try:
+        runpy.run_module(entry, run_name='__main__')
+    except SystemExit as error:
+        assert error.code == 0
+    else:
+        raise AssertionError('reader CLI did not complete its help request')
+else:
+    importlib.import_module(entry)
+assert not any(name == 'bijux_pollenomics' or name.startswith('bijux_pollenomics.')
+               for name in sys.modules)
+"""
+    subprocess.run(
+        (
+            sys.executable,
+            "-I",
+            "-B",
+            "-S",
+            "-c",
+            program,
+            str(ROOT / "packages/bijux-pollenomics-dev/src"),
+            str(ROOT / "packages/bijux-pollenomics/src"),
+            entry,
+        ),
+        cwd=tmp_path,
+        check=True,
+        timeout=20,
+        capture_output=True,
+    )

@@ -10,14 +10,6 @@ from pathlib import Path
 import re
 from typing import Any
 
-from bijux_pollenomics.reporting.map_document.render import (
-    _RUNTIME_LOADER,
-    _FixedJsonBindings,
-    _runtime_resources,
-    static_map_optional_controller_paths,
-)
-from bijux_pollenomics.reporting.map_document.static_assets import StaticAtlasAssets
-
 from .candidate_files import regular_bytes
 from .contracts import AtlasBrowserContractError
 
@@ -39,6 +31,14 @@ def read_published_runtime(
     manifest: dict[str, Any],
 ) -> PublishedRuntime:
     """Keep inline documents compatible and authenticate distributed executable bytes."""
+    from bijux_pollenomics.reporting.map_document.render import (
+        _RUNTIME_LOADER,
+        _FixedJsonBindings,
+        _runtime_resources,
+        static_map_optional_controller_paths,
+    )
+    from bijux_pollenomics.reporting.map_document.static_assets import StaticAtlasAssets
+
     parser = _FixedJsonBindings()
     parser.bindings["atlas-static-bootstrap"] = []
     parser.feed(document)
