@@ -30,6 +30,8 @@ def build_synthesis(
     context_radius_km: int,
     named_registry: dict[str, dict[str, object]] | None = None,
 ) -> dict[str, object]:
+    human_localities = tuple(human_localities)
+    animal_localities = tuple(animal_localities)
     landclim_features = load_features(
         context_root
         / "landclim"
