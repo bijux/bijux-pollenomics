@@ -47,33 +47,140 @@ export async function launchChromium(binary, profile, additionalArguments = []) 
 }
 
 export async function probeChromium(binary, output) {
+  const started=performance.now(), elapsed=()=>performance.now()-started;
+  const fs = await import('node:fs/promises'), {constants} = await import('node:fs');
   await mkdir(output, {recursive:false});
-  const receipt = {status:'FAIL', scope:'Chromium startup/CDP only; no site, page or scientific qualification'};
-  const logs=[]; let size=0, runtime, profile, cdp, timer;
+  const receipt={status:'FAIL', scope:'Chromium startup/CDP only; no site, page or scientific qualification',
+    clock:'monotonic milliseconds since probe entry', milestones:{started:0},
+    readiness_budgets:{endpoint_ms:15000,primary_work_ms:30000,late_tail_ms:0,whole_cleanup_bound:'not_claimed'},
+    node:{executable:process.execPath,version:process.version,platform:process.platform,architecture:process.arch},
+    requested_binary:binary, observations:{}, cleanup:{}, cleanup_errors:[]};
+  const logs=[]; let size=0, retained=0, runtime, profile, cdp, timer, primary, acquisition, initialProcess;
+  const failure=(where,error)=>{
+    receipt.status='FAIL';
+    if(!primary){primary=error;receipt.error=String(error);receipt.primary_error={where,error:String(error)};}
+    else receipt.cleanup_errors.push({where,error:String(error)});
+  };
+  // These observation budgets do not bound the independent launcher cleanup.
+  const observe=async(work,milliseconds=200)=>{
+    let timeout;
+    try{return await Promise.race([
+      Promise.resolve().then(work).then(value=>({status:'available',...value}),error=>({status:'unavailable',error:String(error),code:error.code??null})),
+      new Promise(accept=>{timeout=setTimeout(()=>accept({status:'unavailable',reason:'observation_deadline',budget_ms:milliseconds}),milliseconds);}),
+    ]);}finally{clearTimeout(timeout);}
+  };
+  const directory=path=>observe(async()=>{
+    const info=await fs.lstat(path);
+    if(!info.isDirectory() || info.isSymbolicLink())return {path,type:info.isSymbolicLink()?'symlink':'not_directory',mode:info.mode&0o777,access:'not_attempted'};
+    let access='read_write_search';
+    try{await fs.access(path,constants.R_OK|constants.W_OK|constants.X_OK);}catch(error){access=String(error);}
+    return {path,type:'directory',mode:info.mode&0o777,access};
+  });
+  const boundedFile=async(path)=>{
+    if(!Number.isInteger(constants.O_NOFOLLOW) || !Number.isInteger(constants.O_NONBLOCK))throw Error('Safe nonblocking file observation is unsupported');
+    const file=await fs.open(path,constants.O_RDONLY|constants.O_NOFOLLOW|constants.O_NONBLOCK);
+    try{
+      const info=await file.stat();
+      if(!info.isFile())return {path,type:'not_regular',bytes:info.size};
+      if(info.size>4096)return {path,type:'regular',bytes:info.size,content:'not_read_over_budget'};
+      const bytes=Buffer.alloc(4096), read=await file.read(bytes,0,bytes.length,0), after=await file.stat();
+      return {path,type:'regular',bytes:after.size,read_bytes:read.bytesRead,changed_size:info.size!==after.size,
+        text:new TextDecoder('utf-8',{fatal:true}).decode(bytes.subarray(0,read.bytesRead))};
+    }finally{await file.close();}
+  };
+  const port=()=>observe(async()=>{
+    const path=join(profile,'DevToolsActivePort'), info=await fs.lstat(path);
+    if(info.isSymbolicLink())return {path,type:'symlink',content:'not_read'};
+    if(!info.isFile())return {path,type:'not_regular',content:'not_read'};
+    const value=await boundedFile(path);
+    if(value.text!==undefined){value.lines=value.text.split(/\r?\n/).slice(0,2);delete value.text;}
+    return value;
+  });
+  const ownedProcess=()=>observe(async()=>{
+    if(process.platform!=='linux' || !runtime?.browser.pid)return {status:'unavailable',platform:process.platform,identity:'not_available'};
+    if(receipt.process.exit_observed || runtime.browser.exitCode!==null || runtime.browser.signalCode!==null)return {identity:'not_available',reason:'child_already_exited'};
+    const value=await boundedFile(`/proc/${runtime.browser.pid}/stat`);
+    if(receipt.process.exit_observed || runtime.browser.exitCode!==null || runtime.browser.signalCode!==null)throw Error('Owned child exited during process observation');
+    if(value.text===undefined || value.read_bytes===4096)throw Error('Owned Linux process stat unavailable or exceeds budget');
+    const end=value.text.lastIndexOf(')'), fields=value.text.slice(end+2).trim().split(/\s+/);
+    const pid=Number(value.text.slice(0,value.text.indexOf('(')).trim()), start_ticks=fields[19], state=fields[0];
+    if(pid!==runtime.browser.pid || !/^\d+$/.test(start_ticks??'') || !/^[A-Za-z]$/.test(state??''))throw Error('Invalid owned Linux process identity');
+    return {pid,start_ticks,state};
+  });
+  const snapshot=async(initial=false)=>{
+    const processObservation=initial ? await ownedProcess() : initialProcess?.start_ticks ? await ownedProcess() : {status:'unavailable',reason:'initial_linux_identity_unavailable'};
+    if(initial)initialProcess=processObservation.status==='available'?processObservation:null;
+    else if(processObservation.status==='available' && (processObservation.pid!==initialProcess.pid || processObservation.start_ticks!==initialProcess.start_ticks)){
+      processObservation.status='unavailable';processObservation.reason='owned_pid_start_mismatch';delete processObservation.state;
+    }
+    const [profileObservation,ipcObservation,portObservation]=await Promise.all([directory(profile),directory(runtime.directory),port()]);
+    return {at_ms:elapsed(),process:processObservation,profile:profileObservation,ipc:ipcObservation,devtools_active_port:portObservation};
+  };
   try {
-    profile = await mkdtemp(join(output,'browser-profile-'));
-    runtime = await launchChromium(binary, profile);
-    receipt.ipc_directory=runtime.directory;
-    const capture=chunk=>{size+=chunk.length;if(size<=1048576)logs.push(chunk);else runtime.browser.kill('SIGTERM');};
-    runtime.browser.stdout.on('data',capture);runtime.browser.stderr.on('data',capture);
-    await Promise.race([(async()=>{
-      const endpoint = await debuggerEndpoint(runtime.browser,15000);
-      cdp=await connectCdp(endpoint);
-      receipt.browser=await cdp.send('Browser.getVersion');
+    receipt.resolved_binary=await observe(async()=>({path:await fs.realpath(binary)}));
+    profile=await mkdtemp(join(output,'browser-profile-'));
+    receipt.milestones.launch_requested=elapsed();
+    runtime=await launchChromium(binary,profile);
+    receipt.milestones.acquired=elapsed();receipt.ipc_directory=runtime.directory;
+    const browser=runtime.browser;
+    receipt.process={pid:browser.pid??null,spawnfile:browser.spawnfile,spawnargs:browser.spawnargs,spawn_observed:false,exit_observed:false,close_observed:false};
+    browser.once('spawn',()=>{receipt.process.spawn_observed=true;receipt.milestones.spawn=elapsed();});
+    browser.on('error',error=>{receipt.process.error=String(error);receipt.milestones.process_error=elapsed();});
+    browser.once('exit',(code,signal)=>{receipt.process.exit_observed=true;receipt.process.exit={code,signal};receipt.milestones.exit=elapsed();});
+    browser.once('close',(code,signal)=>{receipt.process.close_observed=true;receipt.process.close={code,signal};receipt.milestones.close=elapsed();});
+    const capture=chunk=>{
+      receipt.milestones.first_output??=elapsed();size+=chunk.length;
+      const accepted=chunk.subarray(0,Math.max(0,1048576-retained));
+      if(accepted.length){logs.push(Buffer.from(accepted));retained+=accepted.length;}
+      if(size>1048576)browser.kill('SIGTERM');
+    };
+    browser.stdout.on('data',capture);browser.stderr.on('data',capture);
+    // Start the readiness listener before asynchronous observations.
+    const work=Promise.race([(async()=>{
+      receipt.milestones.endpoint_wait_started=elapsed();
+      const endpoint=await debuggerEndpoint(browser,15000);
+      receipt.milestones.endpoint_observed=elapsed();
+      cdp=await connectCdp(endpoint);receipt.browser=await cdp.send('Browser.getVersion');
       if(!receipt.browser.product)throw Error('Chromium CDP version is empty');
-      receipt.status='PASS';
-    })(), new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Chromium startup deadline exceeded')),30000);})]);
+    })(),new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Chromium startup deadline exceeded')),30000);})]);
+    acquisition=snapshot(true);
+    await work;
     if(size>1048576)throw Error('Chromium startup log exceeds budget');
-  } catch(error) {receipt.status='FAIL';receipt.error=String(error);}
-  finally {
-    clearTimeout(timer);cdp?.close();
-    if(runtime)try{await runtime.close();}catch(error){receipt.status='FAIL';receipt.error=`Chromium cleanup failed: ${error}`;}
-    if(profile)await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:50});
-    receipt.ipc_removed=runtime ? await stat(runtime.directory).then(()=>false,error=>{if(error.code==='ENOENT')return true;throw error;}) : true;
-    await writeFile(join(output,'startup.json'),JSON.stringify(receipt,null,2)+'\n');
-    await writeFile(join(output,'browser.log'),Buffer.concat(logs).subarray(0,1048576));
+    receipt.status='PASS';
+  } catch(error) {
+    failure('primary_work',error);receipt.milestones.primary_failure=elapsed();
+    if(runtime){
+      if(acquisition)receipt.observations.acquisition=await acquisition;
+      receipt.observations.failure=await snapshot();
+    }
+  } finally {
+    clearTimeout(timer);
+    if(acquisition && !receipt.observations.acquisition)receipt.observations.acquisition=await acquisition;
+    try{cdp?.close();}catch(error){failure('cdp_close',error);}
+    receipt.milestones.cleanup_requested=elapsed();
+    if(runtime){
+      receipt.cleanup.runtime_close='requested';
+      try{await runtime.close();receipt.cleanup.runtime_close='fulfilled';}catch(error){receipt.cleanup.runtime_close='rejected';failure('runtime_close',error);}
+    }else receipt.cleanup.runtime_close='not_acquired';
+    if(profile){try{await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:50});receipt.cleanup.profile_remove='fulfilled';}catch(error){receipt.cleanup.profile_remove='rejected';failure('profile_remove',error);}}
+    const absent=path=>observe(async()=>{try{const info=await fs.lstat(path);return {removed:false,type:info.isSymbolicLink()?'symlink':info.isDirectory()?'directory':'other'};}catch(error){if(error.code==='ENOENT')return {removed:true};throw error;}});
+    receipt.cleanup.profile=profile?await absent(profile):{status:'available',removed:true,reason:'not_created'};
+    receipt.cleanup.ipc=runtime?await absent(runtime.directory):{status:'available',removed:true,reason:'not_acquired'};
+    receipt.ipc_removed=receipt.cleanup.ipc.status==='available'?receipt.cleanup.ipc.removed:null;
+    receipt.cleanup.process_group_absence='not_independently_observed';
+    if(runtime)receipt.process.final={exitCode:runtime.browser.exitCode,signalCode:runtime.browser.signalCode};
+    receipt.milestones.cleanup_finished=elapsed();
+    receipt.logs={observed_bytes:size,retained_bytes:retained,truncated:size>retained,budget_bytes:1048576};
+    receipt.log_write=await observe(async()=>{await writeFile(join(output,'browser.log'),Buffer.concat(logs));return {bytes:retained};},1000);
+    if(receipt.log_write.status!=='available')failure('browser_log_write',Error(JSON.stringify(receipt.log_write)));
+    const saved=await observe(async()=>{await writeFile(join(output,'startup.json'),JSON.stringify(receipt,null,2)+'\n');return {written:true};},1000);
+    if(saved.status!=='available')failure('startup_receipt_write',Error(JSON.stringify(saved)));
   }
-  if(receipt.status!=='PASS')throw Error(receipt.error);
+  if(receipt.status!=='PASS'){
+    const error=primary instanceof Error?primary:Error(receipt.error??'Chromium startup failed');
+    if(receipt.cleanup_errors.length)error.cleanup_errors=receipt.cleanup_errors;
+    throw error;
+  }
   return receipt;
 }
 
