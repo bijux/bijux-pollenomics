@@ -18,6 +18,43 @@ from bijux_pollenomics.reporting.modeled_context.publication_projection import (
 )
 
 
+def _modeled_manifest(repository: Path, page: str) -> dict[str, Any]:
+    """Read modeled metadata through the authenticated published runtime graph."""
+    from bijux_pollenomics.reporting.map_document.render import _FixedJsonBindings
+    from bijux_pollenomics_dev.ci.atlas_browser.published_runtime import (
+        read_published_runtime,
+    )
+
+    document = repository / "docs/report/regions/nordic/nordic_map.html"
+    assets = document.with_name("nordic_map_assets.json")
+    runtime = read_published_runtime(
+        document, assets, page, json.loads(assets.read_bytes())
+    )
+    if runtime.paths:
+        parser = _FixedJsonBindings()
+        parser.feed(page)
+        parser.close()
+        bindings = parser.bindings["atlas-modeled-context-binding"]
+        require(
+            len(bindings) == 1
+            and bindings[0] is not None
+            and "const MODELED_CONTEXT = JSON.parse(document.getElementById('atlas-modeled-context-binding').textContent);"
+            in runtime.script,
+            "published modeled-context binding unavailable",
+        )
+        value = json.loads("".join(cast(list[str], bindings[0])))
+    else:
+        matches = [
+            line for line in page.splitlines() if "const MODELED_CONTEXT = " in line
+        ]
+        require(len(matches) == 1, "map model manifest unavailable")
+        value = json.loads(
+            matches[0].split("const MODELED_CONTEXT = ", 1)[1].removesuffix(";").strip()
+        )
+    require(isinstance(value, dict), "map model manifest is not an object")
+    return cast(dict[str, Any], value)
+
+
 def digest(content: bytes) -> str:
     """Return the SHA-256 digest of an exact map export payload."""
     return hashlib.sha256(content).hexdigest()
@@ -50,16 +87,7 @@ def reconcile(repository: Path, artifact: Path, browser: Path) -> dict[str, obje
     map_content = (
         repository / "docs/report/regions/nordic/nordic_map.html"
     ).read_text()
-    manifest_line = [
-        line for line in map_content.splitlines() if "const MODELED_CONTEXT = " in line
-    ]
-    require(len(manifest_line) == 1, "map model manifest unavailable")
-    manifest = json.loads(
-        manifest_line[0]
-        .split("const MODELED_CONTEXT = ", 1)[1]
-        .removesuffix(";")
-        .strip()
-    )
+    manifest = _modeled_manifest(repository, map_content)
     families = {
         family["key"]: {metric["key"] for metric in family["metrics"]}
         for family in manifest["metric_families"]

@@ -24,6 +24,9 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
     decode_chunk_script,
 )
 from bijux_pollenomics_dev.ci.atlas_browser.candidate_files import regular_bytes
+from bijux_pollenomics_dev.ci.atlas_browser.landclim_export import (
+    reconcile as browser_export,
+)
 from bijux_pollenomics_dev.source_completion import landclim_map_export_lineage as owner
 
 ROOT = Path(__file__).resolve().parents[4]
@@ -252,3 +255,58 @@ def test_resealed_swapped_source_indexes_are_refused(
     )
     with pytest.raises(ValueError, match="feature membership"):
         owner._published_features(repository, projected)
+
+
+def test_browser_export_reads_authenticated_current_and_legacy_metadata(
+    published: tuple[Path, dict[str, Any], list[dict[str, Any]]], runtime: bytes
+) -> None:
+    repository, manifest, _ = published
+    page = page_for(repository, manifest, runtime)
+    expected = owner._map_manifest(page, script=runtime.decode())
+    assert browser_export._modeled_manifest(repository, page) == expected
+    legacy = 'const MODELED_CONTEXT = {"legacy":true};'
+    (repository / owner.MAP).write_text(legacy)
+    assert browser_export._modeled_manifest(repository, legacy) == {"legacy": True}
+
+
+def test_browser_export_refuses_runtime_tamper_before_reading_metadata(
+    published: tuple[Path, dict[str, Any], list[dict[str, Any]]], runtime: bytes
+) -> None:
+    repository, manifest, _ = published
+    page = page_for(repository, manifest, runtime)
+    digest = hashlib.sha256(runtime).hexdigest()
+    (
+        repository / owner.CHUNKS / f"nordic_map.atlas-runtime.{digest[:16]}.js"
+    ).write_bytes(runtime + b" ")
+    with pytest.raises(ValueError, match="Published runtime graph differs"):
+        browser_export._modeled_manifest(repository, page)
+
+
+def test_browser_export_refuses_missing_actual_model_binding_declaration(
+    published: tuple[Path, dict[str, Any], list[dict[str, Any]]], runtime: bytes
+) -> None:
+    repository, manifest, _ = published
+    changed = runtime.replace(
+        b"const MODELED_CONTEXT = JSON.parse(document.getElementById('atlas-modeled-context-binding').textContent);",
+        b"const MODELED_CONTEXT = {};",
+    )
+    assert changed != runtime
+    page = page_for(repository, manifest, runtime)
+    original_digest = hashlib.sha256(runtime).hexdigest()
+    changed_digest = hashlib.sha256(changed).hexdigest()
+    original_name = f"nordic_map.atlas-runtime.{original_digest[:16]}.js"
+    changed_name = f"nordic_map.atlas-runtime.{changed_digest[:16]}.js"
+    (repository / owner.CHUNKS / changed_name).write_bytes(changed)
+    original_sri = (
+        "sha256-" + base64.b64encode(hashlib.sha256(runtime).digest()).decode()
+    )
+    changed_sri = (
+        "sha256-" + base64.b64encode(hashlib.sha256(changed).digest()).decode()
+    )
+    page = page.replace(original_name, changed_name).replace(original_sri, changed_sri)
+    page = page.replace(
+        f'"byte_count": {len(runtime)}', f'"byte_count": {len(changed)}'
+    )
+    (repository / owner.MAP).write_text(page)
+    with pytest.raises(ValueError, match="modeled-context binding unavailable"):
+        browser_export._modeled_manifest(repository, page)

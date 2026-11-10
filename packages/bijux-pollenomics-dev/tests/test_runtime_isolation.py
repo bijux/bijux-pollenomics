@@ -177,6 +177,9 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         "bijux_pollenomics.analysis.lra.api": frozenset({"read_lra_product"}),
     },
     "bijux_pollenomics_dev/ci/atlas_browser/landclim_export/reconcile.py": {
+        "bijux_pollenomics.reporting.map_document.render": frozenset(
+            {"_FixedJsonBindings"}
+        ),
         "bijux_pollenomics.reporting.context.polygons": frozenset(
             {"build_external_polygon_layer"}
         ),
