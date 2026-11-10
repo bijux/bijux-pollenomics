@@ -51,7 +51,7 @@ extra:
     interactive_report_owner: configs/docs/maps/report-owner.json
     publication_adapter:
       path: configs/docs/publication/admission.py
-      sha256: 726f20b5b2cb2b57f302735d404daa57683ded026f3bb0a56a836363eeca4cc9
+      sha256: d3cbf285471dca0df44b56d53aab1ccb0e432ad00ed8297e7d1e2621cae9e409
     publication_downloads:
       path: configs/docs/publication/downloads.json
       sha256: eb4487e3dc9f7fd488c2c84f128026dd4d4871cb1e652121f3c6131f92075e0e

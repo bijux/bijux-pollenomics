@@ -6,6 +6,7 @@ import hashlib
 import importlib.util
 import io
 import json
+import logging
 import os
 from pathlib import Path, PurePosixPath
 import subprocess
@@ -171,9 +172,20 @@ def effective_policy() -> tuple[Path, dict]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("operation", choices=("admit", "verify"))
+    parser.add_argument("operation", choices=("build", "admit", "verify"))
     options = parser.parse_args()
+    from mkdocs.exceptions import MkDocsException
     try:
+        if options.operation == "build":
+            logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(name)s: %(message)s")
+            renderer = shared_module("render_publication")
+            result = renderer.build_artifact(
+                ROOT, "mkdocs.yml", SITE, site_url=URL, source_identity=SOURCE,
+                interactive_report_owner="configs/docs/maps/report-owner.json",
+                admission_policy=lambda: effective_policy()[0],
+            )
+            print(json.dumps({key: value for key, value in result.items() if key != "producer"}))
+            return 0
         policy, source = effective_policy()
         environment = dict(os.environ, PYTHONDONTWRITEBYTECODE="1", PYTHONNOUSERSITE="1")
         if options.operation == "admit":
@@ -194,7 +206,7 @@ def main() -> int:
         subprocess.run([sys.executable, str(SHARED / "security/publication.py"), *arguments,
                         "--policy", str(policy)], cwd=ROOT, env=environment, check=True)
         return 0
-    except (ValueError, OSError, KeyError, subprocess.CalledProcessError) as error:
+    except (MkDocsException, ValueError, OSError, KeyError, subprocess.CalledProcessError) as error:
         print("Retained download publication refused: " + str(error), file=sys.stderr)
         return 1
 
