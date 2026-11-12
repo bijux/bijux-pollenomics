@@ -157,8 +157,9 @@ current scientific candidate acceptance or evidence of external publication.
 Use the configured per-destination package sets above for a current release.
 
 The planned release identifier is `v0.1.8`, with changelog date `2026-09-08`.
-The dated entries in the root and three package changelogs are prepared release
-notes, not evidence that a tag, registry upload, or deployment exists. The
+The dated entries in the three package changelogs are prepared release notes;
+the root changelog records repository changes by pull request. Neither is
+evidence that a tag, registry upload, or deployment exists. The
 actual publication timestamps must remain those recorded by each destination;
 do not backdate them to match the changelog.
 
@@ -199,8 +200,10 @@ deployment URL, and observed atlas build identity. If using `main`, confirm its
 resolved SHA still matches the intended publication revision. A local preview
 or package release does not establish deployed documentation parity.
 
-Use the prepared changelog entry as the release-note authority and retain its
-qualifications. The current manual GitHub release dispatch exposes only tag,
+Use the prepared package changelog entries as the release-note authority and
+retain their qualifications. Use the root PR history to find related repository
+changes, rather than treating it as a versioned release announcement. The current
+manual GitHub release dispatch exposes only tag,
 enabled state, and build matrix; a custom release-notes path is available to
 reusable callers or configuration, not as an undeclared dispatch input. Review
 the resulting notes before claiming that the prepared narrative was published.
