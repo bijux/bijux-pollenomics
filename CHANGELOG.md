@@ -1,513 +1,2394 @@
 # Changelog
 
-This file records notable repository-level changes for `bijux-pollenomics`.
-
-It does not replace package-level release history. Versioning and package-local
-release notes belong to each distribution under `packages/`.
-
-Use this changelog for workspace changes that affect multiple packages or
-change contributor and maintainer workflows across the repository.
-
-## Unreleased
-
-### Changed
-
-- Check frozen-prediction training support against consumed observation owners, preserving baseline, channel-alias and held-out safeguards without excluding unused training candidates ([#416](https://github.com/bijux/bijux-pollenomics/pull/416)).
-
-- Preserve complete human and animal context populations across every land-use target and time window, including one-pass input iterators ([#415](https://github.com/bijux/bijux-pollenomics/pull/415)).
-
-- Preserve occurrence windows and explicit refusals through fieldwork context exports and reports, label each navigation window correctly, and reject invalid coordinates without coercion or integer overflow ([#414](https://github.com/bijux/bijux-pollenomics/pull/414)).
-
-- Keep modeled cell captions and exports consistent with map filters, preserve selected source context in chronology drawers, and verify the shared export contract ([#413](https://github.com/bijux/bijux-pollenomics/pull/413)).
-
-- Bind embedded-atlas publication ownership to the selected MkDocs configuration while retaining report, resource and iframe-parent identities ([#412](https://github.com/bijux/bijux-pollenomics/pull/412)).
-
-- Compose documentation rendering and finite-download admission around one live independent native producer, adopt its accepted shared standards, and retain standalone publication reconstruction ([#411](https://github.com/bijux/bijux-pollenomics/pull/411)).
-
-- Retain bounded Chromium startup diagnostics and primary failures, and prevent late CDP completion from overriding a startup timeout ([#410](https://github.com/bijux/bijux-pollenomics/pull/410)).
-
-- Preserve native species, source and sample-namespace populations in locality summaries and refuse contradictory locality metadata while retaining compatible sample chronology aggregation ([#409](https://github.com/bijux/bijux-pollenomics/pull/409)).
-
-- Own browser sessions and cancel pending work in the keyless cache CLI, preserve existing profiles, and retain primary failures through bounded cleanup ([#408](https://github.com/bijux/bijux-pollenomics/pull/408)).
-
-- Retire duplicate historical keyless-cache presentation and redundant owner/execution entries while preserving immutable observations, replay tooling and historical navigation ([#407](https://github.com/bijux/bijux-pollenomics/pull/407)).
-
-- Authenticate LandClim download metadata against current atlas runtimes, bind captures to actual browser and source identities, reap owned browser sessions, and declare narrow development import capabilities ([#406](https://github.com/bijux/bijux-pollenomics/pull/406)).
-
-- Show sampling visits and media in the atlas record reader, preserve keyboard navigation and ordinary source exports, and intern restoration grams in private bounded transport caches ([#405](https://github.com/bijux/bijux-pollenomics/pull/405)).
-
-- Clarify admitted-support limits, retain unresolved human period coverage, and refresh the Nordic overlap and period review from source-bound metadata while preserving unchanged country, uncertainty and scenario accounts ([#404](https://github.com/bijux/bijux-pollenomics/pull/404)).
-
-- Refuse contradictory temporal bounds and out-of-support fallback points during map intake, and discard unsupported means while retaining valid intervals and source records ([#403](https://github.com/bijux/bijux-pollenomics/pull/403)).
-
-- Keep publication-reader startup independent of scientific host imports while preserving full runtime authentication when requested ([#402](https://github.com/bijux/bijux-pollenomics/pull/402)).
-
-- Reserve map space for controls and the full record reader, remove duplicate search popups, publish current Nordic pollen chronology context and source model/control metadata, refresh temporal indexes with explicit scientific-context limits, and authenticate LandClim lineage against current atlas transport ([#401](https://github.com/bijux/bijux-pollenomics/pull/401)).
-
-- Refuse contradictory non-pollen element labels in pollen chronology context admission while preserving unknown-label compatibility ([#400](https://github.com/bijux/bijux-pollenomics/pull/400)).
-
-- Narrow source interpretation report producer declarations while preserving whole-repository replay guards and qualified input/output boundaries ([#399](https://github.com/bijux/bijux-pollenomics/pull/399)).
-
-- Validate both native pollen labels before synthetic request publication, require observation identity arrays and qualify the current installed host API boundaries ([#398](https://github.com/bijux/bijux-pollenomics/pull/398)).
-
-- Show retained synthetic marginal interval coverage limits in the scientific briefing and refresh source-bound presentation downloads ([#397](https://github.com/bijux/bijux-pollenomics/pull/397)).
-
-- Narrow native core report source declarations, stream file hashing outside text normalization rules and reap producer sessions when callers are interrupted ([#396](https://github.com/bijux/bijux-pollenomics/pull/396)).
-
-- Focus geodesic report source declarations on maintained producers while retaining complete-repository and exact-input replay guards ([#395](https://github.com/bijux/bijux-pollenomics/pull/395)).
-
-- Normalize governed sample identities before first-observed duplicate and persistence checks so whitespace aliases cannot supply independent support ([#394](https://github.com/bijux/bijux-pollenomics/pull/394)).
-
-- Retire historical cross-border and keyboard-navigation atlas capture reports while preserving active consumers and accepted Git evidence ([#393](https://github.com/bijux/bijux-pollenomics/pull/393)).
-
-- Keep atlas search restoration responsive, distinguish pending or unavailable evidence from ready views, record browser readiness milestones and avoid duplicate publication reconstruction while retaining full admission checks ([#392](https://github.com/bijux/bijux-pollenomics/pull/392)).
-
-- Require boolean values for propagation event admission flags while preserving existing defaults, refusals and valid-input report results ([#391](https://github.com/bijux/bijux-pollenomics/pull/391)).
-
-- Bind propagation estimator receipts to full event evaluation identity and refresh synthetic receipt lineage without changing numerical results ([#390](https://github.com/bijux/bijux-pollenomics/pull/390)).
-
-- Reduce repeated atlas search restoration checks and store validated postings in compact immutable snapshots while preserving live budgets, substring results and publication bindings ([#389](https://github.com/bijux/bijux-pollenomics/pull/389)).
-
-- Preserve first failed browser scenario receipts and retain the original navigation error when receipt storage fails ([#388](https://github.com/bijux/bijux-pollenomics/pull/388)).
-
-- Expose bounded feature/resolution identities in country-relation captions and clarify mixed endpoint chronology support in time summaries ([#387](https://github.com/bijux/bijux-pollenomics/pull/387)).
-
-- Guide atlas readers through seven evidence questions with source, interpretation and limitation links ([#386](https://github.com/bijux/bijux-pollenomics/pull/386)).
-
-- Expose pollen source identity and refusal context, replace script listings with inventory links, reuse UTF-16 code-unit strings and retain failed iframe navigation evidence with current publication bindings ([#385](https://github.com/bijux/bijux-pollenomics/pull/385)).
-
-- Restore scientific source and result links, distinguish retained review snapshots from current publication scope, and retire the historical schematic desktop-zoom report ([#384](https://github.com/bijux/bijux-pollenomics/pull/384)).
-
-- Retire the historical schematic mobile-attribution publication and restore the Abborrtjärnen chronology-result link, preserving active browser controls and scientific evidence ([#383](https://github.com/bijux/bijux-pollenomics/pull/383)).
-
-- Reuse checked atlas search postings during startup while preserving substring search and publication identity checks ([#382](https://github.com/bijux/bijux-pollenomics/pull/382)).
-
-- Bind LegacyAge report consumers to the reviewed expanded custody receipt while preserving exact selected tables and scientific limits ([#381](https://github.com/bijux/bijux-pollenomics/pull/381)).
-
-- Bind qualified ABBO report execution to compact source guards and exact external inputs while preserving historical custody and scientific admission limits ([#380](https://github.com/bijux/bijux-pollenomics/pull/380)).
-
-- Keep visible navigation warnings separated from their labels in both text orientations while preserving accessible notices and ordinary inline spacing ([#379](https://github.com/bijux/bijux-pollenomics/pull/379)).
-
-- Prepare immutable LOVE objective inputs once per search and record measured callback costs while preserving numerical and scientific limits ([#378](https://github.com/bijux/bijux-pollenomics/pull/378)).
-
-- Wait for scientific reader table reflow before checking layout, preserving permanent overflow refusals and diagnostic geometry ([#377](https://github.com/bijux/bijux-pollenomics/pull/377)).
-
-- Record complete public LOVE optimizer search costs, stopping outcomes and runtime context while preserving Python backend and scientific qualification limits ([#376](https://github.com/bijux/bijux-pollenomics/pull/376)).
-
-- Keep Chromium IPC paths within Unix socket limits, clean private browser runtime directories and probe startup before scientific site builds ([#375](https://github.com/bijux/bijux-pollenomics/pull/375)).
-
-- Record the qualified ABBO age-control report replay and its tested local noncommercial reproduction route while preserving historical-source and LRA limits ([#374](https://github.com/bijux/bijux-pollenomics/pull/374)).
-
-- Bind Nordic reading checks to the finite publication policy, bound verifier process groups and separate full qualification receipts from public resource limits ([#373](https://github.com/bijux/bijux-pollenomics/pull/373)).
-
-- Keep scientific reading checks independent of gallery runtime imports and retain qualified site artifacts after later reading failures ([#372](https://github.com/bijux/bijux-pollenomics/pull/372)).
-
-- Expose separately attributed Dalmutladdo archival window counts through a pinned-source API while preserving native missing values and LRA admission boundaries ([#371](https://github.com/bijux/bijux-pollenomics/pull/371)).
-
-- Qualify the partial Dalmutladdo archival count correspondence while preserving native missing values and unresolved LRA prerequisites ([#370](https://github.com/bijux/bijux-pollenomics/pull/370)).
-
-- Keep retained scientific ledgers and environment locks outside the website, link readers to source evidence and check selected static files before publication ([#369](https://github.com/bijux/bijux-pollenomics/pull/369)).
-
-- Record direct host and optional-engine source archive installation and installed-runtime qualification with confined imports and preserved scientific refusal boundaries ([#368](https://github.com/bijux/bijux-pollenomics/pull/368)).
-
-- Make native report source preflight load the four checkout package roots explicitly ([#367](https://github.com/bijux/bijux-pollenomics/pull/367)).
-
-- Bind native report ownership to the current publication configuration and run the existing source preflight before site rendering, preserving native resources and pending composition/browser qualification ([#366](https://github.com/bijux/bijux-pollenomics/pull/366)).
-
-- Retain five cited goat sample references as document correspondence, preserve unresolved specimen identities and propagate their provenance through the existing scientific consumers ([#365](https://github.com/bijux/bijux-pollenomics/pull/365)).
-
-- Bind retained map downloads to committed source bytes, remove duplicate per-file hashes and check the finite download boundary before scientific site rendering ([#364](https://github.com/bijux/bijux-pollenomics/pull/364)).
-
-- Retain current goat run-study associations and the attributed native Direkli statement while preserving ambiguous identities, and prevent provenance text loss in chronology Markdown tables ([#363](https://github.com/bijux/bijux-pollenomics/pull/363)).
-
-- Resolve published source links, consume accepted renderer diagnostics, retire obsolete synthetic drawer publications and preserve current versus captured reader ownership ([#362](https://github.com/bijux/bijux-pollenomics/pull/362)).
-
-- Propagate native goat context through governed chronology provenance and source-bound readers, correct the retained support-summary scope, and preserve ambiguous identities and zero final admission ([#361](https://github.com/bijux/bijux-pollenomics/pull/361)).
-
-- Retain five native goat SAMPLE assertions across four comparator author rows and existing projections while preserving ambiguous identities, zero final admission and concise scientific limits ([#360](https://github.com/bijux/bijux-pollenomics/pull/360)).
-
-- Consume exact accepted documentation admission for current compiled scientific PDF downloads, preserving source/compiler/resolver guards and existing scientific and browser qualification boundaries ([#359](https://github.com/bijux/bijux-pollenomics/pull/359)).
-
-- Foreground the independently certified receiver coefficient bounds and condense their scientific verification history, while making the ABBO age-control replay environment and external source path explicit ([#358](https://github.com/bijux/bijux-pollenomics/pull/358)).
-
-- Bind current native atlas resources and iframe probes to exact accepted source and qualified publication bytes, and add bounded manual production-origin verification while retaining browser and scientific acceptance limits ([#357](https://github.com/bijux/bijux-pollenomics/pull/357)).
-
-- Plot all eighteen independently certified receiver coefficient widths against the original threshold in the scientific deck and qualify source-bound PDF exports while retaining historical and field-accuracy limits ([#356](https://github.com/bijux/bijux-pollenomics/pull/356)).
-
-- Certify receiver-angle coefficient bounds for six frozen captured-A geometries with independent replay, original precision/resource limits and explicit historical and field-accuracy boundaries ([#354](https://github.com/bijux/bijux-pollenomics/pull/354)).
-
-- Preserve native JSON integer and float identity in returned basin review selections while retaining source-authority refusals and non-admitting decisions ([#355](https://github.com/bijux/bijux-pollenomics/pull/355)).
-
-- Align documentation authority and generated provenance with the existing accepted shared components so source guards admit the unchanged publication renderer and assets ([#353](https://github.com/bijux/bijux-pollenomics/pull/353)).
-
-- Retire superseded synthetic boundary-orientation reports and delegate all twelve publication PDF integrity checks to their existing owner while retaining scientific source bindings and unresolved custody limits ([#352](https://github.com/bijux/bijux-pollenomics/pull/352)).
-
-- Add manual source-bound scientific reading qualification and record installed compatibility-facade behavior without extending scientific or release acceptance ([#351](https://github.com/bijux/bijux-pollenomics/pull/351)).
-
-- **Verified merge (2026-11-08 12:55:56 UTC):** Plot matched Nordic pollen errors in the scientific deck and qualify current source-bound PDF exports while preserving support, refusals and uncertainty limits ([#350](https://github.com/bijux/bijux-pollenomics/pull/350)).
-
-- **Verified merge (2026-11-08 12:44:11 UTC):** Reconcile current report membership and source roles, preserve portable historical evidence, and record supplied theory-paper access and installed distribution qualification ([#349](https://github.com/bijux/bijux-pollenomics/pull/349)).
-
-- **Verified merge (2026-11-08 12:18:02 UTC):** Expose conflicting Neotoma site-area unit definitions without selecting units or admitting basin evidence, and distinguish current prerequisite metadata from its historical projection ([#348](https://github.com/bijux/bijux-pollenomics/pull/348)).
-
-- **Verified merge (2026-11-08 12:09:31 UTC):** Restore scientific report rendering and current locked-environment replay recipes while preserving source claims and historical qualification limits ([#347](https://github.com/bijux/bijux-pollenomics/pull/347)).
-
-- **Verified merge (2026-11-08 11:51:00 UTC):** Tighten continuous receiver elementary enclosures and record the frozen six-receiver evaluation with coefficient precision still refused ([#346](https://github.com/bijux/bijux-pollenomics/pull/346)).
-
-- **Verified merge (2026-11-08 11:40:40 UTC):** Distinguish historical and conditional LRA evidence and reconcile current animal map/chronology populations without extending earlier browser qualifications ([#345](https://github.com/bijux/bijux-pollenomics/pull/345)).
-
-- **Verified merge (2026-11-08 11:33:28 UTC):** Preserve exact count mass for integral-float LRA requests and refuse denominators above the existing bound before writing products ([#344](https://github.com/bijux/bijux-pollenomics/pull/344)).
-
-- Qualify Hatchling across all workspace distributions and adopt the accepted Redocly tooling baseline ([#343](https://github.com/bijux/bijux-pollenomics/pull/343)).
-
-- Consolidate dependency security fixes, qualify pandas 3 support, and consume accepted action and OpenAPI tooling standards ([#337](https://github.com/bijux/bijux-pollenomics/pull/337)).
-
-- **Verified merge (2026-10-30 16:35:51 UTC):** Retain historical programme sources and likelihood verification ([#312](https://github.com/bijux/bijux-pollenomics/pull/312)).
-- **Verified merge (2026-10-30 15:58:25 UTC):** Retain Namibia solver comparison evidence and stable likelihood steps ([#311](https://github.com/bijux/bijux-pollenomics/pull/311)).
-- **Verified merge (2026-10-30 14:31:27 UTC):** Bound evidence selection and deferred map controls ([#310](https://github.com/bijux/bijux-pollenomics/pull/310)).
-- **Verified merge (2026-10-30 13:41:52 UTC):** Explain relation evidence and governed projection rules ([#309](https://github.com/bijux/bijux-pollenomics/pull/309)).
-- **Verified merge (2026-10-30 12:17:31 UTC):** Display retained source-record context and publication provenance ([#308](https://github.com/bijux/bijux-pollenomics/pull/308)).
-- **Verified merge (2026-10-30 11:39:28 UTC):** Qualify whole-pollen claims and publish native observation panels with bounded runtime assets ([#306](https://github.com/bijux/bijux-pollenomics/pull/306)).
-- **Verified merge (2026-10-30 10:34:25 UTC):** Retain original kernel boundary and minimum-lake comparisons ([#307](https://github.com/bijux/bijux-pollenomics/pull/307)).
-- **Verified merge (2026-10-30 09:41:49 UTC):** Preserve reference CSV precision and retain dated LOVE wrapper comparisons ([#304](https://github.com/bijux/bijux-pollenomics/pull/304)).
-- **Verified merge (2026-10-30 09:14:58 UTC):** Retain conditional adequacy and sample-unit precision evidence ([#305](https://github.com/bijux/bijux-pollenomics/pull/305)).
-- **Verified merge (2026-10-30 08:41:27 UTC):** Validate declared public receipt metadata through accepted documentation standards ([#303](https://github.com/bijux/bijux-pollenomics/pull/303)).
-- **Verified merge (2026-10-30 08:15:53 UTC):** Retain literal count correspondence and descriptive forest-plot evidence ([#302](https://github.com/bijux/bijux-pollenomics/pull/302)).
-- **Verified merge (2026-10-30 07:57:11 UTC):** Preserve declared child keys in SEAD reconciliation diagnostics ([#301](https://github.com/bijux/bijux-pollenomics/pull/301)).
-- **Verified merge (2026-10-30 07:12:27 UTC):** Retain literal Galician worksheet context and refuse broad taxonomy labels ([#300](https://github.com/bijux/bijux-pollenomics/pull/300)).
-- **Verified merge (2026-10-30 06:34:54 UTC):** Preserve historical scoring and authenticate Atlas wrapper transport ([#299](https://github.com/bijux/bijux-pollenomics/pull/299)).
-- **Verified merge (2026-10-30 05:34:50 UTC):** Authenticate canonical reference context, historical finite evidence and strict controller source custody ([#298](https://github.com/bijux/bijux-pollenomics/pull/298)).
-- **Verified merge (2026-10-30 04:46:07 UTC):** Retain measured-panel shared-cover and nested counting evidence with qualified report provenance ([#297](https://github.com/bijux/bijux-pollenomics/pull/297)).
-- **Verified merge (2026-10-30 04:07:53 UTC):** Retain heterogeneous common-cover likelihood and exact conditional two-site counting evidence ([#296](https://github.com/bijux/bijux-pollenomics/pull/296)).
-- **Verified merge (2026-10-30 03:51:24 UTC):** Publish shared-age sensitivity bounds, covariance refusals and authenticated historical evidence readers ([#295](https://github.com/bijux/bijux-pollenomics/pull/295)).
-- **Verified merge (2026-10-30 03:11:46 UTC):** Publish cached regional-counting evidence, workbook feature census and focused arithmetic controls ([#294](https://github.com/bijux/bijux-pollenomics/pull/294)).
-- **Verified merge (2026-10-30 02:28:10 UTC):** Publish ordered-age bounds, conditional counting evidence and explicit historical Hellinger arithmetic ([#293](https://github.com/bijux/bijux-pollenomics/pull/293)).
-- **Verified merge (2026-10-30 01:53:18 UTC):** Publish conditional coupled pollen evidence, counting uncertainty and exact API source custody ([#292](https://github.com/bijux/bijux-pollenomics/pull/292)).
-- **Verified merge (2026-10-30 01:25:11 UTC):** Retire duplicated native programme sources through accepted Git custody and closed evidence controls ([#291](https://github.com/bijux/bijux-pollenomics/pull/291)).
-- **Verified merge (2026-10-30 00:36:51 UTC):** Retain depth-order support, numerical reference contracts and scoped Linux source custody ([#290](https://github.com/bijux/bijux-pollenomics/pull/290)).
-- **Verified merge (2026-10-29 23:27:49 UTC):** Retain reference source qualifiers, saved Python comparison evidence and explicit report partition contracts ([#289](https://github.com/bijux/bijux-pollenomics/pull/289)).
-- **Verified merge (2026-10-29 22:53:20 UTC):** Expose source-bound predictive examples and preserve unresolved report-execution boundaries with dated presentation custody ([#288](https://github.com/bijux/bijux-pollenomics/pull/288)).
-- **Verified merge (2026-10-29 22:34:00 UTC):** Retain keyed categorical, integer and Boolean SEAD source components and their dated publications ([#287](https://github.com/bijux/bijux-pollenomics/pull/287)).
-- **Verified merge (2026-10-29 22:06:44 UTC):** Authenticate retained aDNA country publication evidence with the closed historical authority set and Git-only programme witnesses ([#286](https://github.com/bijux/bijux-pollenomics/pull/286)).
-- **Verified merge (2026-10-29 21:34:08 UTC):** Retain temporal-window and spatial development evidence through scoped saved-result readers ([#285](https://github.com/bijux/bijux-pollenomics/pull/285)).
-- **Verified merge (2026-10-29 20:54:21 UTC):** Publish native map assets, isolate provider failure profiles and authenticate bounded historical Atlas source roles ([#284](https://github.com/bijux/bijux-pollenomics/pull/284)).
-- **Verified merge (2026-10-29 20:09:28 UTC):** Retain pollen development, withheld-fold and input-isolation evidence through scoped scientific readers ([#283](https://github.com/bijux/bijux-pollenomics/pull/283)).
-- **Verified merge (2026-10-29 19:52:26 UTC):** Authenticate retained source accounting, selected counts, Sweden observations and optimizer input evidence while withholding incomplete aDNA publications ([#282](https://github.com/bijux/bijux-pollenomics/pull/282)).
-- **Verified merge (2026-10-29 17:48:31 UTC):** Authenticate reference input, source capability and publication evidence through genuine source ownership while preserving unresolved original acceptance criteria ([#281](https://github.com/bijux/bijux-pollenomics/pull/281)).
-- **Verified merge (2026-10-29 16:56:49 UTC):** Authenticate source-lineage and original acceptance evidence while preserving unresolved provider and scientific criteria ([#280](https://github.com/bijux/bijux-pollenomics/pull/280)).
-- **Verified merge (2026-10-29 16:03:50 UTC):** Retain radius, performance and sampling execution source custody through exact historical witnesses and scoped current readers ([#279](https://github.com/bijux/bijux-pollenomics/pull/279)).
-- **Verified merge (2026-10-29 02:26:01 UTC):** Authenticate constrained execution and optimizer diagnostic source custody while retaining unresolved baseline and feasibility criteria ([#278](https://github.com/bijux/bijux-pollenomics/pull/278)).
-- **Verified merge (2026-10-29 01:32:16 UTC):** Bound relationship rendering, cancel obsolete map selections, and index substring searches and crossing edges while preserving dated native atlas evidence ([#277](https://github.com/bijux/bijux-pollenomics/pull/277)).
-- **Verified merge (2026-10-29 00:54:21 UTC):** Authenticate retained author site and native-comparison source evidence while preserving unresolved profile criteria and historical runtime identity. ([#276](https://github.com/bijux/bijux-pollenomics/pull/276)).
-- **Verified merge (2026-10-29 00:07:25 UTC):** Propagate supplied joint uncertainty through withheld spatial fits while preserving refusal mass, source coupling, and training-only information boundaries ([#274](https://github.com/bijux/bijux-pollenomics/pull/274)).
-- **Verified merge (2026-10-28 23:48:19 UTC):** Preserve authenticated partial SLU guide retrieval evidence while retaining the original unresolved provider and publication criteria ([#272](https://github.com/bijux/bijux-pollenomics/pull/272)).
-- **Verified merge (2026-10-28 23:35:53 UTC):** Authenticate retained Linux R source and result custody with exact historical runtime provenance and strict current scientific source checks ([#270](https://github.com/bijux/bijux-pollenomics/pull/270)).
-- **Verified merge (2026-10-28 23:15:47 UTC):** Retain execution reference source ownership and corrections in Git while removing current programme copies and authenticating exact historical source inputs ([#271](https://github.com/bijux/bijux-pollenomics/pull/271)).
-- **Verified merge (2026-10-28 22:24:30 UTC):** Reject archive extraction destinations beneath symlink ancestors before writing selected members ([#269](https://github.com/bijux/bijux-pollenomics/pull/269)).
-- **Verified merge (2026-10-28 22:33:36 UTC):** Retain sample-owned atlas chronology, authenticated native source custody, and historical map templates through accepted shared standards ([#268](https://github.com/bijux/bijux-pollenomics/pull/268)).
-- **Verified merge (2026-10-28 20:37:34 UTC):** Retain exact source-bound constrained comparison products and dated radius input witnesses without repeating model fits or changing scientific result scope ([#267](https://github.com/bijux/bijux-pollenomics/pull/267)).
-- Authenticate retained author replay readers and callable source ownership while preserving original scientific output and execution provenance ([#266](https://github.com/bijux/bijux-pollenomics/pull/266)).
-- Preserve retained native diagnostics, source replay and public evidence exports through authenticated logical sources; refuse finite production with detached raw programs ([#265](https://github.com/bijux/bijux-pollenomics/pull/265)).
-- Expose shared-aliquot covariance and fixed two-taxon counting intervals; authenticate retained atlas source custody and current uncertainty ownership ([#264](https://github.com/bijux/bijux-pollenomics/pull/264)).
-- Bind conditional wind/covariance studies and individual scientific reader qualifications to exact evidence and historical source witnesses while preserving current producer refusals ([#263](https://github.com/bijux/bijux-pollenomics/pull/263)).
-- Preserve propagation projection identity and physical BIFF evidence; bind scientific account routes and paper/briefing exports to retained source custody ([#262](https://github.com/bijux/bijux-pollenomics/pull/262)).
-- Bind source-qualified chronology, taxon imports, exposed development ledgers, experiment splits and shared covariance evidence; retire human registers and preserve scientific reader/download custody ([#261](https://github.com/bijux/bijux-pollenomics/pull/261)).
-- Authenticate retained native R control sources through reachable Git history; qualify Nordic chronology windows, synthetic coverage diagnostics and declared basin-area sensitivity ([#260](https://github.com/bijux/bijux-pollenomics/pull/260)).
-- Lock audited fixed versions of development-tool dependencies while retaining scientific runtime versions ([#258](https://github.com/bijux/bijux-pollenomics/pull/258)).
-- Refuse unrepresentable covariance correction factors; qualify Namibia and Pyrenees source comparisons, Nordic dataset attribution and scientific reader identities ([#258](https://github.com/bijux/bijux-pollenomics/pull/258)).
-
-- Bind the Nordic atlas parent admission to the exact native output using the accepted search runtime while retaining report source authority and scientific values ([#237](https://github.com/bijux/bijux-pollenomics/pull/237)).
-
-- Bind the Nordic atlas parent identity to its native render with the accepted Material search runtime.
-
-- Bind public report privacy to owned configuration and admit immutable scientific downloads from accepted publication authority without regenerating scientific results ([#236](https://github.com/bijux/bijux-pollenomics/pull/236)).
-
-- Adopt accepted reader preference recovery, inert native search, truthful clipboard feedback, patched publication dependencies and authenticated workflow actions; add native media names/fallbacks and source-qualified public report path projection without changing scientific receipts ([#235](https://github.com/bijux/bijux-pollenomics/pull/235)).
-
-- Preserve the admitted reader, native report and finite download authorities while adopting the bounded manual publication workflow and complete paired source verification ([#233](https://github.com/bijux/bijux-pollenomics/pull/233)).
-
-- Admit canonical checkout origins for source-bound native presentations through accepted shared standards; retain exact source/configuration checks and consistent catalogue and compact repository-link identities. ([#232](https://github.com/bijux/bijux-pollenomics/pull/232)).
-
-- Bind PDF downloads, fifty exact GeoJSON downloads and retained native reports to source-qualified manual publication; preserve scientific inputs and historical producer identities, and link source-only evidence to its committed repository owner. ([#231](https://github.com/bijux/bijux-pollenomics/pull/231)).
-
-- Preserve validation, collection and LRA development history with accepted manual publication policy ([#217](https://github.com/bijux/bijux-pollenomics/pull/217)).
-
-
-## 0.1.8 - 2026-09-08
-
-### Added
-
-- Added source-bound chronology, locality, classification, and accountability
-  evidence across Neotoma, SEAD, LandClim, AADR, and species-owned animal
-  ancient-DNA collections for the Denmark, Finland, Norway, and Sweden atlas.
-- Published responsive chronological atlas views and governed story media whose
-  visible records retain their source, spatial, temporal, and refusal posture.
-- Added canonical scientific release evidence spanning recorded gates, artifact
-  lineage, count reconciliations, and manifest-bound classification and
-  propagation decisions.
-
-### Changed
-
-- Reworked collection, curation, governance, analysis, and reporting boundaries
-  around explicit source identities and reproducible generated outputs instead
-  of implicit joins or presentation-owned scientific claims.
-- Expanded the public and maintainer documentation around evidence intake,
-  chronology semantics, map interpretation, publication limits, provenance,
-  and release support.
-- Refreshed governed data, reports, atlas assets, and sustainability accounting
-  to reconcile the repository's current scientific evidence inventory.
-- Split package tests, documentation-count checks, and independent report
-  rebuilds into bounded jobs with exact partition reconciliation and a
-  ten-minute timeout ceiling. Test uploads retain compact verification evidence
-  instead of fixture trees and caches.
-
-### Fixed
-
-- Release assessment now fails closed for unreported or refused required counts,
-  malformed or contradictory bundle posture, dirty candidates, and scientific
-  release metadata that does not authorize the proposed language.
-- Corrected cross-run animal sample identities, source-field preservation,
-  locality and chronology admission, and registry publication so unsupported
-  context cannot become exact mapped evidence.
-- Made offline source metadata receipt-backed and collection digests insensitive
-  to Finder metadata while retaining ordinary scientific files in source hashes.
-- Hardened scientific input parsing, generated-output reproducibility, browser
-  verification, and atlas interaction contracts against ambiguous or stale
+Repository changes are recorded by pull request, newest merge first.
+
+### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
+
+- Replace mixed release sections and terse merge receipts with one linked entry per
+  PR, ordered by actual merge time and expanded across substantial deliveries.
+- Reconcile accepted changes, including the no-op Node proposal, Codecov rollback,
+  combined proposals and omitted human metadata, lake intake, storage and recovery
+  behavior, without crediting restored history twice.
+- Record material mixed/negative scientific results and distinguish retained products,
+  training-only numerical follow-through and deferred verification from new study
+  execution or field accuracy.
+- Require each PR's entry before merge, reconcile it against the final diff and keep
+  follow-up commits in that entry. Correct release guidance so package notes remain
+  separate from repository progress.
+
+### [#416](https://github.com/bijux/bijux-pollenomics/pull/416) — Consumed observation support in validation
+
+- Check training support only for observation owners actually consumed by each frozen
+  prediction, including transitive pollen/vegetation channels, shared aliases and
+  external observations.
+- Prevent unused nearby or missing-support training candidates from excluding otherwise
+  unchanged predictions. Preserve used-source, held-out and leakage refusals, prediction
+  values and scoring formulas; no empirical accuracy claim is added.
+
+### [#415](https://github.com/bijux/bijux-pollenomics/pull/415) — Complete locality context across synthesis windows
+
+- Snapshot human and animal input iterables once so every land-use target and time
+  window receives the complete population, even after an empty early window.
+- Preserve sample-owned chronology, counting and cross-proxy rules. Whole-result
+  comparisons cover independent tuple/iterator combinations; the existing tuple-based
+  publisher is unchanged.
+
+### [#414](https://github.com/bijux/bijux-pollenomics/pull/414) — Occurrence-owned fieldwork chronology and coordinates
+
+- Label each fieldwork anchor with its own occurrence window rather than the point's
+  aggregate mean.
+- Preserve individual occurrences through GeoJSON, report builders and readers. Keep
+  explicit-empty occurrences distinct from absent compatibility data; refuse malformed
+  and duplicate members instead of manufacturing an aggregate hull.
+- Apply shared coordinate admission before conversion, safely skipping booleans,
+  nonfinite values, out-of-range coordinates and arbitrarily large integers. Retain
+  valid-input behavior and scientific refusal boundaries.
+
+### [#413](https://github.com/bijux/bijux-pollenomics/pull/413) — Selection-consistent atlas captions and exports
+
+- Use the active modeled-layer, country and chronology selection for both captions and
+  exports, retaining source context in the Pollen and Chronology readers.
+- Refresh the three governed maps and their LandClim runtime/export bindings while
+  preserving registered data, optional controllers, metrics and CSV values.
+- Retain raw age/depth charts, numerical calculations and scientific roles; qualify the
+  shared export and reader contracts without admitting new scientific inputs.
+
+### [#412](https://github.com/bijux/bijux-pollenomics/pull/412) — Current configuration identity for map publication
+
+- Reconcile the native map publication descriptor with the actual MkDocs configuration
+  and admitted adapter identity, removing the mismatch that stopped production
+  verification before rendering.
+- Preserve report definitions, resources, producer inputs and historical captures.
+  Source preflight is verification-only; this change does not itself establish a
+  successful rendered or hosted site.
+
+### [#411](https://github.com/bijux/bijux-pollenomics/pull/411) — Composed native publication admission
+
+- Retain the live native producer and its independent reference through rendering and
+  full admission, avoiding immediate duplicate reconstruction while keeping standalone
+  verification available.
+- Run the finite-download policy after rendering and preserve source, capture and
+  canonical-projection checks.
+- Adopt accepted shared publication support and select the supported
+  common/docs/Python/Rust capability profile, retaining explicit refusals for
+  unavailable or unknown capabilities.
+
+### [#410](https://github.com/bijux/bijux-pollenomics/pull/410) — Chromium startup diagnostics and deadline ownership
+
+- Retain bounded launch arguments, runtime identity, process milestones, port-file
+  observations and truncation/cleanup facts when Chromium startup fails.
+- Refuse nonregular or oversized diagnostic files and prevent late CDP completion from
+  replacing an already recorded deadline failure with success.
+- Preserve the primary error through cleanup failures and distinguish observed
+  exit/close from unobserved process-group absence; existing readiness deadlines remain
+  in force.
+
+### [#409](https://github.com/bijux/bijux-pollenomics/pull/409) — Native animal locality population identities
+
+- Keep native species, source and sample-namespace populations distinct in locality
+  summaries instead of collapsing compatible-looking records.
+- Refuse contradictory locality metadata while retaining compatible sample chronology
+  aggregation and source provenance.
+
+### [#408](https://github.com/bijux/bijux-pollenomics/pull/408) — Owned keyless-cache browser sessions
+
+- Own browser sessions and pending work in the keyless-cache CLI, cancel outstanding
+  operations and reap owned processes on failure or interruption.
+- Preserve existing browser profiles and primary errors through bounded cleanup, with
+  explicit lifecycle receipts rather than inferred completion.
+
+### [#407](https://github.com/bijux/bijux-pollenomics/pull/407) — Retired historical keyless-cache presentation
+
+- Remove the duplicate historical keyless-cache publication and redundant
+  ownership/execution registrations.
+- Preserve immutable observations, replay tooling and historical navigation so
+  retirement reduces current maintenance without erasing evidence.
+
+### [#406](https://github.com/bijux/bijux-pollenomics/pull/406) — Authenticated LandClim capture and runtime bindings
+
+- Bind LandClim download metadata to the current parsed atlas runtime and authenticate
+  scientific payloads separately from executable transport.
+- Record actual browser/source identities, close owned capture sessions and retain
+  primary failures during cleanup.
+- Declare narrow development import capabilities so publication readers use their
+  admitted runtime without incidental scientific-host imports.
+
+### [#405](https://github.com/bijux/bijux-pollenomics/pull/405) — Fieldwork records and bounded restoration caches
+
+- Show sampling visits and media in the atlas record reader while preserving keyboard
+  navigation, source links and ordinary exports.
+- Intern restoration grams in private bounded transport caches, preserving exact
+  strings, search semantics and refusal behavior.
+- Refresh maintained map documents and their reader/publication bindings through the
+  existing owners.
+
+### [#404](https://github.com/bijux/bijux-pollenomics/pull/404) — Unresolved chronology review support
+
+- Keep admitted-support limits and unresolved human period coverage visible in the
+  Nordic overlap and period-review accounts.
+- Refresh those accounts from authenticated metadata while preserving country,
+  uncertainty and scenario results; incomplete periods remain unresolved rather than
+  silently excluded.
+
+### [#403](https://github.com/bijux/bijux-pollenomics/pull/403) — Consistent declared temporal support
+
+- Refuse contradictory start/end bounds, reject fallback points outside supplied support
+  and discard unsupported means while retaining valid intervals and source records.
+- Preserve missing/null compatibility, numeric-domain rules and specialized
+  calendar/export behavior.
+- Qualify complete native-context equality and source/noneditable host API outcomes,
+  retaining the original installation and wrapper failures separately from their
+  successful continuations.
+
+### [#402](https://github.com/bijux/bijux-pollenomics/pull/402) — Lightweight publication-reader imports
+
+- Defer scientific-host rendering imports until the runtime reader actually needs them,
+  allowing CLI help and media contracts in the admitted documentation environment
+  without `pyproj`.
+- Exercise cold isolated imports and the real reader CLI while retaining complete
+  runtime authentication when requested.
+
+### [#401](https://github.com/bijux/bijux-pollenomics/pull/401) — Nordic chronology and usable map-reading space
+
+- Publish temporal declarations and indexes for Nordic source-context features,
+  preserving fractional BP precision and explicitly refusing fractional values in the
+  separate integer-only context contract.
+- Add authenticated Neotoma age/model/control tables and schema provenance without
+  altering primary ages or promoting source context to scientific admission.
+- Authenticate distributed runtimes against parsed bootstraps, executable graphs, digest
+  filenames, bytes and SRI. Reuse the reader for LandClim lineage while retaining
+  scientific values and CSV rows.
+- Reserve normal-flow space for controls, the map and the full tabbed record reader,
+  with bounded internal scrolling and maintained source/export navigation.
+- Refresh maintained publication outputs and retire unused live mirrors from historical
+  capture owners while preserving governed product bodies.
+
+### [#400](https://github.com/bijux/bijux-pollenomics/pull/400) — Consistent pollen labels in chronology context
+
+- Refuse explicit non-pollen source elements even when their declared element type says
+  pollen, preventing contradictory observations from becoming chronology nodes or atlas
+  features.
+- Preserve missing/blank-label compatibility and existing canonical type checks. Native
+  replay retains the complete valid source population; no propagation event or new
+  scientific admission is introduced.
+
+### [#399](https://github.com/bijux/bijux-pollenomics/pull/399) — Focused source-interpretation producer declarations
+
+- Replace repeated startup-import inventories with the actual Neotoma, SEAD and Solsø
+  transformation/publication producers for five report owners.
+- Preserve declared inputs, governed outputs and scientific values while retaining
+  clean-repository and exact-input checks across reference/replay lanes.
+- Explain endpoint source guards and their limits, including restored-between-check
+  changes and unauthenticated foreign dependencies; unresolved historical custody
+  remains explicit.
+
+### [#398](https://github.com/bijux/bijux-pollenomics/pull/398) — Scientific input labels and observation containers
+
+- Reject contradictory native pollen labels before publishing synthetic count requests,
+  preserving valid counts and host revalidation behavior.
+- Require tuple/list observation-ID collections so scalar strings cannot split into
+  character identities or fabricate independent pair support.
+- Record current noneditable installed-host API qualification, preserving older
+  optional-engine and source-archive results at their original source epochs.
+
+### [#397](https://github.com/bijux/bijux-pollenomics/pull/397) — Visible synthetic coverage limits
+
+- Plot retained Alnus marginal interval frequencies for matched uniform, rare-count and
+  deliberately mismatched deposition scenarios, including zero-standard-error draws.
+- Keep the nominal 95% line a reference rather than a certification threshold, with
+  fixed-support, unequal-truth and field-accuracy limits explicit.
+- Rebuild the three source-bound briefing decks and their download identities while
+  preserving all unaffected page text and historical paper records.
+
+### [#396](https://github.com/bijux/bijux-pollenomics/pull/396) — Native-core ownership, streaming hashes and interruption cleanup
+
+- Replace incidental import inventories with maintained ABB, BOKE and BUS producer/guard
+  declarations while preserving inputs, report membership and complete-output oracles.
+- Hash non-normalized files as streamed raw bytes, retaining consumed-byte counts and
+  content/size drift refusals without unnecessary decoding copies.
+- Reap owned producer sessions before re-raising caller interruption, closing the
+  process leak demonstrated by the real SIGINT comparison.
+
+### [#395](https://github.com/bijux/bijux-pollenomics/pull/395) — Focused geodesic replay ownership
+
+- Bind geodesic sensitivity execution to its maintained producer and source guards
+  rather than thousands of incidental imports.
+- Preserve all inputs and both complete report outputs under clean-repository and
+  exact-input replay checks; current replay does not reconstruct missing historical
+  terminal evidence.
+
+### [#394](https://github.com/bijux/bijux-pollenomics/pull/394) — Canonical sample identities before persistence
+
+- Normalize governed observation and source-record identifiers before ordering,
+  duplicate checks and persistence decisions.
+- Prevent whitespace aliases from supplying independent support that collapses to one
+  emitted identity, retaining distinct-observation controls, chronology and numerical
+  behavior.
+
+### [#393](https://github.com/bijux/bijux-pollenomics/pull/393) — Retired engineering capture publications
+
+- Remove obsolete cross-border-neighbor and keyboard-navigation atlas capture
+  publications and their ownership declarations.
+- Regenerate the existing portal while preserving active generators, fixtures, verifiers
+  and scientific evidence; historical captures remain in accepted Git history.
+
+### [#392](https://github.com/bijux/bijux-pollenomics/pull/392) — Responsive decoding and complete publication admission
+
+- Yield between complete search-document batches without exposing partially validated
+  state. Distinguish pending/unavailable evidence from ready views and recheck selection
+  after font/layout readiness.
+- Record bounded browser readiness milestones while retaining the original load and
+  readiness deadlines.
+- Remove an immediate duplicate standalone verification after the fully admitting build,
+  preserve independent iframe/standalone checks, and refresh the maintained three-map
+  publication.
+
+### [#391](https://github.com/bijux/bijux-pollenomics/pull/391) — Boolean propagation admission flags
+
+- Require actual booleans for preaggregation validity and explicit role membership
+  instead of admitting truthy non-boolean values.
+- Preserve defaults, valid-false refusals and complete valid-input
+  classification/propagation report results.
+
+### [#390](https://github.com/bijux/bijux-pollenomics/pull/390) — Evaluation-specific propagation receipts
+
+- Include the full existing event-input identity in estimator receipt hashes so
+  different internal method compatibility cannot share an evaluation identity.
+- Preserve numerical calculations, event IDs and receipt schema; refresh synthetic
+  receipt lineage and dependent reader bindings.
+- Restore the historical regression's authentic producer roster and digest without
+  weakening current source or refusal guards.
+
+### [#389](https://github.com/bijux/bijux-pollenomics/pull/389) — Faster search restoration and compact posting storage
+
+- Reuse gram validation for known posting keys and batch reference arithmetic while
+  checking the live declared cap before every append.
+- Store eligible owned frozen postings as private immutable snapshots, preserving copied
+  values, literal membership and visible top-12 ordering; retain Set/streaming fallbacks
+  for custom or foreign inputs.
+- Check frozen-dictionary eligibility once and refresh the maintained publication
+  bindings.
+- Record the fixed-corpus Node comparison: median consumption fell about 33.4%, with
+  complete document/reference semantics and query results preserved under the declared
+  resource limits.
+
+### [#388](https://github.com/bijux/bijux-pollenomics/pull/388) — First-failure browser scenario receipts
+
+- Persist failed browser-open receipts even before a screenshot creates the case
+  directory.
+- Preserve the original navigation error when receipt storage also fails, retaining a
+  bounded diagnostic; successful-case receipt failures still refuse qualification.
+
+### [#387](https://github.com/bijux/bijux-pollenomics/pull/387) — Country and chronology signal captions
+
+- Display exact feature/resolution pairs in relation captions with a bounded list and
+  explicit omission count, retaining the complete underlying data.
+- Explain mixed native endpoint chronology and country support, distinguishing temporal
+  grouping contracts from analysis chronology.
+- Refresh generated caption controls through the maintained publication owners.
+
+### [#386](https://github.com/bijux/bijux-pollenomics/pull/386) — Evidence-led atlas walkthrough
+
+- Guide readers through coverage, pollen, ecological roles, taxa, chronology,
+  candidates/sensitivity and limitations, linking each question to its evidence owner.
+- Use numbered prose that remains readable on mobile; visible features, joins and
+  connecting lines remain distinct from scientific admission.
+
+### [#385](https://github.com/bijux/bijux-pollenomics/pull/385) — Source context, report downloads and wrapper lifecycle
+
+- Expose focused pollen identity, source refusals and country context in the atlas;
+  replace report script listings with manifest-linked downloads.
+- Acquire and close failed wrapper targets exactly once, retaining bounded
+  target/frame/loader/navigation/teardown evidence and primary failures.
+- Reuse fixed UTF-16 code-unit strings without changing search semantics, and refresh
+  native runtimes, parent HTML and existing source/ownership bindings.
+
+### [#384](https://github.com/bijux/bijux-pollenomics/pull/384) — Scientific routes and desktop diagnostic retirement
+
+- Restore eight source/result links and clarify current candidates versus retained
+  evidence in scientific readers.
+- Retire the obsolete synthetic desktop-zoom publication through existing portal and
+  ownership boundaries, preserving active tests and historical scientific bodies.
+
+### [#383](https://github.com/bijux/bijux-pollenomics/pull/383) — Chronology result links and mobile diagnostic retirement
+
+- Restore the Abborrtjärnen observed-pollen sensitivity result link by repairing its
+  Markdown destination.
+- Retire the obsolete mobile-attribution schematic and its publication registrations
+  while retaining active atlas code, source evidence and explicit custody limitations.
+
+### [#382](https://github.com/bijux/bijux-pollenomics/pull/382) — Authenticated search-posting reuse
+
+- Reuse postings already derived and authenticated by the native decoder instead of
+  rebuilding UTF-16 grams during search publication.
+- Bind the private cache to exact object and layer/document membership, refusing copied,
+  rebound or tampered objects while preserving literal search order.
+- Use an equivalent hexadecimal encoder and refresh all three publication surfaces
+  without changing scientific chunks.
+
+### [#381](https://github.com/bijux/bijux-pollenomics/pull/381) — Reviewed LegacyAge receipt growth
+
+- Rebind the two maintained LegacyAge consumers to the reviewed expanded custody
+  receipt, preserving the original S4/S5/S6 source bytes and selected read sets.
+- Accept only the exact reviewed receipt growth; refuse stale or subsequently changed
+  receipts without widening source authority, rights or chronology admission.
+
+### [#380](https://github.com/bijux/bijux-pollenomics/pull/380) — Qualified ABBO replay with compact source guards
+
+- Register the maintained ABBO age-control wrapper in the report scheduler and replace
+  incidental code inventories with domain/guard declarations.
+- Reproduce both complete retained reports under one clean-source reference/replay plan,
+  preserving data inputs and external source descriptors.
+- Document current execution ownership separately from historical custody and scientific
+  admission, with regressions for dirty helpers and changed committed revisions.
+
+### [#379](https://github.com/bijux/bijux-pollenomics/pull/379) — Spacing around navigation warnings
+
+- Adopt accepted logical spacing between navigation labels and visible new-tab warnings
+  in both text directions.
+- Refresh the canonical stylesheet, website projection and managed provenance while
+  preserving ordinary inline warnings, accessible text and map configuration identities.
+
+### [#378](https://github.com/bijux/bijux-pollenomics/pull/378) — Lower LOVE objective callback cost
+
+- Prepare owned immutable objective inputs once per Python search and reuse them inside
+  the callback, preserving arithmetic order, candidate checks, solver/RNG behavior and
+  defaults.
+- Record paired full-API warm-call median reductions of 16.25–16.90%, with complete
+  outputs, solver diagnostics and missingness retained.
+- Keep Python as production backend and retain geometry warnings, undefined rings and
+  limits on source-R parity, global-optimum quality and field accuracy.
+
+### [#377](https://github.com/bijux/bijux-pollenomics/pull/377) — Reader-layout readiness before overflow checks
+
+- Wait for document completion, fonts and Material table wrapping followed by animation
+  frames before applying the existing overflow gate.
+- Retain the one-pixel overflow refusal, source/CSP admission and deadlines, with
+  route/layout diagnostics that distinguish delayed reflow from permanent overflow.
+
+### [#376](https://github.com/bijux/bijux-pollenomics/pull/376) — Complete LOVE search-cost evidence
+
+- Record fresh full public-API differential-evolution runs and a separate diagnostic
+  profile, rather than fixed-candidate callback costs alone.
+- Retain scientific output equality, stopping diagnostics, geometry warnings and
+  undefined rings, keeping local runtime measurements separate from global-optimum,
+  source-R, platform and ecological claims.
+
+### [#375](https://github.com/bijux/bijux-pollenomics/pull/375) — Private Chromium IPC paths and startup preflight
+
+- Separate persistent artifact profiles from short private IPC directories, preventing
+  Unix socket path overflow in scientific-reading launchers.
+- Clean private runtime directories and probe real browser/CDP startup before expensive
+  site construction.
+- Size the outer workflow budget for observed build/setup plus existing reading
+  invocations while preserving individual process, source, CSP and publication limits.
+
+### [#374](https://github.com/bijux/bijux-pollenomics/pull/374) — Reproducible ABBO age-control account
+
+- Document byte-identical reproduction of the retained ABBO age-control report,
+  including lab identities, Neotoma controls and missing sample-age uncertainty.
+- Provide the tested qualified-wrapper command under the locked environment and
+  external-source prerequisite, retaining local noncommercial-use, historical-custody
+  and zero-admission limits.
+
+### [#373](https://github.com/bijux/bijux-pollenomics/pull/373) — Scientific publication policy in reading verification
+
+- Make the Nordic browser wrapper use the same finite-download publication policy as the
+  site build.
+- Bound verifier output and owned process-group cleanup; allow the larger complete
+  qualification receipt without expanding ordinary resource, checkpoint or log limits.
+- Adopt accepted documentation support while retaining independent scientific and
+  browser acceptance boundaries.
+
+### [#372](https://github.com/bijux/bijux-pollenomics/pull/372) — Scientific-reading imports without gallery dependencies
+
+- Make atlas-media exports lazy and defer the gallery's scientific-host import to its
+  actual validator.
+- Keep reading verification usable in the admitted documentation environment without
+  adding `pyproj` or other scientific dependencies, preserving public functions and
+  bounded-process receipts.
+- Retain qualified site artifacts after later reading failures instead of losing the
+  successful construction evidence.
+
+### [#371](https://github.com/bijux/bijux-pollenomics/pull/371) — Frozen-window Dalmutladdo archival counts
+
+- Add a pure, pinned-source API for the archival/native depth intersection, verifying
+  shared literal counts before interpreting explicit archival zero counterparts.
+- Bind the nineteen owners in six frozen windows while keeping archival panel vectors,
+  native pollen totals and mixed-source nonpanel mass separately attributed.
+- Leave unmatched depths, missing values, full-denominator uncertainty, chronology,
+  basin, PPE and use-rights prerequisites unresolved; no raw restricted table is
+  redistributed.
+
+### [#370](https://github.com/bijux/bijux-pollenomics/pull/370) — Dalmutladdo archival count correspondence
+
+- Record 71 exact depth pairs, 99 agreeing shared literal counts and 43 archival zero
+  counterparts to absent native Ulmus records.
+- Keep the native 4.5 cm and archival 4.0 cm rows unmatched and preserve whole-72-depth
+  refusal, missing values and suppressed aggregates.
+- Distinguish archive date, retrieval and native capture, retaining zero LRA admission
+  and unresolved physical/rights prerequisites.
+
+### [#369](https://github.com/bijux/bijux-pollenomics/pull/369) — Git-only execution evidence and early publication checks
+
+- Exclude retained dependency locks and development/access ledgers from website copying
+  while preserving Git sources and scientific reader links.
+- Check the actual MkDocs-selected static source roster against publication policy
+  before rendering, refusing reintroduced private execution evidence early.
+- Declare and validate all four owned package roots for source checks, retaining
+  ordering tolerance but rejecting missing, empty, duplicate or foreign roots.
+
+### [#368](https://github.com/bijux/bijux-pollenomics/pull/368) — Installed source-archive runtime qualification
+
+- Record direct noneditable host and optional-engine source-distribution installation,
+  including confined imports, source/RECORD/legal inventories and complete runtime
+  probes.
+- Preserve resource limits, scientific refusal boundaries and the exact historical
+  build/source epoch; this is scoped local distribution qualification rather than
+  registry publication.
+
+### [#367](https://github.com/bijux/bijux-pollenomics/pull/367) — Checkout imports for native preflight
+
+- Supply all four checkout source roots to the native-report preflight so its
+  scientific-download hook can import the developer package.
+- Validate the actual workflow command in the isolated renderer environment, refusing
+  incomplete or foreign root sets without relying on editable installs or ambient paths.
+
+### [#366](https://github.com/bijux/bijux-pollenomics/pull/366) — Current map configuration before rendering
+
+- Refresh the native report descriptor's raw and resolved configuration identities after
+  the retained-download adapter changes.
+- Run the existing native source preflight after renderer installation and download
+  controls, before site rendering; enforce its exact selector, configuration and
+  ordering.
+- Preserve report/resource bytes, historical captures and source recipes.
+
+### [#365](https://github.com/bijux/bijux-pollenomics/pull/365) — Cited goat document-label correspondence
+
+- Retain five narrowly attributed paper-label references, including separate Direkli
+  labels, and propagate them through existing project and provenance products.
+- Preserve the unresolved Blagotin correspondence, ambiguous author identities and zero
+  final admission; document labels do not establish selected specimens, accessions,
+  rights or dates.
+- Retain minimal factual citations and locators while excluding the all-rights-reserved
+  manuscript from product data.
+
+### [#364](https://github.com/bijux/bijux-pollenomics/pull/364) — Committed-source download identities
+
+- Derive finite GeoJSON download identities from the dispatched Git source instead of
+  maintaining redundant per-file size/hash copies.
+- Require authored bytes to match committed source and public bytes to match authored
+  files, preserving the reviewed path/kind/purpose roster and confined GeoJSON
+  admission.
+- Run cheap publication controls before rendering; retain independent PDF, scientific,
+  private-content, CSP and resource boundaries.
+
+### [#363](https://github.com/bijux/bijux-pollenomics/pull/363) — Goat technical-run provenance and literal Markdown
+
+- Retain current archive study associations and technical run/experiment pairs as
+  attributed context, including the native statement that Direkli1 and Direkli2 belong
+  to the same individual.
+- Preserve separate SAMPLE assertions, the configured analysis owner, ambiguous author
+  identities and zero admission while updating downstream provenance products.
+- Keep literal provenance text inside its intended Markdown table cell, preventing pipes
+  and line structure from losing or shifting source statements.
+
+### [#362](https://github.com/bijux/bijux-pollenomics/pull/362) — Resolved publication links and reader ownership
+
+- Resolve authored source links through existing GitHub targets and adopt accepted
+  renderer support that preserves fatal MkDocs diagnostics.
+- Retire obsolete synthetic drawer publications through current ownership/portal
+  boundaries while preserving active browser controls and historical evidence.
+- Correct current-versus-captured animal population wording and retain three distinct
+  historical input owners in reader qualification.
+
+### [#361](https://github.com/bijux/bijux-pollenomics/pull/361) — Native goat context in governed chronology
+
+- Carry existing native goat provenance packets through project, chronology and
+  source-bound reader products.
+- Correct the retained support-summary scope without changing record populations,
+  refusals, map resources or native runtime bytes.
+- Preserve ambiguous author identities, Qinghai caveats and zero final admission while
+  reconciling dependent reader/source bindings.
+
+### [#360](https://github.com/bijux/bijux-pollenomics/pull/360) — Literal native goat sample assertions
+
+- Bind four comparator author rows to five native SAMPLE assertions, keeping separate
+  Direkli records and their literal IDs, titles, aliases and descriptions.
+- Preserve native taxon/name agreement and disagreement rather than promoting configured
+  labels to selected specimen identity.
+- Carry the context through existing JSON/CSV projection families and scientific readers
+  while retaining ambiguous identities and zero admission; add no genotypes, dates,
+  coordinates or rights.
+
+### [#359](https://github.com/bijux/bijux-pollenomics/pull/359) — Scientific PDF download admission
+
+- Consume accepted documentation verification for current compiled scientific PDF
+  downloads, authenticating deck Git inputs, compiler records and the historical
+  paper-source resolver.
+- Preserve all twelve PDF owners, historical recipes, loaded-source guards and
+  unknown-hook refusals; no publication or scientific acceptance follows from source
+  admission alone.
+
+### [#358](https://github.com/bijux/bijux-pollenomics/pull/358) — Readable receiver results and source replay
+
+- Lead the spatial-field account with the eighteen accepted coefficient bounds and a
+  compact map of the distinct numerical questions, condensing duplicate verification
+  history.
+- Make ABBO source replay use the maintained locked interpreter, an explicit external
+  root and fresh artifact output, preserving analytical-use and zero-admission
+  prerequisites.
+
+### [#357](https://github.com/bijux/bijux-pollenomics/pull/357) — Current native-map publication ownership
+
+- Bind source-selected templates, external runtime/controller graphs, registrations and
+  resources to the existing native publication owner.
+- Authenticate original report bytes separately from normalized built children, and
+  require every served local resource to belong to the stable qualified publication
+  table.
+- Add bounded production-origin iframe verification and retain parent HTML on failed
+  builds, keeping hosted, human-reading and scientific acceptance separate.
+
+### [#356](https://github.com/bijux/bijux-pollenomics/pull/356) — Receiver coefficient bounds in the scientific deck
+
+- Plot all eighteen independently certified coefficient interval widths against the
+  unchanged precision threshold, retaining the six frozen geometry/taxon cases and
+  positive lower bounds.
+- Rebuild source-bound briefing exports and their download records while keeping
+  historical A authentication and field accuracy explicitly open.
+
+### [#354](https://github.com/bijux/bijux-pollenomics/pull/354) — Certified angular moments for continuous receivers
+
+- Reduce receiver correction to one-dimensional quadrature with a rigorous
+  whole-integral series remainder, certifying all eighteen original coefficient-width
+  targets and positive lower bounds for the frozen captured-A geometries.
+- Independently reconstruct equations and derivative bounds on saved leaves/nodes,
+  preserving exact rational domains and the complementary-moment dependence needed by
+  the final observer.
+- Retain earlier refusals, source/protocol identities and resource limits; numerical
+  certification of the captured law does not authenticate historical A values or field
+  accuracy.
+
+### [#355](https://github.com/bijux/bijux-pollenomics/pull/355) — Native scalar identity in basin review
+
+- Compare selected basin values through canonical JSON so native integer and float
+  observations cannot substitute for one another through Python equality.
+- Preserve boolean, unit and source-authority refusals, unchanged valid selections and
+  the existing non-admitting review result.
+
+### [#353](https://github.com/bijux/bijux-pollenomics/pull/353) — Consistent accepted documentation authority
+
+- Align documentation authority and generated provenance with the already accepted
+  shared component source, removing the stale Python-component identity mismatch before
+  Linux rendering.
+- Preserve the identical documentation subtree, renderer, assets and Make profiles;
+  refresh managed pins and checksums through their owners.
+
+### [#352](https://github.com/bijux/bijux-pollenomics/pull/352) — Retired boundary diagnostics and single PDF authority
+
+- Retire the superseded synthetic boundary-orientation publication and regenerate its
+  existing portal/ownership projections.
+- Delegate all twelve paper/deck PDF integrity checks to the existing download owner
+  instead of maintaining duplicate pins in the generic research lock.
+- Preserve sealed sources, scientific evidence and historical custody limitations.
+
+### [#351](https://github.com/bijux/bijux-pollenomics/pull/351) — Manual scientific-reading qualification
+
+- Add a manually dispatched, source-bound qualifier for the admitted production-site
+  artifact, actual reader navigation and downloads, with bounded browser and source
+  contracts.
+- Record installed compatibility-facade entry-point behavior alongside
+  host/optional-engine qualification, retaining scientific and release acceptance
+  limits.
+- Align the stale root backend assertion with the already supported Hatchling bounds;
+  perform no deployment or registry publication.
+
+### [#350](https://github.com/bijux/bijux-pollenomics/pull/350) — Matched Nordic pollen-error figure
+
+- Replace a dense scientific-deck table with a native figure comparing the same four
+  matched-support pollen MAE estimates.
+- Preserve target/window/owner support, alternative-profile rank reversals,
+  scored/refused/unscorable populations and the absence of propagated uncertainty or
+  causal/vegetation-accuracy claims.
+- Rebuild the source-bound decks and reconcile their existing download qualifications.
+
+### [#349](https://github.com/bijux/bijux-pollenomics/pull/349) — Reconciled report membership and source roles
+
+- Reconcile the report portal with tracked assets and distinguish archived chronology
+  proofs from current downloadable publications.
+- Reflect supplied full theory papers in scientific guides, retain historical source
+  recipes with portable commands and maintain live package metadata through its current
+  owner role.
+- Record installed host/optional-engine qualification without changing numerical
+  results, refusal boundaries, PDF identities or historical source epochs.
+
+### [#348](https://github.com/bijux/bijux-pollenomics/pull/348) — Conflicting native Neotoma area definitions
+
+- Expose the provider schema's hectare definition alongside the dataset API's
+  square-metre definition instead of silently selecting a unit.
+- Remove the unsupported Solsø square-metre label and distinguish historical
+  prerequisite projections from new metadata-bearing outputs.
+- Preserve unselected units and refused physical admission; source metadata alone does
+  not resolve basin evidence.
+
+### [#347](https://github.com/bijux/bijux-pollenomics/pull/347) — Scientific report rendering and locked replay commands
+
+- Make selected replay recipes use the locked environment supplied by the maintained
+  installation workflow.
+- Reconcile scientific footers with current owners so reports render again, retaining
+  numerical claims, historical source epochs, refusals and the withheld aDNA reference
+  boundary.
+
+### [#346](https://github.com/bijux/bijux-pollenomics/pull/346) — Tighter continuous-receiver enclosures
+
+- Intersect Taylor enclosures with proven global sine/cosine and sinc-derivative bounds,
+  narrowing every paired fixed panel while retaining outward rounding and the existing
+  precision lattice.
+- Record the frozen six-receiver adaptive result and independent replay, preserving the
+  then-unmet coefficient-precision requirement rather than declaring certification
+  prematurely.
+
+### [#345](https://github.com/bijux/bijux-pollenomics/pull/345) — Historical and conditional LRA scope
+
+- Distinguish historical reconstruction evidence from the inputs a separately declared
+  conditional LRA model must justify.
+- Reconcile current animal source/map and chronology populations while keeping earlier
+  browser captures at their original source epochs and retaining scientific admission
+  limits.
+
+### [#344](https://github.com/bijux/bijux-pollenomics/pull/344) — Exact counted mass in host LRA admission
+
+- Sum schema-valid integral floats as exact integers before applying the existing
+  denominator limit, preventing rounding at the inclusive boundary from admitting
+  excessive count mass.
+- Cover regional/local and draw-fed admission, mixed representations and count ordering
+  without changing the bound or admitting a physical cohort.
+
+### [#343](https://github.com/bijux/bijux-pollenomics/pull/343) — Qualified build backends and OpenAPI tooling
+
+- Qualify Hatchling across the root and all four distributions, including wheels, source
+  archives and the optional engine's backend envelope.
+- Adopt accepted Redocly tooling and managed configuration, retaining independent
+  documentation authority and the API's existing missing-4xx warnings.
+- Consolidate the associated dependency proposals after complete frozen-registry/backend
+  and npm security checks, without changing scientific source or evidence.
+
+### [#337](https://github.com/bijux/bijux-pollenomics/pull/337) — Consolidated dependency security and supported tooling
+
+- Resolve vulnerable Python/Node transitive dependencies, including virtualenv, redirect
+  handling and glob/minimatch/IP-address chains, in one reviewed lock change.
+- Qualify pandas 3 and matching stubs across the host, developer and LRA bounds while
+  retaining scientific implementation and result bytes.
+- Declare public API access/licensing in the frozen contract and qualify current OpenAPI
+  generation, lint and drift checks.
+- Adopt accepted immutable workflow actions and shared tooling, preserving triggers,
+  permissions, runtime selections and scientific gates; retain the unrelated
+  pre-existing release-policy test failure explicitly.
+
+### [#335](https://github.com/bijux/bijux-pollenomics/pull/335) — Primary Berel ownership and comparator taxonomy
+
+- Recover the primary Berel horse owner through the named supplement and archive
+  filename-to-BioSample correspondence, without inventing spreadsheet aliases,
+  coordinates or precise dates.
+- Separate study, screening, technical-library, submitted-record and independent-animal
+  populations; preserve missing context in primary-table joins.
+- Bind locality membership to sample-owned country evidence and propagate the primary
+  owner through chronology, atlas exclusions and entity accounting.
+- Keep the explicit Somali wild-ass comparator taxonomy mismatch distinct from missing
+  native taxonomy, with source-owned provenance and existing admission limits.
+
+### [#334](https://github.com/bijux/bijux-pollenomics/pull/334) — Owned animal chronology and Galician source linkage
+
+- Compare saved animal chronology provenance and honor owned child intervals instead of
+  treating locality coverage labels as specimen dates.
+- Distinguish processed specimens, generated/analyzed populations, consensus genomes,
+  quality failures and deposited sequences without inventing a biological denominator.
+- Bind retained Galician primary-paper and cattle chronology evidence to their project,
+  preserving missing dates and Qinghai/Galician source-stage boundaries.
+- Reconcile animal entity/map decisions, source registries, report routes and current
+  publisher membership while preserving historical capture roles.
+
+### [#333](https://github.com/bijux/bijux-pollenomics/pull/333) — Specimen populations and contextual date limits
+
+- Preserve unresolved Obishir specimen populations and bind bovine counts to original
+  source scope rather than archive or capture totals.
+- Retain identified undated goat owners and additional named horse sequencing scopes
+  through normalization and sample chronology.
+- Preserve native Unicode and distinguish biological cohorts from technical/deposited
+  representations.
+- Keep Qinghai archaeological qualifiers as contextual chronology instead of converting
+  them into direct radiocarbon dates.
+
+### [#332](https://github.com/bijux/bijux-pollenomics/pull/332) — Matched Nordic physical pollen-transfer evidence
+
+- Account for author-mapped count windows and literal taxon support, distinguishing
+  pollen counts from native stomates.
+- Compare matched country-held-out physical pollen transfers and independently check
+  receiver responses and transfer calculations, preserving response metadata and
+  original builder custody.
+- Publish the retained support, results and development limits through scientific
+  accounts and briefing decks, with truthful current export provenance.
+- Refresh stale Hellman paper exports for already committed correspondence paragraphs;
+  retained experiment evidence does not establish new field accuracy or human-reading
+  acceptance.
+- Report the mixed retained result: Nordic pooling lowers Swedish target error, but
+  physical forwarding has no uniform advantage over direct pollen (primary pooled
+  site-macro MAE 0.198419 versus 0.197962). Country-macro and alternative-weight
+  rankings differ. Keep all 432 outcomes: 414 scored, sixteen prediction refusals and
+  two unavailable target observations.
+
+### [#331](https://github.com/bijux/bijux-pollenomics/pull/331) — Native windows and specimen-owned map chronology
+
+- Account for complete native sample ownership and literal taxon support on declared
+  Nordic windows, including Finnish and Norwegian coverage.
+- Admit animal locality evidence through exact specimen chronology and filter map time
+  with complete sample supports; keep locality hulls as display context.
+- Preserve sample evidence in label exports, runtime discovery and native CSV
+  verification, and bind saved maps to specimen-owned chronology.
+- Retain the qualification protocols and adopt accepted complete-history checkout
+  filtering without rerunning historical source studies.
+
+### [#330](https://github.com/bijux/bijux-pollenomics/pull/330) — Geographic transfer and prescribed thinning
+
+- Screen geographic block footprints before reconstruction and bind coupled fits/draws
+  to qualified source closures for held-place Hellinger transfer.
+- Project conditional uncertainty and retain undefined mass, source effects and matched
+  scoring populations rather than silently dropping refused cases.
+- Freeze ten-site thinning predictions before outcome scoring, independently verify
+  prescribed nine-owner forecasts and preserve native regional rounding.
+- Keep animal locality coverage separate from sample chronology, surface the Obishir
+  stratigraphic caution and document coordinate/temporal dispositions for intake
+  members.
+
+### [#329](https://github.com/bijux/bijux-pollenomics/pull/329) — Source-country support and spatial prediction uncertainty
+
+- Propagate shared count/PPE uncertainty into conditional regional predictions and add
+  zero-compatible Hellinger spatial means with independent arithmetic checks.
+- Bind spatial inputs to admitted nominal products and freeze nested selection/scoring
+  before evaluating retained development results.
+- Preserve Åland in Finnish country support, distinguish authority changes from
+  source-country conflicts and retain source-specific boundary provenance.
+- Compare declared radii by exact numeric value and keep current country ledgers
+  distinct from captured replay; retained prediction evidence remains conditional.
+
+### [#327](https://github.com/bijux/bijux-pollenomics/pull/327) — Continuous receiver and finite-ring certificates
+
+- Add rational continuous-receiver enclosures, positive eighth-order quadrature, exact
+  radial conditioning and shared precision work across frozen cases.
+- Independently replay receiver certificates and propagate survival-endpoint ring bounds
+  through pollen scores, retaining the six-case precision refusal then observed.
+- Reconcile original source-delivery variants and source-owned geometry/population
+  contracts without claiming current native-output equivalence.
+- Document conditional uncertainty, Ekenäs study/contributor context, unmatched Obishir
+  specimens and the HYDE access challenge, preserving numerical-versus-field-accuracy
+  limits.
+
+### [#328](https://github.com/bijux/bijux-pollenomics/pull/328) — Bounded component/search transport and owned evidence
+
+- Partition oversized atlas indexes into budgeted resources and encode search documents
+  with exact postings recovery, retaining loading, integrity and request/byte limits.
+- Validate model projections after serialization and bind report owners to the current
+  component assets.
+- Support fixed regional sources in held-place reconstruction, independently check
+  retained producer identity/order/aliases and report Krageholm composition refusals.
+- Scope animal chronology/species rendering to bound populations and publish
+  specimen-identity refusals across animal maps; resource correspondence does not imply
+  browser or native-output equivalence.
+
+### [#325](https://github.com/bijux/bijux-pollenomics/pull/325) — Conditional radial predictions and source support
+
+- Bound spatial predictions with complementary radial masses and independent circle
+  arithmetic, preserving place-level losses and the distinction between finite-mass
+  separation and true integral uncertainty.
+- Independently reconcile Krageholm regional count/chronology support and bind the
+  Baltic sheep expectation to five source-owned individuals.
+- Refuse unbound goat comparator identities and distinguish source rows, sequencing
+  treatments, inherited SVAR areas and provider identifiers.
+- Retire private human registers from product reporting, reconcile briefing citations
+  and retain source/rights replies without treating example checks as an original pond
+  replay.
+
+### [#324](https://github.com/bijux/bijux-pollenomics/pull/324) — Field-and-chronology proposal incorporated through #326
+
+- This proposal's commits were delivered in the combined PR
+  [#326](https://github.com/bijux/bijux-pollenomics/pull/326). GitHub records the same
+  accepted merge for both PRs.
+- The field, chronology and source work is described under #326 below; this heading
+  records the proposal without crediting a second implementation or scientific run.
+
+### [#326](https://github.com/bijux/bijux-pollenomics/pull/326) — Source-bound field chronology and conditional covariance
+
+- Integrate two-anchor spatial fields over circular receivers and compare matched-core
+  forward predictions with independent checks.
+- Qualify fixed-length seeded chronology extensions, native prefixes, polynomial ages
+  and diagnostic flags while excluding generated timestamps from input equivalence.
+- Integrate saved ages with shared-PPE covariance, certify common covariance bounds and
+  estimate derived-mean Monte Carlo precision separately from conditional mixture
+  spread.
+- Compare original Abborrtjärnen counts, literal zeros and source-supported age
+  populations without imputing missing native values.
+- Bind McColl, Celtic, museum, Hellman, Namibia, HYDE, Swedish lake-chart and
+  Uppåkra/wetland accounts to their original source context, preserving specimen
+  conflicts, chart conditions and coverage gaps.
+- Retain reviewed paper exports and full-paper witnesses through authenticated
+  historical storage, restore maintained renderers and reconcile download/reader
+  inventories without retagging original execution epochs.
+
+### [#323](https://github.com/bijux/bijux-pollenomics/pull/323) — Native pollen sequences and labeled sample ages
+
+- Expose native pollen sequence endpoints, distinguish missing depths from duplicate
+  coordinates and preserve fractional-source count refusals.
+- Reconcile captured Neotoma core values at source precision with rational checks,
+  retaining separate provider custody for Abborrtjärnen.
+- Preserve labeled horse chronology fields and calendar alternatives, exact typed SEAD
+  chronology rows and conditional temporal/PPE dependence.
+- Refuse previously processed GARASEL as untouched evidence and retain archival
+  hydrology/core/basin context without admitting field leads.
+- Authenticate historical chronology/API bytes through closed Git witnesses while
+  keeping current native-layout compatibility and scientific admission separate.
+
+### [#320](https://github.com/bijux/bijux-pollenomics/pull/320) — National geometry, source countries and chronology precision
+
+- Reconcile national archaeology population aggregates and full geometry payload
+  structure, exposing qualified native context separately from ordinary materialization.
+- Compare source coordinates and countries against pinned boundary support, retaining
+  contradictory rows and ambiguous museum specimen context.
+- Reconcile chronology run settings, controls, calibration paths and physical-age
+  arithmetic; retain archived sampler/age-column limits and the refused joint-age
+  experiment.
+- Propagate joint ages through frozen pollen scores with independent checks and refuse
+  unrepresentable conditional covariance arithmetic.
+- Qualify HYDE dependence on pollen reconstruction without treating archived warnings or
+  native support as current scientific acceptance.
+
+### [#319](https://github.com/bijux/bijux-pollenomics/pull/319) — Accessible atlas fitting and persistent controls
+
+- Preserve native hidden state across control layouts and honor reduced motion during
+  map fitting.
+- Reserve clearance for status panels and floating headers so fitted bounds remain
+  usable.
+- Group browser-semantics controls by evidence surface and retain complete sorted CLI
+  parser exports; fixture checks do not stand in for a fresh real-browser run.
+
+### [#321](https://github.com/bijux/bijux-pollenomics/pull/321) — Regional-draw commands and saved reports
+
+- Accept regional-draw LOVE requests through ordinary LRA commands and render their
+  saved tables and downloads.
+- Add repeatable host benchmark orchestration with explicit thread budgets and
+  tagged-R/reference execution boundaries.
+- Compose exact Sweden service/render/payload custody checks only for their named
+  detached sources, preserving original identities and strict default admission.
+
+### [#322](https://github.com/bijux/bijux-pollenomics/pull/322) — Exact native counts and unresolved uncertainty masks
+
+- Reconcile repeated Neotoma records and country totals, preserve excluded parent
+  subtrees and child rows, and expose only the qualified Rootsi/Neotoma observation
+  dependence.
+- Reject unresolved masks before shared-PPE, joint covariance, optimized LOVE,
+  fixed-site, nested, supplied-draw and regional-cover inputs become numerical values.
+- Preserve exact shared-PPE count denominators and missingness in certified counting
+  sets, reading shared taxa inventories without copying.
+- Authenticate generated reference metadata through declared Git/source transport while
+  retaining strict inventory, literal identity and native-equivalence refusals.
+
+### [#318](https://github.com/bijux/bijux-pollenomics/pull/318) — Authenticated science readers and source-bound briefings
+
+- Bind qualifier-preserving classification and current empty propagation products to
+  their actual producers, retaining zero admitted concepts and zero eligible/directed
+  pairs.
+- Expose matched pollen/cover compatibility sets and numerical/source-curation findings
+  while separating retained optimizer sources from live replay.
+- Authenticate original author-development source witnesses, paper downloads, rendering
+  dependencies and excluded-source links through their existing owners.
+- Compile and distribute the three source-bound briefings with citation, font and
+  page-bound checks, retaining historical source epochs and unqualified
+  human-reading/hosted acceptance.
+- Preserve wrapper failover/loader observations and source-less R-parity checkout
+  context without claiming a new scientific or native-R study.
+
+### [#317](https://github.com/bijux/bijux-pollenomics/pull/317) — Physical reconstruction input admission
+
+- Reject boolean flags and overflowing physical scalars before numeric coercion, along
+  with boolean pollen/response arrays and invalid LOVE background draws or geometry.
+- Refuse directly masked observations while preserving valid native numeric values;
+  nested-mask and native-complex boundaries remain distinct from this direct-input
+  change.
+
+### [#312](https://github.com/bijux/bijux-pollenomics/pull/312) — Historical programs in authenticated Git storage
+
+- Remove duplicated historical program bodies from current data storage and resolve
+  their exact bytes through the maintained Git-backed readers, retaining explicitly
+  authorized physical evidence.
+- Update source descriptors and registries without altering original native epochs,
+  captured results or storage aliases, and reject reintroduced duplicate bodies.
+- Quantify finite-law covariance approximation and group likelihood reconstruction
+  contracts by their owning responsibility.
+
+### [#311](https://github.com/bijux/bijux-pollenomics/pull/311) — Namibia predictions, failed fits and stable likelihood steps
+
+- Retain grouped mapped-area pollen predictions and independent arithmetic checks: the
+  original 135 fits include 133 converged fits and two step-limit failures, with 148
+  scored model targets.
+- Keep mixed predictive results visible: pooled training pollen has lower mean primary
+  loss at five of the thirteen complete radii; no universally superior model or selected
+  radius follows.
+- Compare small likelihood changes without cancellation and refuse unrepresentable trial
+  movement instead of reporting convergence.
+- Retain the separate four-step convergence of the two failed training problems under
+  the later solver. That follow-through supplies no replacement held-out predictions,
+  scores or study means, and does not erase the original failures.
+- Preserve original tables, reviewed paper and rendering/source epochs through
+  authenticated Git storage, without claiming new field accuracy.
+
+### [#310](https://github.com/bijux/bijux-pollenomics/pull/310) — Bounded evidence selection and deferred map controls
+
+- Separate bound native data from executable runtime and load evidence
+  tools/source-detail renderers on demand within existing budgets and SRI rules.
+- Drive relation filters and comparison pickers from supplied event definitions, explain
+  loading/empty states and download the complete published selection.
+- Preserve keyboard access and reduced motion, hiding unavailable controls from
+  navigation and declaring selected source chronology intervals explicitly.
+- Bind the source extensions to fixed consumers without weakening HTTP/file policy,
+  chronology refusals or retained scientific limits.
+
+### [#309](https://github.com/bijux/bijux-pollenomics/pull/309) — Explainable relation rules and endpoint context
+
+- Expose governed predicate branches and rectangular rule types, with supplied
+  scenarios, endpoint comparisons and bound method/uncertainty context.
+- Compare canonical evidence, country pairs and endpoint ages; share exact published
+  relation focus in URLs and keep absent fields visibly unavailable.
+- Authenticate current projection helpers and historical source contexts without
+  rewriting the retained historical namespace.
+
+### [#308](https://github.com/bijux/bijux-pollenomics/pull/308) — Native source records and publication provenance
+
+- Display retained chronology models/controls, focused pollen signals, selected
+  samples/claims and taxon/dataset metadata in source readers.
+- Preserve provider site/JSON links and plot primary ages without inventing depth
+  coordinates.
+- Expose captured publication records and source transformations while retaining bounded
+  capture defaults and fixed source/caller custody.
+
+### [#306](https://github.com/bijux/bijux-pollenomics/pull/306) — Qualified whole-pollen claims and observation panels
+
+- Require explicit qualification flags for whole-pollen propagation claims, preserving
+  their exploratory aggregate meaning.
+- Show reviewed crop/indicator counts, connection legends and literal native
+  age-depth/pollen observations; align only explicit age choices and compare compatible
+  taxon panels.
+- Publish the growing browser runtime as a content-addressed immutable sidecar with SRI
+  and complete request/byte/inventory accounting, retaining inline and historical source
+  boundaries.
+
+### [#307](https://github.com/bijux/bijux-pollenomics/pull/307) — Original kernel boundaries and minimum-lake comparisons
+
+- Distinguish original kernel branch behavior from minimum-lake domain constraints and
+  authenticate literal R package versions.
+- Retain original outcome tables, finite/NaN/paired-refusal states and dated
+  publications without claiming a fresh R run or current native equivalence.
+
+### [#304](https://github.com/bijux/bijux-pollenomics/pull/304) — Reference precision and LOVE wrapper comparisons
+
+- Preserve binary64 coordinates through round-trip reference CSV parsing and shared
+  numeric-vector validation.
+- Separate fixed-candidate LOVE wrapper values/timing from broader optimizer claims and
+  retain the original dated comparison evidence.
+- Authenticate exact historical optimizer/Linux bodies and the named historical
+  site-leakage scoring profile, preserving earlier run identities and scientific limits.
+
+### [#305](https://github.com/bijux/bijux-pollenomics/pull/305) — Conditional adequacy and sample-unit precision
+
+- Bound common-cover adequacy under declared counts and support, preserving within-site
+  pooling and distinct sample-unit identities.
+- Admit count inputs only after mask/scalar-domain checks, reusing the existing
+  likelihood boundary without changing solver mathematics.
+- Retain original adequacy/precision tables and conditional qualifications; optional
+  cohort collection leaves the default path intact.
+
+### [#303](https://github.com/bijux/bijux-pollenomics/pull/303) — Declared public receipt metadata
+
+- Allow explicit public display fields without pinning an entire metadata file or
+  changing immutable source receipts.
+- Validate every declared pointer, source/value identity and public projection for the
+  fixed report population, consuming accepted documentation security support.
+
+### [#302](https://github.com/bijux/bijux-pollenomics/pull/302) — Literal counts and descriptive forest-plot evidence
+
+- Retain exact Exhult workbook/count correspondence and descriptive forest-plot
+  input/pollen composition readers with their original tables.
+- Keep source, sample-axis and denominator limits explicit: these comparisons do not
+  admit chronology, taxonomy mappings or vegetation calibration.
+- Bound host imports and package ownership for the new readers without replacing
+  unrelated current source.
+
+### [#301](https://github.com/bijux/bijux-pollenomics/pull/301) — Declared SEAD child identities
+
+- Use each child table's declared primary key for reconciliation refusals instead of
+  selecting an unrelated `_id` field.
+- Preserve counts, statuses and refusal predicates while authenticating the changed
+  diagnostics against original optimizer/chronology source contexts; historical output
+  equality is not claimed.
+
+### [#300](https://github.com/bijux/bijux-pollenomics/pull/300) — Literal Galician worksheet context
+
+- Add an explicitly requested context writer that preserves literal worksheet cells and
+  the existing default execution and producer identity.
+- Publish the original 110-cell table with dated evidence links while retaining
+  sample/date/site admission limits.
+- Bind the reader to original source custody and add taxonomy-label refusals for broad
+  provider labels without folding in the separate child-join changes.
+
+### [#299](https://github.com/bijux/bijux-pollenomics/pull/299) — Historical scoring and atlas wrapper transport
+
+- Preserve declared historical site-leakage and Gloppsjön arithmetic and authenticate
+  stored English receiver coefficients through exact original source custody.
+- Separate browser transport, selection and loader contracts with explicit ownership and
+  bounded software controls.
+- Retain local overflow refusals, maintained-input boundaries and report locators
+  without claiming equality of current/native numerical execution.
+
+### [#298](https://github.com/bijux/bijux-pollenomics/pull/298) — Canonical and historical reference custody
+
+- Read source-less evidence through the canonical LRA context and distinguish finite
+  historical evidence from strict current-source reuse.
+- Bind changed I/O readers to exact capture/member/source contracts, retaining numerical
+  predicates, original native results and release limits.
+- Exercise controller-role Git custody and report source authentication without
+  restoring duplicated code or scientific evidence into current storage.
+
+### [#297](https://github.com/bijux/bijux-pollenomics/pull/297) — Measured-panel reconstruction and nested counting regions
+
+- Retain measured taxa in conditional shared-cover fits and derive joint counting
+  regions directly from nested native-count panels.
+- Preserve B/U estimates, missing BUS Fraxinus, unmatched populations and conditional
+  sampling limits in the original point/counting evidence.
+- Declare the remaining named presentation inputs without body pins, retaining the
+  finite whitelist and upstream-qualified public metadata hook.
+
+### [#296](https://github.com/bijux/bijux-pollenomics/pull/296) — Common-cover likelihood and exact two-site counting
+
+- Fit a common cover to heterogeneous fixed site responses and derive exact two-site
+  counting sets from saved inputs.
+- Reject boolean, unresolved-mask and complex inputs before shared conversion,
+  preserving refusal mass and per-window support.
+- Retain matched/unmatched windows, empty intersections and sets excluding the fitted
+  point without claiming simultaneous-window calibration, field accuracy or additional
+  rights.
+
+### [#295](https://github.com/bijux/bijux-pollenomics/pull/295) — Shared-age bounds and covariance feasibility
+
+- Bound frozen prediction ranks under shared age allocations and compute joint
+  Abborrtjärnen sensitivity on declared memberships.
+- Decide covariance feasibility for laminar sums and retain archived PFT covariance
+  refusals, including matched missing coordinates.
+- Publish the original conditional evidence through isolated historical account/producer
+  readers, retaining partial leaf coverage and refusing chronology-probability or
+  predictive-accuracy interpretations.
+
+### [#294](https://github.com/bijux/bijux-pollenomics/pull/294) — Cached counting results and workbook feature census
+
+- Expose regional-counting uncertainty in saved LOVE cases and census cached feature
+  values in original Rootsi workbooks.
+- Preserve the eight failed counting cases and absence of qualified counting sets, along
+  with the workbook census's same-parser limitation.
+- Retain exact saved reports, signed-display behavior and arithmetic controls while
+  keeping empirical execution distinct from tiny constructed test caches.
+
+### [#293](https://github.com/bijux/bijux-pollenomics/pull/293) — Ordered-age rankings and conditional counting uncertainty
+
+- Materialize declared Nordic cohorts, score conditional predictions and propagate
+  regional/local counting uncertainty under their explicit assumptions.
+- Bound count fractions under depth order and frozen prediction rankings over ordered
+  ages, isolating scientific inputs from report navigation.
+- Keep stable Hellinger arithmetic as the default and require explicit historical
+  arithmetic selection, retaining original products, protocol ownership and execution
+  epochs.
+
+### [#292](https://github.com/bijux/bijux-pollenomics/pull/292) — Conditional physical-forward and coupled pollen evidence
+
+- Add physical pollen-forward predictions, coupled Nordic input/workflow contracts,
+  matched comparisons, sensitivity and admissibility checks.
+- Expose homogeneous counting confidence sets and preserve native panel projections
+  through bounded public APIs.
+- Publish retained products and protocols with explicit exposure, parameter,
+  taxon-projection and refusal limits, without presenting historical source checks as a
+  new scientific study.
+
+### [#291](https://github.com/bijux/bijux-pollenomics/pull/291) — Retired duplicate native-reference programs
+
+- Remove duplicated native-R/Linux program and configuration bodies from current
+  reference bundles, resolving exact original bytes through accepted Git source
+  versions.
+- Preserve validators, certificates, returned-map isolation and retained readers under
+  closed source authority and original manifest ordering.
+
+### [#290](https://github.com/bijux/bijux-pollenomics/pull/290) — Numerical references and depth-order contracts
+
+- Preserve Hellinger precision for adjacent/subnormal fractions, scalar reference
+  behavior and depth-order feasibility.
+- Publish retained wind and regional-cutoff observations through scoped saved-result
+  readers, preserving original metadata and scientific qualification boundaries.
+- Authenticate Linux/Swedish reader roles and named helper documentation against
+  complete historical source bodies without admitting unrelated current source.
+
+### [#289](https://github.com/bijux/bijux-pollenomics/pull/289) — Reference-source and report-partition contracts
+
+- Retain the recorded Python comparison beside existing R evidence and preserve Neotoma
+  `cf` qualifier accounting.
+- Make source indexes, serializer and report partitions explicit; cover missing/foreign
+  roles and exported source identities with isolated fixtures.
+- Publish literal saved observations without replacing existing aDNA, SEAD or ABBO
+  qualifications or claiming a fresh scientific producer run.
+
+### [#288](https://github.com/bijux/bijux-pollenomics/pull/288) — Predictive examples and honest execution schedules
+
+- Expose source-bound predictive-uncertainty examples and recorded-gate command controls
+  with isolated source fixtures.
+- Remove unresolved ABBO execution from the generated schedule while retaining official
+  custody and scientific prerequisites.
+- Retain the dated scientific deck publication and its source links; artificial two-atom
+  examples do not establish empirical or author-study reproduction.
+
+### [#287](https://github.com/bijux/bijux-pollenomics/pull/287) — Typed SEAD source components
+
+- Prepare keyed categorical, integer and boolean components while preserving native
+  scalar identity, missingness, integer precision, qualifiers and source declarations.
+- Retain the original component CSVs and grouped reports, with distinct historical
+  optimizer roles and reader qualifications.
+- Keep ecological event admission refused rather than deriving it from successful typed
+  projection.
+
+### [#286](https://github.com/bijux/bijux-pollenomics/pull/286) — Authorized historical aDNA publication evidence
+
+- Restore the authorized retained human/animal evidence and bind country readers to its
+  exact source counterparts.
+- Authenticate the frozen audit-program bodies without importing or executing them;
+  other historical program occurrences remain Git-backed rather than duplicated in
+  current data.
+- Preserve chronology, rights, event and scientific acceptance predicates: retained
+  custody does not supply independent scientific review or empirical admission.
+
+### [#285](https://github.com/bijux/bijux-pollenomics/pull/285) — Temporal-window and spatial development readers
+
+- Expose retained temporal-window, circular-receiver and LOVE development evidence
+  through scoped readers and publication routes.
+- Preserve default versus optional author windows, saved failures, native epochs and
+  unresolved scientific criteria.
+- Authenticate the exact default-wrapper source correspondence without adding program
+  snapshots or weakening country aDNA fallbacks.
+
+### [#284](https://github.com/bijux/bijux-pollenomics/pull/284) — Native atlas assets and provider-failure isolation
+
+- Publish native map assets beside rendered views and separate bounded provider-failure
+  verification from ordinary operation.
+- Authenticate named asset/profile source extensions against complete historical bodies
+  while retaining original rendering roles.
+- Preserve dated accessibility/distribution observations and keep current scientific or
+  native-output equivalence unqualified.
+
+### [#283](https://github.com/bijux/bijux-pollenomics/pull/283) — Pollen development and input-isolation evidence
+
+- Expose retained cohort training, withheld-fold evaluation, matched comparisons and
+  uncertainty propagation through scientific readers.
+- Add input-isolation evidence and reader/ownership routes without changing original
+  acceptance criteria or native execution identities.
+- Keep incomplete human/animal publications withheld and strict admission APIs intact.
+
+### [#282](https://github.com/bijux/bijux-pollenomics/pull/282) — Execution custody and optimizer input references
+
+- Authenticate retained selected counts, source accounting, Sweden observations, radius
+  sensitivity, controlled comparisons and representative public-call performance.
+- Preserve conditional LOVE, two-grid vegetation, source-refusal and preparation
+  evidence with exact original source/execution roles.
+- Certify optimizer baseline input custody only as a read reference, retaining
+  unresolved feasibility, results and rights criteria.
+- Withhold incomplete human/animal publications and restore dependent country fallbacks
+  instead of treating partial custody as acceptance; retain the separate exposure and
+  source-selection limits.
+
+### [#281](https://github.com/bijux/bijux-pollenomics/pull/281) — Reference-input and publication custody
+
+- Authenticate EMPD2–NFI, SVAR, OpenLand, Swedish direct pollen, Neotoma
+  lake/publication and Rootsi chronology inputs through their genuine historical
+  ownership.
+- Retain conditional LOVE, Solsø central-point, Amsoldingersee and HYDE conservation
+  evidence with original raw/source identities.
+- Preserve partial OpenLand/Neotoma publication scope and unresolved SLU, HYDE and
+  Swedish screening criteria; source authentication does not grant scientific or
+  provider acceptance.
+
+### [#275](https://github.com/bijux/bijux-pollenomics/pull/275) — Swedish-cohort proposal incorporated through #280
+
+- The partial Swedish-cohort proposal shares its accepted merge with combined PR
+  [#280](https://github.com/bijux/bijux-pollenomics/pull/280), where the source-lineage
+  delivery is described.
+- Preserve its unresolved original source-use criterion; do not count this proposal as
+  an additional study or independent delivery.
+
+### [#273](https://github.com/bijux/bijux-pollenomics/pull/273) — HYDE-country proposal incorporated through #280
+
+- The partial HYDE-country proposal shares its accepted merge with combined PR
+  [#280](https://github.com/bijux/bijux-pollenomics/pull/280).
+- Its original acquisition/use criteria and independent source witness remain
+  unresolved; the combined entry records the work once.
+
+### [#280](https://github.com/bijux/bijux-pollenomics/pull/280) — Source lineage and original acceptance criteria
+
+- Bind author-grid, Danish pollen selection/profile, SVAR, Rootsi, Swedish-cohort and
+  HYDE readers to exact historical source ownership.
+- Preserve separate source-family witnesses, optimizer wiring/execution, controlled
+  numerical and offline-atlas publication roles.
+- Reconcile source-lineage portal/ownership projections and qualified pollen scope while
+  retaining raw inputs, native epochs, numerical criteria and refusals.
+- Combine the HYDE and Swedish proposals without treating their partial evidence as
+  discharge of original scientific, source-use or provider requirements.
+
+### [#279](https://github.com/bijux/bijux-pollenomics/pull/279) — Radius, sampling and public-call execution custody
+
+- Authenticate retained radius comparisons, controlled numerical results, NFI
+  measurement metadata and representative public-call performance through original
+  source/publication history.
+- Publish author-grid and constrained-comparison accounts with exact execution/source
+  roles, preserving dated presentation context.
+- Bind paired radius readback to its admitted prediction manifest and native publication
+  inputs rather than a broader current inventory.
+- Keep optimizer baseline/feasibility criteria unresolved and remove unavailable
+  private-register links from public research routes.
+
+### [#278](https://github.com/bijux/bijux-pollenomics/pull/278) — Constrained optimizer execution custody
+
+- Authenticate original Linux-R, author-evaluation and Python-comparison executions
+  through exact Git members, historical runtime metadata and finite source roles.
+- Preserve genuine reference-source ownership and corrections, then retire duplicate
+  copies through Git-backed storage.
+- Bind constrained and diagnostic readers to exact descriptor groups while retaining
+  unresolved optimizer baseline/attempt criteria and original closed outputs.
+
+### [#277](https://github.com/bijux/bijux-pollenomics/pull/277) — Bounded and cancellable atlas interactions
+
+- Cap relationship rendering by viewport/zoom and cancel obsolete selection requests.
+- Publish substring-search indexes and discover crossing-edge chunks, preserving offline
+  decoding and keyboard paging.
+- Bind presentation sources to historical custody and test asset references without
+  copying packaged runtimes or weakening source-policy boundaries.
+
+### [#276](https://github.com/bijux/bijux-pollenomics/pull/276) — Retained author execution sources
+
+- Bind saved author evaluation, uncertainty, shared-draw profile and holdout readers to
+  callable source owners and verified historical execution records.
+- Preserve the profile's unresolved six-table criterion, distinguishing observed outputs
+  from qualified outputs rather than admitting all saved files.
+- Confine current API sources and historical spatial exports without rerunning
+  scientific producers or changing native epochs.
+
+### [#274](https://github.com/bijux/bijux-pollenomics/pull/274) — Supplied joint uncertainty in withheld spatial fits
+
+- Propagate a supplied finite joint law through training-only refits and forward
+  prediction, preserving coupled atoms and refusal mass.
+- Keep feature rank and target row-span support separate from ridge regularization and
+  physical identifiability; software qualification does not establish a new empirical
+  study.
+
+### [#272](https://github.com/bijux/bijux-pollenomics/pull/272) — Partial SLU guide source evidence
+
+- Retain saved guide-retrieval evidence through exact authenticated historical members
+  and a finite partial-evidence reader.
+- Preserve original acquisition/publication criteria, native receipts and independent
+  Linux/atlas entries; partial custody does not grant provider-use or scientific
+  acceptance.
+
+### [#270](https://github.com/bijux/bijux-pollenomics/pull/270) — Linux R source and result custody
+
+- Authenticate the retained Linux reference packet through original Git history and its
+  historical runtime record, preserving raw oracle/results and every native stage
+  identity.
+- Distinguish historical runtime provenance from current-source qualification without
+  retagging numerical values or claiming a fresh R/model execution.
+
+### [#271](https://github.com/bijux/bijux-pollenomics/pull/271) — Strict Git custody for execution inputs
+
+- Preserve exact historical reference-source bodies and their recorded corrections as
+  genuine source ownership before retiring duplicate program copies.
+- Bind storage aliases to actual ancestors and retain member paths, roles and
+  identities, leaving the program paths absent from the current checkout.
+
+### [#268](https://github.com/bijux/bijux-pollenomics/pull/268) — Sample-owned chronology and historical map templates
+
+- Preserve source-owned occurrence components and interval predicates across
+  atlas/fieldwork readers, keeping spatial SEAD context separate from temporal scoring.
+- Bind retained chronology, Neotoma exports and R results to their original source roles
+  and current publication ownership.
+- Consume accepted Git-backed historical-template support for the three map recipes,
+  preserving the captured native epoch, complete owner records and original product
+  population.
+- Confine gate storage/imports and keep controlled keyboard chronology fixtures distinct
+  from scientific candidates and current-source qualification.
+
+### [#269](https://github.com/bijux/bijux-pollenomics/pull/269) — Symlink-safe archive destinations
+
+- Refuse absolute or relative extraction destinations beneath symlinks before writing
+  selected archive members.
+- Preserve archive selection, quarantine and ordinary directory behavior while closing
+  the destination traversal gap.
+
+### [#267](https://github.com/bijux/bijux-pollenomics/pull/267) — Source-bound constrained comparison products
+
+- Publish the exact retained constrained English comparison products and bind radius
+  checks to their published prediction identity.
+- Preserve the older radius comparison's independent direct-input witnesses and dated
+  results instead of relabeling them as execution against later publication bytes.
+
+### [#266](https://github.com/bijux/bijux-pollenomics/pull/266) — Callable author replay owners
+
+- Route author uncertainty/profile wrappers to the maintained callable shared-draw owner
+  and authenticate holdout Markdown before comparing or publishing retained bytes.
+- Reconcile source-bound replay accounts while preserving original reports, numerical
+  products and execution provenance.
+
+### [#265](https://github.com/bijux/bijux-pollenomics/pull/265) — Native residuals and source-qualified scientific readers
+
+- Retain independently checked native residual diagnostics, typed SEAD chronology
+  annotations and public scientific source attachments.
+- Preserve sample-owned locality chronology and expose geodesic sensitivity,
+  simultaneous pollen-pair trajectories and native archaeological lead support.
+- Refuse detached raw-program custody before copying or summary work, authenticating
+  original members through Git without claiming a fresh R execution.
+- Correct canonical interval orientation/refusal descriptions and bind retained
+  comparisons to their actual source owners.
+
+### [#264](https://github.com/bijux/bijux-pollenomics/pull/264) — Shared aliquots, counting intervals and retained atlas custody
+
+- Propagate shared-aliquot covariance across chronologies and certify conditional
+  two-taxon counting intervals under explicit support/independence assumptions.
+- Retain LOVE ratio-identifiability evidence, native pair intervals and original
+  archive/worksheet correspondence through one owned uncertainty boundary.
+- Qualify human/animal source lifecycles and the ABBO age-control replay, preserving
+  source authority and unresolved scientific criteria.
+- Authenticate retained atlas captures and Neotoma export metadata, bind interactive
+  reports to current assets and reconcile SEAD chronology/map handoffs without
+  presenting historical browser results as current execution.
+
+### [#263](https://github.com/bijux/bijux-pollenomics/pull/263) — Covariance studies and individual reader qualifications
+
+- Quantify declared wind sensitivity with shared source covariance while retaining
+  complete populations, support and refusals.
+- Give scientific wrappers individual checked qualification/cause fields rather than one
+  undifferentiated account-level assertion.
+- Bind contained-age, Swedish reconstruction, Nordic prediction and download narratives
+  to their proper producer/source epochs, preserving numerical and memory-measurement
+  limits.
+- Distinguish historical controller output from current code and retain exact native
+  source-mapping counts and paired runner budgets.
+
+### [#262](https://github.com/bijux/bijux-pollenomics/pull/262) — Propagation identity, workbook provenance and scientific exports
+
+- Export country selections and endpoint relation unions without losing event/candidate
+  identity.
+- Preserve physical BIFF formulas/references and derived-age provenance without
+  evaluating them; keep source-age inspection and chronology qualification limits
+  explicit.
+- Bind canonical scientific reader routes and claim limits to sealed results, retaining
+  the nine reviewed paper exports and compiling the three briefings from committed
+  inputs.
+- Lay out scientific operands, paths and citations within paper margins, and align
+  release guidance with configured destinations and historical installed qualification.
+- Schedule both report lanes within one bounded owner job, preserving authored
+  protocols, source guards and current-versus-retained publication roles.
+
+### [#261](https://github.com/bijux/bijux-pollenomics/pull/261) — Exposed development, shared uncertainty and private-register retirement
+
+- Refuse unqualified horse elapsed-age evidence and bind complete taxon-review imports
+  to physical sources and native worksheet context.
+- Freeze exposed development audits in immutable ledgers and persist experiment splits
+  before fitting, retaining target-isolation checks.
+- Preserve shared count/PPE covariance across fixed basin geometries and route synthetic
+  evidence through maintained completion owners.
+- Verify distribution metadata/file records and retain committed-source briefings and
+  paper assets.
+- Remove human request/review registers from the product tree while keeping scientific
+  readers self-contained and distinguishing bookkeeping from scientific evidence
+  custody.
+
+### [#260](https://github.com/bijux/bijux-pollenomics/pull/260) — Native comparisons and source-qualified sensitivity
+
+- Admit the retained committed-source native-R comparison packet with its original
+  execution identities and exact controller custody.
+- Account for complete Nordic source windows, same-core chronology profiles and
+  authenticated frozen development designs.
+- Retain independently checked synthetic recovery diagnostics and declared Krageholm
+  basin-area sensitivity, preserving their original assumptions and refusals.
+- Compact atlas CSS within the document budget without changing visual intent, and keep
+  finite execution controls in maintained ownership rather than duplicated data
+  programs.
+
+### [#258](https://github.com/bijux/bijux-pollenomics/pull/258) — Finite covariance and source-qualified scientific claims
+
+- Refuse unrepresentable covariance correction factors before fixed-site or joint
+  uncertainty calculations and bind reports to the finite correction domain.
+- Separate Namibia predictive evidence from descriptive source correspondence and
+  project only source-qualified Pyrenees botanical scenarios.
+- Retain unresolved Nordic DOI attribution and distinguish published LOVE simulation
+  support from broader reconstruction claims.
+- Reconcile current scientific reader identities, expose the optional engine's missing
+  publication matrix and lock audited development tooling without widening scientific
+  acceptance.
+
+### [#237](https://github.com/bijux/bijux-pollenomics/pull/237) — Native atlas parent bound to accepted search runtime
+
+- Rebind the Nordic parent HTML digest to the admitted Material search runtime,
+  authenticating the historical/current script difference against accepted shared
+  assets.
+- Preserve all other parent bytes, declared inputs, configuration and scientific
+  receipts; descriptor admission remains distinct from a new browser or deployment
+  result.
+
+### [#236](https://github.com/bijux/bijux-pollenomics/pull/236) — Retained exports under current publication authority
+
+- Bind public report ownership to privacy projection configuration and preserve
+  historical context for scientific downloads.
+- Keep original JSON reports, private execution-path fields and numerical values
+  unchanged while projecting portable public provenance.
+- Consume accepted canonical documentation support and reconcile typed reader boundaries
+  without regenerating scientific results or executing R.
+
+### [#235](https://github.com/bijux/bijux-pollenomics/pull/235) — Reader security, accessible media and public provenance
+
+- Adopt accepted preference recovery, inert search markup, truthful clipboard feedback,
+  patched publication dependencies and authenticated workflow actions.
+- Give native media specific accessible names and visible playback alternatives.
+- Project public report paths without modifying immutable scientific receipts or
+  numerical values, and align configuration checks with canonical navigation/exclusion
+  contracts.
+
+### [#234](https://github.com/bijux/bijux-pollenomics/pull/234) — Visible owned security findings
+
+- Remove broad Bandit suppressions for subprocess imports and noncryptographic
+  random-number use, along with matching inline import exclusions.
+- Keep the high-severity/high-confidence gate while making all affected warnings
+  visible, preserving Python behavior and seeded statistical resampling.
+
+### [#233](https://github.com/bijux/bijux-pollenomics/pull/233) — Bounded manual documentation builds
+
+- Adopt the accepted manual build budget while retaining admitted readers, native maps,
+  finite GeoJSON downloads and scientific inputs.
+- Make the owned documentation check enforce the complete paired-component authority
+  guard.
+- Preserve independent component pins and committed symlink identity without
+  dereferencing the tracked data link during source inventory.
+
+### [#232](https://github.com/bijux/bijux-pollenomics/pull/232) — Canonical checkout origins for native presentations
+
+- Accept GitHub Actions' canonical HTTPS checkout origin without a terminal `.git`,
+  preserving exact owner/host/path, source-byte and finite-presentation checks.
+- Consume accepted compact repository-link and catalogue-identity corrections through
+  generated projections/checksums, leaving scientific/native report bodies unchanged.
+
+### [#231](https://github.com/bijux/bijux-pollenomics/pull/231) — Source-bound manual scientific publication
+
+- Qualify PDF, finite GeoJSON and native report/resource publication against accepted
+  source, admitted Linux rendering, independent reconstruction, CSP and complete
+  publication receipts.
+- Bind the owned adapter and manifest to configuration, enforce finite membership and
+  source/public byte equality, and retain shared privacy/resource limits.
+- Keep producer programs, oracle arrays, raw logs and original footage in Git outside
+  the public bundle, resolving published links to their existing source owners.
+- Preserve historical PDF producers and reviewed briefing sources, retain exact native
+  routes/clocks and document independent reconstruction rather than treating copied
+  artifacts as proof.
+
+### [#230](https://github.com/bijux/bijux-pollenomics/pull/230) — Nordic reconstruction accounts and reader custody
+
+- Publish source-bound Swedish/Nordic reconstructions, parameter-transfer scenarios,
+  observed pollen panels and chronology sensitivity, keeping historical replay distinct
+  from conditional reconstruction.
+- Retain biome training statistics, literal EMBSeCBio correspondence, Norwegian
+  one-family forward, Swedish conditional LOVE and Namibian mapped-area accounts,
+  explicitly separating training exposure from reference agreement.
+- Propagate shared count/PPE covariance, preserve exact denominators and signed source
+  dates, and explain annulus probability/units, conditional composition covariance and
+  local HYDE refusals.
+- Account for Danish chronology refusals, Swedish sample/pollen mass, EKE row
+  denominators, Laihalampi defaults, Solsø pooling and LandClim input anomalies with
+  original source attribution.
+- Authenticate Linux/Neotoma/EPD and Rootsi inputs, authored study configurations and
+  current producer closures before publication.
+- Preserve scientific reader routes, credit map/terrain providers, reserve
+  attribution/zoom space and adopt accepted interactive-report standards without losing
+  historical capture roles.
+
+### [#229](https://github.com/bijux/bijux-pollenomics/pull/229) — Source-locked references, numerical scaling and audited installation
+
+- Export workspace dependency profiles from the frozen lock, constrain actual
+  installations, verify installed public versions and audit exact package/tool closures
+  without resolving unpublished workspace packages on PyPI.
+- Bind buffered/constrained author comparisons, Swedish stages, ABBO age sensitivity,
+  Lilla/Sambosjön predictions and Nordic native-measure accounts to authenticated
+  source/configuration and complete target-excluded products.
+- Reconcile SEAD component/unit/type populations, country handoffs and source units;
+  preserve untyped-method coverage and explicit unsupported-taxon evidence.
+- Preserve REVEALS and joint-site closure across finite weight/unit scales, compositions
+  under overflowing finite deposition sums and analytical LOVE corrections at extreme
+  scales.
+- Validate PPE covariance independently of common units, refuse lost positive variance
+  and duplicate standard-error rows, and retain exact uncertainty column identities and
+  subnormal RMSE behavior.
+- Keep partial coordinate/temporal evidence and pair refusal axes, geodesic distance
+  identities, candidate directions and resolution identities without promoting
+  ecological context to taxon admission.
+- Govern original-R comparisons, public-paper table extraction, Solsø controls and
+  optimizer case configuration with exact source custody and reviewed paper exports.
+- Reconcile stable source-ledger publication, native replay provenance and responsive
+  compass/map presentation without changing scientific or rights admission.
+
+### [#228](https://github.com/bijux/bijux-pollenomics/pull/228) — Typed source custody and joint chronology accounts
+
+- Validate decoded publication geography, readiness, portfolio, documentation and
+  recovery payloads before use, with typed admission/refusal contracts and explicit
+  dependencies.
+- Bind author-target preparation, frozen-age scoring, published-window alignment, WHH05
+  formatting, method profiles and retained Swedish comparisons to their original
+  source/producer closures.
+- Authenticate retained report/paper exports and scientific downloads against recorded
+  renderer and benchmark sources, preserving original epochs and accepted metadata;
+  rendering was not rerun for this history admission.
+- Diagnose incompatible joint marginal-age extrema and publish source-bound membership,
+  retaining categorical/boolean parent lineage and consistent reviewed chronology.
+- Preserve mobile search height, map clearance and panel focus, regenerate responsive
+  outputs and keep missing Swedish chronology scores refused.
+- Retain exact Nordic taxonomy mass, source-archive schemas, conditional-likelihood
+  ownership and narrow host-import boundaries without weakening fixture or scientific
+  source admission.
+
+### [#227](https://github.com/bijux/bijux-pollenomics/pull/227) — Executable report owners and complete rebuilds
+
+- Declare domain-qualified producers, input closures and output ownership for source,
+  chronology, pollen, DNA, LandClim, uncertainty, capability and propagation report
+  families.
+- Reject cyclic generated dependencies and execute configured owners in both independent
+  lanes, preserving namespaces, absent destinations, diagnostics and complete output
+  sets.
+- Rebuild native JSON/CSV accounts and staged preparation, frozen predictions, scores,
+  synthetic controls and source-refusal summaries through their maintained producers.
+- Authenticate external/historical report inputs separately from current mapped output,
+  reproducing qualified LegacyAge, Solsø, Dalmut and Namibia account stages.
+- Require complete invocation schedules and exact radius observations/prediction counts
+  instead of self-fed or partial replay evidence.
+- Add fixed-input homogeneous likelihood, interval-membership bounds, shared-PPE
+  conditional fits and circular-receiver land-annulus integration with explicit
+  source-profile and geometry limits.
+- Preserve typed categorical/boolean lineage, source-authority checks and read-only
+  payload contracts while reconciling report handoffs and publisher DOI identities.
+
+### [#226](https://github.com/bijux/bijux-pollenomics/pull/226) — Scientific source library, PDF exports and producer closures
+
+- Join LegacyAge to core depths and score ABBO, Dalmut, Solsø, Lilla and Sambosjön
+  age-support sensitivity under declared cohorts/bins, retaining off-grid and
+  unavailable-support limits.
+- Retain fixed-candidate LOVE and pinned REVEALS correspondence, constrained-gradient
+  failures, native-R observations and optional-distribution decisions in owned
+  scientific accounts.
+- Reconcile Nordic AADR, animal species/map decisions and Neotoma study membership,
+  preserving source/refusal denominators and provider-rights boundaries.
+- Join Namibia pollen/vegetation rows and describe radius sensitivity separately from
+  broader calibration accuracy.
+- Define durable report ownership and independent output verification, reject self-fed
+  rebuild evidence, and declare SEAD, Danish chronology, propagation and Neotoma
+  producer closures.
+- Retain source-bound standalone papers, bounded three-briefing build support and
+  reviewed layouts; expose authenticated PDF downloads without claiming fresh
+  compilation during this history admission.
+- Bind claim causes and review questions to source versions, derive portal
+  counts/content identities from the complete tree and expose unresolved owners rather
+  than hiding custody gaps.
+
+### [#225](https://github.com/bijux/bijux-pollenomics/pull/225) — Reproducible source accounts and Swedish pollen handoffs
+
+- Guard numerical/performance measurement ownership, rebuild release evidence from owned
+  bundles and retain current installed-LRA qualification.
+- Reconcile Neotoma native hierarchy, variables and observation lineage with relational
+  surfaces; bind acquisition scope to source manifests and refuse incomplete linked
+  captures.
+- Preserve typed SEAD numerical/integer lineage, four-country chronology/coverage
+  refusals and exact cross-report handoff accounting.
+- Quantify Swedish lake weighting and chronology-block transfer, Sambosjön
+  direct/age-overlap scores and frozen Lilla Gloppsjön predictions under declared
+  scoring protocols.
+- Retain unassigned cores, method disagreement, Swedish cohort/EPD availability, GARASEL
+  exposure/access and ten-lake vegetation-reference requirements.
+- Verify Nordic map/source lineage and LandClim browser exports against source grids,
+  preserving author-example/window-alignment bytes and native-R source binding.
+- Correct source radius units, authority paths and Galician capture ownership, preserve
+  interrupted publication recovery trees and retire run-inventory tooling in favor of
+  scientific owners.
+
+### [#224](https://github.com/bijux/bijux-pollenomics/pull/224) — Method correspondence, optimizer limits and compact evidence
+
+- Trace WHH05 examples, author estimates, exact windows, PFT means/uncertainty and
+  metadata discrepancies to their consumed source inputs.
+- Compare analytical and optimized English LOVE outcomes, solution quality and radius
+  sensitivity, retaining parameter/fall-speed, optimizer-budget and undefined-ring
+  limits.
+- Reconcile Solsø, Dalmut and Laihalampi controls, Nordic pollen mass, Swedish parameter
+  support and vegetation-reference boundaries.
+- Preserve HYDE grid/scenario/authority challenges, paired-site uncertainty and joint
+  CSV/report preparation, distinguishing scientific results from process diaries.
+- Retire duplicate intake/run/build receipts and obsolete local paths while preserving
+  checked replay routes, source questions and selected browser evidence.
+- Retain compact source-bound Python/native-forward timings and isolated worker-memory
+  observations with accurate runtime/backend decisions.
+- Improve research-library routing and narrative layout so current accounts lead with
+  results rather than execution logs or generic intake custody.
+
+### [#223](https://github.com/bijux/bijux-pollenomics/pull/223) — Animal evidence, pollen comparisons and safe report publication
+
+- Recover and reconcile Obishir/reindeer source specimens, appendix/alignment context
+  and chronology ambiguity, preserving article, archive and source-population
+  boundaries.
+- Bind constrained author folds, paired-site influence, English Hellinger and Swedish
+  whole-site/age/spatial comparisons to matched targets and original source inputs.
+- Publish scientific summaries and source-locked briefings, map headline claims to
+  evidence and explain model choice, core admission and optional-LRA distribution
+  limits.
+- Keep SEAD display spans outside temporal scoring and bound ABBO denominators, combined
+  cereal concepts, candidate radii and Bjäresjö context joins.
+- Separate curated materialization, experiment references and source receipt ownership;
+  bind performance measurements to solver/numerical sources.
+- Refuse destructive replacement of mixed-ownership report trees and preserve governed
+  files, deterministic streams and source-controlled recovery semantics.
+
+### [#222](https://github.com/bijux/bijux-pollenomics/pull/222) — Source chronology and frozen Swedish transfers
+
+- Freeze Storasjö and three-lake Swedish protocols/predictions before scoring, reconcile
+  parallel source datasets and retain held-out transfer results.
+- Bind Solsø EPD/MADCAP ages, basin conflicts, FLINK/STAV samples, Rootsi workbook
+  anomalies and selected reindeer chronology to their original claims.
+- Preserve exact author/archive window provenance, uncertainty envelopes, buffered
+  spatial predictions and full-study/PFT metadata boundaries.
+- Attribute Nordic dataset decisions and Finnish/Norwegian publications, retain
+  Vasikkasuo core distinctions and quantify Swedish validation-label/forest-plot
+  support.
+- Keep bounded LOVE refusals and finite-candidate diagnostics separate from scientific
+  completion, with explicit source-name exclusions and unmapped taxa.
+- Preserve governed classification/edge ledgers, current capability identities and
+  source declarations outside disposable run artifacts.
+
+### [#221](https://github.com/bijux/bijux-pollenomics/pull/221) — REVEALS covariance and source correspondence
+
+- Propagate fixed-site/multisite REVEALS covariance and retain joint uncertainty draws,
+  refusing unmeasured taxa and unsupported author-site taxon coverage.
+- Replay WHH05 formatting and compare tagged/original R REVEALS/LOVE summaries,
+  parameter tables and paired draws under exact native/live case admission.
+- Quantify analytical LOVE ring sensitivity and optimizer quality while distinguishing
+  paper correspondence, archive parity and backend deferral.
+- Bind Solsø counts/core selection, camel BioSamples/paper specimens, Wadi Halfa
+  taxonomy and reindeer source membership to current governed records.
+- Preserve private EMPD2/NFI source identities and measurement schemas without opening
+  outcomes; retain rights conflicts and source-owner questions.
+- Separate report/source custody from duplicate process artifacts, preserve
+  browser/source-result links and constrain source distributions to owned
+  code/vendor/legal content.
+
+### [#220](https://github.com/bijux/bijux-pollenomics/pull/220) — Source-grounded Nordic comparisons and optimizer behavior
+
+- Reconcile published LandClim PFT means, taxon lookup and uncertainty with
+  archive/native inputs, preserving name/classification conflicts and bounded analytical
+  fall-speed profiles.
+- Publish country-held-out and selected Nordic/Swedish direct-pollen comparisons,
+  author-target scoring and native sample trajectories with matched training/target
+  support.
+- Reconcile HYDE cropland grids against country totals across seven years and retain
+  source-reported values and conservation limits.
+- Bind ABBO/BOKE/BUS/Solsø core, age, count and basin evidence to primary records,
+  including coordinate conflicts, pooling, excluded concentration and published-point
+  context.
+- Recover Obishir and reindeer specimen/date lineage, retain published/preprint date
+  conflicts and reconcile current animal/source denominators.
+- Keep SEAD site envelopes and open-ended dendro dates as display context, publish
+  sample-level candidate refusals and derive prerequisites from source decisions.
+- Certify bounded LOVE optimizer behavior, preserve synthetic selection/refusal evidence
+  and record isolated workload memory without changing model-quality claims.
+- Retain complete land-use lake identities, deterministic portal/accounting and bounded
+  server retry behavior.
+
+### [#219](https://github.com/bijux/bijux-pollenomics/pull/219) — Native source navigation and LandClim review
+
+- Add withheld-site/block pollen comparisons, grouped model search and Nordic direct
+  transfer with explicit prospective designs, target isolation, matched errors and
+  taxon/window support.
+- Bind published LandClim estimates, author parameters, Rootsi structure and native
+  ABBO/BOKE/BUS counts to source correspondence rather than inferred completion.
+- Derive first-observed events from owned samples and retain propagation sensitivity,
+  site-leakage and spatial-eligibility challenges with source-bound R reference
   evidence.
-- Bound release artifact uploads to the requested tag, checked-out commit,
-  workflow revision, and resolved package version.
+- Expose chronology/basin, EMPD2–NFI, Galician and SEAD review frontiers, preserving
+  country capability versus materialization, species identity and disjoint dated phases.
+- Publish modeled Nordic panels, source pollen exports, cross-border neighbors and
+  traceable SEAD-to-map joins without promoting modeled/national context to admitted
+  observations.
+- Preserve URL/history state, keyboard/focus routes, tile-free orientation, mobile
+  attribution and desktop zoom while retaining bounded native browser evidence.
+- Measure Python/native/NumPy/R forward and worker-memory behavior, cache
+  dependency-version reads and enforce custom optimizer budgets/solution validation.
+- Classify private OpenLand/archive members and retain source/rights limitations,
+  current capability input hashes and exact parent ownership.
 
-## 0.1.7 - 2026-06-29
+### [#218](https://github.com/bijux/bijux-pollenomics/pull/218) — Reviewed cohorts and authenticated grouped evaluation
 
-### Added
+- Bind reviewed cohorts, observations, local vegetation and six-cell prediction products
+  to sealed outcome-access and final release scoring.
+- Guard one-sided held-out aliases, whole-core groups, padded identities and development
+  trials so target outcomes cannot leak into fitting.
+- Add vectorized regional/multisite REVEALS draws and analytical LOVE handoffs with
+  source-bound axes, typed manifests and authenticated regional-draw requests.
+- Retain LandClim published-estimate uncertainty, full-study metadata and author-example
+  comparison while refusing unsupported completeness or source-rights assumptions.
+- Expose EMPD2/NFI proximity, Neotoma counts/ages/basin/taxon/publication review and
+  SEAD prerequisite frontiers without inferred approvals.
+- Keep RAÄ as explicitly degraded geographic context, preserve missing refused density
+  in lake scoring and authenticate HYDE native grid declarations/axes.
+- Split manual R certification into bounded verified artifact handoffs, preserve
+  numerical thread budgets and add independent synthetic landscape controls.
+- Audit candidate-provenance package SBOMs and patched dependencies while retaining
+  package/legal, source-refusal and optional publication capability boundaries.
 
-- The repository now publishes a Sweden lake evidence program built from the
-  SMHI SVAR lake registry, including ranked registry surfaces, scenario slices,
-  chronology-aware methodology outputs, and a public fieldwork shortlist.
-- The Nordic atlas now ships optional Sweden lake overlays so readers can
-  inspect aggregate, consensus, radius-based, and shortlist views directly on
-  the shared map without losing the evidence trail behind them.
-- Repository verification now includes a full local `test-all` path and a
-  repository-owned generated-artifact gate, keeping release-readiness checks
-  available outside CI.
+### [#217](https://github.com/bijux/bijux-pollenomics/pull/217) — Held-out reconstruction and governed numerical workflows
 
-### Changed
+- Separate training-only spatial/forward-time fitting, withheld prediction and target
+  scoring; preserve whole-group exclusions, spatial support and local-pollen
+  assimilation boundaries.
+- Authenticate frozen predictions, generic/block/grouped observations, predictive
+  intervals and paired baselines against source products before final release-matrix
+  admission.
+- Introduce the optional governed numerical LRA package, host requests, atomic
+  exploratory products, verified caches and bounded recoverable batches through API/CLI.
+- Propagate conditional pollen observations and supplied joint realizations through
+  retained products/reports, preserving signed calendar-BP support in explicitly
+  admitted map profiles.
+- Audit Neotoma/SEAD admission without inferred approval, preserve complete SVAR/AADR
+  captures, quarantine/replay Rootsi cells and retain external HYDE/RAÄ ownership and
+  metadata conflicts.
+- Expose source taxonomy review and candidate-scope/PFT discrepancy accounts while
+  separating review eligibility, detection and scientific confirmation.
+- Require source-locked transitive host/R evidence for numerical releases, preserve
+  completed optimizer generations on budget exit and bind native scientific verification
+  to manual workflows.
+- Adopt accepted source-layout/publication standards, exact-artifact documentation
+  admission, owner-reviewed dependency proposals and exhaustive patched frozen-graph
+  security checks.
+- For the history admissions in PRs #217–#230, scientific product tests, replay, live R
+  and documentation/presentation rendering were deferred. The earlier automatic
+  scientific run had known unrequalified failures; source gates did not establish
+  product-test coverage or scientific/publication readiness.
 
-- Reworked the public entry surfaces around reader questions instead of
-  repository jargon, including the product guide, data guide, source
-  explainers, publication pages, report routes, map-reading surfaces, and the
-  Sweden lake priority explainer.
-- Expanded the checked-in evidence model from source intake through sample,
-  locality, chronology, coordinate, and publication review so atlas and report
-  outputs stay traceable to narrower governed records.
-- Added explicit temporal and spatiotemporal posture surfaces across source,
-  review, and reporting outputs so chronology strength and coverage limits stay
-  visible in the Sweden lake packet and related evidence pages.
-- Clarified runtime, compatibility, and maintainer boundaries across the
-  repository, including moving package-boundary guidance into package-owned docs
-  and documenting the current report portal and publication contracts.
-- Refined root and package release-facing documentation so users can tell which
-  package owns the runtime, which one is only a compatibility alias, and which
-  routes explain the Sweden lake and Nordic atlas outputs without reading the
-  source tree first.
-- Refreshed shared GitHub governance, workflow inventory, and managed checksum
-  surfaces from `bijux-std` `cd832f6db5c882e8e90cdb55a7708c78fca7fc01`,
-  keeping consumer standards metadata aligned for release preparation.
-- Widened the repository `mypy` bound and refreshed locked Python tooling so
-  the current verification stack resolves cleanly under the release-prep
-  environment.
+### [#199](https://github.com/bijux/bijux-pollenomics/pull/199) — Four-country chronological pollen and ancient-DNA atlas
 
-### Fixed
+- Deliver the Denmark, Finland, Norway and Sweden evidence pipeline with source-native
+  Neotoma pollen, SEAD chronology, human/animal aDNA and separately labeled PANGAEA
+  modeled context.
+- Preserve relational samples, taxon/ecological identities, observation membership and
+  complete source keys; expose literal source-label presets, exact cereals/taxa and
+  modeled cover metrics with separate denominators.
+- Add long-range timeline navigation, selected-layer/frame counts, chronology models,
+  source details and time-aware lake ranking/synthesis across the complete ranked set.
+- Add Sweden land-use synthesis of modeled forest, open-land and crop metrics, joining
+  SEAD, human and animal context by both spatial distance and numeric interval overlap.
+  Retain nulls and out-of-grid target decisions; modeled cover and nearby evidence do
+  not establish crop acreage, cultivation or causation.
+- Generate classification-scoped candidate networks and scenario outputs under canonical
+  interval/geodesic rules, keeping the accepted-classification universe empty and
+  propagation publication refused rather than inferred.
+- Acquire and verify linked SEAD chronology/bibliography relations, Neotoma relational
+  parts and receipt-backed LandClim assets under source-authority gates and immutable
+  captures.
+- Reconcile sample-owned animal localities, chronology vocabularies, species/project
+  scope and source-rounded coordinates across pig, cat, cattle, sheep, aurochs and other
+  retained cohorts.
+- Account for every AADR row, panel and geography decision, preserving missing political
+  geography, explicit coordinate refusals, lineage and sample/locality population
+  distinctions.
+- Govern OpenLand, Rootsi and SpatioCompo intake, retaining private review boundaries,
+  modeled-window evidence and sample/sequence independence limits.
+- Publish bounded, selection-loaded static assets and source evidence density with
+  keyless basemaps, explicit no-tile/provider-failure behavior and accessible responsive
+  controls.
+- Produce 25 chronology stories with videos/posters over 1,980 oldest-to-present frames,
+  binding media bytes, source states and playback counts to their governed storyboards.
+- Make report publication atomic and deterministic across platforms, including neutral
+  compressed-payload headers, exact partition reconciliation and bounded test/rebuild
+  handoffs.
+- Harden source parsing, process ownership, release evidence lineage, scientific gate
+  admission, dependencies and package architecture without turning technical readiness
+  into scientific approval.
+- Preserve null-versus-zero, BP interval semantics, missing/refused evidence and
+  candidate-versus-causal interpretation throughout maps, reports and release language.
+  Merged source/media preparation does not establish external publication.
 
-- Restored package legal-file handling for sdist smoke installs and aligned the
-  package include contract with the current package-local `LICENSE` and
-  `NOTICE` sources.
-- Added explicit compatibility submodules for the `pollenomics` alias package
-  so alias imports resolve through durable public forwarding modules instead of
-  only package-level indirection.
-- Brought public-route, atlas-filter, report-tree, and handbook contract tests
-  back into line with the current generated docs/report surfaces while removing
-  brittle wording-only assertions.
-- Hardened the OpenAPI and Redocly toolchain under `configs/` so the locally
-  reproducible npm advisory set is cleared under the current dependency chain.
-- Package CI verification lanes now install runtime `dev` extras before
-  validation, removing environment skew between tox, local package gates, and
-  GitHub Actions.
-- Restored repository truth, docs navigation, and governance-format contract
-  checks after the recent public-handbook and shared-shell updates.
+### [#170](https://github.com/bijux/bijux-pollenomics/pull/170) — GitPython security and producible required checks
 
-## 0.1.6 - 2026-04-21
+- Upgrade GitPython to the reviewed security release and map every governed required
+  status to a real pull-request workflow job.
+- Expand direct and include-based matrices, including include-only cases, so check-name
+  validation rejects statuses no workflow can produce.
 
-### Changed
+### [#168](https://github.com/bijux/bijux-pollenomics/pull/168) — Notification-only dependency proposals
 
-- Promoted `Fieldwork` and `Nordic Evidence Atlas` into dedicated top-level docs rows (`docs/04-fieldwork/`, `docs/05-nordic-evidence-atlas/`) so critical evidence pages are directly discoverable from row navigation.
-- Reorganized the fieldwork content path to nested section indexing (`docs/04-fieldwork/lyngsjon-lake-fieldwork/index.md`) to preserve stable sidebar rendering and directory-based docs contracts.
-- Updated root and package README link text to readable markdown labels and aligned handbook references with canonical docs routes.
+- Skip Dependabot pull-request jobs before runner allocation while preserving the
+  integrated OpenAPI generator update.
+- Reconcile repository workflow rendering/checksums and enforce the notification-only
+  policy across all PR jobs.
 
-### Fixed
+### [#166](https://github.com/bijux/bijux-pollenomics/pull/166) — Consolidated secure runtime and schema tooling
 
-- Release badge wiring now targets the dispatch-based publication workflow behavior, avoiding misleading release status signals in README badge surfaces.
-- Docs navigation and shared MkDocs config now resolve promoted fieldwork/atlas routes without stale path assumptions.
+- Consolidate governed action/runtime updates, GitPython and OpenAPI generation tooling
+  under accepted pinned CI contracts.
+- Override the vulnerable shell-quote dependency and retain the already accepted
+  checkout, Python setup and PyPI publishing actions.
+- Verify shared content against the consumer's exact declared source instead of
+  incidental upstream state.
 
-## 0.1.5 - 2026-04-20
+### [#165](https://github.com/bijux/bijux-pollenomics/pull/165) — Stable required-check identities
 
-### Changed
+- Restore consistent required-check names across workflows, documentation and
+  branch-protection declarations.
+- Refresh governed action pins, generated configuration and source/checksum records
+  through accepted standards.
 
-- Prepared the `v0.1.5` release line by aligning fallback versions and package dependency floors across the repository.
-- Synchronized release automation and governance with the `bijux-std v0.1.3` shared standards baseline.
-- GitHub workflow dispatch governance now rejects no-op release/docs manual
-  dispatches so maintainers get explicit operator feedback when no packages or
-  docs targets were selected.
+### [#159](https://github.com/bijux/bijux-pollenomics/pull/159) — Evidence curation and publication contracts
 
-### Fixed
+- Reframe public and maintainer documentation around source intake, claim qualification,
+  analysis, publication and explicit scientific limitations.
+- Define evidence database objects, joins, revision states, membership/denominator
+  closure and independently auditable claim lineage.
+- Distinguish sample, locality, chronology, coordinate, species and cross-domain
+  authority, preserving uncertainty and comparison limits through normalization and
+  refresh.
+- Define geographic bundle/query lineage, point classes, map-filter versus analysis
+  eligibility and fieldwork candidate/visit/observation identities.
+- Separate runtime, compatibility alias and maintainer distribution ownership, including
+  command effects, persisted artifacts and verification authority.
+- Implement rollback for failed owned-tree replacement in collection/report staging,
+  retaining the previous output when a rename fails. Document inspection, recovery and
+  integrity incidents, and require materialized lifecycle evidence rather than declared
+  status alone.
+- Route readers through source-family preparation, claim-to-proof and current product
+  boundaries, retaining gaps between record completeness and scientific fitness.
+- Secure installer/build/OpenAPI dependencies and frozen tox installation while aligning
+  generated navigation and shared governance with accepted standards.
 
-- `release-pypi.yml` now uses parse-safe publication gating for token/bootstrap checks.
-- Protected workflow policy checks now accept shared-manifest-driven standards updates through approved control paths.
-- Package build smoke checks now install only the latest wheel/sdist pair for
-  each package, preventing mixed-version installs when old artifacts are still
-  present in build directories.
-- Build smoke verification now reuses one virtual environment for wheel and
-  sdist install checks, removing intermittent second-venv bootstrap failures in
-  CI and tox build gates.
+### [#143](https://github.com/bijux/bijux-pollenomics/pull/143) — Governed documentation and API tooling
 
-## 0.1.4 - 2026-04-19
+- Align the public hub ordering with the canonical family navigation and refresh shared
+  documentation, workflow and Make projections.
+- Upgrade OpenAPI Generator and Redocly configuration tooling together, consolidating
+  the related proposals into one reviewed change.
 
-### Changed
+### [#140](https://github.com/bijux/bijux-pollenomics/pull/140) — Sweden lake overlays and release readiness
 
-- Shared standards now resolve through `.bijux/shared/*` for docs tooling,
-  make-layer synchronization, and repository docs watch paths.
-- Legacy root `shared/` and `internal/` directories were removed after moving
-  the repository to the current shared-source layout used by sibling Bijux
-  Python repositories.
-- Repository contract coverage now tracks the current handbook namespace
-  (`01-bijux-pollenomics`, `02-bijux-pollenomics-data`) and the split release
-  workflow topology (`release-artifacts.yml`, `release-pypi.yml`,
-  `release-ghcr.yml`, `release-github.yml`).
-- Package metadata and generated badge surfaces now use the canonical handbook
-  docs routes for runtime and maintainer packages.
-- GitHub governance alignment now matches the current `bijux-proteomics`
-  standards model: synchronized `CODEOWNERS`, branch protection ruleset,
-  protected-change policy checks, and managed standards manifests.
-- Release automation now uses split workflows with generated configuration:
-  `release-artifacts.yml`, `release-pypi.yml`, `release-ghcr.yml`, and
-  `release-github.yml`, with package matrices controlled through
-  `.github/release.env`.
-- Workflow topology is now pairwise symmetric with `bijux-proteomics`,
-  including the same canonical `.github/workflows/` file set and `ci.yml`
-  naming contract.
-- Maintainer workflow documentation now describes split release publication and
-  reusable workflow boundaries using checked-in workflow names.
+- Add Sweden lake ranking overlays/toggles and a fieldwork-facing priority guide on the
+  Nordic atlas.
+- Clarify public handbook entry points, package ownership and install choices, and
+  reconcile the prepared distribution release notes/date.
+- Restore build readiness by checking actual virtualenv interpreters and consuming the
+  accepted shell-safe release environment, preserving managed checksum integrity.
 
-### Fixed
+### [#139](https://github.com/bijux/bijux-pollenomics/pull/139) — Shared checks and documentation deployment contracts
 
-- Packaging verification now removes stale wheel/sdist artifacts from package
-  build output directories before creating new distributions, preventing
-  install-smoke failures caused by mixed versions in the same build folder.
-- Root and package README badge sections are synchronized again with managed
-  badge templates after workflow and docs-route updates.
-- Removed legacy `publish.yml` to prevent duplicate publication runs after
-  enabling split release workflows.
-- Removed legacy `bijux-std-checks.yml` and migrated `verify.yml` package fan-out
-  from `ci-package.yml` to `ci.yml`.
-- Badge templates and generated badge sections now point to split release
-  workflows instead of the removed monolithic publish workflow.
+- Refresh accepted shared checks, documentation and GitHub payloads, including the
+  generated deployment consumer.
+- Reconcile source pins, directory identities and repository layout/check entry points
+  through their managed owners.
 
-## 0.1.3 - 2026-04-16
+### [#138](https://github.com/bijux/bijux-pollenomics/pull/138) — Managed artifact aliases
 
-### Changed
+- Materialize artifact alias helpers through setup and replace package-local cache
+  placeholders with governed root aliases.
+- Update workspace layout contracts to reflect root-owned runtime state.
 
-- Repository defaults and generated outputs now align on AADR `v66`, including
-  tracked source snapshots under `data/aadr/` and regenerated report bundles
-  under `docs/report/`.
-- Shared repository directories now comply with `bijux-std v0.1.0`, including
-  synchronized `shared/bijux-docs`, `shared/bijux-makes-py`, and
-  `shared/bijux-checks` standards.
-- Shared atlas output now labels the AADR evidence layer with its active
-  release version, for example `AADR-v66 aDNA samples`.
-- Workspace release and publish automation now include both distribution names,
-  `bijux-pollenomics` and the `pollenomics` compatibility alias.
+### [#137](https://github.com/bijux/bijux-pollenomics/pull/137) — Reconciled foundation history and Sweden lake evidence
 
-### Fixed
+- Reconcile the accumulated foundation history while restoring core test/lint/build
+  gates and consistent SVAR source expectations.
+- Add Sweden lake evidence-richness bundles, scenario/profile comparisons, sampling-fit
+  screening and a fieldwork shortlist anchored to source coordinates.
+- Rank registry lakes by decisive evidence and chronology overlap, exposing temporal
+  coverage, source spatiotemporal posture and near-lake human-context priorities.
+- Retain methodology, source-ecosystem and registry/fieldwork reports in the portal with
+  explicit chronology guardrails.
+- Materialize package legal assets for source-archive installation and keep explicit
+  compatibility submodules, owned source/report boundaries and generated-artifact lanes
+  coherent.
+- Remove the oversized generated registry blob from unpublished branch history so the
+  reconciled source can be hosted, without treating recovered historical commits as
+  separate new scientific results.
+- Add SMHI SVAR WFS collection and collector dispatch, retaining source lake identifiers
+  and transforming source polygons from SWEREF99 to WGS84 for downstream registry use.
+- Store archived HTML as gzip with transparent plain/compressed resolution and
+  corresponding source-lineage metadata, preserving access to retained source captures.
 
-- AADR release resolution now accepts current Dataverse naming formats used by
-  `v66` files, preventing missed `.anno` selection during collection.
-- Report generation now accepts the current AADR schema header variants, so
-  `publish-reports` succeeds against `v66` source files.
-- Shared README badge sync now covers the compatibility package, keeping
-  package-map status links consistent across both published distributions.
-- Release security gates now use `pytest>=9.0.3` where dev-tooling dependencies
-  are defined, addressing the pip-audit advisory for `pytest 8.4.2`.
-- Package build metadata now resolves license files from package-local sources
-  so sdist install-smoke checks work from isolated build environments.
-- Packaging verification now cleans stale artifacts before each build and runs
-  smoke installs against dependency-complete environments using the current
-  `artifacts/bijux-pollenomics/build` output path.
-- License metadata now follows a root-source model: package `LICENSE` and
-  `NOTICE` files are synchronized from repository root automation before checks
-  and package builds.
+### [#108](https://github.com/bijux/bijux-pollenomics/pull/108) — Explicit fast and full-suite gates
 
-## 0.1.2 - 2026-04-11
+- Standardize slow-test exclusions in default tox/CI lanes while preserving explicit
+  full-suite entry points.
+- Reconcile prepared package release notes and restore shared Python Make mirrors
+  against the accepted standards/checksum baseline.
 
-### Changed
+### [#107](https://github.com/bijux/bijux-pollenomics/pull/107) — Shared governance and complete package test environments
 
-- Root README package-map links now render PyPI, docs, GHCR, and source as
-  badge links, matching the shared Bijux repository style.
-- Repository, package, and source-checkout fallback versions now align with the
-  synchronized `v0.1.2` pollenomics release line.
+- Refresh generated governance, shared checks and workflow guidance from accepted
+  standards.
+- Install runtime development extras in package test lanes, preventing environment skew
+  between local/package gates and CI.
 
-## 0.1.1 - 2026-04-10
+### [#106](https://github.com/bijux/bijux-pollenomics/pull/106) — Dependency security and typing bounds
 
-### Changed
+- Patch Python Git/HTTP and Node protobuf/OpenAPI dependency chains and refresh the
+  frozen locks.
+- Widen supported mypy development bounds for the affected distributions, consolidating
+  the dependency security proposals.
 
-- Tag-derived fallback versions now align with the synchronized `v0.1.1`
-  pollenomics release line.
-- Source-checkout version fallbacks and command-line version checks now target
-  `0.1.1` as the current package release version.
+### [#105](https://github.com/bijux/bijux-pollenomics/pull/105) — Governed runtime, animal evidence and atlas reporting
 
-## 0.1.0 - 2026-04-10
+- Deliver typed species, project, archive and sample contracts, accession-family
+  preservation and paper-linked review/curation manifests across the supported animal
+  roots.
+- Build sample masters and sample/site tables from archive/supplement evidence,
+  preserving lineage, source wording, review deficits and restricted/noncore refusals.
+- Recover source-owned localities and chronology anchors with explicit coordinate
+  provenance, precision, caveats and publication blockers instead of project-level
+  flattening.
+- Publish traceable animal country/atlas layers, sample chronology viewers, database
+  review and sample-first evidence accounts with exact locators.
+- Add profile-aware candidate scoring, sensitivity artifacts and bundle manifests,
+  separating species-aware analysis eligibility from geographic display.
+- Define governed geography/map publication, shared temporal semantics, access-aware
+  SEAD normalization and comparable source-coverage contracts.
+- Expose source-family truth/recovery, supplement intake states, architecture/release
+  readiness and report-portal surfaces while preserving unresolved evidence claims.
+- Separate runtime from developer tooling and compatibility aliases, add durable
+  forwarding submodules and keep generated-artifact tests outside fast package lanes.
+- Replace oversized supplementary payloads with explicit source-recovery placeholders
+  and provenance, preserving repository hosting limits without claiming the full inputs
+  are embedded.
+- Add metadata-only human AADR loading, normalization and schema/runtime manifests.
+  Genotype artifacts are readiness contracts, not implemented genotype-aware analysis or
+  evidence of genotype admission.
 
-### Added
+### [#104](https://github.com/bijux/bijux-pollenomics/pull/104) — Standards and approval prerequisites in workflows
 
-- A unified repository automation layout now exists under `makes/`, including
-  stable root entrypoints, package profiles, and a shared `bijux-py` make
-  series aligned with sibling Bijux repositories.
-- A centralized repository configuration tree now exists under `configs/`,
-  giving the workspace one durable source for Ruff, mypy, pytest, coverage,
-  deptry, and API-contract settings.
-- Root governance and contributor files now exist in the same style as the
-  sibling repositories, including aligned `LICENSE`, `NOTICE`,
-  `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, and `SECURITY.md`.
-- Repository-wide make handbooks now explain layout boundaries, ownership
-  rules, and extension guidance for the shared automation tree.
-- Shared `.gitignore` policy now protects generated package artifacts while
-  preserving tracked repository-owned artifact placeholders.
-- Root `tox.ini` now provides a standard entrypoint for repository test, lint,
-  quality, security, docs, build, SBOM, and API checks.
+- Consume the shared prerequisite helper and regenerate workflows that wait for
+  standards and approval before dependent work.
+- Reconcile exact accepted-source pins, configuration and managed checksums without
+  patching generated consumers by hand.
 
-### Fixed
+### [#91](https://github.com/bijux/bijux-pollenomics/pull/91) — Merge-only protection and required policy checks
 
-- Release-facing package metadata now exposes changelog and security links for
-  the runtime and maintainer distributions.
-- Package README pages now point readers to PyPI, documentation, source,
-  changelog, security policy, and release workflow surfaces.
-- Tox checks now delegate installation ownership to the repository make system,
-  matching the release-gate execution model.
-- API freeze and OpenAPI drift commands now resolve the active Python
-  interpreter at execution time.
-- Workbook parsing now keeps `defusedxml` as the runtime XML implementation
-  while preserving static typing clarity.
-- Repository contract tests now follow the enforced Ruff formatting baseline.
+- Declare GitHub policy and PR approval alongside both standards checks as the required
+  baseline, allow merge commits only and remove the merge-queue rule from the versioned
+  protection specification.
+- Adopt current Pages configuration, artifact-upload and deployment actions. These are
+  repository declarations and workflow changes, not evidence that live protection
+  settings or a deployment were applied.
 
-## Changelog Scope
+### [#90](https://github.com/bijux/bijux-pollenomics/pull/90) — Approval-policy event fallback
 
-Use this file for changes such as:
+- Read the PR approval event from either the explicitly supplied path or the runner
+  event-path variable, failing with a diagnostic when both are absent.
+- Refresh the shared workflow distribution and its source identity without changing
+  approval requirements.
 
-- root governance and contributor policy
-- shared automation under `makes/`
-- shared configuration under `configs/`
-- root handbook and repository navigation
-- repository-level CI, publish, and release process changes
-- shared API artifact conventions under `apis/`
+### [#89](https://github.com/bijux/bijux-pollenomics/pull/89) — Owner-gated pull-request approval
 
-Do not use this file for changes that only affect one package release stream
-unless the repository-level workflow changed too.
+- Add a read-only approval-policy job: owner-authored PRs require explicit self-signoff,
+  and other authors require the owner’s latest approval.
+- Make policy file-diff collection fall back safely for missing or unrelated
+  push/merge-group commits, preserving normal PR comparison.
+- Register the approval workflow in generated allowlists and reconcile source/checksum
+  metadata.
+
+### [#88](https://github.com/bijux/bijux-pollenomics/pull/88) — OpenAPI generator tooling
+
+- Upgrade the configured OpenAPI Generator CLI from 2.31.1 to 2.32.0 and refresh its
+  dependency lock.
+
+### [#87](https://github.com/bijux/bijux-pollenomics/pull/87) — Redocly tooling patch
+
+- Upgrade configured Redocly CLI from 2.30.1 to 2.30.3 with its locked dependency
+  changes.
+
+### [#86](https://github.com/bijux/bijux-pollenomics/pull/86) — Runtime surface, source contracts and architecture
+
+- Define the canonical runtime surface and enforce compatibility-alias parity,
+  runtime/developer isolation and collection/analysis/publication separation.
+- Expose CLI package/product/ownership maps and source-support/coverage reporting.
+- Add stable source identities, acquisition metadata, deterministic layouts,
+  snapshot/derivative identities and traceability records through normalization.
+- Refuse contradictory/incomplete snapshots, declare destructive replacement rules and
+  independently validate collection-summary schemas.
+- Reconcile legal-file handling and factor package tox gates while retaining generated
+  shared governance and theme ownership.
+
+### [#85](https://github.com/bijux/bijux-pollenomics/pull/85) — No-bypass protection and selected workflow projection
+
+- Remove owner bypass from the versioned main-protection specification and document
+  separate live-settings ownership in bijux-iac; this source change does not itself
+  apply live settings.
+- Remove unselected Codecov and labeler consumer workflows while retaining their shared
+  sources; the shared action pins return to their v5 lines.
+- Render multiline YAML strings as block scalars, pass the selected artifact directory
+  into reusable CI post-test commands and reconcile synchronization/checksum controls.
+
+### [#84](https://github.com/bijux/bijux-pollenomics/pull/84) — Manual release-dispatch guidance
+
+- Document manual publication guardrails and the required release workflow boundaries in
+  the maintainer handbook.
+
+### [#83](https://github.com/bijux/bijux-pollenomics/pull/83) — Candidate ranking, bundle manifests and package roots
+
+- Add canonical geodesic distance, context-aware candidate site scoring and published
+  ranking sidecars.
+- Publish country/atlas bundle manifests and expose their artifact contracts, evidence
+  coverage and product-versus-engine scope.
+- Route package state through root artifact aliases, align legal assets with their
+  repository authority and use canonical workflow badge URLs.
+- Refresh shared Python Make support while preserving generated layout/checksum
+  contracts.
+
+### [#82](https://github.com/bijux/bijux-pollenomics/pull/82) — Managed Node setup and patched installer
+
+- Adopt the accepted Node setup action through the managed workflow path rather than a
+  direct downstream edit.
+- Patch the transitive pip lock entry and reconcile generated source/checksum records.
+
+### [#81](https://github.com/bijux/bijux-pollenomics/pull/81) — Reader-first runtime, data and fieldwork handbook
+
+- Rewrite public entry points around the evidence flow and clear routes to runtime,
+  data, fieldwork, atlas and maintainer documentation.
+- Explain package/module ownership, command/file contracts, compatibility,
+  rebuild/release operations and quality invariants with repository-specific examples.
+- Document source selection, normalization, coordinate trust, country/atlas bundles and
+  refresh impact, keeping fieldwork observations distinct from geographic framing.
+- Replace repetitive landing-page prose and low-value diagrams with focused section
+  routes and evidence models; harden Mermaid rendering and published report links.
+- Preserve maintained workflow contracts while adopting accepted shared governance and
+  protected workflow/checksum controls.
+
+### [#78](https://github.com/bijux/bijux-pollenomics/pull/78) — Documentation integrity and Redocly security
+
+- Restore repository documentation/governance contracts and patch vulnerable Redocly
+  transitive paths through configuration overrides.
+- Adopt accepted shared workflow/policy tooling and reconcile managed checksums.
+
+### [#77](https://github.com/bijux/bijux-pollenomics/pull/77) — GitPython security patch
+
+- Upgrade the locked GitPython dependency from 3.1.46 to 3.1.47.
+
+### [#76](https://github.com/bijux/bijux-pollenomics/pull/76) — Labeler schema validation and scalar options
+
+- Preserve supported scalar labeler options while normalizing label rules to lists of
+  mappings.
+- Validate the generated configuration and the checked-out PR configuration before
+  invoking the labeler, and select the explicit configuration path.
+
+### [#75](https://github.com/bijux/bijux-pollenomics/pull/75) — Codecov action rollback
+
+- Return the managed Codecov consumer from v6.0.0 to the shared v5 action pin and
+  refresh its source/checksum identities. This PR does not introduce a new coverage
+  workflow.
+
+### [#71](https://github.com/bijux/bijux-pollenomics/pull/71) — Codecov action major upgrade
+
+- Upgrade the coverage upload action from Codecov 5.5.4 to 6.0.0.
+
+### [#70](https://github.com/bijux/bijux-pollenomics/pull/70) — Node setup proposal with no new tree change
+
+- Accept the dependency proposal after its intended Node setup change was already
+  present. The accepted commit has the same tree as its first parent, so this PR
+  introduces no additional upgrade.
+
+### [#74](https://github.com/bijux/bijux-pollenomics/pull/74) — Current repository and deployment contracts
+
+- Align fieldwork/gallery path expectations and deployment branch/tag assertions with
+  the maintained repository surfaces.
+- Reconcile the dependency audit baseline without changing runtime behavior.
+
+### [#73](https://github.com/bijux/bijux-pollenomics/pull/73) — Redocly CLI upgrade
+
+- Upgrade configured Redocly CLI from 2.28.1 to 2.30.0 and retain the resulting
+  dependency lock.
+
+### [#69](https://github.com/bijux/bijux-pollenomics/pull/69) — Managed coverage, labeling and manual documentation deployment
+
+- Add Codecov coverage collection/upload and path-based PR labeling with generated
+  configuration, renderer support and protected-file drift checks.
+- Remove automatic push triggers from documentation deployment while retaining manual
+  and reusable-call routes.
+- Add merge-queue admission to the versioned ruleset and synchronize the corresponding
+  workflow inventory; this declaration does not prove a live ruleset application.
+
+### [#68](https://github.com/bijux/bijux-pollenomics/pull/68) — Safe retirement of generated workflow wrappers
+
+- Remove obsolete CI/verification wrappers only when their generated provenance header
+  identifies them as managed; preserve handwritten files.
+- Render wrappers still selected by the shared manifest and reconcile the
+  accepted-source/checksum metadata.
+
+### [#67](https://github.com/bijux/bijux-pollenomics/pull/67) — Shared documentation allowlist correction
+
+- Adopt the shared manifest correction that removes Genomics documentation deployment
+  from its allowlist. Pollenomics workflow bodies and runtime behavior do not change.
+
+### [#66](https://github.com/bijux/bijux-pollenomics/pull/66) — Trusted automation login variants
+
+- Recognize the declared bot-login variants in the existing automerge author check and
+  add Genomics to the shared synchronization roster.
+- Retain the surrounding automerge admission rules and regenerate managed
+  source/checksum metadata.
+
+### [#65](https://github.com/bijux/bijux-pollenomics/pull/65) — Shared synchronization coverage for Telecom
+
+- Include Telecom in the shared manifest-builder and synchronizer repository rosters,
+  refreshing their accepted source and checksum records.
+
+### [#64](https://github.com/bijux/bijux-pollenomics/pull/64) — Shared schedule types and release metadata
+
+- Keep dependency schedule times as clock strings instead of YAML-decoded integers in
+  the shared family manifest.
+- Import the shared Core release configuration and corresponding allowlist. These family
+  metadata changes do not enable new Pollenomics publication routes.
+
+### [#63](https://github.com/bijux/bijux-pollenomics/pull/63) — Normalized governance checks and release workflows
+
+- Adopt shared merge-governance hardening and normalized check names across policy,
+  verification, release and documentation workflow projections.
+- Reconcile automation identity, required-status and branch-protection declarations with
+  the updated synchronization tooling.
+
+### [#62](https://github.com/bijux/bijux-pollenomics/pull/62) — Prepared distribution release notes
+
+- Prepare the historical 0.1.6 package notes for documentation navigation and
+  release-badge corrections.
+- Keep release preparation distinct from proof of tagging, registry publication or
+  deployment.
+
+### [#61](https://github.com/bijux/bijux-pollenomics/pull/61) — Fieldwork directory-index navigation
+
+- Move the lake fieldwork page to a nested index layout so the sidebar renders
+  correctly, preserving navigation and redirect targets.
+- Repair relative atlas/media links after the move.
+
+### [#60](https://github.com/bijux/bijux-pollenomics/pull/60) — Dedicated fieldwork and atlas navigation
+
+- Promote fieldwork and the Nordic Evidence Atlas to dedicated root documentation
+  sections.
+- Rewire homepage/data links and directory-driven navigation to the new published
+  routes.
+
+### [#59](https://github.com/bijux/bijux-pollenomics/pull/59) — Visible atlas and fieldwork tabs
+
+- Expose the atlas and fieldwork as top-level documentation tabs while preserving the
+  data-reference navigation structure.
+
+### [#58](https://github.com/bijux/bijux-pollenomics/pull/58) — Package handbook links
+
+- Repair stale package README documentation and maintainer links to the current
+  published handbook routes.
+
+### [#57](https://github.com/bijux/bijux-pollenomics/pull/57) — Main-branch release badge
+
+- Scope the PyPI release badge and its destination to main so unrelated branch failures
+  do not misrepresent the default-branch status.
+
+### [#55](https://github.com/bijux/bijux-pollenomics/pull/55) — Automerge retry guidance and prepared notes
+
+- Adopt the shared automerge workflow correction and document check-suite retry
+  behavior.
+- Reconcile the earlier prepared release-note grouping without claiming a separate
+  release publication.
+
+### [#53](https://github.com/bijux/bijux-pollenomics/pull/53) — Reviewed documentation deployment guidance
+
+- Document the then-current branch/tag deployment triggers and the reviewed-PR route to
+  documentation publication.
+- Preserve this as historical workflow guidance rather than asserting that later
+  deployment policies are unchanged.
+
+### [#51](https://github.com/bijux/bijux-pollenomics/pull/51) — Prepared release metadata and fallback versions
+
+- Align package release metadata, runtime fallback versions and prepared changelogs for
+  the historical 0.1.5 release set.
+- Record the intended standards compliance without treating prepared notes as a
+  publication receipt.
+
+### [#52](https://github.com/bijux/bijux-pollenomics/pull/52) — Non-no-op manual publication
+
+- Consume shared release/documentation dispatch guards that fail requests which would
+  otherwise report success without performing the requested publication.
+
+### [#50](https://github.com/bijux/bijux-pollenomics/pull/50) — Parse-safe PyPI release workflow
+
+- Adopt the shared parse-safe PyPI release workflow and reconcile its generated consumer
+  and manifest identity.
+
+### [#49](https://github.com/bijux/bijux-pollenomics/pull/49) — Valid verification wrapper target
+
+- Point verification fanout at the existing reusable CI workflow, removing the
+  nonexistent workflow reference that prevented compilation.
+
+### [#48](https://github.com/bijux/bijux-pollenomics/pull/48) — Explicit release workflow triggers
+
+- Remove ordinary push triggers from managed release workflows while retaining manual
+  and reusable-call publication routes.
+
+### [#47](https://github.com/bijux/bijux-pollenomics/pull/47) — Pull-request-scoped automerge distribution
+
+- Regenerate managed wrappers from accepted standards and remove the automerge
+  `workflow_run` trigger.
+
+### [#46](https://github.com/bijux/bijux-pollenomics/pull/46) — Reduced automerge activity on main
+
+- Keep automerge on pull-request events and remove the workflow-run trigger that
+  produced non-actionable default-branch activity.
+
+### [#45](https://github.com/bijux/bijux-pollenomics/pull/45) — Verification fanout and shell syntax
+
+- Route package verification to the existing reusable CI workflow and repair malformed
+  shell syntax in the clean-worktree check.
+- Regenerate the workflow from its manifest so both compilation and execution use the
+  same corrected contract.
+
+### [#44](https://github.com/bijux/bijux-pollenomics/pull/44) — Canonical verification workflow name
+
+- Restore the verification workflow display name to the shared naming convention through
+  the repository manifest and generated workflow.
+
+### [#43](https://github.com/bijux/bijux-pollenomics/pull/43) — Verification filename as display name
+
+- Set the verification display name to `verify.yml` through the managed manifest and
+  regenerate the consumer workflow.
+
+### [#42](https://github.com/bijux/bijux-pollenomics/pull/42) — Standards-owned workflow dependency updates
+
+- Remove direct GitHub Actions Dependabot proposals from the generated consumer
+  configuration, routing protected workflow updates through shared standards instead.
+
+### [#41](https://github.com/bijux/bijux-pollenomics/pull/41) — Resilient policy file-diff detection
+
+- Fetch sufficient base history for policy comparisons and fall back from three-dot to
+  two-dot diffs when no merge base can be resolved.
+
+### [#40](https://github.com/bijux/bijux-pollenomics/pull/40) — Stable tag-push policy checks
+
+- Handle tag-push graphs whose prior commit is unavailable and stop documentation
+  deployment on version-tag pushes under the revised trigger policy.
+
+### [#30](https://github.com/bijux/bijux-pollenomics/pull/30) — Reconciled governance and Make contracts
+
+- Align managed policy, pinned verification actions and checksum/manifest declarations
+  with accepted shared standards.
+- Restore package artifact-cleanup behavior to the shared Make contract and make the
+  duplicate governance report check advisory.
+
+### [#29](https://github.com/bijux/bijux-pollenomics/pull/29) — Shared workflow and policy distribution
+
+- Adopt the shared standards workflow/governance corrections and reconcile generated
+  consumers, checksums and action identities.
+
+### [#28](https://github.com/bijux/bijux-pollenomics/pull/28) — Complete shared manifest and documentation tooling
+
+- Restore the shared checks manifest, include the missing documentation tooling and
+  reconcile shared directory identities.
+- Adopt the governed branch-protection ruleset through the shared GitHub source.
+
+### [#22](https://github.com/bijux/bijux-pollenomics/pull/22) — Preserved automation authorship
+
+- Preserve bot-authored contributor provenance in accepted default-branch history.
+
+### [#21](https://github.com/bijux/bijux-pollenomics/pull/21) — Automation identity baseline
+
+- Record a stable automation contributor identity for consistent repository provenance.
+
+### [#20](https://github.com/bijux/bijux-pollenomics/pull/20) — OpenAPI generator configuration
+
+- Upgrade configured OpenAPI Generator CLI to 2.31.1 with its regenerated lock,
+  replacing the superseded dependency proposal.
+
+### [#2](https://github.com/bijux/bijux-pollenomics/pull/2) — uv setup action
+
+- Upgrade the uv setup action from 8.0.0 to 8.1.0.
+
+### [#3](https://github.com/bijux/bijux-pollenomics/pull/3) — Pages deployment action
+
+- Upgrade the Pages deployment action from major version 4 to 5.
+
+### [#4](https://github.com/bijux/bijux-pollenomics/pull/4) — Node setup action
+
+- Upgrade the Node setup action from major version 5 to 6.
+
+### [#5](https://github.com/bijux/bijux-pollenomics/pull/5) — Checkout action
+
+- Upgrade the repository checkout action from major version 4 to 6.
+
+### [#6](https://github.com/bijux/bijux-pollenomics/pull/6) — Host build-backend compatibility
+
+- Widen the host package's supported Hatchling range to include releases below 1.30
+  while preserving its existing minimum.
+
+### [#7](https://github.com/bijux/bijux-pollenomics/pull/7) — Artifact upload action
+
+- Upgrade the artifact upload action from major version 6 to 7.
+
+### [#8](https://github.com/bijux/bijux-pollenomics/pull/8) — Pages configuration action
+
+- Upgrade the Pages configuration action from major version 5 to 6.
+
+### [#10](https://github.com/bijux/bijux-pollenomics/pull/10) — GitHub release action
+
+- Upgrade the GitHub release action from major version 2 to 3.
+
+### [#11](https://github.com/bijux/bijux-pollenomics/pull/11) — OCI registry tooling setup
+
+- Upgrade the ORAS setup action from major version 1 to 2.
+
+### [#12](https://github.com/bijux/bijux-pollenomics/pull/12) — Root build-backend compatibility
+
+- Widen the root Hatchling requirement to include releases below 1.30 while retaining
+  the supported minimum.
+
+### [#13](https://github.com/bijux/bijux-pollenomics/pull/13) — Developer coverage tooling
+
+- Widen the developer package's pytest-cov requirement to support releases below 8 while
+  preserving the existing minimum.
+
+### [#14](https://github.com/bijux/bijux-pollenomics/pull/14) — Pages artifact upload action
+
+- Upgrade the Pages artifact upload action from major version 3 to 5.
+
+### [#15](https://github.com/bijux/bijux-pollenomics/pull/15) — Container registry login action
+
+- Upgrade the Docker login action from major version 3 to 4.
+
+### [#16](https://github.com/bijux/bijux-pollenomics/pull/16) — Redocly validation tooling
+
+- Upgrade configured Redocly CLI from 2.0.5 to 2.28.1 with its dependency lock.
+
+### [#17](https://github.com/bijux/bijux-pollenomics/pull/17) — Developer build-backend compatibility
+
+- Widen the developer package's Hatchling requirement to include releases below 1.30
+  while retaining the supported minimum.
+
+### [#18](https://github.com/bijux/bijux-pollenomics/pull/18) — Compatibility-package coverage tooling
+
+- Widen the compatibility distribution's pytest-cov range to support releases below 8
+  while preserving the existing minimum.
+
+### [#19](https://github.com/bijux/bijux-pollenomics/pull/19) — Compatibility-package build backend
+
+- Widen the compatibility distribution's Hatchling range to include releases below 1.30
+  while retaining the supported minimum.
+
+### [#1](https://github.com/bijux/bijux-pollenomics/pull/1) — Versioned main protection and dependency proposals
+
+- Add a versioned default-branch protection declaration, required-status policy and
+  dependency proposals for Actions, Node configuration and Python manifests.
+- Record the always-on verification requirement so path-filtered checks cannot strand
+  otherwise eligible pull requests.

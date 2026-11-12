@@ -75,6 +75,36 @@ what changed and why.
 - mention any follow-up that still remains open
 - keep unrelated edits out of the same change
 
+## Change History
+
+Include a root `CHANGELOG.md` entry in every pull request. Prepare it alongside
+the change, add the actual PR number and link once the PR exists, and finish it
+before merge. Do not collect several merged PRs into a later changelog refresh.
+
+Use one level-three heading per PR: a linked PR number followed by a short,
+descriptive title. Keep merged entries newest merge first; PR numbers alone do
+not establish merge order. An open PR uses its actual link without claiming a
+merge date or adding a status label that will become stale after merge.
+
+Cover every meaningful outcome in the PR, including package behavior,
+scientific methods and data, reports, presentation, documentation, dependencies,
+and delivery tooling where affected. Group related changes into readable
+bullets; a large PR needs more than a restatement of its title. Describe the
+result and important limits instead of listing commits, hashes, files, or test
+logs. Scientific qualifications must retain their scope: synthetic or retained
+evidence does not establish field accuracy or independent scientific approval.
+State material negative results, refusals and deferred verification alongside
+the delivered capability.
+
+Before merge, compare the entry with the complete final PR diff and revise it
+when scope changes. Fold follow-up commits into the same entry. Describe
+already-present changes, combined proposals and restored history explicitly;
+do not credit the same feature twice or use a PR title as proof of its contents.
+
+The root changelog records repository progress across all packages. Package
+changelogs retain distribution release notes. Neither a merged PR nor prepared
+release notes prove that a package, website, or scientific result was published.
+
 ## When Shared Files Move
 
 If you move or rename root-owned files, update the references that point to
