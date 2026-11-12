@@ -2,6 +2,20 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
+
+- Replace mixed release sections and terse merge receipts with one linked entry per
+  PR, ordered by actual merge time and expanded across substantial deliveries.
+- Reconcile accepted changes, including the no-op Node proposal, Codecov rollback,
+  combined proposals and omitted human metadata, lake intake, storage and recovery
+  behavior, without crediting restored history twice.
+- Record material mixed/negative scientific results and distinguish retained products,
+  training-only numerical follow-through and deferred verification from new study
+  execution or field accuracy.
+- Require each PR's entry before merge, reconcile it against the final diff and keep
+  follow-up commits in that entry. Correct release guidance so package notes remain
+  separate from repository progress.
+
 ### [#416](https://github.com/bijux/bijux-pollenomics/pull/416) — Consumed observation support in validation
 
 - Check training support only for observation owners actually consumed by each frozen
