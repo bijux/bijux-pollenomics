@@ -21,6 +21,8 @@ def test_selected_sample_needs_one_default_comparable_calibrated_age() -> None:
         "calibration_status": "calibrated",
         "source_age_type": "Calibrated radiocarbon years BP",
         "source_age_value": 1200,
+        "younger_bp": 1200,
+        "older_bp": 1200,
     }
     assert _claims_for_samples([claim], samples) == {"sample-a": claim}
 

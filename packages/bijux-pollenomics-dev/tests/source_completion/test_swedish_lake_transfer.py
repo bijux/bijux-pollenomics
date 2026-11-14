@@ -21,6 +21,8 @@ def test_lake_transfer_uses_unique_nonnegative_default_calibrated_age() -> None:
         "comparability_status": "comparable",
         "calibration_status": "calibrated",
         "source_age_value": 1200,
+        "younger_bp": 1200,
+        "older_bp": 1200,
     }
     alternative = {**claim, "is_default_chronology": False}
     assert _selected_claims([alternative, claim]) == {"sample-a": claim}

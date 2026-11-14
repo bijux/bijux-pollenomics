@@ -30,6 +30,9 @@ from bijux_pollenomics.analysis.lra_validation.spatial.configuration import dist
 from bijux_pollenomics.collection.sources.neotoma.client import (
     validate_neotoma_selected_download,
 )
+from bijux_pollenomics.collection.sources.neotoma.relational.chronology import (
+    require_neotoma_point_age,
+)
 from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
     is_native_pollen,
 )
@@ -257,9 +260,14 @@ def _swedish_training(
                 raise ValueError(
                     f"Swedish sample lacks its admitted calibrated BP age: {dataset_id}"
                 )
-            age = float(ages[0]["age"])
-            if not math.isfinite(age):
-                raise ValueError("Swedish sample age is not finite")
+            age = float(
+                require_neotoma_point_age(
+                    ages[0]["age"],
+                    younger_bp=ages[0].get("ageyounger"),
+                    older_bp=ages[0].get("ageolder"),
+                    allow_negative_bp=True,
+                )
+            )
             all_ages.append(age)
             bin_id = str(math.floor(age / AGE_WIDTH))
             seen: set[str] = set()
@@ -424,11 +432,17 @@ def _neotoma_candidates(
             age_type = claim["source_age_type"]
             if age_type not in {"Calibrated radiocarbon years BP", "Calendar years BP"}:
                 raise ValueError(f"unsupported comparable BP basis: {age_type}")
-            value = claim["source_age_value"]
-            if not isinstance(value, (int, float)) or not math.isfinite(float(value)):
-                raise ValueError(
-                    f"candidate sample has no finite comparable age: {sample_id}"
+            try:
+                value = require_neotoma_point_age(
+                    claim["source_age_value"],
+                    younger_bp=claim.get("younger_bp"),
+                    older_bp=claim.get("older_bp"),
+                    require_bounds=True,
                 )
+            except ValueError as error:
+                raise ValueError(
+                    f"candidate sample has invalid comparable age ({error}): {sample_id}"
+                ) from error
             age_basis_by_sample[sample_id] = (float(value), age_type)
             sample_row = sample_by_id[sample_id]
             dataset = dataset_by_id[sample_row["dataset_id"]]
@@ -828,6 +842,17 @@ def _nordic_target_outcomes(
     }
     if set(age_by_sample) != set(selected_age_claim_ids):
         raise ValueError("selected target age-claim identities changed before scoring")
+    age_points = {
+        sample_id: float(
+            require_neotoma_point_age(
+                claim["source_age_value"],
+                younger_bp=claim.get("younger_bp"),
+                older_bp=claim.get("older_bp"),
+                require_bounds=True,
+            )
+        )
+        for sample_id, claim in age_by_sample.items()
+    }
     sample_by_id = {row["sample_id"]: row for row in samples}
     outcome_ids: set[str] = set()
     for site in metadata["sites"]:
@@ -846,8 +871,7 @@ def _nordic_target_outcomes(
             if not _is_direct_pollen_count(row):
                 continue
             sample = sample_by_id[sample_id]
-            claim = age_by_sample[sample_id]
-            age = float(claim["source_age_value"])
+            age = age_points[sample_id]
             bin_id = str(math.floor(age / AGE_WIDTH))
             key = f"{sample['site_id']}:{bin_id}"
             cell = by_site_bin[key]

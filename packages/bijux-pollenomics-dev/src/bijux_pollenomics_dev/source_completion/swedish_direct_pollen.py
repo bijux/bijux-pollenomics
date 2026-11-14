@@ -27,6 +27,9 @@ from bijux_pollenomics.analysis.lra_validation.spatial.configuration import dist
 from bijux_pollenomics.collection.sources.neotoma.client import (
     validate_neotoma_selected_download,
 )
+from bijux_pollenomics.collection.sources.neotoma.relational.chronology import (
+    require_neotoma_point_age,
+)
 from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
     is_native_pollen,
 )
@@ -165,13 +168,19 @@ def prepare(data_root: Path, workdir: Path, config_path: Path) -> None:
                 raise ValueError(
                     f"dataset {dataset_id} sample {sample_index} lacks selected calibrated BP age"
                 )
+            point = require_neotoma_point_age(
+                age["age"],
+                younger_bp=age.get("ageyounger"),
+                older_bp=age.get("ageolder"),
+                allow_negative_bp=True,
+            )
             chronology.add((str(age["chronologyid"]), str(age["chronologyname"])))
-            ages.append(float(age["age"]))
+            ages.append(float(point))
             if age.get("ageolder") is not None or age.get("ageyounger") is not None:
                 raise ValueError(
                     "unexpected sample age bounds; update uncertainty accounting"
                 )
-            bin_id = str(int(float(age["age"]) // AGE_WIDTH))
+            bin_id = str(int(float(point) // AGE_WIDTH))
             seen: set[str] = set()
             sample_all = 0
             for datum in sample.get("datum", []):

@@ -11,6 +11,9 @@ from typing import Any
 from bijux_pollenomics.collection.sources.neotoma.client import (
     validate_neotoma_selected_download,
 )
+from bijux_pollenomics.collection.sources.neotoma.relational.chronology import (
+    require_neotoma_point_age,
+)
 from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
     is_native_pollen,
 )
@@ -126,6 +129,12 @@ def build(data_root: Path, destination: Path) -> dict[str, Any]:
                     raise ValueError(
                         f"sample chronology changed: {dataset_id}/{sample_index}"
                     )
+                require_neotoma_point_age(
+                    age["age"],
+                    younger_bp=age.get("ageyounger"),
+                    older_bp=age.get("ageolder"),
+                    allow_negative_bp=True,
+                )
                 sample_id = str(sample["sampleid"])
                 sample_locator = f"{locator}/samples/{sample_index}"
                 native = [
