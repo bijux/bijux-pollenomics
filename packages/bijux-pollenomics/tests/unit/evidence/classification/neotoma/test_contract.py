@@ -15,6 +15,22 @@ from bijux_pollenomics.evidence.classification.neotoma import (
 from .support import representative_snapshot
 
 
+@pytest.mark.parametrize("element", [None, "stomate", "pollen/spore"])
+def test_source_pollen_domain_requires_agreeing_specimen_element(
+    element: object,
+) -> None:
+    snapshot = representative_snapshot()
+    for observation in snapshot["observations"]:
+        if observation["variable_id"] == "var:1":
+            observation["source_element"] = element
+    payload = build_neotoma_classification_accounting(snapshot)
+    concepts = cast(list[dict[str, Any]], payload["concepts"])
+    concept = next(row for row in concepts if row["source_variable_id"] == "var:1")
+    assert concept["source_evidence_universe"] == "other_or_unresolved_source_element"
+    assert concept["mapping_status"] == "unmapped"
+    assert concept["release_eligible"] is False
+
+
 def test_accounting_preserves_source_taxonomy_and_separate_mapping_dimensions() -> None:
     payload = build_neotoma_classification_accounting(representative_snapshot())
     concepts = cast(list[dict[str, Any]], payload["concepts"])

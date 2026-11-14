@@ -27,6 +27,9 @@ from bijux_pollenomics.analysis.lra_validation.spatial import (
     half_count_composition,
 )
 from bijux_pollenomics.analysis.lra_validation.spatial.configuration import distance_km
+from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
+    is_native_pollen,
+)
 
 BASELINE_METHODS: tuple[
     Literal["training_mean"],
@@ -126,8 +129,7 @@ def _is_direct_pollen_count(row: dict[str, Any]) -> bool:
     value = row.get("source_value")
     name = row.get("source_reported_name")
     return (
-        row.get("source_element") == "pollen"
-        and row.get("source_element_type") == "pollen"
+        is_native_pollen(row.get("source_element"), row.get("source_element_type"))
         and row.get("source_unit") == "NISP"
         and row.get("unit_family") == "count"
         and row.get("detection_status") == "reported_value"
@@ -252,7 +254,9 @@ def _swedish_training(
             all_count = 0
             taxon_counts: dict[str, int] = defaultdict(int)
             for datum in sample.get("datum", []):
-                if datum.get("units") != "NISP" or datum.get("elementtype") != "pollen":
+                if datum.get("units") != "NISP" or not is_native_pollen(
+                    datum.get("element"), datum.get("elementtype")
+                ):
                     continue
                 taxon, value = datum.get("variablename"), datum.get("value")
                 if not isinstance(taxon, str) or type(value) is not int or value < 0:

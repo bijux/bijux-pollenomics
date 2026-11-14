@@ -10,6 +10,28 @@ from .diagnostics import conflict_record
 from .identifiers import digest, optional_source_id
 
 
+def is_native_pollen(element: object, element_type: object) -> bool:
+    """Require both literal specimen labels before admitting native pollen rows."""
+    return element == element_type == "pollen"
+
+
+def source_element_status(value: object, element_type: object) -> str:
+    """Retain normalized review labels without promoting conflicting specimens."""
+    if not isinstance(value, str) or not value.strip():
+        return "source_element_missing"
+    if not isinstance(element_type, str) or not element_type.strip():
+        return "source_element_type_missing"
+    normalized_value = value.strip().casefold()
+    normalized_type = element_type.strip().casefold()
+    if normalized_value != normalized_type:
+        return "source_element_labels_disagree"
+    return (
+        "source_label_pollen"
+        if is_native_pollen(normalized_value, normalized_type)
+        else "source_element_not_pollen"
+    )
+
+
 def register_variable(
     variables: dict[str, dict[str, object]],
     *,

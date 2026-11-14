@@ -24,6 +24,9 @@ from bijux_pollenomics.analysis.lra_validation.spatial import (
     half_count_composition,
 )
 from bijux_pollenomics.analysis.lra_validation.spatial.configuration import distance_km
+from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
+    is_native_pollen,
+)
 
 DATASETS = {
     "19913": {"label": "Abborrtjärnen", "site_id": "13338", "part": "part-004.json"},
@@ -139,7 +142,9 @@ def prepare(data_root: Path, workdir: Path, config_path: Path) -> None:
             seen: set[str] = set()
             sample_all = 0
             for datum in sample.get("datum", []):
-                if datum.get("units") != "NISP" or datum.get("elementtype") != "pollen":
+                if datum.get("units") != "NISP" or not is_native_pollen(
+                    datum.get("element"), datum.get("elementtype")
+                ):
                     continue
                 name, value = datum.get("variablename"), datum.get("value")
                 if not isinstance(name, str) or type(value) is not int or value < 0:
@@ -177,7 +182,7 @@ def prepare(data_root: Path, workdir: Path, config_path: Path) -> None:
                 datum["value"]
                 for datum in sample.get("datum", [])
                 if datum.get("units") == "NISP"
-                and datum.get("elementtype") == "pollen"
+                and is_native_pollen(datum.get("element"), datum.get("elementtype"))
                 and datum.get("variablename") in taxa
             )
         if len(chronology) != 1:

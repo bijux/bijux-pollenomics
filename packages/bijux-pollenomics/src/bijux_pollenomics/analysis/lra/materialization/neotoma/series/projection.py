@@ -9,6 +9,9 @@ import hashlib
 import json
 from typing import Any, cast
 
+from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
+    source_element_status,
+)
 from bijux_pollenomics.evidence.sources.neotoma.contract import COUNTRY_CODES
 
 from ...models import canonical_bytes
@@ -29,20 +32,6 @@ class NeotomaCandidateSeries:
     def as_dict(self) -> dict[str, Any]:
         """Return an independent copy of the source-bound export."""
         return cast(dict[str, Any], json.loads(self.canonical_json))
-
-
-def source_element_status(value: object, element_type: object) -> str:
-    if not isinstance(value, str) or not value.strip():
-        return "source_element_missing"
-    if not isinstance(element_type, str) or not element_type.strip():
-        return "source_element_type_missing"
-    if value.strip().casefold() != element_type.strip().casefold():
-        return "source_element_labels_disagree"
-    return (
-        "source_label_pollen"
-        if value.strip().casefold() == "pollen"
-        else "source_element_not_pollen"
-    )
 
 
 def build_neotoma_candidate_series(

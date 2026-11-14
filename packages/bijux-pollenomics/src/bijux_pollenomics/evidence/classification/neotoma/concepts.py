@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
+from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
+    is_native_pollen,
+)
+
 
 def _source_concept_identity(
     observation: Mapping[str, object],
@@ -61,7 +65,9 @@ def _source_evidence_universe(
 ) -> str:
     if mapping_status == "not_applicable":
         return "explicit_non_biological"
-    if identity.get("source_element_type") == "pollen":
+    if is_native_pollen(
+        identity.get("source_element"), identity.get("source_element_type")
+    ):
         return "source_pollen"
     return "other_or_unresolved_source_element"
 
