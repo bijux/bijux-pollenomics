@@ -62,7 +62,9 @@ def fetch_neotoma_dataset_download_rows(
         }
         for future in as_completed(future_to_dataset_id):
             dataset_id = future_to_dataset_id[future]
-            rows_by_dataset_id[dataset_id] = future.result()
+            dataset_rows = future.result()
+            validate_neotoma_download_coverage_fn([dataset_id], dataset_rows)
+            rows_by_dataset_id[dataset_id] = dataset_rows
 
     rows: list[dict[str, object]] = []
     for dataset_id in unique_dataset_ids:
@@ -84,13 +86,19 @@ def fetch_neotoma_dataset_download_row(
         try:
             payload = fetch_json_fn(
                 f"{neotoma_data_url}/downloads/{dataset_id}",
-                insecure=True,
                 timeout=request_timeout_seconds,
             )
-            data = payload.get("data", []) if isinstance(payload, dict) else []
-            if not isinstance(data, list):
-                return []
-            return [copy.deepcopy(item) for item in data if isinstance(item, dict)]
+            data = _validated_neotoma_rows(payload)
+            validate_neotoma_download_coverage(
+                [dataset_id],
+                data,
+                extract_neotoma_download_dataset_ids_fn=lambda rows: (
+                    extract_neotoma_download_dataset_ids(
+                        rows, clean_optional_text_fn=str
+                    )
+                ),
+            )
+            return copy.deepcopy(data)
         except (TimeoutError, URLError, HTTPError) as exc:
             if not neotoma_retryable_error(exc) or attempt + 1 >= download_retries:
                 raise
@@ -106,9 +114,21 @@ def validate_neotoma_download_coverage(
         [Iterable[dict[str, object]]], list[int]
     ],
 ) -> None:
-    """Raise when a requested Neotoma dataset is absent from the collected download payloads."""
+    """Require exactly one identified download row per requested dataset."""
     requested = sorted({int(dataset_id) for dataset_id in requested_dataset_ids})
-    returned = sorted(extract_neotoma_download_dataset_ids_fn(download_rows))
+    returned: list[int] = []
+    for row in download_rows:
+        row_ids = extract_neotoma_download_dataset_ids_fn([row])
+        if len(row_ids) != 1:
+            raise ValueError("Neotoma download row must identify exactly one dataset")
+        returned.extend(row_ids)
+    if len(returned) != len(set(returned)):
+        raise ValueError("Neotoma download coverage contains duplicate dataset IDs")
+    unexpected = sorted(set(returned) - set(requested))
+    if unexpected:
+        raise ValueError(
+            f"Neotoma download coverage unexpected dataset IDs: {unexpected}"
+        )
     missing = sorted(set(requested) - set(returned))
     if missing:
         missing_text = ", ".join(str(dataset_id) for dataset_id in missing[:10])
@@ -138,30 +158,39 @@ def extract_neotoma_download_dataset_ids(
 def neotoma_download_dataset_id(
     download_row: object, *, clean_optional_text_fn: Callable[[object], str]
 ) -> int | None:
-    """Read one dataset identifier from a full Neotoma dataset download payload."""
+    """Read a positive native ID only when all present dataset identities agree."""
     if not isinstance(download_row, dict):
         return None
     site = download_row.get("site")
     if not isinstance(site, dict):
         return None
+    datasets: list[dict[str, object]] = []
     collection_unit = site.get("collectionunit")
     if isinstance(collection_unit, dict) and isinstance(
         collection_unit.get("dataset"), dict
     ):
-        dataset_id = collection_unit["dataset"].get("datasetid")
-    elif isinstance(site.get("dataset"), dict):
-        dataset_id = site["dataset"].get("datasetid")
-    else:
-        return None
-    if isinstance(dataset_id, int):
-        return dataset_id
-    text = clean_optional_text_fn(dataset_id)
-    if not text:
-        return None
-    try:
-        return int(text)
-    except ValueError:
-        return None
+        datasets.append(collection_unit["dataset"])
+    if isinstance(site.get("dataset"), dict):
+        datasets.append(site["dataset"])
+    identities: set[int] = set()
+    for dataset in datasets:
+        value = dataset.get("datasetid")
+        if isinstance(value, bool):
+            return None
+        if isinstance(value, int):
+            identity = value
+        else:
+            text = clean_optional_text_fn(value)
+            if not text:
+                return None
+            try:
+                identity = int(text)
+            except ValueError:
+                return None
+        if identity <= 0:
+            return None
+        identities.add(identity)
+    return next(iter(identities)) if len(identities) == 1 else None
 
 
 def fetch_neotoma_api_rows(
@@ -184,8 +213,8 @@ def fetch_neotoma_api_rows(
         if extra_params:
             params.update(extra_params)
         payload = fetch_neotoma_api_payload_fn(endpoint, params=params)
-        chunk = payload.get("data", [])
-        if not isinstance(chunk, list) or not chunk:
+        chunk = _validated_neotoma_rows(payload)
+        if not chunk:
             break
         rows.extend(chunk)
         if len(chunk) < neotoma_limit:
@@ -209,17 +238,33 @@ def fetch_neotoma_api_payload(
             payload = fetch_json_fn(
                 f"{neotoma_data_url}/{endpoint}",
                 params=params,
-                insecure=True,
                 timeout=request_timeout_seconds,
             )
             if not isinstance(payload, dict):
                 raise ValueError("Neotoma API response must be a JSON object")
+            _validated_neotoma_rows(payload)
             return payload
         except (TimeoutError, URLError, HTTPError) as exc:
             if not neotoma_retryable_error(exc) or attempt + 1 >= api_retries:
                 raise
             time.sleep(float(attempt + 1))
     raise RuntimeError("Neotoma API retries exhausted unexpectedly")
+
+
+def _validated_neotoma_rows(payload: object) -> list[dict[str, object]]:
+    """Distinguish a successful row page from an error or malformed response."""
+    if not isinstance(payload, dict):
+        raise ValueError("Neotoma API response must be a JSON object")
+    if "status" in payload and payload["status"] != "success":
+        raise ValueError(
+            f"Neotoma API returned unsuccessful status: {payload['status']!r}"
+        )
+    if "success" in payload and payload["success"] not in (True, 1):
+        raise ValueError("Neotoma API returned an unsuccessful response")
+    data = payload.get("data")
+    if not isinstance(data, list) or not all(isinstance(row, dict) for row in data):
+        raise ValueError("Neotoma API response data must be a list of objects")
+    return data
 
 
 def neotoma_retryable_error(exc: Exception) -> bool:

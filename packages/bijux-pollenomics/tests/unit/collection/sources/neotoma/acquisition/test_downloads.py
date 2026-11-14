@@ -2,12 +2,18 @@ from __future__ import annotations
 
 from email.message import Message
 from io import BytesIO
+import ssl
 import unittest
 from unittest.mock import patch
 from urllib.error import HTTPError
 
+import pytest
+
 from bijux_pollenomics.collection.sources.neotoma.collection import (
+    fetch_neotoma_dataset_download_row,
     fetch_neotoma_dataset_download_rows,
+    neotoma_download_dataset_id,
+    validate_neotoma_download_coverage,
 )
 
 
@@ -70,3 +76,114 @@ class NeotomaDownloadTests(unittest.TestCase):
             rows = fetch_neotoma_dataset_download_rows([201])
 
         self.assertEqual(len(rows), 1)
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        {"status": "error", "data": []},
+        {"success": 0, "data": []},
+        {"status": "success"},
+        {"status": "success", "data": None},
+        {"status": "success", "data": {}},
+        {"status": "success", "data": [None]},
+    ],
+)
+def test_download_refuses_invalid_envelope(payload: dict[str, object]) -> None:
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.neotoma.collection.fetch_json",
+            return_value=payload,
+        ),
+        pytest.raises(ValueError, match="Neotoma"),
+    ):
+        fetch_neotoma_dataset_download_row(201)
+
+
+@pytest.mark.parametrize("returned_ids", [[201, 201], [201, 999], [None]])
+def test_download_coverage_refuses_extra_duplicate_or_unidentified_rows(
+    returned_ids: list[int | None],
+) -> None:
+    rows = [
+        {"site": {"collectionunit": {"dataset": {"datasetid": identity}}}}
+        for identity in returned_ids
+    ]
+    with pytest.raises(ValueError, match="Neotoma"):
+        validate_neotoma_download_coverage([201], rows)
+
+
+def test_download_refuses_swapped_request_owners() -> None:
+    def response(dataset_id: int) -> list[dict[str, object]]:
+        return [
+            {"site": {"collectionunit": {"dataset": {"datasetid": 403 - dataset_id}}}}
+        ]
+
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.neotoma.collection.fetch_neotoma_dataset_download_row",
+            side_effect=response,
+        ),
+        pytest.raises(ValueError, match="Neotoma"),
+    ):
+        fetch_neotoma_dataset_download_rows([201, 202])
+
+
+def test_download_authenticates_https_server() -> None:
+    def response(*_: object, context: ssl.SSLContext | None, **__: object) -> BytesIO:
+        assert context is None or (
+            context.verify_mode == ssl.CERT_REQUIRED and context.check_hostname
+        )
+        return BytesIO(
+            b'{"status":"success","data":[{"site":{"collectionunit":{"dataset":{"datasetid":201}}}}]}'
+        )
+
+    with patch("bijux_pollenomics.core.http.urlopen", side_effect=response):
+        assert fetch_neotoma_dataset_download_rows([201]) == [
+            {"site": {"collectionunit": {"dataset": {"datasetid": 201}}}}
+        ]
+
+
+@pytest.mark.parametrize("identity", [True, False, 0, -1, "0", "-1"])
+def test_download_native_identity_requires_positive_nonboolean_identifier(
+    identity: object,
+) -> None:
+    row = {"site": {"collectionunit": {"dataset": {"datasetid": identity}}}}
+    assert neotoma_download_dataset_id(row) is None
+
+
+@pytest.mark.parametrize("mirror_id", [999, None, True])
+def test_download_refuses_contradictory_or_invalid_mirrored_dataset_identity(
+    mirror_id: object,
+) -> None:
+    row = {
+        "site": {
+            "dataset": {"datasetid": mirror_id},
+            "collectionunit": {"dataset": {"datasetid": 201}},
+        }
+    }
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.neotoma.collection.fetch_json",
+            return_value={"status": "success", "data": [row]},
+        ),
+        pytest.raises(ValueError, match="Neotoma"),
+    ):
+        fetch_neotoma_dataset_download_row(201)
+
+
+@pytest.mark.parametrize("identity", [201, "201", " 201 "])
+@pytest.mark.parametrize("shape", ["unit", "site", "mirrored"])
+def test_download_preserves_agreeing_native_identity_shapes(
+    identity: int | str, shape: str
+) -> None:
+    site: dict[str, object] = {}
+    if shape in {"site", "mirrored"}:
+        site["dataset"] = {"datasetid": identity}
+    if shape in {"unit", "mirrored"}:
+        site["collectionunit"] = {"dataset": {"datasetid": identity}}
+    row = {"site": site}
+    with patch(
+        "bijux_pollenomics.collection.sources.neotoma.collection.fetch_json",
+        return_value={"status": "success", "data": [row]},
+    ):
+        assert fetch_neotoma_dataset_download_row(201) == [row]
