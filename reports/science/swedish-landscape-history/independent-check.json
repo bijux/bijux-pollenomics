@@ -1,0 +1,178 @@
+{
+  "status": "passed",
+  "source_revision": "b768c7b1204c2dd43b2c88e69d47ce2b61f662b8",
+  "method": "Independent original XLSX XML+ZIP CSV parsing, explicit review taxonomy, Decimal scalar sums and sine-boundary spherical areas; no product modules imported",
+  "elapsed_seconds": 0.8539214579941472,
+  "cell_windows": 650,
+  "positive_eligible": 567,
+  "no_data": 82,
+  "invalid": 1,
+  "trajectory_rows_verified_json": 2250,
+  "trajectory_rows_verified_csv": 2250,
+  "metrics_per_row": 11,
+  "peak_rss_bytes": 143540224,
+  "policy_weighting_totals": {
+    "available/area": {
+      "rows": 375,
+      "selected_cell_window_contributions": 1701,
+      "empty_rows": 19
+    },
+    "available/equal": {
+      "rows": 375,
+      "selected_cell_window_contributions": 1701,
+      "empty_rows": 19
+    },
+    "high_quality/area": {
+      "rows": 375,
+      "selected_cell_window_contributions": 804,
+      "empty_rows": 86
+    },
+    "high_quality/equal": {
+      "rows": 375,
+      "selected_cell_window_contributions": 804,
+      "empty_rows": 86
+    },
+    "fixed_recent/area": {
+      "rows": 375,
+      "selected_cell_window_contributions": 504,
+      "empty_rows": 271
+    },
+    "fixed_recent/equal": {
+      "rows": 375,
+      "selected_cell_window_contributions": 504,
+      "empty_rows": 271
+    }
+  },
+  "maximum_native_taxon_closure_residual_pp": "1.891315E-11",
+  "maximum_expected_aggregate_partition_closure_residual_pp": "1.891315E-11",
+  "fixed_recent_grid_ids": [
+    "1030",
+    "1031",
+    "1082",
+    "1128",
+    "1178",
+    "1180",
+    "1386",
+    "1387",
+    "1434",
+    "1436",
+    "779",
+    "829",
+    "830",
+    "831",
+    "832",
+    "878",
+    "880",
+    "882",
+    "927",
+    "929",
+    "980"
+  ],
+  "fixed_recent_primary_recent_rows": 40,
+  "numeric_check_counts": {
+    "exact": 193349,
+    "area": 82414,
+    "percentage_or_coordinate": 128563
+  },
+  "maximum_absolute_errors": {
+    "area": "1.52E-10",
+    "percentage_or_coordinate": "1.7866666666666666666666666666666667E-14"
+  },
+  "independent_expected_trajectory_sha256": "2cc4064e855eb2f25c719e75e4650fd7368e8fca2af7f892f931ad68aa4e2cc5",
+  "limits": [
+    "Independent computational observer, not qualified botanical or field validation.",
+    "Known exposed26centers are fixed review inputs; no new Swedish boundary intersection or cohort classification.",
+    "Source marginal SE ranges checked without pooling or inventing covariance.",
+    "Source BP1950 declared protocol checked; original age-model production not replayed."
+  ],
+  "original_receipt_sha256": "e33b6fa3fa8e3c3fb8aa242ba19180f0d14c2c4f4aa69563d3eb357e5f2457e6",
+  "observer_source_sha256": "38806c8e1579ce223b5a5d0fb2a1bbecf7bd5bed48537a222f0b67512659791d",
+  "inputs": [
+    {
+      "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+      "bytes": 4007032,
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    {
+      "path": "data/landclim/raw/landclim_ii_grid_cell_quality.xlsx",
+      "bytes": 49189,
+      "sha256": "6b805ee27f07d3d047bb785ae5315388b1d3a4b123d510a27f77a86915bc7488"
+    }
+  ],
+  "raw_products": [
+    {
+      "path": "trajectories.json",
+      "bytes": 6676387,
+      "sha256": "39f0dd3c338579d7fb90d6db61f11d1c6919a4848d7489c60ad2d3be60c34cc1"
+    },
+    {
+      "path": "trajectories.csv",
+      "bytes": 1740671,
+      "sha256": "17299c41e317053eb3a2a3e68640f0e083b1c34023aed61f017deeff6b207750"
+    },
+    {
+      "path": "cells.csv",
+      "bytes": 831491,
+      "sha256": "54f86f3910657b1945ecad90500e0b59df5867fd346e096dd520a10793dd7767"
+    },
+    {
+      "path": "protocol.json",
+      "bytes": 5373,
+      "sha256": "1a6affc9c0f372e034a22a534a30f94f94045f6e491dbaef0ac70674fffa7e08"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 10834,
+      "sha256": "8a3f5f76555b450138fb1cd9fd1b40bb432ece4b041d80bbd275565ceff43dab"
+    }
+  ],
+  "pin_census": {
+    "status": "passed",
+    "source_revision": "b768c7b1204c2dd43b2c88e69d47ce2b61f662b8",
+    "full_expected_input_pin_count": 7,
+    "full_expected_calculation_pin_count": 8,
+    "all_expected_pin_paths_present_exactly_once": true,
+    "pins_hash_verification": "Everylistedpinmatchesactualbytesinverification.json observer; this supplement independently checks expected manifest completeness.",
+    "primary_five_band_fixed_recent_rows": 40,
+    "primary_empty_rows": 8,
+    "primary_empty_latitude_band": [
+      64,
+      67
+    ],
+    "primary_empty_windows": [
+      [
+        2700,
+        3200
+      ],
+      [
+        2200,
+        2700
+      ],
+      [
+        1700,
+        2200
+      ],
+      [
+        1200,
+        1700
+      ],
+      [
+        700,
+        1200
+      ],
+      [
+        350,
+        700
+      ],
+      [
+        100,
+        350
+      ],
+      [
+        0,
+        100
+      ]
+    ],
+    "interpretation": "Fixed21gridrecentcohort provides no eligible cell centered64\u201367N; preserve missing trajectory in this band, no interpolation or replacement cohort."
+  }
+}

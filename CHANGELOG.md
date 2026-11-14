@@ -2,6 +2,14 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### Swedish vegetation history by latitude
+
+- Derive four-, five- and six-band Swedish forest/open/cereal summaries from
+  published REVEALS grids with explicit taxonomy, spatial weights and coverage.
+- Publish fixed recent support, changing-grid and quality diagnostics, six
+  exportable figures and independent original-archive verification; preserve
+  no-data flags, the zero-mass refusal and unavailable regional uncertainty.
+
 ### Published European pollen-productivity reference
 
 - Ingest both Wieczorek–Herzschuh European RPP datasets with exact source cells,
