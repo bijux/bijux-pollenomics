@@ -83,27 +83,19 @@ def test_viewport_chrome_is_compact_clipped_and_non_overlapping() -> None:
     )
     assert match is not None
     declarations = re.findall(r"([a-z-]+)\s*:\s*([^;]+);", match.group(1))
-    assert declarations == [
-        ("position", "relative"),
-        ("display", "grid"),
-        ("grid-template-rows", "minmax(0, 1fr) auto"),
-        ("height", "100vh"),
-        ("height", "100dvh"),
-        ("overflow", "hidden"),
-    ]
-    assert (
-        ".map-topbar .eyebrow,\n      .map-topbar .topbar-note {\n"
-        "        display: none;"
-    ) in MAP_DOCUMENT_TEMPLATE
-    assert (
-        ".map-topbar .topbar-state-pill {\n          display: none;"
-        in MAP_DOCUMENT_TEMPLATE
+    declaration_map = dict(declarations)
+    assert declaration_map["display"] == "grid"
+    assert declaration_map["height"] == "100dvh"
+    assert declaration_map["overflow"] == "hidden"
+    assert "minmax(min(260px, 30dvh), 1fr)" in declaration_map["grid-template-rows"]
+    assert declaration_map["grid-template-areas"] == (
+        '"toolbar" "map" "reader" "status" "footer"'
     )
-    assert "max-height: min(60vh, calc(100dvh - 188px));" in (MAP_DOCUMENT_TEMPLATE)
-    assert "body.has-legend-open .map-status" in MAP_DOCUMENT_TEMPLATE
+    reader_rule = template_block(".focus-card {", ".focus-card[hidden]")
+    assert "overflow: auto;" in reader_rule
+    assert "min-height: 0;" in reader_rule
     assert "body.has-search-open .map-topbar-main" not in MAP_DOCUMENT_TEMPLATE
-    assert "width: min(188px, calc(100vw - 16px));" in MAP_DOCUMENT_TEMPLATE
-    assert "--legend-max-height: min(24vh, 184px);" in MAP_DOCUMENT_TEMPLATE
+    assert "body.has-legend-open .map-status" in MAP_DOCUMENT_TEMPLATE
 
 
 def test_narrow_search_is_a_locally_bounded_popover_outside_topbar_flow() -> None:
