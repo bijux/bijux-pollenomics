@@ -2,6 +2,14 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### Canonical workspace package identities
+
+- Use a virtual workspace root and retain canonical distributions under
+  `packages/`; remove the artificial repository distribution.
+- Identify owned checkouts and source archives through repository configuration
+  and declared host membership, preserving missing, unrelated and symlink
+  refusals. Dependency audits and current runtime provenance use real packages.
+
 ### Nonnegative analytical LOVE cover
 
 - Clip negative analytical LOVE cover to zero and normalize each draw before

@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
-from pathlib import Path
+from fnmatch import fnmatchcase
+from pathlib import Path, PurePosixPath
 import tomllib
+from typing import Any
 
 __all__ = [
     "RepositoryRootNotFoundError",
@@ -16,16 +18,24 @@ class RepositoryRootNotFoundError(RuntimeError):
     """Raised when an anchor has no valid owning Pollenomics workspace."""
 
 
-def _project_name(path: Path) -> str:
+def _descriptor(path: Path) -> dict[str, Any]:
     if path.is_symlink() or not path.is_file():
         raise RepositoryRootNotFoundError(
             f"missing or indirect project identity: {path}"
         )
     try:
         with path.open("rb") as stream:
-            payload = tomllib.load(stream)
-        name = payload["project"]["name"]
-    except (OSError, ValueError, KeyError, TypeError) as error:
+            return tomllib.load(stream)
+    except (OSError, ValueError) as error:
+        raise RepositoryRootNotFoundError(
+            f"invalid project identity: {path}"
+        ) from error
+
+
+def _project_name(path: Path) -> str:
+    try:
+        name = _descriptor(path)["project"]["name"]
+    except (KeyError, TypeError) as error:
         raise RepositoryRootNotFoundError(
             f"invalid project identity: {path}"
         ) from error
@@ -34,11 +44,53 @@ def _project_name(path: Path) -> str:
     return name
 
 
+def _matches_workspace_glob(parts: tuple[str, ...], pattern: tuple[str, ...]) -> bool:
+    """Match every path segment from the workspace root, including recursive globs."""
+    if not pattern:
+        return not parts
+    if pattern[0] == "**":
+        return (
+            _matches_workspace_glob(parts, pattern[1:])
+            or bool(parts)
+            and (_matches_workspace_glob(parts[1:], pattern))
+        )
+    return (
+        bool(parts)
+        and fnmatchcase(parts[0], pattern[0])
+        and (_matches_workspace_glob(parts[1:], pattern[1:]))
+    )
+
+
+def _workspace_owns_host(path: Path) -> bool:
+    payload = _descriptor(path)
+    try:
+        owner = payload["tool"]["bijux_pollenomics"]["repository"]
+        workspace = payload["tool"]["uv"]["workspace"]
+        members = workspace["members"]
+        excluded = workspace.get("exclude", [])
+    except (KeyError, TypeError, AttributeError):
+        return False
+    if owner != "bijux-pollenomics" or not all(
+        isinstance(items, list)
+        and all(isinstance(item, str) and item for item in items)
+        for items in (members, excluded)
+    ):
+        return False
+    package = ("packages", "bijux-pollenomics")
+    return any(
+        _matches_workspace_glob(package, PurePosixPath(pattern).parts)
+        for pattern in members
+    ) and not any(
+        _matches_workspace_glob(package, PurePosixPath(pattern).parts)
+        for pattern in excluded
+    )
+
+
 def _owned_workspace(candidate: Path, anchor: Path) -> Path:
     package = candidate / "packages" / "bijux-pollenomics"
     source = package / "src" / "bijux_pollenomics"
     if (
-        _project_name(candidate / "pyproject.toml") != "bijux-pollenomics-repository"
+        not _workspace_owns_host(candidate / "pyproject.toml")
         or _project_name(package / "pyproject.toml") != "bijux-pollenomics"
         or any(
             path.is_symlink()
@@ -76,8 +128,6 @@ def find_repository_root(anchor: str | Path) -> Path:
             return _owned_workspace(candidate, resolved_anchor)
         if descriptor.exists() or descriptor.is_symlink():
             name = _project_name(descriptor)
-            if name == "bijux-pollenomics-repository":
-                return _owned_workspace(candidate, resolved_anchor)
             if not (
                 name == "bijux-pollenomics"
                 and candidate.name == "bijux-pollenomics"

@@ -1,22 +1,3 @@
-[build-system]
-requires = ["hatchling>=1.27.0,<1.34", "hatch-vcs>=0.4.0,<1.0"]
-build-backend = "hatchling.build"
-
-[project]
-name = "bijux-pollenomics-repository"
-description = "Repository workspace for bijux-pollenomics."
-readme = "README.md"
-requires-python = ">=3.11,<4"
-dependencies = []
-dynamic = ["version"]
-
-[project.urls]
-Documentation = "https://bijux.io/bijux-pollenomics/"
-Repository = "https://github.com/bijux/bijux-pollenomics"
-Issues = "https://github.com/bijux/bijux-pollenomics/issues"
-Changelog = "https://github.com/bijux/bijux-pollenomics/blob/main/CHANGELOG.md"
-Security = "https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md"
-
 [dependency-groups]
 dev = [
     "bijux-pollenomics[dev,lra]",
@@ -75,13 +56,3 @@ color = true
 [tool.bandit]
 skips = []
 exclude_dirs = [".venv", "tests", "artifacts", ".pytest_cache", ".ruff_cache"]
-
-[tool.hatch.version]
-source = "vcs"
-tag-pattern = "^v(?P<version>.*)$"
-fallback-version = "0.1.5"
-raw-options = { git_describe_command = "git describe --dirty --tags --long --match 'v*'", local_scheme = "dirty-tag", version_scheme = "guess-next-dev", root = ".", search_parent_directories = true }
-
-[tool.hatch.build.targets.wheel]
-bypass-selection = true
-skip-excluded-dirs = true
