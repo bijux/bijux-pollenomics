@@ -9,7 +9,8 @@ from hashlib import sha256
 import json
 from typing import Any
 
-from ..client import _validated_neotoma_rows, positive_native_id
+from ..client import _validated_neotoma_rows
+from ..client import positive_native_id as positive_native_id
 
 
 def _refuse_numerical_outcomes(value: object) -> None:
