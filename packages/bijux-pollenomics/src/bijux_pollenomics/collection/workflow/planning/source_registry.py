@@ -22,6 +22,7 @@ class ContextSourceSpec:
     output_dir_name: str
     requires_bbox: bool
     count_attributes: tuple[tuple[str, str], ...]
+    owns_output_publication: bool = False
 
 
 CONTEXT_SOURCE_SPECS = {
@@ -43,6 +44,7 @@ CONTEXT_SOURCE_SPECS = {
         output_dir_name="neotoma",
         requires_bbox=True,
         count_attributes=(("neotoma_point_count", "point_count"),),
+        owns_output_publication=True,
     ),
     "raa": ContextSourceSpec(
         name="raa",
