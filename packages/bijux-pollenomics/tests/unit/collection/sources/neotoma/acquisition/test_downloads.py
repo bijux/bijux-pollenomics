@@ -3,6 +3,7 @@ from __future__ import annotations
 from email.message import Message
 from io import BytesIO
 import ssl
+from typing import cast
 import unittest
 from unittest.mock import patch
 from urllib.error import HTTPError
@@ -187,3 +188,27 @@ def test_download_preserves_agreeing_native_identity_shapes(
         return_value={"status": "success", "data": [row]},
     ):
         assert fetch_neotoma_dataset_download_row(201) == [row]
+
+
+@pytest.mark.parametrize("identity", [True, False, 0, -1, 201.9, "201", None])
+@pytest.mark.parametrize("entrypoint", ["single", "batch", "coverage"])
+def test_requested_dataset_identity_is_refused_before_any_download(
+    identity: object, entrypoint: str
+) -> None:
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.neotoma.collection.fetch_json"
+        ) as network,
+        patch(
+            "bijux_pollenomics.collection.sources.neotoma.collection.fetch_neotoma_dataset_download_row"
+        ) as batch_fetch,
+    ):
+        with pytest.raises(ValueError, match="Neotoma.*positive integer"):
+            if entrypoint == "single":
+                fetch_neotoma_dataset_download_row(cast(int, identity))
+            elif entrypoint == "batch":
+                fetch_neotoma_dataset_download_rows([201, cast(int, identity)])
+            else:
+                validate_neotoma_download_coverage([cast(int, identity)], [])
+        network.assert_not_called()
+        batch_fetch.assert_not_called()

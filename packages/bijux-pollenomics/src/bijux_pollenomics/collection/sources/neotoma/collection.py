@@ -47,6 +47,7 @@ from .client import (
 from .client import (
     neotoma_download_dataset_id as neotoma_download_dataset_id_from_client,
 )
+from .client import positive_native_id
 from .client import (
     validate_neotoma_download_coverage as validate_neotoma_download_coverage_from_client,
 )
@@ -221,9 +222,7 @@ def extract_neotoma_dataset_ids(rows: Iterable[dict[str, object]]) -> list[int]:
         for dataset in site.get("datasets", []):
             if not isinstance(dataset, dict):
                 continue
-            dataset_id = dataset.get("datasetid")
-            if isinstance(dataset_id, int):
-                dataset_ids.add(dataset_id)
+            dataset_ids.add(positive_native_id(dataset.get("datasetid")))
     return sorted(dataset_ids)
 
 
