@@ -1,0 +1,84 @@
+{
+  "schema_version": "neotoma-taxon-definitions-assessment.v1",
+  "assessment_date_utc": "2026-11-14",
+  "scope": "Metadata-only follow-up to three exact-unmapped KRAG taxon labels in the existing exposed 2700–3200 BP development window. No new cohort outcomes decoded or model executed.",
+  "frozen_source_audit": {
+    "calculation_source_commit": "916c9489de8fd4fcac24fcf973add288f7ea2c86",
+    "result": {
+      "path": "reports/science/pollen-reconstruction/bokesjon-pilot/result.json",
+      "bytes": 19020,
+      "sha256": "f27cfdfeadb46e5e4c2c9a10e3218e66c231ce44618d151e55dd44faedaeba7f"
+    },
+    "exact_unmapped_reported_count": 33,
+    "unchanged": true
+  },
+  "taxa": [
+    {
+      "taxon_id": 427,
+      "taxon_name": "Poaceae (Cerealia) undiff.",
+      "existing_window_reported_count": 3,
+      "verified_parent_chain": [
+        427,
+        416,
+        39691,
+        417
+      ],
+      "leaf_ecological_group": "UPHE",
+      "provider_fact": "The undifferentiated concept is placed under Poaceae (Cerealia), then Poaceae incertae sedis and Poaceae.",
+      "assessment": "The retained definition does not specify rye exclusion, grain-size criteria, or equivalence to a calibrated cereal parameter group.",
+      "mapping_applied": false
+    },
+    {
+      "taxon_id": 1947,
+      "taxon_name": "Poaceae (Cerealia-type)",
+      "existing_window_reported_count": 27,
+      "verified_parent_chain": [
+        1947,
+        39691,
+        417
+      ],
+      "leaf_ecological_group": "UPHE",
+      "provider_fact": "The morphological-type concept is placed directly under Poaceae incertae sedis. It is distinct from 427, and neither is the parent of the other.",
+      "assessment": "A morphological type is not proof of an identified crop or rye-excluded cereal count. No source-compatible rye/parameter mapping follows.",
+      "mapping_applied": false
+    },
+    {
+      "taxon_id": 33953,
+      "taxon_name": "Schoenoplectus lacustris subsp. lacustris-type",
+      "existing_window_reported_count": 3,
+      "verified_parent_chain": [
+        33953,
+        26933,
+        40113,
+        40110,
+        74
+      ],
+      "leaf_ecological_group": "AQVP",
+      "provider_fact": "The lineage is Schoenoplectus-type, Fuireneae, Cyperoideae, Cyperaceae; the leaf and Schoenoplectus-type are AQVP (Aquatic Vascular Plants).",
+      "assessment": "This supplies a Cyperaceae family-parent candidate. It does not establish terrestrial-denominator eligibility, residual/disjoint accounting with existing family counts, or applicability of a Cyperaceae PPE/FSP calibration. UPHE at higher ranks does not replace the leaf aquatic classification.",
+      "mapping_applied": false
+    }
+  ],
+  "manual_interpretation": {
+    "source": "https://neotoma-manual.readthedocs.io/en/latest/tables_taxa.html",
+    "types": "Morphological types can include palynologically indistinguishable taxa; a type name alone is not a calibrated crop identification.",
+    "hierarchy": "HigherTaxonID encodes taxonomic ancestry; uncertain types may be assigned above a species-level parent.",
+    "mutual_exclusivity": "The pollen naming convention intends non-overlapping count categories. It does not independently demonstrate correct disjoint accounting in this particular KRAG import.",
+    "variables": "A variable includes a taxon, units and potentially element, context or modification; taxon ancestry alone does not establish source-specific count or parameter compatibility."
+  },
+  "disposition": {
+    "cereal_reported_count_without_rye_compatible_mapping": 30,
+    "sedge_reported_count_with_family_parent_candidate": 3,
+    "exact_unmapped_reported_count_retained": 33,
+    "applied_new_mappings": 0,
+    "scientific_admission": false,
+    "numerical_reexecution": false,
+    "zero_filling": false,
+    "parameter_replacement": false
+  },
+  "remaining_evidence": {
+    "cereals": "Obtain the original identification/counting legend or a source-owned exact-variable crosswalk establishing cereal-type and rye membership, then justify compatibility with the selected parameter group. The API metadata does not equate either concept to pooled 2020 Cerealia or rye-excluded 2022 Cerealia-t.",
+    "sedge": "Establish source-specific terrestrial/regional denominator eligibility and non-overlapping parent-count treatment, and justify the corresponding PPE/FSP profile before applying a parent rollup."
+  },
+  "publication_scope": "Only the ten exact public metadata responses, their acquisition identities, and this authored assessment are included. No private lookup routes, raw private rows or private workbooks are reproduced."
+}
