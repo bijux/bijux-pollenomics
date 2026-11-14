@@ -428,7 +428,11 @@ def _load_animal_evidence_ids(
     )
     if not isinstance(payload, dict):
         raise ValueError("Animal atlas evidence must be a JSON object")
-    if payload.get("schema_version") != "animal-atlas-evidence-rows.v1":
+    # V2 adds owned sample chronology; the evidence-row identity stays unchanged.
+    if payload.get("schema_version") not in (
+        "animal-atlas-evidence-rows.v1",
+        "animal-atlas-evidence-rows.v2",
+    ):
         raise ValueError("Animal atlas evidence schema version is unsupported")
     rows = payload.get("rows")
     if not isinstance(rows, list):
@@ -436,10 +440,19 @@ def _load_animal_evidence_ids(
     identifiers: set[str] = set()
     for row in rows:
         if not isinstance(row, dict):
-            continue
-        evidence_row_id = str(row.get("evidence_row_id", "")).strip()
-        if evidence_row_id:
-            identifiers.add(evidence_row_id)
+            raise ValueError("Animal atlas evidence rows must be JSON objects")
+        evidence_row_id = row.get("evidence_row_id")
+        if (
+            not isinstance(evidence_row_id, str)
+            or not evidence_row_id
+            or evidence_row_id != evidence_row_id.strip()
+        ):
+            raise ValueError(
+                "Animal atlas evidence row identity must be exact nonblank text"
+            )
+        if evidence_row_id in identifiers:
+            raise ValueError("Animal atlas evidence row identities must be unique")
+        identifiers.add(evidence_row_id)
     return identifiers
 
 
