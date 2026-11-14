@@ -7,6 +7,9 @@ import pytest
 from bijux_pollenomics.collection.sources.neotoma.relational import (
     build_neotoma_relational_snapshot,
 )
+from bijux_pollenomics.collection.sources.neotoma.relational.identifiers import (
+    source_reference_matches,
+)
 from bijux_pollenomics.collection.sources.neotoma.site_inventory import (
     build_neotoma_site_rows_from_downloads,
 )
@@ -14,7 +17,62 @@ from tests.support.neotoma import download_row
 from tests.support.neotoma.relational_shapes import mapping, nested, rows
 
 
+@pytest.mark.parametrize(
+    ("source_id", "reference", "matches"),
+    [
+        (None, None, False),
+        (False, False, False),
+        ("", " ", False),
+        (7001, None, False),
+        (None, 7001, False),
+        (7001, 7002, False),
+        (7001, 7001, True),
+        (7001, "7001", True),
+        (7001.0, 7001, True),
+    ],
+)
+def test_source_reference_requires_present_matching_native_ids(
+    source_id: object, reference: object, matches: bool
+) -> None:
+    assert source_reference_matches(source_id, reference) is matches
+
+
 class NeotomaDefaultChronologySelectionTests(unittest.TestCase):
+    def test_null_chronology_cannot_match_absent_collection_reference(self) -> None:
+        source = download_row()
+        unit = nested(source, "site", "collectionunit")
+        unit["defaultchronology"] = None
+        unit["chronologies"] = [
+            {
+                "chronology": {
+                    "chronologyid": None,
+                    "chronology": None,
+                    "chroncontrols": [{"chroncontrolid": None, "depth": None}],
+                }
+            }
+        ]
+        snapshot = build_neotoma_relational_snapshot(
+            [source], source_snapshot_id="sha256:fixture", build_id="fixture-build"
+        )
+        model = rows(snapshot["chronologies"])[0]
+        self.assertFalse(model["selected_by_collection_unit_reference"])
+        self.assertIsNone(model["source_chronology_id"])
+        self.assertEqual(
+            model["source_payload"], {"chronologyid": None, "chronology": None}
+        )
+        self.assertEqual(len(rows(snapshot["chronology_controls"])), 1)
+        self.assertEqual(
+            sorted(
+                (orphan["entity_type"], orphan["reason"])
+                for orphan in rows(snapshot["orphans"])
+                if orphan["reason"] == "missing_source_identifier"
+            ),
+            [
+                ("chronology", "missing_source_identifier"),
+                ("chronology_control", "missing_source_identifier"),
+            ],
+        )
+
     def test_site_rows_retain_collection_unit_owned_chronologies(self) -> None:
         site_rows = build_neotoma_site_rows_from_downloads([download_row()])
 

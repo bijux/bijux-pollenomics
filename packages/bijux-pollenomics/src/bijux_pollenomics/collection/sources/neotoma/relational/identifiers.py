@@ -20,6 +20,13 @@ def optional_source_id(value: object) -> str | None:
     return text or None
 
 
+def source_reference_matches(source_id: object, reference: object) -> bool:
+    """Require an identified source entity before matching its native reference."""
+    identity = optional_source_id(source_id)
+    selected = optional_source_id(reference)
+    return identity is not None and selected is not None and identity == selected
+
+
 def digest(value: object) -> str:
     payload = json.dumps(
         value,
