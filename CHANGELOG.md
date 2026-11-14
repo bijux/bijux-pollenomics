@@ -2,6 +2,17 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### Six-window analytical LOVE evaluation
+
+- Support an explicit adjusted-cover population across all eighteen development
+  folds and six windows while retaining the original signed-result dispositions.
+- Share source-owner count draws and productivity draws across the complete
+  population; compare physical and direct-pollen predictions on matched targets.
+- Extend independent source, scalar and score verification to all fifty-four
+  nominal method slots, retaining undefined draws and target-exclusion checks.
+- Restore real source-retention metadata and Git custody in retained-reference
+  test fixtures, including explicit missing and altered transport refusals.
+
 ### Canonical workspace package identities
 
 - Use a virtual workspace root and retain canonical distributions under

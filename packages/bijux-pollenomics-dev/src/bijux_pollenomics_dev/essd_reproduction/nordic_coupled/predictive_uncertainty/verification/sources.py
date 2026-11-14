@@ -155,6 +155,13 @@ def _regional(raw: bytes) -> list[float]:
 def bind_sources(repository: Path, input_packet: dict[str, Any]) -> dict[str, Any]:
     """Certify the observed reader against its closed authorities, without that reader."""
     reader = _Sources(repository)
+    protocol = input_packet["protocol"]
+    profile = protocol.get("population_profile", "original-predicted-folds")
+    require(
+        profile in ("original-predicted-folds", "all-adjusted-folds"),
+        "population profile",
+    )
+    all_adjusted = profile == "all-adjusted-folds"
     declared = input_packet["protocol"]["sources"]
     require(
         set(declared) == {"coupled_protocol", "input_index", "prediction_batch"},
@@ -180,6 +187,13 @@ def bind_sources(repository: Path, input_packet: dict[str, Any]) -> dict[str, An
         "closed pre-score authority",
     )
     compare(input_packet["dispositions"], batch["method_dispositions"], tolerance=0)
+    if all_adjusted:
+        require(
+            protocol.get("analytical_cover_policy") == "clip-and-renormalize"
+            and set(protocol.get("adjusted_prediction_products", {}))
+            == {row["bin"] for row in batch["bins"]},
+            "exact adjusted source windows and policy",
+        )
     compare(coupled["axis"], list(AXIS))
     inputs_root = reader.path(declared["input_index"]["path"]).parent
     pins = {row["path"]: row for row in index["members"]}
@@ -236,14 +250,25 @@ def bind_sources(repository: Path, input_packet: dict[str, Any]) -> dict[str, An
         descriptor = bin_row["prediction"]
         require(descriptor["interrupted"] is False, "closed prediction product")
         directory = reader.path(descriptor["directory"])
-        manifest = reader.read(
-            {
+        manifest_pin = (
+            protocol["adjusted_prediction_products"][bin_row["bin"]]
+            if all_adjusted
+            else {
                 "path": str(directory / "manifest.json"),
                 "sha256": descriptor["manifest_sha256"],
             }
         )
+        if all_adjusted:
+            path = reader.path(manifest_pin["path"])
+            require(
+                path.name == "manifest.json" and path.parent.name == bin_row["bin"],
+                "adjusted source window",
+            )
+            directory = path.parent
+        manifest = reader.read(manifest_pin)
         require(
-            manifest["scientific_content_sha256"]
+            all_adjusted
+            or manifest["scientific_content_sha256"]
             == descriptor["scientific_content_sha256"],
             "prediction content identity",
         )
@@ -253,7 +278,9 @@ def bind_sources(repository: Path, input_packet: dict[str, Any]) -> dict[str, An
         }
         for filename in tables:
             require(
-                descriptor["retained_tables"][filename] == manifest["files"][filename],
+                all_adjusted
+                or descriptor["retained_tables"][filename]
+                == manifest["files"][filename],
                 "pre-score table identity",
             )
         for original_fold in bin_row["folds"]:
@@ -347,6 +374,14 @@ def bind_sources(repository: Path, input_packet: dict[str, Any]) -> dict[str, An
                     "native product source identity",
                 )
                 request = reader.member(native_dir, native, "request.json")
+                if all_adjusted:
+                    require(
+                        request.get("configuration", {})
+                        .get("love", {})
+                        .get("analytical_cover_policy")
+                        == "clip-and-renormalize",
+                        "native adjusted clipping policy",
+                    )
                 require(
                     hashlib.sha256(_canonical(request)).hexdigest()
                     == item["request_sha256"]
@@ -422,7 +457,9 @@ def bind_sources(repository: Path, input_packet: dict[str, Any]) -> dict[str, An
                         }
                     )
     require(
-        bound_cases == set(cases) and len(bound_cases) == 3 and len(nominal) == 9,
+        bound_cases == set(cases)
+        and len(bound_cases) == (18 if all_adjusted else 3)
+        and len(nominal) == (54 if all_adjusted else 9),
         "complete source-bound active population",
     )
     compare(input_packet["nominal_predictions"], nominal, tolerance=0)

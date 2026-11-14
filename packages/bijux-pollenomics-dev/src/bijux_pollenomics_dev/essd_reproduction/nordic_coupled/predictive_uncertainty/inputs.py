@@ -380,6 +380,8 @@ def _native_kernel(
     regional: str,
     raw_sources: dict[str, dict[str, Any]],
     geometries: dict[str, dict[str, Any]],
+    *,
+    adjusted: bool = False,
 ) -> tuple[LocalKernel, tuple[float, float]]:
     require(
         item["item_id"] == owner and item["item_status"] == "completed",
@@ -399,6 +401,14 @@ def _native_kernel(
     )
     files = manifest["files"]
     request = reader.member(directory, files, "request.json")
+    if adjusted:
+        require(
+            request.get("configuration", {})
+            .get("love", {})
+            .get("analytical_cover_policy")
+            == "clip-and-renormalize",
+            "Adjusted native product must declare the clipping policy",
+        )
     require(
         hashlib.sha256(_canonical(request)).hexdigest()
         == item["request_sha256"]
@@ -457,6 +467,21 @@ def _native_kernel(
 def _load_inputs(repository: Path, protocol: dict[str, Any]) -> InputPacket:
     """Read only qualified saved products; never enter score or native fit APIs."""
     policy = protocol.get("analytical_cover_policy", "source-raw")
+    profile = protocol.get("population_profile", "original-predicted-folds")
+    require(
+        profile in ("original-predicted-folds", "all-adjusted-folds"),
+        "Unknown population_profile",
+    )
+    all_adjusted = profile == "all-adjusted-folds"
+    if all_adjusted:
+        require(
+            policy == "clip-and-renormalize",
+            "Adjusted population requires the clipping policy",
+        )
+        require(
+            set(protocol.get("adjusted_prediction_products", {})) == set(NAMES),
+            "Adjusted population requires exact six manifest windows",
+        )
     require(
         policy in ("source-raw", "clip-and-renormalize"),
         "Unknown analytical_cover_policy",
@@ -650,21 +675,35 @@ def _load_inputs(repository: Path, protocol: dict[str, Any]) -> InputPacket:
             and descriptor["interrupted"] is False,
             "Saved prediction directory/state differs",
         )
-        manifest = reader.read(
-            {
+        manifest_pin = (
+            protocol["adjusted_prediction_products"][name]
+            if all_adjusted
+            else {
                 "path": str(prediction_directory / "manifest.json"),
                 "sha256": descriptor["manifest_sha256"],
             }
         )
+        if all_adjusted:
+            manifest_path = reader.path(manifest_pin["path"])
+            require(
+                manifest_path.name == "manifest.json"
+                and manifest_path.parent.name == name,
+                "Adjusted prediction manifest window differs",
+            )
+            prediction_directory = manifest_path.parent
+        manifest = reader.read(manifest_pin)
         require(
-            manifest["scientific_content_sha256"]
+            all_adjusted
+            or manifest["scientific_content_sha256"]
             == descriptor["scientific_content_sha256"],
             "Prediction content identity differs",
         )
         tables = {}
         for filename in ["preparations.json", "operations.json", "predictions.json"]:
             require(
-                descriptor["retained_tables"][filename] == manifest["files"][filename],
+                all_adjusted
+                or descriptor["retained_tables"][filename]
+                == manifest["files"][filename],
                 "Prediction table identity differs",
             )
             tables[filename] = reader.member(
@@ -674,7 +713,7 @@ def _load_inputs(repository: Path, protocol: dict[str, Any]) -> InputPacket:
         operation_rows = {r["fold_id"]: r for r in tables["operations.json"]}
         predicted_rows = tables["predictions.json"]
         require(
-            len(predicted_rows) == (9 if name == NAMES[0] else 0),
+            len(predicted_rows) == (9 if all_adjusted or name == NAMES[0] else 0),
             "Nominal predictions differ from pre-score population",
         )
         for fold in local_fold_rows:
@@ -745,7 +784,7 @@ def _load_inputs(repository: Path, protocol: dict[str, Any]) -> InputPacket:
                     "kernel_refs": [],
                 }
             )
-            if expected_status != "predicted":
+            if expected_status != "predicted" and not all_adjusted:
                 continue
             prep = preparation_rows[fold_id]
             require(prep["outer_fold"] == fold, "Saved forward fold differs")
@@ -787,7 +826,13 @@ def _load_inputs(repository: Path, protocol: dict[str, Any]) -> InputPacket:
             for owner in locals_:
                 item = next(r for r in items if r["item_id"] == owner)
                 kernel, deposition = _native_kernel(
-                    reader, item, owner, regional, raw_sources, geometries
+                    reader,
+                    item,
+                    owner,
+                    regional,
+                    raw_sources,
+                    geometries,
+                    adjusted=all_adjusted,
                 )
                 kernels.append(kernel)
                 regional_coefficients.append(deposition)
@@ -905,9 +950,9 @@ def _load_inputs(repository: Path, protocol: dict[str, Any]) -> InputPacket:
     require(
         disposition_keys == expected_keys
         and len(owners) == 24
-        and len(cases) == 3
+        and len(cases) == (18 if all_adjusted else 3)
         and len(folds) == 18
-        and len(nominal) == 9,
+        and len(nominal) == (54 if all_adjusted else 9),
         "Complete frozen population required",
     )
     require(
@@ -919,7 +964,11 @@ def _load_inputs(repository: Path, protocol: dict[str, Any]) -> InputPacket:
         local.owner_id for case in cases for local in case.local_owners
     }
     require(
-        len(active) == 4 and all(owner.endswith(NAMES[0]) for owner in active),
+        (
+            active == {owner.owner_id for owner in owners}
+            if all_adjusted
+            else len(active) == 4 and all(owner.endswith(NAMES[0]) for owner in active)
+        ),
         "Only four active owner/windows may be drawn",
     )
     return InputPacket(

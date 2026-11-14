@@ -154,9 +154,16 @@ def reference_summaries(
 
     cases = sorted(predictions, key=lambda row: row["case_id"])
     case_ids = [row["case_id"] for row in cases]
-    require(len(cases) == len(set(case_ids)) == 3, "three distinct target cases")
+    count = len(cases)
+    require(
+        count in (3, 18) and count == len(set(case_ids)),
+        "complete distinct target cases",
+    )
     truths = {row["case_id"]: row["pollen_fraction"] for row in observed}
-    require(set(truths) == set(case_ids) and len(observed) == 3, "three score outcomes")
+    require(
+        set(truths) == set(case_ids) and len(observed) == count,
+        "complete score outcomes",
+    )
     total = cases[0]["replicates"]
     joint, aggregate, scores = {}, {}, []
     for method in METHODS:
@@ -207,9 +214,10 @@ def reference_summaries(
         average_physical = [
             [
                 math.fsum(
-                    finite(physical_losses[case][index][metric]) for case in range(3)
+                    finite(physical_losses[case][index][metric])
+                    for case in range(count)
                 )
-                / 3
+                / count
                 for metric in range(3)
             ]
             if keep
@@ -219,9 +227,9 @@ def reference_summaries(
         average_direct = [
             [
                 math.fsum(
-                    finite(direct_losses[case][index][metric]) for case in range(3)
+                    finite(direct_losses[case][index][metric]) for case in range(count)
                 )
-                / 3
+                / count
                 for metric in range(3)
             ]
             for index in range(total)

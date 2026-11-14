@@ -16,7 +16,7 @@ from bijux_pollenomics_dev.essd_reproduction.nordic_coupled.predictive_uncertain
 )
 
 
-def saved_inputs(root: Path) -> dict[str, Any]:
+def saved_inputs(root: Path, *, all_adjusted: bool = False) -> dict[str, Any]:
     """Write a complete portable six-window source/prediction fixture."""
     value: Any
 
@@ -190,7 +190,7 @@ def saved_inputs(root: Path) -> dict[str, Any]:
             "source_population": {"scope": "retained source accounting"},
         },
     )
-    bins = []
+    bins: list[dict[str, Any]] = []
     dispositions = []
     for name in inputs.NAMES:
         ids = {c: inputs._owner_id(c, name) for c in inputs.CORES}
@@ -232,13 +232,24 @@ def saved_inputs(root: Path) -> dict[str, Any]:
                         ),
                     }
                 )
-            if status == "refused":
+            if status == "refused" and not all_adjusted:
                 continue
             items = []
             for owner in local:
                 base = f"predictions/{name}/cache/{owner}"
                 geometry = geometry_by_name[(name, owner)]
                 request: dict[str, Any] = {
+                    **(
+                        {
+                            "configuration": {
+                                "love": {
+                                    "analytical_cover_policy": "clip-and-renormalize"
+                                }
+                            }
+                        }
+                        if all_adjusted
+                        else {}
+                    ),
                     "taxa": list(inputs.AXIS),
                     "pollen_unit": "count",
                     "parameters": parameters,
@@ -400,6 +411,25 @@ def saved_inputs(root: Path) -> dict[str, Any]:
         },
     )
     return {
+        **(
+            {
+                "population_profile": "all-adjusted-folds",
+                "analytical_cover_policy": "clip-and-renormalize",
+                "numerical_checks": {
+                    "no_clipping_or_single_predictor_fallback": False,
+                    "no_single_predictor_fallback": True,
+                },
+                "adjusted_prediction_products": {
+                    row["bin"]: {
+                        "path": f"predictions/{row['bin']}/manifest.json",
+                        "sha256": row["prediction"]["manifest_sha256"],
+                    }
+                    for row in bins
+                },
+            }
+            if all_adjusted
+            else {}
+        ),
         "sources": {
             "coupled_protocol": coupled,
             "input_index": index,

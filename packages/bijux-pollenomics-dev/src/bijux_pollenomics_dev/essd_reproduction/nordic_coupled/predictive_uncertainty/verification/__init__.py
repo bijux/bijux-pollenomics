@@ -58,20 +58,36 @@ def _profile(packet: Mapping[str, Any]) -> tuple[int, int, float, float]:
     )
     compare(packet["accounting"]["sampling"], sampling, tolerance=0)
     population = protocol["population"]
+    profile = protocol.get("population_profile", "original-predicted-folds")
+    require(
+        profile in ("original-predicted-folds", "all-adjusted-folds"),
+        "population_profile",
+    )
+    all_adjusted = profile == "all-adjusted-folds"
     for field, expected in {
         "original_folds": 18,
         "original_method_dispositions": 54,
-        "active_folds": 3,
-        "propagated_method_slots": 9,
+        "active_folds": 18 if all_adjusted else 3,
+        "propagated_method_slots": 54 if all_adjusted else 9,
         "original_refused_slots_retained": 45,
-        "draw_owner_count": 4,
-        "other_metadata_owner_count": 20,
+        "draw_owner_count": 24 if all_adjusted else 4,
+        "other_metadata_owner_count": 0 if all_adjusted else 20,
     }.items():
         require(
             type(population[field]) is int and population[field] == expected,
             "fixed population " + field,
         )
-    compare(population["active_window_cal_bp"], [2700, 3200])
+    if all_adjusted:
+        compare(
+            population["active_windows_cal_bp"],
+            [[lower, lower + 500] for lower in range(2700, 5700, 500)],
+        )
+        require(
+            protocol.get("analytical_cover_policy") == "clip-and-renormalize",
+            "adjusted population clipping policy",
+        )
+    else:
+        compare(population["active_window_cal_bp"], [2700, 3200])
     checks = protocol["numerical_checks"]
     policy = protocol.get("analytical_cover_policy", "source-raw")
     require(
@@ -109,6 +125,7 @@ def _population(
     packet: Mapping[str, Any],
 ) -> tuple[dict[str, list[int]], list[dict[str, Any]]]:
     owners = packet["owners"]
+    all_adjusted = packet["protocol"].get("population_profile") == "all-adjusted-folds"
     expected = {_owner(core, window) for window in NAMES for core in SOURCES}
     require(
         len(owners) == 24 and {row["owner_id"] for row in owners} == expected,
@@ -150,8 +167,10 @@ def _population(
         "all 18 unique folds",
     )
     require(
-        len(cases) == len({row["case_id"] for row in cases}) == 3,
-        "all three active folds",
+        len(cases)
+        == len({row["case_id"] for row in cases})
+        == (18 if all_adjusted else 3),
+        "complete active folds",
     )
     active = {row["case_id"] for row in cases}
     for case in cases:
@@ -192,8 +211,13 @@ def _population(
                     pair(ring, positive=True)
     require(
         {row["target_id"] for row in cases}
-        == {_owner(core, NAMES[0]) for core in SOURCES if core != "KRAGMJNY"},
-        "three original active targets",
+        == {
+            _owner(core, window)
+            for window in (NAMES if all_adjusted else NAMES[:1])
+            for core in SOURCES
+            if core != "KRAGMJNY"
+        },
+        "complete declared active targets",
     )
     for window in NAMES:
         rows = [row for row in folds if row["bin"] == window]
@@ -217,7 +241,7 @@ def _population(
         )
         require(
             fold["nominal_status"]
-            == ("predicted" if fold["case_id"] in active else "refused"),
+            == ("predicted" if fold["bin"] == NAMES[0] else "refused"),
             "immutable nominal eligibility",
         )
         references = [
@@ -233,7 +257,8 @@ def _population(
                 and [row["owner_id"] for row in case["local_owners"]] == locals_,
                 "active numerical source roles",
             )
-            require(fold["nominal_refusal"] is None, "active nominal refusal")
+            if fold["nominal_status"] == "predicted":
+                require(fold["nominal_refusal"] is None, "active nominal refusal")
     dispositions = packet["dispositions"]
     require(len(dispositions) == 54, "all original method dispositions")
     expected_dispositions = [
@@ -271,7 +296,7 @@ def _population(
         {row["regional_owner_id"] for row in cases}
         | {local["owner_id"] for row in cases for local in row["local_owners"]}
     )
-    require(len(active_ids) == 4, "only four active draw owners")
+    require(len(active_ids) == (24 if all_adjusted else 4), "exact active draw owners")
     compare(packet["accounting"]["active_draw_owner_ids"], active_ids)
     return {owner_id: counts[owner_id] for owner_id in active_ids}, list(cases)
 
@@ -306,10 +331,11 @@ def _nominal(
     packet: Mapping[str, Any], cases: list[dict[str, Any]], bank: dict[str, Any]
 ) -> list[dict[str, Any]]:
     nominal = packet["nominal_predictions"]
+    expected_count = len(cases) * len(METHODS)
     require(
-        len(nominal) == 9
-        and len({(row["case_id"], row["method"]) for row in nominal}) == 9,
-        "all nine closed nominal predictions",
+        len(nominal) == expected_count
+        and len({(row["case_id"], row["method"]) for row in nominal}) == expected_count,
+        "all closed nominal predictions",
     )
     nominal_bank = {
         **bank,
@@ -319,7 +345,15 @@ def _nominal(
     }
     references = []
     for case in cases:
-        expected = case_arrays(case, nominal_bank)
+        expected = case_arrays(
+            case,
+            nominal_bank,
+            **(
+                {"analytical_cover_policy": "clip-and-renormalize"}
+                if packet["protocol"].get("population_profile") == "all-adjusted-folds"
+                else {}
+            ),
+        )
         for method in METHODS:
             matches = [
                 row
@@ -404,8 +438,9 @@ def audit(
     compare(prediction_packet["nominal_predictions"], nominal, tolerance=1e-12)
     observed = summary_packet["score_diagnostics"]["observed"]
     require(
-        len(observed) == 3 and len({row["case_id"] for row in observed}) == 3,
-        "three observed diagnostic owners",
+        len(observed) == len(cases)
+        and len({row["case_id"] for row in observed}) == len(cases),
+        "complete observed diagnostic owners",
     )
     for row in observed:
         matching = [case for case in cases if case["case_id"] == row["case_id"]]
@@ -451,8 +486,8 @@ def audit(
         "original_folds": 18,
         "method_dispositions": 54,
         "retained_nominal_refusals": 45,
-        "nominal_predictions_verified": 9,
-        "replicate_method_slots_verified": total * 9,
+        "nominal_predictions_verified": len(nominal),
+        "replicate_method_slots_verified": total * len(cases) * len(METHODS),
         "joint_defined_replicates": {
             method: expected_summary["joint_predictions"][method]["physical"][
                 "defined_replicates"

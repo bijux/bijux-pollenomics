@@ -15,8 +15,10 @@ from .products import StudyError
 def joint_predictions(cases: list[dict[str, Any]]) -> dict[str, Any]:
     """Retain cross-place dependence on aligned replicate identities."""
     cases = sorted(cases, key=lambda row: row["case_id"])
-    if len(cases) != 3 or len({row["case_id"] for row in cases}) != 3:
-        raise StudyError("Three distinct active cases required")
+    if len(cases) not in (3, 18) or len({row["case_id"] for row in cases}) != len(
+        cases
+    ):
+        raise StudyError("Three or eighteen distinct active cases required")
     result = {}
     for method in METHODS:
         rows = [case["methods"][method] for case in cases]
