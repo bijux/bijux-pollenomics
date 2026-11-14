@@ -584,3 +584,38 @@ def test_duplicate_json_keys_and_nonfinite_literals_are_not_accepted() -> None:
     for raw in [b'{"owner":1,"owner":2}', b'{"value":NaN}']:
         with pytest.raises(inputs.InputError):
             inputs._decode(raw)
+
+
+@pytest.mark.parametrize("policy", ["absolute-values", True, None])
+def test_unknown_analytical_cover_policy_refuses_before_source_read(
+    saved: tuple[Path, dict[str, Any]],
+    policy: object,
+) -> None:
+    root, protocol = saved
+    changed = {**protocol, "analytical_cover_policy": policy}
+    with pytest.raises(inputs.InputError, match="analytical_cover_policy"):
+        inputs.load_inputs(root, changed)
+
+
+@pytest.mark.parametrize(
+    "checks",
+    [
+        {"no_clipping_or_single_predictor_fallback": True},
+        {
+            "no_clipping_or_single_predictor_fallback": False,
+            "no_single_predictor_fallback": False,
+        },
+    ],
+)
+def test_clipping_protocol_cannot_relax_the_two_predictor_requirement(
+    saved: tuple[Path, dict[str, Any]],
+    checks: dict[str, bool],
+) -> None:
+    root, protocol = saved
+    changed = {
+        **protocol,
+        "analytical_cover_policy": "clip-and-renormalize",
+        "numerical_checks": checks,
+    }
+    with pytest.raises(inputs.InputError, match="fallback"):
+        inputs.load_inputs(root, changed)

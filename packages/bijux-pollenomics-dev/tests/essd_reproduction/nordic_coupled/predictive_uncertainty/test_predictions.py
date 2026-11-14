@@ -100,6 +100,86 @@ def test_signed_negative_selected_local_refuses_all_methods_without_fallback() -
     json.dumps(result, allow_nan=False)
 
 
+def test_declared_clipping_closes_each_training_draw_before_spatial_average() -> None:
+    original = bank(first=(4, 0))
+    raw = predict_case(case(), original)
+    result = predict_case(
+        case(), original, analytical_cover_policy="clip-and-renormalize"
+    )
+    assert result["local_signed_cover"] == raw["local_signed_cover"]
+    assert result["allowed_inputs"]["analytical_cover_policy"] == "clip-and-renormalize"
+    assert result["analytical_cover_policy"] == "clip-and-renormalize"
+    assert result["local_refusals"] == [[None, None]] * 3
+    for method, cover in (
+        ("training_mean", [49 / 80, 31 / 80]),
+        ("nearest_site", [1, 0]),
+        ("inverse_distance_squared", [169 / 200, 31 / 200]),
+    ):
+        values = result["methods"][method]
+        assert values["valid_mask"] == [True] * 3
+        np.testing.assert_allclose(values["cover"], [cover] * 3, atol=1e-14)
+    assert "analytical_cover_policy" not in raw
+    assert predict_case(case(), original, analytical_cover_policy="source-raw") == raw
+
+
+def test_declared_clipping_keeps_zero_ppe_refusal_and_target_noninterference() -> None:
+    original = bank(first=(4, 0))
+    owners = tuple(
+        replace(owner, counts=(99, 1)) if owner.owner_id == "T" else owner
+        for owner in original.owners
+    )
+    assert predict_case(
+        case(), original, analytical_cover_policy="clip-and-renormalize"
+    ) == predict_case(
+        case(),
+        replace(original, owners=owners),
+        analytical_cover_policy="clip-and-renormalize",
+    )
+    changed = replace(original, ppe=np.asarray([[0.0, 1.0], [1.0, 1.0], [1.0, 1.0]]))
+    result = predict_case(
+        case(), changed, analytical_cover_policy="clip-and-renormalize"
+    )
+    assert result["regional_refusals"] == ["ppe_nonpositive", None, None]
+    for value in result["methods"].values():
+        assert value["valid_mask"] == [False, True, True]
+
+
+@pytest.mark.parametrize("rule", ["absolute-values", None, True])
+def test_cover_policy_refuses_unknown_rules(rule: object) -> None:
+    with pytest.raises(ValueError, match="analytical_cover_policy"):
+        predict_case(case(), bank(), analytical_cover_policy=rule)  # type: ignore[arg-type]
+
+
+@pytest.mark.parametrize(
+    "values,reason",
+    [
+        ([0.0, 0.0], "zero_positive_love_cover"),
+        ([-1.0, -2.0], "zero_positive_love_cover"),
+        ([np.nan, 1.0], "nonfinite_love_cover"),
+    ],
+)
+def test_clipping_refuses_undefined_selected_mass(
+    values: list[float], reason: str
+) -> None:
+    module = "bijux_pollenomics_dev.essd_reproduction.nordic_coupled.predictive_uncertainty.predictions"
+    # An undefined equation output must never acquire a usable composition.
+    draws = [
+        np.asarray([0.6, 0.4]),
+        np.asarray(values),
+        np.asarray([0.4, 0.6]),
+        np.asarray([0.4, 0.6]),
+    ]
+    with patch(module + ".lov", side_effect=draws):
+        result = predict_case(
+            case(), bank(replicates=1), analytical_cover_policy="clip-and-renormalize"
+        )
+    assert result["local_refusals"][0][0] == reason
+    assert all(value["valid_mask"] == [False] for value in result["methods"].values())
+    assert all(
+        value["pollen"] == [[None, None]] for value in result["methods"].values()
+    )
+
+
 def test_unselected_negative_ring_is_retained_without_changing_selected_admission() -> (
     None
 ):

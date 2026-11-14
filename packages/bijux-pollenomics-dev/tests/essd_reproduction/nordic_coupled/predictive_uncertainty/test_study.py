@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 import hashlib
 import json
 from pathlib import Path
@@ -45,7 +46,9 @@ def source_tree(tmp_path_factory: pytest.TempPathFactory) -> tuple[Path, Path]:
     return root, path
 
 
-def _mock_numerics(monkeypatch: pytest.MonkeyPatch) -> None:
+def _mock_numerics(
+    monkeypatch: pytest.MonkeyPatch,
+) -> Callable[[Any, Any], dict[str, Any]]:
     monkeypatch.setattr(
         study, "_git_state", lambda repository: ("1" * 40, b"synthetic-index")
     )
@@ -70,6 +73,7 @@ def _mock_numerics(monkeypatch: pytest.MonkeyPatch) -> None:
         }
 
     monkeypatch.setattr(study, "predict_case", prediction)
+    return prediction
 
 
 def test_outcomes_open_only_after_all_closed_predictions_are_read_back(
@@ -104,6 +108,31 @@ def test_outcomes_open_only_after_all_closed_predictions_are_read_back(
     )
     assert len(summary["score_diagnostics"]["observed"]) == 3
     assert len(summary["score_diagnostics"]["cases"]) == 9
+
+
+def test_declared_protocol_passes_clipping_policy_into_every_frozen_case(
+    source_tree: tuple[Path, Path], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, path = source_tree
+    original = _mock_numerics(monkeypatch)
+    protocol = json.loads(path.read_text())
+    protocol["analytical_cover_policy"] = "clip-and-renormalize"
+    protocol["numerical_checks"]["no_clipping_or_single_predictor_fallback"] = False
+    protocol["numerical_checks"]["no_single_predictor_fallback"] = True
+    selected = root / "clip-protocol.json"
+    selected.write_text(json.dumps(protocol))
+    calls = []
+
+    def prediction(case: Any, bank: Any, **kwargs: Any) -> dict[str, Any]:
+        calls.append(kwargs)
+        result: dict[str, Any] = original(case, bank)
+        return result
+
+    monkeypatch.setattr(study, "predict_case", prediction)
+    output = root / "artifacts/closed-clipped-bootstrap"
+    study.produce(root, selected, output)
+    assert calls == [{"analytical_cover_policy": "clip-and-renormalize"}] * 3
+    assert json.loads((output / "inputs.json").read_text())["protocol"] == protocol
 
 
 @pytest.mark.parametrize(

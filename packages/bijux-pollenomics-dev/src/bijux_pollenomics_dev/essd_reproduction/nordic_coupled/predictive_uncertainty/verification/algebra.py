@@ -339,11 +339,23 @@ def allowed_identity(
     }
 
 
-def case_arrays(case: Mapping[str, Any], bank: Mapping[str, Any]) -> dict[str, Any]:
+def case_arrays(
+    case: Mapping[str, Any],
+    bank: Mapping[str, Any],
+    *,
+    analytical_cover_policy: str = "source-raw",
+) -> dict[str, Any]:
     """Replay every saved-kernel realization using scalar rational equations."""
     from .summaries import ensemble_summary
 
+    require(
+        analytical_cover_policy in ("source-raw", "clip-and-renormalize"),
+        "analytical_cover_policy",
+    )
+    clipped_policy = analytical_cover_policy == "clip-and-renormalize"
     identity = allowed_identity(case, bank)
+    if clipped_policy:
+        identity["analytical_cover_policy"] = analytical_cover_policy
     require(
         len(case["local_owners"]) == 2
         and type(case["selected_ring_index"]) is int
@@ -359,6 +371,7 @@ def case_arrays(case: Mapping[str, Any], bank: Mapping[str, Any]) -> dict[str, A
         [],
     )
     methods: dict[str, Any] = {}
+    selected_rows: list[list[list[float | None]]] = []
     for method in METHODS:
         methods[method] = {
             "weights": [
@@ -386,11 +399,13 @@ def case_arrays(case: Mapping[str, Any], bank: Mapping[str, Any]) -> dict[str, A
         selected: list[tuple[Fraction, Fraction]] = []
         ring_errors: list[list[str | None]] = []
         local_errors: list[str | None] = []
+        selected_row: list[list[float | None]] = []
         for local in case["local_owners"]:
             if regional is None:
                 signed.append([[None, None], [None, None]])
                 ring_errors.append(["regional_undefined", "regional_undefined"])
                 local_errors.append("regional_undefined")
+                selected_row.append([None, None])
                 continue
             local_values = [
                 signed_local(
@@ -405,6 +420,8 @@ def case_arrays(case: Mapping[str, Any], bank: Mapping[str, Any]) -> dict[str, A
             signed.append([[float(value) for value in row] for row in local_values])
             ring_errors.append([None, None])
             final = local_values[1]
+            if clipped_policy:
+                final = close([max(value, Fraction(0)) for value in final])
             local_errors.append(
                 "local_selected_cover_out_of_bounds"
                 if min(final) < 0 or max(final) > 1
@@ -413,12 +430,14 @@ def case_arrays(case: Mapping[str, Any], bank: Mapping[str, Any]) -> dict[str, A
                 else None
             )
             selected.append(final)
+            selected_row.append([float(value) for value in final])
         regional_rows.append(
             [float(value) for value in regional]
             if regional is not None
             else [None, None]
         )
         signed_rows.append(signed)
+        selected_rows.append(selected_row)
         regional_refusals.append(reason)
         ring_refusals.append(ring_errors)
         local_refusals.append(local_errors)
@@ -476,6 +495,14 @@ def case_arrays(case: Mapping[str, Any], bank: Mapping[str, Any]) -> dict[str, A
         "axis": ["Betula", "Ulmus"],
         "replicates": bank["replicates"],
         "allowed_inputs": identity,
+        **(
+            {
+                "analytical_cover_policy": analytical_cover_policy,
+                "local_cover": selected_rows,
+            }
+            if clipped_policy
+            else {}
+        ),
         "regional_cover": regional_rows,
         "regional_refusals": regional_refusals,
         "local_signed_cover": signed_rows,

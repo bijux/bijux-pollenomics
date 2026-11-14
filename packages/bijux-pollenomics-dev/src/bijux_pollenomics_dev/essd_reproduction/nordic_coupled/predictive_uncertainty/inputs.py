@@ -456,6 +456,18 @@ def _native_kernel(
 
 def _load_inputs(repository: Path, protocol: dict[str, Any]) -> InputPacket:
     """Read only qualified saved products; never enter score or native fit APIs."""
+    policy = protocol.get("analytical_cover_policy", "source-raw")
+    require(
+        policy in ("source-raw", "clip-and-renormalize"),
+        "Unknown analytical_cover_policy",
+    )
+    if policy == "clip-and-renormalize":
+        checks = protocol.get("numerical_checks", {})
+        require(
+            checks.get("no_clipping_or_single_predictor_fallback") is False
+            and checks.get("no_single_predictor_fallback") is True,
+            "Clipping policy must retain the no-single-predictor-fallback contract",
+        )
     require(
         set(protocol["sources"])
         == {"coupled_protocol", "input_index", "prediction_batch"},

@@ -12,6 +12,9 @@ Repository changes are recorded by pull request, newest merge first.
   positive mass remain refused. The assumption does not establish field accuracy.
 - Carry the policy through draw-fed host requests and saved-table validation;
   display the bound result identity and cover assumption in reports and maps.
+- Support explicitly declared nonnegative cover in the conditional count/PPE
+  uncertainty workflow before spatial averaging, with independent rational
+  verification and signed diagnostics. Historical protocols retain raw behavior.
 
 ### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
 

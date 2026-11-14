@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from dataclasses import asdict
 from fractions import Fraction as Q
 import hashlib
 from typing import Any
@@ -505,6 +506,22 @@ def test_complete_literal_packet_verifies_all_1024_rows_and_preserves_54_slots()
     assert result["joint_defined_replicates"] == dict.fromkeys(observer.METHODS, 1024)
 
 
+def test_complete_clipped_protocol_binds_policy_and_corrected_local_rows() -> None:
+    inputs, bank, predictions, summary = complete_packets()
+    inputs["protocol"]["analytical_cover_policy"] = "clip-and-renormalize"
+    checks = inputs["protocol"]["numerical_checks"]
+    checks["no_clipping_or_single_predictor_fallback"] = False
+    checks["no_single_predictor_fallback"] = True
+    for case in predictions["cases"]:
+        case["analytical_cover_policy"] = "clip-and-renormalize"
+        case["allowed_inputs"]["analytical_cover_policy"] = "clip-and-renormalize"
+        case["local_cover"] = [[[1.0, 0.0], [1.0, 0.0]]] * 1024
+    assert audit(inputs, bank, predictions, summary)["status"] == "passed"
+    predictions["cases"][0]["local_cover"][0] = [[0.9, 0.1], [1.0, 0.0]]
+    with pytest.raises(ValueError, match="local_cover"):
+        audit(inputs, bank, predictions, summary)
+
+
 @pytest.mark.parametrize(
     "defect",
     [
@@ -595,6 +612,30 @@ def test_invalid_zero_weight_predictor_refuses_all_methods_without_fallback() ->
         assert method["pollen"] == [[None, None]]
         assert method["direct_summary"]["defined_replicates"] == 1
         assert method["summary"]["unconditional_status"] == "refused_undefined_mass"
+
+
+def test_independent_clipping_replays_producer_and_detects_signed_average() -> None:
+    from bijux_pollenomics_dev.essd_reproduction.nordic_coupled.predictive_uncertainty.predictions import (
+        predict_case,
+    )
+    from bijux_pollenomics_dev.essd_reproduction.nordic_coupled.predictive_uncertainty.products import (
+        _plain,
+    )
+
+    from .test_predictions import bank as draw_bank
+    from .test_predictions import case as fold_case
+
+    case, bank = fold_case(), draw_bank(first=(4, 0))
+    expected = observer.case_arrays(
+        asdict(case), _plain(bank), analytical_cover_policy="clip-and-renormalize"
+    )
+    produced = predict_case(case, bank, analytical_cover_policy="clip-and-renormalize")
+    observer.compare(produced, expected, tolerance=1e-13)
+    assert expected["methods"]["training_mean"]["cover"][0] == [49 / 80, 31 / 80]
+    assert expected["local_signed_cover"][0][0][1][1] < 0
+    produced["methods"]["training_mean"]["cover"][0] = [0.6375, 0.3625]
+    with pytest.raises(ValueError, match="disagreement"):
+        observer.compare(produced, expected, tolerance=1e-13)
 
 
 def test_retained_zero_ppe_refuses_math_without_resampling_counts_or_direct_baseline() -> (
