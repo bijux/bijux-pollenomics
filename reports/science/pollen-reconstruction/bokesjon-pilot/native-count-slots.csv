@@ -1,0 +1,793 @@
+core,dataset_id,sample_id,taxon_id,native_label,state,reported_count
+BOKE,54001,552419,3727,Acer campestre-type,reported_positive,2
+BOKE,54001,552422,3727,Acer campestre-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3727,Acer campestre-type,reported_positive,2
+BOKE,54001,552419,513,Alisma,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,513,Alisma,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,513,Alisma,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,330,Alnus,reported_positive,161
+BOKE,54001,552422,330,Alnus,reported_positive,97
+BOKE,54001,552421,330,Alnus,reported_positive,183
+BOKE,54001,552419,391,Amaranthaceae,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,391,Amaranthaceae,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,391,Amaranthaceae,reported_positive,1
+BOKE,54001,552419,3777,Anagallis arvensis,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3777,Anagallis arvensis,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3777,Anagallis arvensis,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,31001,Anemone nemorosa group,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,31001,Anemone nemorosa group,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,31001,Anemone nemorosa group,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3797,Angelica palustris-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3797,Angelica palustris-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3797,Angelica palustris-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3438,Anthemis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3438,Anthemis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3438,Anthemis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3804,Anthriscus sylvestris,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3804,Anthriscus sylvestris,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3804,Anthriscus sylvestris,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3806,Anthyllis vulneraria,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3806,Anthyllis vulneraria,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3806,Anthyllis vulneraria,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,1172,Apiaceae undiff.,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,1172,Apiaceae undiff.,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,1172,Apiaceae undiff.,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,25,Artemisia,reported_positive,2
+BOKE,54001,552422,25,Artemisia,reported_positive,1
+BOKE,54001,552421,25,Artemisia,reported_positive,1
+BOKE,54001,552419,3439,Aster-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3439,Aster-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3439,Aster-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,414,Avena-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,414,Avena-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,414,Avena-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,5088,Berula erecta,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,5088,Berula erecta,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,5088,Berula erecta,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,29,Betula,reported_positive,207
+BOKE,54001,552422,29,Betula,reported_positive,119
+BOKE,54001,552421,29,Betula,reported_positive,244
+BOKE,54001,552419,9773,Calluna,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,9773,Calluna,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,9773,Calluna,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,2944,Caltha palustris,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,2944,Caltha palustris,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,2944,Caltha palustris,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3979,Campanula/Jasione,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3979,Campanula/Jasione,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3979,Campanula/Jasione,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,1429,Carpinus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,1429,Carpinus,reported_positive,1
+BOKE,54001,552421,1429,Carpinus,reported_positive,3
+BOKE,54001,552419,1336,Centaurea cyanus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,1336,Centaurea cyanus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,1336,Centaurea cyanus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4005,Centaurea nigra-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4005,Centaurea nigra-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4005,Centaurea nigra-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,48825,Cephalanthera sp.,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,48825,Cephalanthera sp.,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,48825,Cephalanthera sp.,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,999,Cerastium-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,999,Cerastium-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,999,Cerastium-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,32531,Chaerophyllum bulbosum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,32531,Chaerophyllum bulbosum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,32531,Chaerophyllum bulbosum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,5376,Chaerophyllum temulum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,5376,Chaerophyllum temulum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,5376,Chaerophyllum temulum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3690,Chrysosplenium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3690,Chrysosplenium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3690,Chrysosplenium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,160,Cichorioideae,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,160,Cichorioideae,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,160,Cichorioideae,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4133,Cicuta virosa,reported_positive,1
+BOKE,54001,552422,4133,Cicuta virosa,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4133,Cicuta virosa,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,1253,Cirsium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,1253,Cirsium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,1253,Cirsium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3570,Cornus sanguinea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3570,Cornus sanguinea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3570,Cornus sanguinea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,67,Corylus,reported_positive,309
+BOKE,54001,552422,67,Corylus,reported_positive,136
+BOKE,54001,552421,67,Corylus,reported_positive,267
+BOKE,54001,552419,1430,Crataegus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,1430,Crataegus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,1430,Crataegus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,74,Cyperaceae,reported_positive,5
+BOKE,54001,552422,74,Cyperaceae,reported_positive,1
+BOKE,54001,552421,74,Cyperaceae,reported_positive,1
+BOKE,54001,552419,32685,Daucus carota-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,32685,Daucus carota-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,32685,Daucus carota-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,86,Empetrum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,86,Empetrum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,86,Empetrum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3578,Ephedra fragilis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3578,Ephedra fragilis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3578,Ephedra fragilis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,107,Fagus,reported_positive,2
+BOKE,54001,552422,107,Fagus,reported_positive,2
+BOKE,54001,552421,107,Fagus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3950,Fallopia convolvulus-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3950,Fallopia convolvulus-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3950,Fallopia convolvulus-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,1428,Filipendula,reported_positive,1
+BOKE,54001,552422,1428,Filipendula,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,1428,Filipendula,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4295,Fragaria vesca,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4295,Fragaria vesca,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4295,Fragaria vesca,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,2322,Frangula alnus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,2322,Frangula alnus,reported_positive,2
+BOKE,54001,552421,2322,Frangula alnus,reported_positive,1
+BOKE,54001,552419,369,Fraxinus,reported_positive,43
+BOKE,54001,552422,369,Fraxinus,reported_positive,24
+BOKE,54001,552421,369,Fraxinus,reported_positive,27
+BOKE,54001,552419,116,Galium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,116,Galium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,116,Galium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4344,Geum cf. G. rivale,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4344,Geum cf. G. rivale,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4344,Geum cf. G. rivale,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,2684,Hedera,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,2684,Hedera,reported_positive,1
+BOKE,54001,552421,2684,Hedera,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,31038,Helosciadium inundatum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,31038,Helosciadium inundatum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,31038,Helosciadium inundatum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4374,Heracleum sphondylium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4374,Heracleum sphondylium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4374,Heracleum sphondylium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,2677,Hippophaë,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,2677,Hippophaë,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,2677,Hippophaë,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3705,Hordeum-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3705,Hordeum-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3705,Hordeum-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,31752,Hornungia,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,31752,Hornungia,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,31752,Hornungia,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,425,Humulus,reported_positive,1
+BOKE,54001,552422,425,Humulus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,425,Humulus,reported_positive,1
+BOKE,54001,552419,514,Hydrocotyle,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,514,Hydrocotyle,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,514,Hydrocotyle,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4402,Hypericum perforatum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4402,Hypericum perforatum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4402,Hypericum perforatum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,983,Juniperus,reported_positive,1
+BOKE,54001,552422,983,Juniperus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,983,Juniperus,reported_positive,1
+BOKE,54001,552419,2904,Lotus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,2904,Lotus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,2904,Lotus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3696,Lysimachia vulgaris-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3696,Lysimachia vulgaris-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3696,Lysimachia vulgaris-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,655,Lythrum salicaria,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,655,Lythrum salicaria,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,655,Lythrum salicaria,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,997,Melampyrum,reported_positive,1
+BOKE,54001,552422,997,Melampyrum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,997,Melampyrum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,656,Mentha-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,656,Mentha-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,656,Mentha-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,182,Menyanthes trifoliata,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,182,Menyanthes trifoliata,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,182,Menyanthes trifoliata,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,2927,Mercurialis,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,2927,Mercurialis,reported_positive,1
+BOKE,54001,552421,2927,Mercurialis,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,383,Myrica,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,383,Myrica,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,383,Myrica,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,1310,Myriophyllum spicatum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,1310,Myriophyllum spicatum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,1310,Myriophyllum spicatum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,190,Nuphar,reported_positive,1
+BOKE,54001,552422,190,Nuphar,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,190,Nuphar,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,192,Nymphaea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,192,Nymphaea,reported_positive,2
+BOKE,54001,552421,192,Nymphaea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,5819,Oenanthe fistulosa-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,5819,Oenanthe fistulosa-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,5819,Oenanthe fistulosa-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,988,Persicaria maculosa,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,988,Persicaria maculosa,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,988,Persicaria maculosa,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,5232,Peucedanum palustre-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,5232,Peucedanum palustre-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,5232,Peucedanum palustre-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4600,Phragmites-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4600,Phragmites-type,reported_positive,2
+BOKE,54001,552421,4600,Phragmites-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,210,Picea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,210,Picea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,210,Picea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,385,Pinus,reported_positive,18
+BOKE,54001,552422,385,Pinus,reported_positive,5
+BOKE,54001,552421,385,Pinus,reported_positive,19
+BOKE,54001,552419,220,Plantago lanceolata,reported_positive,5
+BOKE,54001,552422,220,Plantago lanceolata,reported_positive,1
+BOKE,54001,552421,220,Plantago lanceolata,reported_positive,3
+BOKE,54001,552419,219,Plantago major,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,219,Plantago major,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,219,Plantago major,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,221,Plantago media,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,221,Plantago media,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,221,Plantago media,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,417,Poaceae,reported_positive,10
+BOKE,54001,552422,417,Poaceae,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,417,Poaceae,reported_positive,2
+BOKE,54001,552419,947,Polygonum aviculare,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,947,Polygonum aviculare,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,947,Polygonum aviculare,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,389,Populus,reported_positive,1
+BOKE,54001,552422,389,Populus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,389,Populus,reported_positive,1
+BOKE,54001,552419,810,Potamogeton-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,810,Potamogeton-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,810,Potamogeton-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,2928,Prunella,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,2928,Prunella,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,2928,Prunella,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,715,Prunus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,715,Prunus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,715,Prunus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4510,Prunus cf. P. padus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4510,Prunus cf. P. padus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4510,Prunus cf. P. padus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3791,Pulmonaria,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3791,Pulmonaria,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3791,Pulmonaria,reported_positive,1
+BOKE,54001,552419,251,Quercus,reported_positive,155
+BOKE,54001,552422,251,Quercus,reported_positive,77
+BOKE,54001,552421,251,Quercus,reported_positive,156
+BOKE,54001,552419,33720,Ranunculus acris group,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,33720,Ranunculus acris group,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,33720,Ranunculus acris group,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3124,Ranunculus aquatilis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3124,Ranunculus aquatilis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3124,Ranunculus aquatilis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,2931,Rhinanthus-type,reported_positive,1
+BOKE,54001,552422,2931,Rhinanthus-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,2931,Rhinanthus-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,48820,Rosa cf. R. canina,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,48820,Rosa cf. R. canina,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,48820,Rosa cf. R. canina,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,355,Rosaceae undiff.,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,355,Rosaceae undiff.,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,355,Rosaceae undiff.,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,33846,Rumex acetosa group,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,33846,Rumex acetosa group,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,33846,Rumex acetosa group,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3172,Rumex acetosella,reported_positive,2
+BOKE,54001,552422,3172,Rumex acetosella,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3172,Rumex acetosella,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,1087,Rumex obtusifolius-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,1087,Rumex obtusifolius-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,1087,Rumex obtusifolius-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,271,Salix,reported_positive,1
+BOKE,54001,552422,271,Salix,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,271,Salix,reported_positive,3
+BOKE,54001,552419,4782,Sambucus ebulus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4782,Sambucus ebulus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4782,Sambucus ebulus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4783,Sambucus nigra,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4783,Sambucus nigra,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4783,Sambucus nigra,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4845,Scleranthus annuus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4845,Scleranthus annuus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4845,Scleranthus annuus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3926,Secale cereale,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3926,Secale cereale,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3926,Secale cereale,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4853,Serratula-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4853,Serratula-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4853,Serratula-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4856,Sinapis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4856,Sinapis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4856,Sinapis-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,27650,Sium latifolium-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,27650,Sium latifolium-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,27650,Sium latifolium-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,1315,Sorbus aucuparia,reported_positive,15
+BOKE,54001,552422,1315,Sorbus aucuparia,reported_positive,9
+BOKE,54001,552421,1315,Sorbus aucuparia,reported_positive,11
+BOKE,54001,552419,4893,Sparganium emersum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4893,Sparganium emersum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4893,Sparganium emersum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4888,Sparganium erectum-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4888,Sparganium erectum-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4888,Sparganium erectum-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,299,Taxus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,299,Taxus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,299,Taxus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,300,Thalictrum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,300,Thalictrum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,300,Thalictrum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,302,Tilia,reported_positive,35
+BOKE,54001,552422,302,Tilia,reported_positive,22
+BOKE,54001,552421,302,Tilia,reported_positive,36
+BOKE,54001,552419,1078,Trifolium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,1078,Trifolium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,1078,Trifolium,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,495,Trifolium pratense,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,495,Trifolium pratense,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,495,Trifolium pratense,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,2913,Trifolium repens,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,2913,Trifolium repens,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,2913,Trifolium repens,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,497,Triticum-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,497,Triticum-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,497,Triticum-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,1268,Typha latifolia-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,1268,Typha latifolia-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,1268,Typha latifolia-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,3411,Ulex-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,3411,Ulex-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,3411,Ulex-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,310,Ulmus,reported_positive,41
+BOKE,54001,552422,310,Ulmus,reported_positive,17
+BOKE,54001,552421,310,Ulmus,reported_positive,47
+BOKE,54001,552419,4940,Urtica dioica,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4940,Urtica dioica,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,4940,Urtica dioica,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,40997,Vaccinium cf V. uliginosum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,40997,Vaccinium cf V. uliginosum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,40997,Vaccinium cf V. uliginosum,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,34217,Vaccinium sect. Vitis-idaea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,34217,Vaccinium sect. Vitis-idaea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,34217,Vaccinium sect. Vitis-idaea,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,2311,Valeriana officinalis,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,2311,Valeriana officinalis,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,2311,Valeriana officinalis,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,794,Viburnum opulus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,794,Viburnum opulus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,794,Viburnum opulus,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,808,Vicia-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,808,Vicia-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552421,808,Vicia-type,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552419,4977,Viscum album,omitted_known_dataset_taxon_conditional_nondetection,
+BOKE,54001,552422,4977,Viscum album,reported_positive,1
+BOKE,54001,552421,4977,Viscum album,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,338,Acer,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,338,Acer,reported_positive,1
+KRAG,23013,233254,338,Acer,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,338,Acer,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,330,Alnus,reported_positive,117
+KRAG,23013,233253,330,Alnus,reported_positive,162
+KRAG,23013,233254,330,Alnus,reported_positive,139
+KRAG,23013,233255,330,Alnus,reported_positive,134
+KRAG,23013,233252,391,Amaranthaceae,reported_positive,1
+KRAG,23013,233253,391,Amaranthaceae,reported_positive,3
+KRAG,23013,233254,391,Amaranthaceae,reported_positive,4
+KRAG,23013,233255,391,Amaranthaceae,reported_positive,4
+KRAG,23013,233252,3795,Angelica archangelica-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,3795,Angelica archangelica-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,3795,Angelica archangelica-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,3795,Angelica archangelica-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,3438,Anthemis-type,reported_positive,1
+KRAG,23013,233253,3438,Anthemis-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,3438,Anthemis-type,reported_positive,1
+KRAG,23013,233255,3438,Anthemis-type,reported_positive,1
+KRAG,23013,233252,3802,Anthriscus sylvestris-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,3802,Anthriscus sylvestris-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,3802,Anthriscus sylvestris-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,3802,Anthriscus sylvestris-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,311,Apiaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,311,Apiaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,311,Apiaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,311,Apiaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,25,Artemisia,reported_positive,11
+KRAG,23013,233253,25,Artemisia,reported_positive,17
+KRAG,23013,233254,25,Artemisia,reported_positive,15
+KRAG,23013,233255,25,Artemisia,reported_positive,20
+KRAG,23013,233252,3439,Aster-type,reported_positive,1
+KRAG,23013,233253,3439,Aster-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,3439,Aster-type,reported_positive,3
+KRAG,23013,233255,3439,Aster-type,reported_positive,3
+KRAG,23013,233252,418,Asteroideae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,418,Asteroideae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,418,Asteroideae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,418,Asteroideae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,29,Betula,reported_positive,83
+KRAG,23013,233253,29,Betula,reported_positive,157
+KRAG,23013,233254,29,Betula,reported_positive,118
+KRAG,23013,233255,29,Betula,reported_positive,148
+KRAG,23013,233252,3935,Betula cf. B. nana,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,3935,Betula cf. B. nana,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,3935,Betula cf. B. nana,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,3935,Betula cf. B. nana,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,420,Brassicaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,420,Brassicaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,420,Brassicaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,420,Brassicaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,39,Callitriche,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,39,Callitriche,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,39,Callitriche,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,39,Callitriche,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,2897,Calluna vulgaris,reported_positive,5
+KRAG,23013,233253,2897,Calluna vulgaris,reported_positive,5
+KRAG,23013,233254,2897,Calluna vulgaris,reported_positive,5
+KRAG,23013,233255,2897,Calluna vulgaris,reported_positive,11
+KRAG,23013,233252,586,Campanula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,586,Campanula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,586,Campanula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,586,Campanula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,1429,Carpinus,reported_positive,7
+KRAG,23013,233253,1429,Carpinus,reported_positive,10
+KRAG,23013,233254,1429,Carpinus,reported_positive,6
+KRAG,23013,233255,1429,Carpinus,reported_positive,10
+KRAG,23013,233252,1336,Centaurea cyanus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,1336,Centaurea cyanus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,1336,Centaurea cyanus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,1336,Centaurea cyanus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,4005,Centaurea nigra-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4005,Centaurea nigra-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4005,Centaurea nigra-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4005,Centaurea nigra-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,999,Cerastium-type,reported_positive,1
+KRAG,23013,233253,999,Cerastium-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,999,Cerastium-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,999,Cerastium-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,160,Cichorioideae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,160,Cichorioideae,reported_positive,1
+KRAG,23013,233254,160,Cichorioideae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,160,Cichorioideae,reported_positive,3
+KRAG,23013,233252,1253,Cirsium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,1253,Cirsium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,1253,Cirsium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,1253,Cirsium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,4162,Cladium mariscus,reported_positive,1
+KRAG,23013,233253,4162,Cladium mariscus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4162,Cladium mariscus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4162,Cladium mariscus,reported_positive,1
+KRAG,23013,233252,3570,Cornus sanguinea,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,3570,Cornus sanguinea,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,3570,Cornus sanguinea,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,3570,Cornus sanguinea,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,67,Corylus,reported_positive,106
+KRAG,23013,233253,67,Corylus,reported_positive,177
+KRAG,23013,233254,67,Corylus,reported_positive,145
+KRAG,23013,233255,67,Corylus,reported_positive,164
+KRAG,23013,233252,4197,Cotoneaster-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4197,Cotoneaster-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4197,Cotoneaster-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4197,Cotoneaster-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,69,Crataegus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,69,Crataegus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,69,Crataegus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,69,Crataegus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,74,Cyperaceae,reported_positive,31
+KRAG,23013,233253,74,Cyperaceae,reported_positive,41
+KRAG,23013,233254,74,Cyperaceae,reported_positive,39
+KRAG,23013,233255,74,Cyperaceae,reported_positive,29
+KRAG,23013,233252,4242,Empetrum nigrum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4242,Empetrum nigrum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4242,Empetrum nigrum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4242,Empetrum nigrum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,3572,Ephedra distachya-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,3572,Ephedra distachya-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,3572,Ephedra distachya-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,3572,Ephedra distachya-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,90,Epilobium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,90,Epilobium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,90,Epilobium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,90,Epilobium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,92,Ericaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,92,Ericaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,92,Ericaceae,reported_positive,1
+KRAG,23013,233255,92,Ericaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,106,Fagopyrum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,106,Fagopyrum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,106,Fagopyrum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,106,Fagopyrum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,107,Fagus,reported_positive,4
+KRAG,23013,233253,107,Fagus,reported_positive,15
+KRAG,23013,233254,107,Fagus,reported_positive,7
+KRAG,23013,233255,107,Fagus,reported_positive,12
+KRAG,23013,233252,3432,Fallopia convolvulus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,3432,Fallopia convolvulus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,3432,Fallopia convolvulus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,3432,Fallopia convolvulus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,1428,Filipendula,reported_positive,6
+KRAG,23013,233253,1428,Filipendula,reported_positive,7
+KRAG,23013,233254,1428,Filipendula,reported_positive,10
+KRAG,23013,233255,1428,Filipendula,reported_positive,14
+KRAG,23013,233252,2322,Frangula alnus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,2322,Frangula alnus,reported_positive,3
+KRAG,23013,233254,2322,Frangula alnus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,2322,Frangula alnus,reported_positive,2
+KRAG,23013,233252,369,Fraxinus,reported_positive,12
+KRAG,23013,233253,369,Fraxinus,reported_positive,8
+KRAG,23013,233254,369,Fraxinus,reported_positive,20
+KRAG,23013,233255,369,Fraxinus,reported_positive,18
+KRAG,23013,233252,120,Geranium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,120,Geranium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,120,Geranium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,120,Geranium,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,2684,Hedera,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,2684,Hedera,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,2684,Hedera,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,2684,Hedera,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,1260,Helianthemum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,1260,Helianthemum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,1260,Helianthemum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,1260,Helianthemum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,806,Humulus/Cannabis,reported_positive,3
+KRAG,23013,233253,806,Humulus/Cannabis,reported_positive,7
+KRAG,23013,233254,806,Humulus/Cannabis,reported_positive,5
+KRAG,23013,233255,806,Humulus/Cannabis,reported_positive,2
+KRAG,23013,233252,3582,Hypericum perforatum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,3582,Hypericum perforatum-type,reported_positive,2
+KRAG,23013,233254,3582,Hypericum perforatum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,3582,Hypericum perforatum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,372,Juglans,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,372,Juglans,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,372,Juglans,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,372,Juglans,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,983,Juniperus,reported_positive,1
+KRAG,23013,233253,983,Juniperus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,983,Juniperus,reported_positive,2
+KRAG,23013,233255,983,Juniperus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,515,Lemna,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,515,Lemna,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,515,Lemna,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,515,Lemna,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,4449,Linum catharticum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4449,Linum catharticum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4449,Linum catharticum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4449,Linum catharticum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,4451,Linum usitatissimum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4451,Linum usitatissimum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4451,Linum usitatissimum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4451,Linum usitatissimum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,2129,Lotus-type,reported_positive,1
+KRAG,23013,233253,2129,Lotus-type,reported_positive,2
+KRAG,23013,233254,2129,Lotus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,2129,Lotus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,539,Lysimachia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,539,Lysimachia,reported_positive,1
+KRAG,23013,233254,539,Lysimachia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,539,Lysimachia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,4495,Lythrum portula,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4495,Lythrum portula,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4495,Lythrum portula,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4495,Lythrum portula,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,655,Lythrum salicaria,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,655,Lythrum salicaria,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,655,Lythrum salicaria,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,655,Lythrum salicaria,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,656,Mentha-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,656,Mentha-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,656,Mentha-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,656,Mentha-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,182,Menyanthes trifoliata,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,182,Menyanthes trifoliata,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,182,Menyanthes trifoliata,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,182,Menyanthes trifoliata,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,383,Myrica,reported_positive,1
+KRAG,23013,233253,383,Myrica,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,383,Myrica,reported_positive,3
+KRAG,23013,233255,383,Myrica,reported_positive,2
+KRAG,23013,233252,667,Myriophyllum alterniflorum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,667,Myriophyllum alterniflorum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,667,Myriophyllum alterniflorum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,667,Myriophyllum alterniflorum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,1310,Myriophyllum spicatum,reported_positive,1
+KRAG,23013,233253,1310,Myriophyllum spicatum,reported_positive,2
+KRAG,23013,233254,1310,Myriophyllum spicatum,reported_positive,2
+KRAG,23013,233255,1310,Myriophyllum spicatum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,190,Nuphar,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,190,Nuphar,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,190,Nuphar,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,190,Nuphar,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,192,Nymphaea,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,192,Nymphaea,reported_positive,1
+KRAG,23013,233254,192,Nymphaea,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,192,Nymphaea,reported_positive,2
+KRAG,23013,233252,842,Ononis-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,842,Ononis-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,842,Ononis-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,842,Ononis-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,230,Persicaria amphibia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,230,Persicaria amphibia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,230,Persicaria amphibia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,230,Persicaria amphibia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,884,Persicaria maculosa-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,884,Persicaria maculosa-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,884,Persicaria maculosa-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,884,Persicaria maculosa-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,5232,Peucedanum palustre-type,reported_positive,1
+KRAG,23013,233253,5232,Peucedanum palustre-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,5232,Peucedanum palustre-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,5232,Peucedanum palustre-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,210,Picea,reported_positive,2
+KRAG,23013,233253,210,Picea,reported_positive,1
+KRAG,23013,233254,210,Picea,reported_positive,2
+KRAG,23013,233255,210,Picea,reported_positive,1
+KRAG,23013,233252,4608,Pimpinella major-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4608,Pimpinella major-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4608,Pimpinella major-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4608,Pimpinella major-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,385,Pinus,reported_positive,82
+KRAG,23013,233253,385,Pinus,reported_positive,118
+KRAG,23013,233254,385,Pinus,reported_positive,102
+KRAG,23013,233255,385,Pinus,reported_positive,131
+KRAG,23013,233252,220,Plantago lanceolata,reported_positive,17
+KRAG,23013,233253,220,Plantago lanceolata,reported_positive,22
+KRAG,23013,233254,220,Plantago lanceolata,reported_positive,30
+KRAG,23013,233255,220,Plantago lanceolata,reported_positive,37
+KRAG,23013,233252,219,Plantago major,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,219,Plantago major,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,219,Plantago major,reported_positive,1
+KRAG,23013,233255,219,Plantago major,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,221,Plantago media,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,221,Plantago media,reported_positive,1
+KRAG,23013,233254,221,Plantago media,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,221,Plantago media,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,417,Poaceae,reported_positive,122
+KRAG,23013,233253,417,Poaceae,reported_positive,230
+KRAG,23013,233254,417,Poaceae,reported_positive,194
+KRAG,23013,233255,417,Poaceae,reported_positive,198
+KRAG,23013,233252,427,Poaceae (Cerealia) undiff.,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,427,Poaceae (Cerealia) undiff.,reported_positive,1
+KRAG,23013,233254,427,Poaceae (Cerealia) undiff.,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,427,Poaceae (Cerealia) undiff.,reported_positive,2
+KRAG,23013,233252,1947,Poaceae (Cerealia-type),reported_positive,4
+KRAG,23013,233253,1947,Poaceae (Cerealia-type),reported_positive,6
+KRAG,23013,233254,1947,Poaceae (Cerealia-type),reported_positive,11
+KRAG,23013,233255,1947,Poaceae (Cerealia-type),reported_positive,6
+KRAG,23013,233252,231,Polygonum aviculare-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,231,Polygonum aviculare-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,231,Polygonum aviculare-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,231,Polygonum aviculare-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,389,Populus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,389,Populus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,389,Populus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,389,Populus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,517,Potamogeton,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,517,Potamogeton,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,517,Potamogeton,reported_positive,1
+KRAG,23013,233255,517,Potamogeton,reported_positive,1
+KRAG,23013,233252,242,Potentilla-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,242,Potentilla-type,reported_positive,1
+KRAG,23013,233254,242,Potentilla-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,242,Potentilla-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,245,Prunus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,245,Prunus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,245,Prunus-type,reported_positive,1
+KRAG,23013,233255,245,Prunus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,251,Quercus,reported_positive,51
+KRAG,23013,233253,251,Quercus,reported_positive,70
+KRAG,23013,233254,251,Quercus,reported_positive,74
+KRAG,23013,233255,251,Quercus,reported_positive,72
+KRAG,23013,233252,350,Ranunculaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,350,Ranunculaceae,reported_positive,3
+KRAG,23013,233254,350,Ranunculaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,350,Ranunculaceae,reported_positive,3
+KRAG,23013,233252,4729,Ranunculus flammula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4729,Ranunculus flammula-type,reported_positive,1
+KRAG,23013,233254,4729,Ranunculus flammula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4729,Ranunculus flammula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,725,Rhamnus cathartica,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,725,Rhamnus cathartica,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,725,Rhamnus cathartica,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,725,Rhamnus cathartica,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,2931,Rhinanthus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,2931,Rhinanthus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,2931,Rhinanthus-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,2931,Rhinanthus-type,reported_positive,2
+KRAG,23013,233252,2227,Rhynchospora alba,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,2227,Rhynchospora alba,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,2227,Rhynchospora alba,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,2227,Rhynchospora alba,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,483,Rosaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,483,Rosaceae,reported_positive,1
+KRAG,23013,233254,483,Rosaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,483,Rosaceae,reported_positive,1
+KRAG,23013,233252,733,Rubiaceae,reported_positive,3
+KRAG,23013,233253,733,Rubiaceae,reported_positive,2
+KRAG,23013,233254,733,Rubiaceae,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,733,Rubiaceae,reported_positive,1
+KRAG,23013,233252,1532,Rumex acetosella-type,reported_positive,8
+KRAG,23013,233253,1532,Rumex acetosella-type,reported_positive,41
+KRAG,23013,233254,1532,Rumex acetosella-type,reported_positive,37
+KRAG,23013,233255,1532,Rumex acetosella-type,reported_positive,33
+KRAG,23013,233252,271,Salix,reported_positive,4
+KRAG,23013,233253,271,Salix,reported_positive,10
+KRAG,23013,233254,271,Salix,reported_positive,5
+KRAG,23013,233255,271,Salix,reported_positive,4
+KRAG,23013,233252,275,Sambucus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,275,Sambucus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,275,Sambucus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,275,Sambucus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,33953,Schoenoplectus lacustris subsp. lacustris-type,reported_positive,2
+KRAG,23013,233253,33953,Schoenoplectus lacustris subsp. lacustris-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,33953,Schoenoplectus lacustris subsp. lacustris-type,reported_positive,1
+KRAG,23013,233255,33953,Schoenoplectus lacustris subsp. lacustris-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,4845,Scleranthus annuus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4845,Scleranthus annuus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4845,Scleranthus annuus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4845,Scleranthus annuus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,2906,Scleranthus perennis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,2906,Scleranthus perennis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,2906,Scleranthus perennis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,2906,Scleranthus perennis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,4102,Sedum-type,reported_positive,1
+KRAG,23013,233253,4102,Sedum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4102,Sedum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4102,Sedum-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,4853,Serratula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4853,Serratula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4853,Serratula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4853,Serratula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,1315,Sorbus aucuparia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,1315,Sorbus aucuparia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,1315,Sorbus aucuparia,reported_positive,1
+KRAG,23013,233255,1315,Sorbus aucuparia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,293,Sparganium-type,reported_positive,1
+KRAG,23013,233253,293,Sparganium-type,reported_positive,8
+KRAG,23013,233254,293,Sparganium-type,reported_positive,3
+KRAG,23013,233255,293,Sparganium-type,reported_positive,7
+KRAG,23013,233252,2934,Spergula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,2934,Spergula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,2934,Spergula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,2934,Spergula-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,4421,Succisa pratensis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4421,Succisa pratensis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4421,Succisa pratensis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4421,Succisa pratensis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,300,Thalictrum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,300,Thalictrum,reported_positive,1
+KRAG,23013,233254,300,Thalictrum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,300,Thalictrum,reported_positive,1
+KRAG,23013,233252,302,Tilia,reported_positive,5
+KRAG,23013,233253,302,Tilia,reported_positive,8
+KRAG,23013,233254,302,Tilia,reported_positive,7
+KRAG,23013,233255,302,Tilia,reported_positive,6
+KRAG,23013,233252,2913,Trifolium repens,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,2913,Trifolium repens,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,2913,Trifolium repens,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,2913,Trifolium repens,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,762,Trifolium-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,762,Trifolium-type,reported_positive,1
+KRAG,23013,233254,762,Trifolium-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,762,Trifolium-type,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,4923,Trollius europaeus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,4923,Trollius europaeus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,4923,Trollius europaeus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,4923,Trollius europaeus,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,309,Typha latifolia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,309,Typha latifolia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,309,Typha latifolia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,309,Typha latifolia,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,310,Ulmus,reported_positive,11
+KRAG,23013,233253,310,Ulmus,reported_positive,8
+KRAG,23013,233254,310,Ulmus,reported_positive,6
+KRAG,23013,233255,310,Ulmus,reported_positive,11
+KRAG,23013,233252,498,Urtica,reported_positive,2
+KRAG,23013,233253,498,Urtica,reported_positive,3
+KRAG,23013,233254,498,Urtica,reported_positive,3
+KRAG,23013,233255,498,Urtica,reported_positive,2
+KRAG,23013,233252,2311,Valeriana officinalis,reported_positive,1
+KRAG,23013,233253,2311,Valeriana officinalis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,2311,Valeriana officinalis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,2311,Valeriana officinalis,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,397,Viburnum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,397,Viburnum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,397,Viburnum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,397,Viburnum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233252,1334,Viscum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233253,1334,Viscum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233254,1334,Viscum,omitted_known_dataset_taxon_conditional_nondetection,
+KRAG,23013,233255,1334,Viscum,omitted_known_dataset_taxon_conditional_nondetection,

@@ -135,6 +135,15 @@ reviewed and frozen before new outcomes. Original historical-paper reproduction
 and qualified scientific acceptance remain open wherever their inputs or verdicts
 are absent. The calculations above do not close those separate scientific claims.
 
+## Full pilot source assessment
+
+The [Bökesjön/Krageholm pilot assessment](../bokesjon-pilot/README.md) now checks
+the full native taxon panels, public core/chronology/rights metadata, parameter
+coverage and independent-reference availability for 2700–3200 cal BP. It preserves
+explicit workbook zeros, sparse native omissions and distinct source denominators.
+The two-taxon calculation above is unchanged; a full forest/open/cereal profile,
+qualified physical decisions and measured vegetation accuracy remain unadmitted.
+
 ## Initial nonnegative-cover comparison
 
 The explicit `clip-and-renormalize` assumption sets negative LOVE cover to zero

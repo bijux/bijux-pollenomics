@@ -1,0 +1,116 @@
+{
+  "status": "passed",
+  "source_revision": "916c9489de8fd4fcac24fcf973add288f7ea2c86",
+  "observer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/independent/observe_sources.py",
+    "bytes": 30798,
+    "sha256": "1cb0eaa56ffb411052405bfc9eb0c590c3c5318f34aa3829a0005f4e5a1ef080"
+  },
+  "runtime": {
+    "executable": "/Users/bijan/bijux/bijux-pollenomics/artifacts/validation/venv/bin/python",
+    "python": "3.11.18 (main, Oct 25 2026, 19:41:29) [Clang 21.0.0 (clang-2100.3.34.2)]"
+  },
+  "elapsed_seconds": 14.232795290998183,
+  "peak_rss_bytes": 107085824,
+  "checks": {
+    "scalar_values": 20646,
+    "selected_raw_objects_decoded": 2
+  },
+  "core_summary": {
+    "BOKE": {
+      "source_sample_count": 52,
+      "selected_samples": 3,
+      "selected_sample_ids": [
+        552419,
+        552422,
+        552421
+      ],
+      "dataset_taxon_axis": 120,
+      "all_selected_sample_taxon_slots": 360,
+      "reported_window_taxa": 34,
+      "known_reported_NISP": 2553,
+      "cell_states": {
+        "reported_positive": 67,
+        "omitted_known_dataset_taxon_conditional_nondetection": 293
+      },
+      "author_lookup_mass": {
+        "known_native_nisp": 2553,
+        "assigned_candidate_nisp": 2497,
+        "author_excluded_nisp": 56,
+        "unmapped_nisp": 0
+      }
+    },
+    "KRAG": {
+      "source_sample_count": 96,
+      "selected_samples": 4,
+      "selected_sample_ids": [
+        233252,
+        233253,
+        233254,
+        233255
+      ],
+      "dataset_taxon_axis": 108,
+      "all_selected_sample_taxon_slots": 432,
+      "reported_window_taxa": 57,
+      "known_reported_NISP": 3973,
+      "cell_states": {
+        "omitted_known_dataset_taxon_conditional_nondetection": 281,
+        "reported_positive": 151
+      },
+      "author_lookup_mass": {
+        "known_native_nisp": 3973,
+        "assigned_candidate_nisp": 3823,
+        "author_excluded_nisp": 117,
+        "unmapped_nisp": 33
+      }
+    }
+  },
+  "metadata_controls": 29,
+  "metadata_DOI_records": 2,
+  "LandClim_parameter_targets": 31,
+  "Europe_reference_rows": 110,
+  "private_workbook": {
+    "rows": 3,
+    "columns": 168,
+    "source_pollen_sum": 2556,
+    "explicit_cereal_zero_cells": 12
+  },
+  "product_pins": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/products/result.json",
+      "bytes": 16688,
+      "sha256": "5572aab8e53e420ea794b08e25496b7c1164ac7500a777101714fbb925a3bd36"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/products/metadata.json",
+      "bytes": 27929,
+      "sha256": "16407c884d3b2bdea7a9365084a04881639e02ec2e0a1824723452675ca5c79f"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/products/native-taxa.json",
+      "bytes": 366138,
+      "sha256": "5d312cf8c0d926926a2f4eae3f81aa6f52a8887181e63ec768a31cdad2d74e59"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/products/parameters.json",
+      "bytes": 363542,
+      "sha256": "1b343eb74934aad994ddc6bd5e98eb9b734d07bc0ecce1e27f8287ee72c5e7e0"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/products/private-workbook.json",
+      "bytes": 143030,
+      "sha256": "58c490525570320efb1f75a971038055e61dcc9bdcf510416fff01a01b62ac7b"
+    }
+  ],
+  "consumed_pin_count": 35,
+  "original_calculation_owners_unchanged": 8,
+  "independent_expected_native_sha256": "861b18ff4ce63cb2a6393bb6cca225add35fddb0e5e90697189c04e08526748c",
+  "maximum_absolute_count_error": 0,
+  "limits": [
+    "No producer/helper/classification/aggregation imported.",
+    "Only the two named exposed dataset objects were decoded from retained chunks; other rows remained opaque bytes.",
+    "Workbook binary parsing shares xlrd with producer; all row selection, source roles, cell states and accounting are independent.",
+    "No source mapping applied, missing values imputed, parameter applicability admitted, model executed or measured vegetation accuracy established.",
+    "Public compact witness is a later publication surface and is not yet covered unless separately supplied."
+  ]
+}
