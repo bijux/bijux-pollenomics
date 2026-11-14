@@ -128,7 +128,22 @@ def write_love_result(result: LoveResult, directory: str | Path) -> Path:
                     "pollen_percentages": "percent",
                     "distance": "metre",
                 },
-                "cover_is_not_clipped": result.method == "analytical",
+                "cover_is_not_clipped": result.method == "analytical"
+                and result.manifest.parameters.get(
+                    "analytical_cover_policy", "source-raw"
+                )
+                == "source-raw",
+                **(
+                    {
+                        "analytical_cover_policy": result.manifest.parameters.get(
+                            "analytical_cover_policy", "source-raw"
+                        ),
+                        "raw_cover_is_not_clipped": True,
+                        "outlier_basis": "raw-analytical-cover",
+                    }
+                    if result.method == "analytical"
+                    else {}
+                ),
             },
             indent=2,
         )

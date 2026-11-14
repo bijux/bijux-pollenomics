@@ -213,6 +213,7 @@ def expectation(case: DomainCase) -> np.ndarray:
         max_ring=case.count,
         repeats=repeats,
         stochastic=False,
+        analytical_cover_policy="source-raw",
     )
     candidates = (
         np.ones((1, 1))

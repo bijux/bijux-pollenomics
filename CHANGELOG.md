@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### Nonnegative analytical LOVE cover
+
+- Clip negative analytical LOVE cover to zero and normalize each draw before
+  calculating summaries. Retain raw summaries, optional raw draws and outlier
+  diagnostics with an explicit modeling assumption and distinct method identity.
+- Preserve low-level source equations and explicit historical source replay.
+  Unsupported rings remain missing; nonfinite supported cover and zero surviving
+  positive mass remain refused. The assumption does not establish field accuracy.
+
 ### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
 
 - Replace mixed release sections and terse merge receipts with one linked entry per

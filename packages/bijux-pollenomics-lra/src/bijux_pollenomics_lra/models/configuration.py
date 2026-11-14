@@ -62,6 +62,13 @@ def _boolean(value: object, name: str) -> bool:
     return bool(value)
 
 
+def _cover_policy(value: str) -> None:
+    if value not in ("clip-and-renormalize", "source-raw"):
+        raise ValidationError(
+            "analytical_cover_policy must be clip-and-renormalize or source-raw"
+        )
+
+
 @dataclass(frozen=True, slots=True)
 class RevealsConfig:
     """Configuration for a regional REVEALS reconstruction."""
@@ -140,9 +147,11 @@ class LoveConfig:
     fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE
     optimized_profile: OptimizedLoveProfile | str = OptimizedLoveProfile.DISQOVER_SOURCE
     optimizer_backend: str = "scipy.differential_evolution"
+    analytical_cover_policy: str = "clip-and-renormalize"
 
     def __post_init__(self) -> None:
         method = _enum_value(self.method, LoveMethod, "method")
+        _cover_policy(self.analytical_cover_policy)
         optimized_profile = _enum_value(
             self.optimized_profile, OptimizedLoveProfile, "optimized_profile"
         )
@@ -242,6 +251,8 @@ class LoveConfig:
         }
         if self.method == LoveMethod.OPTIMIZED.value:
             settings["optimized_profile"] = self.optimized_profile
+        else:
+            settings["analytical_cover_policy"] = self.analytical_cover_policy
         if self.optimizer_backend != "scipy.differential_evolution":
             settings["optimizer_backend"] = self.optimizer_backend
         return settings
@@ -258,12 +269,14 @@ class RegionalDrawLoveConfig:
     seed: int | None = None
     retain_samples: bool = False
     ppe_error: bool = True
+    analytical_cover_policy: str = "clip-and-renormalize"
 
     method = LoveMethod.ANALYTICAL.value
     distance_weighting = DistanceWeighting.GPM_NEUTRAL.value
     fall_speed_profile = LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
 
     def __post_init__(self) -> None:
+        _cover_policy(self.analytical_cover_policy)
         local_diameter = finite_number(
             self.local_basin_diameter_m,
             "local_basin_diameter_m",
@@ -288,6 +301,7 @@ class RegionalDrawLoveConfig:
         """Return only settings that affect the draw-fed calculation."""
         return {
             "configuration_kind": "regional-cover-draws",
+            "analytical_cover_policy": self.analytical_cover_policy,
             "method": self.method,
             "local_basin_diameter_m": self.local_basin_diameter_m,
             "max_ring": self.max_ring,
