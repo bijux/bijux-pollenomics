@@ -5,15 +5,13 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from urllib.parse import urlencode
 
+from .transport import _HEADERS as _HEADERS
+from .transport import NeotomaHttpResponse
+
+NeotomaMetadataResponse = NeotomaHttpResponse
+
 _BASE = "https://api.neotomadb.org/v2.0/data"
 _SCHEMA = "neotoma-metadata-http-capture.v1"
-_HEADERS = (
-    ("Host", "api.neotomadb.org"),
-    ("Accept", "application/json"),
-    ("Accept-Encoding", "identity"),
-    ("User-Agent", "bijux-pollenomics"),
-    ("Connection", "close"),
-)
 
 
 @dataclass(frozen=True)
@@ -38,17 +36,6 @@ class NeotomaMetadataLimits:
 
 
 DEFAULT_METADATA_LIMITS = NeotomaMetadataLimits()
-
-
-@dataclass(frozen=True)
-class NeotomaMetadataResponse:
-    """One complete or bounded partial HTTP entity before any JSON parsing."""
-
-    final_url: str
-    http_status: int
-    headers: tuple[tuple[str, str], ...]
-    body: bytes
-    body_complete: bool = True
 
 
 @dataclass(frozen=True)
