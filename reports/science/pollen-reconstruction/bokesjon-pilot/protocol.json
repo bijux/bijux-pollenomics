@@ -1,0 +1,114 @@
+{
+  "schema_version": "bokesjon-pilot-source-protocol.v1",
+  "question": "Do the full retained BOKE/KRAG taxon panels, public core/chronology metadata and parameter references support a source-qualified2700–3200calBP forest/open/cereal pilot?",
+  "window_cal_bp": [
+    2700,
+    3200
+  ],
+  "window_rule": "Half-open explicit selected calibrated point ages, BP relative to1950. No radiocarbon/control-age substitution or uncertainty law.",
+  "cohort_role": "Previously exposed BOKE/KRAG development sources, not untouched confirmation",
+  "identities": {
+    "BOKE": {
+      "dataset_id": 54001,
+      "site_id": 28872,
+      "collection_unit_id": 39241,
+      "chronology_id": 38422
+    },
+    "KRAG": {
+      "dataset_id": 23013,
+      "site_id": 3204,
+      "collection_unit_id": 16622,
+      "chronology_id": 13366
+    }
+  },
+  "inputs": [
+    {
+      "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+      "bytes": 24477671,
+      "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+    },
+    {
+      "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+      "bytes": 23953555,
+      "sha256": "93a673c6fa66522667be2292cda076489330cbe1b5da8cea6b000d9c124c10cc"
+    },
+    {
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "bytes": 1773,
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    },
+    {
+      "path": "data/validation/pollen-productivity/wieczorek-herzschuh-2020/continental-europe.csv",
+      "bytes": 21504,
+      "sha256": "7b52416cf8caf7bc55eacfa55935836b9a9068cbc1567593e99a8458091c7db5"
+    },
+    {
+      "path": "data/neotoma/raw/bokesjon-core-sources/datacite-alternative-metadata.json",
+      "bytes": 9883,
+      "sha256": "4e2ebd97506df6dc348eb20f2efe0c41b192c98979620d5a2f733a2f2a00b9a3"
+    },
+    {
+      "path": "data/neotoma/raw/bokesjon-core-sources/datacite-dataset-metadata.json",
+      "bytes": 8603,
+      "sha256": "17ac39ab054e57332efba88263447952d9bdce47c5ccca8a7d6a6ef7982629fc"
+    },
+    {
+      "path": "data/neotoma/raw/bokesjon-core-sources/neotoma-dataset-metadata.json",
+      "bytes": 998,
+      "sha256": "71f91c750ddeef63ffb67b0862d55b42e285181a3ddc585f24c98e9567af6501"
+    },
+    {
+      "path": "data/neotoma/raw/bokesjon-core-sources/neotoma-geochronologic-download.json",
+      "bytes": 18975,
+      "sha256": "d308d535c1a8a4ed239cfd433df4feb44ee8efd54523861c4a86ca139f41b5bd"
+    },
+    {
+      "path": "data/neotoma/raw/bokesjon-core-sources/neotoma-geochronologic-metadata.json",
+      "bytes": 810,
+      "sha256": "47dd2596a82b25cb1bfe2f3588859e34c0873c947f03792d29720845a276d7d7"
+    },
+    {
+      "path": "data/neotoma/raw/bokesjon-core-sources/neotoma-site-metadata.json",
+      "bytes": 747,
+      "sha256": "b648b6ceb4755b01573167cede3133c1e6903de65d5ccb00ab35e262e3511b6e"
+    },
+    {
+      "path": "data/neotoma/raw/bokesjon-core-sources/source.json",
+      "bytes": 4544,
+      "sha256": "293756ff773593eba3cfcfc53113751a09ea2a2f451f02070e09530fa1a30e8f"
+    }
+  ],
+  "optional_private_sources": {
+    "workbook": {
+      "sha256": "d95da5626a877b340e365317769fa0ef39cf371687b84004a996c30353dc4bc4",
+      "interpretation": "Explicit workbook cells are not relabeled as native Neotoma measurements; full rectangle remains local."
+    },
+    "author_lookup": {
+      "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507",
+      "encoding": "latin-1",
+      "interpretation": "Candidate source-owned literal routes only; no taxon transformation or scientific applicability admission."
+    }
+  },
+  "source_missingness": "Native reported positive/zero cells, omitted known-dataset conditional nondetection candidates, absent dataset taxon and invalid rows stay distinct. No automatic zero imputation. Private workbook explicit zeros remain separate.",
+  "parameter_policy": "Inventory all31LandClim targets and both2020Europe references. Exact labels only; retain candidate aliases/exclusions without applying them. Missing SE does not erase a positive nominal RPP/FSP and never becomes zero variance. Compiled SE and source SD remain distinct.",
+  "scientific_claim_limits": [
+    "No qualified terrestrial denominator or forest/open/cereal reconstruction is asserted by this audit.",
+    "Current public rights do not release private workbooks or establish historical author-input identity.",
+    "Raw chronological controls do not become calibrated sample-age uncertainty bounds.",
+    "No ancient shoreline, KRAG regional representativeness, independent vegetation pair, accuracy score or qualified review is supplied."
+  ],
+  "resource_bounds": {
+    "wall_seconds": 120,
+    "peak_rss_bytes_posthoc": 536870912,
+    "output_bytes": 8388608
+  },
+  "engine_calls": 0,
+  "user_guidance": {
+    "absolute_cover_tolerance_percentage_points": 10,
+    "confirmed_by_user": "2026-11-14",
+    "pointwise_rule": "For an independently admitted matched cover observation only: absolute(predicted percentage cover-observed percentage cover)<=10 percentage points. This is not a relative10percent or pollen-composition threshold.",
+    "evaluation_status": "Not evaluable: no matched measured vegetation pairs are admitted; overall acceptance/model selection and an eligible independent cohort remain to be frozen before confirmatory outcomes.",
+    "british_transfer_resource": "White Horse Hill modeled Calluna92.49percent is site-level REVEALS output, not measured cover or LOVE; British circular/homogeneous modeling assumptions are candidates for explicitly conditional Swedish sensitivity, not country equivalence.",
+    "surface_sediment_note": "0–1cm≈10years is discussion guidance for an appropriate source core only, not a universal rate or BOKE sample-age uncertainty law."
+  }
+}
