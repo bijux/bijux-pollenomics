@@ -5570,7 +5570,7 @@ __URL_STATE_CONTROLLER__
         'source_relation_path_dictionary', 'source_relation_path_value_semantics',
       ]);
       function renderDetailObjectEntries(value, valuePath, excludedKeys = new Set()) {
-        return Object.entries(value).filter(([key]) => !excludedKeys.has(key)).map(([key, item]) => `<div class="focus-detail-row"><span class="focus-detail-key">${escapeHtml(key.replaceAll('_', ' '))}</span>${detailTableShape(item) ? `<div>${renderDetailTable(item, `${valuePath}.${key}`)}</div>` : `<span>${escapeHtml(detailTableText(item))}</span>`}</div>`).join('');
+        return Object.entries(value).filter(([key]) => !excludedKeys.has(key) && !(valuePath === 'chronology' && key === 'source_issues')).map(([key, item]) => `<div class="focus-detail-row"><span class="focus-detail-key">${escapeHtml(key.replaceAll('_', ' '))}</span>${detailTableShape(item) ? `<div>${renderDetailTable(item, `${valuePath}.${key}`)}</div>` : `<span>${escapeHtml(detailTableText(item))}</span>`}</div>`).join('');
       }
       function renderDetailTable(table, tablePath) {
         try {
@@ -5692,10 +5692,11 @@ __URL_STATE_CONTROLLER__
           ? renderSourceDetailContext('samples', tabs) : '';
         const sourceContext = ['neotoma','sead'].includes(tabs.overview?.source_family)
           ? activeFocusTab === 'classification' ? renderSourceDetailContext('classification', tabs)
-            : activeFocusTab === 'provenance' ? renderSourceDetailContext('provenance', tabs) : '' : '';
+            : activeFocusTab === 'provenance' ? renderSourceDetailContext('provenance', tabs)
+              : activeFocusTab === 'chronology' ? renderSourceDetailContext('chronology', tabs) : '' : '';
         const relationDetails = activeFocusTab === 'relation' ? renderRelationDetails(tabs.relation) : '';
         focusDetail.innerHTML = fieldwork ? renderFieldworkDetail(focusState.sourceSignal)
-          : sourceOverview + sourceDiagram + relationDetails + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations + sourceContext;
+          : sourceOverview + (activeFocusTab === 'chronology' ? sourceContext : '') + sourceDiagram + relationDetails + renderDetailValue(tabs[activeFocusTab], activeFocusTab) + sampleObservations + (activeFocusTab === 'chronology' ? '' : sourceContext);
         focusDetail.dataset.detailStatus = !fieldwork && tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
         focusExportButton.hidden = fieldwork;
         focusExportButton.disabled = !sourcePollenExportAvailable(focusState);

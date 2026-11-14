@@ -27,6 +27,7 @@ detailTableText:value=>String(value),renderDetailTable:()=>'',escapeHtml:value=>
 console.log(JSON.stringify({frozen:Object.isFrozen(tools),methods:Object.keys(tools),
 country:tools.countryData([]),time:tools.timeData([]),picker:tools.pickerCatalog([]),
 sourceFrozen:Object.isFrozen(source),sourceMethods:Object.keys(source),sourceHtml:source.overview({},{}),
+chronologyHtml:source.chronology({chronology:{}}),
 html:tools.pickerHtml(catalog,{pinnedIds:[],visibleIds:[]})}));
 """
     )
@@ -54,7 +55,12 @@ html:tools.pickerHtml(catalog,{pinnedIds:[],visibleIds:[]})}));
     assert observed["sourceMethods"] == [
         "overview",
         "samples",
+        "chronology",
         "classification",
         "provenance",
     ]
     assert "Selected sample metadata is supported for Neotoma" in observed["sourceHtml"]
+    assert 'data-source-chronology-review="unavailable"' in observed["chronologyHtml"]
+    assert (
+        "does not establish that no source issues exist" in observed["chronologyHtml"]
+    )

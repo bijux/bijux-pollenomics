@@ -8,6 +8,10 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 
+from bijux_pollenomics.collection.sources.neotoma.relational.identifiers import (
+    source_reference_matches,
+)
+
 from .io import _required_text
 from .records import _row_table, _unavailable, _unique_rows
 
@@ -19,6 +23,9 @@ _MODEL_FIELDS = (
     "source_is_default_assertion",
     "source_payload",
     "source_part_number",
+    "effective_reference_selected",
+    "reference_verification_status",
+    "source_issue_ids",
 )
 _CONTROL_FIELDS = (
     "chronology_control_id",
@@ -27,12 +34,17 @@ _CONTROL_FIELDS = (
     "collection_unit_id",
     "source_payload",
     "source_part_number",
+    "source_issue_ids",
+    "source_payload_posture",
 )
 
 
 def chronology_model_tables(
     loaded: Mapping[str, tuple[list[Mapping[str, object]], tuple[int, ...]]],
     site_ids: set[str],
+    *,
+    source_issues_by_subject: Mapping[str, Sequence[str]] | None = None,
+    control_variant_ids_by_site: Mapping[str, Sequence[str]] | None = None,
 ) -> dict[str, dict[str, object]]:
     """Transport already authenticated source surfaces, with explicit absence.
 
@@ -41,6 +53,8 @@ def chronology_model_tables(
     records. Part numbers refer to that materialization, not a copied source.
     """
     result: dict[str, dict[str, object]] = {site: {} for site in site_ids}
+    issue_index = source_issues_by_subject or {}
+    variant_coverage = control_variant_ids_by_site or {}
     for surface, name, fields in (
         ("chronologies", "models", _MODEL_FIELDS),
         ("chronology_controls", "controls", _CONTROL_FIELDS),
@@ -64,7 +78,39 @@ def chronology_model_tables(
                 raise ValueError(
                     "Neotoma chronology default assertions must be Boolean"
                 )
-            grouped[site].append([row.get(field) for field in fields[:-1]] + [part])
+            issue_ids = sorted(
+                {
+                    issue_id
+                    for key in (fields[0], "chronology_id", "collection_unit_id")
+                    for value in (row.get(key),)
+                    if isinstance(value, str)
+                    for issue_id in issue_index.get(value, ())
+                }
+            )
+            enriched = {
+                **row,
+                "source_part_number": part,
+                "source_issue_ids": issue_ids,
+            }
+            if surface == "chronologies":
+                identified = source_reference_matches(
+                    row.get("source_chronology_id"), row.get("source_chronology_id")
+                )
+                enriched["effective_reference_selected"] = (
+                    identified and row["selected_by_collection_unit_reference"] is True
+                )
+                enriched["reference_verification_status"] = (
+                    "retained_reference_assertion_with_identified_source"
+                    if identified
+                    else "refused_missing_source_identifier"
+                )
+            else:
+                enriched["source_payload_posture"] = (
+                    "retained_canonical_variant_with_all_variants_in_source_issues"
+                    if row["chronology_control_id"] in variant_coverage.get(site, ())
+                    else "retained_source_control_payload"
+                )
+            grouped[site].append([enriched.get(field) for field in fields])
         prefixes = {
             field: "neotoma:chronology:"
             for field in fields
@@ -119,5 +165,10 @@ def chronology_tab(
             "Source models and controls only. The collection-unit reference and "
             "source default assertion are distinct; neither selects an analysis "
             "chronology or establishes calibration, comparable ages or a fitted curve."
+        ),
+        "reference_verification_posture": (
+            "The retained collection-reference flag is preserved literally. An effective "
+            "selection requires an identified source chronology; the original collection "
+            "reference is not rederived from a retained flag."
         ),
     }

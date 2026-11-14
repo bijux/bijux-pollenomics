@@ -8,6 +8,28 @@ function sourceRecordRows(table, required) {
 function sourceRecordFields(rows) {
   return rows.map(([label,value]) => `<div class="focus-detail-row"><span class="focus-detail-key">${escapeHtml(label)}</span><span>${escapeHtml(detailTableText(value))}</span></div>`).join('');
 }
+function renderSourceChronologyContext(tabs) {
+  const unavailable = () => '<section aria-label="Source chronology review" data-source-chronology-review="unavailable"><h3>Source chronology review</h3><p>Source issue review is not available in these retained tables. This does not establish that no source issues exist. Original model, control and age tables remain below.</p></section>';
+  const issues = tabs?.chronology?.source_issues;
+  if (!issues || issues.status === 'unavailable') return unavailable();
+  try {
+    const conflicts = sourceRecordRows(issues.conflicts,['conflict_id']);
+    const orphans = sourceRecordRows(issues.orphans,['orphan_id']);
+    const variants = sourceRecordRows(issues.chronology_control_variants,['conflict_id','variant_index']);
+    let references = 'Reference verification was not supplied with these model rows.';
+    if (detailTableShape(tabs.chronology.models)) {
+      const models = sourceRecordRows(tabs.chronology.models,['chronology_id']);
+      if (models.every(row => typeof row.reference_verification_status === 'string')) {
+        const count = models.filter(row => row.reference_verification_status === 'refused_missing_source_identifier').length;
+        references = `${count} model${count === 1 ? ' lacks' : 's lack'} an identified native reference and ${count === 1 ? 'is' : 'are'} not treated as referenced selections. Original projection flags remain visible beside their effective reference status.`;
+      }
+    }
+    const sections = [['conflicts','Retained source conflicts'],['orphans','Retained source orphans'],['chronology_control_variants','Constituent dated-specimen variants']];
+    const metadata = sourceRecordFields(Object.entries(issues).filter(([key]) => !sections.some(([name]) => key === name)));
+    const tables = sections.map(([key,label]) => `<h4>${escapeHtml(label)}</h4>${renderDetailTable(issues[key], `chronology.source_issues.${key}`)}`).join('');
+    return `<section aria-label="Source chronology review" data-source-chronology-review="available"><h3>Source chronology review</h3><p>${conflicts.length} retained conflict records, ${orphans.length} orphan records and ${variants.length} constituent dated-specimen variants. A source control may combine several dated specimens. Canonical storage does not select a specimen or an analysis chronology.</p><p>${escapeHtml(references)}</p><p>All retained issue records, variants and native locators remain in the tables below and the source record download. These records are not additional pollen observations or independent validation data.</p>${metadata}${tables}</section>`;
+  } catch { return unavailable(); }
+}
 function renderSelectedSourceOverview(tabs, feature) {
   const unavailable = reason => `<section aria-label="Selected source record" data-source-record-details="unavailable"><h3>Selected source record</h3><p>${escapeHtml(reason)} Original source tables remain available.</p></section>`;
   const identifier = value => typeof value === 'string' && value.trim() && value === value.trim();
