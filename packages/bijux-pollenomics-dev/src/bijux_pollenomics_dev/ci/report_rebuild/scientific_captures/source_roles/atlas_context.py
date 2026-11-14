@@ -239,6 +239,61 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
         (
             (
                 (
+                    b"from collections.abc import MutableMapping, Sequence\n"
+                    b"from pathlib import Path\n"
+                    b"from typing import cast\n"
+                    b"\n"
+                    b"from bijux_pollenomics.core.geospatial.geojson import JsonObject\n"
+                    b"from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS\n"
+                ),
+                (
+                    b"from collections.abc import Mapping, MutableMapping, Sequence\n"
+                    b"from pathlib import Path\n"
+                    b"\n"
+                    b"from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS\n"
+                ),
+            ),
+            (
+                b'    records.sort(key=lambda row: str(row["record_id"]))\n',
+                (
+                    b"    return _assemble_evidence_projection(\n"
+                    b"        detail_records=records,\n"
+                    b"        source_layers=list(selected_layers.values()),\n"
+                    b"        projected_point_layers=projected_point_layers,\n"
+                    b"        source_accounting=source_accounting,\n"
+                    b"    )\n"
+                    b"\n"
+                    b"\n"
+                    b"def _assemble_evidence_projection(\n"
+                    b"    *,\n"
+                    b"    detail_records: Sequence[Mapping[str, object]],\n"
+                    b"    source_layers: Sequence[MutableMapping[str, object]],\n"
+                    b"    projected_point_layers: Sequence[Mapping[str, object]],\n"
+                    b"    source_accounting: dict[str, dict[str, object]],\n"
+                    b") -> MapEvidenceProjection:\n"
+                    b'    """Reconcile supplied source records and layers without acquiring source data."""\n'
+                    b"    records = list(detail_records)\n"
+                    b'    records.sort(key=lambda row: str(row["record_id"]))\n'
+                ),
+            ),
+            (
+                b"    evidence_layers = [*selected_layers.values(), *projected_point_layers]\n",
+                b"    evidence_layers = [*source_layers, *projected_point_layers]\n",
+            ),
+            (
+                (
+                    b"        detail_records=tuple(cast(JsonObject, row) for row in records),\n"
+                    b"        reconciliation=reconciliation,\n"
+                    b"        point_layers=tuple(cast(JsonObject, row) for row in projected_point_layers),\n"
+                ),
+                (
+                    b"        detail_records=tuple(records),\n"
+                    b"        reconciliation=reconciliation,\n"
+                    b"        point_layers=tuple(projected_point_layers),\n"
+                ),
+            ),
+            (
+                (
                     b"from .io import _regular_absolute_directory, _required_text\n"
                     b"from .models import MapEvidenceProjection\n"
                     b"from .neotoma import _project_neotoma\n"
