@@ -51,6 +51,8 @@ def _validate_receipt(
         "body_complete": True,
         "terminal_status": "complete_http_200",
     }
+    if request.dataset_id is not None:
+        expected["expected_dataset_id"] = request.dataset_id
     for field, value in expected.items():
         if record.get(field) != value:
             raise ValueError(f"Neotoma metadata receipt {field} identity differs")

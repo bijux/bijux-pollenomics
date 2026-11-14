@@ -112,7 +112,7 @@ def replay_neotoma_metadata_capture(
             limits.max_pages_per_inventory, recorded_limits.max_pages_per_inventory
         ),
     )
-    inventories, sites = _walk_plan(plan, effective_limits, consume)
+    inventories, sites, datasets = _walk_plan(plan, effective_limits, consume)
     if (
         cursor != len(records)
         or manifest.get("request_count") != cursor
@@ -121,4 +121,6 @@ def replay_neotoma_metadata_capture(
         raise ValueError("Neotoma metadata aggregate request closure differs")
     if {path.name for path in root.iterdir()} != files:
         raise ValueError("Neotoma metadata capture contains unmanifested files")
-    return NeotomaMetadataCapture(digest, inventories, sites, cursor, total)
+    return NeotomaMetadataCapture(
+        digest, inventories, sites, cursor, total, dataset_responses=datasets
+    )

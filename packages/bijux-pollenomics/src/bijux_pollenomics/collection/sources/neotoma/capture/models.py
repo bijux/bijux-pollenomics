@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from urllib.parse import urlencode
 
 _BASE = "https://api.neotomadb.org/v2.0/data"
@@ -23,6 +23,7 @@ class NeotomaMetadataPlan:
     inventory_bbox: tuple[float, float, float, float] | None = None
     inventory_limits: tuple[int, ...] = ()
     site_ids: tuple[int, ...] = ()
+    dataset_ids: tuple[int, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -59,6 +60,7 @@ class NeotomaMetadataCapture:
     site_responses: dict[int, bytes]
     request_count: int
     response_bytes: int
+    dataset_responses: dict[int, bytes] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -68,6 +70,7 @@ class _Request:
     endpoint: str
     parameters: dict[str, str]
     site_id: int | None = None
+    dataset_id: int | None = None
 
     @property
     def url(self) -> str:

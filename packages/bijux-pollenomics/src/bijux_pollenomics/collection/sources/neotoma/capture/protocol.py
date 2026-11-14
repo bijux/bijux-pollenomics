@@ -9,6 +9,7 @@ from typing import Any
 from ..client import build_neotoma_bbox_geojson
 from ..site_inventory.connected_resources import (
     _metadata_rows,
+    parse_neotoma_dataset_metadata,
     parse_neotoma_site_datasets,
     positive_native_id,
 )
@@ -19,11 +20,11 @@ def _plan_from_spec(
     spec: dict[str, Any],
 ) -> tuple[NeotomaMetadataPlan, NeotomaMetadataLimits]:
     raw_plan, raw_limits = spec.get("plan"), spec.get("limits")
-    if not isinstance(raw_plan, dict) or set(raw_plan) != {
-        "inventory_bbox",
-        "inventory_limits",
-        "site_ids",
-    }:
+    legacy_fields = {"inventory_bbox", "inventory_limits", "site_ids"}
+    if not isinstance(raw_plan, dict) or set(raw_plan) not in (
+        legacy_fields,
+        legacy_fields | {"dataset_ids"},
+    ):
         raise ValueError("Neotoma metadata plan must contain its exact declared fields")
     if not isinstance(raw_limits, dict) or set(raw_limits) != {
         "max_requests",
@@ -41,12 +42,13 @@ def _plan_from_spec(
     if any(
         not isinstance(raw_plan[name], list)
         for name in ("inventory_limits", "site_ids")
-    ):
+    ) or not isinstance(raw_plan.get("dataset_ids", []), list):
         raise ValueError("Neotoma metadata declared populations must be arrays")
     plan = NeotomaMetadataPlan(
         inventory_bbox=tuple(bbox) if bbox is not None else None,
         inventory_limits=tuple(raw_plan["inventory_limits"]),
         site_ids=tuple(raw_plan["site_ids"]),
+        dataset_ids=tuple(raw_plan.get("dataset_ids", [])),
     )
     limits = NeotomaMetadataLimits(**raw_limits)
     _validate_plan(plan, limits)
@@ -68,7 +70,7 @@ def _validate_plan(plan: NeotomaMetadataPlan, limits: NeotomaMetadataLimits) -> 
         or limits.timeout_seconds <= 0
     ):
         raise ValueError("Neotoma metadata timeout must be positive and finite")
-    if not plan.inventory_limits and not plan.site_ids:
+    if not plan.inventory_limits and not plan.site_ids and not plan.dataset_ids:
         raise ValueError("Neotoma metadata plan is empty")
     if bool(plan.inventory_limits) != (plan.inventory_bbox is not None):
         raise ValueError("Neotoma inventory limits require exactly one declared bbox")
@@ -92,6 +94,10 @@ def _validate_plan(plan: NeotomaMetadataPlan, limits: NeotomaMetadataLimits) -> 
         positive_native_id(site_id)
     if len(set(plan.site_ids)) != len(plan.site_ids):
         raise ValueError("Neotoma metadata site roster is duplicate")
+    for dataset_id in plan.dataset_ids:
+        positive_native_id(dataset_id)
+    if len(set(plan.dataset_ids)) != len(plan.dataset_ids):
+        raise ValueError("Neotoma metadata dataset roster is duplicate")
 
 
 def _inventory_identities(rows: list[dict[str, object]]) -> tuple[set[int], set[int]]:
@@ -123,9 +129,10 @@ def _walk_plan(
     plan: NeotomaMetadataPlan,
     limits: NeotomaMetadataLimits,
     consume: Callable[[_Request], bytes],
-) -> tuple[dict[int, list[dict[str, object]]], dict[int, bytes]]:
+) -> tuple[dict[int, list[dict[str, object]]], dict[int, bytes], dict[int, bytes]]:
     inventories = {}
     sites = {}
+    datasets_by_id = {}
     for limit in plan.inventory_limits:
         rows: list[dict[str, object]] = []
         seen_units: set[int] = set()
@@ -177,4 +184,16 @@ def _walk_plan(
         )
         parse_neotoma_site_datasets(site_id, content)
         sites[site_id] = content
-    return inventories, sites
+    for dataset_id in sorted(plan.dataset_ids):
+        content = consume(
+            _Request(
+                f"dataset-{dataset_id}-metadata",
+                "dataset_metadata",
+                f"/datasets/{dataset_id}",
+                {},
+                dataset_id=dataset_id,
+            )
+        )
+        parse_neotoma_dataset_metadata(dataset_id, content)
+        datasets_by_id[dataset_id] = content
+    return inventories, sites, datasets_by_id

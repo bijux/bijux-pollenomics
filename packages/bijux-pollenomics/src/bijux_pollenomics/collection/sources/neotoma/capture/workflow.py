@@ -83,6 +83,8 @@ def capture_neotoma_metadata(
             "tls_mode": "verified_no_insecure_fallback",
             "utc_start": datetime.now(UTC).isoformat(),
         }
+        if request.dataset_id is not None:
+            record["expected_dataset_id"] = request.dataset_id
         try:
             response = fetch(
                 request.url, timeout=limits.timeout_seconds, max_bytes=bound

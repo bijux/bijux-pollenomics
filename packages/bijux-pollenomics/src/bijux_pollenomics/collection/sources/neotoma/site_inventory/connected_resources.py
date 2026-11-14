@@ -89,6 +89,28 @@ def parse_neotoma_site_datasets(site_id: int, content: bytes) -> list[dict[str, 
     return result
 
 
+def parse_neotoma_dataset_metadata(
+    dataset_id: int, content: bytes
+) -> list[dict[str, Any]]:
+    """Bind a dataset-ID metadata result, preserving a successful empty response.
+
+    Empty data is an observation of this exact lookup, not certified absence.
+    Returned parents and source types remain provider metadata for later review.
+    """
+    positive_native_id(dataset_id)
+    rows = _metadata_rows(content)
+    if not rows:
+        return []
+    if len(rows) != 1 or not isinstance(site := rows[0].get("site"), dict):
+        raise ValueError("Neotoma dataset metadata lacks one native parent row")
+    site_id = positive_native_id(site.get("siteid"))
+    units = parse_neotoma_site_datasets(site_id, content)
+    datasets = units[0]["datasets"]
+    if len(datasets) != 1 or datasets[0]["datasetid"] != dataset_id:
+        raise ValueError("Neotoma dataset metadata response owner differs")
+    return units
+
+
 def build_neotoma_connected_resources(
     *,
     site_ids: Sequence[int],
