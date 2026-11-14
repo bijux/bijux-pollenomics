@@ -219,7 +219,9 @@ def test_time_controls_expose_canonical_interval_and_playback_direction() -> Non
 
 def test_desktop_header_is_compact_and_control_toggle_shows_direction() -> None:
     assert "@media (min-width: 901px)" in MAP_DOCUMENT_TEMPLATE
-    assert "width: min(720px, calc(100vw - 352px))" in MAP_DOCUMENT_TEMPLATE
+    toolbar_rule = template_block(".map-topbar {", ".map-topbar-main {")
+    assert "grid-area: toolbar;" in toolbar_rule
+    assert "min-width: 0;" in toolbar_rule
     assert "width: min(460px, 100%)" in MAP_DOCUMENT_TEMPLATE
     assert "← Show controls" in MAP_DOCUMENT_TEMPLATE
     assert "Hide controls →" in MAP_DOCUMENT_TEMPLATE
@@ -411,18 +413,26 @@ def test_search_results_are_explicit_and_close_on_escape() -> None:
 
 
 def test_mobile_search_preserves_map_space_and_focus_allows_readable_details() -> None:
-    assert "width: min(360px, 100%);" in MAP_DOCUMENT_TEMPLATE
-    assert "max-height: min(18vh, 140px);" in MAP_DOCUMENT_TEMPLATE
-    assert "width: min(240px, 46vw);" in MAP_DOCUMENT_TEMPLATE
-    assert "width: min(220px, calc(100vw - 16px));" in MAP_DOCUMENT_TEMPLATE
-    assert "max-height: min(14vh, 88px);" in MAP_DOCUMENT_TEMPLATE
-    assert "width: min(560px, calc(100vw - 20px));" in MAP_DOCUMENT_TEMPLATE
-    assert "max-height: min(32vh, 320px);" in MAP_DOCUMENT_TEMPLATE
-    narrow_css = MAP_DOCUMENT_TEMPLATE.split("@media (max-width: 640px) {", 1)[1]
-    focus_rule = narrow_css.split(".focus-card {", 1)[1].split("}", 1)[0]
-    assert "left: 8px;" in focus_rule and "right: 8px;" in focus_rule
-    assert "width: auto;" in focus_rule and "bottom: 72px;" in focus_rule
-    assert "max-height: min(65vh, calc(100dvh - 144px));" in focus_rule
+    narrow_css = template_block(
+        "@media (max-width: 640px)", "@media (max-height: 640px)"
+    )
+    search_rule = narrow_css.split(".topbar-search {", 1)[1].split("}", 1)[0]
+    results_rule = narrow_css.split(".search-results--floating {", 1)[1].split("}", 1)[
+        0
+    ]
+    assert "position: relative;" in search_rule and "width: 100%;" in search_rule
+    assert "max-height: min(14vh, 88px);" in results_rule
+    reader_rule = template_block(".focus-card {", ".focus-card[hidden]")
+    assert "min-height: 0;" in reader_rule
+    assert "max-height: 100%;" in reader_rule
+    assert "overflow: auto;" in reader_rule
+    assert "min(22dvh, 224px)" in MAP_DOCUMENT_TEMPLATE
+    short_css = template_block("@media (max-height: 640px)", "</style>")
+    assert (
+        "position: absolute;"
+        in short_css.split(".topbar-search {", 1)[1].split("}", 1)[0]
+    )
+    assert "grid-area: map;" in short_css.split(".focus-card {", 1)[1].split("}", 1)[0]
     assert MAP_DOCUMENT_TEMPLATE.index('class="time-stepper topbar-time-stepper"') < (
         MAP_DOCUMENT_TEMPLATE.index('id="topbar-search" class="topbar-search"')
     )

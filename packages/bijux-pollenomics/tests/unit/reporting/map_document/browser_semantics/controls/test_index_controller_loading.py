@@ -42,7 +42,7 @@ const first=loadIndexTransport(),second=loadIndexTransport();
  await loadIndexTransport();
  console.log(JSON.stringify({before,pending,after:scripts.length,shared,samePromise:first===second,
  src:scripts[0].src,integrity:scripts[0].integrity,crossOrigin:scripts[0].crossOrigin,
- methods:Object.keys(controller).sort()}));
+ methods:Object.keys(controller).sort(),grams:[...controller.searchGrams("AB")].sort()}));
 })();
 """
     )
@@ -55,7 +55,14 @@ const first=loadIndexTransport(),second=loadIndexTransport();
         "src": "./atlas.atlas-index-transport." + "a" * 16 + ".js",
         "integrity": "sha256-" + "A" * 43 + "=",
         "crossOrigin": "anonymous",
-        "methods": ["acceptPart", "consume", "mergeShards", "validatePayload"],
+        "methods": [
+            "acceptPart",
+            "consume",
+            "mergeShards",
+            "searchGrams",
+            "validatePayload",
+        ],
+        "grams": ["0041", "00410042", "0042"],
     }
 
 

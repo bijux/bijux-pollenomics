@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 import pytest
 
+from bijux_pollenomics.core.temporal_semantics import build_temporal_semantics
 from bijux_pollenomics.reporting import (
     generate_multi_country_map,
 )
@@ -20,7 +21,7 @@ from ..fixtures.context_sources import (
     write_sead_context,
 )
 from ..fixtures.files import write_json
-from ..static_assets import read_static_atlas_payload_text
+from ..static_assets import read_static_atlas_payload_text, read_static_atlas_runtime
 
 pytestmark = pytest.mark.generated_artifacts
 
@@ -225,6 +226,8 @@ class CountryReportTests(unittest.TestCase):
                 )
 
             map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
+            runtime_text = read_static_atlas_runtime(output, "nordic-atlas")
+            self.assertIn("function renderLayerControls()", runtime_text)
             atlas_payload_text = read_static_atlas_payload_text(output, "nordic-atlas")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             self.assertIn("Country Filters", map_html)
@@ -235,7 +238,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Country boundaries", atlas_payload_text)
             self.assertIn("dock-layer-chip", map_html)
             self.assertIn('class="control-panel is-collapsed"', map_html)
-            self.assertIn("width: min(288px, calc(100vw - 32px));", map_html)
+            self.assertIn("width:min(288px, calc(100vw - 32px));", map_html)
             self.assertIn('details class="control-group"', map_html)
             self.assertIn("LandClim pollen sites", atlas_payload_text)
             self.assertIn("LandClim REVEALS grid cells", atlas_payload_text)
@@ -284,122 +287,175 @@ class CountryReportTests(unittest.TestCase):
     def test_generate_multi_country_map_uses_context_layer_dates_for_time_window(
         self,
     ) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp) / "v62.0"
-            output = Path(tmp) / "docs" / "report" / "nordic-atlas"
-            context_root = Path(tmp) / "data"
-            write_anno(
-                root / "ho" / "v62.0_HO_public.anno",
-                [
-                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t\t\tHO\tF",
-                ],
-            )
-            write_json(
-                context_root
-                / "boundaries"
-                / "normalized"
-                / "nordic_country_boundaries.geojson",
-                {
-                    "type": "FeatureCollection",
-                    "features": [
-                        {
-                            "type": "Feature",
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [
-                                    [
-                                        [16.0, 58.0],
-                                        [19.0, 58.0],
-                                        [19.0, 60.0],
-                                        [16.0, 60.0],
-                                        [16.0, 58.0],
-                                    ]
-                                ],
-                            },
-                            "properties": {
-                                "country": "Sweden",
-                                "name": "Sweden",
-                                "layer_key": "country-boundaries",
-                                "layer_label": "Country boundaries",
-                            },
-                        }
+        for declared in (False, True):
+            with (
+                self.subTest(declared_comparison_posture=declared),
+                tempfile.TemporaryDirectory() as tmp,
+            ):
+                root = Path(tmp) / "v62.0"
+                output = Path(tmp) / "docs" / "report" / "nordic-atlas"
+                context_root = Path(tmp) / "data"
+                write_anno(
+                    root / "ho" / "v62.0_HO_public.anno",
+                    [
+                        "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t\t\tHO\tF",
                     ],
-                },
-            )
-            write_json(
-                context_root
-                / "landclim"
-                / "normalized"
-                / "nordic_reveals_grid_cells.geojson",
-                {
-                    "type": "FeatureCollection",
-                    "features": [
-                        {
-                            "type": "Feature",
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [
-                                    [
-                                        [16.0, 58.0],
-                                        [17.0, 58.0],
-                                        [17.0, 59.0],
-                                        [16.0, 59.0],
-                                        [16.0, 58.0],
-                                    ]
-                                ],
-                            },
-                            "properties": {
-                                "source": "LandClim",
-                                "layer_key": "landclim-reveals-grid",
-                                "layer_label": "LandClim REVEALS grid cells",
-                                "category": "Vegetation reconstruction",
-                                "country": "Sweden",
-                                "record_id": "16,58,17,59",
-                                "name": "17E 59N grid cell",
-                                "geometry_type": "Polygon",
-                                "subtitle": "1 degree REVEALS grid-cell coverage",
-                                "description": "",
-                                "source_url": "https://doi.org/10.1594/PANGAEA.937075",
-                                "record_count": 1,
-                                "time_start_bp": 100,
-                                "time_end_bp": 3200,
-                                "popup_rows": [
-                                    {"label": "Time windows", "value": "100-3200 BP"},
-                                ],
-                            },
-                        }
-                    ],
-                },
-            )
+                )
+                write_json(
+                    context_root
+                    / "boundaries"
+                    / "normalized"
+                    / "nordic_country_boundaries.geojson",
+                    {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Polygon",
+                                    "coordinates": [
+                                        [
+                                            [16.0, 58.0],
+                                            [19.0, 58.0],
+                                            [19.0, 60.0],
+                                            [16.0, 60.0],
+                                            [16.0, 58.0],
+                                        ]
+                                    ],
+                                },
+                                "properties": {
+                                    "country": "Sweden",
+                                    "name": "Sweden",
+                                    "layer_key": "country-boundaries",
+                                    "layer_label": "Country boundaries",
+                                },
+                            }
+                        ],
+                    },
+                )
+                write_json(
+                    context_root
+                    / "landclim"
+                    / "normalized"
+                    / "nordic_reveals_grid_cells.geojson",
+                    {
+                        "type": "FeatureCollection",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "geometry": {
+                                    "type": "Polygon",
+                                    "coordinates": [
+                                        [
+                                            [16.0, 58.0],
+                                            [17.0, 58.0],
+                                            [17.0, 59.0],
+                                            [16.0, 59.0],
+                                            [16.0, 58.0],
+                                        ]
+                                    ],
+                                },
+                                "properties": {
+                                    "source": "LandClim",
+                                    "layer_key": "landclim-reveals-grid",
+                                    "layer_label": "LandClim REVEALS grid cells",
+                                    "category": "Vegetation reconstruction",
+                                    "country": "Sweden",
+                                    "record_id": "16,58,17,59",
+                                    "name": "17E 59N grid cell",
+                                    "geometry_type": "Polygon",
+                                    "subtitle": "1 degree REVEALS grid-cell coverage",
+                                    "description": "",
+                                    "source_url": "https://doi.org/10.1594/PANGAEA.937075",
+                                    "record_count": 1,
+                                    "time_start_bp": 100,
+                                    "time_end_bp": 3200,
+                                    **(
+                                        {
+                                            "temporal_semantics": build_temporal_semantics(
+                                                source_family="LandClim",
+                                                evidence_class="controlled_numeric_fixture",
+                                                precision_posture="controlled_interval",
+                                                comparability_posture="numeric_interval_with_caveat",
+                                                time_start_bp=100,
+                                                time_end_bp=3200,
+                                                comparison_note="Synthetic model coverage in BP1950; context only.",
+                                                source_metadata={
+                                                    "units": "years BP1950",
+                                                    "evidence_role": "context_only",
+                                                },
+                                            ).as_dict()
+                                        }
+                                        if declared
+                                        else {}
+                                    ),
+                                    "popup_rows": [
+                                        {
+                                            "label": "Time windows",
+                                            "value": "100-3200 BP",
+                                        },
+                                    ],
+                                },
+                            }
+                        ],
+                    },
+                )
 
-            generate_multi_country_map(
-                version_dir=root,
-                countries=["Sweden"],
-                output_dir=output,
-                title="Nordic Evidence Atlas",
-                slug="nordic-atlas",
-                context_root=context_root,
-            )
+                generate_multi_country_map(
+                    version_dir=root,
+                    countries=["Sweden"],
+                    output_dir=output,
+                    title="Nordic Evidence Atlas",
+                    slug="nordic-atlas",
+                    context_root=context_root,
+                )
 
-            map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
-            self.assertIn("const TIME_MIN_BP = 100;", map_html)
-            self.assertIn("const TIME_MAX_BP = 3200;", map_html)
-            self.assertIn("const TIME_HAS_DATA = true;", map_html)
-            self.assertIn("const DEFAULT_TIME_START_BP = 100;", map_html)
-            self.assertIn("const DEFAULT_TIME_INTERVAL_YEARS = 3100;", map_html)
-            self.assertIn('data-time-interval="5000">5000 years</button>', map_html)
-            self.assertIn('data-time-interval="50000">50000 years</button>', map_html)
-            self.assertIn('data-time-interval="full">Full span</button>', map_html)
-            self.assertIn("const admission = featureTimeAdmission(feature);", map_html)
-            self.assertIn("if (admission.status === 'refused') return false;", map_html)
-            self.assertIn(
-                "if (['absent', 'contextual'].includes(admission.status) && "
-                "layer.semantic_role === 'source_chronology_context') return false;",
-                map_html,
-            )
-            self.assertIn(
-                "if (['absent', 'contextual'].includes(admission.status)) {", map_html
-            )
+                map_html = (output / "nordic-atlas_map.html").read_text(
+                    encoding="utf-8"
+                )
+                runtime_text = read_static_atlas_runtime(output, "nordic-atlas")
+                expected = {
+                    "TIME_MIN_BP": "100" if declared else "0",
+                    "TIME_MAX_BP": "3200" if declared else "0",
+                    "TIME_HAS_DATA": "true" if declared else "false",
+                    "DEFAULT_TIME_START_BP": "100" if declared else "0",
+                    "DEFAULT_TIME_INTERVAL_YEARS": "3100" if declared else "100",
+                }
+                for name, value in expected.items():
+                    self.assertIn(f"const {name} = {value};", runtime_text)
+                payload_text = read_static_atlas_payload_text(output, "nordic-atlas")
+                self.assertIn('"time_start_bp":100', payload_text)
+                self.assertIn('"time_end_bp":3200', payload_text)
+                if declared:
+                    self.assertIn(
+                        '"comparability_posture":"numeric_interval_with_caveat"',
+                        payload_text,
+                    )
+                else:
+                    self.assertNotIn(
+                        '"comparability_posture":"numeric_interval', payload_text
+                    )
+                self.assertIn('data-time-interval="5000">5000 years</button>', map_html)
+                self.assertIn(
+                    'data-time-interval="50000">50000 years</button>', map_html
+                )
+                self.assertIn('data-time-interval="full">Full span</button>', map_html)
+                self.assertIn(
+                    "const admission = featureTimeAdmission(feature);", runtime_text
+                )
+                self.assertIn(
+                    "if (admission.status === 'refused') return false;",
+                    runtime_text,
+                )
+                self.assertIn(
+                    "if (['absent', 'contextual'].includes(admission.status) && "
+                    "layer.semantic_role === 'source_chronology_context') return false;",
+                    runtime_text,
+                )
+                self.assertIn(
+                    "if (['absent', 'contextual'].includes(admission.status)) {",
+                    runtime_text,
+                )
 
     def test_generate_multi_country_map_rejects_context_point_layers_without_identity(
         self,
