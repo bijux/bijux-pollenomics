@@ -15,6 +15,11 @@ Repository changes are recorded by pull request, newest merge first.
 - Support explicitly declared nonnegative cover in the conditional count/PPE
   uncertainty workflow before spatial averaging, with independent rational
   verification and signed diagnostics. Historical protocols retain raw behavior.
+- Reexecute six exposed Krageholm-background windows: all 54 nominal method
+  slots predict, including 45 formerly refused slots. A separate three-fold
+  bootstrap has all 9,216 method-replicate slots defined. Independent numerical
+  and source checks pass; static geometry, restricted taxonomy and scientific
+  admission limits remain explicit.
 
 ### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
 
