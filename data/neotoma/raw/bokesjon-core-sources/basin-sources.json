@@ -1,0 +1,134 @@
+{
+  "schema_version": "bokesjon-basin-sources.v1",
+  "document_kind": "authored_fact_extraction_and_profile_declaration",
+  "scope": "Selected source facts and citations for three declared static BOKE circles; this document is not an original provider response, original HTML capture, qualified physical-core crosswalk or historical shoreline measurement.",
+  "sources": {
+    "county_report_1985": {
+      "title": "De sydvästskånska sjöarna. Sedimentens sammansättning och funktion.",
+      "url": "https://www.lansstyrelsen.se/skane/om-oss/vara-tjanster/publikationer/1985/de-sydvastskanska-sjoarna.-sedimentens-sammansattning-och-funktion..html",
+      "locator": "Table 3, printed page 35, PDF page 43; Bökesjön row; lake surface area",
+      "facts": {
+        "lake_label": "Bökesjön",
+        "area_km2": 0.015
+      },
+      "retained_original_sha256": "2b34d1794a1b1d8d14318db49519c879da8ee934d35645a63035fa4e08db6e93",
+      "survey_epoch": null,
+      "station_to_pollen_core_identity": null
+    },
+    "smhi_catalogue_1987": {
+      "title": "Sjökartor och sjöuppgifter. Register 1987. SMHI Hydrologi 15.",
+      "url": "https://www.smhi.se/download/18.18f5a56618fc9f08e832bab2/1717803129630/Hydrologi_15%20Sj%C3%B6karte-%20och%20sj%C3%B6uppgifter.%20Register%201987..pdf",
+      "locator": "Printed page 85, PDF page 87; Bökesjön row under 91 Höje å; lake 616314-135069; chart 3-1832; Areal km2",
+      "facts": {
+        "lake_label": "Bökesjön",
+        "lake_id": "616314-135069",
+        "chart_id": "3-1832",
+        "catalogue_year": 1983,
+        "area_km2": 0.015
+      },
+      "retained_original_sha256": "b29f4ca2a847a4dc785d3738603e46817aa130c55c061b2d614d48857edc1fd3",
+      "survey_epoch": null,
+      "epoch_caution": "The catalogue year 1983, blank date on chart 3-1832 and winter 1984 caption in the separate 1985 report remain distinct claims.",
+      "station_to_pollen_core_identity": null
+    },
+    "oup_table_I": {
+      "title": "Location, area, pH, water color, nutrient and carbon concentrations of the three sampled lakes",
+      "url": "https://academic.oup.com/view-large/80999410",
+      "locator": "Table I; Bokesjön column; Area (km²), Latitude and Longitude rows; footnote: all variables measured in April",
+      "facts": {
+        "lake_label": "Bokesjön",
+        "area_km2": 0.016,
+        "latitude_dms": "55°34′31.6″N",
+        "longitude_dms": "13°26′15.7″E",
+        "measurement_month_literal": "April"
+      },
+      "capture_status": "Primary table read through public web access; this card is an authored selection of numerical facts and citation locators. No original HTML body is retained in product.",
+      "retained_original_sha256": null,
+      "survey_epoch": null,
+      "measurement_year": null,
+      "station_to_pollen_core_identity": null
+    },
+    "landclim_metadata": {
+      "title": "LandClim II site metadata",
+      "url": "https://doi.org/10.1594/PANGAEA.937075",
+      "locator": "LandClimII metadata.xlsx; LANDCLIMII metadata file; row 977; BOKE; siteradius",
+      "facts": {
+        "site_code": "BOKE",
+        "radius_m": 80,
+        "latitude": 55.575556,
+        "longitude": 13.4375
+      },
+      "retained_original_sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb",
+      "survey_epoch": null,
+      "station_to_pollen_core_identity": null
+    },
+    "saved_nominal_request": {
+      "title": "Retained current nominal BOKE host LRA request",
+      "repository_path": "artifacts/science/love-nonnegative-cover/cache/cal-bp-2700-3200/c3a99780c66f727ca71fe883b94fa74d421d21e1377d00a33c25357b431583e7/request.json",
+      "locator": "local.basin.diameter_m=160; local sample neotoma-54001-39241-cal-bp-2700-3200",
+      "facts": {
+        "diameter_m": 160
+      },
+      "retained_original_sha256": "8b91a11f52b0ea27ecb0f2868d2d46cb6c5735860783e8aef805be1cac1aa050",
+      "scope": "Existing declared static geometry, not an independent measurement or historical basin."
+    }
+  },
+  "profiles": [
+    {
+      "name": "modern_1_5_ha",
+      "quantity": {
+        "value": 0.015,
+        "unit": "km2"
+      },
+      "source_refs": [
+        {
+          "source_id": "county_report_1985",
+          "locator": "Table 3; printed page 35/PDF page 43; Bökesjön surface area 0.015 km²"
+        },
+        {
+          "source_id": "smhi_catalogue_1987",
+          "locator": "Printed page 85/PDF page 87; lake 616314-135069; Areal 0.015 km²"
+        }
+      ]
+    },
+    {
+      "name": "modern_1_6_ha",
+      "quantity": {
+        "value": 0.016,
+        "unit": "km2"
+      },
+      "source_refs": [
+        {
+          "source_id": "oup_table_I",
+          "locator": "Table I; Bokesjön column; Area (km²) row = 0.016"
+        }
+      ]
+    },
+    {
+      "name": "metadata_80_m",
+      "quantity": {
+        "value": 80,
+        "unit": "m"
+      },
+      "source_refs": [
+        {
+          "source_id": "landclim_metadata",
+          "locator": "LANDCLIMII metadata file row 977; BOKE siteradius 80 m"
+        },
+        {
+          "source_id": "saved_nominal_request",
+          "locator": "local.basin.diameter_m = 160 m"
+        }
+      ]
+    }
+  ],
+  "conversion": "Area-equivalent circle radius sqrt(area_km2*1000000/pi); one hectare is 10000 m². The metadata alternative uses the stated radius directly.",
+  "static_circle_assumption": "Apply each separately declared modern-source size as an equivalent circular BOKE receiving basin throughout [2700,3200) cal BP, holding the existing KRAG background, two-taxon parameters, wind and all-terrestrial local support fixed. Neither reported area supplies an ancient boundary or measured receiving kernel.",
+  "unresolved": [
+    "Exact original BOKE core GPS, coring date, water depth and relation to the mapped or sampled lake station.",
+    "Age-specific shoreline and geometry over 2700–3200 cal BP.",
+    "Whether either reported modern area uses an identical survey date, water level, datum, outline or station; no reconciliation is inferred.",
+    "Qualified basin, chronology, parameter and scientific review decisions; no forest/open or measured vegetation accuracy claim."
+  ],
+  "rights_scope": "This authored source card records selected numerical facts and citations. It does not reproduce the full copyrighted OUP table or grant source-body, chart or private-workbook redistribution rights."
+}

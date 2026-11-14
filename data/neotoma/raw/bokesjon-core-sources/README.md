@@ -20,3 +20,9 @@ are not sample-age uncertainty bounds. The source core GPS, collection date,
 water depth and device remain unreported; a lake-centre site point is not measured
 core GPS. This packet does not establish an ancient shoreline, regional
 representativeness, a qualified taxon/PPE profile or independent vegetation accuracy.
+
+[basin-sources.json](basin-sources.json) is a separate authored extraction of
+selected modern-area/radius facts and exact citation locators for conditional
+static-circle sensitivity. It is not an original provider response or an ancient
+shoreline measurement. The original HTTP metadata manifest above still identifies
+its six source bodies; the basin card retains its own scientific scope.
