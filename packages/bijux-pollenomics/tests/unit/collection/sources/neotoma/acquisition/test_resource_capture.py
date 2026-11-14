@@ -758,3 +758,34 @@ def test_new_attempt_rejects_unowned_result_fields(tmp_path: Path, scope: str) -
     path.write_text(json.dumps(manifest))
     with pytest.raises(ValueError, match="fields|assessment"):
         replay_neotoma_resource_capture(output)
+
+
+@pytest.mark.parametrize("metadata_path", ["site", "unit", "both"])
+def test_current_missing_database_is_not_borrowed_from_declared_null(
+    tmp_path: Path, metadata_path: str
+) -> None:
+    resource = spec(database=None)
+    native = json.loads(body(resource))
+    site = native["data"][0]["site"]
+    if metadata_path in {"site", "both"}:
+        del site["dataset"]["database"]
+    if metadata_path in {"unit", "both"}:
+        del site["collectionunit"]["dataset"]["database"]
+    content = json.dumps(native).encode()
+    capture = capture_neotoma_resources(
+        tmp_path / "capture",
+        plan=plan(resource),
+        fetch=lambda url, **_: response(url, content),
+    )
+    assert capture.resources[0]["terminal_status"] == "refused_native_protocol"
+    assert (
+        capture.resources[0]["summary"]["reason"]
+        == "Native dataset type/database differs"
+    )
+    assert (
+        tmp_path / "capture/dataset-201-current-attempt-1.body"
+    ).read_bytes() == content
+    replayed = replay_neotoma_resource_capture(
+        tmp_path / "capture", expected_manifest_sha256=capture.manifest_sha256
+    )
+    assert replayed.resources == capture.resources

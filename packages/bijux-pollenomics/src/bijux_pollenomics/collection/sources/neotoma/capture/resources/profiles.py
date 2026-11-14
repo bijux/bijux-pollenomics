@@ -65,7 +65,8 @@ def classify_body(
             if (
                 not isinstance(dataset, dict)
                 or dataset.get("datasettype") != resource.dataset_type
-                or dataset.get("database") != resource.database
+                or "database" not in dataset
+                or dataset["database"] != resource.database
             ):
                 raise ValueError("Native dataset type/database differs")
         dataset = unit["dataset"]
