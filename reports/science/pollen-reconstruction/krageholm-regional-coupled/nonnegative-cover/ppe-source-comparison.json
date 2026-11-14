@@ -1,0 +1,146 @@
+{
+  "schema_version": "krageholm-ppe-source-comparison.v1",
+  "source_review_date": "2026-11-14",
+  "source_reference": {
+    "path": "data/validation/pollen-productivity/wieczorek-herzschuh-2020/source.json",
+    "bytes": 8809,
+    "sha256": "c95c877a8a928ff2b79b7adf781cf063869864c0f702eb002d39ed902db94fcb"
+  },
+  "reference_table": {
+    "path": "data/validation/pollen-productivity/wieczorek-herzschuh-2020/continental-europe.csv",
+    "bytes": 21504,
+    "sha256": "7b52416cf8caf7bc55eacfa55935836b9a9068cbc1567593e99a8458091c7db5"
+  },
+  "current_working_parameters": {
+    "source_doi": "10.1594/PANGAEA.937075",
+    "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+    "rows": [
+      {
+        "Land-cover types (LCTs)": "",
+        "PFT": "",
+        "PFT definition": "",
+        "": "",
+        "Plant taxa/Pollen-morphological types": "Betula",
+        "FSP (m/s)": "0.024",
+        "PPE (SD)": "5.106 (0.303)"
+      },
+      {
+        "Land-cover types (LCTs)": "",
+        "PFT": "",
+        "PFT definition": "",
+        "": "",
+        "Plant taxa/Pollen-morphological types": "Ulmus",
+        "FSP (m/s)": "0.032",
+        "PPE (SD)": "1.27 (0.05)"
+      }
+    ],
+    "source_file": {
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "bytes": 1773,
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    }
+  },
+  "europe_reference_target_rows": [
+    {
+      "dataset_version": "v1",
+      "region": "Europe",
+      "taxon": "Ulmus",
+      "vegetation_type": "woody",
+      "n_estimates": "0",
+      "rpp": "",
+      "rpp_se": "",
+      "fall_speed_m_s": "3.2000000000000001E-2",
+      "source_filename": "RPP_Dataset_v1_Table_3_4.xlsx",
+      "source_sha256": "a1106d3b20f466d40e6c600d7e1b4a8f74a5155f5821a45d9caf2dc419fd7ce8",
+      "sheet_name": "Table 3+4 RPP v1",
+      "source_row": "12",
+      "taxon_cell": "B12",
+      "n_estimates_cell": "K12",
+      "rpp_cell": "L12",
+      "rpp_se_cell": "M12",
+      "fall_speed_m_s_cell": "N12"
+    },
+    {
+      "dataset_version": "v1",
+      "region": "Europe",
+      "taxon": "Betula",
+      "vegetation_type": "woody",
+      "n_estimates": "8",
+      "rpp": "5.6725000000000003",
+      "rpp_se": "0.33503914000000001",
+      "fall_speed_m_s": "2.3999999999999997E-2",
+      "source_filename": "RPP_Dataset_v1_Table_3_4.xlsx",
+      "source_sha256": "a1106d3b20f466d40e6c600d7e1b4a8f74a5155f5821a45d9caf2dc419fd7ce8",
+      "sheet_name": "Table 3+4 RPP v1",
+      "source_row": "22",
+      "taxon_cell": "B22",
+      "n_estimates_cell": "K22",
+      "rpp_cell": "L22",
+      "rpp_se_cell": "M22",
+      "fall_speed_m_s_cell": "N22"
+    },
+    {
+      "dataset_version": "v2",
+      "region": "Europe",
+      "taxon": "Ulmus",
+      "vegetation_type": "woody",
+      "n_estimates": "0",
+      "rpp": "",
+      "rpp_se": "",
+      "fall_speed_m_s": "3.2000000000000001E-2",
+      "source_filename": "RPP_Dataset_v2_Table_5_6.xlsx",
+      "source_sha256": "19a0f6e79770402e0c18e60f48275782d2a2489be35580b94ebd16335b616e31",
+      "sheet_name": "Table 5+6 RPP v2",
+      "source_row": "13",
+      "taxon_cell": "B13",
+      "n_estimates_cell": "K13",
+      "rpp_cell": "L13",
+      "rpp_se_cell": "M13",
+      "fall_speed_m_s_cell": "N13"
+    },
+    {
+      "dataset_version": "v2",
+      "region": "Europe",
+      "taxon": "Betula",
+      "vegetation_type": "woody",
+      "n_estimates": "6",
+      "rpp": "4.9400000000000004",
+      "rpp_se": "0.44296664000000002",
+      "fall_speed_m_s": "2.3999999999999997E-2",
+      "source_filename": "RPP_Dataset_v2_Table_5_6.xlsx",
+      "source_sha256": "19a0f6e79770402e0c18e60f48275782d2a2489be35580b94ebd16335b616e31",
+      "sheet_name": "Table 5+6 RPP v2",
+      "source_row": "22",
+      "taxon_cell": "B22",
+      "n_estimates_cell": "K22",
+      "rpp_cell": "L22",
+      "rpp_se_cell": "M22",
+      "fall_speed_m_s_cell": "N22"
+    }
+  ],
+  "selected_axis": [
+    "Betula",
+    "Ulmus"
+  ],
+  "missing_european_rpp": {
+    "v1": [
+      "Ulmus"
+    ],
+    "v2": [
+      "Ulmus"
+    ]
+  },
+  "pair_status": "Incomplete European RPP/SE pair; reference comparison only, not an automatic replacement configuration",
+  "current_results_unchanged": {
+    "calculation_source": "dbcc4c3435da29d4e066fc34774d3118c46eaf32",
+    "nominal_scored_cells": 54,
+    "uncertainty_method_draw_slots": 55296,
+    "model_or_parameter_reexecution": false
+  },
+  "independent_checks": {
+    "reference_rows": 110,
+    "raw_cell_values_compared": 550,
+    "all_original_downloads_byte_verified": true,
+    "canonical_deposit_preferred_over_misplaced_publisher_cell": true
+  }
+}

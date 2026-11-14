@@ -2,6 +2,14 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### Published European pollen-productivity reference
+
+- Ingest both Wieczorek–Herzschuh European RPP datasets with exact source cells,
+  missing values, reported SE, original download hashes and CC BY 4.0 attribution.
+- Compare the published reference with the executed LANDCLIM inputs. Preserve
+  missing European Ulmus RPP and the SE/SD distinction without changing earlier
+  calculations or declaring physical-source admission.
+
 ### Six-window analytical LOVE evaluation
 
 - Score all 54 adjusted nominal predictions and all 55,296 uncertainty slots at

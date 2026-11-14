@@ -1,5 +1,33 @@
 # Fixed Krageholm background with two local training sites
 
+## Published PPE reference added
+
+The [Wieczorek and Herzschuh (2020) paper](https://essd.copernicus.org/articles/12/3515/2020/)
+and [PANGAEA.922661 data](https://doi.org/10.1594/PANGAEA.922661) are now explicitly
+consumed as an attributed European parameter reference. The
+[110-row reference and source account](../../../../data/validation/pollen-productivity/wieczorek-herzschuh-2020/README.md)
+retain both author datasets, original cell locators, missing values and CC BY 4.0
+attribution. [The exact comparison](nonnegative-cover/ppe-source-comparison.json)
+binds the deposited values to the separately sourced executed inputs.
+
+| Parameter source | Betula RPP | Uncertainty as reported | Ulmus RPP |
+| --- | ---: | --- | ---: |
+| Executed LANDCLIM working profile | 5.106 | SD label 0.303 | 1.27 (SD label 0.05) |
+| 2020 Europe v1 | 5.6725 | SE 0.33503914 | Missing; n = 0 |
+| 2020 Europe v2 | 4.94 | SE 0.44296664 | Missing; n = 0 |
+
+The deposited European sets provide both taxa's fall speeds, but not Ulmus RPP
+or SE. Their SE values describe compiled means and do not supply a population SD
+or cross-taxon covariance matrix. Original-study metadata supports a more precise
+local source/model choice; the harmonised Northern Hemisphere mean cannot silently
+replace the missing local entry. The data source is useful without claiming that
+it completes this two-taxon parameter configuration.
+
+The completed 54-score and 55,296-slot results below retain their original
+LANDCLIM/PANGAEA.937075 working parameters. No parameter substitution or new
+model execution is claimed for this intake. It narrows the remaining PPE work
+to source/model applicability, a justified Ulmus choice and the uncertainty law.
+
 ## Complete six-window comparison and uncertainty
 
 The corrected analysis was executed at clean source
