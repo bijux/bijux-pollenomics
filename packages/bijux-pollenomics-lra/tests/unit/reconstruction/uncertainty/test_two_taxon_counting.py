@@ -43,7 +43,7 @@ def test_public_facade_and_zero_count_closed_form() -> None:
         [0, 10], [1, 1], [1, 1], taxon_measured=[True, True]
     )
     expected = 1 - ((1 - 0.95) / 2) ** (1 / 10)
-    assert result.cover == (0, 1)
+    assert result.cover == (0.0, 1.0)
     assert result.cover_lower[0] == 0
     assert result.cover_upper[0] == pytest.approx(expected, abs=2e-15)
     assert 0 < result.cover_upper[0] < 1
@@ -286,7 +286,7 @@ def test_exact_domain_boundaries_remain_safe_when_seed_is_extreme(
             taxon_measured=[True, True],
             confidence_level=0.93,
         )
-        assert result.pollen_probability_interval == (0, 1)
+        assert result.pollen_probability_interval == (0.0, 1.0)
         assert result.pollen_tail_upper_bounds == ("0", "0")
         assert result.bound_search_evaluations == (1, 1)
     finally:

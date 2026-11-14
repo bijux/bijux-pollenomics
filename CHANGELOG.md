@@ -20,6 +20,8 @@ Repository changes are recorded by pull request, newest merge first.
   bootstrap has all 9,216 method-replicate slots defined. Independent numerical
   and source checks pass; static geometry, restricted taxonomy and scientific
   admission limits remain explicit.
+- Restore strict typing for existing covariance and counting test controls
+  without changing their numerical or malformed-input assertions.
 
 ### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
 
