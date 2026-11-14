@@ -6956,6 +6956,7 @@ __URL_STATE_CONTROLLER__
       __SCIENTIFIC_PICKER_CONTROLLER__
       __SCIENTIFIC_PICKER_MOUNT_CONTROLLER__
       __SOURCE_RECORD_DETAILS_FACTORY__
+      __SOURCE_RECORD_EXPORT_FACTORY__
       __SELECTION_EXPORT_CONTROLLER__
       /* atlas-evidence-tools:end */
       let evidenceTools = null, evidenceToolsRequest = null, evidenceToolsError = null;
@@ -6966,7 +6967,7 @@ __URL_STATE_CONTROLLER__
             pickerCatalog: scientificPickerCatalog, pickerSearch: scientificPickerSearch,
             pickerInitial: scientificPickerInitialState, pickerAction: scientificPickerAction,
             pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker, sourceDetails: createSourceRecordDetails,
-            selectionExport: prepareAtlasSelectionExport});
+            sourceExport: createSourceRecordExport, selectionExport: prepareAtlasSelectionExport});
         }
         return evidenceTools;
       }
@@ -7001,7 +7002,7 @@ __URL_STATE_CONTROLLER__
               try {
                 if (typeof globalThis.BijuxPollenomicsEvidenceTools !== 'function') throw new Error('Evidence tools did not register.');
                 const tools = globalThis.BijuxPollenomicsEvidenceTools(escapeHtml, scientificCueGlyph);
-                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount', 'sourceDetails', 'selectionExport'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
+                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount', 'sourceDetails', 'sourceExport', 'selectionExport'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
                 evidenceTools = tools;
                 resolve(tools);
               } catch (error) { reject(error); }
@@ -8430,9 +8431,12 @@ __URL_STATE_CONTROLLER__
           focusExportStatus.textContent = focusState?.kind === 'edge' ? 'Copy this relation link from your browser address bar.' : 'Copy this record link from your browser address bar.';
         }
       });
-      focusExportButton.addEventListener('click', () => {
+      focusExportButton.addEventListener('click', async () => {
         try {
           if (focusCard.hidden) throw Error('selected_record_not_visible');
+          const selectedFocus = focusState;
+          const tools = await loadEvidenceTools();
+          if (focusCard.hidden || focusState !== selectedFocus) throw Error('The selected record changed while export tools were loading. Select it again to download.');
           syncHashState();
           const selection = {
             atlas_build_id: STATIC_ATLAS_BOOTSTRAP.build_id || null,
@@ -8448,7 +8452,8 @@ __URL_STATE_CONTROLLER__
             selected_detail_section: activeFocusTab,
             basemap: currentBasemap,
           };
-          const payload = buildSourcePollenRecordExport(focusState, selection, decodeDetailTableRow);
+          const exportRecord = tools.sourceExport({tableAvailable:sourcePollenTableAvailable,exportAvailable:sourcePollenExportAvailable,decodeRow:decodeDetailTableRow});
+          const payload = exportRecord(focusState, selection);
           const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: 'application/json' });
           const url = URL.createObjectURL(blob);
           const link = document.createElement('a');

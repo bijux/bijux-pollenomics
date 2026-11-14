@@ -367,7 +367,7 @@ focusState={kind:'point',recordId:'neotoma:site:12',layerKey:'neotoma-pollen',fe
  provenance:{source_snapshot_id:'snapshot',record_locator:'surfaces/sites#site_id=neotoma:site:12'},
 }};
 const completeOriginal=JSON.stringify(focusState.detailTabs);renderFocusDetail();
-const exported=buildSourcePollenRecordExport(focusState,{},decodeDetailTableRow);
+const exported=createSourceRecordExport({tableAvailable:sourcePollenTableAvailable,exportAvailable:sourcePollenExportAvailable,decodeRow:decodeDetailTableRow})(focusState,{});
 const validOrdinary={exportHidden:focusExportButton.hidden,disabled:focusExportButton.disabled,
  ready:sourcePollenExportAvailable(focusState),observations:exported.pollen_observations.records,
  statuses:exported.chronology_claims.records.map(row=>row.comparability_status),

@@ -16,6 +16,18 @@ def load_map_document_template() -> str:
         .joinpath("document.html")
         .read_text(encoding="utf-8")
         .replace(
+            "__SOURCE_RECORD_EXPORT_CONTROLLER__",
+            package_root.joinpath("assets/source-record-export.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__SOURCE_RECORD_EXPORT_FACTORY__",
+            package_root.joinpath("assets/source-record-export-factory.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
             "__EDGE_DISPLAY_CONTROLLER__",
             package_root.joinpath("assets/edge-display.js").read_text(encoding="utf-8"),
         )
@@ -136,6 +148,11 @@ SOURCE_RECORD_EXPORT_CONTROLLER: Final = (
     files(__package__)
     .joinpath("assets")
     .joinpath("source-record-export.js")
+    .read_text(encoding="utf-8")
+    + "\n"
+    + files(__package__)
+    .joinpath("assets")
+    .joinpath("source-record-export-factory.js")
     .read_text(encoding="utf-8")
 )
 
