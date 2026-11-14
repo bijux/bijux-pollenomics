@@ -15,6 +15,7 @@ from bijux_pollenomics.collection.sources.neotoma.capture.resources import (
     NeotomaResourceCapture,
     NeotomaResourcePlan,
     NeotomaResourceSpec,
+    NeotomaRetainedSource,
     capture_neotoma_resources,
     replay_neotoma_resource_capture,
 )
@@ -384,4 +385,97 @@ def test_frozen_competing_native_declarations_must_agree(declaration: str) -> No
     with pytest.raises(ValueError, match="owner|declarations"):
         parse_neotoma_frozen_resource(
             spec(), content, expected_body_sha256=sha256(content).hexdigest()
+        )
+
+
+def test_mixed_retained_current_and_frozen_qualification_requires_original_resolver(
+    tmp_path: Path,
+) -> None:
+    old_spec = replace(
+        spec(), dataset_id=54000, dataset_type="geochronologic", versions=("current",)
+    )
+    native_dataset = {
+        "datasetid": 54000,
+        "datasettype": "geochronologic",
+        "database": None,
+    }
+    old_body = encode(
+        {
+            "status": "success",
+            "data": [
+                {
+                    "site": {
+                        "siteid": 12,
+                        "dataset": native_dataset,
+                        "collectionunit": {
+                            "collectionunitid": 100,
+                            "dataset": {
+                                **native_dataset,
+                                "samples": [
+                                    {
+                                        "sampleid": None,
+                                        "datum": [{"units": None, "value": None}],
+                                    }
+                                ],
+                            },
+                        },
+                    }
+                }
+            ],
+        }
+    )
+    body_path, provenance_path = tmp_path / "original.body", tmp_path / "source.json"
+    body_path.write_bytes(old_body)
+    provenance_path.write_text(
+        json.dumps(
+            {
+                "schema_version": "bokesjon-public-core-sources.v1",
+                "sources": [
+                    {
+                        "source_url": "https://api.neotomadb.org/v2.0/data/downloads/54000",
+                        "final_url": "https://api.neotomadb.org/v2.0/data/downloads/54000",
+                        "status": 200,
+                        "retrieved_at": "2026-11-14T17:32:38+00:00",
+                        "bytes": len(old_body),
+                        "sha256": sha256(old_body).hexdigest(),
+                    }
+                ],
+            }
+        )
+    )
+    retained = NeotomaRetainedSource(
+        body_path,
+        provenance_path,
+        sha256(provenance_path.read_bytes()).hexdigest(),
+        sha256(old_body).hexdigest(),
+    )
+    resolvers = {"dataset-54000-current": retained}
+    frozen_body = encode(payload("site_wrapper"))
+    source = tmp_path / "capture"
+    captured = capture_neotoma_resources(
+        source,
+        plan=NeotomaResourcePlan((spec(), old_spec), "b" * 64),
+        retained_sources=resolvers,
+        fetch=lambda url, **_: NeotomaMetadataResponse(
+            url, 200, (("Content-Length", str(len(frozen_body))),), frozen_body
+        ),
+    )
+    result = qualify_neotoma_frozen_capture(
+        source,
+        expected_manifest_sha256=captured.manifest_sha256,
+        retained_sources=resolvers,
+    )
+    assert result["resources"][0]["qualification_status"] == "parsed_frozen_native"
+    assert len(result["resources"]) == 1 and captured.request_count == 1
+    with pytest.raises(ValueError, match="resolver"):
+        qualify_neotoma_frozen_capture(
+            source, expected_manifest_sha256=captured.manifest_sha256
+        )
+    with pytest.raises(ValueError, match="identity"):
+        qualify_neotoma_frozen_capture(
+            source,
+            expected_manifest_sha256=captured.manifest_sha256,
+            retained_sources={
+                "dataset-54000-current": replace(retained, body_sha256="0" * 64)
+            },
         )

@@ -15,6 +15,7 @@ from .models import (
     DEVELOPMENT_ROLES,
     NeotomaResourceLimits,
     NeotomaResourceSpec,
+    NeotomaRetainedSource,
 )
 from .protocol import plan_from_json, resource_key
 from .replay import replay_neotoma_resource_capture
@@ -221,6 +222,7 @@ def qualify_neotoma_frozen_capture(
     *,
     expected_manifest_sha256: str,
     source_captures: Mapping[str, Path] | None = None,
+    retained_sources: Mapping[str, NeotomaRetainedSource] | None = None,
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
 ) -> dict[str, Any]:
     """Derive a separate qualification ledger without relabelling captured results.
@@ -234,6 +236,7 @@ def qualify_neotoma_frozen_capture(
         directory,
         expected_manifest_sha256=expected_manifest_sha256,
         source_captures=sources,
+        retained_sources=retained_sources,
         limits=limits,
     )
     root = _safe_root(directory)
