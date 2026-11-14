@@ -9,11 +9,45 @@ from bijux_pollenomics.analysis.lra.materialization.neotoma.pollen_screen import
     _comparable_owned_claim,
     assess_neotoma_pollen_screen,
 )
+from bijux_pollenomics.analysis.lra.materialization.neotoma.series import (
+    build_neotoma_candidate_series,
+)
 from bijux_pollenomics.analysis.lra.materialization.reading import (
     read_neotoma_evidence,
 )
 
 from ..support import authorities
+
+
+def test_chronology_quality_flags_reach_screen_and_bounded_review_without_admission(
+    tmp_path: Path,
+) -> None:
+    raw, normalized = authorities(tmp_path)
+    evidence = read_neotoma_evidence(raw, normalized)
+    screen = assess_neotoma_pollen_screen(evidence).as_dict()
+    sample = next(
+        row
+        for row in screen["sample_decisions"]
+        if row["sample_id"] == "neotoma:sample:100"
+    )
+    quality = sample["source_quality"]
+    assert "source_chronology_model_unavailable" in quality["flags"]
+    assert "missing_source_depth" in quality["flags"]
+    assert sample["screen_status"] == "necessary_candidate"
+    assert sample["reason_codes"] == []
+    assert screen["candidate_sample_ids"] == [
+        f"neotoma:sample:{i * 100}" for i in range(1, 10)
+    ]
+    assert (
+        screen["source_chronology_quality"]["source_profile"]["eligibility_changed"]
+        is False
+    )
+    series = build_neotoma_candidate_series(evidence, ["neotoma:sample:100"]).as_dict()
+    assert (
+        "source_chronology_model_unavailable"
+        in series["series"][0]["chronology"]["source_quality"]["flags"]
+    )
+    assert series["lra_accepted_samples"] == 0
 
 
 def test_screen_covers_every_sample_and_keeps_refusal_only_status(
