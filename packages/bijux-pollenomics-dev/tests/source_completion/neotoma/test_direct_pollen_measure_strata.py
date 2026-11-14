@@ -128,7 +128,59 @@ def test_published_predicate_preserves_boolean_and_source_element() -> None:
         ),
     ):
         assert account.refusal_reason(row) == reason
-        assert (reason is None) == study._is_direct_pollen_count(row)
+
+
+def test_published_count_partition_does_not_follow_current_producer_guards(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(study, "_is_direct_pollen_count", lambda _row: False)
+    groups, summary = account.account_rows(
+        [observation("o1", "neotoma:sample:1")], selected()
+    )
+    assert summary["country_denominators"]["FI"]["accepted_observation_count"] == 1
+    assert groups[0]["decision"] == "accepted"
+
+
+def test_published_age_selection_does_not_follow_current_producer_guards(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(study, "_select_comparable_age", lambda *_: None)
+    result = account.chosen_target_samples(
+        ["neotoma:sample:1"],
+        selected(),
+        {
+            "neotoma:sample:1": [
+                {"chronology_id": "c1", "source_age_type": "Calendar years BP"}
+            ]
+        },
+        {"c1": {"source_is_default_assertion": True}},
+        {"FI": 1},
+    )
+    assert list(result) == ["neotoma:sample:1"]
+
+
+def test_published_producer_uses_its_reachable_historical_git_witness() -> None:
+    repository = next(
+        parent
+        for parent in Path(__file__).resolve().parents
+        if (parent / "configs/ci/report-ownership.json").is_file()
+    )
+    witness = account._published_study_source(
+        repository, "59f6f432ce931eb080d1321c06ea4f4eb44dd6606adb122caacf2a495eaa6b77"
+    )
+    assert witness["source_revision"] == "30686f5445179be884d61c4289cc28837bc863d7"
+    assert witness["git_blob"] == "8c0dbae972a37886da42622bed84f7f7d749355f"
+    assert witness["bytes"] == 57928
+    assert witness["source_revision_role"] == "reachable_source_byte_witness"
+    assert witness["archived_program_executed_by_account"] is False
+    assert witness["current_producer_equivalence_claimed"] is False
+
+
+def test_published_producer_refuses_an_unrecognized_historical_identity(
+    tmp_path: Path,
+) -> None:
+    with pytest.raises(ValueError, match="producer identity"):
+        account._published_study_source(tmp_path, "0" * 64)
 
 
 def test_source_default_age_and_candidate_identity_refusals() -> None:
@@ -205,11 +257,12 @@ def test_postread_change_refuses_publication(
     source = tmp_path / "source.json"
     source.write_bytes(b"original")
     digest = hashlib.sha256(b"original").hexdigest()
-    origin = study.__file__
+    origin = account.__file__
     assert origin is not None
     fake = {
         "source_readset_sha256": {"source.json": digest},
-        "published_study_producer_sha256": hashlib.sha256(
+        "published_study_producer_sha256": "59f6f432ce931eb080d1321c06ea4f4eb44dd6606adb122caacf2a495eaa6b77",
+        "account_implementation_sha256": hashlib.sha256(
             Path(origin).read_bytes()
         ).hexdigest(),
     }
@@ -217,6 +270,32 @@ def test_postread_change_refuses_publication(
     source.write_bytes(b"altered")
     output = artifacts / "report.json"
     with pytest.raises(ValueError, match="identity differs"):
+        account.run(tmp_path.resolve(), output)
+    assert not output.exists()
+    assert not output.with_name("report.json.stage").exists()
+
+
+def test_current_account_implementation_drift_refuses_publication(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    artifacts = tmp_path / "artifacts" / "review"
+    artifacts.mkdir(parents=True)
+    implementation = artifacts / "account.py"
+    implementation.write_bytes(b"original current account")
+    digest = hashlib.sha256(implementation.read_bytes()).hexdigest()
+    monkeypatch.setattr(account, "__file__", str(implementation))
+
+    def changed(_repository: Path) -> dict[str, Any]:
+        implementation.write_bytes(b"changed current account")
+        return {
+            "source_readset_sha256": {},
+            "published_study_producer_sha256": "59f6f432ce931eb080d1321c06ea4f4eb44dd6606adb122caacf2a495eaa6b77",
+            "account_implementation_sha256": digest,
+        }
+
+    monkeypatch.setattr(account, "build_report", changed)
+    output = artifacts / "report.json"
+    with pytest.raises(ValueError, match="account implementation changed"):
         account.run(tmp_path.resolve(), output)
     assert not output.exists()
     assert not output.with_name("report.json.stage").exists()
