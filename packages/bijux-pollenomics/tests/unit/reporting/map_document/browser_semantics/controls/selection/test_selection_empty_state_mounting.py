@@ -63,7 +63,7 @@ const document={getElementById(){return mapElement},documentElement:{classList:{
 let staticAtlasLoadGeneration=0,retainedNeighborRecordCountries=null;
 const edgeFocusLoadState={generation:0},STATIC_ATLAS_INLINE=true;
 const POINT_LAYERS=[],POLYGON_LAYERS=[],STATIC_ATLAS_BOOTSTRAP={budgets:{filter_main_thread_max_ms:50}};
-const selectionReadout={dataset:{}},nativeLraController=null,pendingEdgeFocus=null;
+const selectionReadout={dataset:{}},nativeLraController=null,pendingEdgeFocus=null,pendingPointFocus=null,unresolvedPointFocus=null;
 const diameterValue={},radiusValue={},densityOpacityValue={},slider={value:10},densityOpacity=.5;
 const atlasCapturePresentation=null;
 let delayed=false,pending=[],renders=0,errors=[];

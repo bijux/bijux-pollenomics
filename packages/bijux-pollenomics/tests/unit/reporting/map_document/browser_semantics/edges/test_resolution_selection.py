@@ -125,7 +125,7 @@ const STATIC_ATLAS_INLINE=false,STATIC_ATLAS_CHUNKS={edges:{status:'available'},
 const GOVERNED_SEQUENCE_RECORDS=[],COUNTRY_PAIR_KEYS=['Sweden|Sweden'];
 const activeCountries=new Set(['Sweden']),activeCountryPair='all',crossBorderOnly=false;
 const activeScientificSignalIds=new Set();
-let activeEvidenceDisplay=resetEvidenceDisplay(),pendingEdgeFocus=null;
+let activeEvidenceDisplay=resetEvidenceDisplay(),pendingEdgeFocus=null,pendingPointFocus=null,unresolvedPointFocus=null;
 const countryPairFilter={},crossBorderOnlyCheckbox={},relationSummary={dataset:{}};
 const relationFilterStatus={},relationFilterControls=Object.fromEntries(relationFilterFields().map(([key])=>[key,{}]));
 const relationEventDefinitionControl={},relationEventDefinitionStatus={};
