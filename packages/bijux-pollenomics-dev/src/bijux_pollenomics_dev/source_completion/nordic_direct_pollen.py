@@ -27,9 +27,14 @@ from bijux_pollenomics.analysis.lra_validation.spatial import (
     half_count_composition,
 )
 from bijux_pollenomics.analysis.lra_validation.spatial.configuration import distance_km
+from bijux_pollenomics.collection.sources.neotoma.client import (
+    validate_neotoma_selected_download,
+)
 from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
     is_native_pollen,
 )
+
+from .swedish_direct_pollen import DATASETS as SWEDISH_SOURCE_DATASETS
 
 BASELINE_METHODS: tuple[
     Literal["training_mean"],
@@ -43,9 +48,7 @@ BASELINE_METHODS: tuple[
 METHODS = BASELINE_METHODS + ("clr_rbf_ridge",)
 COUNTRIES = ("DK", "FI", "NO")
 SWEDISH_DATASETS = {
-    "19913": {"label": "Abborrtjärnen", "site_id": "13338", "part": "part-004.json"},
-    "53995": {"label": "Bussjösjön", "site_id": "28869", "part": "part-008.json"},
-    "54001": {"label": "Bökesjön", "site_id": "28872", "part": "part-008.json"},
+    dataset_id: dict(spec) for dataset_id, spec in SWEDISH_SOURCE_DATASETS.items()
 }
 TAXA = (
     "Alnus",
@@ -211,6 +214,15 @@ def _swedish_training(
             dataset_id = str(dataset.get("datasetid"))
             if dataset_id not in wanted:
                 continue
+            spec = SWEDISH_DATASETS[dataset_id]
+            validate_neotoma_selected_download(
+                row,
+                expected_dataset_id=int(dataset_id),
+                expected_site_id=int(spec["site_id"]),
+                expected_collection_unit_id=int(spec["collection_unit_id"]),
+                expected_dataset_type=spec["dataset_type"],
+                expected_database=spec["database"],
+            )
             if dataset_id in records:
                 raise ValueError(f"duplicate Swedish Neotoma dataset {dataset_id}")
             records[dataset_id] = {"site": site, "dataset": dataset}

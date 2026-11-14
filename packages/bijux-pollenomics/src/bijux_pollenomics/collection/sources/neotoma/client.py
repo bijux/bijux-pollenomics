@@ -18,6 +18,7 @@ __all__ = [
     "neotoma_download_dataset_id",
     "neotoma_retryable_error",
     "validate_neotoma_download_coverage",
+    "validate_neotoma_selected_download",
 ]
 
 
@@ -191,6 +192,58 @@ def neotoma_download_dataset_id(
             return None
         identities.add(identity)
     return next(iter(identities)) if len(identities) == 1 else None
+
+
+def validate_neotoma_selected_download(
+    download_row: object,
+    *,
+    expected_dataset_id: int,
+    expected_site_id: int,
+    expected_collection_unit_id: int,
+    expected_dataset_type: str,
+    expected_database: str,
+) -> None:
+    """Bind both dataset metadata paths to the caller's declared site and core."""
+    if any(
+        type(value) is not int or value <= 0
+        for value in (
+            expected_dataset_id,
+            expected_site_id,
+            expected_collection_unit_id,
+        )
+    ) or any(
+        not isinstance(value, str) or not value.strip()
+        for value in (expected_dataset_type, expected_database)
+    ):
+        raise ValueError("Neotoma selected download expectations are invalid")
+    if (
+        neotoma_download_dataset_id(download_row, clean_optional_text_fn=str)
+        != expected_dataset_id
+    ):
+        raise ValueError("Neotoma selected download dataset identities differ")
+    if not isinstance(download_row, dict) or not isinstance(
+        site := download_row.get("site"), dict
+    ):
+        raise ValueError("Neotoma selected download site is missing")
+    unit = site.get("collectionunit")
+    if not isinstance(unit, dict):
+        raise ValueError("Neotoma selected download collection unit is missing")
+    if type(site.get("siteid")) is not int or site["siteid"] != expected_site_id:
+        raise ValueError("Neotoma selected download site owner differs")
+    if (
+        type(unit.get("collectionunitid")) is not int
+        or unit["collectionunitid"] != expected_collection_unit_id
+    ):
+        raise ValueError("Neotoma selected download collection-unit owner differs")
+    for dataset in (site.get("dataset"), unit.get("dataset")):
+        if (
+            not isinstance(dataset, dict)
+            or dataset.get("datasettype") != expected_dataset_type
+            or dataset.get("database") != expected_database
+        ):
+            raise ValueError(
+                "Neotoma selected download source type or database differs"
+            )
 
 
 def fetch_neotoma_api_rows(

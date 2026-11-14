@@ -68,7 +68,11 @@ def native_sources(tmp_path: Path) -> tuple[Path, Path]:
             "geography": json.dumps({"type": "Point", "coordinates": [14, 56]}),
             "dataset": dataset,
             "collectionunit": {
-                "collectionunitid": int(dataset_id),
+                "collectionunitid": {
+                    "19913": 14910,
+                    "53995": 39238,
+                    "54001": 39241,
+                }[dataset_id],
                 "handle": dataset_id,
                 "colldate": None,
                 "defaultchronology": 1,

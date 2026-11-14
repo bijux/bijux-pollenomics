@@ -24,14 +24,38 @@ from bijux_pollenomics.analysis.lra_validation.spatial import (
     half_count_composition,
 )
 from bijux_pollenomics.analysis.lra_validation.spatial.configuration import distance_km
+from bijux_pollenomics.collection.sources.neotoma.client import (
+    validate_neotoma_selected_download,
+)
 from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
     is_native_pollen,
 )
 
 DATASETS = {
-    "19913": {"label": "Abborrtjärnen", "site_id": "13338", "part": "part-004.json"},
-    "53995": {"label": "Bussjösjön", "site_id": "28869", "part": "part-008.json"},
-    "54001": {"label": "Bökesjön", "site_id": "28872", "part": "part-008.json"},
+    "19913": {
+        "label": "Abborrtjärnen",
+        "site_id": "13338",
+        "collection_unit_id": "14910",
+        "dataset_type": "pollen",
+        "database": "European Pollen Database",
+        "part": "part-004.json",
+    },
+    "53995": {
+        "label": "Bussjösjön",
+        "site_id": "28869",
+        "collection_unit_id": "39238",
+        "dataset_type": "pollen",
+        "database": "European Pollen Database",
+        "part": "part-008.json",
+    },
+    "54001": {
+        "label": "Bökesjön",
+        "site_id": "28872",
+        "collection_unit_id": "39241",
+        "dataset_type": "pollen",
+        "database": "European Pollen Database",
+        "part": "part-008.json",
+    },
 }
 BASELINE_METHODS: tuple[
     Literal["training_mean"],
@@ -69,6 +93,15 @@ def _records(data_root: Path) -> dict[str, dict[str, Any]]:
             dataset_id = str(dataset.get("datasetid"))
             if dataset_id not in wanted:
                 continue
+            spec = DATASETS[dataset_id]
+            validate_neotoma_selected_download(
+                row,
+                expected_dataset_id=int(dataset_id),
+                expected_site_id=int(spec["site_id"]),
+                expected_collection_unit_id=int(spec["collection_unit_id"]),
+                expected_dataset_type=spec["dataset_type"],
+                expected_database=spec["database"],
+            )
             if dataset_id in result:
                 raise ValueError(f"duplicate Neotoma dataset {dataset_id}")
             result[dataset_id] = {"site": site, "dataset": dataset}

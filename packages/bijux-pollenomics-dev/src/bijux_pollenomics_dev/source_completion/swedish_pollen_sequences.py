@@ -8,6 +8,9 @@ import json
 from pathlib import Path
 from typing import Any
 
+from bijux_pollenomics.collection.sources.neotoma.client import (
+    validate_neotoma_selected_download,
+)
 from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
     is_native_pollen,
 )
@@ -47,6 +50,14 @@ def build(data_root: Path, destination: Path) -> dict[str, Any]:
             if dataset_id not in DATASETS:
                 continue
             spec = DATASETS[dataset_id]
+            validate_neotoma_selected_download(
+                wrapper,
+                expected_dataset_id=int(dataset_id),
+                expected_site_id=int(spec["site_id"]),
+                expected_collection_unit_id=int(spec["collection_unit_id"]),
+                expected_dataset_type=spec["dataset_type"],
+                expected_database=spec["database"],
+            )
             if (
                 dataset_id in found
                 or str(site["siteid"]) != spec["site_id"]
