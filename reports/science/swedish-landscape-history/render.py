@@ -15,21 +15,22 @@ from typing import Any
 import matplotlib
 
 matplotlib.use("Agg")
+from figure_series import envelope, range_ceiling
 from matplotlib.patches import Polygon, Rectangle
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 import numpy as np
 
-TREE = "#196748"
+TREE = "#285b63"
 OPEN = "#9a6a25"
 SHRUB = "#806192"
-CEREAL = "#df721c"
-SOURCE_OPEN = "#247aa5"
+CEREAL = "#e38d22"
+SOURCE_OPEN = "#25874c"
 MISSING = "#e5e7e9"
 FOOTER = (
     "Published REVEALS / PANGAEA 937075 · Swedish-centre grids · 31-taxon cover (%)\n"
     "Source windows, BP relative to 1950; youngest interval follows source coring support. "
-    "No interpolation or regional confidence intervals."
+    "No regional confidence intervals."
 )
 
 
@@ -59,8 +60,7 @@ def selected(
 
 def cereal_ceiling(rows: list[dict[str, Any]]) -> float:
     """Use one scale covering every plotted cereal mean, without clipping."""
-    maximum = max((r["metrics"]["cereals"]["mean"] or 0 for r in rows), default=0)
-    return max(5.0, float(np.ceil(maximum / 5) * 5))
+    return range_ceiling(rows, "cereals")
 
 
 def segments(
@@ -111,110 +111,234 @@ def save(fig: Any, output: Path, name: str) -> None:
     plt.close(fig)
 
 
+def draw_envelope(
+    ax: Any, data: list[dict[str, Any]], metric: str, color: str, label: str
+) -> Any:
+    """Plot saved means and spatial extrema; isolated windows remain visible."""
+    x, means, lower, upper = envelope(data, metric)
+    ax.fill_between(x, lower, upper, color=color, alpha=0.15, linewidth=0)
+    (line,) = ax.plot(
+        x,
+        means,
+        color=color,
+        linewidth=2.1,
+        marker="o",
+        markersize=2.5,
+        markeredgewidth=0,
+        label=label,
+        zorder=4,
+    )
+    valid = np.isfinite(means)
+    for i, defined in enumerate(valid):
+        if (
+            defined
+            and not (i > 0 and valid[i - 1])
+            and not (i + 1 < len(valid) and valid[i + 1])
+        ):
+            ax.vlines(x[i], lower[i], upper[i], color=color, alpha=0.4, linewidth=2)
+    return line
+
+
+def band_label(data: list[dict[str, Any]]) -> str:
+    """Keep actual geographic limits visible rather than numbering regions."""
+    return f"{data[0]['south_latitude']:g}–{data[0]['north_latitude']:g}°N"
+
+
+def support_label(data: list[dict[str, Any]]) -> str:
+    """Report the grid support without implying independent site replication."""
+    counts = [r["count"] for r in data]
+    low, high = min(counts), max(counts)
+    return f"{low} grids" if low == high else f"{low}–{high} grids"
+
+
+def paired_panel(
+    ax: Any, data: list[dict[str, Any]], cereal_limit: float, *, recent: bool
+) -> tuple[Any, Any]:
+    """Compare open land and cereals on explicitly different, fixed cover axes."""
+    right = ax.twinx()
+    green = draw_envelope(ax, data, "source_OL", SOURCE_OPEN, "Open land")
+    orange = draw_envelope(right, data, "cereals", CEREAL, "Cereals")
+    ax.set_xlim(3200 if recent else 11700, 0)
+    ax.set_ylim(0, 100)
+    right.set_ylim(0, cereal_limit)
+    ax.set_yticks([0, 50, 100])
+    right.set_yticks([0, cereal_limit / 2, cereal_limit])
+    ax.set_ylabel("Open land (%)", color=SOURCE_OPEN, fontsize=10)
+    right.set_ylabel("Cereals (%)", color=CEREAL, fontsize=10)
+    ax.tick_params(axis="y", colors=SOURCE_OPEN, labelsize=9)
+    right.tick_params(axis="y", colors=CEREAL, labelsize=9)
+    ax.tick_params(axis="x", labelsize=9)
+    ax.spines[["top", "right"]].set_visible(False)
+    right.spines[["top", "left"]].set_visible(False)
+    ax.spines["left"].set_color(SOURCE_OPEN)
+    right.spines["right"].set_color(CEREAL)
+    ax.grid(axis="y", linewidth=0.5, color="#e4e8e5")
+    ax.set_axisbelow(True)
+    ax.set_title(band_label(data), loc="left", fontsize=12, weight="bold", pad=10)
+    ax.set_title(support_label(data), loc="right", fontsize=9, color="#6b746f", pad=10)
+    if not any(r["count"] for r in data):
+        ax.set_facecolor("#f5f6f4")
+        ax.text(
+            0.5,
+            0.5,
+            "No common valid grids",
+            transform=ax.transAxes,
+            ha="center",
+            va="center",
+            color="#6b746f",
+            fontsize=12,
+        )
+    return green, orange
+
+
+def reading_footer(fig: Any, *, y: float = 0.035) -> None:
+    """State the meaning of lines and shading once, outside the data panels."""
+    fig.text(
+        0.10,
+        y,
+        "Lines: area-weighted grid mean · Shading: spatial min–max across those grids, not confidence limits.\n"
+        "Joined window midpoints guide the eye; gaps remain missing. Axes differ; cereals are included within open land.",
+        fontsize=8.5,
+        color="#626d66",
+        linespacing=1.7,
+    )
+
+
 def trajectory_figure(
     rows: list[dict[str, Any]], output: Path, *, recent: bool
 ) -> None:
-    """Show the five-band composition and cereals on aligned, separate scales."""
+    """One paired comparison per latitude band, with spatial range envelopes."""
     policy = "fixed_recent" if recent else "available"
-    fig, axes = plt.subplots(
-        5, 2, figsize=(14, 13.8), sharex=True, gridspec_kw={"width_ratios": [1.45, 1]}
+    fig, axes = plt.subplots(5, 1, figsize=(11.8, 12.4), sharex=True)
+    fig.subplots_adjust(left=0.10, right=0.90, top=0.84, bottom=0.12, hspace=0.58)
+    fig.suptitle(
+        "Open land and cereals across Sweden",
+        x=0.10,
+        ha="left",
+        y=0.975,
+        fontsize=20,
+        weight="bold",
     )
-    fig.subplots_adjust(
-        left=0.09, right=0.98, top=0.82, bottom=0.10, hspace=0.43, wspace=0.22
-    )
-    title = (
-        "Recent Swedish landscape history"
-        if recent
-        else "Swedish landscape history through the Holocene"
-    )
-    fig.suptitle(title, x=0.09, ha="left", y=0.975, fontsize=20, weight="bold")
     subtitle = (
-        "Primary comparison: identical grids across all eight recent source windows"
+        "Recent comparison · the same grids in every window"
         if recent
-        else "Descriptive extension: available grids change between source windows"
+        else "Holocene history · available grids change between windows"
     )
-    fig.text(0.09, 0.942, subtitle, fontsize=12)
-    fig.text(
-        0.09,
-        0.916,
-        "Five fixed latitude bands · spherical cell-area weights · tree cover is an operational taxon proxy",
-        fontsize=10,
-        color="#4b5552",
-    )
-    cereal_max = max(
-        (
-            r["metrics"]["cereals"]["mean"] or 0
-            for r in rows
-            if r["band_count"] == 5
-            and r["weighting"] == "area"
-            and r["policy"] == policy
-            and (not recent or r["older_bp"] <= 3200)
-        ),
-        default=0,
-    )
-    upper = max(5, np.ceil(cereal_max / 5) * 5)
-    handles: list[Any] = []
-    for band in range(5):
+    fig.text(0.10, 0.937, subtitle, fontsize=11, color="#626d66")
+    handles = None
+    for band, ax in enumerate(axes):
         data = selected(rows, band=band, policy=policy, recent=recent)
-        ax, cereal_ax = axes[band]
-        for metric, label, color, line in (
-            ("tree_assigned", "Tree-associated", TREE, "-"),
-            ("non_tree", "All non-tree", OPEN, "-"),
-            ("shrubs_heath", "Shrub / heath (within non-tree)", SHRUB, ":"),
-            ("source_OL", "Published open land", SOURCE_OPEN, "--"),
-        ):
-            (h,) = ax.plot(
-                *segments(data, metric),
-                color=color,
-                linestyle=line,
-                linewidth=1.8,
-                label=label,
-            )
-            if band == 0:
-                handles.append(h)
-        cereal_ax.plot(*segments(data, "cereals"), color=CEREAL, linewidth=2)
-        for a in (ax, cereal_ax):
-            style(a, recent=recent)
-        cereal_ax.set_ylim(0, upper)
-        cereal_ax.set_ylabel("Cereal cover (%)")
-        south, north = 55 + 3 * band, 58 + 3 * band
-        n_values = [r["count"] for r in data]
-        support = (
-            f"n = {min(n_values)} grids"
-            if min(n_values) == max(n_values)
-            else f"n = {min(n_values)}–{max(n_values)} grids"
-        )
-        ax.set_title(
-            f"{south}–{north}°N  |  {support}", loc="left", fontsize=11, weight="bold"
-        )
-        cereal_ax.set_title("Cereals; separate shared scale", loc="left", fontsize=10)
-        if not any(n_values):
-            for a in (ax, cereal_ax):
-                a.set_facecolor("#f4f5f4")
-                a.text(
-                    0.5,
-                    0.5,
-                    "No common valid grid\n350–700 BP zero composition\nGap retained"
-                    if recent and band == 3
-                    else "No common valid grid\nGap retained",
-                    transform=a.transAxes,
-                    ha="center",
-                    va="center",
-                    color="#626b67",
-                    fontsize=12,
-                )
+        pair = paired_panel(ax, data, cereal_ceiling(rows), recent=recent)
+        if handles is None:
+            handles = pair
     fig.legend(
         handles=handles,
+        labels=["Open land", "Cereals"],
         loc="upper left",
-        bbox_to_anchor=(0.08, 0.90),
+        bbox_to_anchor=(0.09, 0.91),
         ncol=2,
         frameon=False,
-        fontsize=9,
+        fontsize=11,
     )
-    for a in axes[-1]:
-        a.set_xlabel("Published age window (BP; older → younger)")
-    fig.text(0.09, 0.035, FOOTER, fontsize=8.5, color="#4b5552", linespacing=1.7)
+    axes[-1].set_xlabel("Age (cal BP, relative to 1950) · older → younger", labelpad=10)
+    reading_footer(fig)
     save(fig, output, "recent-trajectories" if recent else "holocene-trajectories")
+
+
+def regional_figures(rows: list[dict[str, Any]], output: Path) -> None:
+    """Export a standalone, uncluttered open-land/cereal comparison per region."""
+    destination = output / "regions"
+    destination.mkdir()
+    for band in range(5):
+        data = selected(rows, band=band)
+        fig, ax = plt.subplots(figsize=(11.8, 6.4))
+        fig.subplots_adjust(left=0.10, right=0.90, top=0.77, bottom=0.21)
+        fig.suptitle(
+            f"Sweden · {band_label(data)}",
+            x=0.10,
+            ha="left",
+            y=0.96,
+            fontsize=22,
+            weight="bold",
+        )
+        fig.text(
+            0.10,
+            0.885,
+            "Open land and cereal cover through the Holocene",
+            fontsize=12,
+            color="#626d66",
+        )
+        pair = paired_panel(ax, data, cereal_ceiling(rows), recent=False)
+        ax.set_title("", loc="left")
+        ax.set_title(
+            f"Available support: {support_label(data)}", loc="right", fontsize=9
+        )
+        fig.legend(
+            handles=pair,
+            labels=["Open land", "Cereals"],
+            loc="upper left",
+            bbox_to_anchor=(0.09, 0.855),
+            ncol=2,
+            frameon=False,
+            fontsize=11,
+        )
+        ax.set_xlabel("Age (cal BP, relative to 1950) · older → younger", labelpad=10)
+        reading_footer(fig, y=0.065)
+        save(fig, destination, f"latitude-{55 + 3 * band}-{58 + 3 * band}")
+
+
+def forest_figure(rows: list[dict[str, Any]], output: Path) -> None:
+    """Keep the forest proxy and its non-tree complement on one shared axis."""
+    fig, axes = plt.subplots(5, 1, figsize=(11.8, 12.4), sharex=True)
+    fig.subplots_adjust(left=0.10, right=0.96, top=0.84, bottom=0.12, hspace=0.58)
+    fig.suptitle(
+        "Forest proxy and non-tree vegetation",
+        x=0.10,
+        ha="left",
+        y=0.975,
+        fontsize=20,
+        weight="bold",
+    )
+    fig.text(
+        0.10,
+        0.937,
+        "Available-grid history · shrubs remain within non-tree cover",
+        fontsize=11,
+        color="#626d66",
+    )
+    handles = None
+    for band, ax in enumerate(axes):
+        data = selected(rows, band=band)
+        a = draw_envelope(ax, data, "tree_assigned", TREE, "Tree-associated cover")
+        b = draw_envelope(ax, data, "non_tree", "#9a8047", "Non-tree cover")
+        if handles is None:
+            handles = (a, b)
+        style(ax)
+        ax.set_yticks([0, 50, 100])
+        ax.set_title(band_label(data), loc="left", fontsize=12, weight="bold", pad=10)
+        ax.set_title(
+            support_label(data), loc="right", fontsize=9, color="#6b746f", pad=10
+        )
+    fig.legend(
+        handles=handles,
+        labels=["Tree-associated cover", "Non-tree cover (incl. shrubs)"],
+        loc="upper left",
+        bbox_to_anchor=(0.09, 0.91),
+        ncol=2,
+        frameon=False,
+        fontsize=10,
+    )
+    axes[-1].set_xlabel("Age (cal BP, relative to 1950) · older → younger", labelpad=10)
+    fig.text(
+        0.10,
+        0.035,
+        "Lines: area-weighted grid mean · Shading: spatial grid min–max, not confidence limits.\n"
+        "The forest proxy is an explicit taxon grouping; non-tree cover differs from the published open-land class.",
+        fontsize=8.5,
+        color="#626d66",
+        linespacing=1.7,
+    )
+    save(fig, output, "forest-open")
 
 
 def coverage_figure(rows: list[dict[str, Any]], output: Path) -> None:
@@ -385,7 +509,7 @@ def sensitivity_figure(rows: list[dict[str, Any]], output: Path) -> None:
     for band in range(5):
         for policy, label, color, line in (
             ("fixed_recent", "Fixed common grids (primary)", TREE, "-"),
-            ("available", "All available grids", SOURCE_OPEN, "--"),
+            ("available", "All available grids", "#407ca1", "--"),
             ("high_quality", "High-quality grids only", CEREAL, ":"),
         ):
             data = selected(rows, band=band, policy=policy, recent=True)
@@ -547,6 +671,8 @@ def main() -> None:
     args.output.mkdir(parents=True)
     trajectory_figure(rows, args.output, recent=True)
     trajectory_figure(rows, args.output, recent=False)
+    regional_figures(rows, args.output)
+    forest_figure(rows, args.output)
     coverage_figure(rows, args.output)
     boundary_figure(rows, args.output)
     sensitivity_figure(rows, args.output)
@@ -566,10 +692,13 @@ def main() -> None:
         json.dumps(
             {
                 "matplotlib": matplotlib.__version__,
-                "figures": 6,
+                "figures": 12,
                 "formats": ["svg", "pdf", "png"],
                 "uncertainty_bands": False,
-                "temporal_interpolation": False,
+                "numerical_temporal_interpolation": False,
+                "display_connections": "Straight guides between adjacent source-window midpoints only; no additional temporal estimates",
+                "range_envelopes": "Cellwise spatial minimum/maximum on the selected support; not confidence intervals",
+                "cereal_axis_maximum": cereal_ceiling(rows),
                 "inputs": [
                     {
                         "path": str(path.relative_to(args.repository.resolve()))
@@ -579,6 +708,7 @@ def main() -> None:
                     }
                     for path in (
                         Path(__file__).resolve(),
+                        Path(__file__).resolve().with_name("figure_series.py"),
                         args.study.resolve() / "trajectories.json",
                         args.repository.resolve()
                         / "data/boundaries/raw/sweden.geojson",

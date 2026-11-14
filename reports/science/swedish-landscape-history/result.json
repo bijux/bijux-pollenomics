@@ -168,10 +168,23 @@
       "pdf",
       "png"
     ],
-    "temporal_interpolation": false,
     "regional_confidence_bands": false,
-    "source_sha256": "39e68842e4773ca3e5369ce433851aae520c412b93b941d0a2f91639e1578479",
-    "boundary_sha256": "20e2ca00f348cddb95a41ca8e8f22a92390a8210618a525e2cef98d3069fc00d"
+    "source_sha256": "75fbdd7109db67e2cf2e446552ea9e6642261fe423541d6917724f60f133ac6a",
+    "boundary_sha256": "20e2ca00f348cddb95a41ca8e8f22a92390a8210618a525e2cef98d3069fc00d",
+    "series_source": "figure_series.py",
+    "series_source_sha256": "73a1056d42b5750390c5c5d6bea6bb300114edbb99446f223e4be84f3d0b7627",
+    "figure_count": 12,
+    "numerical_temporal_interpolation": false,
+    "display_connections": "Straight guides between adjacent window midpoints; gaps are not bridged",
+    "range_envelopes": "Spatial minimum\u2013maximum across exactly the grids used for the weighted mean; not confidence or prediction intervals",
+    "open_land_axis_percent": [
+      0,
+      100
+    ],
+    "cereal_axis_percent": [
+      0,
+      25
+    ]
   },
   "checks": {
     "focused_tests": 20,
@@ -181,5 +194,14 @@
     "strict_mypy_files": 12,
     "independent_original_archive": "passed"
   },
-  "remaining": "No independent vegetation reference, exact local-LRA admission, qualified botanical/chronology acceptance or quantitative Estonia equivalence is established."
+  "remaining": "No independent vegetation reference, exact local-LRA admission, qualified botanical/chronology acceptance or quantitative Estonia equivalence is established.",
+  "presentation_checks": {
+    "focused_tests": 30,
+    "new_range_tests": 10,
+    "drawing_controls": "Line/fill gaps, isolated-window range bars and 25-percent axis verified",
+    "source_values_changed": false,
+    "svg_xml_count": 12,
+    "exports_inspected": "Regional and overview PNGs; regional and controlled-recent PDF raster readback",
+    "original_scientific_verification": "Retained unchanged at b768c7b1204c2dd43b2c88e69d47ce2b61f662b8"
+  }
 }

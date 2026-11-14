@@ -2,6 +2,13 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### Swedish open-land and cereal figures
+
+- Pair open-land and cereal means with spatial min–max shading and fixed,
+  clearly labelled axes; preserve missing support and the source-window values.
+- Export each latitude region separately, simplify the main scientific report
+  and retain forest/open and support diagnostics as distinct reading routes.
+
 ### Swedish vegetation history by latitude
 
 - Derive four-, five- and six-band Swedish forest/open/cereal summaries from
