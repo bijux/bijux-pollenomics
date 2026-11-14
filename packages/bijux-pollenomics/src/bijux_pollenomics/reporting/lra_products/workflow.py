@@ -66,6 +66,18 @@ def _report(
         "Values retain original CSV decimal text; N/A remains missing. q10/q90 are method "
         "quantiles, not total uncertainty or held-out predictive intervals.</p>"
     )
+    compatibility = (
+        manifest.get("scientific_identity", {})
+        .get("engine_scientific_manifest", {})
+        .get("compatibility_mode")
+    )
+    if compatibility == "analytical-love-clip-and-renormalize":
+        estimate_scope += (
+            "<p>Declared LOVE cover assumption: negative cover is set to zero and "
+            "each draw is normalized to a total of one before summaries. The raw equation "
+            "summaries and outlier diagnostics remain in the downloaded product. "
+            "This assumption does not establish true taxon absence or field accuracy.</p>"
+        )
     estimates = "".join(
         "<tr>"
         + "".join(
@@ -300,6 +312,9 @@ def render_lra_report(
             "operation": request["operation"],
             "method": {
                 "profile": request["method_profile"],
+                "compatibility_mode": manifest.get("scientific_identity", {})
+                .get("engine_scientific_manifest", {})
+                .get("compatibility_mode"),
                 "configuration": request["configuration"],
                 "versions": request["versions"],
             },

@@ -146,6 +146,20 @@ def test_legacy_absence_remains_missing_without_inferred_defaults() -> None:
     assert "seed" not in text and "analytical" not in text
 
 
+def test_adjusted_cover_displays_actual_identity_when_request_omits_default() -> None:
+    view = declared_view()
+    view["method"]["profile"] = "disqover-0.9.14-source-compatible"
+    view["method"]["compatibility_mode"] = "analytical-love-clip-and-renormalize"
+    observed = context(view, mounted=True)
+    text = " ".join(ET.fromstring("<div>" + observed["html"] + "</div>").itertext())
+    assert "analytical-love-clip-and-renormalize" in text
+    assert "negative cover is set to zero" in text
+    assert "each draw is normalized" in text
+    assert "raw equation" in text
+    assert "not establish true taxon absence or field accuracy" in text
+    assert observed["unchanged"] is True
+
+
 @pytest.mark.parametrize(
     "omissions", [None, "none", [False], [None], [""], {"missing": "unknown"}]
 )

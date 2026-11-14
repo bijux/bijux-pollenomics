@@ -131,6 +131,9 @@ def test_actual_cli_product_renders_lossless_tables_downloads_and_explicit_map_r
     assert len(native["sites"]) == 1 and native["sites"][0]["role"] == "local"
     assert "unsupported_map_operation" in native["sites"][0]["reason_codes"]
     assert native["method"]["configuration"] == request["configuration"]
+    assert (
+        native["method"]["compatibility_mode"] == "analytical-love-clip-and-renormalize"
+    )
     assert native["method"]["configuration"]["love"]["seed"] == 7
     assert native["uncertainty_omissions"] == request["uncertainty_omissions"]
     pollen = json.loads((report / "input-pollen.json").read_bytes())
@@ -140,6 +143,9 @@ def test_actual_cli_product_renders_lossless_tables_downloads_and_explicit_map_r
         raw = list(csv.reader(io.StringIO(original[table["member"]].decode())))
         assert table["header"] == raw[0] and table["rows"] == raw[1:]
     html = (report / "index.html").read_text()
+    assert "negative cover is set to zero" in html
+    assert "each draw is normalized" in html
+    assert "raw equation" in html
     assert "supplied regional-cover draws in fractions" in html
     assert "not measured regional pollen" in html
     assert "typed estimate rows and a geographic map are unavailable" in html

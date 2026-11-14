@@ -4,7 +4,7 @@ audience: contributor
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-12
+last_reviewed: 2026-11-14
 ---
 
 # LRA engine integration
@@ -42,6 +42,24 @@ profile. Source geometry conventions, analytical estimates outside physical
 fractions, uncertainty omissions and optimizer failure are observable. A numeric
 pairing coordinate is not a canonical source ID or an automatically inferred age.
 Publication-specific multi-site aggregation requires its own verified profile.
+
+Maintained analytical LOVE workflows use the declared cover assumption
+`clip-and-renormalize`: set negative estimates to zero, then normalize surviving
+cover to a fraction total of one (100 percent). For example, `[70, 35, -5]`
+becomes `[70/105, 35/105, 0]`. Apply this separately to each draw before
+summarizing; marginal quantiles and standard deviations are not renormalized.
+Raw equation summaries, optional raw draws and raw outlier diagnostics remain
+available in the saved numerical bundle. No positive mass means an explicit
+failure; unsupported geometry remains missing rather than zero.
+
+The request's source method profile identifies equations and geometry. The
+bound engine compatibility mode `analytical-love-clip-and-renormalize` identifies
+adjusted cover, with the assumption visible in reports and map method context.
+Literal source replay requires `configuration.love.analytical_cover_policy` set
+to `source-raw`; it remains available for historical/reference comparisons.
+The optional field is also accepted by draw-fed LOVE requests. Clipping is a
+modeling assumption, not proof of taxon absence, physical source admission or
+ecological accuracy. Existing saved results keep their original assumptions.
 
 Pollen and vegetation validation have different targets and scores. Holding every
 target pollen sample out requires a spatial predictor and a forward observation

@@ -157,7 +157,18 @@ REGIONAL_DRAW_LOVE_REQUEST_SCHEMA = {
                             "stochastic": {"type": "boolean"},
                             "retain_samples": {"type": "boolean"},
                             "ppe_error": {"type": "boolean"},
-                        }
+                            "analytical_cover_policy": {
+                                "enum": ["clip-and-renormalize", "source-raw"]
+                            },
+                        },
+                        (
+                            "max_ring",
+                            "repeats",
+                            "seed",
+                            "stochastic",
+                            "retain_samples",
+                            "ppe_error",
+                        ),
                     )
                 }
             ),

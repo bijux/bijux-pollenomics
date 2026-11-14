@@ -10,6 +10,8 @@ Repository changes are recorded by pull request, newest merge first.
 - Preserve low-level source equations and explicit historical source replay.
   Unsupported rings remain missing; nonfinite supported cover and zero surviving
   positive mass remain refused. The assumption does not establish field accuracy.
+- Carry the policy through draw-fed host requests and saved-table validation;
+  display the bound result identity and cover assumption in reports and maps.
 
 ### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
 

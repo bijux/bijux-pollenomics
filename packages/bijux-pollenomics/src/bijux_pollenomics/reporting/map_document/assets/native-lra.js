@@ -124,6 +124,10 @@ function nativeLraMethodContextHtml(view) {
   const method = object(view?.method) ? view.method : {};
   const profile = typeof method.profile === 'string' && method.profile.trim()
     ? escape(method.profile) : 'Unavailable: no valid method profile supplied.';
+  const compatibility = typeof method.compatibility_mode === 'string' && method.compatibility_mode.trim()
+    ? `<p>Result compatibility: ${escape(method.compatibility_mode)}</p>` : '';
+  const coverAssumption = method.compatibility_mode === 'analytical-love-clip-and-renormalize'
+    ? '<p>Declared LOVE cover assumption: negative cover is set to zero and each draw is normalized to a total of one before summaries. The raw equation summaries and outlier diagnostics remain available in the saved product. This assumption does not establish true taxon absence or field accuracy.</p>' : '';
   function settings(value, label) {
     if (!object(value)) return `<p>${escape(label)} unavailable: no settings object supplied.</p>`;
     const rows = [];
@@ -144,7 +148,7 @@ function nativeLraMethodContextHtml(view) {
     ? omissions.length ? `<ul>${omissions.map(value => `<li>${escape(value)}</li>`).join('')}</ul>`
       : '<p>No uncertainty omissions were declared. This does not establish complete uncertainty coverage.</p>'
     : '<p>Declared uncertainty omissions unavailable: no valid list supplied.</p>';
-  return `<h4>Method and declared uncertainty</h4><p>Method profile: ${profile}</p>${settings(method.configuration, 'Declared configuration')}${settings(method.versions, 'Declared versions')}<h5>Declared uncertainty omissions</h5>${uncertainty}<p>These are declarations from the bound result, not validated assumptions or scientific approval. Display filters do not refit the model. Method summaries do not establish total uncertainty or held-out predictive coverage.</p>`;
+  return `<h4>Method and declared uncertainty</h4><p>Method profile: ${profile}</p>${compatibility}${coverAssumption}${settings(method.configuration, 'Declared configuration')}${settings(method.versions, 'Declared versions')}<h5>Declared uncertainty omissions</h5>${uncertainty}<p>These are declarations from the bound result, not validated assumptions or scientific approval. Display filters do not refit the model. Method summaries do not establish total uncertainty or held-out predictive coverage.</p>`;
 }
 
 function createNativeLraController(view, viewSha256, adapters) {

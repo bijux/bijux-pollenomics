@@ -32,7 +32,10 @@ def _binding() -> EngineBinding:
     )
 
 
-def test_installed_host_publishes_and_reopens_draw_fed_love(tmp_path: Path) -> None:
+@pytest.mark.parametrize("cover_policy", ["clip-and-renormalize", "source-raw"])
+def test_installed_host_publishes_and_reopens_draw_fed_love(
+    tmp_path: Path, cover_policy: str
+) -> None:
     bundle, _ = _bundle(tmp_path)
     payload = regional_draw_love_fixture(
         tmp_path,
@@ -42,6 +45,7 @@ def test_installed_host_publishes_and_reopens_draw_fed_love(tmp_path: Path) -> N
         cohort_disposition="included_method_control",
     )
     binding = _binding()
+    payload["configuration"]["love"]["analytical_cover_policy"] = cover_policy
     destination = tmp_path / "local-product"
     with (
         patch.object(regional_draw_love, "load_engine", return_value=binding),
@@ -71,6 +75,7 @@ def test_installed_host_publishes_and_reopens_draw_fed_love(tmp_path: Path) -> N
     assert "regional_basin_type" not in scientific["parameters"]
     assert "regional_basin_diameter_m" not in scientific["parameters"]
     assert scientific["parameters"]["regional_cohort_overlap"] is True
+    assert scientific["parameters"]["analytical_cover_policy"] == cover_policy
     assert (destination / "numerical/cover_mean.csv").is_file()
 
 

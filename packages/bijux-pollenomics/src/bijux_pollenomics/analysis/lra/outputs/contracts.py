@@ -112,7 +112,7 @@ def _regional(root: Path, payload: dict[str, Any], coordinates: list[float]) -> 
         raise ValueError("Invalid deposition factor")
 
 
-def _local(root: Path, payload: dict[str, Any]) -> None:
+def _local(root: Path, payload: dict[str, Any], *, cover_policy: str) -> None:
     header, rows = _table(root / "cover_mean.csv")
     if header != ["index", *payload["taxa"]]:
         raise ValueError("Local cover table differs from retained taxa")
@@ -132,10 +132,28 @@ def _local(root: Path, payload: dict[str, Any]) -> None:
             ):
                 raise ValueError("Local statistic axes differ from request")
             for row in rows:
+                numbers = []
                 for value in row[1:]:
                     # Analytical source behavior can leave unsupported estimates
                     # missing. Preserve empty fields; never coerce them to zero.
-                    _number(value, nullable=True)
+                    numbers.append(_number(value, nullable=True))
+                if cover_policy == "clip-and-renormalize" and path.name.startswith(
+                    "cover_"
+                ):
+                    if all(value is None for value in numbers):
+                        continue
+                    if any(value is None for value in numbers):
+                        raise ValueError("Adjusted LOVE cover has partial missingness")
+                    finite = [value for value in numbers if value is not None]
+                    if any(value < 0 for value in finite) or (
+                        path.name != "cover_sd.csv"
+                        and any(value > 1 for value in finite)
+                    ):
+                        raise ValueError("Adjusted LOVE cover is outside its bounds")
+                    if path.name == "cover_mean.csv" and not math.isclose(
+                        sum(finite), 1.0, rel_tol=0, abs_tol=1e-12
+                    ):
+                        raise ValueError("Adjusted LOVE mean cover is not closed")
 
 
 def validate_numerical_tables(directory: Path, payload: dict[str, Any]) -> None:
@@ -217,4 +235,11 @@ def validate_numerical_tables(directory: Path, payload: dict[str, Any]) -> None:
                 "method", "analytical"
             ):
                 raise ValueError("Saved LOVE method differs from request")
-            _local(root, payload)
+            policy = contract.get("analytical_cover_policy", "source-raw")
+            if policy not in {"source-raw", "clip-and-renormalize"}:
+                raise ValueError("Unsupported saved LOVE cover policy")
+            if "analytical_cover_policy" in contract and policy != payload[
+                "configuration"
+            ]["love"].get("analytical_cover_policy", "clip-and-renormalize"):
+                raise ValueError("Saved LOVE cover policy differs from request")
+            _local(root, payload, cover_policy=policy)
