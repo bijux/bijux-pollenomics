@@ -1,0 +1,2612 @@
+{
+  "schema_version": "love-matched-nominal-scores.v1",
+  "source_commit": "dbcc4c3435da29d4e066fc34774d3118c46eaf32",
+  "analytical_cover_policy": "clip-and-renormalize",
+  "axis": [
+    "Betula",
+    "Ulmus"
+  ],
+  "scientific_acceptance": "not_evaluated",
+  "scope": "Previously exposed conditional development;3 target places repeated over6 windows, not18 independent sites. Fixed two-taxon denominator, chronology, static geometry and PPE transfer.",
+  "protocol": {
+    "path": "artifacts/lra-completion/science/uncertainty/protocol.json",
+    "bytes": 6908,
+    "sha256": "8efb7d98c5f1f487dff7f76cfd936b718f1857373644c6d2fae7749d175eefd3"
+  },
+  "prediction_freeze": {
+    "directory": "artifacts/lra-completion/science/nominal-freeze",
+    "path": "manifest.json",
+    "bytes": 409,
+    "sha256": "65eb43fad48ed00cc5899a1a0948df45bd03da32f0755e0c58f8deecf9137024"
+  },
+  "source_observation": {
+    "status": "passed",
+    "source_files_verified": 221,
+    "owners_verified": 24,
+    "active_fold_kernels_verified": 18,
+    "nominal_predictions_verified": 54,
+    "source_bytes_read": 3293026,
+    "scope": "Qualified saved inputs and pre-score products; no new native-source census or model execution"
+  },
+  "independent_scalar_prediction_and_score_verification": "passed",
+  "population": {
+    "windows": 6,
+    "target_places": 3,
+    "target_window_folds": 18,
+    "requested_method_cells": 54,
+    "scored_method_cells": 54,
+    "refused_method_cells": 0,
+    "historical_source_raw_predicted": 9,
+    "historical_source_raw_refused": 45
+  },
+  "rows": [
+    {
+      "window": "cal-bp-2700-3200",
+      "case_id": "cal-bp-2700-3200:site-group:261c38534fc6c80bf6e96a98939c0fc4ab59c0b9a5af864fd472f94ba5103048",
+      "target_id": "neotoma-54001-39241-cal-bp-2700-3200",
+      "target_core": "BOKE",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.9519670648112741,
+        0.048032935188725895
+      ],
+      "observed": [
+        0.8444444444444444,
+        0.15555555555555556
+      ],
+      "matched_direct_prediction": [
+        0.950040539896027,
+        0.04995946010397291
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.10752262036682968,
+        "total_variation_fraction": 0.10752262036682968,
+        "hellinger": 0.130250108673976
+      },
+      "direct_errors": {
+        "mae_fraction": 0.1055960954515826,
+        "total_variation_fraction": 0.1055960954515826,
+        "hellinger": 0.12710763045365778
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/BOKE-raw.json",
+        "sha256": "753c788e2f853f4393c881adc0242e76c93cb01f5304503863f6d769ed9cba63"
+      }
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "case_id": "cal-bp-2700-3200:site-group:261c38534fc6c80bf6e96a98939c0fc4ab59c0b9a5af864fd472f94ba5103048",
+      "target_id": "neotoma-54001-39241-cal-bp-2700-3200",
+      "target_core": "BOKE",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.9478325110485453,
+        0.05216748895145464
+      ],
+      "observed": [
+        0.8444444444444444,
+        0.15555555555555556
+      ],
+      "matched_direct_prediction": [
+        0.946058091286307,
+        0.05394190871369295
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.10338806660410087,
+        "total_variation_fraction": 0.10338806660410087,
+        "hellinger": 0.12357500219258033
+      },
+      "direct_errors": {
+        "mae_fraction": 0.1016136468418626,
+        "total_variation_fraction": 0.1016136468418626,
+        "hellinger": 0.12078647612451586
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/BOKE-raw.json",
+        "sha256": "753c788e2f853f4393c881adc0242e76c93cb01f5304503863f6d769ed9cba63"
+      }
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "case_id": "cal-bp-2700-3200:site-group:261c38534fc6c80bf6e96a98939c0fc4ab59c0b9a5af864fd472f94ba5103048",
+      "target_id": "neotoma-54001-39241-cal-bp-2700-3200",
+      "target_core": "BOKE",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.9478955246043798,
+        0.05210447539562019
+      ],
+      "observed": [
+        0.8444444444444444,
+        0.15555555555555556
+      ],
+      "matched_direct_prediction": [
+        0.9461180504008267,
+        0.05388194959917323
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.10345108015993534,
+        "total_variation_fraction": 0.10345108015993534,
+        "hellinger": 0.12367483688825386
+      },
+      "direct_errors": {
+        "mae_fraction": 0.10167360595638232,
+        "total_variation_fraction": 0.10167360595638232,
+        "hellinger": 0.12087999751408818
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/BOKE-raw.json",
+        "sha256": "753c788e2f853f4393c881adc0242e76c93cb01f5304503863f6d769ed9cba63"
+      }
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "case_id": "cal-bp-2700-3200:site-group:8e16efeeea6eaef9b89556d592f505a99dae206c7c74e304c53258ef5d6924cd",
+      "target_id": "neotoma-53995-39238-cal-bp-2700-3200",
+      "target_core": "BUS",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.9108841539926278,
+        0.0891158460073722
+      ],
+      "observed": [
+        0.946058091286307,
+        0.05394190871369295
+      ],
+      "matched_direct_prediction": [
+        0.8992337164750958,
+        0.10076628352490422
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.03517393729367924,
+        "total_variation_fraction": 0.03517393729367924,
+        "hellinger": 0.0486040811184649
+      },
+      "direct_errors": {
+        "mae_fraction": 0.04682437481121127,
+        "total_variation_fraction": 0.04682437481121127,
+        "hellinger": 0.0626511700468542
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/BUS-raw.json",
+        "sha256": "9e6a0097e2056b758deacc102e668b172243837288fb69358d4d6d0c96e67448"
+      }
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "case_id": "cal-bp-2700-3200:site-group:8e16efeeea6eaef9b89556d592f505a99dae206c7c74e304c53258ef5d6924cd",
+      "target_id": "neotoma-53995-39238-cal-bp-2700-3200",
+      "target_core": "BUS",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.8488709879107735,
+        0.15112901208922638
+      ],
+      "observed": [
+        0.946058091286307,
+        0.05394190871369295
+      ],
+      "matched_direct_prediction": [
+        0.8444444444444444,
+        0.15555555555555556
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.09718710337553346,
+        "total_variation_fraction": 0.09718710337553346,
+        "hellinger": 0.1164582313408253
+      },
+      "direct_errors": {
+        "mae_fraction": 0.1016136468418626,
+        "total_variation_fraction": 0.1016136468418626,
+        "hellinger": 0.12078647612451586
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/BUS-raw.json",
+        "sha256": "9e6a0097e2056b758deacc102e668b172243837288fb69358d4d6d0c96e67448"
+      }
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "case_id": "cal-bp-2700-3200:site-group:8e16efeeea6eaef9b89556d592f505a99dae206c7c74e304c53258ef5d6924cd",
+      "target_id": "neotoma-53995-39238-cal-bp-2700-3200",
+      "target_core": "BUS",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.8497947141510797,
+        0.15020528584892037
+      ],
+      "observed": [
+        0.946058091286307,
+        0.05394190871369295
+      ],
+      "matched_direct_prediction": [
+        0.8451459820752593,
+        0.15485401792474088
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.0962633771352274,
+        "total_variation_fraction": 0.0962633771352274,
+        "hellinger": 0.11554835051689755
+      },
+      "direct_errors": {
+        "mae_fraction": 0.10091210921104785,
+        "total_variation_fraction": 0.10091210921104785,
+        "hellinger": 0.12010398481583653
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/BUS-raw.json",
+        "sha256": "9e6a0097e2056b758deacc102e668b172243837288fb69358d4d6d0c96e67448"
+      }
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "case_id": "cal-bp-2700-3200:site-group:ce785c48af301ca5411ab5d1af6bd7db711f9433324cf86aa8eb836dcff511f2",
+      "target_id": "neotoma-4446-4304-cal-bp-2700-3200",
+      "target_core": "SOLSOE83",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.9102240471547958,
+        0.0897759528452043
+      ],
+      "observed": [
+        0.9540229885057471,
+        0.04597701149425287
+      ],
+      "matched_direct_prediction": [
+        0.8952512678653757,
+        0.10474873213462425
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.043798941350951366,
+        "total_variation_fraction": 0.043798941350951366,
+        "hellinger": 0.06234691951427184
+      },
+      "direct_errors": {
+        "mae_fraction": 0.05877172064037139,
+        "total_variation_fraction": 0.05877172064037139,
+        "hellinger": 0.08020159890831363
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 338,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/SOLSOE83-raw.json",
+        "sha256": "7fcd98d4b9c1d0cc8492aabffd92aeffee6ae358d9957d8781784b9fceb504f7"
+      }
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "case_id": "cal-bp-2700-3200:site-group:ce785c48af301ca5411ab5d1af6bd7db711f9433324cf86aa8eb836dcff511f2",
+      "target_id": "neotoma-4446-4304-cal-bp-2700-3200",
+      "target_core": "SOLSOE83",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.8640835193807579,
+        0.13591648061924197
+      ],
+      "observed": [
+        0.9540229885057471,
+        0.04597701149425287
+      ],
+      "matched_direct_prediction": [
+        0.8444444444444444,
+        0.15555555555555556
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.08993946912498914,
+        "total_variation_fraction": 0.08993946912498914,
+        "hellinger": 0.11405655024953998
+      },
+      "direct_errors": {
+        "mae_fraction": 0.10957854406130266,
+        "total_variation_fraction": 0.10957854406130266,
+        "hellinger": 0.1336696741803599
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 338,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/SOLSOE83-raw.json",
+        "sha256": "7fcd98d4b9c1d0cc8492aabffd92aeffee6ae358d9957d8781784b9fceb504f7"
+      }
+    },
+    {
+      "window": "cal-bp-2700-3200",
+      "case_id": "cal-bp-2700-3200:site-group:ce785c48af301ca5411ab5d1af6bd7db711f9433324cf86aa8eb836dcff511f2",
+      "target_id": "neotoma-4446-4304-cal-bp-2700-3200",
+      "target_core": "SOLSOE83",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.9068529112400823,
+        0.09314708875991777
+      ],
+      "observed": [
+        0.9540229885057471,
+        0.04597701149425287
+      ],
+      "matched_direct_prediction": [
+        0.8911166376339638,
+        0.10888336236603617
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.04717007726566485,
+        "total_variation_fraction": 0.04717007726566485,
+        "hellinger": 0.06647745824246067
+      },
+      "direct_errors": {
+        "mae_fraction": 0.06290635087178331,
+        "total_variation_fraction": 0.06290635087178331,
+        "hellinger": 0.08492636580754885
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 338,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/SOLSOE83-raw.json",
+        "sha256": "7fcd98d4b9c1d0cc8492aabffd92aeffee6ae358d9957d8781784b9fceb504f7"
+      }
+    },
+    {
+      "window": "cal-bp-3200-3700",
+      "case_id": "cal-bp-3200-3700:site-group:bdb5a7159f81ef6aa04968d058cbeb1545658b69c2ce9691046ed6577251f957",
+      "target_id": "neotoma-54001-39241-cal-bp-3200-3700",
+      "target_core": "BOKE",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.8721068403167702,
+        0.12789315968322978
+      ],
+      "observed": [
+        0.93,
+        0.07
+      ],
+      "matched_direct_prediction": [
+        0.857726208086785,
+        0.142273791913215
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.057893159683229806,
+        "total_variation_fraction": 0.057893159683229806,
+        "hellinger": 0.06923795633197843
+      },
+      "direct_errors": {
+        "mae_fraction": 0.07227379191321501,
+        "total_variation_fraction": 0.07227379191321501,
+        "hellinger": 0.08409544280022015
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 340,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3200-3700/BOKE-raw.json",
+        "sha256": "691d9e5723483f3e966031b2d185fbd17c250d5102b25b152d451d8ccfa0518c"
+      }
+    },
+    {
+      "window": "cal-bp-3200-3700",
+      "case_id": "cal-bp-3200-3700:site-group:bdb5a7159f81ef6aa04968d058cbeb1545658b69c2ce9691046ed6577251f957",
+      "target_id": "neotoma-54001-39241-cal-bp-3200-3700",
+      "target_core": "BOKE",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.8027915972611989,
+        0.19720840273880108
+      ],
+      "observed": [
+        0.93,
+        0.07
+      ],
+      "matched_direct_prediction": [
+        0.7864583333333334,
+        0.21354166666666666
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.12720840273880113,
+        "total_variation_fraction": 0.12720840273880113,
+        "hellinger": 0.13582744932410054
+      },
+      "direct_errors": {
+        "mae_fraction": 0.14354166666666668,
+        "total_variation_fraction": 0.14354166666666668,
+        "hellinger": 0.15005133427971817
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 340,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3200-3700/BOKE-raw.json",
+        "sha256": "691d9e5723483f3e966031b2d185fbd17c250d5102b25b152d451d8ccfa0518c"
+      }
+    },
+    {
+      "window": "cal-bp-3200-3700",
+      "case_id": "cal-bp-3200-3700:site-group:bdb5a7159f81ef6aa04968d058cbeb1545658b69c2ce9691046ed6577251f957",
+      "target_id": "neotoma-54001-39241-cal-bp-3200-3700",
+      "target_core": "BOKE",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.804007926250591,
+        0.19599207374940902
+      ],
+      "observed": [
+        0.93,
+        0.07
+      ],
+      "matched_direct_prediction": [
+        0.7875313311501765,
+        0.21246866884982357
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.12599207374940902,
+        "total_variation_fraction": 0.12599207374940902,
+        "hellinger": 0.13475035864299847
+      },
+      "direct_errors": {
+        "mae_fraction": 0.14246866884982357,
+        "total_variation_fraction": 0.14246866884982357,
+        "hellinger": 0.14912997323056765
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 340,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3200-3700/BOKE-raw.json",
+        "sha256": "691d9e5723483f3e966031b2d185fbd17c250d5102b25b152d451d8ccfa0518c"
+      }
+    },
+    {
+      "window": "cal-bp-3200-3700",
+      "case_id": "cal-bp-3200-3700:site-group:c3b084e2e4b258673c1e3a6fb5353a3fb327bacf270953f842ab5cae7d08df12",
+      "target_id": "neotoma-53995-39238-cal-bp-3200-3700",
+      "target_core": "BUS",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.9281011685083228,
+        0.07189883149167714
+      ],
+      "observed": [
+        0.7864583333333334,
+        0.21354166666666666
+      ],
+      "matched_direct_prediction": [
+        0.9294970414201184,
+        0.07050295857988166
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.1416428351749895,
+        "total_variation_fraction": 0.1416428351749895,
+        "hellinger": 0.14745093058890552
+      },
+      "direct_errors": {
+        "mae_fraction": 0.14303870808678498,
+        "total_variation_fraction": 0.14303870808678498,
+        "hellinger": 0.14935945496528405
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3200-3700/BUS-raw.json",
+        "sha256": "be2efbdb5055b9ffe38fd1e067444b7e553c14a5012fb808582184cccc7fdfcb"
+      }
+    },
+    {
+      "window": "cal-bp-3200-3700",
+      "case_id": "cal-bp-3200-3700:site-group:c3b084e2e4b258673c1e3a6fb5353a3fb327bacf270953f842ab5cae7d08df12",
+      "target_id": "neotoma-53995-39238-cal-bp-3200-3700",
+      "target_core": "BUS",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.9281011685083228,
+        0.07189883149167714
+      ],
+      "observed": [
+        0.7864583333333334,
+        0.21354166666666666
+      ],
+      "matched_direct_prediction": [
+        0.93,
+        0.07
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.1416428351749895,
+        "total_variation_fraction": 0.1416428351749895,
+        "hellinger": 0.14745093058890552
+      },
+      "direct_errors": {
+        "mae_fraction": 0.14354166666666668,
+        "total_variation_fraction": 0.14354166666666668,
+        "hellinger": 0.15005133427971817
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3200-3700/BUS-raw.json",
+        "sha256": "be2efbdb5055b9ffe38fd1e067444b7e553c14a5012fb808582184cccc7fdfcb"
+      }
+    },
+    {
+      "window": "cal-bp-3200-3700",
+      "case_id": "cal-bp-3200-3700:site-group:c3b084e2e4b258673c1e3a6fb5353a3fb327bacf270953f842ab5cae7d08df12",
+      "target_id": "neotoma-53995-39238-cal-bp-3200-3700",
+      "target_core": "BUS",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.9281011685083228,
+        0.07189883149167714
+      ],
+      "observed": [
+        0.7864583333333334,
+        0.21354166666666666
+      ],
+      "matched_direct_prediction": [
+        0.9299935599733773,
+        0.07000644002662294
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.1416428351749895,
+        "total_variation_fraction": 0.1416428351749895,
+        "hellinger": 0.14745093058890552
+      },
+      "direct_errors": {
+        "mae_fraction": 0.1435352266400438,
+        "total_variation_fraction": 0.1435352266400438,
+        "hellinger": 0.1500424609904154
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3200-3700/BUS-raw.json",
+        "sha256": "be2efbdb5055b9ffe38fd1e067444b7e553c14a5012fb808582184cccc7fdfcb"
+      }
+    },
+    {
+      "window": "cal-bp-3200-3700",
+      "case_id": "cal-bp-3200-3700:site-group:c77bd7eb357c9ad492d4051c566c2ff13a34f433d2852b12d220ad30de9a1e8f",
+      "target_id": "neotoma-4446-4304-cal-bp-3200-3700",
+      "target_core": "SOLSOE83",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.8717300573686722,
+        0.12826994263132796
+      ],
+      "observed": [
+        0.9289940828402367,
+        0.07100591715976332
+      ],
+      "matched_direct_prediction": [
+        0.8582291666666667,
+        0.14177083333333335
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.057264025471564575,
+        "total_variation_fraction": 0.057264025471564575,
+        "hellinger": 0.06824846528769232
+      },
+      "direct_errors": {
+        "mae_fraction": 0.07076491617356999,
+        "total_variation_fraction": 0.07076491617356999,
+        "hellinger": 0.08220002553424093
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 339,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3200-3700/SOLSOE83-raw.json",
+        "sha256": "bc147478d226a8da0a51be8785510fe47e9a1db3a8c077ac5d586073fcfaec46"
+      }
+    },
+    {
+      "window": "cal-bp-3200-3700",
+      "case_id": "cal-bp-3200-3700:site-group:c77bd7eb357c9ad492d4051c566c2ff13a34f433d2852b12d220ad30de9a1e8f",
+      "target_id": "neotoma-4446-4304-cal-bp-3200-3700",
+      "target_core": "SOLSOE83",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.9206610033598595,
+        0.07933899664014048
+      ],
+      "observed": [
+        0.9289940828402367,
+        0.07100591715976332
+      ],
+      "matched_direct_prediction": [
+        0.93,
+        0.07
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.008333079480377183,
+        "total_variation_fraction": 0.008333079480377183,
+        "hellinger": 0.011177772927015162
+      },
+      "direct_errors": {
+        "mae_fraction": 0.0010059171597633504,
+        "total_variation_fraction": 0.0010059171597633504,
+        "hellinger": 0.0013892874593986581
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 339,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3200-3700/SOLSOE83-raw.json",
+        "sha256": "bc147478d226a8da0a51be8785510fe47e9a1db3a8c077ac5d586073fcfaec46"
+      }
+    },
+    {
+      "window": "cal-bp-3200-3700",
+      "case_id": "cal-bp-3200-3700:site-group:c77bd7eb357c9ad492d4051c566c2ff13a34f433d2852b12d220ad30de9a1e8f",
+      "target_id": "neotoma-4446-4304-cal-bp-3200-3700",
+      "target_core": "SOLSOE83",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.8762012121446962,
+        0.12379878785530384
+      ],
+      "observed": [
+        0.9289940828402367,
+        0.07100591715976332
+      ],
+      "matched_direct_prediction": [
+        0.8640698360345408,
+        0.13593016396545915
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.05279287069554051,
+        "total_variation_fraction": 0.05279287069554051,
+        "hellinger": 0.06349043674919654
+      },
+      "direct_errors": {
+        "mae_fraction": 0.06492424680569585,
+        "total_variation_fraction": 0.06492424680569585,
+        "hellinger": 0.07623731222203477
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 339,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3200-3700/SOLSOE83-raw.json",
+        "sha256": "bc147478d226a8da0a51be8785510fe47e9a1db3a8c077ac5d586073fcfaec46"
+      }
+    },
+    {
+      "window": "cal-bp-3700-4200",
+      "case_id": "cal-bp-3700-4200:site-group:08d7bd777f4d439c8d6de62263b1eac072b97a721956c4a5a3b4e9d9ab00a605",
+      "target_id": "neotoma-53995-39238-cal-bp-3700-4200",
+      "target_core": "BUS",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.8598254648454914,
+        0.14017453515450853
+      ],
+      "observed": [
+        0.4559386973180077,
+        0.5440613026819924
+      ],
+      "matched_direct_prediction": [
+        0.8774020776316176,
+        0.12259792236838232
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.40388676752748376,
+        "total_variation_fraction": 0.40388676752748376,
+        "hellinger": 0.31260246627535265
+      },
+      "direct_errors": {
+        "mae_fraction": 0.42146338031360997,
+        "total_variation_fraction": 0.42146338031360997,
+        "hellinger": 0.33052482611187284
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3700-4200/BUS-raw.json",
+        "sha256": "77589e7e1177f95a980106b16e87ee02764535404f84c29aef2550af183b7c86"
+      }
+    },
+    {
+      "window": "cal-bp-3700-4200",
+      "case_id": "cal-bp-3700-4200:site-group:08d7bd777f4d439c8d6de62263b1eac072b97a721956c4a5a3b4e9d9ab00a605",
+      "target_id": "neotoma-53995-39238-cal-bp-3700-4200",
+      "target_core": "BUS",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.8396594170115323,
+        0.16034058298846762
+      ],
+      "observed": [
+        0.4559386973180077,
+        0.5440613026819924
+      ],
+      "matched_direct_prediction": [
+        0.8257261410788381,
+        0.17427385892116182
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.3837207196935247,
+        "total_variation_fraction": 0.3837207196935247,
+        "hellinger": 0.29310224123604045
+      },
+      "direct_errors": {
+        "mae_fraction": 0.3697874437608305,
+        "total_variation_fraction": 0.3697874437608305,
+        "hellinger": 0.2801756781076351
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3700-4200/BUS-raw.json",
+        "sha256": "77589e7e1177f95a980106b16e87ee02764535404f84c29aef2550af183b7c86"
+      }
+    },
+    {
+      "window": "cal-bp-3700-4200",
+      "case_id": "cal-bp-3700-4200:site-group:08d7bd777f4d439c8d6de62263b1eac072b97a721956c4a5a3b4e9d9ab00a605",
+      "target_id": "neotoma-53995-39238-cal-bp-3700-4200",
+      "target_core": "BUS",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.8399297145172091,
+        0.1600702854827909
+      ],
+      "observed": [
+        0.4559386973180077,
+        0.5440613026819924
+      ],
+      "matched_direct_prediction": [
+        0.8263878146648477,
+        0.1736121853351524
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.3839910171992015,
+        "total_variation_fraction": 0.3839910171992015,
+        "hellinger": 0.29335711771074907
+      },
+      "direct_errors": {
+        "mae_fraction": 0.37044911734683994,
+        "total_variation_fraction": 0.37044911734683994,
+        "hellinger": 0.28078056849520433
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3700-4200/BUS-raw.json",
+        "sha256": "77589e7e1177f95a980106b16e87ee02764535404f84c29aef2550af183b7c86"
+      }
+    },
+    {
+      "window": "cal-bp-3700-4200",
+      "case_id": "cal-bp-3700-4200:site-group:5333741e7d6ee30a323af3527b4afc15fe270c543d7c411b24ea74c4a14f63b6",
+      "target_id": "neotoma-4446-4304-cal-bp-3700-4200",
+      "target_core": "SOLSOE83",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.7361636042358612,
+        0.2638363957641387
+      ],
+      "observed": [
+        0.9290780141843972,
+        0.07092198581560284
+      ],
+      "matched_direct_prediction": [
+        0.6408324191984229,
+        0.35916758080157707
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.1929144099485359,
+        "total_variation_fraction": 0.1929144099485359,
+        "hellinger": 0.19024760323249307
+      },
+      "direct_errors": {
+        "mae_fraction": 0.28824559498597424,
+        "total_variation_fraction": 0.28824559498597424,
+        "hellinger": 0.26227255953429074
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 339,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3700-4200/SOLSOE83-raw.json",
+        "sha256": "a0db1441fbdbf8cca9d7e0d1749a585cba13ef69e9e7a45e32186860a127b9f9"
+      }
+    },
+    {
+      "window": "cal-bp-3700-4200",
+      "case_id": "cal-bp-3700-4200:site-group:5333741e7d6ee30a323af3527b4afc15fe270c543d7c411b24ea74c4a14f63b6",
+      "target_id": "neotoma-4446-4304-cal-bp-3700-4200",
+      "target_core": "SOLSOE83",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.8276222599996786,
+        0.17237774000032136
+      ],
+      "observed": [
+        0.9290780141843972,
+        0.07092198581560284
+      ],
+      "matched_direct_prediction": [
+        0.8257261410788381,
+        0.17427385892116182
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.10145575418471853,
+        "total_variation_fraction": 0.10145575418471853,
+        "hellinger": 0.11201581386853163
+      },
+      "direct_errors": {
+        "mae_fraction": 0.10335187310555902,
+        "total_variation_fraction": 0.10335187310555902,
+        "hellinger": 0.11378118046350195
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 339,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3700-4200/SOLSOE83-raw.json",
+        "sha256": "a0db1441fbdbf8cca9d7e0d1749a585cba13ef69e9e7a45e32186860a127b9f9"
+      }
+    },
+    {
+      "window": "cal-bp-3700-4200",
+      "case_id": "cal-bp-3700-4200:site-group:5333741e7d6ee30a323af3527b4afc15fe270c543d7c411b24ea74c4a14f63b6",
+      "target_id": "neotoma-4446-4304-cal-bp-3700-4200",
+      "target_core": "SOLSOE83",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.7449588256075181,
+        0.2550411743924818
+      ],
+      "observed": [
+        0.9290780141843972,
+        0.07092198581560284
+      ],
+      "matched_direct_prediction": [
+        0.6558789645364668,
+        0.3441210354635332
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.184119188576879,
+        "total_variation_fraction": 0.184119188576879,
+        "hellinger": 0.1832152927696916
+      },
+      "direct_errors": {
+        "mae_fraction": 0.2731990496479304,
+        "total_variation_fraction": 0.2731990496479304,
+        "hellinger": 0.25131598274642464
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 339,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3700-4200/SOLSOE83-raw.json",
+        "sha256": "a0db1441fbdbf8cca9d7e0d1749a585cba13ef69e9e7a45e32186860a127b9f9"
+      }
+    },
+    {
+      "window": "cal-bp-3700-4200",
+      "case_id": "cal-bp-3700-4200:site-group:c0d29e313cd8e786f4206daeca24ea7c0ed82aff451c06ee0ba7545d19526f44",
+      "target_id": "neotoma-54001-39241-cal-bp-3700-4200",
+      "target_core": "BOKE",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.7646007270142288,
+        0.23539927298577124
+      ],
+      "observed": [
+        0.8257261410788381,
+        0.17427385892116182
+      ],
+      "matched_direct_prediction": [
+        0.6925083557512024,
+        0.3074916442487976
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.06112541406460939,
+        "total_variation_fraction": 0.06112541406460939,
+        "hellinger": 0.053669915793331385
+      },
+      "direct_errors": {
+        "mae_fraction": 0.13321778532763576,
+        "total_variation_fraction": 0.13321778532763576,
+        "hellinger": 0.11099734736313477
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3700-4200/BOKE-raw.json",
+        "sha256": "d3bac7d2ef481c7ad60bfa8647059e7c15b25ca69cd09d2ce555e07bbc6720d7"
+      }
+    },
+    {
+      "window": "cal-bp-3700-4200",
+      "case_id": "cal-bp-3700-4200:site-group:c0d29e313cd8e786f4206daeca24ea7c0ed82aff451c06ee0ba7545d19526f44",
+      "target_id": "neotoma-54001-39241-cal-bp-3700-4200",
+      "target_core": "BOKE",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.587413347045937,
+        0.41258665295406316
+      ],
+      "observed": [
+        0.8257261410788381,
+        0.17427385892116182
+      ],
+      "matched_direct_prediction": [
+        0.4559386973180077,
+        0.5440613026819924
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.23831279403290126,
+        "total_variation_fraction": 0.23831279403290126,
+        "hellinger": 0.18815567639059824
+      },
+      "direct_errors": {
+        "mae_fraction": 0.3697874437608305,
+        "total_variation_fraction": 0.3697874437608305,
+        "hellinger": 0.2801756781076351
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3700-4200/BOKE-raw.json",
+        "sha256": "d3bac7d2ef481c7ad60bfa8647059e7c15b25ca69cd09d2ce555e07bbc6720d7"
+      }
+    },
+    {
+      "window": "cal-bp-3700-4200",
+      "case_id": "cal-bp-3700-4200:site-group:c0d29e313cd8e786f4206daeca24ea7c0ed82aff451c06ee0ba7545d19526f44",
+      "target_id": "neotoma-54001-39241-cal-bp-3700-4200",
+      "target_core": "BOKE",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.5909736025341862,
+        0.4090263974658139
+      ],
+      "observed": [
+        0.8257261410788381,
+        0.17427385892116182
+      ],
+      "matched_direct_prediction": [
+        0.45950045256759636,
+        0.5404995474324037
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.234752538544652,
+        "total_variation_fraction": 0.234752538544652,
+        "hellinger": 0.18561959103239187
+      },
+      "direct_errors": {
+        "mae_fraction": 0.3662256885112418,
+        "total_variation_fraction": 0.3662256885112418,
+        "hellinger": 0.2776977317584947
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-3700-4200/BOKE-raw.json",
+        "sha256": "d3bac7d2ef481c7ad60bfa8647059e7c15b25ca69cd09d2ce555e07bbc6720d7"
+      }
+    },
+    {
+      "window": "cal-bp-4200-4700",
+      "case_id": "cal-bp-4200-4700:site-group:7ff9d28b7778f666a6fd30aa64cfb245c812e0625c7e580efd453cd3fb2a9184",
+      "target_id": "neotoma-54001-39241-cal-bp-4200-4700",
+      "target_core": "BOKE",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.8095613503412138,
+        0.19043864965878626
+      ],
+      "observed": [
+        0.8801498127340824,
+        0.1198501872659176
+      ],
+      "matched_direct_prediction": [
+        0.7135605418048165,
+        0.2864394581951834
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.07058846239286864,
+        "total_variation_fraction": 0.07058846239286864,
+        "hellinger": 0.06932142653063435
+      },
+      "direct_errors": {
+        "mae_fraction": 0.16658927092926584,
+        "total_variation_fraction": 0.16658927092926584,
+        "hellinger": 0.14908739915962305
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4200-4700/BOKE-raw.json",
+        "sha256": "698b1fd0b4ff3aeb874ef0be1ff6d712e3b46325ecad603129cd98358e80bdc6"
+      }
+    },
+    {
+      "window": "cal-bp-4200-4700",
+      "case_id": "cal-bp-4200-4700:site-group:7ff9d28b7778f666a6fd30aa64cfb245c812e0625c7e580efd453cd3fb2a9184",
+      "target_id": "neotoma-54001-39241-cal-bp-4200-4700",
+      "target_core": "BOKE",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.6689328766625015,
+        0.3310671233374986
+      ],
+      "observed": [
+        0.8801498127340824,
+        0.1198501872659176
+      ],
+      "matched_direct_prediction": [
+        0.49158249158249157,
+        0.5084175084175084
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.21121693607158099,
+        "total_variation_fraction": 0.21121693607158099,
+        "hellinger": 0.18302391738988175
+      },
+      "direct_errors": {
+        "mae_fraction": 0.38856732115159087,
+        "total_variation_fraction": 0.38856732115159087,
+        "hellinger": 0.3088337820936055
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4200-4700/BOKE-raw.json",
+        "sha256": "698b1fd0b4ff3aeb874ef0be1ff6d712e3b46325ecad603129cd98358e80bdc6"
+      }
+    },
+    {
+      "window": "cal-bp-4200-4700",
+      "case_id": "cal-bp-4200-4700:site-group:7ff9d28b7778f666a6fd30aa64cfb245c812e0625c7e580efd453cd3fb2a9184",
+      "target_id": "neotoma-54001-39241-cal-bp-4200-4700",
+      "target_core": "BOKE",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.6716661301816395,
+        0.32833386981836066
+      ],
+      "observed": [
+        0.8801498127340824,
+        0.1198501872659176
+      ],
+      "matched_direct_prediction": [
+        0.49492455789356965,
+        0.5050754421064304
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.208483682552443,
+        "total_variation_fraction": 0.208483682552443,
+        "hellinger": 0.18098539826203264
+      },
+      "direct_errors": {
+        "mae_fraction": 0.3852252548405128,
+        "total_variation_fraction": 0.3852252548405128,
+        "hellinger": 0.3065269776708827
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4200-4700/BOKE-raw.json",
+        "sha256": "698b1fd0b4ff3aeb874ef0be1ff6d712e3b46325ecad603129cd98358e80bdc6"
+      }
+    },
+    {
+      "window": "cal-bp-4200-4700",
+      "case_id": "cal-bp-4200-4700:site-group:904fcbe6d84b96f0c9d72bc2e6931716d1d1573d012673e8ed161b6819524386",
+      "target_id": "neotoma-53995-39238-cal-bp-4200-4700",
+      "target_core": "BUS",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.8969038859453512,
+        0.10309611405464883
+      ],
+      "observed": [
+        0.49158249158249157,
+        0.5084175084175084
+      ],
+      "matched_direct_prediction": [
+        0.907844202380612,
+        0.09215579761938797
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.40532139436285963,
+        "total_variation_fraction": 0.40532139436285963,
+        "hellinger": 0.327185227023348
+      },
+      "direct_errors": {
+        "mae_fraction": 0.41626171079812047,
+        "total_variation_fraction": 0.41626171079812047,
+        "hellinger": 0.3398541992463268
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4200-4700/BUS-raw.json",
+        "sha256": "c71b64d3434adc37d8381bb3cd155c383eb499ebab410729ccb70bea36eaf752"
+      }
+    },
+    {
+      "window": "cal-bp-4200-4700",
+      "case_id": "cal-bp-4200-4700:site-group:904fcbe6d84b96f0c9d72bc2e6931716d1d1573d012673e8ed161b6819524386",
+      "target_id": "neotoma-53995-39238-cal-bp-4200-4700",
+      "target_core": "BUS",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.889675623735065,
+        0.11032437626493508
+      ],
+      "observed": [
+        0.49158249158249157,
+        0.5084175084175084
+      ],
+      "matched_direct_prediction": [
+        0.8801498127340824,
+        0.1198501872659176
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.3980931321525734,
+        "total_variation_fraction": 0.3980931321525734,
+        "hellinger": 0.3191258374972548
+      },
+      "direct_errors": {
+        "mae_fraction": 0.38856732115159087,
+        "total_variation_fraction": 0.38856732115159087,
+        "hellinger": 0.3088337820936055
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4200-4700/BUS-raw.json",
+        "sha256": "c71b64d3434adc37d8381bb3cd155c383eb499ebab410729ccb70bea36eaf752"
+      }
+    },
+    {
+      "window": "cal-bp-4200-4700",
+      "case_id": "cal-bp-4200-4700:site-group:904fcbe6d84b96f0c9d72bc2e6931716d1d1573d012673e8ed161b6819524386",
+      "target_id": "neotoma-53995-39238-cal-bp-4200-4700",
+      "target_core": "BUS",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.8897698782255541,
+        0.11023012177444579
+      ],
+      "observed": [
+        0.49158249158249157,
+        0.5084175084175084
+      ],
+      "matched_direct_prediction": [
+        0.8805044196813808,
+        0.11949558031861933
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.3981873866430626,
+        "total_variation_fraction": 0.3981873866430626,
+        "hellinger": 0.31922947912708566
+      },
+      "direct_errors": {
+        "mae_fraction": 0.38892192809888915,
+        "total_variation_fraction": 0.38892192809888915,
+        "hellinger": 0.30921071020361274
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4200-4700/BUS-raw.json",
+        "sha256": "c71b64d3434adc37d8381bb3cd155c383eb499ebab410729ccb70bea36eaf752"
+      }
+    },
+    {
+      "window": "cal-bp-4200-4700",
+      "case_id": "cal-bp-4200-4700:site-group:d918b62d5c1a2a731f70b0ab960a2383fbccd5b8f80a39a32f20b191191e5b0f",
+      "target_id": "neotoma-4446-4304-cal-bp-4200-4700",
+      "target_core": "SOLSOE83",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.7999670227933359,
+        0.2000329772066641
+      ],
+      "observed": [
+        0.9355385920271416,
+        0.06446140797285835
+      ],
+      "matched_direct_prediction": [
+        0.685866152158287,
+        0.314133847841713
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.13557156923380576,
+        "total_variation_fraction": 0.13557156923380576,
+        "hellinger": 0.14610028420252308
+      },
+      "direct_errors": {
+        "mae_fraction": 0.24967243986885468,
+        "total_variation_fraction": 0.24967243986885468,
+        "hellinger": 0.23804618218279047
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 340,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4200-4700/SOLSOE83-raw.json",
+        "sha256": "a3628b87ea542a1ace21ae6d86d35d26156e07caeb513eecbf36c4c19ed6071f"
+      }
+    },
+    {
+      "window": "cal-bp-4200-4700",
+      "case_id": "cal-bp-4200-4700:site-group:d918b62d5c1a2a731f70b0ab960a2383fbccd5b8f80a39a32f20b191191e5b0f",
+      "target_id": "neotoma-4446-4304-cal-bp-4200-4700",
+      "target_core": "SOLSOE83",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.880072159174787,
+        0.11992784082521309
+      ],
+      "observed": [
+        0.9355385920271416,
+        0.06446140797285835
+      ],
+      "matched_direct_prediction": [
+        0.8801498127340824,
+        0.1198501872659176
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.05546643285235469,
+        "total_variation_fraction": 0.05546643285235469,
+        "hellinger": 0.06851164730300378
+      },
+      "direct_errors": {
+        "mae_fraction": 0.05538877929305922,
+        "total_variation_fraction": 0.05538877929305922,
+        "hellinger": 0.06842722671641731
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 340,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4200-4700/SOLSOE83-raw.json",
+        "sha256": "a3628b87ea542a1ace21ae6d86d35d26156e07caeb513eecbf36c4c19ed6071f"
+      }
+    },
+    {
+      "window": "cal-bp-4200-4700",
+      "case_id": "cal-bp-4200-4700:site-group:d918b62d5c1a2a731f70b0ab960a2383fbccd5b8f80a39a32f20b191191e5b0f",
+      "target_id": "neotoma-4446-4304-cal-bp-4200-4700",
+      "target_core": "SOLSOE83",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.8076587612622098,
+        0.1923412387377902
+      ],
+      "observed": [
+        0.9355385920271416,
+        0.06446140797285835
+      ],
+      "matched_direct_prediction": [
+        0.7016768453368556,
+        0.2983231546631444
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.1278798307649318,
+        "total_variation_fraction": 0.1278798307649318,
+        "hellinger": 0.13928689769127842
+      },
+      "direct_errors": {
+        "mae_fraction": 0.23386174669028603,
+        "total_variation_fraction": 0.23386174669028603,
+        "hellinger": 0.2260821170265189
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 340,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4200-4700/SOLSOE83-raw.json",
+        "sha256": "a3628b87ea542a1ace21ae6d86d35d26156e07caeb513eecbf36c4c19ed6071f"
+      }
+    },
+    {
+      "window": "cal-bp-4700-5200",
+      "case_id": "cal-bp-4700-5200:site-group:04e6f33e435130e2707f58fd15ad0bf6ebfba8d592a18428fa7db596e3ddd886",
+      "target_id": "neotoma-54001-39241-cal-bp-4700-5200",
+      "target_core": "BOKE",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.7620783864305966,
+        0.23792161356940347
+      ],
+      "observed": [
+        0.8883720930232558,
+        0.11162790697674418
+      ],
+      "matched_direct_prediction": [
+        0.6698804098009427,
+        0.3301195901990573
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.12629370659265926,
+        "total_variation_fraction": 0.12629370659265926,
+        "hellinger": 0.11927259995406247
+      },
+      "direct_errors": {
+        "mae_fraction": 0.21849168322231313,
+        "total_variation_fraction": 0.21849168322231313,
+        "hellinger": 0.1913263518405959
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 344,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4700-5200/BOKE-raw.json",
+        "sha256": "3400e3da21f84d7777df3ffcd352741b811a9fb393769ff5d3bea47c86f94b4c"
+      }
+    },
+    {
+      "window": "cal-bp-4700-5200",
+      "case_id": "cal-bp-4700-5200:site-group:04e6f33e435130e2707f58fd15ad0bf6ebfba8d592a18428fa7db596e3ddd886",
+      "target_id": "neotoma-54001-39241-cal-bp-4700-5200",
+      "target_core": "BOKE",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.582673028979718,
+        0.41732697102028204
+      ],
+      "observed": [
+        0.8883720930232558,
+        0.11162790697674418
+      ],
+      "matched_direct_prediction": [
+        0.3992248062015504,
+        0.6007751937984496
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.30569906404353786,
+        "total_variation_fraction": 0.30569906404353786,
+        "hellinger": 0.2543584828364266
+      },
+      "direct_errors": {
+        "mae_fraction": 0.4891472868217054,
+        "total_variation_fraction": 0.4891472868217054,
+        "hellinger": 0.3814455308058318
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 344,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4700-5200/BOKE-raw.json",
+        "sha256": "3400e3da21f84d7777df3ffcd352741b811a9fb393769ff5d3bea47c86f94b4c"
+      }
+    },
+    {
+      "window": "cal-bp-4700-5200",
+      "case_id": "cal-bp-4700-5200:site-group:04e6f33e435130e2707f58fd15ad0bf6ebfba8d592a18428fa7db596e3ddd886",
+      "target_id": "neotoma-54001-39241-cal-bp-4700-5200",
+      "target_core": "BOKE",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.5862847016814796,
+        0.4137152983185204
+      ],
+      "observed": [
+        0.8883720930232558,
+        0.11162790697674418
+      ],
+      "matched_direct_prediction": [
+        0.4032997540344017,
+        0.5967002459655983
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.3020873913417762,
+        "total_variation_fraction": 0.3020873913417762,
+        "hellinger": 0.25180921581073884
+      },
+      "direct_errors": {
+        "mae_fraction": 0.48507233898885416,
+        "total_variation_fraction": 0.48507233898885416,
+        "hellinger": 0.378614331713228
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 344,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4700-5200/BOKE-raw.json",
+        "sha256": "3400e3da21f84d7777df3ffcd352741b811a9fb393769ff5d3bea47c86f94b4c"
+      }
+    },
+    {
+      "window": "cal-bp-4700-5200",
+      "case_id": "cal-bp-4700-5200:site-group:5ff7407db082446339038c29f7bac8aac3fee90b709003b1331fcadfce1a9ac5",
+      "target_id": "neotoma-53995-39238-cal-bp-4700-5200",
+      "target_core": "BUS",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.8768450763396302,
+        0.12315492366036983
+      ],
+      "observed": [
+        0.3992248062015504,
+        0.6007751937984496
+      ],
+      "matched_direct_prediction": [
+        0.9144540532117954,
+        0.0855459467882046
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.4776202701380797,
+        "total_variation_fraction": 0.4776202701380797,
+        "hellinger": 0.3692351768531608
+      },
+      "direct_errors": {
+        "mae_fraction": 0.5152292470102451,
+        "total_variation_fraction": 0.5152292470102451,
+        "hellinger": 0.41119984543789984
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4700-5200/BUS-raw.json",
+        "sha256": "426e646c9140e4485122ef2961f9435e6167c298c895bdaf358ae7a93b0ee52c"
+      }
+    },
+    {
+      "window": "cal-bp-4700-5200",
+      "case_id": "cal-bp-4700-5200:site-group:5ff7407db082446339038c29f7bac8aac3fee90b709003b1331fcadfce1a9ac5",
+      "target_id": "neotoma-53995-39238-cal-bp-4700-5200",
+      "target_core": "BUS",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.8768450763396302,
+        0.12315492366036983
+      ],
+      "observed": [
+        0.3992248062015504,
+        0.6007751937984496
+      ],
+      "matched_direct_prediction": [
+        0.8883720930232558,
+        0.11162790697674418
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.4776202701380797,
+        "total_variation_fraction": 0.4776202701380797,
+        "hellinger": 0.3692351768531608
+      },
+      "direct_errors": {
+        "mae_fraction": 0.4891472868217054,
+        "total_variation_fraction": 0.4891472868217054,
+        "hellinger": 0.3814455308058318
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4700-5200/BUS-raw.json",
+        "sha256": "426e646c9140e4485122ef2961f9435e6167c298c895bdaf358ae7a93b0ee52c"
+      }
+    },
+    {
+      "window": "cal-bp-4700-5200",
+      "case_id": "cal-bp-4700-5200:site-group:5ff7407db082446339038c29f7bac8aac3fee90b709003b1331fcadfce1a9ac5",
+      "target_id": "neotoma-53995-39238-cal-bp-4700-5200",
+      "target_core": "BUS",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.8768450763396302,
+        0.12315492366036983
+      ],
+      "observed": [
+        0.3992248062015504,
+        0.6007751937984496
+      ],
+      "matched_direct_prediction": [
+        0.8887060539590287,
+        0.11129394604097133
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.4776202701380797,
+        "total_variation_fraction": 0.4776202701380797,
+        "hellinger": 0.3692351768531608
+      },
+      "direct_errors": {
+        "mae_fraction": 0.48948124775747825,
+        "total_variation_fraction": 0.48948124775747825,
+        "hellinger": 0.3818068020523851
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4700-5200/BUS-raw.json",
+        "sha256": "426e646c9140e4485122ef2961f9435e6167c298c895bdaf358ae7a93b0ee52c"
+      }
+    },
+    {
+      "window": "cal-bp-4700-5200",
+      "case_id": "cal-bp-4700-5200:site-group:ee16f1f58d04a197c4f494f46de121af6860e5c99dc883623d6ad4388cd7f089",
+      "target_id": "neotoma-4446-4304-cal-bp-4700-5200",
+      "target_core": "SOLSOE83",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.7599670084616941,
+        0.24003299153830596
+      ],
+      "observed": [
+        0.940536013400335,
+        0.059463986599664995
+      ],
+      "matched_direct_prediction": [
+        0.6437984496124031,
+        0.3562015503875969
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.18056900493864095,
+        "total_variation_fraction": 0.18056900493864095,
+        "hellinger": 0.18730868097200892
+      },
+      "direct_errors": {
+        "mae_fraction": 0.2967375637879319,
+        "total_variation_fraction": 0.2967375637879319,
+        "hellinger": 0.27624925787275084
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 340,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4700-5200/SOLSOE83-raw.json",
+        "sha256": "cc46bbb48718c3886d9565c425f2cf9f664a276b2a8253ba280fed6d050b7ddc"
+      }
+    },
+    {
+      "window": "cal-bp-4700-5200",
+      "case_id": "cal-bp-4700-5200:site-group:ee16f1f58d04a197c4f494f46de121af6860e5c99dc883623d6ad4388cd7f089",
+      "target_id": "neotoma-4446-4304-cal-bp-4700-5200",
+      "target_core": "SOLSOE83",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.8614900340530359,
+        0.13850996594696408
+      ],
+      "observed": [
+        0.940536013400335,
+        0.059463986599664995
+      ],
+      "matched_direct_prediction": [
+        0.8883720930232558,
+        0.11162790697674418
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.07904597934729907,
+        "total_variation_fraction": 0.07904597934729907,
+        "hellinger": 0.0953932274288216
+      },
+      "direct_errors": {
+        "mae_fraction": 0.05216392037707918,
+        "total_variation_fraction": 0.05216392037707918,
+        "hellinger": 0.06667108343427038
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 340,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4700-5200/SOLSOE83-raw.json",
+        "sha256": "cc46bbb48718c3886d9565c425f2cf9f664a276b2a8253ba280fed6d050b7ddc"
+      }
+    },
+    {
+      "window": "cal-bp-4700-5200",
+      "case_id": "cal-bp-4700-5200:site-group:ee16f1f58d04a197c4f494f46de121af6860e5c99dc883623d6ad4388cd7f089",
+      "target_id": "neotoma-4446-4304-cal-bp-4700-5200",
+      "target_core": "SOLSOE83",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.7700235472129909,
+        0.22997645278700904
+      ],
+      "observed": [
+        0.940536013400335,
+        0.059463986599664995
+      ],
+      "matched_direct_prediction": [
+        0.6637017128311082,
+        0.33629828716889165
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.17051246618734406,
+        "total_variation_fraction": 0.17051246618734406,
+        "hellinger": 0.17899325698645008
+      },
+      "direct_errors": {
+        "mae_fraction": 0.2768343005692267,
+        "total_variation_fraction": 0.2768343005692267,
+        "hellinger": 0.26172758901127546
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 340,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-4700-5200/SOLSOE83-raw.json",
+        "sha256": "cc46bbb48718c3886d9565c425f2cf9f664a276b2a8253ba280fed6d050b7ddc"
+      }
+    },
+    {
+      "window": "cal-bp-5200-5700",
+      "case_id": "cal-bp-5200-5700:site-group:37d531f6717bd3fb00c2359c41369d5b2bbd46e0a0bdf67861eb8b52096bd3d8",
+      "target_id": "neotoma-54001-39241-cal-bp-5200-5700",
+      "target_core": "BOKE",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.8716625346062524,
+        0.12833746539374757
+      ],
+      "observed": [
+        0.9241001564945227,
+        0.07589984350547731
+      ],
+      "matched_direct_prediction": [
+        0.9196755625327053,
+        0.0803244374672946
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.052437621888270274,
+        "total_variation_fraction": 0.052437621888270274,
+        "hellinger": 0.0616934521433511
+      },
+      "direct_errors": {
+        "mae_fraction": 0.0044245939618173385,
+        "total_variation_fraction": 0.0044245939618173385,
+        "hellinger": 0.005830023327746319
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-5200-5700/BOKE-raw.json",
+        "sha256": "fa7b951a029c8dfe501a129644afdabe15ce39995dec191caaf0c2ca18d3a82e"
+      }
+    },
+    {
+      "window": "cal-bp-5200-5700",
+      "case_id": "cal-bp-5200-5700:site-group:37d531f6717bd3fb00c2359c41369d5b2bbd46e0a0bdf67861eb8b52096bd3d8",
+      "target_id": "neotoma-54001-39241-cal-bp-5200-5700",
+      "target_core": "BOKE",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.8716625346062524,
+        0.12833746539374757
+      ],
+      "observed": [
+        0.9241001564945227,
+        0.07589984350547731
+      ],
+      "matched_direct_prediction": [
+        0.8974358974358975,
+        0.10256410256410256
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.052437621888270274,
+        "total_variation_fraction": 0.052437621888270274,
+        "hellinger": 0.0616934521433511
+      },
+      "direct_errors": {
+        "mae_fraction": 0.026664259058625246,
+        "total_variation_fraction": 0.026664259058625246,
+        "hellinger": 0.033153912081775073
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-5200-5700/BOKE-raw.json",
+        "sha256": "fa7b951a029c8dfe501a129644afdabe15ce39995dec191caaf0c2ca18d3a82e"
+      }
+    },
+    {
+      "window": "cal-bp-5200-5700",
+      "case_id": "cal-bp-5200-5700:site-group:37d531f6717bd3fb00c2359c41369d5b2bbd46e0a0bdf67861eb8b52096bd3d8",
+      "target_id": "neotoma-54001-39241-cal-bp-5200-5700",
+      "target_core": "BOKE",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.8716625346062524,
+        0.12833746539374757
+      ],
+      "observed": [
+        0.9241001564945227,
+        0.07589984350547731
+      ],
+      "matched_direct_prediction": [
+        0.8977707343056478,
+        0.10222926569435235
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.052437621888270274,
+        "total_variation_fraction": 0.052437621888270274,
+        "hellinger": 0.0616934521433511
+      },
+      "direct_errors": {
+        "mae_fraction": 0.026329422188874976,
+        "total_variation_fraction": 0.026329422188874976,
+        "hellinger": 0.03276353413956863
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 343,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-5200-5700/BOKE-raw.json",
+        "sha256": "fa7b951a029c8dfe501a129644afdabe15ce39995dec191caaf0c2ca18d3a82e"
+      }
+    },
+    {
+      "window": "cal-bp-5200-5700",
+      "case_id": "cal-bp-5200-5700:site-group:a309b62993f936c388597ba58bd901133b55ad2723a96280d7ccb2e9fd793a64",
+      "target_id": "neotoma-53995-39238-cal-bp-5200-5700",
+      "target_core": "BUS",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.8798630001441854,
+        0.12013699985581454
+      ],
+      "observed": [
+        0.8974358974358975,
+        0.10256410256410256
+      ],
+      "matched_direct_prediction": [
+        0.9330076920620181,
+        0.06699230793798198
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.017572897291712027,
+        "total_variation_fraction": 0.017572897291712027,
+        "hellinger": 0.019764628282104568
+      },
+      "direct_errors": {
+        "mae_fraction": 0.03557179462612058,
+        "total_variation_fraction": 0.03557179462612058,
+        "hellinger": 0.04538183410579887
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-5200-5700/BUS-raw.json",
+        "sha256": "f5803f2d6b2230e9652b914b7bca7446b417c9e61e1d082f0dd71fc4ea3ee857"
+      }
+    },
+    {
+      "window": "cal-bp-5200-5700",
+      "case_id": "cal-bp-5200-5700:site-group:a309b62993f936c388597ba58bd901133b55ad2723a96280d7ccb2e9fd793a64",
+      "target_id": "neotoma-53995-39238-cal-bp-5200-5700",
+      "target_core": "BUS",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.8798630001441854,
+        0.12013699985581454
+      ],
+      "observed": [
+        0.8974358974358975,
+        0.10256410256410256
+      ],
+      "matched_direct_prediction": [
+        0.9241001564945227,
+        0.07589984350547731
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.017572897291712027,
+        "total_variation_fraction": 0.017572897291712027,
+        "hellinger": 0.019764628282104568
+      },
+      "direct_errors": {
+        "mae_fraction": 0.026664259058625246,
+        "total_variation_fraction": 0.026664259058625246,
+        "hellinger": 0.033153912081775073
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-5200-5700/BUS-raw.json",
+        "sha256": "f5803f2d6b2230e9652b914b7bca7446b417c9e61e1d082f0dd71fc4ea3ee857"
+      }
+    },
+    {
+      "window": "cal-bp-5200-5700",
+      "case_id": "cal-bp-5200-5700:site-group:a309b62993f936c388597ba58bd901133b55ad2723a96280d7ccb2e9fd793a64",
+      "target_id": "neotoma-53995-39238-cal-bp-5200-5700",
+      "target_core": "BUS",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.8798630001441854,
+        0.12013699985581454
+      ],
+      "observed": [
+        0.8974358974358975,
+        0.10256410256410256
+      ],
+      "matched_direct_prediction": [
+        0.924214211147319,
+        0.07578578885268102
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.017572897291712027,
+        "total_variation_fraction": 0.017572897291712027,
+        "hellinger": 0.019764628282104568
+      },
+      "direct_errors": {
+        "mae_fraction": 0.026778313711421566,
+        "total_variation_fraction": 0.026778313711421566,
+        "hellinger": 0.03330618335214808
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 342,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-5200-5700/BUS-raw.json",
+        "sha256": "f5803f2d6b2230e9652b914b7bca7446b417c9e61e1d082f0dd71fc4ea3ee857"
+      }
+    },
+    {
+      "window": "cal-bp-5200-5700",
+      "case_id": "cal-bp-5200-5700:site-group:d92a14368c49b29e304312c2573663f7c1dcd689f9e133adfdeea7e90dfadcf5",
+      "target_id": "neotoma-4446-4304-cal-bp-5200-5700",
+      "target_core": "SOLSOE83",
+      "method": "training_mean",
+      "status": "scored",
+      "prediction": [
+        0.8650369006283619,
+        0.13496309937163808
+      ],
+      "observed": [
+        0.9419152276295133,
+        0.058084772370486655
+      ],
+      "matched_direct_prediction": [
+        0.9107680269652101,
+        0.08923197303478994
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.07687832700115141,
+        "total_variation_fraction": 0.07687832700115141,
+        "hellinger": 0.09382000409435101
+      },
+      "direct_errors": {
+        "mae_fraction": 0.031147200664303248,
+        "total_variation_fraction": 0.031147200664303248,
+        "hellinger": 0.04238050372195772
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 339,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-5200-5700/SOLSOE83-raw.json",
+        "sha256": "279134725e40350d72cc6f27912f46194d23fbdd4b751998f712714670915145"
+      }
+    },
+    {
+      "window": "cal-bp-5200-5700",
+      "case_id": "cal-bp-5200-5700:site-group:d92a14368c49b29e304312c2573663f7c1dcd689f9e133adfdeea7e90dfadcf5",
+      "target_id": "neotoma-4446-4304-cal-bp-5200-5700",
+      "target_core": "SOLSOE83",
+      "method": "nearest_site",
+      "status": "scored",
+      "prediction": [
+        0.8650369006283619,
+        0.13496309937163808
+      ],
+      "observed": [
+        0.9419152276295133,
+        0.058084772370486655
+      ],
+      "matched_direct_prediction": [
+        0.9241001564945227,
+        0.07589984350547731
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.07687832700115141,
+        "total_variation_fraction": 0.07687832700115141,
+        "hellinger": 0.09382000409435101
+      },
+      "direct_errors": {
+        "mae_fraction": 0.01781507113499062,
+        "total_variation_fraction": 0.01781507113499062,
+        "hellinger": 0.025245815404063964
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 339,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-5200-5700/SOLSOE83-raw.json",
+        "sha256": "279134725e40350d72cc6f27912f46194d23fbdd4b751998f712714670915145"
+      }
+    },
+    {
+      "window": "cal-bp-5200-5700",
+      "case_id": "cal-bp-5200-5700:site-group:d92a14368c49b29e304312c2573663f7c1dcd689f9e133adfdeea7e90dfadcf5",
+      "target_id": "neotoma-4446-4304-cal-bp-5200-5700",
+      "target_core": "SOLSOE83",
+      "method": "inverse_distance_squared",
+      "status": "scored",
+      "prediction": [
+        0.8650369006283619,
+        0.13496309937163808
+      ],
+      "observed": [
+        0.9419152276295133,
+        0.058084772370486655
+      ],
+      "matched_direct_prediction": [
+        0.9118529880410935,
+        0.08814701195890645
+      ],
+      "physical_errors": {
+        "mae_fraction": 0.07687832700115141,
+        "total_variation_fraction": 0.07687832700115141,
+        "hellinger": 0.09382000409435101
+      },
+      "direct_errors": {
+        "mae_fraction": 0.0300622395884198,
+        "total_variation_fraction": 0.0300622395884198,
+        "hellinger": 0.04103181148745179
+      },
+      "refusal": null,
+      "observed_source": {
+        "bytes": 339,
+        "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-5200-5700/SOLSOE83-raw.json",
+        "sha256": "279134725e40350d72cc6f27912f46194d23fbdd4b751998f712714670915145"
+      }
+    }
+  ],
+  "by_method": {
+    "training_mean": {
+      "requested_cells": 18,
+      "paired_scored_cells": 18,
+      "refused_cells": 0,
+      "physical_mean_errors": {
+        "mae_fraction": 0.1468930758178845,
+        "total_variation_fraction": 0.1468930758178845,
+        "hellinger": 0.13757555149288947
+      },
+      "matched_direct_mean_errors": {
+        "mae_fraction": 0.18190677069849595,
+        "total_variation_fraction": 0.18190677069849595,
+        "hellinger": 0.16604253625629772
+      },
+      "physical_minus_direct_mean_errors": {
+        "mae_fraction": -0.03501369488061146,
+        "total_variation_fraction": -0.03501369488061146,
+        "hellinger": -0.028466984763408254
+      }
+    },
+    "nearest_site": {
+      "requested_cells": 18,
+      "paired_scored_cells": 18,
+      "refused_cells": 0,
+      "physical_mean_errors": {
+        "mae_fraction": 0.1647343825109164,
+        "total_variation_fraction": 0.1647343825109164,
+        "hellinger": 0.1503747801081385
+      },
+      "matched_direct_mean_errors": {
+        "mae_fraction": 0.1876637418741287,
+        "total_variation_fraction": 0.1876637418741287,
+        "hellinger": 0.16433764970245418
+      },
+      "physical_minus_direct_mean_errors": {
+        "mae_fraction": -0.022929359363212304,
+        "total_variation_fraction": -0.022929359363212304,
+        "hellinger": -0.013962869594315669
+      }
+    },
+    "inverse_distance_squared": {
+      "requested_cells": 18,
+      "paired_scored_cells": 18,
+      "refused_cells": 0,
+      "physical_mean_errors": {
+        "mae_fraction": 0.17787971846168169,
+        "total_variation_fraction": 0.17787971846168169,
+        "hellinger": 0.16268899346622767
+      },
+      "matched_direct_mean_errors": {
+        "mae_fraction": 0.2204922697930418,
+        "total_variation_fraction": 0.2204922697930418,
+        "hellinger": 0.19345469079098257
+      },
+      "physical_minus_direct_mean_errors": {
+        "mae_fraction": -0.042612551331360105,
+        "total_variation_fraction": -0.042612551331360105,
+        "hellinger": -0.030765697324754898
+      }
+    }
+  },
+  "by_window": {
+    "cal-bp-2700-3200": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.06216516633715343,
+          "total_variation_fraction": 0.06216516633715343,
+          "hellinger": 0.08040036976890425
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.07039739696772175,
+          "total_variation_fraction": 0.07039739696772175,
+          "hellinger": 0.08998679980294187
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.00823223063056832,
+          "total_variation_fraction": -0.00823223063056832,
+          "hellinger": -0.009586430034037627
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.0968382130348745,
+          "total_variation_fraction": 0.0968382130348745,
+          "hellinger": 0.11802992792764853
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.10426861258167595,
+          "total_variation_fraction": 0.10426861258167595,
+          "hellinger": 0.12508087547646388
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.0074303995468014555,
+          "total_variation_fraction": -0.0074303995468014555,
+          "hellinger": -0.007050947548815342
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.0822948448536092,
+          "total_variation_fraction": 0.0822948448536092,
+          "hellinger": 0.10190021521587068
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.0884973553464045,
+          "total_variation_fraction": 0.0884973553464045,
+          "hellinger": 0.10863678271249118
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.006202510492795299,
+          "total_variation_fraction": -0.006202510492795299,
+          "hellinger": -0.006736567496620494
+        }
+      }
+    },
+    "cal-bp-3200-3700": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.08560000677659463,
+          "total_variation_fraction": 0.08560000677659463,
+          "hellinger": 0.09497911740285876
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.09535913872452333,
+          "total_variation_fraction": 0.09535913872452333,
+          "hellinger": 0.1052183077665817
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.009759131947928698,
+          "total_variation_fraction": -0.009759131947928698,
+          "hellinger": -0.010239190363722936
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.09239477246472261,
+          "total_variation_fraction": 0.09239477246472261,
+          "hellinger": 0.09815205094667374
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.09602975016436556,
+          "total_variation_fraction": 0.09602975016436556,
+          "hellinger": 0.100497318672945
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.0036349776996429523,
+          "total_variation_fraction": -0.0036349776996429523,
+          "hellinger": -0.0023452677262712496
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.10680925987331301,
+          "total_variation_fraction": 0.10680925987331301,
+          "hellinger": 0.11523057532703351
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.11697604743185441,
+          "total_variation_fraction": 0.11697604743185441,
+          "hellinger": 0.12513658214767262
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.010166787558541404,
+          "total_variation_fraction": -0.010166787558541404,
+          "hellinger": -0.009906006820639107
+        }
+      }
+    },
+    "cal-bp-3700-4200": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.21930886384687634,
+          "total_variation_fraction": 0.21930886384687634,
+          "hellinger": 0.18550666176705902
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.28097558687574,
+          "total_variation_fraction": 0.28097558687574,
+          "hellinger": 0.2345982443364328
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.06166672302886364,
+          "total_variation_fraction": -0.06166672302886364,
+          "hellinger": -0.04909158256937379
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.24116308930371486,
+          "total_variation_fraction": 0.24116308930371486,
+          "hellinger": 0.19775791049839012
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.28097558687574004,
+          "total_variation_fraction": 0.28097558687574004,
+          "hellinger": 0.22471084555959073
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.03981249757202518,
+          "total_variation_fraction": -0.03981249757202518,
+          "hellinger": -0.02695293506120061
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.26762091477357747,
+          "total_variation_fraction": 0.26762091477357747,
+          "hellinger": 0.22073066717094417
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.33662461850200404,
+          "total_variation_fraction": 0.33662461850200404,
+          "hellinger": 0.2699314276667079
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.06900370372842657,
+          "total_variation_fraction": -0.06900370372842657,
+          "hellinger": -0.049200760495763746
+        }
+      }
+    },
+    "cal-bp-4200-4700": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.20382714199651134,
+          "total_variation_fraction": 0.20382714199651134,
+          "hellinger": 0.1808689792521685
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.27750780719874696,
+          "total_variation_fraction": 0.27750780719874696,
+          "hellinger": 0.2423292601962468
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.07368066520223562,
+          "total_variation_fraction": -0.07368066520223562,
+          "hellinger": -0.061460280944078294
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.22159216702550302,
+          "total_variation_fraction": 0.22159216702550302,
+          "hellinger": 0.19022046739671347
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.27750780719874696,
+          "total_variation_fraction": 0.27750780719874696,
+          "hellinger": 0.2286982636345428
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.055915640173243936,
+          "total_variation_fraction": -0.055915640173243936,
+          "hellinger": -0.03847779623782932
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.2448502999868125,
+          "total_variation_fraction": 0.2448502999868125,
+          "hellinger": 0.21316725836013226
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.3360029765432293,
+          "total_variation_fraction": 0.3360029765432293,
+          "hellinger": 0.28060660163367146
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.09115267655641682,
+          "total_variation_fraction": -0.09115267655641682,
+          "hellinger": -0.0674393432735392
+        }
+      }
+    },
+    "cal-bp-4700-5200": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.26149432722312665,
+          "total_variation_fraction": 0.26149432722312665,
+          "hellinger": 0.22527215259307742
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.34348616467349674,
+          "total_variation_fraction": 0.34348616467349674,
+          "hellinger": 0.29292515171708217
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.08199183745037009,
+          "total_variation_fraction": -0.08199183745037009,
+          "hellinger": -0.06765299912400474
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.2874551045096389,
+          "total_variation_fraction": 0.2874551045096389,
+          "hellinger": 0.2396622957061363
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.34348616467349663,
+          "total_variation_fraction": 0.34348616467349663,
+          "hellinger": 0.27652071501531134
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.05603106016385773,
+          "total_variation_fraction": -0.05603106016385773,
+          "hellinger": -0.03685841930917502
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.31674004255573335,
+          "total_variation_fraction": 0.31674004255573335,
+          "hellinger": 0.26667921655011656
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.41712929577185304,
+          "total_variation_fraction": 0.41712929577185304,
+          "hellinger": 0.3407162409256295
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.10038925321611969,
+          "total_variation_fraction": -0.10038925321611969,
+          "hellinger": -0.07403702437551296
+        }
+      }
+    },
+    "cal-bp-5200-5700": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.04896294872704457,
+          "total_variation_fraction": 0.04896294872704457,
+          "hellinger": 0.05842602817326889
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.023714529750747056,
+          "total_variation_fraction": 0.023714529750747056,
+          "hellinger": 0.03119745371850097
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": 0.025248418976297513,
+          "total_variation_fraction": 0.025248418976297513,
+          "hellinger": 0.02722857445476792
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.04896294872704457,
+          "total_variation_fraction": 0.04896294872704457,
+          "hellinger": 0.05842602817326889
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.023714529750747036,
+          "total_variation_fraction": 0.023714529750747036,
+          "hellinger": 0.03051787985587137
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": 0.025248418976297534,
+          "total_variation_fraction": 0.025248418976297534,
+          "hellinger": 0.02790814831739752
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.04896294872704457,
+          "total_variation_fraction": 0.04896294872704457,
+          "hellinger": 0.05842602817326889
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.027723325162905446,
+          "total_variation_fraction": 0.027723325162905446,
+          "hellinger": 0.03570050965972283
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": 0.021239623564139123,
+          "total_variation_fraction": 0.021239623564139123,
+          "hellinger": 0.02272551851354606
+        }
+      }
+    }
+  },
+  "by_target": {
+    "BOKE": {
+      "training_mean": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.07931016416474451,
+          "total_variation_fraction": 0.07931016416474451,
+          "hellinger": 0.08390757657122229
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.11676553680097161,
+          "total_variation_fraction": 0.11676553680097161,
+          "hellinger": 0.111407365824163
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.0374553726362271,
+          "total_variation_fraction": -0.0374553726362271,
+          "hellinger": -0.027499789252940707
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.1730438142298654,
+          "total_variation_fraction": 0.1730438142298654,
+          "hellinger": 0.15777233004615643
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.2532202707168802,
+          "total_variation_fraction": 0.2532202707168802,
+          "hellinger": 0.21240778558218024
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.0801764564870148,
+          "total_variation_fraction": -0.0801764564870148,
+          "hellinger": -0.05463545553602381
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.17120073137274763,
+          "total_variation_fraction": 0.17120073137274763,
+          "hellinger": 0.1564221421299611
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.2511658298892816,
+          "total_variation_fraction": 0.2511658298892816,
+          "hellinger": 0.210935424337805
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.07996509851653397,
+          "total_variation_fraction": -0.07996509851653397,
+          "hellinger": -0.05451328220784388
+        }
+      }
+    },
+    "BUS": {
+      "training_mean": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.24686968363146733,
+          "total_variation_fraction": 0.24686968363146733,
+          "hellinger": 0.20414041835688942
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.26306486927434874,
+          "total_variation_fraction": 0.26306486927434874,
+          "hellinger": 0.2231618883190061
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.016195185642881416,
+          "total_variation_fraction": -0.016195185642881416,
+          "hellinger": -0.019021469962116677
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.2526394929710688,
+          "total_variation_fraction": 0.2526394929710688,
+          "hellinger": 0.21085617429971526
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.2532202707168802,
+          "total_variation_fraction": 0.2532202707168802,
+          "hellinger": 0.21240778558218024
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.0005807777458113894,
+          "total_variation_fraction": -0.0005807777458113894,
+          "hellinger": -0.0015516112824649764
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.2525462972637121,
+          "total_variation_fraction": 0.2525462972637121,
+          "hellinger": 0.21076428051315052
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.25334632379428673,
+          "total_variation_fraction": 0.25334632379428673,
+          "hellinger": 0.2125417849849337
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.000800026530574649,
+          "total_variation_fraction": -0.000800026530574649,
+          "hellinger": -0.0017775044717831812
+        }
+      }
+    },
+    "SOLSOE83": {
+      "training_mean": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.11449937965744166,
+          "total_variation_fraction": 0.11449937965744166,
+          "hellinger": 0.1246786595505567
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.1658899060201676,
+          "total_variation_fraction": 0.1658899060201676,
+          "hellinger": 0.16355835462572407
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.05139052636272594,
+          "total_variation_fraction": -0.05139052636272594,
+          "hellinger": -0.03887969507516738
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.068519840331815,
+          "total_variation_fraction": 0.068519840331815,
+          "hellinger": 0.08249583597854386
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.05655068418862568,
+          "total_variation_fraction": 0.05655068418862568,
+          "hellinger": 0.06819737794300203
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": 0.011969156143189323,
+          "total_variation_fraction": 0.011969156143189323,
+          "hellinger": 0.014298458035541833
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.10989212674858528,
+          "total_variation_fraction": 0.10989212674858528,
+          "hellinger": 0.12088055775557138
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.156964655695557,
+          "total_variation_fraction": 0.156964655695557,
+          "hellinger": 0.15688686305020907
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.047072528946971726,
+          "total_variation_fraction": -0.047072528946971726,
+          "hellinger": -0.03600630529463769
+        }
+      }
+    }
+  }
+}

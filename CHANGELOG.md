@@ -4,6 +4,11 @@ Repository changes are recorded by pull request, newest merge first.
 
 ### Six-window analytical LOVE evaluation
 
+- Score all 54 adjusted nominal predictions and all 55,296 uncertainty slots at
+  one held source. Preserve the oldest-window and Solsø nearest-site losses;
+  independent scalar/source checks and four fresh install environments pass.
+- Publish complete matched development scores, the executed all-window protocol,
+  installed qualification and precise unresolved physical/field acceptance.
 - Support an explicit adjusted-cover population across all eighteen development
   folds and six windows while retaining the original signed-result dispositions.
 - Share source-owner count draws and productivity draws across the complete

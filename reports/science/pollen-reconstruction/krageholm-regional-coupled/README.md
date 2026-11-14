@@ -1,6 +1,113 @@
 # Fixed Krageholm background with two local training sites
 
-## Nonnegative analytical cover
+## Complete six-window comparison and uncertainty
+
+The corrected analysis was executed at clean source
+`dbcc4c3435da29d4e066fc34774d3118c46eaf32` on 14 November 2026. It
+uses the same previously exposed BOKE, BUS and SOLSOE83 targets in six windows,
+with KRAG regional-only. Every local analytical draw uses the declared
+`clip-and-renormalize` rule before spatial transfer; raw signed diagnostics remain
+available. All-zero/all-negative surviving mass fails explicitly. Missing support
+is never turned into zero.
+
+All **54 requested nominal method cells are predicted and scored**, with zero
+refusals. Predictions are frozen and read back before exposed target counts are
+opened for score diagnostics. The direct counterpart uses the same two training
+places, taxon axis and spatial weights. These are 18 target–period folds at
+**three physical places**, not 18 independent sites.
+
+The [complete machine account](nonnegative-cover/development-result.json),
+[all 54 matched score rows](nonnegative-cover/matched-scores.json) and
+[independent verification](nonnegative-cover/independent-verification.json)
+retain method/window/target denominators, predictions, observations, MAE, total
+variation and Hellinger loss. The table uses percentage-point MAE; for this
+closed two-taxon axis it equals percentage-point total variation. A positive gain
+means lower LRA error.
+
+| Transfer rule | LRA error (pp) | Matched direct error (pp) | Gain (pp) |
+| --- | ---: | ---: | ---: |
+| Equal weights | 14.6893 | 18.1907 | 3.5014 |
+| Nearest site | 16.4734 | 18.7664 | 2.2929 |
+| Inverse squared distance | 17.7880 | 22.0492 | 4.2613 |
+
+The mean gain does not apply to every window or method/target combination.
+Each cell below is LRA / matched direct MAE in percentage points:
+
+| Window (cal BP) | Equal weights | Nearest site | Inverse squared distance |
+| --- | ---: | ---: | ---: |
+| 2700–3200 | 6.2165 / 7.0397 | 9.6838 / 10.4269 | 8.2295 / 8.8497 |
+| 3200–3700 | 8.5600 / 9.5359 | 9.2395 / 9.6030 | 10.6809 / 11.6976 |
+| 3700–4200 | 21.9309 / 28.0976 | 24.1163 / 28.0976 | 26.7621 / 33.6625 |
+| 4200–4700 | 20.3827 / 27.7508 | 22.1592 / 27.7508 | 24.4850 / 33.6003 |
+| 4700–5200 | 26.1494 / 34.3486 | 28.7455 / 34.3486 | 31.6740 / 41.7129 |
+| 5200–5700 | 4.8963 / 2.3715 | 4.8963 / 2.3715 | 4.8963 / 2.7723 |
+
+In particular, **5200–5700 cal BP is worse for all three methods**. Nearest-site
+Solsø is also worse when averaged over the six windows: 6.8520 pp for LRA versus
+5.6551 pp for matched direct pollen. All these negative results remain in the
+complete comparison; no model is selected using a hidden successful subset.
+
+### Uncertainty across every eligible fold
+
+The [executed all-window protocol](nonnegative-cover/all-window-uncertainty-protocol.json)
+extends the original conditional law to all 18 folds. It shares 24 owner/window
+count streams and one productivity vector per replicate, preserving cross-fold
+and cross-window dependence. All **18 × 3 × 1,024 = 55,296 method/draw slots**
+are defined; every method has all 18 folds jointly available in all 1,024 draws.
+No failed replicate is dropped or imputed. Historical signed refusals remain
+separate rather than being rewritten as successes.
+
+Scores are evaluated within each draw, then averaged equally over all 18 folds.
+The central 95% ranges below are empirical ranges of paired gains under the
+specified count/PPE working law, **not field confidence intervals**, independent
+site/block uncertainty, posterior intervals or calibrated coverage.
+
+| Transfer rule | Mean LRA error (pp) | Mean direct error (pp) | Mean gain (pp) | Central 95% paired-gain range (pp) |
+| --- | ---: | ---: | ---: | ---: |
+| Equal weights | 14.6761 | 18.2079 | 3.5317 | 2.5929–4.4047 |
+| Nearest site | 16.4445 | 18.8749 | 2.4304 | 1.3868–3.3898 |
+| Inverse squared distance | 17.7390 | 22.0509 | 4.3119 | 2.9889–5.5644 |
+
+The producer completed in 37.00 s with 479,461,376-byte peak RSS and
+42,171,533 output bytes; the maintained observer completed in 15.62 s. Both stay
+within the prespecified 600 s / 1.5 GiB / 96 MiB limits. The observer binds 221
+source files, 24 owners and all 54 nominal references. A separate fresh
+Fraction/scalar/RNG/covariance/quantile audit verifies every replicate slot;
+its maximum absolute discrepancy is 8.55 × 10⁻¹⁵. Exact original identities,
+complete inputs, draws, predictions, summaries and failed attempts are retained
+through the existing scientific recovery archive.
+
+The maintained producer can reproduce the declared calculation after the exact
+pinned original and adjusted-reference inputs are recovered. Use the recorded
+calculation source and a fresh owning `artifacts/` destination, then run the
+maintained `predictive_uncertainty.study` and `predictive_uncertainty.observation`
+modules with the same protocol path. The protocol keeps the original artifact
+input identities; changing its path for a fresh run creates a new receipt rather
+than relabeling this execution. The observer requires the producer and checking
+source epoch to agree.
+
+### Installed behavior and remaining scientific scope
+
+[Fresh wheel/sdist verification](nonnegative-cover/installed-verification.json)
+passes at the same source. All eight archives have version `0.1.9.dev2958`.
+Four isolated environments cover wheel/sdist × base/optional LRA, with confined
+noneditable imports, source payload/RECORD/legal checks, both requested clipping
+examples, zero-mass refusals, explicit-policy LOVE execution, raw diagnostics,
+saved contracts, synthetic host execution/reopening and both CLI entry points.
+Base installs preserve the missing-engine refusal. This is installed software
+qualification, not a new native R or physical-field execution.
+
+The conditional count/PPE model still fixes the two-taxon denominator, point
+chronologies, saved finite kernels, static basins and parameter transfer. BOKE
+with KRAG background is a source candidate; its core/basin crosswalk, justified
+physical/time support and source-specific denominator/parameter-use decisions
+remain outstanding. No compatible independent measured-vegetation pair or
+unexposed confirmation cohort is newly admitted. Final accuracy criteria must be
+reviewed and frozen before new outcomes. Original historical-paper reproduction
+and qualified scientific acceptance remain open wherever their inputs or verdicts
+are absent. The calculations above do not close those separate scientific claims.
+
+## Initial nonnegative-cover comparison
 
 The explicit `clip-and-renormalize` assumption sets negative LOVE cover to zero
 and closes the surviving cover to one before spatial averaging or uncertainty

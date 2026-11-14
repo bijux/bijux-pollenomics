@@ -1,0 +1,27 @@
+{
+  "archive_count": 8,
+  "archive_version": "0.1.9.dev2958",
+  "clone_history_count": 7177,
+  "clone_tracked_status": "",
+  "command_count": 40,
+  "environment_status": {
+    "sdist-base": "passed",
+    "sdist-optional": "passed",
+    "wheel-base": "passed",
+    "wheel-optional": "passed"
+  },
+  "first_attempt_status": "stopped_not_qualified_exit143",
+  "native_R_executed": false,
+  "new_empirical_claim": false,
+  "no_editable_or_checkout_imports": true,
+  "parent_generated_sha256": "d5a95c1d34f5a4c8ceab61827960b5812833f885e94c218a9d62cb8da57f08c8",
+  "parent_history_count": 7177,
+  "parent_tracked_status": "",
+  "source_commit": "dbcc4c3435da29d4e066fc34774d3118c46eaf32",
+  "source_payload_files": {
+    "bijux-pollenomics": 1481,
+    "bijux-pollenomics-lra": 72,
+    "pollenomics": 8
+  },
+  "status": "passed"
+}
