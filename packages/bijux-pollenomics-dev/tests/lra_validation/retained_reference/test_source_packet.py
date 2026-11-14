@@ -4,10 +4,16 @@ import json
 import os
 from pathlib import Path
 import shutil
+import subprocess
 import sys
 
 import pytest
 
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.index import INDEX_PATH
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
+    environment,
+    git_executable,
+)
 from bijux_pollenomics_dev.lra_validation.retained_reference import source_packet
 from bijux_pollenomics_dev.lra_validation.retained_reference.identity import (
     authenticate_bundle,
@@ -19,6 +25,27 @@ _REPOSITORY = Path(__file__).resolve().parents[5]
 @pytest.fixture
 def repository(tmp_path: Path) -> Path:
     root = tmp_path / "repository"
+    # Independent clone metadata preserves real reachability checks while immutable
+    # source objects are read from the local checkout without duplicating its pack.
+    subprocess.run(
+        [
+            str(git_executable()),
+            "--no-replace-objects",
+            "clone",
+            "--shared",
+            "--no-checkout",
+            "--no-tags",
+            str(_REPOSITORY),
+            str(root),
+        ],
+        env=environment(),
+        capture_output=True,
+        check=True,
+        timeout=30,
+    )
+    index = root / INDEX_PATH
+    index.parent.mkdir(parents=True)
+    shutil.copyfile(_REPOSITORY / INDEX_PATH, index)
     destination = root / source_packet.PACKET
     destination.parent.mkdir(parents=True)
     shutil.copytree(_REPOSITORY / source_packet.PACKET, destination)
@@ -52,6 +79,31 @@ def test_exact_recovered_source_packet_has_distinct_executed_authority(
     assert len(certificate["tracked_git_blobs"]) == 1925
     assert set(certificate["source_files"]) == set(certificate["tracked_git_blobs"])
     assert len(certificate["generated_source_files"]) == 1
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    ["missing-index", "changed-index", "changed-descriptor", "missing-git"],
+)
+def test_packet_requires_authenticated_source_transport(
+    repository: Path, mutation: str
+) -> None:
+    accepted = source_packet.authenticate_repository_reference(repository)
+    assert accepted["source_commit"] == "10fe3c1ed008651ad843e9dc42a31241fd16b2ed"
+    index = repository / INDEX_PATH
+    if mutation == "missing-index":
+        index.unlink()
+    elif mutation == "changed-index":
+        index.write_bytes(index.read_bytes() + b"\n")
+    elif mutation == "changed-descriptor":
+        descriptor = (
+            repository / source_packet.PACKET / "reference-bundle/source-transport.json"
+        )
+        descriptor.write_bytes(descriptor.read_bytes() + b"\n")
+    else:
+        shutil.rmtree(repository / ".git")
+    with pytest.raises(ValueError):
+        source_packet.authenticate_repository_reference(repository)
 
 
 @pytest.mark.parametrize(
