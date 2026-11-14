@@ -34,7 +34,9 @@ class NeotomaCollectionWorkflowTests(unittest.TestCase):
             },
         ]
         matched_inventory_rows = [inventory_rows[0]]
-        download_rows: list[dict[str, object]] = []
+        download_rows: list[dict[str, object]] = [
+            {"site": {"siteid": 20, "dataset": {"datasetid": 201}}}
+        ]
         rows: list[dict[str, object]] = []
 
         with tempfile.TemporaryDirectory() as tmp:
