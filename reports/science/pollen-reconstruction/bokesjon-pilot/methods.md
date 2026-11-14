@@ -50,7 +50,11 @@ source-owned author lookup. A further 3 counts belong to an unmapped sedge type.
 KRAG has **no separately reported Secale taxon anywhere in its source dataset**;
 its rye split therefore cannot be inferred from BOKE's zeros or the same-dataset
 nondetection rule. A scientifically justified pooled cereal group would need
-its own classification and compatible parameter decision.
+its own classification and compatible parameter decision. The later
+[official taxon-definition follow-up](taxon-definitions.md) supplies a
+Cyperaceae family-parent candidate for the three sedge counts, while retaining
+the source audit's unchanged exact-unmapped disposition and unresolved aquatic
+eligibility.
 
 The candidate author-lookup mass accounting closes exactly:
 
@@ -103,6 +107,8 @@ radius remain separate claims. None establishes the shoreline at 2700–3200 BP.
 [Existing basin account](../../../../docs/report/source-relations/neotoma/boke-basin/README.md)
 · [official chart source](https://vattenwebb.smhi.se/svarwebb/rest/downloadmap/616314-135069).
 
+[Three declared static-basin profiles now have an executed sensitivity comparison](basin-sensitivity/README.md). The outer-ring span is 3.03 percentage points; clipping masks an 8.47-point signed inner-ring span. These results concern only Betula and Ulmus.
+
 A separately declared static-basin reconstruction can be scientifically useful
 under justified assumptions and sensitivity checks. It must not be called an
 observed ancient geometry. The user confirms that no additional written BOKE
@@ -111,7 +117,7 @@ numerical agreement do not create that missing qualified decision.
 
 ## Independent validation and the 10 percentage-point rule
 
-The user confirms **10percentage points**, not relative 10 percent, as cover-error
+The user confirms **10 percentage points**, not relative 10 percent, as cover-error
 guidance. For a compatible independently measured point, this means
 `abs(predicted cover percent - observed cover percent) <= 10`.
 There is no measured pair on which to evaluate it here. It is not applied to
@@ -123,7 +129,7 @@ The bounded reference search reviewed historical maps, Småland map studies,
 Hellman validation material, known NFI leads, modern national land-cover mapping,
 Bökesjön habitat descriptions and archaeological context. None supplied a
 matched ancient non-pollen cover vector. The historical-map archive begins in
-1628CE; the reviewed surveys and classified imagery are modern. This is an
+1628 CE; the reviewed surveys and classified imagery are modern. This is an
 account of the reviewed routes, not proof that no suitable evidence exists
 anywhere. [Existing vegetation-reference account](../../vegetation-reference.md).
 
@@ -190,7 +196,7 @@ that evidence unavailable rather than fabricating it.
 
 **Precise next acceptance route.** Select and justify the complete taxon/parameter profile and physical assumptions, carry the admitted inputs through the maintained LRA workflow, then evaluate a separately frozen compatible independent reference.
 
-**Negative or refused result.** No full 31-taxon or rye-split admission; KRAG 33 reported NISP lack candidate lookup routes; no admitted measured vegetation pair; missing source counts are not zero-filled.
+**Negative or refused result.** No full 31-taxon or rye-split admission; KRAG 33 reported NISP lack exact author-lookup routes; no admitted measured vegetation pair; missing source counts are not zero-filled.
 
 **Matched denominator.** 148 source samples: 52 BOKE + 96 KRAG; 7 selected samples: 3 + 4; 792 taxon/sample slots: 218 reported positive + 574 omitted candidates; reported NISP 2,553 + 3,973. Workbook 2,556 and 12 explicit crop-zero cells remain separate.
 

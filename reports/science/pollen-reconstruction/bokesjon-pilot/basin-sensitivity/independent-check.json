@@ -1,0 +1,447 @@
+{
+  "status": "passed",
+  "source_commit": "27aa710e39cc1ba3667c363eeac5f1ed97e758bc",
+  "observer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/basin-sensitivity/independent/observe.py",
+    "bytes": 22413,
+    "sha256": "077e868e4d0677f249c033994143b621832ca234ff24f37e407fc4e0392f7b0f"
+  },
+  "elapsed_seconds": 0.15030716700130142,
+  "peak_rss_bytes": 78086144,
+  "source_pins_checked": 12,
+  "requests_checked": 3,
+  "generated_profiles_checked": 3,
+  "refusals": [],
+  "source_join": {
+    "BOKE": {
+      "selected_owner_ids": [
+        552419,
+        552422,
+        552421
+      ],
+      "fresh_reported_counts": [
+        570,
+        105
+      ],
+      "request_counts": [
+        570,
+        105
+      ],
+      "owner_link_scope": "Counts, entities and declared chronology/window match. Cached raw pooled evidence does not itself enumerate original sample owners; no stronger historical per-owner ledger is asserted."
+    },
+    "KRAG": {
+      "selected_owner_ids": [
+        233252,
+        233253,
+        233254,
+        233255
+      ],
+      "fresh_reported_counts": [
+        506,
+        36
+      ],
+      "request_counts": [
+        506,
+        36
+      ],
+      "owner_link_scope": "Counts, entities and declared chronology/window match. Cached raw pooled evidence does not itself enumerate original sample owners; no stronger historical per-owner ledger is asserted."
+    }
+  },
+  "prior_source_audit_35_pins": {
+    "independent_receipt": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/independent/verification.json",
+      "bytes": 4192,
+      "sha256": "87ea43de80b7219c159b13a2ee2b624ae590ffce6bb9f298a16eb11feb59764e"
+    },
+    "audit_result": {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/products/result.json",
+      "bytes": 16688,
+      "sha256": "5572aab8e53e420ea794b08e25496b7c1164ac7500a777101714fbb925a3bd36"
+    },
+    "consumed_pins": [
+      {
+        "bytes": 24477671,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+      },
+      {
+        "bytes": 23953555,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "sha256": "93a673c6fa66522667be2292cda076489330cbe1b5da8cea6b000d9c124c10cc"
+      },
+      {
+        "bytes": 1773,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+        "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+      },
+      {
+        "bytes": 21504,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/validation/pollen-productivity/wieczorek-herzschuh-2020/continental-europe.csv",
+        "sha256": "7b52416cf8caf7bc55eacfa55935836b9a9068cbc1567593e99a8458091c7db5"
+      },
+      {
+        "bytes": 9883,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/bokesjon-core-sources/datacite-alternative-metadata.json",
+        "sha256": "4e2ebd97506df6dc348eb20f2efe0c41b192c98979620d5a2f733a2f2a00b9a3"
+      },
+      {
+        "bytes": 8603,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/bokesjon-core-sources/datacite-dataset-metadata.json",
+        "sha256": "17ac39ab054e57332efba88263447952d9bdce47c5ccca8a7d6a6ef7982629fc"
+      },
+      {
+        "bytes": 998,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/bokesjon-core-sources/neotoma-dataset-metadata.json",
+        "sha256": "71f91c750ddeef63ffb67b0862d55b42e285181a3ddc585f24c98e9567af6501"
+      },
+      {
+        "bytes": 18975,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/bokesjon-core-sources/neotoma-geochronologic-download.json",
+        "sha256": "d308d535c1a8a4ed239cfd433df4feb44ee8efd54523861c4a86ca139f41b5bd"
+      },
+      {
+        "bytes": 810,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/bokesjon-core-sources/neotoma-geochronologic-metadata.json",
+        "sha256": "47dd2596a82b25cb1bfe2f3588859e34c0873c947f03792d29720845a276d7d7"
+      },
+      {
+        "bytes": 747,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/bokesjon-core-sources/neotoma-site-metadata.json",
+        "sha256": "b648b6ceb4755b01573167cede3133c1e6903de65d5ccb00ab35e262e3511b6e"
+      },
+      {
+        "bytes": 4544,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/raw/bokesjon-core-sources/source.json",
+        "sha256": "293756ff773593eba3cfcfc53113751a09ea2a2f451f02070e09530fa1a30e8f"
+      },
+      {
+        "bytes": 68096,
+        "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/rootsi-workbooks/rootsi/BOKE.xls",
+        "sha256": "d95da5626a877b340e365317769fa0ef39cf371687b84004a996c30353dc4bc4"
+      },
+      {
+        "bytes": 329074,
+        "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/author-reference/author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+        "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507"
+      },
+      {
+        "bytes": 83,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/__init__.py",
+        "sha256": "eb11bae6740bb3b60cf0ee8670eff9d6d397502b0ef72cbec7c44dd052bb5695"
+      },
+      {
+        "bytes": 702,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/__main__.py",
+        "sha256": "ea13b2656f903fb4b422ccc217c5c959c154f51e5404024c89f86133f32d40d0"
+      },
+      {
+        "bytes": 7698,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/metadata.py",
+        "sha256": "14293a9744af6a3d5c501c0e42d092e64e81d6474f129c93f5dffaf50d91412d"
+      },
+      {
+        "bytes": 8856,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/workflow.py",
+        "sha256": "225f89f2d9437407750d1e3bceb60ba123550e617cad99f84478f046e47717a6"
+      },
+      {
+        "bytes": 3893,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/source_reading.py",
+        "sha256": "51f36838bba0bed8fa977a0050cd5d1b50c93609a8136e9b8ed37702122790de"
+      },
+      {
+        "bytes": 282,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/taxa/__init__.py",
+        "sha256": "9ae6eeee69b24d835f025b5b96b00328a1ef9174d4f2e478d9fe3dba5aaba2a2"
+      },
+      {
+        "bytes": 9485,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/taxa/native.py",
+        "sha256": "1f804595c83106f93dd4fbd5fe4f835585599b1d300bc1340aa08a304b38488c"
+      },
+      {
+        "bytes": 6561,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/taxa/parameters.py",
+        "sha256": "e332a641c8dea7c619c80b18fbe0fb7a5cb1065d6214a8b40d7106a85d5b5971"
+      },
+      {
+        "bytes": 7281,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/taxa/workbook.py",
+        "sha256": "eb326b0b13147e8f2ac62353ef482e6c7ac416ce9dbbb1923176d540d7000fc6"
+      },
+      {
+        "bytes": 1181,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "sha256": "5b6bef846e31f1d4df30d3cf89bd181d2685de1b723472c467e2e9a8298a8f75"
+      },
+      {
+        "bytes": 5603,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "sha256": "fda58e268123ad12e851f358271217f7c7c56ec1eafa3c36505451202e2a5ac6"
+      },
+      {
+        "bytes": 356,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/__init__.py",
+        "sha256": "965ee0ae64aaa016912dba7ce22842a4b6015eca9724928d551ae22592d55402"
+      },
+      {
+        "bytes": 12269,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/biff.py",
+        "sha256": "c5e0af54443d4290374a69a07652a194d035237d20cf64d6b8b3c1f9016e8e6a"
+      },
+      {
+        "bytes": 4474,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/decoding.py",
+        "sha256": "55c7ac2c26dcd12ff9da0e852d69359d86a29b5e2843b651edca525b0d5817b9"
+      },
+      {
+        "bytes": 5344,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/inputs.py",
+        "sha256": "ce9a2b87b5bfff8d6c230a09717b73ba1fe59d592d8c5bbd8184f03dc1816f68"
+      },
+      {
+        "bytes": 4778,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/layout.py",
+        "sha256": "cfda990ae91ec2a9b6686ac2b7ec26d54d67d3f4a83ba62b27cc8782c64c23e4"
+      },
+      {
+        "bytes": 4678,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/models.py",
+        "sha256": "6f0d4a72faf7383a1588fad95091ebb22ebe2b50859bb765021587928f945dea"
+      },
+      {
+        "bytes": 5500,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/projection.py",
+        "sha256": "d3bc218c330f5f176128280dfa663af72b2794bd16e666871df87bfa90003a8c"
+      },
+      {
+        "bytes": 4658,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/publication.py",
+        "sha256": "5c73e3c9d883f0a9873fa2d5cac01bf76ed45eb92a3f889208abe5638c3cbe62"
+      },
+      {
+        "bytes": 12184,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/reading.py",
+        "sha256": "20a8837ff0efec95ddaf2f2ab7fe4932bd2185fcfb8b11af45b742dc4262e1ed"
+      },
+      {
+        "bytes": 1841,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/rootsi/cells/service.py",
+        "sha256": "33d328fb796772cd47cb5a8783590ebed6c27227cb8bed77f1614db4990f7fe8"
+      },
+      {
+        "bytes": 5825,
+        "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/pollen-reconstruction/bokesjon-pilot/protocol.json",
+        "sha256": "42a19572a595459d10008579d8ab6aec2aeeecf55005605871c5c51bc569bbf2"
+      }
+    ]
+  },
+  "profiles": [
+    {
+      "profile": "modern_1_5_ha",
+      "radius_m": 69.0988298942671,
+      "ring_midpoints_m": [
+        285.0494149471335,
+        750.0
+      ],
+      "signed_cover": [
+        [
+          -0.06948572046180868,
+          1.069485720461808
+        ],
+        [
+          0.21009769584651328,
+          0.7899023041534867
+        ]
+      ],
+      "clipped_cover": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.21009769584651325,
+          0.7899023041534867
+        ]
+      ],
+      "Kloc": [
+        [
+          0.057949593092580354,
+          0.05165806764972608
+        ],
+        [
+          0.08812849481860424,
+          0.07717445438535334
+        ]
+      ],
+      "Kreg": [
+        [
+          0.191141552912818,
+          0.14074566983052694
+        ],
+        [
+          0.16096265118679412,
+          0.1152292830948997
+        ]
+      ],
+      "product_manifest_sha256": "7a94bb06e023a6a709872833e898c605f526ed8fb3be295f1a3b4efacb54135a"
+    },
+    {
+      "profile": "modern_1_6_ha",
+      "radius_m": 71.36496464611085,
+      "ring_midpoints_m": [
+        286.1824823230554,
+        750.0
+      ],
+      "signed_cover": [
+        [
+          -0.08643679709003704,
+          1.086436797090037
+        ],
+        [
+          0.2038179408411387,
+          0.7961820591588612
+        ]
+      ],
+      "clipped_cover": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.20381794084113872,
+          0.7961820591588613
+        ]
+      ],
+      "Kloc": [
+        [
+          0.05647502873799387,
+          0.05030300301589172
+        ],
+        [
+          0.08665393046401776,
+          0.07581938975151897
+        ]
+      ],
+      "Kreg": [
+        [
+          0.191141552912818,
+          0.14074566983052694
+        ],
+        [
+          0.16096265118679412,
+          0.1152292830948997
+        ]
+      ],
+      "product_manifest_sha256": "54641b905524f21469b283ecd56e5ee41310156dd0d388e92873912a8b6ba07c"
+    },
+    {
+      "profile": "metadata_80_m",
+      "radius_m": 80.0,
+      "ring_midpoints_m": [
+        290.5,
+        750.0
+      ],
+      "signed_cover": [
+        [
+          -0.15419144652611294,
+          1.154191446526113
+        ],
+        [
+          0.1797901525758312,
+          0.8202098474241688
+        ]
+      ],
+      "clipped_cover": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.1797901525758312,
+          0.8202098474241688
+        ]
+      ],
+      "Kloc": [
+        [
+          0.05126155086212125,
+          0.045528407092411904
+        ],
+        [
+          0.08144045258814514,
+          0.07104479382803916
+        ]
+      ],
+      "Kreg": [
+        [
+          0.191141552912818,
+          0.14074566983052694
+        ],
+        [
+          0.16096265118679412,
+          0.1152292830948997
+        ]
+      ],
+      "product_manifest_sha256": "bd9f4cf507b86499581580d66e8481fd05be8ae48e26105948d9ff9e28078acc"
+    }
+  ],
+  "comparison": {
+    "status": "defined_conditional_sensitivity",
+    "clipped_span_pp": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0307543270682054,
+        3.030754327068208
+      ]
+    ],
+    "signed_span_pp": [
+      [
+        8.470572606430427,
+        8.470572606430494
+      ],
+      [
+        3.030754327068208,
+        3.030754327068208
+      ]
+    ],
+    "tolerance_percentage_points": 10,
+    "within_tolerance": true,
+    "clipping_masks_larger_span": true,
+    "scope": "Pairwise profile sensitivity on a two-taxon composition; not cover accuracy or field acceptance"
+  },
+  "numeric_checks": {
+    "exact": 1008,
+    "cover_or_kernel": 128,
+    "geometry": 48
+  },
+  "maximum_absolute_errors": {
+    "cover_or_kernel": 5.329070518200751e-15,
+    "geometry": 3.814697265625e-06
+  },
+  "baseline_exact_match": true,
+  "result_pin": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/basin-sensitivity/products/result.json",
+    "bytes": 10362,
+    "sha256": "5b7bad1a80a47879a4c3ba3af6145dd93e572a5150f3a1fe7511db703b5c002b"
+  },
+  "preserved_observer_attempts": [
+    {
+      "path": "stopped-raw-evidence-interface",
+      "status": "observer_interface_refusal_before_numerical_comparison"
+    },
+    {
+      "path": "passed-core-checks",
+      "status": "passed_before_additional35pin_recheck"
+    }
+  ],
+  "limits": [
+    "Independent request/source/geometry and rational inverse verification using newly saved kernels. No producer/helper/math API imported.",
+    "No fresh independent quadrature: coefficient qualification reuses unchanged certified transport code and current host source/file provenance.",
+    "Wind is inherited GPM-neutral default3m/s through unchanged transport code; no observed wind record or explicit new wind measurement is supplied.",
+    "The two-taxon subcomposition is not full forest/open/cereal cover;10pp evaluates conditional basin-profile sensitivity only, not measured accuracy.",
+    "Cached raw pooled evidence omits individual owner IDs; fresh source-audit selected IDs and aggregate/identity/chronology matches are retained without claiming an original per-owner ledger."
+  ]
+}
