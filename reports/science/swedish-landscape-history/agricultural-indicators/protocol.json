@@ -1,0 +1,47 @@
+{
+  "absolute_tolerance_percentage_points": 1e-08,
+  "baseline_csv": "reports/science/swedish-landscape-history/trajectories.csv",
+  "baseline_sha256": "17299c41e317053eb3a2a3e68640f0e083b1c34023aed61f017deeff6b207750",
+  "cohort_rule": "Exact2250baseline band/window/policy/weighting rows; selected IDs, eligibility, counts and weights checked without changing cohorts",
+  "definitions": {
+    "cereals": "Cerealia.t excluding rye plus Secale; equals source AL per cell. Not all arable land or a measured acreage.",
+    "non_cereal_herbs": {
+      "definition": "Operational seven-taxon non-cereal herb cover; includes plantain, not all agriculture.",
+      "taxa": [
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Cyperaceae",
+        "Filipendula",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Rumex.acetosa.t"
+      ]
+    },
+    "other_cereals": "Source Cerealia.t excluding Secale; aggregate cereal type, not an identified list of individual crops.",
+    "plantain": "Plantago.lanceolata.type modeled vegetation cover; non-crop context, not a measured pasture or grazing proxy.",
+    "ranges": "Minimum/maximum of contributing individual-cell components. Total extrema are computed directly, never sums of component extrema; spatial variation, not confidence intervals.",
+    "rye": "Source Secale modeled vegetation cover.",
+    "source_OL": "Published open land; includes low shrub Calluna, non-cereal herbs and cereals; not identical to operational non-tree cover.",
+    "units": "percentage_cover"
+  },
+  "epoch": "BP1950",
+  "evidence_role": "components_of_published_modeled_vegetation;not_independent_validation",
+  "metrics": [
+    "source_OL",
+    "cereals",
+    "rye",
+    "other_cereals",
+    "plantain",
+    "non_cereal_herbs"
+  ],
+  "missing_rule": "Baseline missing and policy-excluded rows remain null; true modeled zero remains numeric zero; zero-mass and no-data refusals unchanged",
+  "new_reconstruction": false,
+  "primary_display": "five bands;fixed_recent;area;full eight windows0-3200BP; four/six bands and available/high_quality/equal diagnostics retained",
+  "regional_confidence_intervals": false,
+  "schema_version": "swedish-agricultural-indicators-protocol.v1",
+  "source_guards": "Per-cell31taxon closure and nonnegativity, Cerealia.t+Secale=AL, source OL subset identity; source OL, total cereals and seven-herb mean/min/max agree with all frozen baseline statistics",
+  "source_support": "26Swedish-center one-degree grids x25published windows;650cell/windows, whole cells not Swedish polygon intersections",
+  "statistics": "Direct weighted component means plus individual-cell minimum/maximum on the same mask. Total extrema are computed directly; never sums of component extrema",
+  "uncertainty": "No new uncertainty law, standard-error aggregation, covariance or confidence interval. Ranges describe spatial variation of selected source cells",
+  "units": "percentage_cover"
+}

@@ -169,7 +169,7 @@
       "png"
     ],
     "regional_confidence_bands": false,
-    "source_sha256": "75fbdd7109db67e2cf2e446552ea9e6642261fe423541d6917724f60f133ac6a",
+    "source_sha256": "111a02d0b049d947d8a7b8a197a35fe264035dfccf92971703af8c69e4bf7d86",
     "boundary_sha256": "20e2ca00f348cddb95a41ca8e8f22a92390a8210618a525e2cef98d3069fc00d",
     "series_source": "figure_series.py",
     "series_source_sha256": "73a1056d42b5750390c5c5d6bea6bb300114edbb99446f223e4be84f3d0b7627",
@@ -202,6 +202,10 @@
     "source_values_changed": false,
     "svg_xml_count": 12,
     "exports_inspected": "Regional and overview PNGs; regional and controlled-recent PDF raster readback",
-    "original_scientific_verification": "Retained unchanged at b768c7b1204c2dd43b2c88e69d47ce2b61f662b8"
+    "original_scientific_verification": "Retained unchanged at b768c7b1204c2dd43b2c88e69d47ce2b61f662b8",
+    "indicator_extension_original_export_parity": {
+      "exports": 36,
+      "byte_identical": true
+    }
   }
 }

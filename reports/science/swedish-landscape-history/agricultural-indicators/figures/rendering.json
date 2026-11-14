@@ -1,0 +1,41 @@
+{
+  "matplotlib": "3.11.2",
+  "figures": 28,
+  "formats": [
+    "png",
+    "svg",
+    "pdf"
+  ],
+  "spatial_range_maxima": {
+    "rye": 20.8199368534988,
+    "other_cereals": 12.2941632209659,
+    "plantain": 1.20239510913904,
+    "non_cereal_herbs": 88.29956926450143
+  },
+  "fixed_right_axis_limits": {
+    "rye": 25.0,
+    "other_cereals": 15.0,
+    "plantain": 2.0,
+    "non_cereal_herbs": 100.0
+  },
+  "numerical_temporal_interpolation": false,
+  "confidence_intervals": false,
+  "inputs": [
+    {
+      "name": "render_indicators.py",
+      "sha256": "9e517b3b1c39440b21a803d685dbe30fb0cd3726fd792278495add418b19c8d6"
+    },
+    {
+      "name": "render.py",
+      "sha256": "111a02d0b049d947d8a7b8a197a35fe264035dfccf92971703af8c69e4bf7d86"
+    },
+    {
+      "name": "figure_series.py",
+      "sha256": "73a1056d42b5750390c5c5d6bea6bb300114edbb99446f223e4be84f3d0b7627"
+    },
+    {
+      "name": "trajectories.json",
+      "sha256": "e7b8a2802e64159e42b5a56a9380f0c5007cbf375df75d448659435195f2ca5a"
+    }
+  ]
+}

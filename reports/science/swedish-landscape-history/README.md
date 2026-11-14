@@ -31,6 +31,15 @@ grids with valid data in every source window from 0 to 3200 BP.
 [Controlled recent comparison](figures/recent-trajectories.pdf) ·
 [Forest proxy versus non-tree vegetation](figures/forest-open.pdf).
 
+## Crop components and open-land context
+
+[Explore four additional comparisons](agricultural-indicators/README.md):
+**rye**, **other cereal type**, **ribwort plantain type** and **non-cereal herbs**.
+Each has its own open-land pair, five-region overview and regional exports,
+with the same mean and spatial min–max style. Plantain and herbs provide
+vegetation context, not pasture-area or grazing estimates. Individual wheat,
+barley and oats are unresolved in this release.
+
 ## What the comparison shows
 
 - **Southern opening and recovery:** at 55–58°N, open land decreases from

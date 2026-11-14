@@ -152,19 +152,26 @@ def support_label(data: list[dict[str, Any]]) -> str:
 
 
 def paired_panel(
-    ax: Any, data: list[dict[str, Any]], cereal_limit: float, *, recent: bool
+    ax: Any,
+    data: list[dict[str, Any]],
+    cereal_limit: float,
+    *,
+    recent: bool,
+    indicator: str = "cereals",
+    indicator_label: str = "Cereals",
+    axis_label: str = "Cereals",
 ) -> tuple[Any, Any]:
-    """Compare open land and cereals on explicitly different, fixed cover axes."""
+    """Pair open land with one supported indicator on explicit fixed cover axes."""
     right = ax.twinx()
     green = draw_envelope(ax, data, "source_OL", SOURCE_OPEN, "Open land")
-    orange = draw_envelope(right, data, "cereals", CEREAL, "Cereals")
+    orange = draw_envelope(right, data, indicator, CEREAL, indicator_label)
     ax.set_xlim(3200 if recent else 11700, 0)
     ax.set_ylim(0, 100)
     right.set_ylim(0, cereal_limit)
     ax.set_yticks([0, 50, 100])
     right.set_yticks([0, cereal_limit / 2, cereal_limit])
     ax.set_ylabel("Open land (%)", color=SOURCE_OPEN, fontsize=10)
-    right.set_ylabel("Cereals (%)", color=CEREAL, fontsize=10)
+    right.set_ylabel(f"{axis_label} (%)", color=CEREAL, fontsize=10)
     ax.tick_params(axis="y", colors=SOURCE_OPEN, labelsize=9)
     right.tick_params(axis="y", colors=CEREAL, labelsize=9)
     ax.tick_params(axis="x", labelsize=9)

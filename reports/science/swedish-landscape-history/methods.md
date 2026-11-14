@@ -251,6 +251,17 @@ complete within its published-model scope; independent historical/modern
 validation and a fresh source-qualified Swedish LRA study remain separate.
 
 
+## Supported crop components and open-land context
+
+The [agricultural indicator account](agricultural-indicators/README.md) adds
+rye, non-rye cereal type, ribwort plantain type and seven-herb summaries on the
+exact parent masks and weights. Its source revision and verification are
+separate from the original calculation epoch above. Plantain overlaps the
+seven-herb group; none of these pairs is an independent agricultural reference.
+The source paper distinguishes cereal type excluding rye from rye; separate
+wheat, barley, oat, flax, hemp and buckwheat curves are unavailable.
+
+
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
