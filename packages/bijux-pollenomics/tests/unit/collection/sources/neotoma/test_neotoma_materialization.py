@@ -161,7 +161,115 @@ def _published_files(root: Path) -> dict[str, bytes]:
     }
 
 
+def _rebind_authenticated_file(root: Path, relative: str, content: bytes) -> None:
+    manifest_path = root / "manifest.json"
+    manifest = json.loads(manifest_path.read_bytes())
+    (root / relative).write_bytes(content)
+    if relative == "reconciliation.json":
+        manifest["reconciliation"]["sha256"] = hashlib.sha256(content).hexdigest()
+    else:
+        part = next(
+            part
+            for surface in manifest["surfaces"].values()
+            for part in surface["parts"]
+            if part["path"] == relative
+        )
+        part["sha256"] = hashlib.sha256(content).hexdigest()
+    records = [
+        {"path": part["path"], "sha256": part["sha256"]}
+        for surface in manifest["surfaces"].values()
+        for part in surface["parts"]
+    ]
+    records.append(
+        {
+            "path": manifest["reconciliation"]["path"],
+            "sha256": manifest["reconciliation"]["sha256"],
+        }
+    )
+    manifest["materialization_sha256"] = materialization_digest(records)
+    manifest_path.write_bytes(canonical_json_bytes(manifest))
+
+
 class NeotomaMaterializationTests(unittest.TestCase):
+    def test_part_parent_validation_uses_the_authenticated_buffer(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output = Path(temporary_directory) / "relational"
+            materialize_neotoma_relational_snapshot(output, _snapshot())
+            relative = "surfaces/samples/part-00001.json"
+            part_path = output / relative
+            original = part_path.read_bytes()
+            part = json.loads(original)
+            part["rows"][0]["dataset_id"] = "neotoma:dataset:missing"
+            bad = canonical_json_bytes(part)
+            _rebind_authenticated_file(output, relative, bad)
+            read_bytes = Path.read_bytes
+            reads = 0
+
+            def read_part(path: Path) -> bytes:
+                nonlocal reads
+                if path == part_path:
+                    reads += 1
+                    if reads == 2:
+                        return original
+                return read_bytes(path)
+
+            with (
+                patch.object(Path, "read_bytes", read_part),
+                self.assertRaisesRegex(ValueError, "missing parent"),
+            ):
+                validate_neotoma_relational_materialization(output)
+            self.assertEqual(part_path.read_bytes(), bad)
+
+    def test_reconciliation_validation_uses_the_authenticated_buffer(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output = Path(temporary_directory) / "relational"
+            materialize_neotoma_relational_snapshot(output, _snapshot())
+            path = output / "reconciliation.json"
+            original = path.read_bytes()
+            payload = json.loads(original)
+            payload["reconciliation"]["normalized_row_counts"]["samples"] += 1
+            bad = canonical_json_bytes(payload)
+            _rebind_authenticated_file(output, "reconciliation.json", bad)
+            read_bytes = Path.read_bytes
+            reads = 0
+
+            def read_reconciliation(candidate: Path) -> bytes:
+                nonlocal reads
+                if candidate == path:
+                    reads += 1
+                    if reads == 2:
+                        return original
+                return read_bytes(candidate)
+
+            with (
+                patch.object(Path, "read_bytes", read_reconciliation),
+                self.assertRaisesRegex(ValueError, "reconciled samples row_count"),
+            ):
+                validate_neotoma_relational_materialization(output)
+            self.assertEqual(path.read_bytes(), bad)
+
+    def test_valid_part_does_not_parse_an_unauthenticated_second_read(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output = Path(temporary_directory) / "relational"
+            materialize_neotoma_relational_snapshot(output, _snapshot())
+            expected = json.loads((output / "manifest.json").read_bytes())
+            part = output / "surfaces/samples/part-00001.json"
+            read_bytes = Path.read_bytes
+            reads = 0
+
+            def read_part(path: Path) -> bytes:
+                nonlocal reads
+                if path == part:
+                    reads += 1
+                    if reads == 2:
+                        return b"{}"
+                return read_bytes(path)
+
+            with patch.object(Path, "read_bytes", read_part):
+                self.assertEqual(
+                    validate_neotoma_relational_materialization(output), expected
+                )
+
     def test_publishes_all_surfaces_in_stable_digest_verified_parts(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
             workspace = Path(temporary_directory)
