@@ -47,6 +47,42 @@ epochs. Historical captures without contemporaneous parent-scope attestations
 remain explicitly historical; current metadata cannot reconstruct a missing
 pre-request attestation.
 
+## Dataset-Linked Environment Records
+
+The dataset-filtered environment queries cover all 515 eligible sites in the
+bound current roster. Their 1,225 returned rows match every requested native
+site, collection-unit and dataset identity. Ten protected sites and two sites
+without an established current parent remain outside this query population.
+
+These archives live under `context-resources/<manifest-sha256>/`:
+
+| Manifest SHA-256 | Sites | Native owner rows |
+| --- | ---: | ---: |
+| `6768f132375fba0e33bad406201e2a65aff3e4edbf4c5e0fd194abdab5d56c1c` | 4 | 10 |
+| `92014d9d9e65846e63fdd263dedfeca659408f711bfd9a01ab7fcd9c96fcb647` | 128 | 335 |
+| `bd1935f3bb3b29545d279cc32243eeb80643e01d553e630b60793d2fd6f39c81` | 128 | 525 |
+| `1ba54364670f3abc84a2f2e5704b4ad55db66a47b432b3f2892e83edb65576ec` | 128 | 228 |
+| `ab6f25eb90c5fe7106f79c40902cad19e02b8f526bcc66bb846baf745a1d8000` | 127 | 127 |
+
+The native fields are `siteid`, `collectionunitid`, `datasetid` and `depenvt`.
+Missing environment labels retain their source nulls. Owner-row coverage does
+not establish dated basin geometry, shoreline history, water depth or a
+reconstruction's applicable source radius.
+
+The older context archive
+`df7ffd0712ec6ea7f6b46b8dfd3a31a05be5811ed2d09666f9309308c064670c`
+retains four site-filtered environment responses with refused foreign-parent
+profiles and four modern lake-candidate queries. Its original responses and
+refusals remain separate from the dataset-filtered records. Modern candidates
+and empty queries retain their source limitations.
+
+Context readers require independently anchored original and current
+`NeotomaContextArchiveBindings`. Select `dataset_depositional_environment` for
+the dataset-filtered records. The 128-request archives require an explicit
+caller budget within the existing context-protocol ceilings; the default
+eight-request budget remains a separate, narrower choice. A budget refusal
+does not establish missing source data.
+
 ## Choose A Reader By Its Integrity Scope
 
 The API owners are under
@@ -65,6 +101,10 @@ The API owners are under
 | Selected unit | `unit_metadata.read_neotoma_unit_metadata` | One selected unit body |
 | Reference metadata | `reference_tables.read_neotoma_reference_archive_inventory` | None |
 | Selected reference table | `reference_tables.read_neotoma_reference_archive_table` | One complete selected table body |
+| Context metadata | `context_resources.read_neotoma_context_resource_inventory` | None |
+| Selected context HTTP entity | `context_resources.read_neotoma_context_resource_entity` | One selected context body |
+| Selected qualified context | `context_resources.read_neotoma_context_resource` | The selected authenticated body |
+| Full context verification | `context_resources.load_neotoma_context_resource_archive` | All owned context bodies, subject to exposure restrictions |
 
 Selected facet and linked reads require exact observation identities. Linked
 reads additionally require the precise occurrence identity. The source witness
