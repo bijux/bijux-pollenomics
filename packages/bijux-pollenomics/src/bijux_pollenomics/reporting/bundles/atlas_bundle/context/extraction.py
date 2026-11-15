@@ -10,6 +10,7 @@ from .....collection.contracts.cardinality import resolve_declared_count
 from .....collection.contracts.occurrence_chronology import ContextOccurrenceSupport
 from ....context.time import feature_time_payload
 from ....map_document.temporal_admission import feature_temporal_admission
+from ....source_chronology.charcoal import is_native_charcoal_context
 from ..layers import is_animal_chronology_context
 
 
@@ -18,7 +19,7 @@ def extract_context_points(
 ) -> tuple[Any, ...]:
     records = []
     for layer in point_layers:
-        if is_animal_chronology_context(layer):
+        if is_animal_chronology_context(layer) or is_native_charcoal_context(layer):
             continue
         if str(layer.get("group", "")).strip() == "primary-evidence":
             continue

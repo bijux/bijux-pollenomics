@@ -22,6 +22,12 @@ from bijux_pollenomics.reporting.bundles.atlas_bundle.ranking_context import (
 )
 from tests.unit.evidence.scientific_review.support import locality
 from tests.unit.reporting.source_chronology.support import projection
+from tests.unit.reporting.source_chronology.test_charcoal import (
+    project as charcoal_projection,
+)
+from tests.unit.reporting.source_chronology.test_charcoal import (
+    source as charcoal_source,
+)
 
 
 class _OutputPath:
@@ -66,6 +72,56 @@ def _ordinary_layer() -> dict[str, object]:
             }
         ],
     }
+
+
+def test_literal_charcoal_is_defensively_removed_from_candidate_context() -> None:
+    charcoal = charcoal_projection(charcoal_source()).point_layers[0]
+    ordinary = SimpleNamespace(layer_key="ordinary-context")
+    charcoal_point = SimpleNamespace(layer_key=charcoal["key"])
+    assert candidate_ranking_context_points([charcoal], (ordinary, charcoal_point)) == (
+        ordinary,
+    )
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("candidate_ranking_eligible", True),
+        ("scientific_selection_enabled", True),
+        ("scientific_classification_eligible", True),
+        ("propagation_status", "admitted"),
+        ("semantic_role", "ordinary_context"),
+        ("count", 2),
+        ("edge_count", True),
+    ],
+)
+def test_charcoal_cannot_change_posture_to_leak_into_candidate_context(
+    field: str, value: object
+) -> None:
+    charcoal = charcoal_projection(charcoal_source()).point_layers[0]
+    charcoal[field] = value
+    with pytest.raises(ValueError, match="charcoal"):
+        candidate_ranking_context_points([charcoal], ())
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("propagation_eligible", True),
+        ("candidate_generation_status", "admitted"),
+        ("candidate_refusal_reason", None),
+        ("record_count", 2),
+        ("observation_denominator", True),
+        ("edge_id", "edge"),
+    ],
+)
+def test_charcoal_feature_cannot_claim_event_or_duplicate_observation_support(
+    field: str, value: object
+) -> None:
+    charcoal = charcoal_projection(charcoal_source()).point_layers[0]
+    charcoal["features"][0][field] = value
+    with pytest.raises(ValueError, match="charcoal"):
+        candidate_ranking_context_points([charcoal], ())
 
 
 def test_canonical_source_projection_is_excluded_only_from_candidate_inputs() -> None:
