@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Neotoma archive and metadata source custody
+### [#427](https://github.com/bijux/bijux-pollenomics/pull/427) — Neotoma archive and metadata source custody
 
 - Reconcile and stage Neotoma archive members before replacement of an authenticated
   owned archive. Publish complete collections only to absent roots, preserving prior
