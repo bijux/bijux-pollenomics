@@ -2,6 +2,22 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#438](https://github.com/bijux/bijux-pollenomics/pull/438) — Native proxy qualification and whole-unit source roles
+
+- Qualify five observed current native proxy layouts while preserving scalar kinds,
+  variables, units and context without count-denominator, physical-depth or scientific-
+  admission inference. Keep derived qualification separate from immutable original
+  acquisition ledgers.
+- Bind whole speleothem-unit requests to exact authenticated all-type inventory,
+  complete current siblings and historical/current same-site/core role obligations.
+  Apply the most restrictive inherited role before unit source access.
+- Retain and replay bounded literal unit HTTP/error receipts, bodies, budgets and source
+  scope without qualifying native payload ownership or claiming transaction/frozen-
+  snapshot consistency or certified absence.
+- Require the complete declared native source-reader factory interface in constructed
+  loading controls, including chronology, depth/age-depth and charcoal capabilities.
+  Verify synthetic proxy/unit guards without retained scientific replay.
+
 ### [#437](https://github.com/bijux/bijux-pollenomics/pull/437) — Authenticated linked details and native associations
 
 - Qualify observed native contributor/DOI/physical-site associations with exact
