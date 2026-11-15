@@ -1,0 +1,201 @@
+"""Competing destination entries remain in place during publication and recovery."""
+
+from pathlib import Path
+from typing import Any
+
+import pytest
+
+from bijux_pollenomics.core.filesystem import OwnedTreeWriter, replacement
+from bijux_pollenomics.core.filesystem.anchors import DirectoryAnchor
+from bijux_pollenomics.core.filesystem.regular_inputs import BoundedInputTree
+
+
+@pytest.mark.parametrize("existing", [False, True])
+def test_foreign_empty_destination_at_publication_is_never_replaced(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, existing: bool
+) -> None:
+    final, run = tmp_path / "output", tmp_path / "run"
+    run.mkdir()
+    if existing:
+        final.mkdir()
+        (final / "value").write_bytes(b"prior")
+    prior = BoundedInputTree(final, max_bytes=100, max_files=2) if existing else None
+    primitive = replacement._rename_directory
+    inode: list[int] = []
+
+    def competing(parent: int, source: str, target: str, **kwargs: Any) -> None:
+        if source == "candidate":
+            final.mkdir()
+            inode.append(final.stat().st_ino)
+        primitive(parent, source, target, **kwargs)
+
+    try:
+        with (
+            DirectoryAnchor(run) as recovery,
+            OwnedTreeWriter(run / "candidate", max_bytes=100, max_files=2) as writer,
+        ):
+            writer.write_bytes("value", b"candidate")
+            monkeypatch.setattr(replacement, "_rename_directory", competing)
+            with pytest.raises(FileExistsError):
+                replacement.publish_owned_replacement(
+                    writer,
+                    final=final,
+                    prior=prior,
+                    recovery=recovery,
+                    validate=lambda root: None,
+                )
+            assert final.stat().st_ino == inode[0]
+            assert list(final.iterdir()) == []
+    finally:
+        if prior is not None:
+            prior.close()
+    if existing:
+        assert (run / "prior" / "value").read_bytes() == b"prior"
+
+
+@pytest.mark.parametrize("existing", [False, True])
+def test_foreign_final_substitution_stays_at_user_destination(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, existing: bool
+) -> None:
+    import os
+
+    final, run = tmp_path / "output", tmp_path / "run"
+    run.mkdir()
+    if existing:
+        final.mkdir()
+        (final / "value").write_bytes(b"prior")
+    prior = BoundedInputTree(final, max_bytes=100, max_files=2) if existing else None
+    primitive = replacement._rename_directory
+    observed: list[int] = []
+
+    def substituted(parent: int, source: str, target: str, **kwargs: Any) -> None:
+        primitive(parent, source, target, **kwargs)
+        if source == "candidate":
+            os.rename(final, tmp_path / "authored-displaced")
+            final.mkdir()
+            (final / "foreign").write_bytes(b"keep user content")
+            observed.append(final.stat().st_ino)
+
+    try:
+        with (
+            DirectoryAnchor(run) as recovery,
+            OwnedTreeWriter(run / "candidate", max_bytes=100, max_files=2) as writer,
+        ):
+            writer.write_bytes("value", b"candidate")
+            monkeypatch.setattr(replacement, "_rename_directory", substituted)
+            with pytest.raises(ValueError, match="identity"):
+                replacement.publish_owned_replacement(
+                    writer,
+                    final=final,
+                    prior=prior,
+                    recovery=recovery,
+                    validate=lambda root: None,
+                )
+            assert final.stat().st_ino == observed[0]
+            assert (final / "foreign").read_bytes() == b"keep user content"
+            assert not (run / "refused-publication").exists()
+    finally:
+        if prior is not None:
+            prior.close()
+    if existing:
+        assert (run / "prior" / "value").read_bytes() == b"prior"
+
+
+@pytest.mark.parametrize("failure", ["prior_move", "candidate_move", "readback"])
+def test_failed_publication_restores_complete_prior(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, failure: str
+) -> None:
+    final, run = tmp_path / "output", tmp_path / "run"
+    final.mkdir()
+    (final / "value").write_bytes(b"prior")
+    run.mkdir()
+    primitive = replacement._rename_directory
+
+    def refused(parent: int, source: str, target: str, **kwargs: Any) -> None:
+        if (failure == "prior_move" and source == "output") or (
+            failure == "candidate_move" and source == "candidate"
+        ):
+            raise OSError("synthetic rename refusal")
+        primitive(parent, source, target, **kwargs)
+
+    def validate(root: Path) -> None:
+        if failure == "readback" and root == final:
+            raise OSError("synthetic final readback refusal")
+
+    with (
+        BoundedInputTree(final, max_bytes=100, max_files=2) as prior,
+        DirectoryAnchor(run) as recovery,
+        OwnedTreeWriter(run / "candidate", max_bytes=100, max_files=2) as writer,
+    ):
+        writer.write_bytes("value", b"candidate")
+        monkeypatch.setattr(replacement, "_rename_directory", refused)
+        with pytest.raises(OSError, match="synthetic"):
+            replacement.publish_owned_replacement(
+                writer, final=final, prior=prior, recovery=recovery, validate=validate
+            )
+        assert (final / "value").read_bytes() == b"prior"
+        assert not (run / "prior").exists()
+
+
+def test_recovery_collision_preserves_foreign_entry_and_current_prior(
+    tmp_path: Path,
+) -> None:
+    final, run = tmp_path / "output", tmp_path / "run"
+    final.mkdir()
+    (final / "value").write_bytes(b"prior")
+    (run / "prior").mkdir(parents=True)
+    (run / "prior" / "foreign").write_bytes(b"user")
+    with (
+        BoundedInputTree(final, max_bytes=100, max_files=2) as prior,
+        DirectoryAnchor(run) as recovery,
+        OwnedTreeWriter(run / "candidate", max_bytes=100, max_files=2) as writer,
+    ):
+        writer.write_bytes("value", b"candidate")
+        with pytest.raises(FileExistsError):
+            replacement.publish_owned_replacement(
+                writer,
+                final=final,
+                prior=prior,
+                recovery=recovery,
+                validate=lambda root: None,
+            )
+    assert (run / "prior" / "foreign").read_bytes() == b"user"
+    assert (final / "value").read_bytes() == b"prior"
+
+
+@pytest.mark.parametrize("change", ["directory", "leaf"])
+def test_receipt_callback_cannot_make_a_foreign_final_successful(
+    tmp_path: Path, change: str
+) -> None:
+    final, run = tmp_path / "output", tmp_path / "run"
+    final.mkdir()
+    (final / "value").write_bytes(b"prior")
+    run.mkdir()
+    foreign: list[int] = []
+
+    def record(status: str, fields: dict[str, Any]) -> None:
+        if status == "published":
+            if change == "directory":
+                final.rename(tmp_path / "authored-displaced")
+                final.mkdir()
+            (final / "foreign").write_bytes(b"user content")
+            foreign.append(final.stat().st_ino)
+
+    with (
+        BoundedInputTree(final, max_bytes=100, max_files=2) as prior,
+        DirectoryAnchor(run) as recovery,
+        OwnedTreeWriter(run / "candidate", max_bytes=100, max_files=2) as writer,
+    ):
+        writer.write_bytes("value", b"candidate")
+        with pytest.raises(ValueError):
+            replacement.publish_owned_replacement(
+                writer,
+                final=final,
+                prior=prior,
+                recovery=recovery,
+                validate=lambda root: None,
+                record=record,
+            )
+    assert final.stat().st_ino == foreign[0]
+    assert (final / "foreign").read_bytes() == b"user content"
+    assert (run / "prior" / "value").read_bytes() == b"prior"
