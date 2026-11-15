@@ -4,20 +4,25 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    optional_sead_identifier,
+    required_sead_identifier,
+)
 from bijux_pollenomics.core.text import clean_optional_text
 
 from .chronology_projection import SeadChronologyProjection
 from .chronology_records import _build_bibliography_row, _deduplicate_bibliography_rows
-from .source_data.lookups import SeadLookupIndex
+from .source_data.lookups import SeadLookupIndex, lookup_optional_reference
 from .source_data.relations import SeadRelationIndex
 from .source_data.source_tables import SeadInventorySourceRows
-from .values import parse_required_int
 
 Row = dict[str, object]
 
 
 @dataclass(frozen=True, slots=True)
 class SeadBibliographyProjection:
+    """Keep source citation identities grouped by their owning site."""
+
     reference_ids_by_site: dict[int, set[int]]
     bibliography_rows_by_site: dict[int, list[Row]]
 
@@ -28,20 +33,21 @@ def project_site_bibliography(
     lookups: SeadLookupIndex,
     chronology: SeadChronologyProjection,
 ) -> SeadBibliographyProjection:
+    """Join exact native references without substituting another site's citation."""
     reference_ids_by_site: dict[int, set[int]] = {}
     bibliography_rows_by_site: dict[int, list[Row]] = {}
     for reference in source.site_references:
-        site_id = parse_required_int(reference.get("site_id"))
-        reference_id = parse_required_int(reference.get("site_reference_id"))
+        site_id = required_sead_identifier(reference.get("site_id"))
+        reference_id = required_sead_identifier(reference.get("site_reference_id"))
         if site_id and reference_id:
             reference_ids_by_site.setdefault(site_id, set()).add(reference_id)
-            biblio = lookups.bibliography_by_id.get(
-                parse_required_int(reference.get("biblio_id")), {}
+            biblio = lookup_optional_reference(
+                lookups.bibliography_by_id, reference.get("biblio_id"), {}
             )
             if biblio:
                 bibliography_rows_by_site.setdefault(site_id, []).append(
                     _build_bibliography_row(
-                        biblio_id=parse_required_int(reference.get("biblio_id")),
+                        biblio_id=required_sead_identifier(reference.get("biblio_id")),
                         source_kind="site_reference",
                         source_record_id=reference_id,
                         source_record_label="",
@@ -54,8 +60,8 @@ def project_site_bibliography(
             if biblio:
                 bibliography_rows_by_site.setdefault(site_id, []).append(
                     _build_bibliography_row(
-                        biblio_id=lookups.dataset_bibliography_id_by_id.get(
-                            dataset_id, 0
+                        biblio_id=required_sead_identifier(
+                            lookups.dataset_bibliography_id_by_id.get(dataset_id)
                         ),
                         source_kind="dataset_reference",
                         source_record_id=dataset_id,
@@ -66,11 +72,11 @@ def project_site_bibliography(
                     )
                 )
     for reference in source.sample_group_references:
-        sample_group_id = parse_required_int(reference.get("sample_group_id"))
+        sample_group_id = required_sead_identifier(reference.get("sample_group_id"))
         site_id = relations.site_by_sample_group.get(sample_group_id, 0)
-        biblio_id = parse_required_int(reference.get("biblio_id"))
-        biblio = lookups.bibliography_by_id.get(biblio_id, {})
-        if site_id and biblio:
+        biblio_id = optional_sead_identifier(reference.get("biblio_id"))
+        biblio = lookup_optional_reference(lookups.bibliography_by_id, biblio_id, {})
+        if site_id and biblio_id is not None and biblio:
             bibliography_rows_by_site.setdefault(site_id, []).append(
                 _build_bibliography_row(
                     biblio_id=biblio_id,
@@ -81,14 +87,14 @@ def project_site_bibliography(
                 )
             )
     for reference in source.relative_age_references:
-        relative_age_id = parse_required_int(reference.get("relative_age_id"))
-        biblio_id = parse_required_int(reference.get("biblio_id"))
-        biblio = lookups.bibliography_by_id.get(biblio_id, {})
+        relative_age_id = required_sead_identifier(reference.get("relative_age_id"))
+        biblio_id = optional_sead_identifier(reference.get("biblio_id"))
+        biblio = lookup_optional_reference(lookups.bibliography_by_id, biblio_id, {})
         relative_age = lookups.relative_age_by_id.get(relative_age_id, {})
         for site_id in chronology.site_ids_by_relative_age_id.get(
             relative_age_id, set()
         ):
-            if biblio:
+            if biblio_id is not None and biblio:
                 bibliography_rows_by_site.setdefault(site_id, []).append(
                     _build_bibliography_row(
                         biblio_id=biblio_id,
