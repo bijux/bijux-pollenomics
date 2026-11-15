@@ -31,6 +31,9 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
                 (
                     b"    build_source_chronology_atlas_projection,\n"
                     b")\n"
+                    b"from bijux_pollenomics.reporting.source_chronology.charcoal import (\n"
+                    b"    build_native_charcoal_atlas_projection,\n"
+                    b")\n"
                     b"\n"
                     b"from .constants import (\n"
                     b"    _UNAVAILABLE_CLASSIFICATION,\n"
@@ -264,7 +267,32 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
                 b'        "source_chronology": source_projection.reconciliation,\n',
                 (
                     b'        "source_chronology": source_projection.reconciliation,\n'
+                    b'        "native_charcoal": charcoal_projection.reconciliation,\n'
                     b'        "source_issues": issue_accounting,\n'
+                ),
+            ),
+            (
+                b"    country_site_counts = {\n",
+                (
+                    b"    charcoal_projection = build_native_charcoal_atlas_projection(\n"
+                    b"        loaded_surfaces,\n"
+                    b"        projected_site_ids=governed_sites.keys(),\n"
+                    b"        source_snapshot_id=source_snapshot_id,\n"
+                    b"        build_id=build_id,\n"
+                    b"    )\n"
+                    b"    country_site_counts = {\n"
+                ),
+            ),
+            (
+                b"        [dict(layer) for layer in source_projection.point_layers],\n",
+                (
+                    b"        [\n"
+                    b"            dict(layer)\n"
+                    b"            for layer in (\n"
+                    b"                *source_projection.point_layers,\n"
+                    b"                *charcoal_projection.point_layers,\n"
+                    b"            )\n"
+                    b"        ],\n"
                 ),
             ),
         ),
