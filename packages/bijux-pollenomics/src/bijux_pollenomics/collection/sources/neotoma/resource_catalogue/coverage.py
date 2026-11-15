@@ -16,6 +16,11 @@ from ..capture.resources.models import DEVELOPMENT_ROLES
 from ..capture.resources.protocol import identity, resource_key
 from ..country.decisions import build_neotoma_context_country_decisions
 from ..relational.country import country_attribution
+from .current_profiles import (
+    CURRENT_SOURCE_PROFILE_SCHEMA,
+    current_profiles_enabled,
+    current_source_projection,
+)
 from .custody import CatalogueSources, prepare_catalogue_sources
 from .source_projection import (
     _same,
@@ -129,12 +134,17 @@ def _native_counts(samples: object, chronologies: object) -> dict[str, Any]:
 
 
 def _version(
-    sources: CatalogueSources, resource: NeotomaResourceSpec, version: str
+    sources: CatalogueSources,
+    resource: NeotomaResourceSpec,
+    version: str,
+    *,
+    qualify_current_source_profiles: bool = False,
 ) -> dict[str, Any]:
     key = resource_key(resource, version)
     selected = sources.selected.get(key)
+    result: dict[str, Any]
     if selected is None:
-        return {
+        result = {
             "acquisition_status": "not_attempted_exposure_role"
             if resource.exposure_role not in DEVELOPMENT_ROLES
             else "not_attempted_pending_capture",
@@ -144,6 +154,12 @@ def _version(
             "native_counts": None,
             "absence_certified": False,
         }
+        if version == "current" and qualify_current_source_profiles:
+            projected, _ = current_source_projection(
+                resource, result["acquisition_status"], None, None
+            )
+            result.update(projected)
+        return result
     digest, entry = selected
     if not _same(entry["identity"], identity(resource)):
         raise ValueError(
@@ -151,7 +167,7 @@ def _version(
         )
     source, body = sources.source(digest, entry)
     status = entry["terminal_status"]
-    result: dict[str, Any] = {
+    result = {
         "acquisition_status": status,
         "source_terminal_status": status,
         "qualification_status": "not_qualified",
@@ -169,6 +185,16 @@ def _version(
     ):
         if field in entry:
             result[field] = entry[field]
+    if version == "current" and qualify_current_source_profiles:
+        projected, parsed_current = current_source_projection(
+            resource, status, body, source.get("body_sha256")
+        )
+        result.update(projected)
+        if parsed_current is not None:
+            result["native_counts"] = _native_counts(
+                parsed_current.samples,
+                parsed_current.collection_unit.get("chronologies"),
+            )
     if resource.exposure_role not in DEVELOPMENT_ROLES:
         return result
     if version == "current" and status in {"parsed_native", "reused_qualified_native"}:
@@ -224,6 +250,7 @@ def build_neotoma_resource_catalogue(
     original_relational_root: Path | None = None,
     country_boundaries: Mapping[str, Mapping[str, object]] | None = None,
     policy_sources: Sequence[str] | None = None,
+    qualify_current_source_profiles: bool = False,
 ) -> dict[str, Any]:
     """Join the exact declared roster to selected captures and separate source epochs.
 
@@ -231,6 +258,8 @@ def build_neotoma_resource_catalogue(
     reused bodies without introducing extra resource/version rows. Native source
     bodies are decoded one at a time; only compact counts and locators persist.
     """
+    if type(qualify_current_source_profiles) is not bool:
+        raise ValueError("qualify_current_source_profiles must be a literal boolean")
     sources = prepare_catalogue_sources(
         roster_path=roster_path,
         expected_roster_sha256=expected_roster_sha256,
@@ -313,15 +342,23 @@ def build_neotoma_resource_catalogue(
                     "publication_identity": "Not inferred from a DOI-frozen response",
                     "scope": "Available public data; no private-workbook rights or unreturned-source availability inferred",
                 },
-                "method_capability": method_capability(resource.dataset_type),
+                "method_capability": method_capability(
+                    resource.dataset_type,
+                    qualify_current_source_profiles=qualify_current_source_profiles,
+                ),
                 "original_epoch": original,
                 "versions": {
-                    version: _version(sources, resource, version)
+                    version: _version(
+                        sources,
+                        resource,
+                        version,
+                        qualify_current_source_profiles=qualify_current_source_profiles,
+                    )
                     for version in ("current", "doi_frozen")
                 },
             }
         )
-    return {
+    catalogue = {
         "schema_version": "neotoma-resource-catalogue.v1",
         "source_family": "neotoma",
         "inventory_scope": inventory_scope(),
@@ -333,6 +370,9 @@ def build_neotoma_resource_catalogue(
         "metadata_capture_manifest_sha256": sorted(metadata_captures),
         "related_facets": related_facets(),
     }
+    if qualify_current_source_profiles:
+        catalogue["current_source_profile_schema"] = CURRENT_SOURCE_PROFILE_SCHEMA
+    return catalogue
 
 
 def verify_catalogue_source_projection(
@@ -348,6 +388,7 @@ def verify_catalogue_source_projection(
     )
     from .custody import pinned_object
 
+    enabled = current_profiles_enabled(catalogue)
     selected: dict[str, tuple[str, dict[str, Any]]] = {}
     qualifications: dict[str, dict[str, Any]] = {}
     source_snapshots: dict[str, dict[str, Any]] = {}
@@ -417,7 +458,10 @@ def verify_catalogue_source_projection(
         )
         for version in ("current", "doi_frozen"):
             if not _same(
-                row["versions"][version], _version(sources, resource, version)
+                row["versions"][version],
+                _version(
+                    sources, resource, version, qualify_current_source_profiles=enabled
+                ),
             ):
                 raise ValueError(
                     "Catalogue version projection differs from retained source"

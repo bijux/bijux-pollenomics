@@ -10,6 +10,11 @@ from typing import Any
 
 from ..capture.receipts import _object, _read, _safe_root, _validate_receipt
 from ..capture.resources import NeotomaResourceSpec, NeotomaRetainedSource
+from ..capture.resources.current.profiles import (
+    CURRENT_SOURCE_TYPES,
+    parse_neotoma_current_source,
+    summarize_current_source,
+)
 from ..capture.resources.frozen import _summary as frozen_native_summary
 from ..capture.resources.frozen import parse_neotoma_frozen_snapshot
 from ..capture.resources.models import (
@@ -26,6 +31,7 @@ from ..capture.resources.protocol import (
 )
 from ..capture.resources.retained import read_retained_source
 from ..client import positive_native_id
+from .current_profiles import current_profiles_enabled
 from .custody import pinned_object, public_member
 from .publication import load_neotoma_resource_catalogue
 from .source_projection import _same
@@ -251,13 +257,20 @@ def read_neotoma_catalogue_resource(
     if row["exposure_role"] not in DEVELOPMENT_ROLES:
         raise ValueError("Selected resource exposure role refuses numerical access")
     selected = row["versions"][version]
+    derived_current = (
+        version == "current"
+        and current_profiles_enabled(catalogue)
+        and row["dataset_type"] in CURRENT_SOURCE_TYPES
+        and selected.get("current_source_qualification_status")
+        == "parsed_current_source"
+    )
     qualification = (
         "qualification_status"
         if version == "current"
         else "snapshot_qualification_status"
     )
     accepted = "parsed_native" if version == "current" else "parsed_frozen_snapshot"
-    if selected.get(qualification) != accepted:
+    if not derived_current and selected.get(qualification) != accepted:
         raise ValueError(
             f"Selected source is not qualified: {selected.get(qualification, 'not_qualified')} "
             f"(acquisition: {selected['acquisition_status']})"
@@ -294,10 +307,11 @@ def read_neotoma_catalogue_resource(
         or (
             version == "current"
             and original_entry["terminal_status"]
-            not in {
-                "parsed_native",
-                "reused_qualified_native",
-            }
+            not in (
+                {"unsupported_dataset_type"}
+                if derived_current
+                else {"parsed_native", "reused_qualified_native"}
+            )
         )
     ):
         raise ValueError("Selected source terminal qualification is not qualified")
@@ -327,7 +341,23 @@ def read_neotoma_catalogue_resource(
         "scientific_admission": "not_asserted",
         "units_interpreted": False,
     }
-    if version == "current":
+    if derived_current:
+        parsed_current = parse_neotoma_current_source(
+            resource, body, expected_body_sha256=selected["source"]["body_sha256"]
+        )
+        summary = summarize_current_source(parsed_current)
+        if not _same(summary, selected["current_source_summary"]):
+            raise ValueError(
+                "Current source summary differs from authenticated native buffer"
+            )
+        result.update(
+            native_payload=parsed_current.payload,
+            parser_profile=parsed_current.parser_profile,
+            source_units=summary["source_units"],
+            qualification_status="parsed_current_source",
+            source_terminal_status=original_entry["terminal_status"],
+        )
+    elif version == "current":
         status, summary = classify_body(resource, version, body)
         if status != "parsed_native":
             raise ValueError("Selected current native owner/schema is not qualified")

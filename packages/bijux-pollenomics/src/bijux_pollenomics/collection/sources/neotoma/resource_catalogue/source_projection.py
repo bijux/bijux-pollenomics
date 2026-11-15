@@ -8,7 +8,9 @@ import json
 from pathlib import Path
 from typing import Any
 
+from ..capture.resources.current.profiles import CURRENT_SOURCE_TYPES
 from ..capture.resources.models import DEVELOPMENT_ROLES
+from .current_profiles import current_profiles_enabled, validate_current_source_claims
 from .custody import prepare_catalogue_sources
 
 _CAPABILITIES = {
@@ -29,12 +31,20 @@ def _same(left: object, right: object) -> bool:
     )
 
 
-def method_capability(dataset_type: str) -> dict[str, Any]:
+def method_capability(
+    dataset_type: str, *, qualify_current_source_profiles: bool = False
+) -> dict[str, Any]:
+    current_registered = (
+        qualify_current_source_profiles and dataset_type in CURRENT_SOURCE_TYPES
+    )
     return {
         "status": "source_type_registered"
         if dataset_type in _CAPABILITIES
+        else "native_source_profile_registered"
+        if current_registered
         else "unsupported_dataset_type",
-        "evidence_role": _CAPABILITIES.get(dataset_type),
+        "evidence_role": _CAPABILITIES.get(dataset_type)
+        or ("native_proxy_source_context" if current_registered else None),
         "is_pollen_assemblage": dataset_type == "pollen",
         "independent_lra_accuracy": False,
         "scientific_admission": "not_asserted",
@@ -155,6 +165,7 @@ def catalogue_accounts(resources: list[dict[str, Any]]) -> dict[str, Any]:
 
 def verify_derived_projection(catalogue: dict[str, Any]) -> None:
     """Reconcile indexes without asserting a new geographic or scientific decision."""
+    enabled = current_profiles_enabled(catalogue)
     expected = catalogue_accounts(catalogue["resources"])
     for key, value in expected.items():
         if not _same(catalogue.get(key), value):
@@ -168,8 +179,12 @@ def verify_derived_projection(catalogue: dict[str, Any]) -> None:
     if catalogue.get("source_family") != "neotoma":
         raise ValueError("Catalogue source family projection differs")
     for row in catalogue["resources"]:
+        validate_current_source_claims(row, enabled)
         if not _same(
-            row.get("method_capability"), method_capability(row["dataset_type"])
+            row.get("method_capability"),
+            method_capability(
+                row["dataset_type"], qualify_current_source_profiles=enabled
+            ),
         ):
             raise ValueError(
                 "Catalogue source-type method capability projection differs"

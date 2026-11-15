@@ -33,6 +33,8 @@ def catalogue_sources(tmp_path: Path) -> Callable[..., dict[str, Any]]:
         large_integer: bool = False,
         chronology_metadata: object = _DEFAULT_SOURCE_COLLECTION,
         sample_metadata: object = _DEFAULT_SOURCE_COLLECTION,
+        source_database: str | None = None,
+        auxiliary_role: str = "development_resource_discovery",
     ) -> dict[str, Any]:
         root = tmp_path / auxiliary_type.replace(" ", "-")
         root.mkdir()
@@ -40,7 +42,7 @@ def catalogue_sources(tmp_path: Path) -> Callable[..., dict[str, Any]]:
         sites = {201: (12, 100), 202: (12, 100), 203: (13, 101), 204: (14, 102)}
         roles = {
             201: "development_resource_discovery",
-            202: "development_resource_discovery",
+            202: auxiliary_role,
             203: "reserved_candidate_confirmation",
             204: "heldout_no_numerical_access",
         }
@@ -49,7 +51,7 @@ def catalogue_sources(tmp_path: Path) -> Callable[..., dict[str, Any]]:
             return {
                 "datasetid": identity,
                 "datasettype": kinds[identity],
-                "database": None,
+                "database": source_database,
                 "doi": [],
                 "datasetpi": [],
             }
@@ -97,7 +99,7 @@ def catalogue_sources(tmp_path: Path) -> Callable[..., dict[str, Any]]:
                     "site_id": site,
                     "collection_unit_id": unit,
                     "dataset_type": kinds[identity],
-                    "database": None,
+                    "database": source_database,
                     "dataset_doi_values": [],
                     "metadata_locator": {
                         "response_sha256": digest,
@@ -116,7 +118,7 @@ def catalogue_sources(tmp_path: Path) -> Callable[..., dict[str, Any]]:
                     site,
                     unit,
                     kinds[identity],
-                    None,
+                    source_database,
                     roles[identity],
                     digest,
                     pointer,
