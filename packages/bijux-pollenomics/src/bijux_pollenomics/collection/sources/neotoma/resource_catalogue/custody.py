@@ -5,10 +5,11 @@ from __future__ import annotations
 from collections.abc import Mapping
 from dataclasses import dataclass, field
 from hashlib import sha256
+import json
 from pathlib import Path
 from typing import Any
 
-from ..capture import replay_neotoma_metadata_capture
+from ..capture import NeotomaMetadataLimits, replay_neotoma_metadata_capture
 from ..capture.receipts import _object, _read, _safe_root
 from ..capture.resources import NeotomaRetainedSource, replay_neotoma_resource_capture
 from ..capture.resources.frozen import (
@@ -16,6 +17,13 @@ from ..capture.resources.frozen import (
     qualify_neotoma_frozen_snapshot_capture,
 )
 from ..client import positive_native_id
+
+METADATA_REPLAY_LIMITS = NeotomaMetadataLimits(
+    max_requests=256,
+    max_pages_per_inventory=256,
+    max_response_bytes=32 * 1024 * 1024,
+    max_total_bytes=256 * 1024 * 1024,
+)
 
 
 @dataclass
@@ -248,12 +256,12 @@ def prepare_catalogue_sources(
     if not required <= set(metadata_captures):
         raise ValueError("Catalogue metadata capture resolver is incomplete")
     descriptors, metadata_results = {}, {}
-    body_index: dict[str, tuple[Path, dict[str, Any]]] = {}
+    body_index: dict[str, list[tuple[Path, dict[str, Any]]]] = {}
     lookup_sources: dict[tuple[str, int], dict[str, Any]] = {}
     for digest, directory in metadata_captures.items():
         root = _safe_root(directory)
         metadata_results[digest] = replay_neotoma_metadata_capture(
-            root, expected_manifest_sha256=digest
+            root, expected_manifest_sha256=digest, limits=METADATA_REPLAY_LIMITS
         )
         descriptors[digest] = describe_capture(root, digest, "metadata")
         manifest = pinned_object(root / "capture-manifest.json", digest, 1024 * 1024)
@@ -261,16 +269,15 @@ def prepare_catalogue_sources(
             receipt = pinned_object(
                 root / record["receipt_file"], record["receipt_sha256"], 65536
             )
-            if (
-                digest in roster["source_metadata_capture_manifest_sha256"]
-                and receipt.get("expected_site_id") is not None
+            if digest in roster["source_metadata_capture_manifest_sha256"] and (
+                receipt.get("expected_site_id") is not None
+                or receipt.get("role") in {"pollen_inventory", "dataset_inventory"}
             ):
-                body_index.setdefault(
-                    receipt["retained_body_sha256"],
+                body_index.setdefault(receipt["retained_body_sha256"], []).append(
                     (
                         root / receipt["body_file"],
                         _receipt_source(digest, record, receipt),
-                    ),
+                    )
                 )
             if receipt.get("expected_dataset_id") is not None:
                 lookup_sources[(digest, receipt["expected_dataset_id"])] = (
@@ -284,6 +291,8 @@ def prepare_catalogue_sources(
         "reserved_candidate_confirmation",
         "heldout_no_numerical_access",
     }
+    loaded_body_digest: str | None = None
+    loaded_body: dict[str, Any] = {}
     for row in rows:
         dataset_id = positive_native_id(row["dataset_id"])
         site_id, unit_id = (
@@ -340,10 +349,34 @@ def prepare_catalogue_sources(
         else:
             if locator["response_sha256"] not in body_index:
                 raise ValueError("Current native metadata body is unavailable")
-            path, source = body_index[locator["response_sha256"]]
-            payload = pinned_object(path, locator["response_sha256"], 32 * 1024 * 1024)
-            native = _pointer(payload, locator["json_pointer"])
-            site = _pointer(payload, "/".join(locator["json_pointer"].split("/")[:-2]))
+            candidates = body_index[locator["response_sha256"]]
+            matches = [
+                (path, source)
+                for path, source in candidates
+                if all(
+                    key in {"response_sha256", "json_pointer"}
+                    or (
+                        key in source
+                        and json.dumps(value, sort_keys=True, allow_nan=False)
+                        == json.dumps(source[key], sort_keys=True, allow_nan=False)
+                    )
+                    for key, value in locator.items()
+                )
+            ]
+            if not matches:
+                raise ValueError(
+                    "Native metadata locator receipt or query scope differs"
+                )
+            path, source = matches[0]
+            if loaded_body_digest != locator["response_sha256"]:
+                loaded_body = pinned_object(
+                    path, locator["response_sha256"], 32 * 1024 * 1024
+                )
+                loaded_body_digest = locator["response_sha256"]
+            native = _pointer(loaded_body, locator["json_pointer"])
+            site = _pointer(
+                loaded_body, "/".join(locator["json_pointer"].split("/")[:-2])
+            )
             if (
                 positive_native_id(site.get("siteid")) != site_id
                 or positive_native_id(site.get("collectionunitid")) != unit_id

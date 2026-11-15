@@ -18,7 +18,12 @@ from ..capture import replay_neotoma_metadata_capture
 from ..capture.receipts import _object, _read, _safe_root, _write_json
 from ..capture.resources import NeotomaRetainedSource, replay_neotoma_resource_capture
 from .coverage import verify_catalogue_source_projection
-from .custody import describe_capture, pinned_object, public_member
+from .custody import (
+    METADATA_REPLAY_LIMITS,
+    describe_capture,
+    pinned_object,
+    public_member,
+)
 from .source_projection import (
     verify_derived_projection,
     verify_native_metadata_projection,
@@ -231,7 +236,9 @@ def load_neotoma_resource_catalogue(
                 raise ValueError("Catalogue source body resolver is required")
             if descriptor["capture_kind"] == "metadata":
                 replay_neotoma_metadata_capture(
-                    sources[digest], expected_manifest_sha256=digest
+                    sources[digest],
+                    expected_manifest_sha256=digest,
+                    limits=METADATA_REPLAY_LIMITS,
                 )
             elif descriptor["capture_kind"] == "resources":
                 replay_neotoma_resource_capture(
