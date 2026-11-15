@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Ancillary source capsules and verified Atlas downloads
+### [#449](https://github.com/bijux/bijux-pollenomics/pull/449) — Ancillary source capsules and verified Atlas downloads
 
 - Retain independently bounded ancillary source capsules with exact capture,
   receipt, attempt and predecessor identities; separate metadata inventories from
