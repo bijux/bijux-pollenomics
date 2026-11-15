@@ -9,10 +9,6 @@ from typing import Any
 
 import pytest
 
-from .test_publication import catalogue_sources as catalogue_sources
-from .test_publication import context_inputs as context_inputs
-from .test_publication import publish_catalogue as publish_catalogue
-
 
 @pytest.mark.parametrize(
     "mutation", ["extra", "empty_directory", "symlink", "hardlink", "evidence"]

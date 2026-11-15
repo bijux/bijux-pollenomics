@@ -21,7 +21,7 @@ from bijux_pollenomics.reporting.map_document.source_resources import (
     catalogue as adapter,
 )
 
-from .conftest import pin_compact_extension
+from .catalogue_inputs import pin_compact_extension
 
 
 def test_all_resources_sites_roles_and_epochs_remain_metadata_only(
