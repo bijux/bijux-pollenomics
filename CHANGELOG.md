@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Swedish landscape histories and retained source comparisons
+### [#423](https://github.com/bijux/bijux-pollenomics/pull/423) — Swedish landscape histories and retained source comparisons
 
 - Derive Swedish forest/open/cereal histories over four, five and six latitude bands
   using explicit operational taxon groups, source windows, weights and support
