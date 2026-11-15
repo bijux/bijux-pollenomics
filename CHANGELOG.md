@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Frozen snapshot facts and scoped chronology review
+### [#432](https://github.com/bijux/bijux-pollenomics/pull/432) — Frozen snapshot facts and scoped chronology review
 
 - Preserve frozen snapshot database text/null/missing facts separately from strict
   current-metadata binding. Keep exact provider no-record messages and successful-empty
