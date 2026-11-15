@@ -151,7 +151,13 @@ def parse_neotoma_linked_source(
         if kind == "publication":
             _fields(row, {"publication"}, "publication wrapper")
             record = _fields(row["publication"], _PUBLICATION_FIELDS, "publication")
-            _optional_id(record["pubtypeid"])
+            publication_type = record["pubtypeid"]
+            if publication_type is not None and (
+                type(publication_type) is not int or publication_type < 0
+            ):
+                raise ValueError(
+                    "Native publication type must be a nonnegative integer or null"
+                )
             for author in _rows(record["author"], "publication authors"):
                 _fields(author, {"order", "familyname", "givennames"}, "author")
                 positive_native_id(author["order"])
