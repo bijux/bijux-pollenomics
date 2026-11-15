@@ -39,6 +39,10 @@ from .source_roles.galician_context import (
     GALICIAN_REVIEW_SOURCE,
     validated_galician_literal_context_source,
 )
+from .source_roles.import_facades import (
+    PUBLIC_IMPORT_FACADE_SOURCES,
+    validated_import_facade_source,
+)
 from .source_roles.native_reference_transport import (
     NATIVE_REFERENCE_TRANSPORT_SOURCES,
     validated_native_reference_transport_source,
@@ -557,6 +561,10 @@ def validated_current_scientific_source(
         and hashlib.sha256(body).hexdigest() == historical["sha256"]
     ):
         return None
+    if name in PUBLIC_IMPORT_FACADE_SOURCES:
+        return validated_import_facade_source(
+            repository, historical, logical, source_buffer
+        )
     if name in SAMPLE_AGE_CONTEXT_SOURCES:
         return validated_sample_age_context_source(
             repository, historical, logical, source_buffer

@@ -42,6 +42,10 @@ from .source_roles.atlas_runtime_transport import (
     ATLAS_RUNTIME_TRANSPORT_SOURCES,
     validated_atlas_runtime_transport_source,
 )
+from .source_roles.import_facades import (
+    PUBLIC_IMPORT_FACADE_SOURCES,
+    validated_import_facade_source,
+)
 from .source_roles.propagation_qualification import (
     PROPAGATION_QUALIFICATION_SOURCE,
     validated_propagation_qualification_source,
@@ -400,6 +404,17 @@ def _validate_current_source(
                     and _documented_source_matches(name, captured, current)
                 )
                 or atlas_extension_matches(name, captured, current)
+                or (
+                    source_buffer is not None
+                    and name in PUBLIC_IMPORT_FACADE_SOURCES
+                    and validated_import_facade_source(
+                        repository,
+                        {"path": name, "sha256": expected, "bytes": len(captured)},
+                        logical,
+                        source_buffer,
+                    ).get("classification")
+                    == "fixed_public_import_facade_correspondence"
+                )
                 or (
                     source_buffer is not None
                     and name in SAMPLE_AGE_CONTEXT_SOURCES

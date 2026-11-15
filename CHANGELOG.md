@@ -2,6 +2,24 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#435](https://github.com/bijux/bijux-pollenomics/pull/435) — Source-bound resource catalogues and isolated acquisition imports
+
+- Build exact roster-bound native resource catalogues with separate current/frozen
+  version coverage, source epochs, exposure roles, declared inventory scope and reasoned
+  unavailable/refused/unattempted partitions.
+- Bind native metadata projections to original request receipts and query scope;
+  preserve missing/null/malformed collection states separately from reported empty
+  arrays and avoid inferring dated measurements, scientific admission or national
+  absence.
+- Publish compact portable source descriptors with numerical entities resolved
+  explicitly outside the descriptor tree. Require complete authenticated source
+  resolvers for full catalogue readback and verify roster, source and derived coverage
+  projections.
+- Defer existing public owner imports without changing declared API identities, and
+  authenticate only three exact historical/current facade byte pairs under two fixed
+  capture bindings. Verify constructed custody and import controls without executing
+  retained scientific programs.
+
 ### [#434](https://github.com/bijux/bijux-pollenomics/pull/434) — Role-bound ancillary resources and exact native focus
 
 - Capture finite current dataset facets under exact inherited exposure roles, retaining
