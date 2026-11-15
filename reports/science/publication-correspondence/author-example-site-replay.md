@@ -51,7 +51,7 @@ The 31 means sum to one to numerical precision. The largest absolute
 R/Python difference in this window is `3.77476e-15` for a mean and
 `9.90527e-16` for a standard error. Across WHH05's eight supported
 windows, the maxima are `1.37668e-14` and
-`1.6584e-15`. These are modeled local cover
+`1.6584e-15`. These are site-level REVEALS cover
 fractions, without independent measured vegetation acceptance.
 
 ## Every released example site

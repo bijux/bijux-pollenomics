@@ -2,6 +2,26 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#426](https://github.com/bijux/bijux-pollenomics/pull/426) — Neotoma response ownership and pollen specimen admission
+
+- Preserve TLS certificate verification and refuse unsuccessful or malformed Neotoma
+  API envelopes. Authenticate each concurrent download against its own requested
+  dataset; reject ambiguous, duplicate, unexpected or missing dataset ownership
+  before combining results.
+- Require agreeing literal pollen specimen labels across classification, series
+  materialization and direct-pollen consumers. Retain normalized review-status
+  distinctions without admitting conflicting specimen elements into pollen counts or
+  denominators.
+- Retain attributed public cereal/sedge taxon definitions, the executed conditional
+  Bokesjon static-basin comparison, signed/clipped spans and explicit transfer
+  limits. Preserve the distinction between transformed zeros, true absence, modern
+  geometry and physical/field acceptance.
+- Record released author-example source-to-estimate correspondence and its
+  support/revision limits without asserting replay of every published historical
+  estimate or distributing the external private capsule. This delivery performs
+  mocked/synthetic checks and metadata review, not a fresh numerical or scientific
+  qualification.
+
 ### [#425](https://github.com/bijux/bijux-pollenomics/pull/425) — Bokesjon source assessment and conditional basin sensitivity
 
 - Document the source-audit command and authenticated baseline accessors for

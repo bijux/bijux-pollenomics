@@ -8,6 +8,9 @@ import json
 from pathlib import Path
 from typing import Any
 
+from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
+    is_native_pollen,
+)
 from bijux_pollenomics_dev.source_completion.swedish_direct_pollen import DATASETS
 
 
@@ -117,7 +120,8 @@ def build(data_root: Path, destination: Path) -> dict[str, Any]:
                 native = [
                     (datum_index, datum)
                     for datum_index, datum in enumerate(sample["datum"])
-                    if datum["units"] == "NISP" and datum["elementtype"] == "pollen"
+                    if datum["units"] == "NISP"
+                    and is_native_pollen(datum.get("element"), datum.get("elementtype"))
                 ]
                 if not native or any(
                     type(d["value"]) is not int or d["value"] < 0 for _, d in native

@@ -1,0 +1,27 @@
+{
+  "exit_code": 0,
+  "source_commit_before": "27aa710e39cc1ba3667c363eeac5f1ed97e758bc",
+  "source_commit_after": "27aa710e39cc1ba3667c363eeac5f1ed97e758bc",
+  "wall_seconds": 4.904033874998277,
+  "maximum_resident_set_size_bytes": 202637312,
+  "product_bytes": 198024,
+  "limits": {
+    "wall_seconds": 180,
+    "rss_bytes_posthoc": 536870912,
+    "product_bytes_posthoc": 16777216
+  },
+  "limits_passed": true,
+  "command": [
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/validation/venv/bin/python",
+    "-B",
+    "-m",
+    "bijux_pollenomics_dev.source_completion.pollen_reconstruction.bokesjon_pilot.basin_sensitivity.workflow",
+    "--repository",
+    "/Users/bijan/bijux/bijux-pollenomics",
+    "--output",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/basin-sensitivity/products",
+    "--source-sha",
+    "27aa710e39cc1ba3667c363eeac5f1ed97e758bc"
+  ],
+  "resource_semantics": "Wall timeout enforced; RSS and product-size bounds measured after completion, not allocation quotas."
+}

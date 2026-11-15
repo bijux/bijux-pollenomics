@@ -1,0 +1,332 @@
+{
+  "schema_version": "bokesjon-static-basin-sensitivity.v1",
+  "source_commit": "27aa710e39cc1ba3667c363eeac5f1ed97e758bc",
+  "source_pins": [
+    {
+      "path": "data/neotoma/raw/bokesjon-core-sources/basin-sources.json",
+      "sha256": "e1fcbb0aa17284465fca4e4eb5f2d2d678040e78bc514bf0489a6c19c5ad0cec",
+      "bytes": 6415,
+      "document_kind": "authored_fact_extraction_and_profile_declaration"
+    },
+    {
+      "path": "artifacts/science/love-nonnegative-cover/cache/cal-bp-2700-3200/c3a99780c66f727ca71fe883b94fa74d421d21e1377d00a33c25357b431583e7/manifest.json",
+      "sha256": "96c7d7e22fd3eec7291054f4ed063c3477b80cef5caf7c7aa40980f03fcb0dce"
+    },
+    {
+      "path": "artifacts/science/love-nonnegative-cover/cache/cal-bp-2700-3200/c3a99780c66f727ca71fe883b94fa74d421d21e1377d00a33c25357b431583e7/request.json",
+      "sha256": "8b91a11f52b0ea27ecb0f2868d2d46cb6c5735860783e8aef805be1cac1aa050"
+    },
+    {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/chronology.json",
+      "sha256": "38660c32fb9104d34e1b21165627ee307737ccb6561e65afb7e7ceded8a3f9ea",
+      "bytes": 1323
+    },
+    {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/taxa.json",
+      "sha256": "4b4dae4df9a8080f7b1c68641416451a78b5719f598206e99383a43721ffb72f",
+      "bytes": 1317
+    },
+    {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/parameters.json",
+      "sha256": "c606e8999ac988de06792297834b512498a9f147faf7a52ca8b0bb05c602853f",
+      "bytes": 1488
+    },
+    {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/dependency_lock.json",
+      "sha256": "06a964b6949423bdf80a6222273ef131aa6deb53cec902a84a3da42e81660f9e",
+      "bytes": 1470
+    },
+    {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/decision.json",
+      "sha256": "150f9eae9d7fd08a3e37a5c34fc71629ecdde087f00fc020117be1849820a61b",
+      "bytes": 3594
+    },
+    {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/BOKE-raw.json",
+      "sha256": "753c788e2f853f4393c881adc0242e76c93cb01f5304503863f6d769ed9cba63",
+      "bytes": 343
+    },
+    {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/BOKE-geometry.json",
+      "sha256": "aaa3211dc61f0ecba885ace48f285f24ececd7121d1a81f6417fe15b8ab816d1",
+      "bytes": 1186
+    },
+    {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/KRAGMJNY-raw.json",
+      "sha256": "5fc108eed9295d7228b4c5a6f3786cb86a08d0786472984d6d575bf3ce5fae37",
+      "bytes": 341
+    },
+    {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/cal-bp-2700-3200/KRAGMJNY-geometry.json",
+      "sha256": "28a0284d5d39cc5d3b3378c8a70a59dfef388d022965538dd677384e77fd1f11",
+      "bytes": 363
+    }
+  ],
+  "scientific_acceptance": "not_evaluated",
+  "question": "Conditional local basin-size sensitivity at2700\u20133200calBP; no historical geometry or vegetation accuracy",
+  "taxa": [
+    "Betula",
+    "Ulmus"
+  ],
+  "profiles": [
+    {
+      "status": "generated",
+      "product_directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/basin-sensitivity/products/modern_1_5_ha/native",
+      "manifest_sha256": "7a94bb06e023a6a709872833e898c605f526ed8fb3be295f1a3b4efacb54135a",
+      "ring_midpoints_m": [
+        285.0494149471335,
+        750.0
+      ],
+      "signed_cover": [
+        [
+          -0.06948572046180868,
+          1.069485720461808
+        ],
+        [
+          0.21009769584651328,
+          0.7899023041534867
+        ]
+      ],
+      "clipped_cover": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.21009769584651325,
+          0.7899023041534867
+        ]
+      ],
+      "Kloc": [
+        [
+          0.057949593092580354,
+          0.05165806764972608
+        ],
+        [
+          0.08812849481860424,
+          0.07717445438535334
+        ]
+      ],
+      "Kreg": [
+        [
+          0.191141552912818,
+          0.14074566983052694
+        ],
+        [
+          0.16096265118679412,
+          0.1152292830948997
+        ]
+      ],
+      "regional_cover_percent": [
+        72.17,
+        27.83
+      ],
+      "profile": "modern_1_5_ha",
+      "geometry": {
+        "name": "modern_1_5_ha",
+        "radius_m": 69.0988298942671,
+        "source": "https://www.lansstyrelsen.se/skane/om-oss/vara-tjanster/publikationer/1985/de-sydvastskanska-sjoarna.-sedimentens-sammansattning-och-funktion..html#Table 3; printed page 35/PDF page 43; B\u00f6kesj\u00f6n surface area 0.015 km\u00b2; https://www.smhi.se/download/18.18f5a56618fc9f08e832bab2/1717803129630/Hydrologi_15%20Sj%C3%B6karte-%20och%20sj%C3%B6uppgifter.%20Register%201987..pdf#Printed page 85/PDF page 87; lake 616314-135069; Areal 0.015 km\u00b2"
+      },
+      "rings": [
+        {
+          "inner_m": 70.0988298942671,
+          "outer_m": 500,
+          "mean_m": 285.0494149471335,
+          "ring_area_m2": 769960.8610520597,
+          "terrestrial_area_m2": 769960.8610520597,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-2700-3200"
+        },
+        {
+          "inner_m": 500,
+          "outer_m": 1000,
+          "mean_m": 750.0,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-2700-3200"
+        }
+      ]
+    },
+    {
+      "status": "generated",
+      "product_directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/basin-sensitivity/products/modern_1_6_ha/native",
+      "manifest_sha256": "54641b905524f21469b283ecd56e5ee41310156dd0d388e92873912a8b6ba07c",
+      "ring_midpoints_m": [
+        286.1824823230554,
+        750.0
+      ],
+      "signed_cover": [
+        [
+          -0.08643679709003704,
+          1.086436797090037
+        ],
+        [
+          0.2038179408411387,
+          0.7961820591588612
+        ]
+      ],
+      "clipped_cover": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.20381794084113872,
+          0.7961820591588613
+        ]
+      ],
+      "Kloc": [
+        [
+          0.05647502873799387,
+          0.05030300301589172
+        ],
+        [
+          0.08665393046401776,
+          0.07581938975151897
+        ]
+      ],
+      "Kreg": [
+        [
+          0.191141552912818,
+          0.14074566983052694
+        ],
+        [
+          0.16096265118679412,
+          0.1152292830948997
+        ]
+      ],
+      "regional_cover_percent": [
+        72.17,
+        27.83
+      ],
+      "profile": "modern_1_6_ha",
+      "geometry": {
+        "name": "modern_1_6_ha",
+        "radius_m": 71.36496464611085,
+        "source": "https://academic.oup.com/view-large/80999410#Table I; Bokesj\u00f6n column; Area (km\u00b2) row = 0.016"
+      },
+      "rings": [
+        {
+          "inner_m": 72.36496464611085,
+          "outer_m": 500,
+          "mean_m": 286.1824823230554,
+          "ring_area_m2": 768946.6225074829,
+          "terrestrial_area_m2": 768946.6225074829,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-2700-3200"
+        },
+        {
+          "inner_m": 500,
+          "outer_m": 1000,
+          "mean_m": 750.0,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-2700-3200"
+        }
+      ]
+    },
+    {
+      "status": "generated",
+      "product_directory": "/Users/bijan/bijux/bijux-pollenomics/artifacts/bokesjon-pilot/basin-sensitivity/products/metadata_80_m/native",
+      "manifest_sha256": "bd9f4cf507b86499581580d66e8481fd05be8ae48e26105948d9ff9e28078acc",
+      "ring_midpoints_m": [
+        290.5,
+        750.0
+      ],
+      "signed_cover": [
+        [
+          -0.15419144652611294,
+          1.154191446526113
+        ],
+        [
+          0.1797901525758312,
+          0.8202098474241688
+        ]
+      ],
+      "clipped_cover": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.1797901525758312,
+          0.8202098474241688
+        ]
+      ],
+      "Kloc": [
+        [
+          0.05126155086212125,
+          0.045528407092411904
+        ],
+        [
+          0.08144045258814514,
+          0.07104479382803916
+        ]
+      ],
+      "Kreg": [
+        [
+          0.191141552912818,
+          0.14074566983052694
+        ],
+        [
+          0.16096265118679412,
+          0.1152292830948997
+        ]
+      ],
+      "regional_cover_percent": [
+        72.17,
+        27.83
+      ],
+      "profile": "metadata_80_m",
+      "geometry": {
+        "name": "metadata_80_m",
+        "radius_m": 80.0,
+        "source": "https://doi.org/10.1594/PANGAEA.937075#LANDCLIMII metadata file row 977; BOKE siteradius 80 m; artifacts/science/love-nonnegative-cover/cache/cal-bp-2700-3200/c3a99780c66f727ca71fe883b94fa74d421d21e1377d00a33c25357b431583e7/request.json#local.basin.diameter_m = 160 m"
+      },
+      "rings": [
+        {
+          "inner_m": 81.0,
+          "outer_m": 500,
+          "mean_m": 290.5,
+          "ring_area_m2": 764786.1739972456,
+          "terrestrial_area_m2": 764786.1739972456,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-2700-3200"
+        },
+        {
+          "inner_m": 500,
+          "outer_m": 1000,
+          "mean_m": 750.0,
+          "ring_area_m2": 2356194.490192345,
+          "terrestrial_area_m2": 2356194.490192345,
+          "geometry_evidence_id": "geometry:neotoma-54001-39241-cal-bp-2700-3200"
+        }
+      ]
+    }
+  ],
+  "baseline_exact_match": true,
+  "comparison": {
+    "status": "defined_conditional_sensitivity",
+    "clipped_span_pp": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        3.0307543270682054,
+        3.030754327068208
+      ]
+    ],
+    "signed_span_pp": [
+      [
+        8.470572606430427,
+        8.470572606430494
+      ],
+      [
+        3.030754327068208,
+        3.030754327068208
+      ]
+    ],
+    "tolerance_percentage_points": 10,
+    "within_tolerance": true,
+    "clipping_masks_larger_span": true,
+    "scope": "Pairwise profile sensitivity on a two-taxon composition; not cover accuracy or field acceptance"
+  }
+}
