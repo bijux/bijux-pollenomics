@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Lazy reporting imports and retained source epochs
+### [#448](https://github.com/bijux/bijux-pollenomics/pull/448) — Lazy reporting imports and retained source epochs
 
 - Resolve public reporting exports lazily while preserving owner object identities,
   discovery, import order, wildcard exports and class serialization.
