@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Portable Nordic source archive and exact retained buffers
+### [#446](https://github.com/bijux/bijux-pollenomics/pull/446) — Portable Nordic source archive and exact retained buffers
 
 - Return the exact authenticated retained-source buffer instead of reopening its
   pathname after provenance and schema checks.
