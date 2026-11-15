@@ -55,11 +55,14 @@ def capture_neotoma_metadata(
     staging = build_staging_output_dir(final)
     staging.mkdir(exist_ok=False)
     started = datetime.now(UTC).isoformat()
+    declared_plan = asdict(plan)
+    if not plan.geopolitical_unit_ids:
+        del declared_plan["geopolitical_unit_ids"]
     plan_digest = _write_json(
         staging / "request-plan.json",
         {
             "schema_version": _SCHEMA,
-            "plan": asdict(plan),
+            "plan": declared_plan,
             "limits": asdict(limits),
             "exposure_role": "metadata_only; no samples or observation outcomes",
             "historical_capture_replaced": False,

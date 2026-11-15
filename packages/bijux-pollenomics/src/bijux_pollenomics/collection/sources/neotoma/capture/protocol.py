@@ -25,7 +25,8 @@ def _plan_from_spec(
         not isinstance(raw_plan, dict)
         or not legacy_fields <= raw_plan.keys()
         or not raw_plan.keys()
-        <= legacy_fields | {"dataset_ids", "inventory_all_dataset_types"}
+        <= legacy_fields
+        | {"dataset_ids", "inventory_all_dataset_types", "geopolitical_unit_ids"}
     ):
         raise ValueError("Neotoma metadata plan must contain its exact declared fields")
     if not isinstance(raw_limits, dict) or set(raw_limits) != {
@@ -44,7 +45,10 @@ def _plan_from_spec(
     if any(
         not isinstance(raw_plan[name], list)
         for name in ("inventory_limits", "site_ids")
-    ) or not isinstance(raw_plan.get("dataset_ids", []), list):
+    ) or any(
+        not isinstance(raw_plan.get(name, []), list)
+        for name in ("dataset_ids", "geopolitical_unit_ids")
+    ):
         raise ValueError("Neotoma metadata declared populations must be arrays")
     plan = NeotomaMetadataPlan(
         inventory_bbox=tuple(bbox) if bbox is not None else None,
@@ -52,6 +56,7 @@ def _plan_from_spec(
         site_ids=tuple(raw_plan["site_ids"]),
         dataset_ids=tuple(raw_plan.get("dataset_ids", [])),
         inventory_all_dataset_types=raw_plan.get("inventory_all_dataset_types", False),
+        geopolitical_unit_ids=tuple(raw_plan.get("geopolitical_unit_ids", [])),
     )
     limits = NeotomaMetadataLimits(**raw_limits)
     _validate_plan(plan, limits)
@@ -59,6 +64,12 @@ def _plan_from_spec(
 
 
 def _validate_plan(plan: NeotomaMetadataPlan, limits: NeotomaMetadataLimits) -> None:
+    if type(plan.geopolitical_unit_ids) is not tuple:
+        raise ValueError("Neotoma geopolitical identities require a finite tuple")
+    for geopolitical_id in plan.geopolitical_unit_ids:
+        positive_native_id(geopolitical_id)
+    if len(set(plan.geopolitical_unit_ids)) != len(plan.geopolitical_unit_ids):
+        raise ValueError("Neotoma geopolitical identities are duplicate")
     if type(plan.inventory_all_dataset_types) is not bool:
         raise ValueError("Neotoma inventory mode must be a literal boolean")
     if plan.inventory_all_dataset_types and not plan.inventory_limits:
@@ -79,8 +90,15 @@ def _validate_plan(plan: NeotomaMetadataPlan, limits: NeotomaMetadataLimits) -> 
         raise ValueError("Neotoma metadata timeout must be positive and finite")
     if not plan.inventory_limits and not plan.site_ids and not plan.dataset_ids:
         raise ValueError("Neotoma metadata plan is empty")
-    if bool(plan.inventory_limits) != (plan.inventory_bbox is not None):
-        raise ValueError("Neotoma inventory limits require exactly one declared bbox")
+    inventory_scopes = int(plan.inventory_bbox is not None) + bool(
+        plan.geopolitical_unit_ids
+    )
+    if inventory_scopes > 1 or bool(plan.inventory_limits) != bool(inventory_scopes):
+        raise ValueError(
+            "Neotoma inventory limits require one bbox or geopolitical query scope"
+        )
+    if plan.geopolitical_unit_ids and not plan.inventory_all_dataset_types:
+        raise ValueError("Neotoma geopolitical queries require explicit all-type mode")
     for limit in plan.inventory_limits:
         if positive_native_id(limit) > 10000:
             raise ValueError("Neotoma inventory limit exceeds the official maximum")
@@ -143,61 +161,84 @@ def _inventory_identities(
     return units, datasets
 
 
+def _walk_inventory(
+    plan: NeotomaMetadataPlan,
+    limits: NeotomaMetadataLimits,
+    consume: Callable[[_Request], bytes],
+    *,
+    limit: int,
+    geopolitical_id: int | None = None,
+) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    seen_units: set[int] = set()
+    seen_datasets: set[int] = set()
+    if geopolitical_id is not None:
+        prefix = f"inventory-gpid-{geopolitical_id}"
+        scope = {"gpid": str(geopolitical_id)}
+    else:
+        if plan.inventory_bbox is None:
+            raise ValueError("Neotoma inventory bbox is absent")
+        prefix = "inventory"
+        scope = {
+            **({} if plan.inventory_all_dataset_types else {"datasettype": "pollen"}),
+            "loc": build_neotoma_bbox_geojson(plan.inventory_bbox),
+        }
+    for page in range(limits.max_pages_per_inventory):
+        offset = page * limit
+        request = _Request(
+            f"{prefix}-limit-{limit}-offset-{offset}",
+            "dataset_inventory"
+            if plan.inventory_all_dataset_types
+            else "pollen_inventory",
+            "/datasets",
+            {**scope, "limit": str(limit), "offset": str(offset)},
+        )
+        chunk = _metadata_rows(consume(request))
+        if len(chunk) > limit:
+            raise ValueError(
+                "Neotoma inventory page is unsuccessful or exceeds its limit"
+            )
+        units, datasets = _inventory_identities(
+            chunk, all_dataset_types=plan.inventory_all_dataset_types
+        )
+        if seen_units.intersection(units) or seen_datasets.intersection(datasets):
+            raise ValueError(
+                "Neotoma inventory pagination contains duplicate identities"
+            )
+        seen_units.update(units)
+        seen_datasets.update(datasets)
+        rows.extend(chunk)
+        if len(chunk) < limit:
+            return rows
+    raise ValueError(
+        "Neotoma inventory page budget lacks successful short-page termination"
+    )
+
+
 def _walk_plan(
     plan: NeotomaMetadataPlan,
     limits: NeotomaMetadataLimits,
     consume: Callable[[_Request], bytes],
-) -> tuple[dict[int, list[dict[str, object]]], dict[int, bytes], dict[int, bytes]]:
+) -> tuple[
+    dict[int, list[dict[str, object]]],
+    dict[int, bytes],
+    dict[int, bytes],
+    dict[int, dict[int, list[dict[str, object]]]],
+]:
     inventories = {}
     sites = {}
     datasets_by_id = {}
-    for limit in plan.inventory_limits:
-        rows: list[dict[str, object]] = []
-        seen_units: set[int] = set()
-        seen_datasets: set[int] = set()
-        if plan.inventory_bbox is None:
-            raise ValueError("Neotoma inventory bbox is absent")
-        for page in range(limits.max_pages_per_inventory):
-            offset = page * limit
-            request = _Request(
-                f"inventory-limit-{limit}-offset-{offset}",
-                "dataset_inventory"
-                if plan.inventory_all_dataset_types
-                else "pollen_inventory",
-                "/datasets",
-                {
-                    **(
-                        {}
-                        if plan.inventory_all_dataset_types
-                        else {"datasettype": "pollen"}
-                    ),
-                    "loc": build_neotoma_bbox_geojson(plan.inventory_bbox),
-                    "limit": str(limit),
-                    "offset": str(offset),
-                },
+    geopolitical_inventories = {}
+    if plan.inventory_bbox is not None:
+        for limit in plan.inventory_limits:
+            inventories[limit] = _walk_inventory(plan, limits, consume, limit=limit)
+    for geopolitical_id in sorted(plan.geopolitical_unit_ids):
+        geopolitical_inventories[geopolitical_id] = {
+            limit: _walk_inventory(
+                plan, limits, consume, limit=limit, geopolitical_id=geopolitical_id
             )
-            chunk = _metadata_rows(consume(request))
-            if len(chunk) > limit:
-                raise ValueError(
-                    "Neotoma inventory page is unsuccessful or exceeds its limit"
-                )
-            units, datasets = _inventory_identities(
-                chunk, all_dataset_types=plan.inventory_all_dataset_types
-            )
-            if seen_units.intersection(units) or seen_datasets.intersection(datasets):
-                raise ValueError(
-                    "Neotoma inventory pagination contains duplicate identities"
-                )
-            seen_units.update(units)
-            seen_datasets.update(datasets)
-            rows.extend(chunk)
-            if len(chunk) < limit:
-                break
-        else:
-            raise ValueError(
-                "Neotoma inventory page budget lacks successful short-page termination"
-            )
-        inventories[limit] = rows
+            for limit in plan.inventory_limits
+        }
     for site_id in sorted(plan.site_ids):
         content = consume(
             _Request(
@@ -222,4 +263,4 @@ def _walk_plan(
         )
         parse_neotoma_dataset_metadata(dataset_id, content)
         datasets_by_id[dataset_id] = content
-    return inventories, sites, datasets_by_id
+    return inventories, sites, datasets_by_id, geopolitical_inventories

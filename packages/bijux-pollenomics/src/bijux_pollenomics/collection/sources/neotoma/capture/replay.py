@@ -112,7 +112,9 @@ def replay_neotoma_metadata_capture(
             limits.max_pages_per_inventory, recorded_limits.max_pages_per_inventory
         ),
     )
-    inventories, sites, datasets = _walk_plan(plan, effective_limits, consume)
+    inventories, sites, datasets, geopolitical_inventories = _walk_plan(
+        plan, effective_limits, consume
+    )
     if (
         cursor != len(records)
         or manifest.get("request_count") != cursor
@@ -122,5 +124,11 @@ def replay_neotoma_metadata_capture(
     if {path.name for path in root.iterdir()} != files:
         raise ValueError("Neotoma metadata capture contains unmanifested files")
     return NeotomaMetadataCapture(
-        digest, inventories, sites, cursor, total, dataset_responses=datasets
+        digest,
+        inventories,
+        sites,
+        cursor,
+        total,
+        dataset_responses=datasets,
+        geopolitical_inventory_rows=geopolitical_inventories,
     )

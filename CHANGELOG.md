@@ -2,6 +2,21 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#440](https://github.com/bijux/bijux-pollenomics/pull/440) — Bounded reference prefixes and explicit source-site joins
+
+- Qualify observed native speleothem unit fields separately from immutable source
+  capture ledgers, preserving exact unit/site owners, join variants, nulls and unit
+  references without label, physical-dimension or vegetation-reference inference.
+- Capture at most one fixed prefix from each of two explicit public reference tables
+  under nonexpandable request/byte/time caps, with literal HTTP replay and no retry,
+  pagination, dictionary completeness or unit/country interpretation.
+- Adapt pinned compact resource catalogues into Atlas through exact native site IDs
+  without opening numerical outcomes or changing old records. Preserve all metadata
+  variants and require consensus across every valid native Point before mapping a site.
+- Capture explicit all-type geopolitical inventory queries independently of bbox
+  geometry, preserving separate pagination/source witnesses without assigning a country
+  from the query or changing legacy replay behavior.
+
 ### [#439](https://github.com/bijux/bijux-pollenomics/pull/439) — Explicit native bytes and final source readback
 
 - Return exact authenticated native resource bytes only through a literal opt-in,
