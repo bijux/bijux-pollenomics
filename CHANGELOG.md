@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Bokesjon source assessment and conditional basin sensitivity
+### [#425](https://github.com/bijux/bijux-pollenomics/pull/425) — Bokesjon source assessment and conditional basin sensitivity
 
 - Document the source-audit command and authenticated baseline accessors for
   the developer package's configured docstring checks.
