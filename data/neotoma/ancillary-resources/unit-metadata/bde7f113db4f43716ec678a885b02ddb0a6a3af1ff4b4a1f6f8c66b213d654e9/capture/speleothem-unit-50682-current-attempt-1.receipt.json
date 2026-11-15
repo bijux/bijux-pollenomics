@@ -1,0 +1,94 @@
+{
+  "body_complete": true,
+  "body_file": "speleothem-unit-50682-current-attempt-1.body",
+  "expected_site_id": 37264,
+  "final_url": "https://api.neotomadb.org/v2.0/data/speleothems/50682",
+  "http_status": 200,
+  "parameters": {},
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/speleothems/50682",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/speleothems/50682",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "586"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 03:41:00 GMT"
+    ],
+    [
+      "etag",
+      "W/\"24a-eaiCh2AG+4QFOGoW10CKTl94COM\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4992"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794714119"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "8"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 586,
+  "retained_body_sha256": "127c9b854639e8a2bf01bac0ea0b6be453d874070c5a10aa0f9b1b2927e4bfea",
+  "role": "unit_resource_speleothem",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T03:41:00.140863+00:00",
+  "utc_start": "2026-11-15T03:40:59.757816+00:00"
+}

@@ -1,0 +1,97 @@
+{
+  "capture_manifest_sha256": "bacc5c238d1fec863b12843131f8ebba45773385c0dfaf698c72617514a019ef",
+  "context_manifest_sha256": "6c237ad7b262afe495434ca98430b80b356f444fdc3506e7897f24936b747d46",
+  "current_roster_sha256": "0af2a76f408b3abc7d59eabc94dc3998060244e1a4202d28c51bc99be56f9f32",
+  "current_scope_basis_sha256": "11d6c5375cdd22f70101459ad741ebb22b82cbe10f450bf4f51f3142bd12198c",
+  "files": {
+    "capture/capture-manifest.json": {
+      "bytes": 60923,
+      "sha256": "bacc5c238d1fec863b12843131f8ebba45773385c0dfaf698c72617514a019ef"
+    },
+    "capture/request-plan.json": {
+      "bytes": 51811,
+      "sha256": "caf4b0e5944dedc368acfd243c58537566167f2fc1032540ca409a9ade934a79"
+    },
+    "capture/speleothem-unit-50135-current-attempt-1.body": {
+      "bytes": 576,
+      "sha256": "31bcfbfe1bff58ce381f0d1f36fe49da3a50de057327afae11101414072426be"
+    },
+    "capture/speleothem-unit-50135-current-attempt-1.receipt.json": {
+      "bytes": 1825,
+      "sha256": "54437a4519743419a31a057ea31df7a9d16ca8fd008b7042817e5ac5ab8a582f"
+    },
+    "capture/speleothem-unit-50346-current-attempt-1.body": {
+      "bytes": 595,
+      "sha256": "65dd769ca48d0d6c6b9f32740a7f3b095f9804f504802f4c7500c09c64d5e914"
+    },
+    "capture/speleothem-unit-50346-current-attempt-1.receipt.json": {
+      "bytes": 1825,
+      "sha256": "f876d1385ec2340771f17d1d46c0bfd6fce665173fd71cfa074efaa704c795dd"
+    },
+    "capture/speleothem-unit-50362-current-attempt-1.body": {
+      "bytes": 575,
+      "sha256": "353788f3a13f8ab5c987e643c5fced59c5983aac8a5a41c375d59a6724c942e8"
+    },
+    "capture/speleothem-unit-50362-current-attempt-1.receipt.json": {
+      "bytes": 1825,
+      "sha256": "1da4ecc8bee3d1684169a9c43533842b55a2c37b287b36da1cd64dbabfd9b173"
+    },
+    "capture/speleothem-unit-50377-current-attempt-1.body": {
+      "bytes": 561,
+      "sha256": "7bf59b02419fc5522b6cbbe4daae92a9c7d996d4f42e07c7e3dd711940f31014"
+    },
+    "capture/speleothem-unit-50377-current-attempt-1.receipt.json": {
+      "bytes": 1824,
+      "sha256": "2faf211cad35b9996bdca4c23a0507794a888fa25b8add418dfff7052d040923"
+    },
+    "capture/speleothem-unit-50682-current-attempt-1.body": {
+      "bytes": 586,
+      "sha256": "127c9b854639e8a2bf01bac0ea0b6be453d874070c5a10aa0f9b1b2927e4bfea"
+    },
+    "capture/speleothem-unit-50682-current-attempt-1.receipt.json": {
+      "bytes": 1824,
+      "sha256": "ebea5af379b91f8644c9492655053ba3777e7bc88c94a906fc33fa304a1513ae"
+    },
+    "capture/speleothem-unit-50686-current-attempt-1.body": {
+      "bytes": 575,
+      "sha256": "a4c2103777b2a40ba05c56abf6dda983e68c4439e59419399bae8d9b90546026"
+    },
+    "capture/speleothem-unit-50686-current-attempt-1.receipt.json": {
+      "bytes": 1824,
+      "sha256": "7644bd2aff5001efe0d4f1d40314eba723cf869d0f50d976a2add5c6be86ced7"
+    },
+    "capture/speleothem-unit-50779-current-attempt-1.body": {
+      "bytes": 594,
+      "sha256": "87c8c81991ba56c95186d3004973ece903e3637d98c80aa47d410172bfadfff0"
+    },
+    "capture/speleothem-unit-50779-current-attempt-1.receipt.json": {
+      "bytes": 1824,
+      "sha256": "274c6619f7f3fab567677f25eec1d23cc58e7ffaf0d66cc73470b2f5e29ae65c"
+    },
+    "capture/speleothem-unit-50918-current-attempt-1.body": {
+      "bytes": 566,
+      "sha256": "ffb29a92908ed43759400de39130830d0169f5b47722bb02cbceafd59f89e03a"
+    },
+    "capture/speleothem-unit-50918-current-attempt-1.receipt.json": {
+      "bytes": 1825,
+      "sha256": "6939dd2436e1a262df67869a1a0a844b2cff201798d6323d09a5f76b708f351f"
+    },
+    "index.json": {
+      "bytes": 13141,
+      "sha256": "a8e3f379d55232a43ecef4cd569a75d3d82a403edcef3abdb54c5c4412f974af"
+    },
+    "rosters/3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4.json": {
+      "bytes": 2105037,
+      "sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4"
+    }
+  },
+  "historical_snapshot_replaced": false,
+  "metadata_scope": "source_unit_metadata_not_basin_or_vegetation_reference",
+  "native_archive_manifest_sha256": "d34559cf88a41c45deadcb4e3def5a5fdf765d51092063bd29d033615cdaeaff",
+  "native_body_copies": 0,
+  "original_roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4",
+  "related_resource_graph_complete": false,
+  "schema_version": "neotoma-unit-metadata-source-archive.v1",
+  "scientific_admission": "not_asserted",
+  "source_bytes": 2250136
+}
