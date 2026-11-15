@@ -1,0 +1,98 @@
+{
+  "body_complete": true,
+  "body_file": "site-28579-dataset_depositional_environment-current-attempt-1.body",
+  "expected_site_id": 28579,
+  "final_url": "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=53401&limit=1&offset=0",
+  "http_status": 200,
+  "parameters": {
+    "datasetid": "53401",
+    "limit": "1",
+    "offset": "0"
+  },
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/apps/depenvt?datasetid=53401&limit=1&offset=0",
+  "requested_url": "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=53401&limit=1&offset=0",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "113"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 20:50:03 GMT"
+    ],
+    [
+      "etag",
+      "W/\"71-Xja1KnIMjUUkNWa/W7XhVtriWuY\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4909"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794775812"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "4"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 113,
+  "retained_body_sha256": "1a7777f11af7957aca30585736b9c170d210e91f17de2832ec6234865be4b7fe",
+  "role": "dataset_depositional_environment",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T20:50:03.190288+00:00",
+  "utc_start": "2026-11-15T20:50:02.636957+00:00"
+}

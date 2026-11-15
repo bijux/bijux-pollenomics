@@ -1,0 +1,3190 @@
+{
+  "capture_utc_end": "2026-11-15T21:06:15.757143+00:00",
+  "capture_utc_start": "2026-11-15T21:05:27.255668+00:00",
+  "native_profiles_verified": false,
+  "numerical_payloads_in_index": false,
+  "partitions": {
+    "received_complete_unqualified_context_resource": 127
+  },
+  "request_count": 127,
+  "resources": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38179-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38179-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "997ea441ccfa8bb9658c6c281909e62bdcb36b943479d1e92ae415a6cf71b4e2",
+          "request_name": "site-38179-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38179,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38184-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38184-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "8d53d58f06faab3d37b5eaf9fc67883b36fe257c9fb8d72a526c908a8f92f80d",
+          "request_name": "site-38184-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38184,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38209-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38209-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "c68db3b060bc8a1eeede1e1c594d5e74e3747f6bd99e2f6e7d067cc8bbb1dcfe",
+          "request_name": "site-38209-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38209,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38284-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38284-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "bd227a0d1b212b7a7cc3fddcc2bcf143fdab31af9234e12055d87b86df6ad5ad",
+          "request_name": "site-38284-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38284,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38300-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38300-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "fb85fd163fcbdde1cb414fc5e5afcf187707ab3f084aec2c144cc6a6e2bfcef3",
+          "request_name": "site-38300-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38300,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38304-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38304-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "f8096f8bac52efb48a81814a713eca7ec5531a32ba21202a3a156ee72b38b0a6",
+          "request_name": "site-38304-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38304,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38312-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38312-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "e8d81f57d3a0aca0831c3b66cd70291dd2b934ed3bd620d4a646816d05a4d0cf",
+          "request_name": "site-38312-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38312,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38331-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38331-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "b1b16d305bb378a3c291272a9f2ed15400d0dd5f333ad7af219ada1bdabf44c8",
+          "request_name": "site-38331-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38331,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38333-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38333-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7683528e47441f82836ddc093f671498ae248a714093a3611febc91a9a45f505",
+          "request_name": "site-38333-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38333,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38335-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38335-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "f727334d432a5f9ca0967ccc3241909d4742bc42f8ddc794a14c417f76ddced4",
+          "request_name": "site-38335-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38335,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38348-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38348-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "442b5a12bfa79c54c8ba871d12909e46cdf8a6d9e19a139a96ed3f6887f49fa9",
+          "request_name": "site-38348-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38348,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38377-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38377-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "b4d1af44b30af281aa1cdf25d3442bcde426d169abc00352cd1f37d0f66a491a",
+          "request_name": "site-38377-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38377,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38427-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38427-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "5c198f006fc802131fff5113944d7e3c060ce0e3aa5cda45b90cc53d248de695",
+          "request_name": "site-38427-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38427,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38441-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38441-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7bca9fa9ec86ddc6ec77043ee1b0f2257ecc2dac7890510caec73a94efd6d35b",
+          "request_name": "site-38441-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38441,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38458-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38458-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "11e608dfdb6f182142ea5fdc15408594484adcee60bffca06186195dcace2316",
+          "request_name": "site-38458-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38458,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38549-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38549-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "727c97d8903bafb94c4a9670fc978700a21fe4f20a2143a08872a964759335a5",
+          "request_name": "site-38549-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38549,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38560-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38560-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "a58174a0aa96c7f79ef9323543b2c3bb05010b1b4368ce19924939bd73adb6a5",
+          "request_name": "site-38560-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38560,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38574-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38574-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "bbb9be03b0819b2209f80a2da8cde2a3d88f4131932e76946841f566fcb99991",
+          "request_name": "site-38574-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38574,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38623-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38623-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "cfb90809d80c7fd13ea4a5fdd52d7cd64f92fa1eb94d48b09c843825cbd1c6a5",
+          "request_name": "site-38623-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38623,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38627-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38627-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "effad1eee87877f63d360ad11cd66aaf0bdc3ca07a5823928345e658bef202a5",
+          "request_name": "site-38627-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38627,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38640-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38640-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "c09636b8749bcebae107a6de155e4491728c20575072d6d2b658de33ef808099",
+          "request_name": "site-38640-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38640,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38642-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38642-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "b0b4c2d2126eca6b3be4066d49870dd05442440200fec6b3fd6383d333e6a2c3",
+          "request_name": "site-38642-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38642,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38660-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38660-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "a2cd0e0d6659a225f5ba90bde6edd9431cb9fe87cc130ecc7544fe99ddaa1fad",
+          "request_name": "site-38660-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38660,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38666-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38666-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "704cf0431cb188a28b2bc638e873b3d7d6979ae07a3964813b3232745600583b",
+          "request_name": "site-38666-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38666,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38715-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38715-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7d715ddac929d23a17587261213d63d734e9b5dead3aa210f4b236a302860797",
+          "request_name": "site-38715-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38715,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38718-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38718-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "2af7ad88752761eeaa7e218d038046f4127ec82614694b815a5d1f63249620b2",
+          "request_name": "site-38718-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38718,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38798-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38798-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "325f750032dc68272ea1c94b60a0ea98466147465aab78b3abc74bff37642c9a",
+          "request_name": "site-38798-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38798,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38800-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38800-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "0d4a1a028b0c36dcff507a4b5bd74d9c0a4ff0e3a327b9a53ab6bd1a04299e61",
+          "request_name": "site-38800-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38800,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38815-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38815-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "1cc8dfdadf1caf76e5aaf8bdb2a824339f5938dfbee9189955b8325b27104e24",
+          "request_name": "site-38815-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38815,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38818-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38818-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7cb2713068bc750b4e6cbc7ae1c28530c5f3175715d1855ad94d21038cc7088f",
+          "request_name": "site-38818-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38818,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38822-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38822-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7ebc55867c9ecc1928dce20235579fd1c26f2df086083f8c3dcda926708a1548",
+          "request_name": "site-38822-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38822,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38825-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38825-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "ff0881624915e0e512fe2cba29a9833abace6619b73304a8f6dd8c22827cfa52",
+          "request_name": "site-38825-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38825,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38826-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38826-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "c67bc94410778f4fc63c2c34ac61601a3f55e2a39e8f96435a68b730017de54e",
+          "request_name": "site-38826-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38826,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38849-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38849-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "4264f3641c77aa2a3cadfec93bdbec2318ab8d1e35b132ce7dec3f9c111c5335",
+          "request_name": "site-38849-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38849,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38895-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38895-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "e7c35fd543f4f455a10cdbb161f03aef14656269837db661ff4853847746384b",
+          "request_name": "site-38895-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38895,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38917-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38917-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "0e21c91cd9ac715fb332c3274688b42041dfabb63023b649c7b7aae375f38ca0",
+          "request_name": "site-38917-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38917,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38918-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38918-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "ccdca7dfd9587330bc614f07023d62a57ffc8a907bc83af1a0a65988279f6119",
+          "request_name": "site-38918-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38918,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-38934-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-38934-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "5e9d93c6fa4c897a93c26f2d9226bd2d80245e05ddffcb89bf5447abc1dc6c8d",
+          "request_name": "site-38934-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 38934,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39009-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39009-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "6f16af8982d9e458b46abfd84824c05025c37f019759a909a10b4cdbd58404be",
+          "request_name": "site-39009-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39009,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39038-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39038-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "e77c525e37ef2aecb111a74f710d1cab36e274737b64eac3d8887151b303e644",
+          "request_name": "site-39038-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39038,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39067-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39067-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "44ac779a3bbbed5a51beacb82a2e1f3e2a7941061b4f5947a20311450d986cd1",
+          "request_name": "site-39067-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39067,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39083-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39083-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "a3c3e13a1a82379042e552f053d324c66b6b6064d14109ab5538920498f80845",
+          "request_name": "site-39083-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39083,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39086-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39086-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "13f8569a9ba1cdf728335807c53dfd26bc97cbf51efdf2d124e8fc9a432d69de",
+          "request_name": "site-39086-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39086,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39098-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39098-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "efbe3d55612cdb06d4d9cef5c0e6b9f7136cc3a9d0a19a18910b6fef3ba4e608",
+          "request_name": "site-39098-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39098,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39114-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39114-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "d1e1fb36e3715279046696cff5a01c7830e496cbf8a2bee8793d6c22de902bec",
+          "request_name": "site-39114-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39114,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39165-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39165-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "cf8cdeb64deb5b95cf023216e39b86d8952ae54f69b6491715882eef281ef266",
+          "request_name": "site-39165-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39165,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39291-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39291-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "35d0550077f42a1851e31c638382759669df38994bf65a2ad207b2229a8dfa83",
+          "request_name": "site-39291-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39291,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39316-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39316-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "042ac1b71ed49e16311c3059fe9b83a674569435d899ee68aa035d855ab450d8",
+          "request_name": "site-39316-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39316,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39323-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39323-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "9d93ed8ca6f434d5b3c646fb465cb91ee1786d84df72ceea18c220fe34ae733b",
+          "request_name": "site-39323-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39323,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39358-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39358-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "1e8879475720e13cb8e6157faea74e8088379646742da0d5269a3e1b3d2cc813",
+          "request_name": "site-39358-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39358,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39390-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39390-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "9ae8a5dfcb5d540e7d15b2c3d18071f188ad14aa504a0afa03e4a77cc426794f",
+          "request_name": "site-39390-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39390,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39415-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39415-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "ea1f4545c404c064b99ed74e4343a5248e4f5e653ab7dd1d4a2822091d7c2fff",
+          "request_name": "site-39415-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39415,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39456-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39456-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "af3ad6c557b16b19c6743cfaf3d1cff2e50ea683d018daaade94c10698dfc33f",
+          "request_name": "site-39456-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39456,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39483-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39483-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "3b8a918b0f0bc5fb193911f3b8f3bc7f89a30272a4c2807cff02d9b0a9046eea",
+          "request_name": "site-39483-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39483,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39531-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39531-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "647a336e97a013751371fcaafdf8f084d1895f109bd686030ef75c360386c46d",
+          "request_name": "site-39531-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39531,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39535-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39535-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "05d75352005bd69ed8fe1aa47200dc30ce4abba1787720a52093dd144d2ef50c",
+          "request_name": "site-39535-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39535,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39541-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39541-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "586b07ed7e43b7e778e294dce10a1b28d5622b963d24057bad445dfc44c8ba86",
+          "request_name": "site-39541-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39541,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39728-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39728-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "bff2ca012dc0c7ceb3b4cfef16eec80f68f5e862d964dbb9d40878d0f839b5bb",
+          "request_name": "site-39728-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39728,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39749-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39749-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "b6db83a3e287c61451aac8e7530f8902454e387bfae8deba8dd03ad39b9a9025",
+          "request_name": "site-39749-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39749,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39781-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39781-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7ea42128999957e7d4d1a5789cab1c5166b6b39272ef111dbbb04d93e8abbe5d",
+          "request_name": "site-39781-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39781,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39787-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39787-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "b44f3938f5577632f44a797151dff74f2dc45cd99bf0ecccd673c44047e4b5c5",
+          "request_name": "site-39787-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39787,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39814-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39814-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "5be6ad30dc0c7c0ed8cdc2b73ed49d35789b01ef2d4d24ad4a50f0ba740c0ff7",
+          "request_name": "site-39814-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39814,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39844-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39844-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "932e1b0fe4d3aaed1f922b0c9b7611735979b689f47ac6211bb964765cdb3ee6",
+          "request_name": "site-39844-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39844,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39846-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39846-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "ac8b11c2a0287e00b388a0ef9196ba0b566b66d7a47f6cb6ec11d0628171e431",
+          "request_name": "site-39846-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39846,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39876-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39876-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "70cb85c1c0659fe1347a74f3ad907044d84a6da81ad8b666ed07010ca42fa26c",
+          "request_name": "site-39876-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39876,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39878-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39878-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7043e3b591802e1e1e47da83fc49dfaa6b9c287d33d7a3a0211064250affa72c",
+          "request_name": "site-39878-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39878,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39920-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39920-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "e0e6b35930bd58468e4293e6eeecce6a9170081515edcef99f1ffec48bfa108f",
+          "request_name": "site-39920-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39920,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39937-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39937-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "9e744dd7c27537d3cf5257d4bf1e4c3218cb880e44e4f4565e380d290d79bb41",
+          "request_name": "site-39937-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39937,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39948-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39948-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "06c50466f85a4fe55c3a8e4a72acef18496e42ad89b8ab188ed368a92dbf96d9",
+          "request_name": "site-39948-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39948,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39953-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39953-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "a67b47b1e5934663491cc1f28b2d770fe82c7b2c9b15e68de1312bc4df4e1f52",
+          "request_name": "site-39953-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39953,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39970-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39970-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7a63ca7eb8f74bcebc75b62d20ab821f3d5379194086f39e6afc48e4ecff0b0a",
+          "request_name": "site-39970-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39970,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-39992-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-39992-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "2775479425c8d01cac6ec91027b61ce2753bf774612ed9ea85f027d97a95b205",
+          "request_name": "site-39992-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 39992,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40059-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40059-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "95231c673b979ef7df173444dc8f52a9632d4a2a677bf2285d3693f7ba3d3ade",
+          "request_name": "site-40059-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40059,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40084-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40084-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "3c96074e58981365d10f8cc025f64845ace4538272df2533d39fb26a4565e72c",
+          "request_name": "site-40084-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40084,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40202-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40202-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7bce992fe53eeea06d54b42ff3dd4021dad9fcb5fb4a4aded592c6021ac3dc23",
+          "request_name": "site-40202-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40202,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40211-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40211-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "2347828a068f0308ce12ed107523218e35f2ca641cdb67203b120da55c2cdd58",
+          "request_name": "site-40211-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40211,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40235-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40235-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "e7113427a0419b753907d79c3a475d5f259a5189f58b4da16abfeda49aee199f",
+          "request_name": "site-40235-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40235,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40274-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40274-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "6169e8db41970df5a629ba0f2a9a729e0131d5bab96074b3295ecc16c4aa11af",
+          "request_name": "site-40274-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40274,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40293-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40293-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "daa84fa276843dce6604a798f5d19324bcdc18a10e8e878fb02060a2fd90c924",
+          "request_name": "site-40293-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40293,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40303-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40303-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "d68491d81827ea02f07f321ffbbd0e9623e9a4fa6d09523d70d1274b9c77e806",
+          "request_name": "site-40303-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40303,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40449-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40449-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "2a5f75776f42b645608e9b5984f8642f340c9c1a28abf63d893e7c06b3e8b22d",
+          "request_name": "site-40449-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40449,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40454-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40454-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "3111cbf45ef7efe4aeff8c03bbbfdd7cd42ef5f733309a79fae796a0f1aca60f",
+          "request_name": "site-40454-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40454,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40456-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40456-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "ef5eb5bbe624079df0830883f2629ee70276ca03b7e8c2759abce95e48ae145f",
+          "request_name": "site-40456-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40456,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40478-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40478-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "996e6b5bee8f8fb81a8ec6d9f9bb21bb9c31dde639ce08e3480144ccab1e3417",
+          "request_name": "site-40478-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40478,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40507-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40507-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "e9d259f9306e6c01c70c2b2d84c22a309942dee9a6e9a18163a0a9c5d7e9623b",
+          "request_name": "site-40507-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40507,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40512-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40512-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "2e24b7799559b32566e0e6711a035b442d19990ff085d8df1af87efa3b5ceeb2",
+          "request_name": "site-40512-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40512,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40514-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40514-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "8b4b36f25d4e4fcdf4c30af0586db5d831f71423e975e74b17f0487ca3e18db1",
+          "request_name": "site-40514-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40514,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40559-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40559-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "ad82ff0e4cbbc9ebc42a0ff29291a35c5716601803e5955f306eb512ed803448",
+          "request_name": "site-40559-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40559,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40575-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40575-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "363dc5cf9906a4a0bad1e3e5c1f43d0844bea8588b3e0bbe28e080976d63cd75",
+          "request_name": "site-40575-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40575,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40578-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40578-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "254c870cd556a1644f796ab93f286ea5efc2744df98b8e312720876780fdcbd5",
+          "request_name": "site-40578-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40578,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40685-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40685-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "a53990f47aa541d713cfa088986b350aa23a4d3417b26b01ed13189d1a976934",
+          "request_name": "site-40685-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40685,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40696-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40696-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "99e428ab1fbea32643d5e4de25e8330ee8fa1acc644cb38f270b1b08d868ef2a",
+          "request_name": "site-40696-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40696,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40728-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40728-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "878b69ba4e4e69bbeeb05a82c7ad1d58309caef4a3a538209342bd069e9c1be6",
+          "request_name": "site-40728-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40728,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40754-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40754-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7843225f7050a5579e0c738bacbf68e5c773b6ead82d62d185b6d4929881a85a",
+          "request_name": "site-40754-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40754,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40769-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40769-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "2f0a861ce8f0ce058e8c6ec21fa4be40275f19dfb058fabfa5fbbfa0c1fac64b",
+          "request_name": "site-40769-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40769,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40785-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40785-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "d905c9b5630f07a4dcf59a6d073380cf83d2deef16b63ea89556e803d12990ed",
+          "request_name": "site-40785-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40785,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40790-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40790-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "51192149aedc0d0f0b14d5a79d9588c39c97e9d8835845dc24b476f83f838935",
+          "request_name": "site-40790-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40790,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40797-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40797-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "736ac21e0f2a1888d6c63c9fb0aae79c7d6b923a7a8ba2c93409f5233be7396f",
+          "request_name": "site-40797-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40797,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40813-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40813-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7367961c11de626fd827fa413ad29127b383f017997d7e1515d231c1d0c65e0c",
+          "request_name": "site-40813-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40813,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40825-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40825-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "e885952bb5d83615cb25cf1b987fc5705dcc91a9854a90ab0dd7d3d581c03191",
+          "request_name": "site-40825-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40825,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40847-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40847-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "4657290a7c53f6288511ccfdff3c994a0afb025d6965b3ecaf0d1e1bf73cd9ab",
+          "request_name": "site-40847-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40847,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40897-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40897-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "012854698bceeeb1b18f25d1d8d574e34c2d8c85c077cecc9e2c9cac0e74d895",
+          "request_name": "site-40897-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40897,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40913-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40913-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "268e9548ef66dfd6157871398d1215ec3c75e4a75fc7be6759ed3801c59dda35",
+          "request_name": "site-40913-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40913,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40948-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40948-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "57824b548d91c314fb98973427f2ca708a09d41666327b96e5ddfc8493ce2590",
+          "request_name": "site-40948-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40948,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40955-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40955-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "0a4bca0c44ddf939e04910886c1e3abc364b631aa035aa166b210e9a3af23187",
+          "request_name": "site-40955-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40955,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40974-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40974-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "54018086c4b522d79cdc113a5a14e60b2728805da13d773df34b7169a205cfe7",
+          "request_name": "site-40974-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40974,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-40976-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-40976-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "a69521be9794ba53105e7757b40a42ae594dda25ddadf14297b8e3f3537777ba",
+          "request_name": "site-40976-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 40976,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41000-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41000-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "1b4b4109d1b4bc76d1537b6067bfa35fd3519c66797204c944ac39eff05c90ea",
+          "request_name": "site-41000-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41000,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41008-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41008-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "837bc2fc8effd5f2e9114c4a84b6f344808da785447bbd42fda7f2e1c4766d64",
+          "request_name": "site-41008-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41008,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41027-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41027-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "272e29c0c14466bf6efde46bcf454d2940050890da8fdd62d8f74a826074a0a2",
+          "request_name": "site-41027-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41027,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41069-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41069-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "48f91b3ff765ffbcb84322228bd996c088772172c112920d076d8ba85caf0350",
+          "request_name": "site-41069-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41069,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41074-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41074-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "bf90770920a35dc64b538dce1d66819fef835373ec1fd78a25db957273664fd5",
+          "request_name": "site-41074-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41074,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41090-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41090-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "138a4760d5e7c10df6e934ea97cd4a33196b4eb5fabfabf8c41763007015bb08",
+          "request_name": "site-41090-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41090,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41101-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41101-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "3b2f47b0b4544b0f0e0f795ee142d2b75478d1e8cbac0b2b531a0a6fca84b3d1",
+          "request_name": "site-41101-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41101,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41127-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41127-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "6a6118b11b74a0fbacb2749242986ed654fbe5387eb3e97c5daf121bbfc9440e",
+          "request_name": "site-41127-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41127,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41133-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41133-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "339abbb2fbe42ea561b59520e87af363316c4197e8d444426ce7092f48a98f1f",
+          "request_name": "site-41133-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41133,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41169-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41169-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "7630da088ec304f70576848d776f61e122118fb553322db8b74fd235f90203b0",
+          "request_name": "site-41169-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41169,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41174-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41174-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "5022010cbedbd3b8ee4c25a2cf6cb75abe7e41aeabeb72268382465d1dddb37b",
+          "request_name": "site-41174-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41174,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41201-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41201-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "f6cb8464a2ee3019fd9940f5260cbd57f598bf1591317fab8efa80672deb9807",
+          "request_name": "site-41201-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41201,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41367-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41367-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "a80b754d1bfb3db8f5173a3cce1040243fcdb8b7cde701a0bd6bdc2187884d7a",
+          "request_name": "site-41367-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41367,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41375-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41375-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "e8db5ea126c25959023cfe62ca2a6769f0af4dd140f0cdbcb7841fdd00ae408d",
+          "request_name": "site-41375-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41375,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41378-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41378-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "4b4bf50fc8aaade6ca4052d243062067b695964269e7f8822c73a14a1fcf9f2f",
+          "request_name": "site-41378-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41378,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41407-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41407-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "2e7af115fd9d697bb51240ec5a57b427c1d3b6cacb28786f04786a81a0685d65",
+          "request_name": "site-41407-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41407,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41455-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41455-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "c45cc5c02e563a7222cf89c63861fa9d7cbaac78d75046c165335f535c598d91",
+          "request_name": "site-41455-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41455,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41559-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41559-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "448860ff5a882af00d623871d7a8946a1c3cb1ef3358227406c94a078fc3353d",
+          "request_name": "site-41559-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41559,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41592-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41592-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "622a27f408ea627e9c990f83f78c8b78ecf984f0199f8f1a6870e2016a98fb2d",
+          "request_name": "site-41592-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41592,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-41609-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-41609-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "4d5176ca7588562f9b188edc4c0425fc2a65469c255caa3bd99f2f7ef990050a",
+          "request_name": "site-41609-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 41609,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    }
+  ],
+  "response_bytes": 13208,
+  "schema_version": "neotoma-current-context-resource-index.v1",
+  "scientific_admission": "not_asserted"
+}
