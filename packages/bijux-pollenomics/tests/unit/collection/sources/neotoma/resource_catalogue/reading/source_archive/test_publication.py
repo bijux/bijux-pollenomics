@@ -117,3 +117,51 @@ def test_source_archive_preserves_existing_destination(
             capture_sources=sources,
         )
     assert witness.read_bytes() == b"user evidence"
+
+
+def test_pending_metadata_only_archive_keeps_source_null_without_downloads(
+    catalogue_sources: Callable[..., dict[str, Any]],
+    publish_catalogue: Callable[..., tuple[Path, str, dict[str, Path]]],
+    tmp_path: Path,
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive import (
+        load_neotoma_source_archive,
+        write_neotoma_source_archive,
+    )
+
+    inputs = catalogue_sources(capture_resources=False)
+    assert inputs["resource_captures"] == {}
+    catalogue, digest, sources = publish_catalogue(inputs)
+    original = (catalogue / "catalogue.json").read_bytes()
+    output = tmp_path / "source-resources"
+    manifest = write_neotoma_source_archive(
+        output,
+        catalogue_directory=catalogue,
+        expected_catalogue_manifest_sha256=digest,
+        capture_sources=sources,
+    )
+    pin = sha256((output / "manifest.json").read_bytes()).hexdigest()
+    assert load_neotoma_source_archive(output, expected_manifest_sha256=pin) == manifest
+    assert manifest["retained_sources"] == {}
+    assert (output / "catalogue/catalogue.json").read_bytes() == original
+    published = json.loads(original)
+    assert all(
+        selected["source"] is None
+        for row in published["resources"]
+        for selected in row["versions"].values()
+    )
+    index = json.loads((output / "downloads/index.json").read_bytes())
+    assert len(index["resources"]) == 8
+    assert index["partitions"] == {
+        "unavailable_source_entity": 4,
+        "blocked_exposure_role": 4,
+    }
+    assert all("download_path" not in row for row in index["resources"])
+    assert (
+        sum(
+            row["statuses"]["acquisition_status"] == "not_attempted_pending_capture"
+            for row in index["resources"]
+        )
+        == 4
+    )
+    assert not list((output / "captures").glob("*/dataset-*.body"))
