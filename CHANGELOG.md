@@ -2,54 +2,217 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Swedish open-land and cereal figures
+### Frozen snapshot facts and scoped chronology review
 
-- Pair open-land and cereal means with spatial min–max shading and fixed,
-  clearly labelled axes; preserve missing support and the source-window values.
-- Export each latitude region separately, simplify the main scientific report
-  and retain forest/open and support diagnostics as distinct reading routes.
+- Preserve frozen snapshot database text/null/missing facts separately from strict
+  current-metadata binding. Keep exact provider no-record messages and successful-empty
+  sets distinct without inferring general absence or relabelling original captures.
+- Retain explicit depth-unit contradictions for unaged samples and qualify Atlas depth
+  axes only through exact source scope, native profile identity, unique sample/claim
+  linkage and documented coordinate sources.
+- Render source chronology support with per-profile, sample and claim context and
+  preserve all quality tables, metadata and unavailable states in complete source
+  downloads. Keep diagnostics separate from chronology selection and sample admission.
+- Keep raw source age/depth assignments, point/bound/default distinctions and complete
+  source counts while bounding drawn marks and scaling extreme finite coordinates
+  safely. Verify refusals and export semantics with synthetic Node controls; no fresh
+  browser/scientific qualification is claimed.
 
-### Swedish vegetation history by latitude
+### [#431](https://github.com/bijux/bijux-pollenomics/pull/431) — Authenticated materialization buffers and Atlas chronology scope
 
-- Derive four-, five- and six-band Swedish forest/open/cereal summaries from
-  published REVEALS grids with explicit taxonomy, spatial weights and coverage.
-- Publish fixed recent support, changing-grid and quality diagnostics, six
-  exportable figures and independent original-archive verification; preserve
-  no-data flags, the zero-mass refusal and unavailable regional uncertainty.
+- Hash and decode the same retained bytes for Neotoma materialization surfaces and
+  reconciliation metadata, preventing substituted second reads from separating source
+  authentication and semantic validation.
+- Distinguish missing database metadata from declared source nulls during resource
+  classification, preserving refused native bodies and replay outcomes. Expose the
+  shared identifier validator explicitly to typed consumers.
+- Carry source-owned chronology quality profiles, sample flags and claim diagnostics
+  into Atlas with snapshot/build/materialization/site scope and separate
+  model/dataset/age-basis identities. Preserve unavailable legacy metadata and refuse
+  unknown owners.
+- Extend the exact retained context source contract for literal quality projection
+  additions and verify synthetic parent/count substitutions, coordinate contradictions,
+  complete source scope and existing inverse-source refusal controls. No new scientific
+  admission or historical execution is claimed.
 
-### Published European pollen-productivity reference
+### [#430](https://github.com/bijux/bijux-pollenomics/pull/430) — Frozen native resource qualification and chronology support
 
-- Ingest both Wieczorek–Herzschuh European RPP datasets with exact source cells,
-  missing values, reported SE, original download hashes and CC BY 4.0 attribution.
-- Compare the published reference with the executed LANDCLIM inputs. Preserve
-  missing European Ulmus RPP and the SE/SD distinction without changing earlier
-  calculations or declaring physical-source admission.
+- Qualify two explicit native frozen Neotoma wrappers in a separate authenticated ledger
+  without relabelling source captures, inferring snapshot dates or asserting scientific
+  admission. Preserve exact owners, arrays, native fields, missing identifiers and
+  successful-empty unavailability.
+- Require original retained-source resolvers for mixed captures and preserve original
+  body/receipt identities and times through reuse. Keep qualification read-only and
+  separate from acquisition or certified absence.
+- Describe source-owned chronology support through independent reliable age bounds,
+  control midpoint envelopes, finite depth spacing and point-age ordering. Preserve
+  contradictory units, conflicting controls, foreign owners, missing values and model
+  alternatives without changing eligibility.
+- Expose chronology quality in source accounting and bounded screen/series review while
+  retaining existing refusal decisions. Record retained native-measure provenance and
+  its observed imported source closure; no new scientific execution is claimed by this
+  delivery.
 
-### Six-window analytical LOVE evaluation
+### [#429](https://github.com/bijux/bijux-pollenomics/pull/429) — Native resource lineage and source chronology issues
 
-- Score all 54 adjusted nominal predictions and all 55,296 uncertainty slots at
-  one held source. Preserve the oldest-window and Solsø nearest-site losses;
-  independent scalar/source checks and four fresh install environments pass.
-- Publish complete matched development scores, the executed all-window protocol,
-  installed qualification and precise unresolved physical/field acceptance.
+- Retain role-bound current/frozen native resource entities in a bounded closed
+  attempt ledger, with explicit unavailable/refused/unattempted partitions and no
+  numerical GET for reserved or held-out roles. Preserve native types and unknown
+  frozen content without pollen recasting or inferred scientific admission.
+- Authenticate resumed/reused result lineage, original receipts and body identities
+  through explicit prior-result and ancestor resolvers. Reject malformed requested
+  dataset identities before acquisition and keep HTTP unavailability separate from
+  certified source absence.
+- Preserve Atlas source chronology issues, orphans, control variants and locators
+  with projected/excluded/unresolved accounting. Keep retained reference flags
+  distinct from effective identified selection and preserve source metadata without
+  inventing an original reference or fitted chronology.
+- Reconcile maintained animal evidence-envelope versions through exact unique row
+  identities, preserving owned sample chronology and refusing malformed or ambiguous
+  publication inputs. Qualify these source/readers with mocked and synthetic
+  controls; no fresh provider, scientific or real-browser qualification is claimed.
+
+### [#428](https://github.com/bijux/bijux-pollenomics/pull/428) — Retained source accounting and reachable Atlas readers
+
+- Bind retained direct-pollen measure accounting to the published study's fixed
+  reachable producer witness, keeping original count/age decisions separate from
+  later producer guards and current account-implementation integrity. Do not execute
+  the archived producer or infer current equivalence.
+- Keep source readers and controls reachable in short viewports through explicit
+  layout, touch targets and scrollable reader bounds. Add supplied-candidate reader-
+  surface verification with geometry refusal controls; local Node fixtures do not
+  establish a fresh real-browser qualification.
+- Require present matching chronology references before selecting a source default,
+  preserving missing identifiers and orphan records without admitting them through
+  null equality.
+- Authenticate the main Atlas runtime declared by generated documents and use
+  source-owned animal/publication fixtures. Preserve runtime hash, size, integrity,
+  identity and source-role refusals in synthetic publication regressions.
+
+### [#427](https://github.com/bijux/bijux-pollenomics/pull/427) — Neotoma archive and metadata source custody
+
+- Reconcile and stage Neotoma archive members before replacement of an authenticated
+  owned archive. Publish complete collections only to absent roots, preserving prior
+  source epochs and interrupted attempts; bind selected pollen to declared
+  dataset/site/core/type/database owners.
+- Add bounded metadata capture and read-only replay with exact entities,
+  request/response receipts, duplicate headers, verified TLS, finite budgets and
+  complete source-plan closure. Retain linked-resource identities and refuse
+  overlapping/oversized pagination or missing successful termination.
+- Validate finite point ages and declared bounds before chronological binning,
+  retaining explicit signed-source policy. Preserve the prepared source epoch during
+  Nordic scoring and refuse changed, missing or substituted custody.
+- Reconcile Atlas relational denominators with projected/excluded populations and
+  unique shared-variable identities. Preserve lazy source chronology exports and
+  source locators, and restore shared point focus after selection settles without
+  silently dropping its identity.
+- Authenticate the accepted assembly-helper extraction through literal inverse spans
+  and complete fixed-original byte equality. Retain negative controls for changed
+  helper bodies, foreign/counterfeit source bytes and incomplete span composition;
+  this does not grant broader historical scientific qualification.
+
+### [#426](https://github.com/bijux/bijux-pollenomics/pull/426) — Neotoma response ownership and pollen specimen admission
+
+- Preserve TLS certificate verification and refuse unsuccessful or malformed Neotoma
+  API envelopes. Authenticate each concurrent download against its own requested
+  dataset; reject ambiguous, duplicate, unexpected or missing dataset ownership
+  before combining results.
+- Require agreeing literal pollen specimen labels across classification, series
+  materialization and direct-pollen consumers. Retain normalized review-status
+  distinctions without admitting conflicting specimen elements into pollen counts or
+  denominators.
+- Retain attributed public cereal/sedge taxon definitions, the executed conditional
+  Bokesjon static-basin comparison, signed/clipped spans and explicit transfer
+  limits. Preserve the distinction between transformed zeros, true absence, modern
+  geometry and physical/field acceptance.
+- Record released author-example source-to-estimate correspondence and its
+  support/revision limits without asserting replay of every published historical
+  estimate or distributing the external private capsule. This delivery performs
+  mocked/synthetic checks and metadata review, not a fresh numerical or scientific
+  qualification.
+
+### [#425](https://github.com/bijux/bijux-pollenomics/pull/425) — Bokesjon source assessment and conditional basin sensitivity
+
+- Document the source-audit command and authenticated baseline accessors for
+  the developer package's configured docstring checks.
+- Retain attributed public Bokesjon Neotoma core/site/pollen/dating and DOI metadata
+  with exact source identities and hashes, keeping public-data rights separate from
+  private workbook rights and scientific endorsement.
+- Audit selected native taxon/count slots, literal parameter-label coverage and
+  optional source-owned workbook/lookup witnesses. Preserve
+  omitted/null/invalid/reported-zero distinctions, age ownership, source
+  denominators and unresolved taxonomic/parameter applicability; do not invent
+  biological zeros or apply candidate mappings.
+- Publish the retained pilot source assessment with chronology, basin, taxon/PPE and
+  independent-vegetation admission limits. Add an authenticated three-profile
+  static-basin sensitivity route that rebuilds geometry and compares signed/clipped
+  spans without asserting execution, ancient shoreline recovery or cover accuracy.
+- Synthetic and metadata controls qualify the implementation boundary only;
+  historical numerical replay, private-source-body review, fresh sensitivity
+  execution and independent scientific admission remain unperformed in this
+  delivery.
+- Guard the public projection with synthetic private-row sentinels while preserving
+  public native counts and PPE source fields. Both author-lookup and workbook-row
+  filter mutations are refused by the regression.
+
+### [#424](https://github.com/bijux/bijux-pollenomics/pull/424) — Swedish agricultural indicators and public core metadata
+
+- Derive rye, other cereals, plantain and non-cereal herbs on the unchanged
+  published-model cohorts. Authenticate selected cell identities, coverage, weight
+  denominators and baseline means/extrema; preserve missing support and scientific
+  interpretation limits.
+- Pair open-land and cereal means with spatial min/max ranges and fixed labelled
+  axes, retain separate latitude-region exports, and reorganize the scientific
+  report with methods and forest/open/support diagnostics available separately.
+  Ranges describe spatial variation, not confidence intervals.
+- Authenticate the Bokesjon public site/core/pollen/dating/chronology identities and
+  dataset-specific DOI rights evidence. Preserve control-age semantics, the
+  distinction between site points and measured core GPS, unestablished
+  shoreline/field admission, and the lack of private-workbook or transferred dating-
+  data rights.
+- Retain generated figures and source/calculation provenance without claiming a
+  fresh historical replay, rendering or independent scientific qualification in this
+  delivery.
+
+### [#423](https://github.com/bijux/bijux-pollenomics/pull/423) — Swedish landscape histories and retained source comparisons
+
+- Document the synthetic source-mean and cell-window fixture helpers so the
+  developer package retains its configured docstring quality checks.
+- Derive Swedish forest/open/cereal histories over four, five and six latitude bands
+  using explicit operational taxon groups, source windows, weights and support
+  policies. Preserve no-data/invalid cell dispositions, the zero-mass refusal,
+  changing-grid/fixed-recent support and unavailable regional uncertainty.
+- Retain six exportable figure families, cell dispositions, trajectories and
+  input/calculation provenance. Spatial ranges describe cell variation and do not
+  establish regional confidence intervals or independent vegetation validation.
+- Retain the attributed European RPP reference with exact deposited cells, missing
+  values, reported SE identity and source hashes; preserve missing European Ulmus
+  productivity and the SE/SD distinction without changing completed inputs.
+- Record the retained complete six-window LOVE development comparisons, including
+  oldest-window and nearest-site losses, installed qualification scope and
+  unresolved physical/field acceptance. This delivery does not perform a fresh
+  historical replay or establish new scientific admission.
+
+### [#422](https://github.com/bijux/bijux-pollenomics/pull/422) — Complete adjusted LOVE populations and workspace ownership
+
 - Support an explicit adjusted-cover population across all eighteen development
-  folds and six windows while retaining the original signed-result dispositions.
-- Share source-owner count draws and productivity draws across the complete
-  population; compare physical and direct-pollen predictions on matched targets.
-- Extend independent source, scalar and score verification to all fifty-four
-  nominal method slots, retaining undefined draws and target-exclusion checks.
+  folds and six windows while retaining original signed-result dispositions. Share
+  source-owner count and productivity draws and extend independent
+  source/scalar/score verification to all fifty-four nominal method slots, retaining
+  undefined draws and target-exclusion checks.
+- Use a virtual workspace root with canonical package distributions. Discover owned
+  checkouts/source archives through repository configuration and declared host
+  membership; retain missing, unrelated, excluded and symlink refusals. Reject
+  undeclared editable root distributions in dependency audits.
 - Restore real source-retention metadata and Git custody in retained-reference
-  test fixtures, including explicit missing and altered transport refusals.
+  fixtures, preserving missing/altered transport refusals. Clarify strict
+  covariance/counting test contracts without changing numerical or malformed-input
+  assertions.
+- These changes prepare complete development evaluation and preserve scientific
+  admission limits; fresh historical replay and installed-wheel qualification are
+  not established by this delivery.
 
-### Canonical workspace package identities
-
-- Use a virtual workspace root and retain canonical distributions under
-  `packages/`; remove the artificial repository distribution.
-- Identify owned checkouts and source archives through repository configuration
-  and declared host membership, preserving missing, unrelated and symlink
-  refusals. Dependency audits and current runtime provenance use real packages.
-
-### Nonnegative analytical LOVE cover
+### [#421](https://github.com/bijux/bijux-pollenomics/pull/421) — Nonnegative analytical LOVE cover
 
 - Clip negative analytical LOVE cover to zero and normalize each draw before
   calculating summaries. Retain raw summaries, optional raw draws and outlier
@@ -67,8 +230,6 @@ Repository changes are recorded by pull request, newest merge first.
   bootstrap has all 9,216 method-replicate slots defined. Independent numerical
   and source checks pass; static geometry, restricted taxonomy and scientific
   admission limits remain explicit.
-- Restore strict typing for existing covariance and counting test controls
-  without changing their numerical or malformed-input assertions.
 
 ### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
 
