@@ -1,0 +1,99 @@
+{
+  "body_complete": true,
+  "body_file": "dataset-53570-current-attempt-1.body",
+  "expected_dataset_id": 53570,
+  "expected_site_id": 28671,
+  "final_url": "https://api.neotomadb.org/v2.0/data/downloads/53570",
+  "http_status": 200,
+  "parameters": {},
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/downloads/53570",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/downloads/53570",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "cache-control",
+      "max-age=300"
+    ],
+    [
+      "content-length",
+      "5454"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 04:08:49 GMT"
+    ],
+    [
+      "etag",
+      "W/\"154e-r06Mgk8K2x3yvJ8qiO9WF/nv6yc\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4843"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794715762"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "85"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 5454,
+  "retained_body_sha256": "217fef22d4853ddc18e5e40ea6f022cfc6155bfad2c67ddc116216b91a4b4c3e",
+  "role": "native_current",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T04:08:50.114311+00:00",
+  "utc_start": "2026-11-15T04:08:49.657385+00:00"
+}

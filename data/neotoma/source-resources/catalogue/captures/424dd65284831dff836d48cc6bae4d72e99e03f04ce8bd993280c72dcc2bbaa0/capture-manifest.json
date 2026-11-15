@@ -1,0 +1,19 @@
+{
+  "capture_utc_end": "2026-11-14T22:02:27.224475+00:00",
+  "capture_utc_start": "2026-11-14T22:02:26.833377+00:00",
+  "plan_file": "request-plan.json",
+  "plan_sha256": "a2e28c0a678545ab3f1470206aa86ff12371fd2d12f2270e82d4719315e3cf8f",
+  "records": [
+    {
+      "receipt_file": "dataset-54005-metadata.receipt.json",
+      "receipt_sha256": "6829acad852a530360583af28896cec5134bd7bcf2aee4bea927a40532011a80",
+      "request_name": "dataset-54005-metadata"
+    }
+  ],
+  "request_count": 1,
+  "response_bytes": 63,
+  "schema_version": "neotoma-metadata-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "sequential_live_responses; no transaction snapshot",
+  "status": "complete"
+}

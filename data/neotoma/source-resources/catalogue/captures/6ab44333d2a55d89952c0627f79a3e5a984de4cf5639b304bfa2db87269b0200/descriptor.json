@@ -1,0 +1,34 @@
+{
+  "body_resolver": "explicit capture_sources mapping keyed by capture_manifest_sha256",
+  "capture_kind": "metadata",
+  "capture_manifest_sha256": "6ab44333d2a55d89952c0627f79a3e5a984de4cf5639b304bfa2db87269b0200",
+  "files": [
+    {
+      "bytes": 720,
+      "name": "capture-manifest.json",
+      "sha256": "6ab44333d2a55d89952c0627f79a3e5a984de4cf5639b304bfa2db87269b0200",
+      "source_entity": false
+    },
+    {
+      "bytes": 63,
+      "name": "dataset-54004-metadata.body",
+      "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+      "source_entity": true
+    },
+    {
+      "bytes": 1875,
+      "name": "dataset-54004-metadata.receipt.json",
+      "sha256": "d3983162e4abf02b1f7990dffa340d775874e8514f37ba116f93ee05ad5a9af7",
+      "source_entity": false
+    },
+    {
+      "bytes": 477,
+      "name": "request-plan.json",
+      "sha256": "7f0c59ea9e221d3a0049d5dd1053ef764609d1d97208a60025b755a110e1a7f9",
+      "source_entity": false
+    }
+  ],
+  "native_schema_version": "neotoma-metadata-http-capture.v1",
+  "schema_version": "neotoma-resource-source-descriptor.v1",
+  "source_bodies_in_descriptor": false
+}

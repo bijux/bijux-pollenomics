@@ -1,0 +1,1386 @@
+{
+  "all_resources_parsed": false,
+  "capture_utc_end": "2026-11-15T04:09:53.289046+00:00",
+  "capture_utc_start": "2026-11-15T04:09:33.754054+00:00",
+  "partitions": {
+    "unresolved_frozen_schema": 24,
+    "unsupported_dataset_type": 24
+  },
+  "plan_sha256": "282860050448eb965cc44236c665731d3d0e20da0955ca639d820bfe5d450e54",
+  "request_count": 48,
+  "resources": [
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70156-current-attempt-1.body",
+          "receipt_file": "dataset-70156-current-attempt-1.receipt.json",
+          "receipt_sha256": "39b36f5124fb1c352e06758ec0e9ebffd408cf7dfc14a8550b30face8ac93b4c",
+          "request_name": "dataset-70156-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70156,
+      "identity": {
+        "collection_unit_id": 51614,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70156,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1916/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38136
+      },
+      "resource_key": "dataset-70156-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70156-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70156-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "a976f823bdb1e334fdb226412fa0ea49da6a8c0274edc3e1b7b2dcfe6ef72776",
+          "request_name": "dataset-70156-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70156,
+      "identity": {
+        "collection_unit_id": 51614,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70156,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1916/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38136
+      },
+      "resource_key": "dataset-70156-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70204-current-attempt-1.body",
+          "receipt_file": "dataset-70204-current-attempt-1.receipt.json",
+          "receipt_sha256": "4ea590f29443a54de1606bc3eb9efc59e0088e29e30e3e13fe74568e166421f1",
+          "request_name": "dataset-70204-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70204,
+      "identity": {
+        "collection_unit_id": 51662,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70204,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1926/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38179
+      },
+      "resource_key": "dataset-70204-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70204-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70204-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "fc80f49e163332f43c831111a9b2aaef804167f9029bde6bdcc063c5f1c8a673",
+          "request_name": "dataset-70204-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70204,
+      "identity": {
+        "collection_unit_id": 51662,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70204,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1926/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38179
+      },
+      "resource_key": "dataset-70204-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70209-current-attempt-1.body",
+          "receipt_file": "dataset-70209-current-attempt-1.receipt.json",
+          "receipt_sha256": "bbc3ba4571f8f8714e8fd155b25c7d653cb79981333e52c6049facd916c2c103",
+          "request_name": "dataset-70209-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70209,
+      "identity": {
+        "collection_unit_id": 51667,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70209,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1927/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38184
+      },
+      "resource_key": "dataset-70209-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70209-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70209-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "3e7e9a0d92dfd938ed5a6791ee022616df1b1940f3edc2d9c42a8c854cdb55bf",
+          "request_name": "dataset-70209-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70209,
+      "identity": {
+        "collection_unit_id": 51667,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70209,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1927/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38184
+      },
+      "resource_key": "dataset-70209-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70235-current-attempt-1.body",
+          "receipt_file": "dataset-70235-current-attempt-1.receipt.json",
+          "receipt_sha256": "34c33c0b8b2586953346cab3a6a8f96c9e1546b9520ae411ca0d68f2a141d47c",
+          "request_name": "dataset-70235-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70235,
+      "identity": {
+        "collection_unit_id": 51693,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70235,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1933/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38209
+      },
+      "resource_key": "dataset-70235-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70235-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70235-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "8d436c437518b67e4a34b1df1b55001a2a61e6d229bebc649b29157af8fdcf5e",
+          "request_name": "dataset-70235-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70235,
+      "identity": {
+        "collection_unit_id": 51693,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70235,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1933/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38209
+      },
+      "resource_key": "dataset-70235-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70311-current-attempt-1.body",
+          "receipt_file": "dataset-70311-current-attempt-1.receipt.json",
+          "receipt_sha256": "58d1f2a23ac1758bb982898a94772b8e9467ed3ca5904aa7e605d9207c9c7143",
+          "request_name": "dataset-70311-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70311,
+      "identity": {
+        "collection_unit_id": 51769,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70311,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1948/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38284
+      },
+      "resource_key": "dataset-70311-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70311-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70311-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "874646a8b8cc8911d5122b1c62dd80f3d1d75472561ff8fa6311c31a6d1e32b9",
+          "request_name": "dataset-70311-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70311,
+      "identity": {
+        "collection_unit_id": 51769,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70311,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1948/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38284
+      },
+      "resource_key": "dataset-70311-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70327-current-attempt-1.body",
+          "receipt_file": "dataset-70327-current-attempt-1.receipt.json",
+          "receipt_sha256": "d293da5dff754106a45572f6bb456cafe678ad20e38af332cb06ad40662cf148",
+          "request_name": "dataset-70327-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70327,
+      "identity": {
+        "collection_unit_id": 51785,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70327,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1954/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38300
+      },
+      "resource_key": "dataset-70327-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70327-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70327-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "d4123e0e7b46805d1154337b6c78a9f79dd8440cf8cc45fe68dd3d713a6940a0",
+          "request_name": "dataset-70327-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70327,
+      "identity": {
+        "collection_unit_id": 51785,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70327,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1954/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38300
+      },
+      "resource_key": "dataset-70327-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70331-current-attempt-1.body",
+          "receipt_file": "dataset-70331-current-attempt-1.receipt.json",
+          "receipt_sha256": "0c59d5a413fa59032583e4b137d947baadd07f162ea3ebdffc831a96a22cdff6",
+          "request_name": "dataset-70331-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70331,
+      "identity": {
+        "collection_unit_id": 51789,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70331,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1955/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38304
+      },
+      "resource_key": "dataset-70331-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70331-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70331-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "5961cf6b33ba90e9a6bfd21d71c2a9ccc5e14842e76b5505a2b7bddb4cf116b4",
+          "request_name": "dataset-70331-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70331,
+      "identity": {
+        "collection_unit_id": 51789,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70331,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1955/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38304
+      },
+      "resource_key": "dataset-70331-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70339-current-attempt-1.body",
+          "receipt_file": "dataset-70339-current-attempt-1.receipt.json",
+          "receipt_sha256": "3923cc8b1eba740aed767dd2fc7be5c099b83438415162755d7c5aa2335b0aa7",
+          "request_name": "dataset-70339-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70339,
+      "identity": {
+        "collection_unit_id": 51797,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70339,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1957/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38312
+      },
+      "resource_key": "dataset-70339-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70339-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70339-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "b95d1c9332e96fae2bda7c25f32243a154cf54ec53cd7bd1b72b958b0641c629",
+          "request_name": "dataset-70339-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70339,
+      "identity": {
+        "collection_unit_id": 51797,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70339,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1957/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38312
+      },
+      "resource_key": "dataset-70339-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70359-current-attempt-1.body",
+          "receipt_file": "dataset-70359-current-attempt-1.receipt.json",
+          "receipt_sha256": "9d5207dc0c57bc1b7551f3fc174f556ef4246783dade11372dfb1edf2972c050",
+          "request_name": "dataset-70359-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70359,
+      "identity": {
+        "collection_unit_id": 51817,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70359,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1959/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38331
+      },
+      "resource_key": "dataset-70359-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70359-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70359-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "aac2479cfb4790c88614e4ca581df2faa605b383375664bf656bdb05dadab1e6",
+          "request_name": "dataset-70359-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70359,
+      "identity": {
+        "collection_unit_id": 51817,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70359,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1959/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38331
+      },
+      "resource_key": "dataset-70359-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70361-current-attempt-1.body",
+          "receipt_file": "dataset-70361-current-attempt-1.receipt.json",
+          "receipt_sha256": "6fea0d13b6d18ccb2022a9236fe1eac5b13efefbf6d4c6c315c997fcf93f7f64",
+          "request_name": "dataset-70361-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70361,
+      "identity": {
+        "collection_unit_id": 51819,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70361,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1960/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38333
+      },
+      "resource_key": "dataset-70361-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70361-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70361-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "23e9b6288f42fe93291d037999a737166555483b485e331ac3478f4dd6a402d1",
+          "request_name": "dataset-70361-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70361,
+      "identity": {
+        "collection_unit_id": 51819,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70361,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1960/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38333
+      },
+      "resource_key": "dataset-70361-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70365-current-attempt-1.body",
+          "receipt_file": "dataset-70365-current-attempt-1.receipt.json",
+          "receipt_sha256": "1973bad14f97622329296b34031aac2935b005b838dfbeb207dd0d561435ac03",
+          "request_name": "dataset-70365-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70365,
+      "identity": {
+        "collection_unit_id": 51823,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70365,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1962/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38335
+      },
+      "resource_key": "dataset-70365-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70365-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70365-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "145f613a51343680676f803f4892fb487a0d48e85cecdaec6520104fe6747e5d",
+          "request_name": "dataset-70365-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70365,
+      "identity": {
+        "collection_unit_id": 51823,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70365,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1962/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38335
+      },
+      "resource_key": "dataset-70365-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70378-current-attempt-1.body",
+          "receipt_file": "dataset-70378-current-attempt-1.receipt.json",
+          "receipt_sha256": "9d7f14c8677e488c27e3628cfc94ae1479eb28c04676d3875b56989661fa3966",
+          "request_name": "dataset-70378-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70378,
+      "identity": {
+        "collection_unit_id": 51836,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70378,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1965/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38348
+      },
+      "resource_key": "dataset-70378-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70378-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70378-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "4360059fcdafd84c475fd4a8c3a154b1239866215bba3b53a168338e81b8059c",
+          "request_name": "dataset-70378-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70378,
+      "identity": {
+        "collection_unit_id": 51836,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70378,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1965/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38348
+      },
+      "resource_key": "dataset-70378-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70409-current-attempt-1.body",
+          "receipt_file": "dataset-70409-current-attempt-1.receipt.json",
+          "receipt_sha256": "8992f304a8f766daca36b96e7d0880e733a7e41912eaa8cc56f482a3db402158",
+          "request_name": "dataset-70409-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70409,
+      "identity": {
+        "collection_unit_id": 51867,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70409,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1977/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38377
+      },
+      "resource_key": "dataset-70409-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70409-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70409-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "34d75f5aa1e4f33e53b9e27d6a2d588fda7471531eaa2e8aba9c587342662f2d",
+          "request_name": "dataset-70409-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70409,
+      "identity": {
+        "collection_unit_id": 51867,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70409,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1977/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38377
+      },
+      "resource_key": "dataset-70409-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70460-current-attempt-1.body",
+          "receipt_file": "dataset-70460-current-attempt-1.receipt.json",
+          "receipt_sha256": "337ae5574f2a0f6de66429bc9e8e12f2da83379cd9882da7d04253cb1586470d",
+          "request_name": "dataset-70460-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70460,
+      "identity": {
+        "collection_unit_id": 51918,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70460,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1985/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38427
+      },
+      "resource_key": "dataset-70460-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70460-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70460-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "b4572d896933ac1d218e0822524e5be012000d254ea0dcf0c76db4968f15c916",
+          "request_name": "dataset-70460-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70460,
+      "identity": {
+        "collection_unit_id": 51918,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70460,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1985/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38427
+      },
+      "resource_key": "dataset-70460-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70474-current-attempt-1.body",
+          "receipt_file": "dataset-70474-current-attempt-1.receipt.json",
+          "receipt_sha256": "8c3ef9217d38cba1bd03ca65e71172a3b73648d541be31959e597e010e3f0c86",
+          "request_name": "dataset-70474-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70474,
+      "identity": {
+        "collection_unit_id": 51932,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70474,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1989/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38441
+      },
+      "resource_key": "dataset-70474-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70474-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70474-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "fcfd33c0905273465d6c3c7cfb9dab031976fe959fe4eeb964a1bf7a611d92d2",
+          "request_name": "dataset-70474-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70474,
+      "identity": {
+        "collection_unit_id": 51932,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70474,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1989/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38441
+      },
+      "resource_key": "dataset-70474-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70492-current-attempt-1.body",
+          "receipt_file": "dataset-70492-current-attempt-1.receipt.json",
+          "receipt_sha256": "4a33140bde35e9dc2e3b6a09120bf7ab7ead47e1695f47f79c90ee59aa5fe6ad",
+          "request_name": "dataset-70492-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70492,
+      "identity": {
+        "collection_unit_id": 51950,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70492,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1995/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38458
+      },
+      "resource_key": "dataset-70492-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70492-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70492-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "f90ec3790ec11d9edd600a0c0fee3b9798804ae8db78372fd8d89c9629a08d80",
+          "request_name": "dataset-70492-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70492,
+      "identity": {
+        "collection_unit_id": 51950,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70492,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1995/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38458
+      },
+      "resource_key": "dataset-70492-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70587-current-attempt-1.body",
+          "receipt_file": "dataset-70587-current-attempt-1.receipt.json",
+          "receipt_sha256": "38bd6d8aba054759cd392b6f0173b12b84263a792dd7c1fe7162c5457e9b52c7",
+          "request_name": "dataset-70587-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70587,
+      "identity": {
+        "collection_unit_id": 52045,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70587,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2009/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38549
+      },
+      "resource_key": "dataset-70587-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70587-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70587-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "19e43c08ee5f13f39549917d7d0a00102488af2206e31c98b89bad06bae8a365",
+          "request_name": "dataset-70587-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70587,
+      "identity": {
+        "collection_unit_id": 52045,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70587,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2009/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38549
+      },
+      "resource_key": "dataset-70587-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70598-current-attempt-1.body",
+          "receipt_file": "dataset-70598-current-attempt-1.receipt.json",
+          "receipt_sha256": "bb44ff4cc503ac85e2bd3bdaeaa84b0bee206b86905c152311105448dbbfc3d4",
+          "request_name": "dataset-70598-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70598,
+      "identity": {
+        "collection_unit_id": 52056,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70598,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2010/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38560
+      },
+      "resource_key": "dataset-70598-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70598-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70598-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "03337d27aeacd6fc5d8acf74a4c2286dc23e2319abb2076aabf0e8b107618d0c",
+          "request_name": "dataset-70598-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70598,
+      "identity": {
+        "collection_unit_id": 52056,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70598,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2010/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38560
+      },
+      "resource_key": "dataset-70598-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70614-current-attempt-1.body",
+          "receipt_file": "dataset-70614-current-attempt-1.receipt.json",
+          "receipt_sha256": "054e4c9055560a9d4604628fb9be833dc05a6f52a3ea9a27a47ef6f5aef6a877",
+          "request_name": "dataset-70614-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70614,
+      "identity": {
+        "collection_unit_id": 52072,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70614,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2013/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38574
+      },
+      "resource_key": "dataset-70614-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70614-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70614-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "05a17ad4a6006bc413cc15e4b257aa0b23014ec15df4ac57c3b59d0054ea529e",
+          "request_name": "dataset-70614-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70614,
+      "identity": {
+        "collection_unit_id": 52072,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70614,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2013/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38574
+      },
+      "resource_key": "dataset-70614-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70668-current-attempt-1.body",
+          "receipt_file": "dataset-70668-current-attempt-1.receipt.json",
+          "receipt_sha256": "9303e3715c5f7a3e40b6609f5a954eb769f15c2bf46889051b3764a1407dbafd",
+          "request_name": "dataset-70668-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70668,
+      "identity": {
+        "collection_unit_id": 52126,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70668,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2022/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38623
+      },
+      "resource_key": "dataset-70668-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70668-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70668-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "c6e036f69d062b15cf411bf43d935224d7d7e89321410facbb60e198033a4187",
+          "request_name": "dataset-70668-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70668,
+      "identity": {
+        "collection_unit_id": 52126,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70668,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2022/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38623
+      },
+      "resource_key": "dataset-70668-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70672-current-attempt-1.body",
+          "receipt_file": "dataset-70672-current-attempt-1.receipt.json",
+          "receipt_sha256": "1793356a442e01af786a8c59f7166b6a2b7b04959c3da512ca36d3cb6f7b01c2",
+          "request_name": "dataset-70672-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70672,
+      "identity": {
+        "collection_unit_id": 52130,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70672,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2023/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38627
+      },
+      "resource_key": "dataset-70672-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70672-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70672-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "6262fe60a26e0900ba91e11c8167f576983b5449da1820146d5a9ae94cdc1464",
+          "request_name": "dataset-70672-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70672,
+      "identity": {
+        "collection_unit_id": 52130,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70672,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2023/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38627
+      },
+      "resource_key": "dataset-70672-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70685-current-attempt-1.body",
+          "receipt_file": "dataset-70685-current-attempt-1.receipt.json",
+          "receipt_sha256": "4d4a56f762c2fb563cfe3e6579eca5c4031cb4e1beef0ac21c516594ef960de9",
+          "request_name": "dataset-70685-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70685,
+      "identity": {
+        "collection_unit_id": 52143,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70685,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2025/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38640
+      },
+      "resource_key": "dataset-70685-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70685-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70685-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "af540d67b057b624ac80249738f6e8361982edf3573d8fb2ff830ca6edccbdba",
+          "request_name": "dataset-70685-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70685,
+      "identity": {
+        "collection_unit_id": 52143,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70685,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2025/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38640
+      },
+      "resource_key": "dataset-70685-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70687-current-attempt-1.body",
+          "receipt_file": "dataset-70687-current-attempt-1.receipt.json",
+          "receipt_sha256": "3d7cb79b1b2c0ea55e4eada5351b1f961cbd466465488b0e3e3d7f9d9d5c6ed1",
+          "request_name": "dataset-70687-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70687,
+      "identity": {
+        "collection_unit_id": 52145,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70687,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2026/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38642
+      },
+      "resource_key": "dataset-70687-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70687-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70687-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "98758e9636002281ec5bb11c91798b9a5f51256d70538dd3f39def73da593208",
+          "request_name": "dataset-70687-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70687,
+      "identity": {
+        "collection_unit_id": 52145,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70687,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2026/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38642
+      },
+      "resource_key": "dataset-70687-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70706-current-attempt-1.body",
+          "receipt_file": "dataset-70706-current-attempt-1.receipt.json",
+          "receipt_sha256": "64b5983daceaffedefd1757437de887585fad68fd0d10c01a8779c106aac21f3",
+          "request_name": "dataset-70706-current-attempt-1"
+        }
+      ],
+      "dataset_id": 70706,
+      "identity": {
+        "collection_unit_id": 52164,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70706,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2031/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38660
+      },
+      "resource_key": "dataset-70706-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-70706-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-70706-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "0a62c1c9378252753a34ec5fcb9a0147892de4c7fb990280c765db4d65e7a67b",
+          "request_name": "dataset-70706-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 70706,
+      "identity": {
+        "collection_unit_id": 52164,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70706,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/2031/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38660
+      },
+      "resource_key": "dataset-70706-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    }
+  ],
+  "response_bytes": 265896,
+  "schema_version": "neotoma-resource-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed live or explicitly reused responses; no transaction snapshot",
+  "status": "closed"
+}

@@ -1,0 +1,103 @@
+{
+  "body_complete": true,
+  "body_file": "inventory-limit-10000-offset-0.body",
+  "expected_site_id": null,
+  "final_url": "https://api.neotomadb.org/v2.0/data/datasets?datasettype=pollen&loc=%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B4%2C54%5D%2C%5B35%2C54%5D%2C%5B35%2C72%5D%2C%5B4%2C72%5D%2C%5B4%2C54%5D%5D%5D%7D&limit=10000&offset=0",
+  "http_status": 200,
+  "parameters": {
+    "datasettype": "pollen",
+    "limit": "10000",
+    "loc": "{\"type\":\"Polygon\",\"coordinates\":[[[4,54],[35,54],[35,72],[4,72],[4,54]]]}",
+    "offset": "0"
+  },
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/datasets?datasettype=pollen&loc=%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B4%2C54%5D%2C%5B35%2C54%5D%2C%5B35%2C72%5D%2C%5B4%2C72%5D%2C%5B4%2C54%5D%5D%5D%7D&limit=10000&offset=0",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/datasets?datasettype=pollen&loc=%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B4%2C54%5D%2C%5B35%2C54%5D%2C%5B35%2C72%5D%2C%5B4%2C72%5D%2C%5B4%2C54%5D%5D%5D%7D&limit=10000&offset=0",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "cache-control",
+      "max-age=300"
+    ],
+    [
+      "content-length",
+      "390457"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sat, 14 Nov 2026 21:36:33 GMT"
+    ],
+    [
+      "etag",
+      "W/\"5f539-kcIVB7QsTgTkn0DbCb5fDlFV0Jc\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4997"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794692245"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "3439"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 390457,
+  "retained_body_sha256": "10ff2487e2a1537c228c367166c92a0facf2fb207a7ebc312df91239d6f84469",
+  "role": "pollen_inventory",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-14T21:36:37.995795+00:00",
+  "utc_start": "2026-11-14T21:36:33.589616+00:00"
+}

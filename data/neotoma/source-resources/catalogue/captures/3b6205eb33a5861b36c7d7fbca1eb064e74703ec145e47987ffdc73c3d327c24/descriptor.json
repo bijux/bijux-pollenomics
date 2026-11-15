@@ -1,0 +1,130 @@
+{
+  "body_resolver": "explicit capture_sources mapping keyed by capture_manifest_sha256",
+  "capture_kind": "metadata",
+  "capture_manifest_sha256": "3b6205eb33a5861b36c7d7fbca1eb064e74703ec145e47987ffdc73c3d327c24",
+  "files": [
+    {
+      "bytes": 2371,
+      "name": "capture-manifest.json",
+      "sha256": "3b6205eb33a5861b36c7d7fbca1eb064e74703ec145e47987ffdc73c3d327c24",
+      "source_entity": false
+    },
+    {
+      "bytes": 557,
+      "name": "request-plan.json",
+      "sha256": "8504b191e02c54e21a1617dac0cf2c04a464ec388f3a2b9b379557929397741a",
+      "source_entity": false
+    },
+    {
+      "bytes": 1160,
+      "name": "site-24042-datasets.body",
+      "sha256": "96c1574bd2ab261585c0c38370b2944c1c575e8c7553e0244cb870e0dba51b24",
+      "source_entity": true
+    },
+    {
+      "bytes": 1861,
+      "name": "site-24042-datasets.receipt.json",
+      "sha256": "988338f160a767c1d588c788ad2dfa5b1c885408e81c89db48e62bbeb15a256d",
+      "source_entity": false
+    },
+    {
+      "bytes": 1364,
+      "name": "site-3200-datasets.body",
+      "sha256": "e77c7f497a12b3c283e4a3850fe5351e95c471162ff63226a467419f0a79df3e",
+      "source_entity": true
+    },
+    {
+      "bytes": 1856,
+      "name": "site-3200-datasets.receipt.json",
+      "sha256": "f26a5a52f5a49a36ad5c5841c9c3328d96cce8aaa288e5825e5c3ce8481bd36a",
+      "source_entity": false
+    },
+    {
+      "bytes": 1688,
+      "name": "site-36445-datasets.body",
+      "sha256": "b798dd25b63bf4ec7345cbc53a44620f3bfc0ceb63c01109a697e42b99456914",
+      "source_entity": true
+    },
+    {
+      "bytes": 1861,
+      "name": "site-36445-datasets.receipt.json",
+      "sha256": "cf6adda6a4d66e046a281cb1369b0c03986a9eb608ee425faaf57d30fcd0a119",
+      "source_entity": false
+    },
+    {
+      "bytes": 4437,
+      "name": "site-42019-datasets.body",
+      "sha256": "acba406aadcfaf09afee4b173dc67a3b4294fcde3903694c17c7bdee2d0fcae7",
+      "source_entity": true
+    },
+    {
+      "bytes": 1862,
+      "name": "site-42019-datasets.receipt.json",
+      "sha256": "aa99213c2e576ebc0cceedf7ed7240735bc3702f41c7fb4a74714cb2194b26b8",
+      "source_entity": false
+    },
+    {
+      "bytes": 1216,
+      "name": "site-42047-datasets.body",
+      "sha256": "a030122dbb8341d020c812fd5fb80453e46be490687ec3cdec7a945075f28079",
+      "source_entity": true
+    },
+    {
+      "bytes": 1861,
+      "name": "site-42047-datasets.receipt.json",
+      "sha256": "f49dfcd105f6c085b1eaef242bb500b45f686948cbc0e5802da481b29eeaabdd",
+      "source_entity": false
+    },
+    {
+      "bytes": 2079,
+      "name": "site-42048-datasets.body",
+      "sha256": "e82ec8d169b9d44a24e54553ac36fbd8e1cc54906cc6ed615b0be8ca3820b9b8",
+      "source_entity": true
+    },
+    {
+      "bytes": 1861,
+      "name": "site-42048-datasets.receipt.json",
+      "sha256": "80c8c8c925bc78f3f264a850b7c5b64fcce37f9bcf16a883f5aa89887bfc5452",
+      "source_entity": false
+    },
+    {
+      "bytes": 2279,
+      "name": "site-42133-datasets.body",
+      "sha256": "beb597bdf213438a1d50dcd12a9d9dcf381f6b5eb2f07bf2376e5a35a674c410",
+      "source_entity": true
+    },
+    {
+      "bytes": 1861,
+      "name": "site-42133-datasets.receipt.json",
+      "sha256": "9c3154fd77a6024e9c9909455477af726099cdbc5b75ed2a2f23317f235e16aa",
+      "source_entity": false
+    },
+    {
+      "bytes": 1938,
+      "name": "site-42566-datasets.body",
+      "sha256": "ca9ef0bba943195907ff28a9a442e3f34ceb075dd9a9e348e77686e7979c90dd",
+      "source_entity": true
+    },
+    {
+      "bytes": 1861,
+      "name": "site-42566-datasets.receipt.json",
+      "sha256": "286cc9f3ee67119c778f4431502ee2686fdfa0264f66584ff713a06211539e78",
+      "source_entity": false
+    },
+    {
+      "bytes": 1877,
+      "name": "site-42567-datasets.body",
+      "sha256": "6263d5502604f0555dca98b64baaae64a5203f324909f9072c4dae3348c16bab",
+      "source_entity": true
+    },
+    {
+      "bytes": 1861,
+      "name": "site-42567-datasets.receipt.json",
+      "sha256": "22b994c8ddf3989aa6b5fae47029d562e814d28f51c94ecabbc95a219e5e5315",
+      "source_entity": false
+    }
+  ],
+  "native_schema_version": "neotoma-metadata-http-capture.v1",
+  "schema_version": "neotoma-resource-source-descriptor.v1",
+  "source_bodies_in_descriptor": false
+}

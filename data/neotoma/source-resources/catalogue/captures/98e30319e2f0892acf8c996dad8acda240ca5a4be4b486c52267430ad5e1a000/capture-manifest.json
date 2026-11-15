@@ -1,0 +1,1768 @@
+{
+  "all_resources_parsed": false,
+  "capture_utc_end": "2026-11-15T04:10:10.387701+00:00",
+  "capture_utc_start": "2026-11-15T04:09:33.754052+00:00",
+  "partitions": {
+    "parsed_native": 23,
+    "unresolved_frozen_schema": 24,
+    "unsupported_dataset_type": 1
+  },
+  "plan_sha256": "d41f621c5b2e38333d5d471b8f7ff30aee93428f57f892da371d249b111f9672",
+  "request_count": 48,
+  "resources": [
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66497-current-attempt-1.body",
+          "receipt_file": "dataset-66497-current-attempt-1.receipt.json",
+          "receipt_sha256": "05f1a6d2c5448f07e88a85beec83aed5388c0c8785cf9a89428b048bc01553eb",
+          "request_name": "dataset-66497-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66497,
+      "identity": {
+        "collection_unit_id": 49345,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66497,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1761/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36710
+      },
+      "resource_key": "dataset-66497-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 48,
+        "identified_samples": 1,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66497-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66497-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "555ac0e3f6afbd9086c4e83cf037e4813878c402c1277a5d455a7b4ed8c47821",
+          "request_name": "dataset-66497-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66497,
+      "identity": {
+        "collection_unit_id": 49345,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66497,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1761/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36710
+      },
+      "resource_key": "dataset-66497-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66498-current-attempt-1.body",
+          "receipt_file": "dataset-66498-current-attempt-1.receipt.json",
+          "receipt_sha256": "153fba0f10d43c3d069b9f2b9dde64fa12c6605a67ab77ec92cb5224319b658d",
+          "request_name": "dataset-66498-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66498,
+      "identity": {
+        "collection_unit_id": 49346,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66498,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1781/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36738
+      },
+      "resource_key": "dataset-66498-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 94,
+        "identified_samples": 2,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 2,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66498-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66498-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "74933ba2f00efcc41557bd90a43ee55f07eb94e0420a30765a8dabdba7b420cd",
+          "request_name": "dataset-66498-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66498,
+      "identity": {
+        "collection_unit_id": 49346,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66498,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1781/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36738
+      },
+      "resource_key": "dataset-66498-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66499-current-attempt-1.body",
+          "receipt_file": "dataset-66499-current-attempt-1.receipt.json",
+          "receipt_sha256": "8e529df6b6421df137f22083a3df6018c203bf65f77b2f2202c8af2a7318b449",
+          "request_name": "dataset-66499-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66499,
+      "identity": {
+        "collection_unit_id": 49347,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66499,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1734/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36704
+      },
+      "resource_key": "dataset-66499-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 82,
+        "identified_samples": 2,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 2,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66499-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66499-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "dd49952192fb49cd5b3a48fbcd9c3c1d7ec751feef8a26ff0ff4f9bdebe8a0ff",
+          "request_name": "dataset-66499-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66499,
+      "identity": {
+        "collection_unit_id": 49347,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66499,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1734/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36704
+      },
+      "resource_key": "dataset-66499-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66500-current-attempt-1.body",
+          "receipt_file": "dataset-66500-current-attempt-1.receipt.json",
+          "receipt_sha256": "30dea88563a66cd0348a0fe2bbef2b6c817002ce82a591374e29d164990b2216",
+          "request_name": "dataset-66500-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66500,
+      "identity": {
+        "collection_unit_id": 49348,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66500,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1754/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36709
+      },
+      "resource_key": "dataset-66500-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 68,
+        "identified_samples": 2,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 2,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66500-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66500-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "dbc6b1c5dec2ca378054b839ca86918c58e74b2f6864dc06b6a8e28b3ecb2cfc",
+          "request_name": "dataset-66500-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66500,
+      "identity": {
+        "collection_unit_id": 49348,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66500,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1754/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36709
+      },
+      "resource_key": "dataset-66500-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66501-current-attempt-1.body",
+          "receipt_file": "dataset-66501-current-attempt-1.receipt.json",
+          "receipt_sha256": "8f8e9c2c13b2ed9cff42bf108c94d13552758c039ec34c9c980edf0c3a0b3de1",
+          "request_name": "dataset-66501-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66501,
+      "identity": {
+        "collection_unit_id": 49349,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66501,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1732/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36703
+      },
+      "resource_key": "dataset-66501-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 83,
+        "identified_samples": 2,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 2,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66501-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66501-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "66c5ca5b058a01cb2a5484b8d0c540bf399cf465e26bbd1b0ea3f70efd29aa84",
+          "request_name": "dataset-66501-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66501,
+      "identity": {
+        "collection_unit_id": 49349,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66501,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1732/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36703
+      },
+      "resource_key": "dataset-66501-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66502-current-attempt-1.body",
+          "receipt_file": "dataset-66502-current-attempt-1.receipt.json",
+          "receipt_sha256": "29f4a9bba0197733761cb675dbacde05cabf7549dfa2c494c0b0bc91b47ebda8",
+          "request_name": "dataset-66502-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66502,
+      "identity": {
+        "collection_unit_id": 49350,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66502,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1785/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36739
+      },
+      "resource_key": "dataset-66502-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 106,
+        "identified_samples": 3,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 3,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66502-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66502-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "672094f6fdd38bfdeda66c628c329fe4829700b5a5077f68f55fa48e8620ec5d",
+          "request_name": "dataset-66502-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66502,
+      "identity": {
+        "collection_unit_id": 49350,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66502,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1785/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36739
+      },
+      "resource_key": "dataset-66502-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66503-current-attempt-1.body",
+          "receipt_file": "dataset-66503-current-attempt-1.receipt.json",
+          "receipt_sha256": "c3503fe4d1be7199f3cbc54eefbe1f905a5aa71f3915b2beb8ce4330322e2b72",
+          "request_name": "dataset-66503-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66503,
+      "identity": {
+        "collection_unit_id": 49351,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66503,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1786/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36739
+      },
+      "resource_key": "dataset-66503-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 108,
+        "identified_samples": 3,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 3,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66503-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66503-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "8363ee889b2b2efcb19143621d5d0c765af1496cff0b88e4c11d398d3b0e34bc",
+          "request_name": "dataset-66503-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66503,
+      "identity": {
+        "collection_unit_id": 49351,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66503,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1786/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36739
+      },
+      "resource_key": "dataset-66503-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66508-current-attempt-1.body",
+          "receipt_file": "dataset-66508-current-attempt-1.receipt.json",
+          "receipt_sha256": "72f269390e3a0987fe684520769b20e4d83d9be3ef150f7c759ace7e6b543e60",
+          "request_name": "dataset-66508-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66508,
+      "identity": {
+        "collection_unit_id": 49356,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66508,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1789/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36741
+      },
+      "resource_key": "dataset-66508-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 151,
+        "identified_samples": 3,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 3,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66508-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66508-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "1dcef475b23d049f4c6a46347dc74ac8cfad331f79a55e83ee2fbe0480fa4083",
+          "request_name": "dataset-66508-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66508,
+      "identity": {
+        "collection_unit_id": 49356,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66508,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1789/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36741
+      },
+      "resource_key": "dataset-66508-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66520-current-attempt-1.body",
+          "receipt_file": "dataset-66520-current-attempt-1.receipt.json",
+          "receipt_sha256": "f604e128deed662c9334d377270c812e8612053c12be21ec23383aa8e7a0d0ba",
+          "request_name": "dataset-66520-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66520,
+      "identity": {
+        "collection_unit_id": 49368,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66520,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1797/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36746
+      },
+      "resource_key": "dataset-66520-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 675,
+        "identified_samples": 18,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 18,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66520-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66520-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "98cae4a2cb11b9bcf1019ea0d76bcd2c019859a663f9fc44a35000e7a4e31ae1",
+          "request_name": "dataset-66520-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66520,
+      "identity": {
+        "collection_unit_id": 49368,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66520,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1797/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36746
+      },
+      "resource_key": "dataset-66520-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66521-current-attempt-1.body",
+          "receipt_file": "dataset-66521-current-attempt-1.receipt.json",
+          "receipt_sha256": "9f7334ad372ac69ba35eebbe89d73e3159e7cfa83bf5f829cc7a1d9181098dd8",
+          "request_name": "dataset-66521-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66521,
+      "identity": {
+        "collection_unit_id": 49369,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66521,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1707/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36686
+      },
+      "resource_key": "dataset-66521-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 241,
+        "identified_samples": 6,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 6,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66521-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66521-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "fee410e9c9f6643f8e8b9a5d72a9b97759542e0b943688a0aaa50cac6074c4c9",
+          "request_name": "dataset-66521-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66521,
+      "identity": {
+        "collection_unit_id": 49369,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66521,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1707/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36686
+      },
+      "resource_key": "dataset-66521-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66522-current-attempt-1.body",
+          "receipt_file": "dataset-66522-current-attempt-1.receipt.json",
+          "receipt_sha256": "c6cb9cf17e4222b4b7c42c6e07ba3b1e3efa3194cc549a335f579cb08ae4c61e",
+          "request_name": "dataset-66522-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66522,
+      "identity": {
+        "collection_unit_id": 49370,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66522,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1708/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36686
+      },
+      "resource_key": "dataset-66522-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 163,
+        "identified_samples": 5,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 5,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66522-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66522-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "fa9e2891c154d51384cc4118d618f8cc6a7998db6fbc086f0833008961cdb8b6",
+          "request_name": "dataset-66522-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66522,
+      "identity": {
+        "collection_unit_id": 49370,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66522,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1708/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36686
+      },
+      "resource_key": "dataset-66522-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66634-current-attempt-1.body",
+          "receipt_file": "dataset-66634-current-attempt-1.receipt.json",
+          "receipt_sha256": "7b98de01f4372f3bcab6b87586063f431eef7eee6d342964bf37564f9103bd40",
+          "request_name": "dataset-66634-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66634,
+      "identity": {
+        "collection_unit_id": 49482,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66634,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1819/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36772
+      },
+      "resource_key": "dataset-66634-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 494,
+        "identified_samples": 10,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 10,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66634-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66634-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "e1f1ba2c1ebdbcd04876fe73767b51244472b3bbaec22a6e458daed7c39f0fb8",
+          "request_name": "dataset-66634-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66634,
+      "identity": {
+        "collection_unit_id": 49482,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66634,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1819/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36772
+      },
+      "resource_key": "dataset-66634-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66638-current-attempt-1.body",
+          "receipt_file": "dataset-66638-current-attempt-1.receipt.json",
+          "receipt_sha256": "85c12d1c9dbdf402ad2639111db15076a017cb024eab4dab6e1f0e2879b1be36",
+          "request_name": "dataset-66638-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66638,
+      "identity": {
+        "collection_unit_id": 49486,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66638,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1820/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36790
+      },
+      "resource_key": "dataset-66638-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 410,
+        "identified_samples": 14,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 14,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66638-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66638-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "28b9d5f69af7cbc94a6675b8d6a568f97c61ea7c3ed05a2c2bb0efef63bdfe53",
+          "request_name": "dataset-66638-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66638,
+      "identity": {
+        "collection_unit_id": 49486,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66638,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1820/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36790
+      },
+      "resource_key": "dataset-66638-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66653-current-attempt-1.body",
+          "receipt_file": "dataset-66653-current-attempt-1.receipt.json",
+          "receipt_sha256": "7051687f7d00af1b802a9f194462e602bbc1445cbe8b598b7ba5e928a3dd0712",
+          "request_name": "dataset-66653-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66653,
+      "identity": {
+        "collection_unit_id": 49501,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66653,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1821/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36791
+      },
+      "resource_key": "dataset-66653-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 398,
+        "identified_samples": 12,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 12,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66653-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66653-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "1a4c1def7d93ff2c831e17deb760873774256064e1b50877781c8d865e52da6e",
+          "request_name": "dataset-66653-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66653,
+      "identity": {
+        "collection_unit_id": 49501,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66653,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1821/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36791
+      },
+      "resource_key": "dataset-66653-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66655-current-attempt-1.body",
+          "receipt_file": "dataset-66655-current-attempt-1.receipt.json",
+          "receipt_sha256": "c1bc85d2c9f6b63c67b8c81b4774020c6a6eea623afc1feaf3edce46bb74cb3b",
+          "request_name": "dataset-66655-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66655,
+      "identity": {
+        "collection_unit_id": 49503,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66655,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1747/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36706
+      },
+      "resource_key": "dataset-66655-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 124,
+        "identified_samples": 2,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 2,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66655-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66655-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "2950ace7abe2dfe4a375500119e293b79eecdd85f32fb95e0b946bcc26832142",
+          "request_name": "dataset-66655-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66655,
+      "identity": {
+        "collection_unit_id": 49503,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66655,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1747/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36706
+      },
+      "resource_key": "dataset-66655-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66656-current-attempt-1.body",
+          "receipt_file": "dataset-66656-current-attempt-1.receipt.json",
+          "receipt_sha256": "c3b9e812e76f90bce9d56edde455a22811f34f6494429d5b7fc1702206deaf47",
+          "request_name": "dataset-66656-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66656,
+      "identity": {
+        "collection_unit_id": 49504,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66656,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1752/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36708
+      },
+      "resource_key": "dataset-66656-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 129,
+        "identified_samples": 3,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 3,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66656-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66656-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "e008f51a7a35cdd0d272fc90ad5f5802c17daa639c38963fda7565e83ba08dbd",
+          "request_name": "dataset-66656-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66656,
+      "identity": {
+        "collection_unit_id": 49504,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66656,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1752/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36708
+      },
+      "resource_key": "dataset-66656-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66657-current-attempt-1.body",
+          "receipt_file": "dataset-66657-current-attempt-1.receipt.json",
+          "receipt_sha256": "36a1f63eada8a382bcd897687de7c2f12088582a9b6ec5750e66d5861e237cba",
+          "request_name": "dataset-66657-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66657,
+      "identity": {
+        "collection_unit_id": 49505,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66657,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1768/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36713
+      },
+      "resource_key": "dataset-66657-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 55,
+        "identified_samples": 2,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 2,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66657-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66657-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "588d72519dcaed07a289fc2e78d026e1736dd94d7a5a942965a4ddfee2fc884d",
+          "request_name": "dataset-66657-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66657,
+      "identity": {
+        "collection_unit_id": 49505,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66657,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1768/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36713
+      },
+      "resource_key": "dataset-66657-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66660-current-attempt-1.body",
+          "receipt_file": "dataset-66660-current-attempt-1.receipt.json",
+          "receipt_sha256": "0912801bb02df6218c68c1c52f1d92795b6a67a4fa7f1be5a0c7c1647ea685bf",
+          "request_name": "dataset-66660-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66660,
+      "identity": {
+        "collection_unit_id": 49508,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66660,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1782/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36738
+      },
+      "resource_key": "dataset-66660-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 46,
+        "identified_samples": 1,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66660-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66660-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "ce23972307b7c33f8c53905ec21bc896cfdd8e829107c1e254028a1dc1726526",
+          "request_name": "dataset-66660-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66660,
+      "identity": {
+        "collection_unit_id": 49508,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66660,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1782/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36738
+      },
+      "resource_key": "dataset-66660-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66667-current-attempt-1.body",
+          "receipt_file": "dataset-66667-current-attempt-1.receipt.json",
+          "receipt_sha256": "d02b3de5b5a76d23c40b734d1c5d96b05556d1003950738d3c19a1c01ebcc967",
+          "request_name": "dataset-66667-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66667,
+      "identity": {
+        "collection_unit_id": 49515,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66667,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1730/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36702
+      },
+      "resource_key": "dataset-66667-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 113,
+        "identified_samples": 3,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 3,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66667-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66667-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "d372f3ee07e39134401554ebe76a99d37efc187585130ecfdad3eee90e23bbb8",
+          "request_name": "dataset-66667-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66667,
+      "identity": {
+        "collection_unit_id": 49515,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66667,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1730/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36702
+      },
+      "resource_key": "dataset-66667-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66678-current-attempt-1.body",
+          "receipt_file": "dataset-66678-current-attempt-1.receipt.json",
+          "receipt_sha256": "b6e1964ba80d436260979a1bb29e089b84d2c822089d221c2ff45f86a344b67a",
+          "request_name": "dataset-66678-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66678,
+      "identity": {
+        "collection_unit_id": 49526,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66678,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1709/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36686
+      },
+      "resource_key": "dataset-66678-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 252,
+        "identified_samples": 6,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 6,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66678-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66678-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "063a0f7fa951f58efe01eae9e4a0113d2333116138fa4ea67185d638d1b35028",
+          "request_name": "dataset-66678-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66678,
+      "identity": {
+        "collection_unit_id": 49526,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66678,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1709/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36686
+      },
+      "resource_key": "dataset-66678-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66694-current-attempt-1.body",
+          "receipt_file": "dataset-66694-current-attempt-1.receipt.json",
+          "receipt_sha256": "b9c3792c7b5f176e5c1c187c3a1d5624c8f79ebc1998f901e74200fe64ea15f1",
+          "request_name": "dataset-66694-current-attempt-1"
+        }
+      ],
+      "dataset_id": 66694,
+      "identity": {
+        "collection_unit_id": 49542,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66694,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1720/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36694
+      },
+      "resource_key": "dataset-66694-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "Pollen Monitoring Programme",
+        "dataset_type": "pollen trap",
+        "datum_rows": 492,
+        "identified_samples": 15,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_monitoring",
+        "sample_population": "array",
+        "sample_rows": 15,
+        "source_units": [
+          null,
+          "NISP",
+          "cm",
+          "cm^2",
+          "grains/tablet",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-66694-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-66694-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "e67a8f45a0d49beaa5d0b502727cc4b70c9c9e44406abc5701f4d32a71c59de8",
+          "request_name": "dataset-66694-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 66694,
+      "identity": {
+        "collection_unit_id": 49542,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66694,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1720/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36694
+      },
+      "resource_key": "dataset-66694-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-67854-current-attempt-1.body",
+          "receipt_file": "dataset-67854-current-attempt-1.receipt.json",
+          "receipt_sha256": "f34d2f28096c1db07194a3e5d7e08d1d4c4a5f31a03a397056d0f2fafe1c8179",
+          "request_name": "dataset-67854-current-attempt-1"
+        }
+      ],
+      "dataset_id": 67854,
+      "identity": {
+        "collection_unit_id": 50135,
+        "database": null,
+        "dataset_id": 67854,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1828/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 37264
+      },
+      "resource_key": "dataset-67854-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": null,
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-67854-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-67854-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "4c71680c060837a8e26d3271820d42f639260090218fd94a370ff232f56c43e9",
+          "request_name": "dataset-67854-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 67854,
+      "identity": {
+        "collection_unit_id": 50135,
+        "database": null,
+        "dataset_id": 67854,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1828/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 37264
+      },
+      "resource_key": "dataset-67854-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-68269-current-attempt-1.body",
+          "receipt_file": "dataset-68269-current-attempt-1.receipt.json",
+          "receipt_sha256": "24eb5a3506d4e7c759ac08ca5a0141aa0653cc308240a8ddef481ffdd8933bca",
+          "request_name": "dataset-68269-current-attempt-1"
+        }
+      ],
+      "dataset_id": 68269,
+      "identity": {
+        "collection_unit_id": 50346,
+        "database": "SISAL",
+        "dataset_id": 68269,
+        "dataset_type": "speleothem",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1830/site/datasets/1",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 37353
+      },
+      "resource_key": "dataset-68269-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-68269-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-68269-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "0e525781e055ff49ad80a30b78fe326c767c9863911dce75a5b80ea9cc3832cc",
+          "request_name": "dataset-68269-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 68269,
+      "identity": {
+        "collection_unit_id": 50346,
+        "database": "SISAL",
+        "dataset_id": 68269,
+        "dataset_type": "speleothem",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1830/site/datasets/1",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 37353
+      },
+      "resource_key": "dataset-68269-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-68270-current-attempt-1.body",
+          "receipt_file": "dataset-68270-current-attempt-1.receipt.json",
+          "receipt_sha256": "63110339ee7693efc6325a6c30a9d4dea380c97f935c1e4f1d22c1b5d337d5d3",
+          "request_name": "dataset-68270-current-attempt-1"
+        }
+      ],
+      "dataset_id": 68270,
+      "identity": {
+        "collection_unit_id": 50346,
+        "database": null,
+        "dataset_id": 68270,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1830/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 37353
+      },
+      "resource_key": "dataset-68270-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": null,
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-68270-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-68270-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "88ed79dff459e6d524154bd933ac28110559538d82cc6cabcb2f567d387553fe",
+          "request_name": "dataset-68270-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 68270,
+      "identity": {
+        "collection_unit_id": 50346,
+        "database": null,
+        "dataset_id": 68270,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1830/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 37353
+      },
+      "resource_key": "dataset-68270-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    }
+  ],
+  "response_bytes": 7915269,
+  "schema_version": "neotoma-resource-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed live or explicitly reused responses; no transaction snapshot",
+  "status": "closed"
+}

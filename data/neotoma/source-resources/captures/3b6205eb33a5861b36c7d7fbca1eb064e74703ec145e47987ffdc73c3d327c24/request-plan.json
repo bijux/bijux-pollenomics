@@ -1,0 +1,27 @@
+{
+  "exposure_role": "metadata_only; no samples or observation outcomes",
+  "historical_capture_replaced": false,
+  "limits": {
+    "max_pages_per_inventory": 8,
+    "max_requests": 256,
+    "max_response_bytes": 2097152,
+    "max_total_bytes": 16777216,
+    "timeout_seconds": 45.0
+  },
+  "plan": {
+    "inventory_bbox": null,
+    "inventory_limits": [],
+    "site_ids": [
+      3200,
+      24042,
+      36445,
+      42019,
+      42047,
+      42048,
+      42133,
+      42566,
+      42567
+    ]
+  },
+  "schema_version": "neotoma-metadata-http-capture.v1"
+}

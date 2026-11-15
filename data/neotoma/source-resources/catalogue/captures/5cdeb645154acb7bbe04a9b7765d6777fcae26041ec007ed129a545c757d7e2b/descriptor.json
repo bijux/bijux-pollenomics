@@ -1,0 +1,46 @@
+{
+  "body_resolver": "explicit capture_sources mapping keyed by capture_manifest_sha256",
+  "capture_kind": "metadata",
+  "capture_manifest_sha256": "5cdeb645154acb7bbe04a9b7765d6777fcae26041ec007ed129a545c757d7e2b",
+  "files": [
+    {
+      "bytes": 1005,
+      "name": "capture-manifest.json",
+      "sha256": "5cdeb645154acb7bbe04a9b7765d6777fcae26041ec007ed129a545c757d7e2b",
+      "source_entity": false
+    },
+    {
+      "bytes": 393410,
+      "name": "inventory-gpid-1411-limit-10000-offset-0.body",
+      "sha256": "9371e3f1c2c85ee876e1011c965ce1c25a8efbb7ed537f86c36d10be35a5d1f8",
+      "source_entity": true
+    },
+    {
+      "bytes": 2011,
+      "name": "inventory-gpid-1411-limit-10000-offset-0.receipt.json",
+      "sha256": "c1672a98c2216bbd51d4074408e41f9eda3247a1ab9dd9f25b0347ed83b9230e",
+      "source_entity": false
+    },
+    {
+      "bytes": 393410,
+      "name": "inventory-gpid-1411-limit-400-offset-0.body",
+      "sha256": "9371e3f1c2c85ee876e1011c965ce1c25a8efbb7ed537f86c36d10be35a5d1f8",
+      "source_entity": true
+    },
+    {
+      "bytes": 2001,
+      "name": "inventory-gpid-1411-limit-400-offset-0.receipt.json",
+      "sha256": "6f4071f3c0cbe9b52589e7b5ace23462f841869e11047129f37f61bd47c499f7",
+      "source_entity": false
+    },
+    {
+      "bytes": 576,
+      "name": "request-plan.json",
+      "sha256": "88861969fd34a4c271a2cf92f39a4d5c09f4efb8146ab762cadaf0d62a9115db",
+      "source_entity": false
+    }
+  ],
+  "native_schema_version": "neotoma-metadata-http-capture.v1",
+  "schema_version": "neotoma-resource-source-descriptor.v1",
+  "source_bodies_in_descriptor": false
+}
