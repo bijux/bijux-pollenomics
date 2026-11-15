@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":45723,"lithology":[{"lithologyid":17160,"depth":{"top":516,"bottom":950},"lowerboundary":null,"description":"fine detritus lake gyttja"},{"lithologyid":17161,"depth":{"top":950,"bottom":1055},"lowerboundary":null,"description":"marine silt"}]}],"message":"Retrieved all tables"}

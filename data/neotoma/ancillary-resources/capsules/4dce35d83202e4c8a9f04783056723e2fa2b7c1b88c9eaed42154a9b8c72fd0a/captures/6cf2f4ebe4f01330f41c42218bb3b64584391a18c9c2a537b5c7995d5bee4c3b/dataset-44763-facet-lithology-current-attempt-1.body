@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":44763,"lithology":[{"lithologyid":16684,"depth":{"top":0,"bottom":45},"lowerboundary":null,"description":"slighly humified Sphagnum peat"},{"lithologyid":16685,"depth":{"top":45,"bottom":90},"lowerboundary":null,"description":"highly humified Sphagnum peat"}]}],"message":"Retrieved all tables"}

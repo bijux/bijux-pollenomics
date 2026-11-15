@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":4152,"lithology":[{"lithologyid":4657,"depth":{"top":0,"bottom":6},"lowerboundary":"Diffuse","description":"Dark humus"},{"lithologyid":4658,"depth":{"top":6,"bottom":28},"lowerboundary":"Sharp","description":"Fibrous peat with wood"}]}],"message":"Retrieved all tables"}

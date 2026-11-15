@@ -1,0 +1,181 @@
+{
+  "capture_utc_end": "2026-11-15T03:40:59.056211+00:00",
+  "capture_utc_start": "2026-11-15T03:40:57.858149+00:00",
+  "partitions": {
+    "received_complete_unqualified_linked_resource": 3
+  },
+  "plan_sha256": "617e5689a1d502489eec8add4cfeec9c2dd190b2983c63fa8b0b09814f30f3e5",
+  "request_count": 3,
+  "resources": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-8710-current-attempt-1.body",
+          "receipt_file": "contact-8710-current-attempt-1.receipt.json",
+          "receipt_sha256": "9ef771e967ff4419804187053fd3cfd0b74232b83d87b6870136db014b79dc19",
+          "request_name": "contact-8710-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "native_id": 8710,
+        "source_proofs": [
+          {
+            "api_version": "v2.0",
+            "content_version": "current",
+            "inherited_exposure_role": "development_resource_discovery",
+            "json_pointer": "/data/0/contacts/contacts/0/contactid",
+            "native_id": 8710,
+            "optional_higher_taxon": false,
+            "relation": "dataset_contributor",
+            "root_dataset_id": 19913,
+            "root_identity": {
+              "collection_unit_id": 14910,
+              "database": "European Pollen Database",
+              "dataset_id": 19913,
+              "dataset_type": "pollen",
+              "exposure_role": "development_resource_discovery",
+              "metadata_pointer": "/data/0/site/datasets/2",
+              "metadata_sha256": "d22c37e2c0e4f505bbe8f4f088937bd2fc2c712cb26eeb0b950910fd4d80c153",
+              "site_id": 13338
+            },
+            "source_body_sha256": "d3ce7e42d8468ff7dff584fe0baddca3f307114942806fd2da0b1693a76d47cb",
+            "source_capture_manifest_sha256": "f8da7b2e1ebc3d560df76d35043139047a1ba760b0600d9cdd2e968b69042c3e",
+            "source_facet_key": "dataset-19913-facet-contacts-current",
+            "source_receipt_sha256": "78c2e60c35049b92d35dd02d98cfdd697c187bd25072bcefe891dfb7c51fafc0",
+            "target_kind": "contact"
+          }
+        ],
+        "target_key": "contact-8710"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-8710",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "publication-9435-current-attempt-1.body",
+          "receipt_file": "publication-9435-current-attempt-1.receipt.json",
+          "receipt_sha256": "3d833e8ff7ed01903464ab5c1324ff96254daeae6ca6de99120e359c0e990909",
+          "request_name": "publication-9435-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "publication",
+        "native_id": 9435,
+        "source_proofs": [
+          {
+            "api_version": "v2.0",
+            "content_version": "current",
+            "inherited_exposure_role": "development_resource_discovery",
+            "json_pointer": "/data/0/publication/publicationid",
+            "native_id": 9435,
+            "optional_higher_taxon": false,
+            "relation": "dataset_publication",
+            "root_dataset_id": 19913,
+            "root_identity": {
+              "collection_unit_id": 14910,
+              "database": "European Pollen Database",
+              "dataset_id": 19913,
+              "dataset_type": "pollen",
+              "exposure_role": "development_resource_discovery",
+              "metadata_pointer": "/data/0/site/datasets/2",
+              "metadata_sha256": "d22c37e2c0e4f505bbe8f4f088937bd2fc2c712cb26eeb0b950910fd4d80c153",
+              "site_id": 13338
+            },
+            "source_body_sha256": "58d463535d0a3e1d1bc28e345c2166d5b353c3361ccd76f1188780a7dd192a81",
+            "source_capture_manifest_sha256": "393cd39a81b4f4b168255713474fd087390b035d17b17bf76a325b552838c370",
+            "source_facet_key": "dataset-19913-facet-publications-current",
+            "source_receipt_sha256": "9346ffa31833c3242c1ba5b9d19d06584e37e69ec8a70803d57b29648ebd2b9c",
+            "target_kind": "publication"
+          }
+        ],
+        "target_key": "publication-9435"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "publication-9435",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-29-current-attempt-1.body",
+          "receipt_file": "taxon-29-current-attempt-1.receipt.json",
+          "receipt_sha256": "88246932bf091db1d34d002411a525208637695e14b7f5490f010830a345b5cb",
+          "request_name": "taxon-29-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "native_id": 29,
+        "source_proofs": [
+          {
+            "api_version": "v2.0",
+            "content_version": "current",
+            "inherited_exposure_role": "development_resource_discovery",
+            "json_pointer": "/data/28/taxonid",
+            "native_id": 29,
+            "optional_higher_taxon": false,
+            "relation": "dataset_reported_taxon",
+            "root_dataset_id": 19913,
+            "root_identity": {
+              "collection_unit_id": 14910,
+              "database": "European Pollen Database",
+              "dataset_id": 19913,
+              "dataset_type": "pollen",
+              "exposure_role": "development_resource_discovery",
+              "metadata_pointer": "/data/0/site/datasets/2",
+              "metadata_sha256": "d22c37e2c0e4f505bbe8f4f088937bd2fc2c712cb26eeb0b950910fd4d80c153",
+              "site_id": 13338
+            },
+            "source_body_sha256": "45a68f0be9feaa54802e14fd6ba4ee991f464dec89d048b01be64ee83032aace",
+            "source_capture_manifest_sha256": "393cd39a81b4f4b168255713474fd087390b035d17b17bf76a325b552838c370",
+            "source_facet_key": "dataset-19913-facet-taxa-current",
+            "source_receipt_sha256": "0c52c4ef7b33d34ed8a441023488a5f613a0727eb4511c57b077531263d4e7f3",
+            "target_kind": "taxon"
+          }
+        ],
+        "target_key": "taxon-29"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-29",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    }
+  ],
+  "response_bytes": 2055,
+  "schema_version": "neotoma-linked-resource-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed current linked responses; no transaction or frozen snapshot",
+  "status": "closed"
+}

@@ -1,0 +1,114 @@
+{
+  "historical_snapshot_replaced": false,
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 48,
+    "max_response_bytes": 8388607,
+    "max_total_bytes": 67108863,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 300
+  },
+  "parent_scope": {
+    "file": "parent-scope.json",
+    "sha256": "6c6135d1b28f9693e6571faa9c073d971a0851cb78bab2dd9da3961c7a4953f9"
+  },
+  "plan": {
+    "facets": [
+      "chronologies",
+      "lithology",
+      "projects",
+      "publications",
+      "taxa",
+      "contacts",
+      "doi",
+      "sites"
+    ],
+    "resources": [
+      {
+        "collection_unit_id": 15098,
+        "database": "European Plant Macrofossil Database",
+        "dataset_id": 20277,
+        "dataset_type": "plant macrofossil",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "0c26374a15486f782df16447aeeb5780c93437372ec3ddd5916868dcabd8fcd7",
+        "site_id": 13476,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 15098,
+        "database": "European Pollen Database",
+        "dataset_id": 20278,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/2",
+        "metadata_sha256": "0c26374a15486f782df16447aeeb5780c93437372ec3ddd5916868dcabd8fcd7",
+        "site_id": 13476,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 15098,
+        "database": "European Pollen Database",
+        "dataset_id": 20279,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "0c26374a15486f782df16447aeeb5780c93437372ec3ddd5916868dcabd8fcd7",
+        "site_id": 13476,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 15100,
+        "database": "European Pollen Database",
+        "dataset_id": 20282,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "4865ab8723cee6720ca5df490094f4a068d2d751d4aaf97731ccd8337c0448bb",
+        "site_id": 13478,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 15100,
+        "database": "European Plant Macrofossil Database",
+        "dataset_id": 20283,
+        "dataset_type": "plant macrofossil",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "4865ab8723cee6720ca5df490094f4a068d2d751d4aaf97731ccd8337c0448bb",
+        "site_id": 13478,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 15100,
+        "database": "European Pollen Database",
+        "dataset_id": 20284,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/2",
+        "metadata_sha256": "4865ab8723cee6720ca5df490094f4a068d2d751d4aaf97731ccd8337c0448bb",
+        "site_id": 13478,
+        "versions": [
+          "current"
+        ]
+      }
+    ],
+    "roster_sha256": "0af2a76f408b3abc7d59eabc94dc3998060244e1a4202d28c51bc99be56f9f32"
+  },
+  "policy_sources": [
+    "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+    "https://epdweblog.org/epd_data_home/epd_policy/"
+  ],
+  "schema_version": "neotoma-dataset-facet-scoped-http-capture.v1"
+}

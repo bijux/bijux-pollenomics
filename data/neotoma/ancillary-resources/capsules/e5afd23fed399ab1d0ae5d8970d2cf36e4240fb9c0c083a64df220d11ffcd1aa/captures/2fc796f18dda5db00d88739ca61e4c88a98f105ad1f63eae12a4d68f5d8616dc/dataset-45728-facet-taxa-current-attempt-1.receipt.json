@@ -1,0 +1,95 @@
+{
+  "body_complete": true,
+  "body_file": "dataset-45728-facet-taxa-current-attempt-1.body",
+  "expected_dataset_id": 45728,
+  "expected_site_id": 26220,
+  "final_url": "https://api.neotomadb.org/v2.0/data/datasets/45728/taxa",
+  "http_status": 200,
+  "parameters": {},
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/datasets/45728/taxa",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/datasets/45728/taxa",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "51718"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 10:15:21 GMT"
+    ],
+    [
+      "etag",
+      "W/\"ca06-ftcU5QzX37JA5eLj4pubwXnddHY\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4950"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794737777"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "62"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 51718,
+  "retained_body_sha256": "c0fe29bed02c98d3231fcd5e998f0a2f99af70b0bf4d7c9aaeb2d92c13f57149",
+  "role": "dataset_facet_taxa",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T10:15:21.304976+00:00",
+  "utc_start": "2026-11-15T10:15:20.748483+00:00"
+}

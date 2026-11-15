@@ -1,0 +1,114 @@
+{
+  "historical_snapshot_replaced": false,
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 48,
+    "max_response_bytes": 8388607,
+    "max_total_bytes": 67108863,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 300
+  },
+  "parent_scope": {
+    "file": "parent-scope.json",
+    "sha256": "d65e835262c6dec55df4f4eff02f6119af02c23bee45d7f7ee9b51aeac6a8ab5"
+  },
+  "plan": {
+    "facets": [
+      "chronologies",
+      "lithology",
+      "projects",
+      "publications",
+      "taxa",
+      "contacts",
+      "doi",
+      "sites"
+    ],
+    "resources": [
+      {
+        "collection_unit_id": 4278,
+        "database": "European Pollen Database",
+        "dataset_id": 4420,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "5196d226333da37e7ae2f253bd7cff0d21b98695c599d0a3e4937b8504ef8600",
+        "site_id": 3412,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 4280,
+        "database": "European Pollen Database",
+        "dataset_id": 4422,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "ede17dc35aebf76741177ff4be2c701535178a32bb1a48d1dde76a73af883475",
+        "site_id": 3414,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 4289,
+        "database": "European Pollen Database",
+        "dataset_id": 4431,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "59630e32f0e3871a7013be3f0e1f627d8cc49044434d90a73dcab3628a22470f",
+        "site_id": 3419,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 4291,
+        "database": "European Pollen Database",
+        "dataset_id": 4433,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "13d09bcf3f7124169531e8329a46535ef102e90b49a9249e8b670cbd51bb38fa",
+        "site_id": 3421,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 4303,
+        "database": "European Pollen Database",
+        "dataset_id": 4445,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "399450582adc8383deebda2f156b1538001a6cdff04506ca8aa4a94168ddf3a5",
+        "site_id": 3432,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 4304,
+        "database": "European Pollen Database",
+        "dataset_id": 4446,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1/site/datasets/0",
+        "metadata_sha256": "399450582adc8383deebda2f156b1538001a6cdff04506ca8aa4a94168ddf3a5",
+        "site_id": 3432,
+        "versions": [
+          "current"
+        ]
+      }
+    ],
+    "roster_sha256": "0af2a76f408b3abc7d59eabc94dc3998060244e1a4202d28c51bc99be56f9f32"
+  },
+  "policy_sources": [
+    "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+    "https://epdweblog.org/epd_data_home/epd_policy/"
+  ],
+  "schema_version": "neotoma-dataset-facet-scoped-http-capture.v1"
+}
