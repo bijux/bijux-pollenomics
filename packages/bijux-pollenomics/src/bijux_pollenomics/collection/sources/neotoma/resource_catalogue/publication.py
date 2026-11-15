@@ -171,6 +171,14 @@ def write_neotoma_resource_catalogue(
         require_source_bodies=True,
     )
     publish_new_output_tree(final_output_root=final, staging_output_root=staging)
+    load_neotoma_resource_catalogue(
+        final,
+        expected_manifest_sha256=manifest_digest,
+        original_relational_root=original_relational_root,
+        capture_sources=capture_sources,
+        retained_sources=retained_sources,
+        require_source_bodies=True,
+    )
     return manifest
 
 

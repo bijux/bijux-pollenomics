@@ -6,6 +6,7 @@ from collections.abc import Callable
 from hashlib import sha256
 import json
 from pathlib import Path
+import shutil
 from typing import Any
 
 import pytest
@@ -13,8 +14,65 @@ import pytest
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import (
     build_neotoma_resource_catalogue,
     load_neotoma_resource_catalogue,
+    publication,
     write_neotoma_resource_catalogue,
 )
+from bijux_pollenomics.core.owned_tree import publish_new_output_tree
+
+
+@pytest.mark.parametrize(
+    "mutation", ["stage_tree", "catalogue_leaf", "native_leaf", "manifest_leaf"]
+)
+def test_publication_refuses_late_source_swaps_and_preserves_published_evidence(
+    catalogue_sources: Callable[..., dict[str, Any]],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+) -> None:
+    inputs = catalogue_sources()
+    catalogue = build_neotoma_resource_catalogue(**inputs)
+    sources = {**inputs["metadata_captures"], **inputs["resource_captures"]}
+    output = tmp_path / "published-catalogue"
+    preserved_stage = tmp_path / "validated-stage-evidence"
+    native = next(iter(inputs["resource_captures"].values()))
+    native_leaf = native / "dataset-201-current-attempt-1.body"
+    foreign = b'{"foreign_source":true}'
+
+    def publish_with_late_swap(
+        *, final_output_root: Path, staging_output_root: Path
+    ) -> None:
+        if mutation == "stage_tree":
+            staging_output_root.rename(preserved_stage)
+            shutil.copytree(preserved_stage, staging_output_root)
+        if mutation in {"stage_tree", "catalogue_leaf"}:
+            (staging_output_root / "catalogue.json").write_bytes(foreign)
+        elif mutation == "native_leaf":
+            native_leaf.write_bytes(foreign)
+        else:
+            (staging_output_root / "manifest.json").write_bytes(foreign)
+        publish_new_output_tree(
+            final_output_root=final_output_root,
+            staging_output_root=staging_output_root,
+        )
+
+    monkeypatch.setattr(publication, "publish_new_output_tree", publish_with_late_swap)
+    with pytest.raises(ValueError, match="identity|digest|source|population"):
+        write_neotoma_resource_catalogue(
+            output,
+            catalogue=catalogue,
+            roster_path=inputs["roster_path"],
+            capture_sources=sources,
+        )
+    assert output.is_dir()
+    if mutation == "native_leaf":
+        assert native_leaf.read_bytes() == foreign
+        assert (output / "catalogue.json").is_file()
+    elif mutation == "manifest_leaf":
+        assert (output / "manifest.json").read_bytes() == foreign
+    else:
+        assert (output / "catalogue.json").read_bytes() == foreign
+    if mutation == "stage_tree":
+        assert (preserved_stage / "catalogue.json").read_bytes() != foreign
 
 
 def test_compact_publication_has_portable_sources_and_required_raw_replay(
