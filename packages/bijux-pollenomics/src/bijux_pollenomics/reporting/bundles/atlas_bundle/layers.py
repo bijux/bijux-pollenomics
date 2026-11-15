@@ -5,6 +5,10 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from ...map_document.source_resources import (
+    AtlasResourceCatalogueInput,
+    load_atlas_resource_catalogue,
+)
 from ...modeled_context.publication_projection import project_modeled_context_layers
 
 _ANIMAL_CHRONOLOGY_CONTEXT = {
@@ -54,6 +58,7 @@ def prepare_layers(
     atlas_sequence_records: Any,
     surface: Any,
     publication_capture_root: Path | None = None,
+    source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
 ) -> tuple[Any, ...]:
     """Prepare atlas layers and traceable assets with optional publication metadata."""
     if publication_capture_root is not None and (
@@ -124,6 +129,18 @@ def prepare_layers(
         atlas_detail_records = detail_projection.detail_records
         detail_projection_reconciliation = detail_projection.reconciliation
         point_layers.extend(detail_projection.point_layers)
+    source_resources = None
+    if source_resource_catalogue is not None:
+        neotoma_records = [
+            record
+            for record in (atlas_detail_records or ())
+            if isinstance(record.get("tabs"), dict)
+            and isinstance(record["tabs"].get("overview"), dict)
+            and record["tabs"]["overview"].get("source_family") == "neotoma"
+        ]
+        source_resources = load_atlas_resource_catalogue(
+            source_resource_catalogue, legacy_neotoma_records=neotoma_records
+        )
     surface._attach_traceability_surfaces(point_layers, bundle_paths)
     static_assets = surface.write_static_atlas_assets(
         staging_output_dir,
@@ -135,6 +152,11 @@ def prepare_layers(
         scientific_signals=atlas_scientific_signals,
         edge_records=atlas_edge_records,
         sequence_records=atlas_sequence_records,
+        **(
+            {"source_resources": source_resources}
+            if source_resources is not None
+            else {}
+        ),
     )
     if static_assets.manifest_path != bundle_paths.map_static_assets_manifest_path:
         raise ValueError("static atlas manifest path does not match bundle ownership")

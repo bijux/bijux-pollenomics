@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from ...map_document.source_resources import AtlasResourceCatalogueInput
 from .contracts import publish_contracts
 from .evidence import publish_evidence_and_rankings
 from .finalization import finalize_bundle
@@ -39,6 +40,7 @@ def publish_bundle(
     atlas_sequence_records: Any,
     surface: Any,
     publication_capture_root: Path | None = None,
+    source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
 ) -> None:
     """Publish atlas layers, evidence, playback, and inventoried static documents."""
     (
@@ -67,6 +69,11 @@ def publish_bundle(
         atlas_sequence_records=atlas_sequence_records,
         surface=surface,
         publication_capture_root=publication_capture_root,
+        **(
+            {"source_resource_catalogue": source_resource_catalogue}
+            if source_resource_catalogue is not None
+            else {}
+        ),
     )
     animal_atlas_summary = surface._build_animal_atlas_summary(
         point_layers,

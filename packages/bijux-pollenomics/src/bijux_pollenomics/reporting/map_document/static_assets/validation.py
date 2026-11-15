@@ -23,6 +23,7 @@ from .models import StaticAtlasAssets
 from .nodes import node_asset_selection
 from .search import validate_search_membership
 from .serialization import decode_chunk_script
+from .source_resources import SourceResourcePayloads, validate_source_resource_payloads
 
 
 def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
@@ -100,17 +101,18 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
             "sequences",
             "provenance",
             "indexes",
+            "resources",
         }:
             raise ValueError("static atlas asset domain is invalid")
         if row.get("initial_load") is not (
-            domain not in {"nodes", "details", "indexes"}
+            domain not in {"nodes", "details", "indexes", "resources"}
         ):
             raise ValueError("static atlas initial-load declaration is invalid")
         expected_payload_encodings = (
             {"gzip_base64", "json"}
             if domain in {"nodes", "provenance"}
             else {"gzip_base64"}
-            if domain == "details"
+            if domain in {"details", "resources"}
             else {"json"}
         )
         payload_encoding = row.get("payload_encoding")
@@ -192,6 +194,7 @@ def _validate_static_payloads(
         "details": compatibility.get("detail_schema"),
         "edges": compatibility.get("edge_schema"),
         "sequences": compatibility.get("sequence_schema"),
+        "resources": compatibility.get("resource_schema"),
         "indexes": compatibility.get(
             "index_transport_schema", compatibility.get("index_schema")
         ),
@@ -264,6 +267,33 @@ def _validate_static_payloads(
     domains = manifest.get("domains")
     if not isinstance(domains, Mapping):
         raise ValueError("static atlas domain accounting is missing")
+    resource_rows = [row for row in asset_rows if row.get("domain") == "resources"]
+    resource_domain = domains.get("resources")
+    if resource_domain is not None or resource_rows:
+        if not isinstance(resource_domain, dict):
+            raise ValueError("Static resource domain declaration is missing")
+        resource_payloads = tuple(
+            dict(payloads[str(row["asset_key"])]) for row in resource_rows
+        )
+        for row, payload in zip(resource_rows, resource_payloads, strict=True):
+            records = payload.get("records")
+            if not isinstance(records, list) or row.get("record_count") != len(records):
+                raise ValueError("Static resource asset record count differs")
+        part_assets = {
+            str(payload["part_id"]): str(row["asset_key"])
+            for row, payload in zip(resource_rows, resource_payloads, strict=True)
+        }
+        if resource_domain.get("part_asset_keys") != part_assets or resource_domain.get(
+            "index_asset_keys"
+        ) != [part_assets[key] for key in resource_domain.get("index_part_ids", ())]:
+            raise ValueError("Static resource part inventory does not reconcile")
+        catalogue_anchor = resource_domain.get("catalogue_manifest_sha256")
+        if not isinstance(catalogue_anchor, str):
+            raise ValueError("Static resource catalogue manifest identity is missing")
+        validate_source_resource_payloads(
+            SourceResourcePayloads(resource_domain, resource_payloads),
+            expected_catalogue_manifest_sha256=catalogue_anchor,
+        )
     details_domain = domains.get("details")
     if not isinstance(details_domain, Mapping) or details_domain.get(
         "record_count"

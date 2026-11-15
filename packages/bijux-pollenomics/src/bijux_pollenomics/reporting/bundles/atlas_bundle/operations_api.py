@@ -13,6 +13,7 @@ from ....collection.contracts.models import ContextPointRecord
 from ....core.geospatial.geojson import JsonObject
 from ....evidence import AnimalCoordinateVisibilityReview
 from ...geography import GeographicScope
+from ...map_document.source_resources import AtlasResourceCatalogueInput
 from ...models import MultiCountryMapReport, SampleRecord
 from ..paths import AtlasBundlePaths
 from .context import (
@@ -58,6 +59,7 @@ def publish_multi_country_map_bundle(
     atlas_edge_records: Sequence[JsonObject] | None = None,
     atlas_sequence_records: Sequence[JsonObject] | None = None,
     publication_capture_root: Path | None = None,
+    source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
     publish_bundle(
@@ -86,6 +88,11 @@ def publish_multi_country_map_bundle(
         atlas_sequence_records=atlas_sequence_records,
         surface=_surface(),
         publication_capture_root=publication_capture_root,
+        **(
+            {"source_resource_catalogue": source_resource_catalogue}
+            if source_resource_catalogue is not None
+            else {}
+        ),
     )
 
 

@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Callable, Iterable
 from datetime import date
 from pathlib import Path
+from typing import TypedDict
 
 from ..adna import (
     AdnaSampleQuery,
@@ -40,6 +41,7 @@ from .bundles.summary_builders import (
 from .context import build_context_layers
 from .geography import GeographicScope, infer_publication_scope
 from .map_document.render import write_static_map_document
+from .map_document.source_resources import AtlasResourceCatalogueInput
 from .models import (
     AnimalFoundationRefreshReport,
     CountryReport,
@@ -62,6 +64,10 @@ from .rendering import (
 from .review.sustainability_outputs import (
     publish_repository_output_sustainability_review,
 )
+
+
+class _SourceResourceOptions(TypedDict, total=False):
+    source_resource_catalogue: AtlasResourceCatalogueInput
 
 
 def generate_country_report(
@@ -133,6 +139,7 @@ def generate_multi_country_map(
     geography_scope: GeographicScope | None = None,
     *,
     publication_capture_root: Path | None = None,
+    source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     version_dir = Path(version_dir)
@@ -141,6 +148,11 @@ def generate_multi_country_map(
         Path(published_output_dir) if published_output_dir is not None else output_dir
     )
 
+    source_resource_options: _SourceResourceOptions = (
+        {"source_resource_catalogue": source_resource_catalogue}
+        if source_resource_catalogue is not None
+        else {}
+    )
     normalized_countries = normalize_requested_countries(countries)
     if not normalized_countries:
         raise ValueError(
@@ -200,6 +212,7 @@ def generate_multi_country_map(
             render_multi_country_map_markdown_fn=render_multi_country_map_markdown,
             write_summary_json_fn=write_summary_json,
             publication_capture_root=publication_capture_root,
+            **source_resource_options,
         )
 
     publish_into_staging_dir(output_dir, publish_map_bundle)
@@ -214,6 +227,8 @@ def generate_published_reports(
     slug: str = DEFAULT_ATLAS_SLUG,
     context_root: Path | None = None,
     published_output_root: Path | None = None,
+    *,
+    source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
 ) -> PublishedReportsReport:
     """Generate the current published report set: one shared map and one bundle per country."""
     version_dir = Path(version_dir)
@@ -224,6 +239,11 @@ def generate_published_reports(
         else output_root
     )
 
+    source_resource_options: _SourceResourceOptions = (
+        {"source_resource_catalogue": source_resource_catalogue}
+        if source_resource_catalogue is not None
+        else {}
+    )
     normalized_countries = normalize_requested_countries(countries)
     if not normalized_countries:
         raise ValueError("At least one country is required to publish reports")
@@ -254,6 +274,7 @@ def generate_published_reports(
             build_published_reports_summary_fn=build_published_reports_summary,
             generate_country_report_fn=generate_country_report,
             generate_multi_country_map_fn=generate_multi_country_map,
+            **source_resource_options,
             slugify_fn=slugify,
             write_summary_json_fn=write_summary_json,
         )

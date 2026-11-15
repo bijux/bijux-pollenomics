@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import shutil
 import subprocess
+from typing import Any
 
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
@@ -13,6 +14,16 @@ from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory impo
 )
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
+from ...map_document.browser_semantics.source_context.test_source_resources import (
+    atlas_catalogue as atlas_catalogue,
+)
+from ...map_document.browser_semantics.source_context.test_source_resources import (
+    catalogue_sources as catalogue_sources,
+)
+from ...map_document.browser_semantics.source_context.test_source_resources import (
+    resource_script as resource_script,
+)
+from ...map_document.browser_semantics.support import run_node_json
 from .fixtures.scientific_evidence import (
     build_detail_records,
     build_scientific_point_layers,
@@ -243,3 +254,119 @@ console.log(JSON.stringify({
         "defaults_equal_restored": True,
         "defaults_equal_changed": False,
     }
+
+
+def test_resource_payload_uses_actual_runtime_schema_and_record_accounting(
+    resource_script: tuple[str, dict[str, Any], dict[str, Any]],
+) -> None:
+    from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+        encode_asset_inventory,
+    )
+
+    _, manifest, payloads = resource_script
+    compact = {
+        **manifest,
+        "assets": encode_asset_inventory(
+            manifest["assets"], scope_slug=manifest["scope_slug"]
+        ),
+    }
+    start = MAP_DOCUMENT_TEMPLATE.index("const STATIC_ATLAS_ASSET_TABLE_FIELDS")
+    end = MAP_DOCUMENT_TEMPLATE.index("function validateStaticAtlasBootstrap", start)
+    validator_start = MAP_DOCUMENT_TEMPLATE.index("function validateStaticAtlasPayload")
+    validator_end = MAP_DOCUMENT_TEMPLATE.index(
+        "async function consumeStaticAtlasAsset", validator_start
+    )
+    observed = run_node_json(
+        "const document={getElementById:()=>({textContent:"
+        + json.dumps(json.dumps(compact))
+        + "})};\n"
+        + MAP_DOCUMENT_TEMPLATE[start:end]
+        + MAP_DOCUMENT_TEMPLATE[validator_start:validator_end]
+        + "const payloads="
+        + json.dumps(payloads)
+        + ";\n"
+        + """
+const row=STATIC_ATLAS_BOOTSTRAP.assets.find(row=>row.domain==='resources');
+validateStaticAtlasPayload(row,payloads[row.asset_key]);
+let refused=false;try{validateStaticAtlasPayload({...row,record_count:row.record_count+1},payloads[row.asset_key]);}catch(error){refused=true;}
+console.log(JSON.stringify({accepted:true,wrong_count_refused:refused,lazy:row.initial_load===false,encoding:row.payload_encoding}));
+"""
+    )
+    assert observed == {
+        "accepted": True,
+        "wrong_count_refused": True,
+        "lazy": True,
+        "encoding": "gzip_base64",
+    }
+
+
+def test_resource_envelopes_use_common_async_consumer(
+    resource_script: tuple[str, dict[str, Any], dict[str, Any]],
+) -> None:
+    import hashlib
+
+    from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+        encode_asset_inventory,
+    )
+    from bijux_pollenomics.reporting.map_document.static_assets.serialization import (
+        canonical_json,
+        chunk_script_bytes,
+    )
+
+    factory, manifest, payloads = resource_script
+    compact = {
+        **manifest,
+        "assets": encode_asset_inventory(
+            manifest["assets"], scope_slug=manifest["scope_slug"]
+        ),
+    }
+    envelopes = {}
+    for row in manifest["assets"]:
+        if row["domain"] != "resources":
+            continue
+        script = chunk_script_bytes(
+            asset_key=row["asset_key"],
+            payload_sha256=row["payload_sha256"],
+            payload_json=canonical_json(payloads[row["asset_key"]]),
+            payload_encoding=row["payload_encoding"],
+        )
+        assert hashlib.sha256(script).hexdigest() == row["sha256"]
+        envelopes[row["asset_key"]] = json.loads(
+            script.decode().split(".push(", 1)[1][:-3]
+        )
+
+    def source(start: str, end: str) -> str:
+        begin = MAP_DOCUMENT_TEMPLATE.index(start)
+        return MAP_DOCUMENT_TEMPLATE[begin : MAP_DOCUMENT_TEMPLATE.index(end, begin)]
+
+    observed = run_node_json(
+        factory
+        + "\nconst document={getElementById:()=>({textContent:"
+        + json.dumps(json.dumps(compact))
+        + "})};\n"
+        + source(
+            "const STATIC_ATLAS_ASSET_TABLE_FIELDS",
+            "function validateStaticAtlasBootstrap",
+        )
+        + source(
+            "async function staticAtlasSha256", "function indexTransportDescriptor"
+        )
+        + source("function validateStaticAtlasPayload", "function loadStaticAtlasAsset")
+        + source(
+            "let sourceResourceBrowser = null;",
+            "function renderRelationTimeSummaryPanel",
+        )
+        + "const envelopes="
+        + json.dumps(envelopes)
+        + ";\n"
+        + """
+async function loadEvidenceTools(){return BijuxPollenomicsEvidenceTools(String,String);}
+async function loadStaticAtlasAsset(row){await consumeStaticAtlasAsset(row,null,envelopes[row.asset_key]);}
+(async()=>{const reader=await loadSourceResourceBrowser(),all=await reader.search(''),native=await reader.resource('201');
+console.log(JSON.stringify({ids:all.map(row=>row.record_id),resource:native.dataset_id,loaded:[...staticAtlasLoadedAssets],stored:STATIC_ATLAS_CHUNKS.resources.length}));})().catch(error=>{console.error(error);process.exit(1)});
+"""
+    )
+    assert observed["ids"] == ["201", "202", "203", "204"]
+    assert observed["resource"] == "201"
+    assert len(observed["loaded"]) == 2
+    assert observed["stored"] == 2

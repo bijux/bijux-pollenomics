@@ -22,6 +22,12 @@ def load_map_document_template() -> str:
             ),
         )
         .replace(
+            "__SOURCE_RESOURCE_BROWSER_FACTORY__",
+            package_root.joinpath(
+                "assets/source-resource-browser-factory.js"
+            ).read_text(encoding="utf-8"),
+        )
+        .replace(
             "__SOURCE_RECORD_EXPORT_FACTORY__",
             package_root.joinpath("assets/source-record-export-factory.js").read_text(
                 encoding="utf-8"
