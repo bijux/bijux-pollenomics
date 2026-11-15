@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Portable ancillary context and literal source placeholders
+### [#447](https://github.com/bijux/bijux-pollenomics/pull/447) — Portable ancillary context and literal source placeholders
 
 - Document pinned portable source access, selected/full validation scope and the
   separate source-format, scientific-admission, reuse and browser boundaries.
