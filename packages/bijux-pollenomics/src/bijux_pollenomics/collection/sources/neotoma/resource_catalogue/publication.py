@@ -29,6 +29,7 @@ from .source_projection import (
     verify_native_metadata_projection,
     verify_roster_projection,
 )
+from .storage import load_partitioned_catalogue, write_partitioned_catalogue
 
 
 def _validate(catalogue: dict[str, Any]) -> None:
@@ -102,6 +103,7 @@ def write_neotoma_resource_catalogue(
     roster_path: Path,
     original_relational_root: Path | None = None,
     retained_sources: Mapping[str, NeotomaRetainedSource] | None = None,
+    partition_collections: bool = False,
 ) -> dict[str, Any]:
     """Publish a new compact tree; native full entities remain resolver inputs.
 
@@ -109,6 +111,8 @@ def write_neotoma_resource_catalogue(
     pin every entity member so any archive/directory resolver can supply the
     exact original capture to the existing maintained replay API.
     """
+    if type(partition_collections) is not bool:
+        raise ValueError("partition_collections must be a literal boolean")
     final = _safe_root(directory)
     if final.exists():
         raise FileExistsError(f"Neotoma resource catalogue already exists: {final}")
@@ -122,7 +126,10 @@ def write_neotoma_resource_catalogue(
     files = {"source-inventory.json": sha256(roster_bytes).hexdigest()}
     with (staging / "source-inventory.json").open("xb") as stream:
         stream.write(roster_bytes)
-    files["catalogue.json"] = _write_json(staging / "catalogue.json", catalogue)
+    if partition_collections:
+        files.update(write_partitioned_catalogue(staging, catalogue))
+    else:
+        files["catalogue.json"] = _write_json(staging / "catalogue.json", catalogue)
     for digest, descriptor in catalogue["capture_descriptors"].items():
         if digest not in capture_sources:
             raise ValueError(
@@ -148,7 +155,9 @@ def write_neotoma_resource_catalogue(
                 stream.write(content)
             files[relative] = member["sha256"]
     manifest = {
-        "schema_version": "neotoma-resource-catalogue-publication.v1",
+        "schema_version": "neotoma-resource-catalogue-publication.v2"
+        if partition_collections
+        else "neotoma-resource-catalogue-publication.v1",
         "status": "published_native_coverage",
         "catalogue_file": "catalogue.json",
         "source_inventory_file": "source-inventory.json",
@@ -198,7 +207,11 @@ def load_neotoma_resource_catalogue(
         raise ValueError("Catalogue publication manifest identity differs")
     manifest = _object(manifest_bytes)
     if (
-        manifest.get("schema_version") != "neotoma-resource-catalogue-publication.v1"
+        manifest.get("schema_version")
+        not in {
+            "neotoma-resource-catalogue-publication.v1",
+            "neotoma-resource-catalogue-publication.v2",
+        }
         or manifest.get("historical_snapshot_replaced") is not False
     ):
         raise ValueError("Unsupported catalogue publication or source epoch")
@@ -207,10 +220,16 @@ def load_neotoma_resource_catalogue(
         path = Path(relative)
         if path.is_absolute() or ".." in path.parts or "\\" in relative:
             raise ValueError("Catalogue public path escapes its owned tree")
+        expected_files.add(relative)
+        if manifest[
+            "schema_version"
+        ] == "neotoma-resource-catalogue-publication.v2" and relative.startswith(
+            "parts/"
+        ):
+            continue
         content = _read(root / relative, 16 * 1024 * 1024)
         if sha256(content).hexdigest() != digest:
             raise ValueError("Catalogue public file identity differs")
-        expected_files.add(relative)
     if {
         str(path.relative_to(root)) for path in root.rglob("*") if path.is_file()
     } != expected_files:
@@ -218,6 +237,8 @@ def load_neotoma_resource_catalogue(
     catalogue = pinned_object(
         root / "catalogue.json", manifest["files"]["catalogue.json"], 16 * 1024 * 1024
     )
+    if manifest["schema_version"] == "neotoma-resource-catalogue-publication.v2":
+        catalogue = load_partitioned_catalogue(root, catalogue, manifest["files"])
     _validate(catalogue)
     if (
         type(manifest.get("resource_count")) is not int
