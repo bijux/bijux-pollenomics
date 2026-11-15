@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Portable selected-source access and literal Atlas context
+### [#445](https://github.com/bijux/bijux-pollenomics/pull/445) — Portable selected-source access and literal Atlas context
 
 - Read one selected qualified resource or download-only entity from authenticated
   portable archive metadata and internal resolvers, preserving protected-role gates
