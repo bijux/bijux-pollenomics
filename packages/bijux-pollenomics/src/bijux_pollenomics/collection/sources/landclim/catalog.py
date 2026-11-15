@@ -151,21 +151,20 @@ def build_landclim_bibliography() -> dict[str, object]:
 
 def download_landclim_raw_assets(raw_dir: Path) -> LandClimRawAssets:
     """Download the LandClim raw upstream assets used for normalization."""
+    from .raw_assets import download_assets
+
     asset_urls = resolve_landclim_asset_urls()
-    raw_paths: dict[str, Path] = {}
-    for filename, url in asset_urls.items():
-        path = Path(raw_dir) / filename
-        payload = fetch_binary(url)
-        validate_landclim_raw_asset(filename, payload)
-        path.write_bytes(payload)
-        raw_paths[filename] = path
-    return LandClimRawAssets(paths=raw_paths, asset_urls=asset_urls)
+    paths = download_assets(
+        raw_dir, asset_urls, fetch_binary, validate_landclim_raw_asset
+    )
+    return LandClimRawAssets(paths=paths, asset_urls=asset_urls)
 
 
 def validate_landclim_raw_asset(filename: str, payload: bytes) -> None:
-    """Reject empty LandClim downloads before they enter the tracked raw tree."""
-    if not payload:
-        raise ValueError(f"LandClim raw asset download was empty for {filename}")
+    """Validate bounded native LandClim containers before raw publication."""
+    from .raw_assets import validate_payload
+
+    validate_payload(filename, payload)
 
 
 def build_landclim_raw_asset_summaries(
