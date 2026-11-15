@@ -60,7 +60,11 @@ def _digest(value: object) -> bool:
 def validate_manifest(manifest: dict[str, Any]) -> None:
     """Refuse every unowned root, retained-source or file identity field."""
     if (
-        set(manifest) != _MANIFEST_FIELDS
+        set(manifest)
+        not in (
+            _MANIFEST_FIELDS,
+            _MANIFEST_FIELDS | {"original_metadata"},
+        )
         or manifest["schema_version"] != ARCHIVE_SCHEMA
         or manifest["scientific_admission"] != "not_asserted"
         or manifest["historical_snapshot_replaced"] is not False

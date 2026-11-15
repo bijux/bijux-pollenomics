@@ -13,6 +13,7 @@ from ..publication import load_neotoma_resource_catalogue
 from ..source_projection import _same
 from .files import MAX_BYTES, MAX_MANIFEST_BYTES, validate_manifest, validate_namespace
 from .index import build_download_index
+from .original_metadata import resolve_original_metadata
 
 
 def load_neotoma_source_archive(
@@ -56,6 +57,11 @@ def load_neotoma_source_archive(
         "catalogue/manifest.json",
         *("catalogue/" + name for name in publication["files"]),
     }
+    if "original_metadata" in manifest:
+        original_relational_root, original_files = resolve_original_metadata(
+            root, manifest["original_metadata"], original_relational_root
+        )
+        expected_files.update(original_files)
     for digest, descriptor in compact["capture_descriptors"].items():
         expected_files.update(
             f"captures/{digest}/{public_member(member['name'])}"

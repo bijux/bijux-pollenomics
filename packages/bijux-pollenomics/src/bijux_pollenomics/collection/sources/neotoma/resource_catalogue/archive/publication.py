@@ -25,6 +25,7 @@ from .files import (
     encoded_json,
 )
 from .index import build_download_index
+from .original_metadata import metadata_inventory, preflight_metadata
 from .validation import load_neotoma_source_archive
 
 
@@ -47,6 +48,8 @@ def write_neotoma_source_archive(
     if final.exists():
         raise FileExistsError(f"Neotoma source archive already exists: {final}")
     catalogue_root = _safe_root(catalogue_directory)
+    if original_relational_root is not None:
+        preflight_metadata(original_relational_root)
     catalogue = load_neotoma_resource_catalogue(
         catalogue_root,
         expected_manifest_sha256=expected_catalogue_manifest_sha256,
@@ -119,6 +122,15 @@ def write_neotoma_source_archive(
                 "body_sha256": source.body_sha256,
                 "provenance_sha256": source.provenance_sha256,
             }
+        original_metadata = None
+        if original_relational_root is not None:
+            original_metadata, members = metadata_inventory(original_relational_root)
+            for relative, member_digest in members.items():
+                copy(
+                    _read(original_relational_root / relative, 16 * 1024 * 1024),
+                    "captures/original-metadata/" + relative,
+                    member_digest,
+                )
         index = build_download_index(catalogue, expected_catalogue_manifest_sha256)
         content = encoded_json(index)
         copy(content, "downloads/index.json", sha256(content).hexdigest())
@@ -131,6 +143,8 @@ def write_neotoma_source_archive(
             "scientific_admission": "not_asserted",
             "historical_snapshot_replaced": False,
         }
+        if original_metadata is not None:
+            manifest["original_metadata"] = original_metadata
         content = encoded_json(manifest)
         if len(content) > MAX_MANIFEST_BYTES:
             raise ValueError("Source archive manifest exceeds its finite byte budget")
