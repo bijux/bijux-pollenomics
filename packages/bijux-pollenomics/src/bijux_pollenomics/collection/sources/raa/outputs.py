@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Iterator, Mapping
 from datetime import date
 import math
 
@@ -8,15 +8,13 @@ from ....core.geospatial.geojson import (
     JsonObject,
     as_mapping,
     feature_list,
-    parse_linear_ring,
 )
 from ....core.http import fetch_json, fetch_text
 from ....core.text import clean_optional_text
 from ...spatial import (
     build_grid_cell_geometry,
-    geometry_bbox,
     geometry_to_representative_point,
-    grid_cell_relevant,
+    point_in_geometry,
 )
 from .inventory import (
     declared_population,
@@ -121,48 +119,41 @@ def build_raa_density_geojson(
     sweden_features = feature_list(sweden_boundary)
     if not sweden_features:
         raise ValueError("Sweden boundary payload must contain features")
-    geometry = as_mapping(sweden_features[0].get("geometry"))
-    if geometry is None:
-        raise ValueError("Sweden boundary feature must contain an object geometry")
-    min_longitude, min_latitude, max_longitude, max_latitude = geometry_bbox(geometry)
+    geometries = []
+    for feature in sweden_features:
+        geometry = as_mapping(feature.get("geometry"))
+        if geometry is None:
+            raise ValueError("Sweden boundary feature must contain an object geometry")
+        geometries.append(geometry)
     cell_size = 1.0
-    cell_counts = raa_density_counts_by_grid_cell(feature_inventory)
+    cell_counts: dict[tuple[int, int], int] = {}
+    for longitude, latitude in _heritage_representative_points(feature_inventory):
+        if any(
+            point_in_geometry(longitude, latitude, geometry) for geometry in geometries
+        ):
+            cell_key = (math.floor(longitude), math.floor(latitude))
+            cell_counts[cell_key] = cell_counts.get(cell_key, 0) + 1
     features = []
-    latitude = int(min_latitude)
-    while latitude < int(max_latitude) + 1:
-        longitude = int(min_longitude)
-        while longitude < int(max_longitude) + 1:
-            cell = build_grid_cell_geometry(
-                min_longitude=float(longitude),
-                min_latitude=float(latitude),
-                cell_size=cell_size,
-            )
-            cell_coordinates = cell.get("coordinates")
-            ring = (
-                parse_linear_ring(cell_coordinates[0])
-                if isinstance(cell_coordinates, list) and cell_coordinates
-                else None
-            )
-            if ring is None or not grid_cell_relevant(ring, geometry):
-                longitude += 1
-                continue
-            count = cell_counts.get((longitude, latitude), 0)
-            if count > 0:
-                features.append(
-                    {
-                        "type": "Feature",
-                        "geometry": cell,
-                        "properties": {
-                            "layer_key": "raa-archaeology",
-                            "layer_label": "RAÄ archaeology density",
-                            "country": "Sweden",
-                            "count": count,
-                            "count_label": format_count_label(count),
-                        },
-                    }
-                )
-            longitude += 1
-        latitude += 1
+    for (longitude, latitude), count in sorted(
+        cell_counts.items(), key=lambda item: (item[0][1], item[0][0])
+    ):
+        features.append(
+            {
+                "type": "Feature",
+                "geometry": build_grid_cell_geometry(
+                    min_longitude=float(longitude),
+                    min_latitude=float(latitude),
+                    cell_size=cell_size,
+                ),
+                "properties": {
+                    "layer_key": "raa-archaeology",
+                    "layer_label": "RAÄ archaeology density",
+                    "country": "Sweden",
+                    "count": count,
+                    "count_label": format_count_label(count),
+                },
+            }
+        )
 
     return {"type": "FeatureCollection", "features": features}
 
@@ -172,6 +163,16 @@ def raa_density_counts_by_grid_cell(
 ) -> dict[tuple[int, int], int]:
     """Count archived RAÄ heritage records in 1 degree grid cells."""
     counts: dict[tuple[int, int], int] = {}
+    for longitude, latitude in _heritage_representative_points(feature_inventory):
+        cell_key = (math.floor(longitude), math.floor(latitude))
+        counts[cell_key] = counts.get(cell_key, 0) + 1
+    return counts
+
+
+def _heritage_representative_points(
+    feature_inventory: Mapping[str, object],
+) -> Iterator[tuple[float, float]]:
+    """Retain the existing source class and representative-geometry selection."""
     for feature in iter_raa_features(feature_inventory):
         properties = as_mapping(feature.get("properties"))
         status = clean_optional_text(
@@ -188,9 +189,7 @@ def raa_density_counts_by_grid_cell(
         if representative_point is None:
             continue
         longitude, latitude, _ = representative_point
-        cell_key = (math.floor(longitude), math.floor(latitude))
-        counts[cell_key] = counts.get(cell_key, 0) + 1
-    return counts
+        yield longitude, latitude
 
 
 def iter_raa_features(feature_inventory: Mapping[str, object]) -> list[JsonObject]:
