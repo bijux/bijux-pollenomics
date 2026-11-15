@@ -9,9 +9,85 @@ import re
 from types import MappingProxyType
 from typing import Any
 
+from bijux_pollenomics.collection.sources.neotoma.ancillary_store.context_resources import (
+    NeotomaContextArchiveBindings,
+)
+
 
 def _digest(value: object) -> bool:
     return isinstance(value, str) and re.fullmatch(r"[0-9a-f]{64}", value) is not None
+
+
+@dataclass(frozen=True)
+class AtlasSourceArchiveInput:
+    """An independent source archive anchor; no selected source access is granted."""
+
+    directory: Path
+    expected_manifest_sha256: str
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.directory, Path) or not _digest(
+            self.expected_manifest_sha256
+        ):
+            raise ValueError(
+                "Atlas supporting archive requires an explicit Path and manifest SHA-256"
+            )
+
+
+@dataclass(frozen=True)
+class AtlasContextArchiveInput(AtlasSourceArchiveInput):
+    """Original site context authority remains explicit alongside the current epoch."""
+
+    original: NeotomaContextArchiveBindings
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+        if (
+            not isinstance(self.original, NeotomaContextArchiveBindings)
+            or any(
+                not isinstance(value, Path)
+                for value in (
+                    self.original.context_directory,
+                    self.original.native_archive_directory,
+                )
+            )
+            or not all(
+                _digest(value)
+                for value in (
+                    self.original.expected_context_sha256,
+                    self.original.expected_native_archive_sha256,
+                )
+            )
+        ):
+            raise ValueError(
+                "Atlas original context archive bindings require exact independent owners and anchors"
+            )
+
+
+@dataclass(frozen=True)
+class AtlasAncillaryArchivesInput:
+    """All configured source epochs are retained in immutable per-family populations."""
+
+    unit_metadata: tuple[AtlasSourceArchiveInput, ...] = ()
+    reference_tables: tuple[AtlasSourceArchiveInput, ...] = ()
+    context_resources: tuple[AtlasContextArchiveInput, ...] = ()
+
+    def __post_init__(self) -> None:
+        for kind, population, expected in (
+            ("unit_metadata", self.unit_metadata, AtlasSourceArchiveInput),
+            ("reference_tables", self.reference_tables, AtlasSourceArchiveInput),
+            ("context_resources", self.context_resources, AtlasContextArchiveInput),
+        ):
+            if type(population) is not tuple or any(
+                type(row) is not expected for row in population
+            ):
+                raise ValueError(
+                    f"Atlas {kind} archives require an immutable tuple of exact typed source owners"
+                )
+            if len({row.expected_manifest_sha256 for row in population}) != len(
+                population
+            ):
+                raise ValueError(f"Atlas {kind} archive identities must be unique")
 
 
 @dataclass(frozen=True)
@@ -24,8 +100,13 @@ class AtlasAncillaryFederationInput:
     expected_context_sha256: str
     capsule_sources: Mapping[str, Path]
     evidence_sources: Mapping[str, Path] | None = None
+    archives: AtlasAncillaryArchivesInput | None = None
 
     def __post_init__(self) -> None:
+        if self.archives is not None and not isinstance(
+            self.archives, AtlasAncillaryArchivesInput
+        ):
+            raise ValueError("Atlas supporting archive inputs have the wrong owner")
         if not _digest(self.expected_manifest_sha256) or not _digest(
             self.expected_context_sha256
         ):
@@ -74,3 +155,10 @@ class AtlasAncillaryMetadata:
     )
     entity_body_hashes_verified: bool = field(default=False, init=False)
     source_assessments_replayed: bool = field(default=False, init=False)
+
+
+@dataclass(frozen=True)
+class AtlasAncillarySupportingMetadata(AtlasAncillaryMetadata):
+    """Additional archive metadata is emitted only for explicitly configured epochs."""
+
+    supporting_archives: tuple[dict[str, Any], ...]

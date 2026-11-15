@@ -15,7 +15,8 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.source_proj
 
 from ..archive_reference import _pinned
 from ..models import AtlasResourceCatalogueInput
-from .models import AtlasAncillaryMetadata
+from .archives import load_supporting_archive_metadata
+from .models import AtlasAncillaryMetadata, AtlasAncillarySupportingMetadata
 
 _OWNER_FIELDS = (
     "dataset_id",
@@ -104,11 +105,18 @@ def load_atlas_ancillary_metadata(
         "related_resource_graph_complete": False,
         "selection_authority": "not_provided_by_metadata_projection",
     }
-    return AtlasAncillaryMetadata(
-        slots=tuple(deepcopy(view.slots)),
-        observations=tuple(deepcopy(view.observations)),
-        linked_occurrences=tuple(deepcopy(view.linked_occurrences)),
-        summary=deepcopy(view.summary),
-        provenance=provenance,
-        source_manifest=deepcopy(view.manifest),
-    )
+    supporting = load_supporting_archive_metadata(source)
+    values: dict[str, Any] = {
+        "slots": tuple(deepcopy(view.slots)),
+        "observations": tuple(deepcopy(view.observations)),
+        "linked_occurrences": tuple(deepcopy(view.linked_occurrences)),
+        "summary": deepcopy(view.summary),
+        "provenance": provenance,
+        "source_manifest": deepcopy(view.manifest),
+    }
+
+    if supporting:
+        return AtlasAncillarySupportingMetadata(
+            **values, supporting_archives=supporting
+        )
+    return AtlasAncillaryMetadata(**values)
