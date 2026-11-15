@@ -14,6 +14,9 @@ from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     ACQUISITION_RECEIPT_SCHEMA_VERSION,
     TABLE_PAYLOAD_SCHEMA_VERSION,
 )
+from bijux_pollenomics.collection.sources.sead.acquisition.full.model import (
+    SOURCE_EOF_PAGINATION_PROFILE,
+)
 
 from ..codec import (
     _bbox,
@@ -396,12 +399,16 @@ def _validate_acquisition_receipt(
         raise ValueError(f"SEAD {label} pagination pages must be object rows")
     if not pages or len(pages) > max_pages:
         raise ValueError(f"SEAD {label} pagination page count is invalid")
+    profile = pagination.get("profile")
+    source_eof = profile == SOURCE_EOF_PAGINATION_PROFILE
+    if "profile" in pagination and not source_eof:
+        raise ValueError(f"SEAD {label} pagination profile is unsupported")
     page_rows = 0
     for index, page in enumerate(pages, start=1):
         if not isinstance(page, Mapping):
             raise TypeError(f"SEAD {label} page must be an object")
         _expect_equal(page.get("page"), index, f"{label} page number")
-        first = (index - 1) * page_size
+        first = page_rows if source_eof else (index - 1) * page_size
         _expect_equal(
             page.get("range"),
             f"{first}-{first + page_size - 1}",
@@ -410,7 +417,17 @@ def _validate_acquisition_receipt(
         count = _non_negative_int(page.get("row_count"), f"{label} page row_count")
         if count > page_size:
             raise ValueError(f"SEAD {label} page row_count exceeds page_size")
-        if index < len(pages) and count != page_size:
+        if source_eof:
+            _validate_source_eof_page(
+                page,
+                first=first,
+                count=count,
+                terminal=index == len(pages),
+                label=label,
+            )
+        elif "eof" in page:
+            raise ValueError(f"SEAD {label} EOF proof lacks its pagination profile")
+        elif index < len(pages) and count != page_size:
             raise ValueError(f"SEAD {label} has a short nonterminal page")
         page_rows += count
     if (
@@ -436,3 +453,36 @@ def _validate_acquisition_receipt(
         f"{label} receipt_id",
     )
     return row_count
+
+
+def _validate_source_eof_page(
+    page: Mapping[str, object], *, first: int, count: int, terminal: bool, label: str
+) -> None:
+    if not terminal:
+        if count == 0 or "eof" in page:
+            raise ValueError(f"SEAD {label} has a nonterminal EOF page")
+        return
+    if count != 0:
+        raise ValueError(f"SEAD {label} lacks a zero-row source EOF page")
+    proof = page.get("eof")
+    if not isinstance(proof, Mapping):
+        raise ValueError(f"SEAD {label} source EOF proof must be an object")
+    if proof.get("kind") == "empty_json_array":
+        _expect_equal(
+            dict(proof), {"kind": "empty_json_array"}, f"{label} empty-array EOF proof"
+        )
+    elif proof.get("kind") == "unsatisfied_range":
+        if set(proof) != {"kind", "response_status", "content_range"}:
+            raise ValueError(f"SEAD {label} range EOF proof fields differ")
+        _expect_equal(
+            _positive_int(
+                proof.get("response_status"), f"{label} terminal response status"
+            ),
+            416,
+            f"{label} terminal response status",
+        )
+        _expect_equal(
+            proof.get("content_range"), f"*/{first}", f"{label} terminal Content-Range"
+        )
+    else:
+        raise ValueError(f"SEAD {label} source EOF proof is unsupported")

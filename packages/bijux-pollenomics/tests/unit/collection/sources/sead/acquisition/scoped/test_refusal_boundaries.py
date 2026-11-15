@@ -53,7 +53,7 @@ def test_scoped_acquisition_refuses_unproven_page_completion(tmp_path: Path) -> 
             fetcher,
             id_batch_size=10,
             page_size=3,
-            max_pages=2,
+            max_pages=3,
         )
 
     assert exc_info.value.result.table == "tbl_sample_groups"

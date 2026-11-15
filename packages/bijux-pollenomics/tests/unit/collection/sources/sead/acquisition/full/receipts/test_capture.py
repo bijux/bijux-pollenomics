@@ -9,7 +9,7 @@ from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     SeadAcquisitionError,
 )
 
-from .support import _acquire
+from ..support import _acquire
 
 
 def retry_headers(seconds: int) -> Message:
@@ -29,6 +29,7 @@ def test_rate_limit_retry_honors_server_delay() -> None:
             "https://browser.sead.se", 429, "rate limited", retry_headers(7), None
         ),
         [{"site_id": 1}],
+        [],
     ]
 
     def fetch_json(_url: str, **_kwargs: object) -> object:
@@ -79,6 +80,7 @@ def test_complete_paginated_receipt_captures_retry_schema_and_content() -> None:
         URLError("transient"),
         [{"site_id": 1, "site_name": "A"}, {"site_id": 2, "site_name": None}],
         [{"site_id": 3, "site_name": "C"}],
+        [],
     ]
 
     def fetch_json(_url: str, **kwargs: object) -> object:
@@ -95,6 +97,7 @@ def test_complete_paginated_receipt_captures_retry_schema_and_content() -> None:
         {"Range-Unit": "items", "Range": "0-1"},
         {"Range-Unit": "items", "Range": "0-1"},
         {"Range-Unit": "items", "Range": "2-3"},
+        {"Range-Unit": "items", "Range": "3-4"},
     ]
     receipt = result.receipt
     assert receipt["status"] == "complete"
@@ -102,11 +105,18 @@ def test_complete_paginated_receipt_captures_retry_schema_and_content() -> None:
     assert receipt["source_schema_version"] is None
     assert receipt["source_schema_version_status"] == "not_reported_by_endpoint"
     assert receipt["pagination"] == {
+        "profile": "received_rows_source_eof",
         "page_size": 2,
         "max_pages": 3,
         "pages": [
             {"page": 1, "range": "0-1", "row_count": 2},
             {"page": 2, "range": "2-3", "row_count": 1},
+            {
+                "page": 3,
+                "range": "3-4",
+                "row_count": 0,
+                "eof": {"kind": "empty_json_array"},
+            },
         ],
         "complete": True,
     }

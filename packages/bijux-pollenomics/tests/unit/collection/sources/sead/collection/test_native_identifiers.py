@@ -47,7 +47,13 @@ def test_adjacent_large_string_keys_remain_distinct_in_production_fetch(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     source_rows = [{"site_id": "9007199254740992"}, {"site_id": "9007199254740993"}]
-    monkeypatch.setattr(collection, "fetch_json", lambda *_args, **_kwargs: source_rows)
+    monkeypatch.setattr(
+        collection,
+        "fetch_json",
+        lambda *_args, **kwargs: (
+            source_rows if kwargs["headers"]["Range"].startswith("0-") else []
+        ),
+    )
 
     assert collection.fetch_sead_rows("tbl_sites", select="site_id") == source_rows
 
@@ -57,7 +63,13 @@ def test_production_fetch_refuses_fractional_native_keys(
     monkeypatch: pytest.MonkeyPatch, identifier: object
 ) -> None:
     monkeypatch.setattr(
-        collection, "fetch_json", lambda *_args, **_kwargs: [{"site_id": identifier}]
+        collection,
+        "fetch_json",
+        lambda *_args, **kwargs: (
+            [{"site_id": identifier}]
+            if kwargs["headers"]["Range"].startswith("0-")
+            else []
+        ),
     )
 
     with pytest.raises(ValueError, match="Invalid required SEAD tbl_sites.site_id"):

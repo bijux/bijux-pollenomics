@@ -6,6 +6,7 @@ ACQUISITION_RECEIPT_SCHEMA_VERSION = "sead-acquisition-receipt.v1"
 TABLE_PAYLOAD_SCHEMA_VERSION = "sead-table-payload.v1"
 ACQUISITION_MANIFEST_SCHEMA_VERSION = "sead-acquisition-manifest.v1"
 ACQUISITION_TOOL_VERSION = "sead-postgrest-acquisition.v1"
+SOURCE_EOF_PAGINATION_PROFILE = "received_rows_source_eof"
 NORDIC_COUNTRY_CODES = ("SE", "DK", "NO", "FI", "UNASSIGNED")
 
 

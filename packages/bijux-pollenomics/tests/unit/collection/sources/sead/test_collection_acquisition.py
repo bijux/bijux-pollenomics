@@ -260,6 +260,7 @@ class SeadAcquisitionTests(unittest.TestCase):
                 side_effect=[
                     URLError(OSError(51, "Network is unreachable")),
                     [{"site_id": 6468}],
+                    [],
                 ],
             ),
             patch(
