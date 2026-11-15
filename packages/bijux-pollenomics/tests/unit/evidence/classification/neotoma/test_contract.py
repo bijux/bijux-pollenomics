@@ -59,6 +59,59 @@ def test_accounting_preserves_source_taxonomy_and_separate_mapping_dimensions() 
     assert all(row["release_eligible"] is False for row in concepts)
 
 
+@pytest.mark.parametrize("surface", ["observations", "variables", "sites"])
+@pytest.mark.parametrize("malformation", ["missing", "mapping", "text", "mixed_rows"])
+def test_accounting_refuses_unavailable_or_malformed_populations(
+    surface: str,
+    malformation: str,
+) -> None:
+    snapshot = representative_snapshot()
+    if malformation == "missing":
+        del snapshot[surface]
+    elif malformation == "mapping":
+        snapshot[surface] = {"rows": snapshot[surface]}
+    elif malformation == "text":
+        snapshot[surface] = "not a source row population"
+    else:
+        snapshot[surface] = [*snapshot[surface], None]
+    with pytest.raises(ValueError, match="classification source population"):
+        build_neotoma_classification_accounting(snapshot)
+
+
+@pytest.mark.parametrize(
+    ("surface", "field"),
+    [
+        ("observations", "observation_id"),
+        ("observations", "variable_id"),
+        ("observations", "site_id"),
+        ("variables", "variable_id"),
+        ("sites", "site_id"),
+    ],
+)
+@pytest.mark.parametrize("identity", [None, True, 1.5, 1, "", " obs:1 "])
+def test_accounting_refuses_identity_coercion_or_dropped_owner_rows(
+    surface: str,
+    field: str,
+    identity: object,
+) -> None:
+    snapshot = representative_snapshot()
+    snapshot["observations"] = snapshot["observations"][:3]
+    snapshot[surface][0][field] = identity
+    with pytest.raises(ValueError, match="classification source identity"):
+        build_neotoma_classification_accounting(snapshot)
+
+
+def test_accounting_distinguishes_empty_populations_from_unavailable_input() -> None:
+    snapshot = representative_snapshot()
+    for surface in ("observations", "variables", "sites"):
+        snapshot[surface] = []
+    result = build_neotoma_classification_accounting(snapshot)
+    reconciliation = cast(dict[str, int], result["reconciliation"])
+    assert reconciliation["input_observation_row_count"] == 0
+    assert reconciliation["unique_observation_count"] == 0
+    assert result["concepts"] == []
+
+
 def test_accounting_reconciles_denominators_and_orders_every_partition() -> None:
     payload = build_neotoma_classification_accounting(representative_snapshot())
     reconciliation = cast(dict[str, int], payload["reconciliation"])

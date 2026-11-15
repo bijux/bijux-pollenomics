@@ -2,6 +2,22 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#434](https://github.com/bijux/bijux-pollenomics/pull/434) — Role-bound ancillary resources and exact native focus
+
+- Capture finite current dataset facets under exact inherited exposure roles, retaining
+  bounded HTTP/error bodies, retries, timestamps and explicit
+  unavailable/refused/unattempted partitions without qualifying native payload ownership
+  or scientific admission.
+- Replay complete facet plans, receipt/body identities, request/byte limits and file
+  inventories; role-gate body access and authenticate the actual returned buffer. Keep
+  current response timing distinct from transaction or frozen-snapshot consistency.
+- Declare all-dataset inventory scope explicitly while preserving pollen defaults and
+  legacy replay. Refuse malformed classification populations and coerced identities
+  rather than silently dropping source rows.
+- Bind native CHAR focus to exact observation/sample/core/dataset/source-epoch facts and
+  locators. Preserve missing numeric values as unplottable context and require explicit
+  alternative plot anchors, without pollen/fire or analytical admission.
+
 ### [#433](https://github.com/bijux/bijux-pollenomics/pull/433) — Isolated native charcoal context and source support reports
 
 - Project literal native CHAR observations as an isolated, initially disabled Atlas

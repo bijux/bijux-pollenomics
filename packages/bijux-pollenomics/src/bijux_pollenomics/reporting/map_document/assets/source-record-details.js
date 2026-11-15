@@ -8,6 +8,69 @@ function sourceRecordRows(table, required) {
 function sourceRecordFields(rows) {
   return rows.map(([label,value]) => `<div class="focus-detail-row"><span class="focus-detail-key">${escapeHtml(label)}</span><span>${escapeHtml(detailTableText(value))}</span></div>`).join('');
 }
+function sourceRecordSignalMatchesSite(tabs, feature) {
+  const identifier = value => typeof value === 'string' && value.trim() && value === value.trim();
+  return [feature?.record_id,feature?.source_record_id,feature?.source_snapshot_id,feature?.build_id,
+    tabs?.overview?.site_id,tabs?.provenance?.source_snapshot_id,tabs?.provenance?.build_id].every(identifier)
+    && feature.record_id === tabs.overview.site_id
+    && feature.source_snapshot_id === tabs.provenance.source_snapshot_id
+    && feature.build_id === tabs.provenance.build_id;
+}
+function nativeCharcoalSourceSignal(tabs, feature) {
+  const unavailable = reason => ({status:'unavailable',reason});
+  if (tabs?.overview?.source_family !== 'neotoma' || feature?.source_family !== 'neotoma'
+    || feature.semantic_role !== 'native_charcoal_source_context' || feature.node_level !== 'native_charcoal_observation'
+    || feature.source_join_status !== 'retained' || feature.propagation_eligible !== false
+    || feature.candidate_generation_status !== 'refused' || feature.record_count !== 1 || feature.observation_denominator !== 1) return unavailable('Selected feature has no supported literal CHAR source posture.');
+  if (!sourceRecordSignalMatchesSite(tabs,feature)
+    || feature.site_id !== tabs.overview.site_id
+    || ({DK:'Denmark',FI:'Finland',NO:'Norway',SE:'Sweden'})[tabs.overview.country_code] !== feature.country
+    || !Number.isFinite(feature.latitude) || !Number.isFinite(feature.longitude)
+    || Math.abs(feature.latitude) > 90 || Math.abs(feature.longitude) > 180) return unavailable('Selected CHAR feature and detail site or source epoch do not agree.');
+  try {
+    const fields = ['sample_id','variable_id','source_taxon_id','source_value','source_unit','source_denominator',
+      'denominator_status','detection_status','source_context','source_ecological_group','source_element','source_element_type','unit_family','source_part_number'];
+    const observations = sourceRecordRows(tabs.pollen_composition,['observation_id',...fields]);
+    const matched = observations.filter(row => row.observation_id === feature.observation_id);
+    if (typeof feature.observation_id !== 'string' || !feature.observation_id || feature.observation_id.trim() !== feature.observation_id
+      || matched.length !== 1 || feature.node_id !== `neotoma:native-charcoal:${feature.observation_id}`) return unavailable('Selected native CHAR observation identity is missing or ambiguous.');
+    const observation = matched[0];
+    if (observation.source_ecological_group !== 'CHAR' || feature.source_ecological_group !== 'CHAR'
+      || fields.some(field => JSON.stringify(observation[field]) !== JSON.stringify(feature[field]))) return unavailable('Selected CHAR assertion differs from its retained native observation.');
+    const part = observation.source_part_number;
+    if (!Number.isSafeInteger(part) || part < 1
+      || feature.source_observation_locator !== `surfaces/observations/part-${String(part).padStart(5,'0')}.json#observation_id=${feature.observation_id}`) return unavailable('Selected CHAR source locator is unavailable or inconsistent.');
+    const samples = sourceRecordRows(tabs.samples?.samples,['sample_id','dataset_id','collection_unit_id','source_depth']);
+    const sampleMatches = samples.filter(row => row.sample_id === observation.sample_id);
+    if (sampleMatches.length !== 1 || feature.source_record_id !== observation.sample_id) return unavailable('Selected CHAR sample identity is unavailable or ambiguous.');
+    const sample = sampleMatches[0];
+    const datasets = sourceRecordRows(tabs.samples?.datasets,['dataset_id','collection_unit_id']);
+    const units = sourceRecordRows(tabs.samples?.collection_units,['collection_unit_id']);
+    const variables = sourceRecordRows(tabs.pollen_composition.variables,['variable_id','source_taxon_id']);
+    const datasetMatches = datasets.filter(row => row.dataset_id === sample.dataset_id);
+    const variableMatches = variables.filter(row => row.variable_id === observation.variable_id);
+    if (sample.dataset_id !== feature.dataset_id || sample.collection_unit_id !== feature.collection_unit_id
+      || JSON.stringify(sample.source_depth) !== JSON.stringify(feature.source_depth)
+      || datasetMatches.length !== 1 || datasetMatches[0].collection_unit_id !== sample.collection_unit_id
+      || units.filter(row => row.collection_unit_id === sample.collection_unit_id).length !== 1
+      || variableMatches.length !== 1 || variableMatches[0].source_taxon_id !== observation.source_taxon_id) return unavailable('Selected CHAR variable, sample, dataset or collection relations do not reconcile uniquely.');
+    return {status:'matched',reason:'',observation,sample};
+  } catch { return unavailable('Native CHAR source tables are unavailable or cannot be decoded consistently.'); }
+}
+function renderNativeCharcoalObservation(tabs, feature, data) {
+  const heading = '<h3>Literal CHAR source observation</h3>';
+  if (data.status !== 'matched') return `<section data-native-charcoal-details="unavailable">${heading}<p>${escapeHtml(data.reason)} Original source observations remain in the source table.</p></section>`;
+  const row = data.observation;
+  const fields = [['Source observation ID',row.observation_id],['Native sample ID',row.sample_id],
+    ['Native variable ID',row.variable_id],['Native source taxon ID',row.source_taxon_id],
+    ['Literal source ecological code',row.source_ecological_group],['Native reported value',row.source_value],
+    ['Source measurement unit',row.source_unit],['Denominator',row.source_denominator],
+    ['Denominator status',row.denominator_status],['Detection status',row.detection_status],
+    ['Source element',row.source_element],['Source element type',row.source_element_type],
+    ['Source context',row.source_context],['Native source depth',data.sample.source_depth],
+    ['Observation identity denominator',feature.observation_denominator],['Source observation locator',feature.source_observation_locator]];
+  return `<section data-native-charcoal-details="matched">${heading}<p>One literal native observation; no fire, vegetation, cultivation or pollen corroboration is inferred. Material fractions, values, units, denominator and detection states remain separate. Missing is not zero; no fraction sum or ecological event is calculated. Source chronology remains a separate assertion.</p>${sourceRecordFields(fields)}</section>`;
+}
 function renderSourceChronologyIssues(tabs) {
   const unavailable = () => '<section aria-label="Source chronology review" data-source-chronology-review="unavailable"><h3>Source chronology review</h3><p>Source issue review is not available in these retained tables. This does not establish that no source issues exist. Original model, control and age tables remain below.</p></section>';
   const issues = tabs?.chronology?.source_issues;
@@ -54,13 +117,12 @@ function renderSelectedSourceOverview(tabs, feature) {
   const unavailable = reason => `<section aria-label="Selected source record" data-source-record-details="unavailable"><h3>Selected source record</h3><p>${escapeHtml(reason)} Original source tables remain available.</p></section>`;
   const identifier = value => typeof value === 'string' && value.trim() && value === value.trim();
   if (tabs?.overview?.source_family !== 'neotoma' || feature?.source_family !== 'neotoma') return unavailable('Selected sample metadata is supported for Neotoma source features only.');
-  if (![feature.record_id,feature.source_record_id,feature.source_snapshot_id,feature.build_id,
-    tabs.overview.site_id,tabs.provenance?.source_snapshot_id,tabs.provenance?.build_id].every(identifier)
-    || feature.record_id !== tabs.overview.site_id
-    || feature.source_snapshot_id !== tabs.provenance.source_snapshot_id
-    || feature.build_id !== tabs.provenance.build_id) return unavailable('Selected feature and detail site or source epoch do not agree.');
+  if (!sourceRecordSignalMatchesSite(tabs,feature)) return unavailable('Selected feature and detail site or source epoch do not agree.');
   if (!Number.isFinite(feature.latitude) || !Number.isFinite(feature.longitude)
     || Math.abs(feature.latitude) > 90 || Math.abs(feature.longitude) > 180) return unavailable('Selected feature representative coordinates are unavailable or outside geographic bounds.');
+  const charcoal = feature.semantic_role === 'native_charcoal_source_context' ? nativeCharcoalSourceSignal(tabs,feature) : null;
+  const charcoalHtml = charcoal ? renderNativeCharcoalObservation(tabs,feature,charcoal) : '';
+  if (charcoal?.status === 'unavailable') return charcoalHtml;
   try {
     const samples = sourceRecordRows(tabs.samples?.samples,['sample_id','dataset_id','collection_unit_id']);
     const datasets = sourceRecordRows(tabs.samples?.datasets,['dataset_id','collection_unit_id']);
@@ -106,7 +168,7 @@ function renderSelectedSourceOverview(tabs, feature) {
       ['Source younger endpoint',claim.source_age_younger],['Source older endpoint',claim.source_age_older],
       ['Age comparability status',claim.comparability_status],['Age refusal reason',claim.refusal_reason],
     );
-    return `<section aria-label="Selected source record" data-source-record-details="${status}"><h3>Selected source record</h3><p>${!claim ? escapeHtml(reason) : refused ? 'The uniquely joined source age claim is refused; its values remain source context.' : 'One exact source sample and age claim are joined.'}</p>${sourceRecordFields(fields)}<p>Coordinates are source representative positions with the stated quality; that quality is not a numerical uncertainty estimate. Age values retain their reported units. Source-default flags and source selection posture do not select an analysis chronology. No age conversion, fitted age model, physical-core equivalence, ecological mapping or propagation admission is introduced. All source claims remain in the Chronology tab.</p></section>`;
+    return charcoalHtml + `<section aria-label="Selected source record" data-source-record-details="${status}"><h3>Selected source record</h3><p>${!claim ? escapeHtml(reason) : refused ? 'The uniquely joined source age claim is refused; its values remain source context.' : 'One exact source sample and age claim are joined.'}</p>${sourceRecordFields(fields)}<p>Coordinates are source representative positions with the stated quality; that quality is not a numerical uncertainty estimate. Age values retain their reported units. Source-default flags and source selection posture do not select an analysis chronology. No age conversion, fitted age model, physical-core equivalence, ecological mapping or propagation admission is introduced. All source claims remain in the Chronology tab.</p></section>`;
   } catch (error) {
     return unavailable('Selected sample source tables are unavailable or cannot be decoded consistently.');
   }

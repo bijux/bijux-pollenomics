@@ -21,9 +21,11 @@ def _plan_from_spec(
 ) -> tuple[NeotomaMetadataPlan, NeotomaMetadataLimits]:
     raw_plan, raw_limits = spec.get("plan"), spec.get("limits")
     legacy_fields = {"inventory_bbox", "inventory_limits", "site_ids"}
-    if not isinstance(raw_plan, dict) or set(raw_plan) not in (
-        legacy_fields,
-        legacy_fields | {"dataset_ids"},
+    if (
+        not isinstance(raw_plan, dict)
+        or not legacy_fields <= raw_plan.keys()
+        or not raw_plan.keys()
+        <= legacy_fields | {"dataset_ids", "inventory_all_dataset_types"}
     ):
         raise ValueError("Neotoma metadata plan must contain its exact declared fields")
     if not isinstance(raw_limits, dict) or set(raw_limits) != {
@@ -49,6 +51,7 @@ def _plan_from_spec(
         inventory_limits=tuple(raw_plan["inventory_limits"]),
         site_ids=tuple(raw_plan["site_ids"]),
         dataset_ids=tuple(raw_plan.get("dataset_ids", [])),
+        inventory_all_dataset_types=raw_plan.get("inventory_all_dataset_types", False),
     )
     limits = NeotomaMetadataLimits(**raw_limits)
     _validate_plan(plan, limits)
@@ -56,6 +59,10 @@ def _plan_from_spec(
 
 
 def _validate_plan(plan: NeotomaMetadataPlan, limits: NeotomaMetadataLimits) -> None:
+    if type(plan.inventory_all_dataset_types) is not bool:
+        raise ValueError("Neotoma inventory mode must be a literal boolean")
+    if plan.inventory_all_dataset_types and not plan.inventory_limits:
+        raise ValueError("Neotoma all-type inventory mode requires inventory queries")
     for name in (
         "max_requests",
         "max_pages_per_inventory",
@@ -100,7 +107,9 @@ def _validate_plan(plan: NeotomaMetadataPlan, limits: NeotomaMetadataLimits) -> 
         raise ValueError("Neotoma metadata dataset roster is duplicate")
 
 
-def _inventory_identities(rows: list[dict[str, object]]) -> tuple[set[int], set[int]]:
+def _inventory_identities(
+    rows: list[dict[str, object]], *, all_dataset_types: bool = False
+) -> tuple[set[int], set[int]]:
     units: set[int] = set()
     datasets: set[int] = set()
     for row in rows:
@@ -116,7 +125,16 @@ def _inventory_identities(rows: list[dict[str, object]]) -> tuple[set[int], set[
         if not isinstance(native_datasets, list) or not native_datasets:
             raise ValueError("Neotoma inventory dataset population is malformed")
         for dataset in native_datasets:
-            if not isinstance(dataset, dict) or dataset.get("datasettype") != "pollen":
+            if not isinstance(dataset, dict):
+                raise ValueError("Neotoma inventory dataset is malformed")
+            dataset_type = dataset.get("datasettype")
+            if (
+                not isinstance(dataset_type, str)
+                or not dataset_type
+                or dataset_type.strip() != dataset_type
+            ):
+                raise ValueError("Neotoma inventory dataset type is malformed")
+            if not all_dataset_types and dataset_type != "pollen":
                 raise ValueError("Neotoma inventory contains a non-pollen dataset")
             identity = positive_native_id(dataset.get("datasetid"))
             if identity in datasets:
@@ -143,10 +161,16 @@ def _walk_plan(
             offset = page * limit
             request = _Request(
                 f"inventory-limit-{limit}-offset-{offset}",
-                "pollen_inventory",
+                "dataset_inventory"
+                if plan.inventory_all_dataset_types
+                else "pollen_inventory",
                 "/datasets",
                 {
-                    "datasettype": "pollen",
+                    **(
+                        {}
+                        if plan.inventory_all_dataset_types
+                        else {"datasettype": "pollen"}
+                    ),
                     "loc": build_neotoma_bbox_geojson(plan.inventory_bbox),
                     "limit": str(limit),
                     "offset": str(offset),
@@ -157,7 +181,9 @@ def _walk_plan(
                 raise ValueError(
                     "Neotoma inventory page is unsuccessful or exceeds its limit"
                 )
-            units, datasets = _inventory_identities(chunk)
+            units, datasets = _inventory_identities(
+                chunk, all_dataset_types=plan.inventory_all_dataset_types
+            )
             if seen_units.intersection(units) or seen_datasets.intersection(datasets):
                 raise ValueError(
                     "Neotoma inventory pagination contains duplicate identities"

@@ -10,21 +10,20 @@ def _mapping_rows(value: object) -> list[Mapping[str, object]]:
     from . import Sequence as RuntimeSequence
 
     if not isinstance(value, RuntimeSequence) or isinstance(value, (str, bytes)):
-        return []
-    return [row for row in value if isinstance(row, RuntimeMapping)]
+        raise ValueError("classification source population must be a row sequence")
+    if any(not isinstance(row, RuntimeMapping) for row in value):
+        raise ValueError("classification source population contains a non-row")
+    return list(value)
 
 
 def _index_rows(
     rows: Sequence[Mapping[str, object]], id_field: str
 ) -> dict[str, Mapping[str, object]]:
-    from . import _canonical_json
+    from . import _canonical_json, _required_text
 
     indexed: dict[str, Mapping[str, object]] = {}
     for row in rows:
-        value = row.get(id_field)
-        if value is None:
-            continue
-        row_id = str(value)
+        row_id = _required_text(row, id_field)
         existing = indexed.get(row_id)
         if existing is not None and _canonical_json(existing) != _canonical_json(row):
             raise ValueError(f"conflicting duplicate {id_field}: {row_id}")
@@ -68,10 +67,9 @@ def _integer_count(row: Mapping[str, object], field: str) -> int:
 
 def _required_text(row: Mapping[str, object], field: str) -> str:
     value = row.get(field)
-    text = "" if value is None else str(value).strip()
-    if not text:
-        raise ValueError(f"observation requires {field}")
-    return text
+    if not isinstance(value, str) or not value or value.strip() != value:
+        raise ValueError(f"classification source identity requires exact {field}")
+    return value
 
 
 def _canonical_json(value: object) -> str:

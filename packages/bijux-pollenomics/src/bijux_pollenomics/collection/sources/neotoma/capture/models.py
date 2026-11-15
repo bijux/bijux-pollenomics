@@ -16,12 +16,13 @@ _SCHEMA = "neotoma-metadata-http-capture.v1"
 
 @dataclass(frozen=True)
 class NeotomaMetadataPlan:
-    """Declare pollen inventory queries and an independent known-site census."""
+    """Declare inventory scope and independent known-site metadata censuses."""
 
     inventory_bbox: tuple[float, float, float, float] | None = None
     inventory_limits: tuple[int, ...] = ()
     site_ids: tuple[int, ...] = ()
     dataset_ids: tuple[int, ...] = ()
+    inventory_all_dataset_types: bool = False
 
 
 @dataclass(frozen=True)
