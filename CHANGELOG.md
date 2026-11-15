@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Neotoma response ownership and pollen specimen admission
+### [#426](https://github.com/bijux/bijux-pollenomics/pull/426) — Neotoma response ownership and pollen specimen admission
 
 - Preserve TLS certificate verification and refuse unsuccessful or malformed Neotoma
   API envelopes. Authenticate each concurrent download against its own requested
