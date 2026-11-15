@@ -21,7 +21,7 @@ Repository changes are recorded by pull request, newest merge first.
   and declared host membership, preserving missing, unrelated and symlink
   refusals. Dependency audits and current runtime provenance use real packages.
 
-### Nonnegative analytical LOVE cover
+### [#421](https://github.com/bijux/bijux-pollenomics/pull/421) — Nonnegative analytical LOVE cover
 
 - Clip negative analytical LOVE cover to zero and normalize each draw before
   calculating summaries. Retain raw summaries, optional raw draws and outlier
