@@ -24,11 +24,13 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
     decode_chunk_script,
 )
 
-from ...map_document.source_resources.conftest import atlas_catalogue as atlas_catalogue
-from ...map_document.source_resources.conftest import (
+from ...map_document.source_resources.catalogue_inputs import (
+    atlas_catalogue as atlas_catalogue,
+)
+from ...map_document.source_resources.catalogue_inputs import (
     catalogue_sources as catalogue_sources,
 )
-from ...map_document.source_resources.conftest import legacy_site
+from ...map_document.source_resources.catalogue_inputs import legacy_site
 
 
 def payloads(assets: Any) -> list[dict[str, Any]]:

@@ -20,8 +20,8 @@ from bijux_pollenomics.reporting.map_document.source_resources import (
 )
 from bijux_pollenomics.reporting.models import MultiCountryMapReport
 
-from .conftest import atlas_catalogue as atlas_catalogue
-from .conftest import catalogue_sources as catalogue_sources
+from .catalogue_inputs import atlas_catalogue as atlas_catalogue
+from .catalogue_inputs import catalogue_sources as catalogue_sources
 
 
 class _ReachedRoutingBoundary(RuntimeError):

@@ -14,7 +14,7 @@ from bijux_pollenomics.reporting.map_document.source_resources import (
     load_atlas_resource_catalogue,
 )
 
-from .conftest import legacy_site
+from .catalogue_inputs import legacy_site
 
 
 def test_join_preserves_old_record_and_separates_unmatched_sites(

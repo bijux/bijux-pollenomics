@@ -10,9 +10,9 @@ from bijux_pollenomics.reporting.map_document.template import (
     URL_STATE_CONTROLLER,
 )
 
-from .edges.inspection.focus_support import browser
-from .edges.inspection.focus_support import published as published
-from .support import run_node_json, template_block
+from ..edges.inspection.focus_support import browser
+from ..edges.inspection.focus_support import published as published
+from ..support import run_node_json, template_block
 
 
 def point_replay(action: str) -> dict[str, Any]:

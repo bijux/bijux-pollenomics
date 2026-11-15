@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#448](https://github.com/bijux/bijux-pollenomics/pull/448) — Lazy reporting imports and retained source epochs
+
+- Resolve public reporting exports lazily while preserving owner object identities,
+  discovery, import order, wildcard exports and class serialization.
+- Bind the reporting import boundary to exact original/current whole-source pairs
+  under retained capture epochs without asserting numerical or execution equivalence.
+- Keep constructed Neotoma fixture ownership in explicit support modules and group
+  point URL replay controls with their source-record owner.
+
 ### [#447](https://github.com/bijux/bijux-pollenomics/pull/447) — Portable ancillary context and literal source placeholders
 
 - Document pinned portable source access, selected/full validation scope and the

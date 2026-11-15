@@ -13,7 +13,7 @@ from bijux_pollenomics.reporting.map_document.source_resources import (
     load_atlas_resource_catalogue,
 )
 
-from .conftest import pin_compact_extension
+from .catalogue_inputs import pin_compact_extension
 
 
 @pytest.mark.parametrize(

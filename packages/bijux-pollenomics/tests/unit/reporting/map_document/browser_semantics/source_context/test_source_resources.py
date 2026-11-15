@@ -26,8 +26,8 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
 )
 from bijux_pollenomics.reporting.scope_policy import MAP_SCOPE_POLICIES
 
-from ...source_resources.conftest import atlas_catalogue as atlas_catalogue
-from ...source_resources.conftest import catalogue_sources as catalogue_sources
+from ...source_resources.catalogue_inputs import atlas_catalogue as atlas_catalogue
+from ...source_resources.catalogue_inputs import catalogue_sources as catalogue_sources
 from ..support import run_node_json
 
 

@@ -33,16 +33,16 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
 from .....collection.sources.neotoma.resource_catalogue.test_current_profiles import (
     inputs as current_profile_inputs,
 )
-from ...source_resources.archive_reference.conftest import (
+from ...source_resources.archive_reference.native_archives import (
     archive_inputs as archive_inputs,
 )
-from ...source_resources.archive_reference.conftest import (
+from ...source_resources.archive_reference.native_archives import (
     publish_catalogue as publish_catalogue,
 )
-from ...source_resources.conftest import (
+from ...source_resources.catalogue_inputs import (
     atlas_catalogue as atlas_catalogue,
 )
-from ...source_resources.conftest import (
+from ...source_resources.catalogue_inputs import (
     catalogue_sources as catalogue_sources,
 )
 
