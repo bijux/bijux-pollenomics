@@ -2,6 +2,16 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### Neotoma source custody and selected access
+
+- Publish the bounded native source archive, complete eight-endpoint facet
+  census, shared linked-source evidence, unit metadata and reference prefixes
+  with independent content anchors and explicit incomplete-source refusals.
+- Authenticate native reference pointers and original/current parent duties in
+  selected readers; preserve unknown publication associations and primary flags.
+- Route exact source-taxonomy Atlas requests within existing interaction limits;
+  complete Atlas publication and scientific source admission remain separate.
+
 ### Swedish open-land and cereal figures
 
 - Pair open-land and cereal means with spatial min–max shading and fixed,

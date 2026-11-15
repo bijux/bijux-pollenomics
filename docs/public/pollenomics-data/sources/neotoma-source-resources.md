@@ -152,6 +152,7 @@ different source epochs, not interchangeable versions of a selected scientific
 input set. A metadata or schema match does not choose an age model, approve a
 basin radius, harmonize a taxon or certify independent vegetation accuracy.
 
-Ancillary endpoint captures and linked references are separate resources. The
-native archive described here does not certify completion of their census or
-recursively resolve every reference exposed by the provider.
+The [ancillary source products](neotoma-ancillary-resources.md) preserve the
+separate eight-endpoint census, native reference relationships, unit metadata
+and complete or partial reference responses. Their original/current scope and
+selected-reader contracts are independent of this native archive.
