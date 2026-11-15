@@ -1,0 +1,59 @@
+{
+  "capture_utc_end": "2026-11-15T04:56:48.880433+00:00",
+  "capture_utc_start": "2026-11-15T04:56:46.886272+00:00",
+  "metadata_scope": "current public reference prefixes only; no dictionary completeness, country assignment or numerical-resource admission",
+  "partitions": {
+    "received_complete_unqualified_reference_table": 1,
+    "refused_incomplete_body": 1
+  },
+  "plan_sha256": "825e41c2c1aec308059b3bfef99dc13b76a927b5065fead46046ecaee3aae2c0",
+  "request_count": 2,
+  "response_bytes": 2131412,
+  "schema_version": "neotoma-reference-table-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed current reference prefixes; no complete dictionary or transaction claim",
+  "status": "closed",
+  "tables": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "reference-table-variableunits-current-attempt-1.body",
+          "receipt_file": "reference-table-variableunits-current-attempt-1.receipt.json",
+          "receipt_sha256": "b0c6788cc7081afd4802cd757f822b1d24bc3fce2cc333214aec256e25d6d91c",
+          "request_name": "reference-table-variableunits-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "metadata_role": "reference_metadata",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "prefix_limit": 10000,
+        "prefix_offset": 0,
+        "schema_qualified": false,
+        "table_population_complete": false,
+        "units_interpreted": false
+      },
+      "table": "variableunits",
+      "terminal_status": "received_complete_unqualified_reference_table"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "reference-table-geopoliticalunits-current-attempt-1.body",
+          "receipt_file": "reference-table-geopoliticalunits-current-attempt-1.receipt.json",
+          "receipt_sha256": "d2eeda8d7884e2252b0c400614ae34bcb05884f01252fd9c1e1f5d9dd5e026a6",
+          "request_name": "reference-table-geopoliticalunits-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "metadata_role": "reference_metadata",
+      "reason": "Incomplete or bounded reference entity",
+      "scientific_admission": "not_asserted",
+      "table": "geopoliticalunits",
+      "terminal_status": "refused_incomplete_body"
+    }
+  ]
+}

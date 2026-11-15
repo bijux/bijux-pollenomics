@@ -1,0 +1,22 @@
+{
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 2,
+    "max_response_bytes": 2097151,
+    "max_total_bytes": 4194303,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 120
+  },
+  "metadata_scope": "current public reference prefixes only; no dictionary completeness, country assignment or numerical-resource admission",
+  "plan": {
+    "tables": [
+      "variableunits",
+      "geopoliticalunits"
+    ]
+  },
+  "policy_sources": [
+    "https://www.neotomadb.org/data/data-use-and-embargo-policy"
+  ],
+  "schema_version": "neotoma-reference-table-http-capture.v1"
+}

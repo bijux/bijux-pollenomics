@@ -1,0 +1,39 @@
+{
+  "capture_manifest_sha256": "bb58ff294fd3245219a0748f6b4e7d850f42c131f13e8213c2c450a56c0be120",
+  "files": {
+    "capture/capture-manifest.json": {
+      "bytes": 2391,
+      "sha256": "bb58ff294fd3245219a0748f6b4e7d850f42c131f13e8213c2c450a56c0be120"
+    },
+    "capture/reference-table-geopoliticalunits-current-attempt-1.body": {
+      "bytes": 2097152,
+      "sha256": "48e1cc73cc7025859e4a2c4d0f3b9f84fc75c31bef51ffb14eba5f35a6c80986"
+    },
+    "capture/reference-table-geopoliticalunits-current-attempt-1.receipt.json": {
+      "bytes": 1995,
+      "sha256": "d2eeda8d7884e2252b0c400614ae34bcb05884f01252fd9c1e1f5d9dd5e026a6"
+    },
+    "capture/reference-table-variableunits-current-attempt-1.body": {
+      "bytes": 34260,
+      "sha256": "edff2469db4114ab70e3847b00abcb78c54797e9fd1638d8b981d961cdc6089e"
+    },
+    "capture/reference-table-variableunits-current-attempt-1.receipt.json": {
+      "bytes": 1962,
+      "sha256": "b0c6788cc7081afd4802cd757f822b1d24bc3fce2cc333214aec256e25d6d91c"
+    },
+    "capture/request-plan.json": {
+      "bytes": 601,
+      "sha256": "825e41c2c1aec308059b3bfef99dc13b76a927b5065fead46046ecaee3aae2c0"
+    },
+    "index.json": {
+      "bytes": 8245,
+      "sha256": "aff299518e656571455ec9268a06a7f46c2fcd8031a05d70b59e2ecc23518d44"
+    }
+  },
+  "historical_snapshot_replaced": false,
+  "metadata_scope": "current public reference prefixes only; no dictionary completeness, country assignment or numerical-resource admission",
+  "schema_version": "neotoma-reference-table-source-archive.v1",
+  "scientific_admission": "not_asserted",
+  "source_bytes": 2146606,
+  "table_population_complete": false
+}
