@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Isolated native charcoal context and source support reports
+### [#433](https://github.com/bijux/bijux-pollenomics/pull/433) — Isolated native charcoal context and source support reports
 
 - Project literal native CHAR observations as an isolated, initially disabled Atlas
   context layer with exact source epochs, material/unit/detection facts and one feature
