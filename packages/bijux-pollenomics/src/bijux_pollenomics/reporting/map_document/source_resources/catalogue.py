@@ -6,16 +6,14 @@ from collections.abc import Mapping, Sequence
 from copy import deepcopy
 from hashlib import sha256
 import json
-import math
 from typing import Any
 
-from bijux_pollenomics.collection.sources.neotoma.client import (
-    decode_neotoma_json_object,
-)
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import (
     load_neotoma_resource_catalogue,
 )
 
+from .archive_reference import load_archive_reference
+from .geometry import native_point, qualify_site_extents
 from .models import AtlasResourceCatalogue, AtlasResourceCatalogueInput
 
 
@@ -48,40 +46,6 @@ def _legacy_id(record: Mapping[str, object]) -> str:
     return identity
 
 
-def _point(native: Mapping[str, Any]) -> tuple[tuple[float, float] | None, str]:
-    if "siteid" not in native:
-        return None, "native_site_id_missing"
-    if "geography" not in native:
-        return None, "native_geography_missing"
-    value = native["geography"]
-    if isinstance(value, str):
-        try:
-            value = decode_neotoma_json_object(value)
-        except ValueError:
-            return None, "native_geography_invalid_json"
-    if not isinstance(value, Mapping) or value.get("type") != "Point":
-        return None, "native_geography_not_explicit_point"
-    coordinates = value.get("coordinates")
-    if (
-        not isinstance(coordinates, list)
-        or len(coordinates) != 2
-        or any(type(v) not in (int, float) for v in coordinates)
-    ):
-        return None, "native_point_coordinates_invalid"
-    try:
-        longitude, latitude = (float(v) for v in coordinates)
-    except (OverflowError, ValueError):
-        return None, "native_point_coordinates_invalid"
-    if (
-        not math.isfinite(longitude)
-        or not math.isfinite(latitude)
-        or not -180 <= longitude <= 180
-        or not -90 <= latitude <= 90
-    ):
-        return None, "native_point_coordinates_invalid"
-    return (longitude, latitude), "explicit_native_point"
-
-
 def _site_variants(
     site_id: str, members: list[dict[str, Any]]
 ) -> tuple[list[dict[str, Any]], dict[str, str], dict[str, Any] | None, str]:
@@ -96,7 +60,7 @@ def _site_variants(
         dataset = _native_id(resource["dataset_id"])
         encoded = json.dumps(native, sort_keys=True, allow_nan=False).encode()
         identity = f"neotoma:site:{site_id}:{sha256(encoded).hexdigest()}"
-        point, status = _point(native)
+        point, status = native_point(native)
         points.append(point)
         if identity not in variants:
             variants[identity] = {
@@ -111,6 +75,7 @@ def _site_variants(
             {"dataset_id": dataset, "source": deepcopy(metadata.get("source"))}
         )
         membership[dataset] = identity
+    qualify_site_extents(list(variants.values()))
     present = {point for point in points if point is not None}
     # Agreement among a subset cannot authorize coordinates for the whole site.
     if len(present) > 1:
@@ -206,6 +171,12 @@ def load_atlas_resource_catalogue(
         native_body_access="not_requested",
         geometry_basis="consensus_of_all_resource_native_site_points",
     )
+    if source.archive is not None:
+        provenance["source_archive"] = load_archive_reference(
+            source.archive,
+            catalogue=raw,
+            catalogue_manifest_sha256=source.expected_manifest_sha256,
+        )
     return AtlasResourceCatalogue(
         resource_records=tuple(resources),
         site_records=tuple(sites),

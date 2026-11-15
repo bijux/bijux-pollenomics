@@ -18,6 +18,7 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import (
     write_neotoma_resource_catalogue,
 )
 from bijux_pollenomics.reporting.map_document.source_resources import (
+    AtlasResourceArchiveInput,
     AtlasResourceCatalogue,
     AtlasResourceCatalogueInput,
     load_atlas_resource_catalogue,
@@ -31,6 +32,12 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
 
 from .....collection.sources.neotoma.resource_catalogue.test_current_profiles import (
     inputs as current_profile_inputs,
+)
+from ...source_resources.archive_reference.conftest import (
+    archive_inputs as archive_inputs,
+)
+from ...source_resources.archive_reference.conftest import (
+    publish_catalogue as publish_catalogue,
 )
 from ...source_resources.conftest import (
     atlas_catalogue as atlas_catalogue,
@@ -238,3 +245,33 @@ def test_native_reader_outputs_cannot_be_embedded_as_resource_metadata(
     )
     with pytest.raises(ValueError, match="native body|native reader"):
         resource_transport_api().build_source_resource_payloads(source)
+
+
+def test_archive_reference_occurs_only_once_in_lazy_catalogue_context(
+    archive_inputs: tuple[Path, str, Path, str],
+) -> None:
+    root, digest, archive, archive_pin = archive_inputs
+    projected = load_atlas_resource_catalogue(
+        AtlasResourceCatalogueInput(
+            root,
+            digest,
+            archive=AtlasResourceArchiveInput(
+                archive, archive_pin, "/data/neotoma/source-resources/"
+            ),
+        )
+    )
+    api = resource_transport_api()
+    transport = api.build_source_resource_payloads(projected)
+    context = rows_of(transport, "context")[0]
+    assert (
+        context["provenance"]["source_archive"]
+        == projected.provenance["source_archive"]
+    )
+    assert transport.domain["context_part_id"] == "context:0"
+    assert transport.domain["initial_load"] is False
+    assert "files" not in context["provenance"]["source_archive"]
+    assert all("source_archive" not in row for row in rows_of(transport, "resources"))
+    corrupt = deepcopy(projected.provenance)
+    corrupt["source_archive"]["published_base_url"] = "https://foreign.invalid/"
+    with pytest.raises(ValueError, match="public URL prefix"):
+        api.build_source_resource_payloads(replace(projected, provenance=corrupt))

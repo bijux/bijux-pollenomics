@@ -143,3 +143,67 @@ def test_population_counts_are_literal_nonnegative_integers(
                 "catalogue_manifest_sha256"
             ],
         )
+
+
+def test_native_extent_cannot_be_forged_after_projection(
+    projected_catalogue: AtlasResourceCatalogue,
+) -> None:
+    api = resource_transport_api()
+    sites = deepcopy(list(projected_catalogue.site_records))
+    sites[0]["native_site_variants"][0].update(
+        extent_geometry={"type": "Polygon", "coordinates": [[[0, 0]] * 4]},
+        extent_status="explicit_native_extent",
+    )
+    forged = replace(projected_catalogue, site_records=tuple(sites))
+    with pytest.raises(ValueError, match="extent profile"):
+        api.build_source_resource_payloads(forged)
+
+
+def test_context_part_identity_cannot_move_to_a_resource_partition(
+    projected_catalogue: AtlasResourceCatalogue,
+) -> None:
+    api = resource_transport_api()
+    transport = api.build_source_resource_payloads(projected_catalogue)
+    transport.domain["context_part_id"] = "resources:0"
+    with pytest.raises(ValueError, match="context part identity"):
+        api.validate_source_resource_payloads(
+            transport,
+            expected_catalogue_manifest_sha256=projected_catalogue.provenance[
+                "catalogue_manifest_sha256"
+            ],
+        )
+
+
+def test_legacy_resource_v1_remains_valid_without_optional_extent_and_context_fields(
+    projected_catalogue: AtlasResourceCatalogue,
+) -> None:
+    sites = deepcopy(list(projected_catalogue.site_records))
+    for site in sites:
+        for variant in site["native_site_variants"]:
+            variant.pop("extent_geometry")
+            variant.pop("extent_status")
+    api = resource_transport_api()
+    transport = api.build_source_resource_payloads(
+        replace(projected_catalogue, site_records=tuple(sites))
+    )
+    assert all(
+        "native_extent_variant_ids" not in row
+        for row in rows_of(transport, "index")
+        if row["entity_type"] == "sites"
+    )
+    del transport.domain["context_part_id"]
+    api.validate_source_resource_payloads(
+        transport,
+        expected_catalogue_manifest_sha256=projected_catalogue.provenance[
+            "catalogue_manifest_sha256"
+        ],
+    )
+    for invalid in (None, True, "", "resources:0"):
+        transport.domain["context_part_id"] = invalid
+        with pytest.raises(ValueError, match="context part identity"):
+            api.validate_source_resource_payloads(
+                transport,
+                expected_catalogue_manifest_sha256=projected_catalogue.provenance[
+                    "catalogue_manifest_sha256"
+                ],
+            )
