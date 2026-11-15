@@ -11,14 +11,19 @@ import stat
 from typing import Any
 
 from ...capture.facets.replay import _control as facet_control
+from ...capture.linked_resources.models import EVIDENCE_SCHEMA, SCOPED_LINKED_SCHEMA
 from ...capture.linked_resources.replay import _control as linked_control
 from ...capture.receipts import _object, _read, _safe_root
 from ...capture.resources.models import DEFAULT_RESOURCE_LIMITS, NeotomaResourceLimits
 from ...resource_catalogue.archive.files import _digest, _member
 from ...resource_catalogue.source_projection import _same
 from ..capsule.inventory import _FIELDS as CAPSULE_FIELDS
-from ..capsule.models import CAPSULE_SCHEMA, verify_metadata_population
-from ..federation.models import FACETS, INDEX_SCHEMA, SCHEMA
+from ..capsule.models import (
+    CAPSULE_SCHEMA,
+    SCOPED_CAPSULE_SCHEMA,
+    verify_metadata_population,
+)
+from ..federation.models import FACETS, INDEX_SCHEMA, SCHEMA, SCOPED_SCHEMA
 from ..federation.validation import _FIELDS
 from .budgets import _COUNT_LIMITS as _COUNT_LIMITS
 from .budgets import _validate_limits as _validate_limits
@@ -28,6 +33,20 @@ MAX_METADATA = 16 * 1024 * 1024
 MAX_BYTES = 512 * 1024 * 1024
 MAX_FILES = 20000
 _ID = re.compile(r"([0-9a-f]{64}):/(facets|resources)/(0|[1-9][0-9]*)\Z")
+
+
+def _evidence_descriptors(document: dict[str, Any]) -> None:
+    references = document.get("linked_evidence")
+    if (
+        not isinstance(references, dict)
+        or not references
+        or len(references) > MAX_FILES
+        or any(
+            not _digest(pin) or not _same(value, {"schema_version": EVIDENCE_SCHEMA})
+            for pin, value in references.items()
+        )
+    ):
+        raise ValueError("Selected linked evidence state descriptor is malformed")
 
 
 def pinned(
@@ -93,6 +112,7 @@ class SelectedMetadata:
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS
     captures: dict[str, dict[str, Any]] = field(default_factory=dict)
     rows: dict[tuple[str, str], dict[str, Any]] = field(default_factory=dict)
+    evidence_sources: Mapping[str, Path] | None = None
 
     def member(
         self,
@@ -247,8 +267,15 @@ class SelectedMetadata:
         capsule = _object(raw)
         members(capsule, raw)
         if (
-            set(capsule) != CAPSULE_FIELDS
-            or capsule["schema_version"] != CAPSULE_SCHEMA
+            set(capsule)
+            != CAPSULE_FIELDS
+            | (
+                {"linked_evidence"}
+                if capsule.get("schema_version") == SCOPED_CAPSULE_SCHEMA
+                else set()
+            )
+            or not isinstance(capsule.get("schema_version"), str)
+            or capsule["schema_version"] not in {CAPSULE_SCHEMA, SCOPED_CAPSULE_SCHEMA}
             or capsule["context_manifest_sha256"] != self.context_pin
             or capsule["native_archive_manifest_sha256"] != self.native_pin
             or capsule["scientific_admission"] != "not_asserted"
@@ -259,6 +286,8 @@ class SelectedMetadata:
             or sorted(capsule["captures"]) != self.manifest["capsule_captures"][owner]
         ):
             raise ValueError("Selected capsule identity or claims differ")
+        if capsule["schema_version"] == SCOPED_CAPSULE_SCHEMA:
+            _evidence_descriptors(capsule)
         descriptor = capsule["captures"][digest]
         if (
             not isinstance(descriptor, dict)
@@ -290,6 +319,25 @@ class SelectedMetadata:
         ):
             raise ValueError("Selected capture source identity differs")
         verify_metadata_population(descriptor, document, control)
+        if document["schema_version"] == SCOPED_LINKED_SCHEMA:
+            reference = control.get("source_evidence")
+            if (
+                not isinstance(reference, dict)
+                or set(reference) != {"schema_version", "manifest_sha256"}
+                or reference["schema_version"] != EVIDENCE_SCHEMA
+                or not _digest(reference["manifest_sha256"])
+            ):
+                raise ValueError("Selected scoped evidence reference differs")
+            state = reference["manifest_sha256"]
+            expected = {"schema_version": EVIDENCE_SCHEMA}
+            if (
+                not _same(document.get("source_evidence"), reference)
+                or not _same(capsule.get("linked_evidence", {}).get(state), expected)
+                or not _same(
+                    self.manifest.get("linked_evidence", {}).get(state), expected
+                )
+            ):
+                raise ValueError("Selected scoped evidence owner binding differs")
         result = {
             "root": root,
             "directory": directory,
@@ -324,6 +372,7 @@ def selected_metadata(
     expected_native_archive_sha256: str,
     capsule_sources: Mapping[str, Path],
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    evidence_sources: Mapping[str, Path] | None = None,
 ) -> SelectedMetadata:
     _validate_limits(limits)
     root = _safe_root(directory)
@@ -331,8 +380,15 @@ def selected_metadata(
     manifest = _object(raw)
     members(manifest, raw)
     if (
-        set(manifest) != _FIELDS
-        or manifest["schema_version"] != SCHEMA
+        set(manifest)
+        != _FIELDS
+        | (
+            {"linked_evidence"}
+            if manifest.get("schema_version") == SCOPED_SCHEMA
+            else set()
+        )
+        or not isinstance(manifest.get("schema_version"), str)
+        or manifest["schema_version"] not in {SCHEMA, SCOPED_SCHEMA}
         or manifest["context_manifest_sha256"] != expected_context_sha256
         or manifest["native_archive_manifest_sha256"] != expected_native_archive_sha256
         or manifest["declared_facets"] != list(FACETS)
@@ -348,6 +404,8 @@ def selected_metadata(
         != "captured_occurrences_and_current_native_parent_obligations"
     ):
         raise ValueError("Selected federation anchors or integrity claims differ")
+    if manifest["schema_version"] == SCOPED_SCHEMA:
+        _evidence_descriptors(manifest)
     owners = manifest["capsule_captures"]
     if (
         not isinstance(owners, dict)
@@ -376,6 +434,7 @@ def selected_metadata(
         expected_context_sha256,
         expected_native_archive_sha256,
         limits=limits,
+        evidence_sources=evidence_sources,
     )
     index = _object(result.member(root, manifest, "index.json"))
     if (

@@ -12,6 +12,7 @@ from ...capture.facets.models import (
     NeotomaFacetScopeInputs,
 )
 from ...capture.facets.scope import prepare_facet_parent_scope
+from ...capture.linked_resources import authenticate_linked_root_metadata
 from ...capture.parent_scope import _roster
 from ...capture.receipts import _object, _safe_root
 from ...capture.resources.models import DEVELOPMENT_ROLES, NeotomaResourceSpec
@@ -54,6 +55,7 @@ class CurrentScope:
     roster_pin: str
     published: dict[str, Any]
     proof: dict[str, Any] | None = None
+    original_scope: tuple[str, dict[str, Any]] | None = None
 
     def guard(self, owners: list[dict[str, Any]]) -> dict[int, dict[str, Any]]:
         """Check every recorded owner before deduplicating native dataset roots."""
@@ -100,6 +102,25 @@ class CurrentScope:
                 raise ValueError("Selected current parent scope forbids entity access")
             parents[parent["dataset_id"]] = parent
         return parents
+
+    def linked_metadata(self) -> dict[str, Any]:
+        """Recheck all current roots and native PI duties, including unrecorded roots."""
+        current = authenticate_linked_root_metadata(
+            expected_roster_sha256=self.roster_pin, scope=self.inputs
+        )
+        proof = current["proof"]
+        if not _same(proof, self.published):
+            raise ValueError(
+                "Selected current global reference metadata is stale or differs"
+            )
+        return current
+
+    def contact(self, native_id: int) -> None:
+        """Known protected PI references restrict the global contact, not other datasets."""
+        if str(native_id) in self.linked_metadata()["protected"]:
+            raise ValueError(
+                "Selected contact has a protected current metadata dependency"
+            )
 
     def original(
         self, metadata: SelectedMetadata, capture: dict[str, Any], entry: dict[str, Any]
@@ -148,15 +169,18 @@ class CurrentScope:
             or reference["file"] != "parent-scope.json"
         ):
             raise ValueError("Selected original parent scope reference differs")
-        original = _object(metadata.source_member(capture, reference["file"]))
-
         if (
             capture["descriptor"]["files"][reference["file"]]["sha256"]
             != reference["sha256"]
         ):
             raise ValueError("Selected original parent scope identity differs")
-        if not _same(_header(original), _header(self.proof)):
-            raise ValueError("Selected original parent scope header differs")
+        source = capture["descriptor"]["files"]["capture-manifest.json"]["sha256"]
+        if self.original_scope is None or self.original_scope[0] != source:
+            original = _object(metadata.source_member(capture, reference["file"]))
+            if not _same(_header(original), _header(self.proof)):
+                raise ValueError("Selected original parent scope header differs")
+            self.original_scope = (source, original)
+        original = self.original_scope[1]
         dataset = entry["root_identity"]["dataset_id"]
         expected = [
             row for row in self.proof["parents"] if row["dataset_id"] == dataset
