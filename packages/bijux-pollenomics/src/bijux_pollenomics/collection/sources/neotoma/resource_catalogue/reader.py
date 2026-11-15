@@ -225,6 +225,7 @@ def read_neotoma_catalogue_resource(
     version: str,
     capture_sources: Mapping[str, Path],
     retained_sources: Mapping[str, NeotomaRetainedSource] | None = None,
+    include_native_body: bool = False,
 ) -> dict[str, Any]:
     """Read one qualified development source in its native current or frozen shape.
 
@@ -232,7 +233,11 @@ def read_neotoma_catalogue_resource(
     receipt/ancestor closure. Explicit content-addressed resolvers supply only
     the selected entity. This reader does not assert scientific admission or
     turn a historical DOI snapshot into a current download or original paper.
+    Explicit native-body access returns that same authenticated byte buffer;
+    the default result remains JSON compatible.
     """
+    if type(include_native_body) is not bool:
+        raise ValueError("include_native_body must be a literal boolean")
     dataset_id = positive_native_id(dataset_id)
     if not isinstance(version, str) or version not in {"current", "doi_frozen"}:
         raise ValueError("Selected Neotoma resource version is unsupported")
@@ -344,4 +349,6 @@ def read_neotoma_catalogue_resource(
             strict_current_binding_status=snapshot.strict_current_binding_status,
             snapshot_database_metadata=snapshot.database_metadata,
         )
+    if include_native_body:
+        result["native_body"] = body
     return result
