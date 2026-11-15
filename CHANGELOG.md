@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Federated ancillary coverage and retained reference prefixes
+### [#450](https://github.com/bijux/bijux-pollenomics/pull/450) — Federated ancillary coverage and retained reference prefixes
 
 - Federate immutable ancillary occurrences against exact current native owners and
   strongest authenticated parent roles, preserving epochs, pending/protected coverage
