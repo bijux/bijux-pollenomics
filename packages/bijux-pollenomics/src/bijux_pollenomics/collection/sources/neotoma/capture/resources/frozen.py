@@ -20,6 +20,15 @@ from .models import (
 from .protocol import plan_from_json, resource_key
 from .replay import replay_neotoma_resource_capture
 
+_NO_FROZEN_RECORD = (
+    "There is no frozen record for this dataset.  Contact Neotoma Maintainers "
+    "if you believe this record should have an associated frozen record."
+)
+
+
+class _UnavailableFrozenRecord(ValueError):
+    """The provider explicitly reports no frozen record for this request."""
+
 
 class _UnavailableFrozenResource(ValueError):
     """The authenticated API entity explicitly contains a successful empty set."""
@@ -50,9 +59,14 @@ def parse_neotoma_frozen_resource(
     if sha256(body).hexdigest() != expected_body_sha256:
         raise ValueError("Frozen source body identity differs")
     payload = _object(body)
-    rows = _validated_neotoma_rows(payload)
     if payload.get("status") != "success":
         raise ValueError("Frozen native source status is unsuccessful")
+    if payload.get("data") == _NO_FROZEN_RECORD:
+        _validated_neotoma_rows({**payload, "data": []})
+        raise _UnavailableFrozenRecord(
+            "Provider reports no frozen record at this endpoint; general absence is not certified"
+        )
+    rows = _validated_neotoma_rows(payload)
     if not rows:
         raise _UnavailableFrozenResource(
             "Frozen API explicitly returned successful empty data; absence is not certified"
@@ -314,6 +328,12 @@ def qualify_neotoma_frozen_capture(
                     summary=_summary(parsed),
                 )
                 del parsed
+            except _UnavailableFrozenRecord as error:
+                row.update(
+                    qualification_status="unavailable_frozen_record",
+                    reason=str(error),
+                    absence_certified=False,
+                )
             except _UnavailableFrozenResource as error:
                 row.update(
                     qualification_status="unavailable_frozen_api_empty",

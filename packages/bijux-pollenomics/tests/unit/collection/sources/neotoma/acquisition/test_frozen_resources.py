@@ -479,3 +479,102 @@ def test_mixed_retained_current_and_frozen_qualification_requires_original_resol
                 "dataset-54000-current": replace(retained, body_sha256="0" * 64)
             },
         )
+
+
+_NO_FROZEN_RECORD = "There is no frozen record for this dataset.  Contact Neotoma Maintainers if you believe this record should have an associated frozen record."
+
+
+def test_exact_provider_frozen_unavailability_is_not_empty_or_absence_certified(
+    tmp_path: Path,
+) -> None:
+    source = tmp_path / "source"
+    captured = capture(
+        source,
+        encode(
+            {
+                "status": "success",
+                "data": _NO_FROZEN_RECORD,
+                "message": "Retrieved all tables",
+            }
+        ),
+    )
+    original = {path.name: path.read_bytes() for path in source.iterdir()}
+    qualified = qualify_neotoma_frozen_capture(
+        source, expected_manifest_sha256=captured.manifest_sha256
+    )
+    row = qualified["resources"][0]
+    assert row["qualification_status"] == "unavailable_frozen_record"
+    assert row["absence_certified"] is False
+    assert (
+        row["source"]["body_sha256"]
+        == sha256(
+            encode(
+                {
+                    "status": "success",
+                    "data": _NO_FROZEN_RECORD,
+                    "message": "Retrieved all tables",
+                }
+            )
+        ).hexdigest()
+    )
+    assert original == {path.name: path.read_bytes() for path in source.iterdir()}
+    assert captured.resources[0]["terminal_status"] == "unresolved_frozen_schema"
+
+
+@pytest.mark.parametrize(
+    "status,message",
+    [
+        ("error", _NO_FROZEN_RECORD),
+        (True, _NO_FROZEN_RECORD),
+        ("success", "Unknown message"),
+        ("success", "There is no frozen record for this dataset. invented remainder"),
+        (
+            "success",
+            "Other text mentions no frozen record but is not an availability response",
+        ),
+    ],
+)
+def test_only_successful_exact_provider_availability_message_is_recognized(
+    tmp_path: Path, status: object, message: str
+) -> None:
+    source = tmp_path / "source"
+    captured = capture(source, encode({"status": status, "data": message}))
+    qualified = qualify_neotoma_frozen_capture(
+        source, expected_manifest_sha256=captured.manifest_sha256
+    )
+    assert qualified["resources"][0]["qualification_status"] == "refused_frozen_native"
+
+
+def test_provider_no_record_message_does_not_override_failed_http(
+    tmp_path: Path,
+) -> None:
+    content = encode({"status": "success", "data": _NO_FROZEN_RECORD})
+    source = tmp_path / "source"
+    captured = capture_neotoma_resources(
+        source,
+        plan=NeotomaResourcePlan((spec(),), "b" * 64),
+        fetch=lambda url, **_: NeotomaMetadataResponse(url, 404, (), content),
+    )
+    qualified = qualify_neotoma_frozen_capture(
+        source, expected_manifest_sha256=captured.manifest_sha256
+    )
+    assert (
+        qualified["resources"][0]["qualification_status"]
+        == "not_qualified_source_result"
+    )
+    assert qualified["resources"][0]["source_terminal_status"] == "unavailable_http"
+
+
+@pytest.mark.parametrize("success", [False, 0])
+def test_provider_availability_does_not_override_contradictory_success_field(
+    tmp_path: Path, success: object
+) -> None:
+    source = tmp_path / "source"
+    captured = capture(
+        source,
+        encode({"status": "success", "success": success, "data": _NO_FROZEN_RECORD}),
+    )
+    qualified = qualify_neotoma_frozen_capture(
+        source, expected_manifest_sha256=captured.manifest_sha256
+    )
+    assert qualified["resources"][0]["qualification_status"] == "refused_frozen_native"
