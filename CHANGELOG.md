@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Source-bound resource catalogues and isolated acquisition imports
+### [#435](https://github.com/bijux/bijux-pollenomics/pull/435) — Source-bound resource catalogues and isolated acquisition imports
 
 - Build exact roster-bound native resource catalogues with separate current/frozen
   version coverage, source epochs, exposure roles, declared inventory scope and reasoned
