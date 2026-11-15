@@ -1,0 +1,57 @@
+{
+  "current_scope_verification": "resolver_identity_only_parent_obligations_not_replayed",
+  "exposure_authority": {
+    "bytes": 4125,
+    "path": "evidence/exposure/9d904a23d9d40388a0734f9f59b5dac032b69d5644c59d54190aa4c31e8c31a1.json",
+    "sha256": "9d904a23d9d40388a0734f9f59b5dac032b69d5644c59d54190aa4c31e8c31a1"
+  },
+  "files": {
+    "evidence/exposure/9d904a23d9d40388a0734f9f59b5dac032b69d5644c59d54190aa4c31e8c31a1.json": {
+      "bytes": 4125,
+      "sha256": "9d904a23d9d40388a0734f9f59b5dac032b69d5644c59d54190aa4c31e8c31a1"
+    },
+    "rosters/72916f24f30e24d57f9e85f71c6c9e7729abad192b9d842c262b79ed4ac53cdb.json": {
+      "bytes": 505101,
+      "sha256": "72916f24f30e24d57f9e85f71c6c9e7729abad192b9d842c262b79ed4ac53cdb"
+    }
+  },
+  "historical_snapshot_replaced": false,
+  "legacy_rosters": {
+    "72916f24f30e24d57f9e85f71c6c9e7729abad192b9d842c262b79ed4ac53cdb": {
+      "bytes": 505101,
+      "parent_scope_verification": "not_recorded_legacy_capture",
+      "path": "rosters/72916f24f30e24d57f9e85f71c6c9e7729abad192b9d842c262b79ed4ac53cdb.json",
+      "sha256": "72916f24f30e24d57f9e85f71c6c9e7729abad192b9d842c262b79ed4ac53cdb",
+      "use_scope": "original_capture_identity_only"
+    }
+  },
+  "native_archive": {
+    "catalogue_manifest_sha256": "5ac1dd118ba97e08d9e52220248049c779db895d094a5f450ab215d5709ec1ec",
+    "current_roster_sha256": "0af2a76f408b3abc7d59eabc94dc3998060244e1a4202d28c51bc99be56f9f32",
+    "historical_metadata_part_sha256s": [
+      "be7fccfa6e0284ac7984e64c844618a6d8682c03282296cef5cabaab594e27e9"
+    ],
+    "manifest_sha256": "d34559cf88a41c45deadcb4e3def5a5fdf765d51092063bd29d033615cdaeaff",
+    "metadata_capture_manifest_sha256s": [
+      "1a92982745f741f9d4cecfc426529914ef981654232671b20b90c9f8587b8374",
+      "248fb70ef1490ddb49ac53a93127f6fff9cdca0e664bab941901cf2a9084a446",
+      "34cacfe00a53b29f317d23e01b02716c0c53c0a4ed1a017781f5b46dc1fbb547",
+      "3b6205eb33a5861b36c7d7fbca1eb064e74703ec145e47987ffdc73c3d327c24",
+      "424dd65284831dff836d48cc6bae4d72e99e03f04ce8bd993280c72dcc2bbaa0",
+      "5cdeb645154acb7bbe04a9b7765d6777fcae26041ec007ed129a545c757d7e2b",
+      "6ab44333d2a55d89952c0627f79a3e5a984de4cf5639b304bfa2db87269b0200",
+      "717ca51f2999ac11490f389505e35dad45f0b93b3e1bd36388a22e9e3326a441",
+      "86880dac9f157bd245a651658ab7bd0c776ab1ebaa2ec833416577af514b3cb0",
+      "a4f5bd0cfd64093381a66e1161dc1b297716932b007a800b9ddc5c02ef423e7c",
+      "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+      "bed0f55ef40b7bd01d55f726ac0c704e1186cb90bb8d12d5b2fe5ef16c9f564e"
+    ],
+    "original_relational_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+    "reviewed_exposure_metadata_sha256": "9d904a23d9d40388a0734f9f59b5dac032b69d5644c59d54190aa4c31e8c31a1"
+  },
+  "native_body_copies": 0,
+  "pre_get_scope_reconstructed": false,
+  "schema_version": "neotoma-ancillary-source-context.v1",
+  "scientific_admission": "not_asserted",
+  "source_bytes": 509226
+}

@@ -21,6 +21,12 @@ comparison, or no numeric-time claim.
 
 ## Checked-In Evidence
 
+The separate [portable native source archive](neotoma-source-resources.md)
+provides authenticated current and DOI-frozen source access for 1,258 resource
+identities at 527 sites. Its discovery population and capture epochs differ
+from the original pollen publication below; its records do not enlarge that
+publication or establish numerical LRA admission.
+
 The legacy point-layer temporal review covers 200 normalized sites:
 
 | Posture | Count | Interpretation |

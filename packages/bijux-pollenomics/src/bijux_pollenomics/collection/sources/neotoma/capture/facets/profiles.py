@@ -27,6 +27,54 @@ _TAXON_FIELDS = {
     "publicationid",
     "publication",
 }
+_NULL_CONTROL = {
+    "age": None,
+    "agetype": None,
+    "analysisunitid": None,
+    "analysisunitname": None,
+    "chroncontrolid": None,
+    "controllimits": {"ageolder": None, "ageyounger": None},
+    "controltype": None,
+    "depth": None,
+    "geochron": {
+        "delta13c": None,
+        "geochronage": {"age": None, "errorolder": None, "erroryounger": None},
+        "geochronagetype": None,
+        "geochronid": None,
+        "geochronlabnumber": None,
+        "geochrontype": None,
+        "infinite": None,
+        "materialdated": None,
+        "notes": None,
+    },
+    "notes": None,
+    "relativeage": {
+        "c14ages": {"c14ageolder": None, "c14ageyounger": None},
+        "calages": {"calageolder": None, "calageyounger": None},
+        "relativeage": None,
+    },
+    "thickness": None,
+}
+
+
+def _null_control_aggregate(value: Any) -> bool:
+    return isinstance(value, list) and value == [_NULL_CONTROL]
+
+
+def _null_author_aggregate(value: Any) -> bool:
+    return isinstance(value, list) and value == [
+        {"familyname": None, "givennames": None, "order": None}
+    ]
+
+
+def _aggregate_population(raw_count: int, placeholder_count: int) -> dict[str, Any]:
+    return {
+        "raw_row_count": raw_count,
+        "identified_record_count": raw_count - placeholder_count,
+        "null_aggregate_row_count": placeholder_count,
+        "population_status": "source_null_aggregate_placeholder",
+        "absence_certified": False,
+    }
 
 
 def _object(value: Any, label: str) -> dict[str, Any]:
@@ -90,8 +138,10 @@ def _relationships(
         _id(row.get("datasetid"), "datasets.datasetid")
         if publication:
             _id(row.get("siteid"), "datasets.siteid")
-            if type(row.get("primary")) is not bool:
-                raise ValueError("datasets.primary must be a native boolean")
+            if row["primary"] is not None and type(row["primary"]) is not bool:
+                raise ValueError(
+                    "datasets.primary must be a native boolean or explicit null"
+                )
         else:
             _text(row.get("datasettype"), "datasets.datasettype")
         if row["datasetid"] == resource.dataset_id:
@@ -147,7 +197,10 @@ def _chronologies(data: Any, resource: NeotomaResourceSpec) -> int:
         _fields(span, {"older", "younger"}, set(), "reliableagespan")
         for key, value in span.items():
             _number(value, f"reliableagespan.{key}")
-        for control in _rows(chronology.get("controls"), "controls"):
+        controls = _rows(chronology.get("controls"), "controls")
+        if _null_control_aggregate(controls):
+            continue
+        for control in controls:
             _fields(
                 control,
                 {
@@ -254,7 +307,10 @@ def _publications(data: Any, resource: NeotomaResourceSpec) -> int:
         )
         _id(publication.get("publicationid"), "publicationid")
         _relationships(publication.get("datasets"), resource, publication=True)
-        for author in _rows(publication.get("author"), "publication.author"):
+        authors = _rows(publication.get("author"), "publication.author")
+        if _null_author_aggregate(authors):
+            continue
+        for author in authors:
             if set(author) != {"order", "familyname", "givennames"}:
                 raise ValueError("unobserved publication author fields")
             _id(author["order"], "author.order")
@@ -334,6 +390,13 @@ def qualify_neotoma_facet_body(
         data = source["data"]
         if facet == "chronologies":
             count = _chronologies(data, resource)
+            controls = [row["chronology"]["controls"] for row in data]
+            placeholders = sum(_null_control_aggregate(rows) for rows in controls)
+            if placeholders:
+                availability["control_population"] = {
+                    **_aggregate_population(sum(map(len, controls)), placeholders),
+                    "dated_measurement_count": None,
+                }
             if count:
                 owner.update(
                     dataset="native_payload_matches_request",
@@ -355,6 +418,13 @@ def qualify_neotoma_facet_body(
                 owner["dataset"] = "native_payload_matches_request"
         elif facet == "publications":
             count = _publications(data, resource)
+            authors = [row["publication"]["author"] for row in data]
+            placeholders = sum(_null_author_aggregate(rows) for rows in authors)
+            if placeholders:
+                availability["author_population"] = {
+                    **_aggregate_population(sum(map(len, authors)), placeholders),
+                    "person_identity_asserted": False,
+                }
             if count:
                 owner.update(
                     dataset="native_payload_matches_request",

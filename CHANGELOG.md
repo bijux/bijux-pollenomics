@@ -2,6 +2,16 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#447](https://github.com/bijux/bijux-pollenomics/pull/447) — Portable ancillary context and literal source placeholders
+
+- Document pinned portable source access, selected/full validation scope and the
+  separate source-format, scientific-admission, reuse and browser boundaries.
+- Retain portable ancillary context with exact exposure evidence and legacy roster
+  bytes, binding internal metadata resolvers without replaying parent obligations
+  or reconstructing historical pre-request scope.
+- Preserve exact null author/control aggregates and nullable publication annotations
+  without inventing people, dated controls, absence or coerced boolean identities.
+
 ### [#446](https://github.com/bijux/bijux-pollenomics/pull/446) — Portable Nordic source archive and exact retained buffers
 
 - Return the exact authenticated retained-source buffer instead of reopening its
