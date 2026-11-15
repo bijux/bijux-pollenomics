@@ -4,7 +4,8 @@ from datetime import date
 import json
 from pathlib import Path
 
-from ....core.files import write_json
+from ....core.files import write_json, write_text
+from ....core.filesystem import OwnedTreeWriter
 from ...contracts.models import ContextPointRecord
 from .chronology import neotoma_age_range_units_supported
 
@@ -131,19 +132,23 @@ def write_neotoma_review_outputs(
     *,
     rows: list[dict[str, object]],
     records: list[ContextPointRecord],
+    writer: OwnedTreeWriter | None = None,
 ) -> None:
     """Write checked-in Neotoma review packets beside normalized outputs."""
     review_root = Path(output_root) / "review"
-    review_root.mkdir(parents=True, exist_ok=True)
+    if writer is None:
+        review_root.mkdir(parents=True, exist_ok=True)
     temporal_review = build_neotoma_temporal_review(rows, records)
-    write_json(review_root / "temporal_review.json", temporal_review)
-    (review_root / "temporal_review.md").write_text(
+    write_json(review_root / "temporal_review.json", temporal_review, writer=writer)
+    write_text(
+        review_root / "temporal_review.md",
         render_neotoma_temporal_review_markdown(temporal_review),
-        encoding="utf-8",
+        writer=writer,
     )
-    (review_root / "temporal_review.csv").write_text(
+    write_text(
+        review_root / "temporal_review.csv",
         _render_review_csv(temporal_review["rows"]),
-        encoding="utf-8",
+        writer=writer,
     )
 
 

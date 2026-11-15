@@ -71,6 +71,7 @@ class OwnedTreeWriter:
         self._bytes = 0
         self._directory_creations = 0
         self._files: set[str] = set()
+        self._file_identities: dict[str, tuple[int, int, int, int, int]] = {}
         self._root_fd = -1
         self._flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
         if not self.root.is_absolute():
@@ -125,6 +126,70 @@ class OwnedTreeWriter:
             or (opened.st_dev, opened.st_ino) != self._identity
         ):
             raise ValueError("Owned staging directory identity changed")
+
+    def validate_publication_attachment(self, root: Path) -> None:
+        """Require the authored directory and file identities at either root name.
+
+        This read-only check supports the atomic move from staging to a published
+        path. It never retargets the writer or grants permission for later writes.
+        """
+        if self._root_fd < 0:
+            raise ValueError("Owned staging writer is closed")
+        self._physical_directory(root)
+        node, opened = root.stat(follow_symlinks=False), os.fstat(self._root_fd)
+        if (node.st_dev, node.st_ino) != self._identity or (
+            opened.st_dev,
+            opened.st_ino,
+        ) != self._identity:
+            raise ValueError("Published owned directory identity changed")
+        if set(self._file_identities) != self._files:
+            raise ValueError("Owned file publication contains incomplete writes")
+
+        def directory(parts: tuple[str, ...]) -> int:
+            descriptor = os.dup(self._root_fd)
+            prefix: tuple[str, ...] = ()
+            try:
+                for component in parts:
+                    prefix += (component,)
+                    child = os.open(component, self._flags, dir_fd=descriptor)
+                    os.close(descriptor)
+                    descriptor = child
+                    info = os.fstat(descriptor)
+                    if (info.st_dev, info.st_ino) != self._directories.get(prefix):
+                        raise ValueError(
+                            "Owned publication child directory identity changed"
+                        )
+                return descriptor
+            except BaseException:
+                os.close(descriptor)
+                raise
+
+        for parts in sorted(self._directories):
+            os.close(directory(parts))
+        for name, identity in self._file_identities.items():
+            parts = self._parts(name)
+            descriptor = directory(parts[:-1])
+            try:
+                info = os.stat(parts[-1], dir_fd=descriptor, follow_symlinks=False)
+                observed = (
+                    info.st_dev,
+                    info.st_ino,
+                    info.st_size,
+                    info.st_mtime_ns,
+                    info.st_ctime_ns,
+                )
+                if (
+                    not stat.S_ISREG(info.st_mode)
+                    or info.st_nlink != 1
+                    or observed != identity
+                ):
+                    raise ValueError("Owned publication file identity changed")
+            finally:
+                os.close(descriptor)
+        self._physical_directory(root)
+        node = root.stat(follow_symlinks=False)
+        if (node.st_dev, node.st_ino) != self._identity:
+            raise ValueError("Owned publication root attachment changed")
 
     @staticmethod
     def _parts(relative: str) -> tuple[str, ...]:
@@ -252,6 +317,13 @@ class OwnedTreeWriter:
                     raise ValueError(
                         "Owned canonical file leaf identity or size changed"
                     )
+                self._file_identities[relative] = (
+                    written.st_dev,
+                    written.st_ino,
+                    written.st_size,
+                    written.st_mtime_ns,
+                    written.st_ctime_ns,
+                )
             finally:
                 os.close(descriptor)
         finally:

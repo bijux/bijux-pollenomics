@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -50,12 +51,12 @@ def test_failed_part_write_preserves_the_published_archive(
     writer = write_json
     calls = 0
 
-    def fail_during_publication(path: Path, value: object) -> None:
+    def fail_during_publication(path: Path, value: object, **kwargs: Any) -> None:
         nonlocal calls
         calls += 1
         if calls == 2:
             raise OSError("source archive disk write failed")
-        writer(path, value)
+        writer(path, value, **kwargs)
 
     monkeypatch.setattr(archive, "write_json", fail_during_publication)
     with pytest.raises(OSError, match="disk write failed"):

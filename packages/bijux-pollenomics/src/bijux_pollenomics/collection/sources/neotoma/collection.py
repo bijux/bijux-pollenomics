@@ -8,7 +8,8 @@ import json
 from pathlib import Path
 
 from ....core.files import write_json
-from ....core.owned_tree import build_staging_output_dir, publish_new_output_tree
+from ....core.filesystem import OwnedTreeWriter
+from ....core.owned_tree import build_staging_output_dir
 from ....core.text import clean_optional_text
 from ...contracts.artifacts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
 from ...exports.context_points import (
@@ -53,6 +54,8 @@ from .client import (
 )
 from .context_points import normalize_neotoma_rows
 from .country import classify_neotoma_site_country
+from .publication.collection import CollectionTreeWriter
+from .publication.ownership import publish_owned_source_tree
 from .review import write_neotoma_review_outputs
 from .site_inventory import (
     build_neotoma_site_rows_from_downloads,
@@ -246,10 +249,12 @@ def write_neotoma_download_archive(
     downloaded_dataset_ids: Iterable[int],
     download_rows: Iterable[Mapping[str, object]],
     rows_per_part: int = NEOTOMA_DOWNLOAD_ROWS_PER_PART,
+    writer: OwnedTreeWriter | None = None,
 ) -> Path:
     """Write the full Neotoma dataset downloads into a chunked archive directory."""
     return write_neotoma_download_archive_to_dir(
         raw_dir,
+        writer=writer,
         requested_dataset_ids=requested_dataset_ids,
         downloaded_dataset_ids=downloaded_dataset_ids,
         download_rows=download_rows,
@@ -281,9 +286,15 @@ def collect_neotoma_data(
         raise FileExistsError(f"Neotoma collection output already exists: {final}")
     final.parent.mkdir(parents=True, exist_ok=True)
     staging = build_staging_output_dir(final)
-    staging.mkdir(exist_ok=False)
-    report = _collect_neotoma_data_into_dir(staging, country_boundaries, bbox)
-    publish_new_output_tree(final_output_root=final, staging_output_root=staging)
+    writer = CollectionTreeWriter(staging)
+    with writer:
+        report = _collect_neotoma_data_into_dir(
+            staging, country_boundaries, bbox, writer=writer
+        )
+        writer.seal()
+        publish_owned_source_tree(
+            writer, staging=staging, final=final, validate=writer.validate
+        )
     return replace(
         report,
         output_dir=final,
@@ -298,12 +309,11 @@ def _collect_neotoma_data_into_dir(
     output_root: Path,
     country_boundaries: Mapping[str, Mapping[str, object]],
     bbox: tuple[float, float, float, float],
+    *,
+    writer: OwnedTreeWriter,
 ) -> NeotomaDataReport:
     """Build only within the source owner's exclusively created staging tree."""
     raw_dir = output_root / "raw"
-    normalized_dir = output_root / "normalized"
-    raw_dir.mkdir(parents=True, exist_ok=True)
-    normalized_dir.mkdir(parents=True, exist_ok=True)
 
     inventory_rows = fetch_neotoma_dataset_inventory_rows(bbox)
     matched_inventory_rows = filter_neotoma_dataset_inventory_rows(
@@ -331,12 +341,14 @@ def _collect_neotoma_data_into_dir(
             "rows": inventory_rows,
             "retained_rows": matched_inventory_rows,
         },
+        writer=writer,
     )
     write_neotoma_download_archive(
         raw_dir,
         requested_dataset_ids=dataset_ids,
         downloaded_dataset_ids=downloaded_dataset_ids,
         download_rows=download_rows,
+        writer=writer,
     )
     raw_path = raw_dir / "neotoma_pollen_sites.json"
     write_json(
@@ -349,15 +361,16 @@ def _collect_neotoma_data_into_dir(
             "dataset_count": len(dataset_ids),
             "rows": build_neotoma_site_snapshot_rows(rows),
         },
+        writer=writer,
     )
     records = normalize_neotoma_rows(
         rows, bbox=bbox, country_boundaries=country_boundaries
     )
     normalized_csv_path = NEOTOMA_POINT_CSV.source_path_under(output_root)
     normalized_geojson_path = NEOTOMA_POINT_GEOJSON.source_path_under(output_root)
-    write_context_points_csv(normalized_csv_path, records)
-    write_context_points_geojson(normalized_geojson_path, records)
-    write_neotoma_review_outputs(output_root, rows=rows, records=records)
+    write_context_points_csv(normalized_csv_path, records, writer=writer)
+    write_context_points_geojson(normalized_geojson_path, records, writer=writer)
+    write_neotoma_review_outputs(output_root, rows=rows, records=records, writer=writer)
 
     return NeotomaDataReport(
         output_dir=output_root,
