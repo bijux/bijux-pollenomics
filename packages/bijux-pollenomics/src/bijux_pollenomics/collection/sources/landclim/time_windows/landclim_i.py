@@ -5,6 +5,8 @@ from __future__ import annotations
 from collections.abc import Mapping
 from pathlib import Path
 
+from .landclim_i_cells import merge_cell_group, physical_cell_key, read_error_cells
+
 
 def _merge_landclim_i_time_windows(
     features: dict[tuple[str, str, str], dict[str, object]],
@@ -17,14 +19,10 @@ def _merge_landclim_i_time_windows(
     from . import (
         _LANDCLIM_I_MEAN_SUFFIX,
         _LANDCLIM_I_STANDARD_ERROR_SUFFIX,
-        _grouped_values,
         _landclim_i_header_index,
-        _landclim_i_values_by_cell,
         _numeric_values,
         _polygon_center,
-        _properties,
         _require_uncertainty_pair,
-        _temporal_grid_feature,
         clean_optional_text,
         grid_geometry_from_nw_cell_label,
         list_xlsx_sheet_names,
@@ -34,6 +32,7 @@ def _merge_landclim_i_time_windows(
         resolve_landclim_country,
     )
 
+    pending = dict(features)
     for sheet_name in list_xlsx_sheet_names(path):
         if not sheet_name.endswith(_LANDCLIM_I_MEAN_SUFFIX):
             continue
@@ -48,13 +47,19 @@ def _merge_landclim_i_time_windows(
             sheet_name.removesuffix(_LANDCLIM_I_MEAN_SUFFIX)
             + _LANDCLIM_I_STANDARD_ERROR_SUFFIX
         )
-        standard_errors = _landclim_i_values_by_cell(path, standard_error_sheet)
+        error_cells = read_error_cells(path, standard_error_sheet)
+        standard_errors = {
+            cell.physical_key: cell
+            for cell in error_cells.values()
+            if cell.physical_key is not None
+        }
         headers = rows[header_index]
         for row in rows[header_index + 1 :]:
             cell_label = clean_optional_text(row[2]) if len(row) > 2 else ""
             geometry = grid_geometry_from_nw_cell_label(cell_label)
             if geometry is None:
                 continue
+            physical_key = physical_cell_key(geometry, source_label=cell_label)
             center_longitude, center_latitude = _polygon_center(geometry)
             if not point_in_bbox(center_longitude, center_latitude, bbox):
                 continue
@@ -69,66 +74,41 @@ def _merge_landclim_i_time_windows(
             estimates = _numeric_values(headers, row, start_index=4)
             if not estimates:
                 continue
-            cell_id = clean_optional_text(row[1]) or cell_label
-            error_values = standard_errors.get(cell_label, {})
+            cell_id = clean_optional_text(row[1])
+            error_cell = standard_errors.get(physical_key)
+            if error_cell is not None and error_cell.source_id != cell_id:
+                raise ValueError(
+                    f"LandClim I mean/standard-error source grid identity differs for {physical_key}"
+                )
+            error_values = error_cell.values if error_cell is not None else {}
             _require_uncertainty_pair(
                 estimates,
                 error_values,
                 dataset_id="897303",
                 record_id=f"{cell_id}:{time_window}:{value_group}",
             )
-            key = ("897303", cell_id, time_window)
-            feature = features.setdefault(
-                key,
-                _temporal_grid_feature(
-                    dataset_id="897303",
-                    cell_id=cell_id,
-                    cell_label=cell_label,
-                    time_window=time_window,
-                    country=country,
-                    geometry=geometry,
-                    provenance_path=f"data/landclim/raw/{path.name}",
-                    provenance_locator=sheet_name,
-                    value_unit="proportion_of_grid_cell",
-                ),
+            merge_cell_group(
+                pending,
+                geometry=geometry,
+                source_id=cell_id,
+                label=cell_label,
+                window=time_window,
+                country=country,
+                path=path,
+                sheet_name=sheet_name,
+                group=value_group,
+                estimates=estimates,
+                errors=error_values,
             )
-            properties = _properties(feature)
-            _grouped_values(properties, "reconstruction_values")[value_group] = (
-                estimates
-            )
-            _grouped_values(properties, "standard_errors")[value_group] = error_values
+    features.update(pending)
 
 
 def _landclim_i_values_by_cell(
     path: Path, sheet_name: str
 ) -> dict[str, dict[str, float]]:
-    from . import (
-        _landclim_i_header_index,
-        _numeric_values,
-        clean_optional_text,
-        read_xlsx_sheet_rows,
-    )
-
-    try:
-        rows = read_xlsx_sheet_rows(path, sheet_name)
-    except KeyError:
-        return {}
-    if len(rows) < 3:
-        return {}
-    header_index = _landclim_i_header_index(rows)
-    headers = rows[header_index]
-    values: dict[str, dict[str, float]] = {}
-    for row in rows[header_index + 1 :]:
-        cell_label = clean_optional_text(row[2]) if len(row) > 2 else ""
-        if not cell_label:
-            continue
-        if cell_label in values:
-            raise ValueError(
-                "LandClim I standard errors repeat source cell "
-                f"{cell_label} in sheet {sheet_name}"
-            )
-        values[cell_label] = _numeric_values(headers, row, start_index=4)
-    return values
+    return {
+        label: cell.values for label, cell in read_error_cells(path, sheet_name).items()
+    }
 
 
 def _landclim_i_header_index(rows: list[list[str]]) -> int:

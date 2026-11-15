@@ -14,6 +14,7 @@ def test_package_is_grouped_by_source_and_scientific_responsibility() -> None:
         "__init__.py",
         "features.py",
         "landclim_i.py",
+        "landclim_i_cells.py",
         "landclim_ii.py",
         "landclim_ii_rows.py",
         "marquer.py",
