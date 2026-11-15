@@ -31,11 +31,25 @@ from .products import (
 from .scoring import joint_predictions, score_diagnostics
 
 
-def _nominal(packet: InputPacket, bank: Any, tolerance: float) -> list[dict[str, Any]]:
+def _nominal(
+    packet: InputPacket,
+    bank: Any,
+    tolerance: float,
+    *,
+    analytical_cover_policy: str = "source-raw",
+) -> list[dict[str, Any]]:
     references = {(r["case_id"], r["method"]): r for r in packet.nominal_predictions}
     result = []
     for case in sorted(packet.cases, key=lambda item: item.case_id):
-        row = predict_case(case, bank)
+        row = predict_case(
+            case,
+            bank,
+            **(
+                {"analytical_cover_policy": analytical_cover_policy}
+                if analytical_cover_policy != "source-raw"
+                else {}
+            ),
+        )
         for method in METHODS:
             values = row["methods"][method]
             reference = references[(case.case_id, method)]
@@ -65,8 +79,8 @@ def _nominal(packet: InputPacket, bank: Any, tolerance: float) -> list[dict[str,
                     ],
                 }
             )
-    if len(result) != 9:
-        raise StudyError("Exactly nine nominal comparisons required")
+    if len(result) != len(packet.cases) * len(METHODS):
+        raise StudyError("Complete nominal comparisons required")
     return result
 
 
@@ -91,14 +105,16 @@ def produce(repository: Path, protocol_path: Path, output: Path) -> dict[str, An
         local.owner_id for case in packet.cases for local in case.local_owners
     }
     owners = tuple(owner for owner in packet.owners if owner.owner_id in owner_ids)
-    if len(owners) != 4:
-        raise StudyError("Exactly four active owner/windows may be resampled")
+    all_adjusted = protocol.get("population_profile") == "all-adjusted-folds"
+    if len(owners) != (24 if all_adjusted else 4):
+        raise StudyError("Exact active owner/window population required")
     sampling = protocol["sampling"]
     means = (float(sampling["ppe_means"][0]), float(sampling["ppe_means"][1]))
     nominal = _nominal(
         packet,
         nominal_draw_bank(owners, ppe_means=means),
         protocol["numerical_checks"]["nominal_prediction_absolute_tolerance"],
+        **({"analytical_cover_policy": policy} if all_adjusted else {}),
     )
     bank = generate_draw_bank(
         owners,

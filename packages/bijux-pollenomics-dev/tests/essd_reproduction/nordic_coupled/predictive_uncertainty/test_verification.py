@@ -188,7 +188,7 @@ def constant_summary(values: list[float]) -> dict[str, Any]:
     }
 
 
-def complete_packets() -> tuple[dict[str, Any], ...]:
+def complete_packets(*, all_adjusted: bool = False) -> tuple[dict[str, Any], ...]:
     """All pollen is taxon one: every closed prediction is analytically [1,0]."""
     windows = [f"cal-bp-{a}-{a + 500}" for a in range(2700, 5700, 500)]
     units = {
@@ -302,7 +302,7 @@ def complete_packets() -> tuple[dict[str, Any], ...]:
                     "target_geometry_ref": {"path": core + "-geometry.json"},
                 }
             )
-            if status == "predicted":
+            if status == "predicted" or all_adjusted:
                 inputs["cases"].append(
                     {
                         "case_id": case_id,
@@ -335,7 +335,11 @@ def complete_packets() -> tuple[dict[str, Any], ...]:
                     }
                     for method in observer.METHODS
                 )
-    active = sorted(owner(core, windows[0]) for core in units)
+    active = sorted(
+        owner(core, window)
+        for window in (windows if all_adjusted else windows[:1])
+        for core in units
+    )
     inputs["accounting"]["active_draw_owner_ids"] = active
     rng = np.random.Generator(
         np.random.PCG64(np.random.SeedSequence(20261027, spawn_key=(1,)))
@@ -462,7 +466,7 @@ def complete_packets() -> tuple[dict[str, Any], ...]:
     summary = {
         "schema_version": "coupled-pollen-bootstrap-summary.v1",
         "joint_predictions": {
-            method: {"case_ids": case_ids, **matched([1.0, 0.0] * 3)}
+            method: {"case_ids": case_ids, **matched([1.0, 0.0] * len(case_ids))}
             for method in observer.METHODS
         },
         "score_diagnostics": {
@@ -494,6 +498,29 @@ def complete_packets() -> tuple[dict[str, Any], ...]:
             "scope": "previously exposed; postfreeze diagnostic only",
         },
     }
+    if all_adjusted:
+        inputs["protocol"].update(
+            population_profile="all-adjusted-folds",
+            analytical_cover_policy="clip-and-renormalize",
+        )
+        inputs["protocol"]["population"].update(
+            active_folds=18,
+            propagated_method_slots=54,
+            draw_owner_count=24,
+            other_metadata_owner_count=0,
+            active_windows_cal_bp=[
+                [lower, lower + 500] for lower in range(2700, 5700, 500)
+            ],
+        )
+        inputs["protocol"]["population"].pop("active_window_cal_bp")
+        inputs["protocol"]["numerical_checks"].update(
+            no_clipping_or_single_predictor_fallback=False,
+            no_single_predictor_fallback=True,
+        )
+        for case in predictions["cases"]:
+            case["analytical_cover_policy"] = "clip-and-renormalize"
+            case["allowed_inputs"]["analytical_cover_policy"] = "clip-and-renormalize"
+            case["local_cover"] = [[[1.0, 0.0], [1.0, 0.0]]] * 1024
     return inputs, bank, predictions, summary
 
 

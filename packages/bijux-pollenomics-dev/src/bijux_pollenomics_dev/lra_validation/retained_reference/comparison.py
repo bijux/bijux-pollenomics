@@ -298,7 +298,6 @@ def replay(repository: Path, bundle: Path, output: Path) -> dict[str, Any]:
         "runtime_dependencies": {
             name: metadata.version(name)
             for name in (
-                "bijux-pollenomics-repository",
                 "bijux-pollenomics-dev",
                 "bijux-pollenomics",
                 "bijux-pollenomics-lra",

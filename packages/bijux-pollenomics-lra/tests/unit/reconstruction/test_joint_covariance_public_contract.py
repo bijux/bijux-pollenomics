@@ -1,6 +1,7 @@
 """Public joint-covariance facade and malformed identity refusals."""
 
 from dataclasses import replace
+from typing import Any, cast
 
 import numpy as np
 import pytest
@@ -12,7 +13,7 @@ from bijux_pollenomics_lra.reconstruction import (
 )
 
 
-def source():
+def source() -> implementation.ConditionalResultInput:
     return implementation.ConditionalResultInput(
         "case:window",
         implementation.CountSupport(37925, 52082, 37160, 0, 100, "a" * 64),
@@ -23,7 +24,9 @@ def source():
     )
 
 
-def evaluate(rows, parameters=("Betula:literal-row", "Pinus:literal-row")):
+def evaluate(
+    rows: Any, parameters: Any = ("Betula:literal-row", "Pinus:literal-row")
+) -> implementation.JointFixedSiteCovariance:
     return api.joint_fixed_site_covariance(
         rows,
         parameter_ids=parameters,
@@ -34,7 +37,7 @@ def evaluate(rows, parameters=("Betula:literal-row", "Pinus:literal-row")):
     )
 
 
-def test_public_facade_binds_actual_joint_implementation():
+def test_public_facade_binds_actual_joint_implementation() -> None:
     for name in (
         "CountSupport",
         "ConditionalResultInput",
@@ -49,26 +52,26 @@ def test_public_facade_binds_actual_joint_implementation():
     np.testing.assert_allclose(result.cover, [0.3, 0.7])
 
 
-def test_extension_descriptor_declares_conditional_joint_capability():
+def test_extension_descriptor_declares_conditional_joint_capability() -> None:
     assert (
         "lra.reveals.multisite.joint-fixed-site-delta-covariance"
         in api.extension_descriptor()["capabilities"]
     )
 
 
-def test_caller_parameter_list_cannot_change_returned_axis():
+def test_caller_parameter_list_cannot_change_returned_axis() -> None:
     parameters = ["Betula:literal-row", "Pinus:literal-row"]
     result = evaluate((source(),), parameters)
     parameters.reverse()
     assert result.parameter_ids == ("Betula:literal-row", "Pinus:literal-row")
 
 
-def test_reused_count_support_accepts_equivalent_sequence_axes():
+def test_reused_count_support_accepts_equivalent_sequence_axes() -> None:
     first = source()
     second = replace(
         first,
         result_id="geometry-alternative:window",
-        parameter_ids=list(first.parameter_ids),
+        parameter_ids=cast(Any, list(first.parameter_ids)),
     )
     result = evaluate((first, second))
     assert result.distinct_count_supports == 1
@@ -79,24 +82,24 @@ def test_reused_count_support_accepts_equivalent_sequence_axes():
 
 
 @pytest.mark.parametrize("foreign", [object(), {"result_id": "foreign"}, None])
-def test_foreign_result_refuses_before_attribute_access(foreign):
+def test_foreign_result_refuses_before_attribute_access(foreign: object) -> None:
     with pytest.raises(ValidationError, match="identities"):
         evaluate((foreign,))
 
 
 @pytest.mark.parametrize("identifier", ["", 123, []])
-def test_malformed_result_identifier_refuses_before_hashing(identifier):
+def test_malformed_result_identifier_refuses_before_hashing(identifier: object) -> None:
     with pytest.raises(ValidationError, match="identities"):
-        evaluate((replace(source(), result_id=identifier),))
+        evaluate((replace(source(), result_id=cast(Any, identifier)),))
 
 
 @pytest.mark.parametrize("parameters", [None, ("valid", []), ("",)])
-def test_malformed_global_parameter_identity_refuses(parameters):
+def test_malformed_global_parameter_identity_refuses(parameters: object) -> None:
     with pytest.raises(ValidationError, match="identities"):
         evaluate((source(),), parameters)
 
 
 @pytest.mark.parametrize("parameters", [None, ("valid", [])])
-def test_malformed_local_parameter_identity_refuses(parameters):
+def test_malformed_local_parameter_identity_refuses(parameters: object) -> None:
     with pytest.raises(ValidationError, match="axis"):
-        evaluate((replace(source(), parameter_ids=parameters),))
+        evaluate((replace(source(), parameter_ids=cast(Any, parameters)),))

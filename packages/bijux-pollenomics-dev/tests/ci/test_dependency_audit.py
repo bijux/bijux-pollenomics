@@ -137,6 +137,18 @@ class ExportCases(unittest.TestCase):
                 EXPORT.prepare(repo, "domain", ["dev"], output, account, str(uv))
             self.assertEqual((repo / "pyproject.toml").read_bytes(), before)
 
+    def test_virtual_workspace_refuses_an_artificial_root_distribution(self) -> None:
+        with self.assertRaisesRegex(ValueError, "unsupported or undeclared"):
+            EXPORT.registry_identities(
+                {
+                    "package": [
+                        {"name": "domain", "source": {"editable": "packages/domain"}},
+                        {"name": "unowned-root", "source": {"editable": "."}},
+                    ]
+                },
+                {"domain": "packages/domain"},
+            )
+
     def test_source_mutation_before_publish_preserves_existing_outputs(self) -> None:
         with self.fixture() as directory:
             repo, uv = self.repository(Path(directory))

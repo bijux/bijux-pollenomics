@@ -113,9 +113,6 @@ def registry_identities(
         source = _mapping(package["source"])
         if source == {"registry": "https://pypi.org/simple"}:
             public.add((name, _text(package["version"])))
-        elif source == {"editable": "."}:
-            if name != "bijux-pollenomics-repository":
-                raise ValueError("workspace root identity differs")
         elif source == {"editable": workspace.get(name)} and name in workspace:
             observed[name] = _text(source["editable"])
         else:

@@ -39,7 +39,8 @@ def _workspace(root: Path) -> Path:
     source = package / "src/bijux_pollenomics"
     source.mkdir(parents=True)
     (root / "pyproject.toml").write_text(
-        '[project]\nname = "bijux-pollenomics-repository"\n'
+        '[tool.bijux_pollenomics]\nrepository = "bijux-pollenomics"\n'
+        '[tool.uv.workspace]\nmembers = ["packages/*"]\n'
     )
     (package / "pyproject.toml").write_text('[project]\nname = "bijux-pollenomics"\n')
     (source / "__init__.py").write_text('"""Owned host package."""\n')
@@ -61,12 +62,52 @@ def test_archive_owns_data_even_inside_another_workspace(tmp_path: Path) -> None
     assert not (archive / ".git").exists()
 
 
+@pytest.mark.parametrize("pattern", ["packages/*", "**/packages/*", "packages/**"])
+def test_workspace_membership_uses_root_relative_recursive_globs(
+    tmp_path: Path, pattern: str
+) -> None:
+    module = _workspace(tmp_path)
+    descriptor = tmp_path / "pyproject.toml"
+    descriptor.write_text(
+        descriptor.read_text().replace(
+            'members = ["packages/*"]', f'members = ["{pattern}"]'
+        )
+    )
+    assert find_repository_root(module) == tmp_path
+
+
+@pytest.mark.parametrize("pattern", ["bijux-pollenomics", "*"])
+def test_suffix_only_membership_cannot_claim_a_nested_host(
+    tmp_path: Path, pattern: str
+) -> None:
+    module = _workspace(tmp_path)
+    descriptor = tmp_path / "pyproject.toml"
+    descriptor.write_text(
+        descriptor.read_text().replace(
+            'members = ["packages/*"]', f'members = ["{pattern}"]'
+        )
+    )
+    with pytest.raises(RepositoryRootNotFoundError):
+        find_repository_root(module)
+
+
+def test_recursive_exclusion_prevents_host_ownership(tmp_path: Path) -> None:
+    module = _workspace(tmp_path)
+    descriptor = tmp_path / "pyproject.toml"
+    descriptor.write_text(descriptor.read_text() + 'exclude = ["**/packages/*"]\n')
+    with pytest.raises(RepositoryRootNotFoundError):
+        find_repository_root(module)
+
+
 @pytest.mark.parametrize(
     "case",
     [
         "missing_root",
         "invalid_root",
         "wrong_root",
+        "wrong_owner",
+        "missing_membership",
+        "excluded_package",
         "missing_package",
         "wrong_package",
         "missing_source",
@@ -84,6 +125,23 @@ def test_partial_workspace_never_borrows_parent_data(tmp_path: Path, case: str) 
         (archive / "pyproject.toml").write_text("[broken")
     if case == "wrong_root":
         (archive / "pyproject.toml").write_text('[project]\nname="unowned"\n')
+    if case == "wrong_owner":
+        descriptor = archive / "pyproject.toml"
+        descriptor.write_text(
+            descriptor.read_text().replace(
+                'repository = "bijux-pollenomics"', 'repository = "another-repository"'
+            )
+        )
+    if case == "missing_membership":
+        descriptor = archive / "pyproject.toml"
+        descriptor.write_text(
+            descriptor.read_text().replace('members = ["packages/*"]', "members = []")
+        )
+    if case == "excluded_package":
+        descriptor = archive / "pyproject.toml"
+        descriptor.write_text(
+            descriptor.read_text() + 'exclude = ["packages/bijux-pollenomics"]\n'
+        )
     if case == "missing_package":
         (archive / "packages/bijux-pollenomics/pyproject.toml").unlink()
     if case == "wrong_package":

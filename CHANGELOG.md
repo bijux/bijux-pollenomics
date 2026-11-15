@@ -2,6 +2,25 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#422](https://github.com/bijux/bijux-pollenomics/pull/422) — Complete adjusted LOVE populations and workspace ownership
+
+- Support an explicit adjusted-cover population across all eighteen development
+  folds and six windows while retaining original signed-result dispositions. Share
+  source-owner count and productivity draws and extend independent
+  source/scalar/score verification to all fifty-four nominal method slots, retaining
+  undefined draws and target-exclusion checks.
+- Use a virtual workspace root with canonical package distributions. Discover owned
+  checkouts/source archives through repository configuration and declared host
+  membership; retain missing, unrelated, excluded and symlink refusals. Reject
+  undeclared editable root distributions in dependency audits.
+- Restore real source-retention metadata and Git custody in retained-reference
+  fixtures, preserving missing/altered transport refusals. Clarify strict
+  covariance/counting test contracts without changing numerical or malformed-input
+  assertions.
+- These changes prepare complete development evaluation and preserve scientific
+  admission limits; fresh historical replay and installed-wheel qualification are
+  not established by this delivery.
+
 ### [#421](https://github.com/bijux/bijux-pollenomics/pull/421) — Nonnegative analytical LOVE cover
 
 - Clip negative analytical LOVE cover to zero and normalize each draw before
