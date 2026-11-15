@@ -1,0 +1,158 @@
+{
+  "schema_version": "krageholm-predictive-uncertainty.v1",
+  "question": "Conditional shared count/PPE uncertainty and matched development comparisons for all18 exposed held-place folds under explicit negative-cover clipping and renormalization.",
+  "sources": {
+    "coupled_protocol": {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/protocol.json",
+      "bytes": 12274,
+      "sha256": "a43df56a533efda3f97acc7027aeb65bfb1540ed422941dabe271e3ffc9d498e"
+    },
+    "input_index": {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/inputs/inputs.json",
+      "bytes": 17352,
+      "sha256": "724db11e2587442f5ff6c795049c0c46702320ed8d243ac23a0da1eec8b33828"
+    },
+    "prediction_batch": {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/predictions/batch.json",
+      "bytes": 94144,
+      "sha256": "8038fa2365bf90cd01d1916afbae4a77c9c5a25e9f22aa421384e135ed29900e"
+    }
+  },
+  "source_pins_scope": "Whole-source/index pins authenticate accounting; each fold scientific ancestry binds only its allowed owner-specific draw members, shared target-free PPE and target geometry.",
+  "sampling": {
+    "replicates": 1024,
+    "seed": 20261027,
+    "bit_generator": "PCG64",
+    "count_law": "fixed-total multinomial with each retained owner/window count vector normalized by its original integer total",
+    "count_stream": "SeedSequence(seed, spawn_key=(0, *eight_big_endian_uint32_words_of_SHA256_UTF8_owner_id))",
+    "ppe_stream": "SeedSequence(seed, spawn_key=(1,))",
+    "ppe_law": "existing rnorm_reveals whole-vector nonnegative NORMAL rejection; a sampled zero retains subsequent strict-positive model refusal",
+    "ppe_means": [
+      5.106,
+      1.27
+    ],
+    "ppe_sds": [
+      0.303,
+      0.05
+    ],
+    "taxa": [
+      "Betula",
+      "Ulmus"
+    ],
+    "sharing": "One PPE vector per replicate is reused across all6 windows/18folds; one count vector per physical owner/window is reused across every permitted training fold. Each target owner is excluded from its own fold."
+  },
+  "population": {
+    "original_folds": 18,
+    "original_method_dispositions": 54,
+    "active_folds": 18,
+    "propagated_method_slots": 54,
+    "original_refused_slots_retained": 45,
+    "draw_owner_count": 24,
+    "other_metadata_owner_count": 0,
+    "rule": "Propagate all18 frozen adjusted nominal folds; preserve original9predicted/45refused method dispositions as separate historical accounting, without relabeling historical source-raw results.",
+    "active_windows_cal_bp": [
+      [
+        2700,
+        3200
+      ],
+      [
+        3200,
+        3700
+      ],
+      [
+        3700,
+        4200
+      ],
+      [
+        4200,
+        4700
+      ],
+      [
+        4700,
+        5200
+      ],
+      [
+        5200,
+        5700
+      ]
+    ]
+  },
+  "fixed_conditions": [
+    "Previously selected source point chronologies and half-open bins",
+    "Original static regional/local basin geometry and all-terrestrial annuli",
+    "Saved original finite kernels, ring selection and distances; not the separate true-continuous-law study",
+    "Published parameter transfer as a conditional working model; normal components independent before their shared reuse",
+    "Original source-use and exposed-development limits",
+    "Negative local cover is set to zero and each local draw is normalized before spatial averaging; raw signed covers remain diagnostic."
+  ],
+  "numerical_checks": {
+    "nominal_prediction_absolute_tolerance": 1e-12,
+    "independent_absolute_tolerance": 1e-13,
+    "independent_relative_tolerance": 1e-10,
+    "no_clipping_or_single_predictor_fallback": false,
+    "no_single_predictor_fallback": true
+  },
+  "summaries": {
+    "conditional_population_covariance_ddof": 0,
+    "quantile_probabilities": [
+      0.025,
+      0.5,
+      0.975
+    ],
+    "quantile_method": "linear",
+    "conditional_mean_mcse": "sqrt(unbiased conditional sample variance / defined replicate count); unavailable with fewer than two defined replicates",
+    "undefined_mass": "undefined replicate count / 1024; unconditional composition summary refused if any replicate is undefined",
+    "direct_counterpart": "Same two training owner count-draw compositions and fixed mean/nearest/inverse-squared-distance weights; independent of KRAG/PPE",
+    "matched_contrasts": "All18 equal-weight target/window cells use their common-defined replicate intersection. Eighteen cells represent3 repeatedly observed target places, not18 independent sites."
+  },
+  "outcome_policy": "Existing exposed target fractions may be reopened for score diagnostics only after all prediction products are durably frozen and read back. No target count/total, outcome or all-owner quantitative hash enters its own fold prediction or scientific ancestry.",
+  "unsupported_claims": [
+    "Empirically calibrated field/predictive coverage",
+    "Posterior or credible intervals",
+    "Measured vegetation accuracy",
+    "Untouched confirmation",
+    "Regional representativeness or dated basin truth",
+    "Original historical publication reproduction",
+    "Numerical integration precision beyond fixed saved kernels"
+  ],
+  "limits": {
+    "producer_wall_seconds": 600,
+    "observer_wall_seconds": 600,
+    "max_rss_bytes": 1610612736,
+    "max_output_bytes": 100663296
+  },
+  "analytical_cover_policy": "clip-and-renormalize",
+  "population_profile": "all-adjusted-folds",
+  "adjusted_prediction_products": {
+    "cal-bp-2700-3200": {
+      "path": "artifacts/science/love-nonnegative-cover/predictions/cal-bp-2700-3200/manifest.json",
+      "bytes": 84436,
+      "sha256": "b8a0d6cb1aacca178d5cc0fa26ec8bbb481cc26f16ba81608f8807865400f4d0"
+    },
+    "cal-bp-3200-3700": {
+      "path": "artifacts/science/love-nonnegative-cover/predictions/cal-bp-3200-3700/manifest.json",
+      "bytes": 84072,
+      "sha256": "de3bfe9512a1ebbb4aff13d94c1223161e712c024f2bd79cc49fd9a4ca5fa46e"
+    },
+    "cal-bp-3700-4200": {
+      "path": "artifacts/science/love-nonnegative-cover/predictions/cal-bp-3700-4200/manifest.json",
+      "bytes": 84287,
+      "sha256": "2a4eb9c9591bd1f35c1f09a133d9a7740a367737cc99d6d1691cf04c06342e0b"
+    },
+    "cal-bp-4200-4700": {
+      "path": "artifacts/science/love-nonnegative-cover/predictions/cal-bp-4200-4700/manifest.json",
+      "bytes": 84202,
+      "sha256": "5ff2b101c1048ad7473d32cadbcae79ffaa17a8c88d7394474db54ecf239d289"
+    },
+    "cal-bp-4700-5200": {
+      "path": "artifacts/science/love-nonnegative-cover/predictions/cal-bp-4700-5200/manifest.json",
+      "bytes": 83866,
+      "sha256": "1bcdcebf60a39aaef4fc023ef3593d5d60e727e5e07d544b02c22e6f95f3f749"
+    },
+    "cal-bp-5200-5700": {
+      "path": "artifacts/science/love-nonnegative-cover/predictions/cal-bp-5200-5700/manifest.json",
+      "bytes": 83761,
+      "sha256": "dd6207ac776d5ff4aa94d906892a0d473a91aae8a0a76aa3a8d0fe949577bcc1"
+    }
+  }
+}

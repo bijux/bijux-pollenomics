@@ -2,6 +2,25 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#423](https://github.com/bijux/bijux-pollenomics/pull/423) — Swedish landscape histories and retained source comparisons
+
+- Document the synthetic source-mean and cell-window fixture helpers so the
+  developer package retains its configured docstring quality checks.
+- Derive Swedish forest/open/cereal histories over four, five and six latitude bands
+  using explicit operational taxon groups, source windows, weights and support
+  policies. Preserve no-data/invalid cell dispositions, the zero-mass refusal,
+  changing-grid/fixed-recent support and unavailable regional uncertainty.
+- Retain six exportable figure families, cell dispositions, trajectories and
+  input/calculation provenance. Spatial ranges describe cell variation and do not
+  establish regional confidence intervals or independent vegetation validation.
+- Retain the attributed European RPP reference with exact deposited cells, missing
+  values, reported SE identity and source hashes; preserve missing European Ulmus
+  productivity and the SE/SD distinction without changing completed inputs.
+- Record the retained complete six-window LOVE development comparisons, including
+  oldest-window and nearest-site losses, installed qualification scope and
+  unresolved physical/field acceptance. This delivery does not perform a fresh
+  historical replay or establish new scientific admission.
+
 ### [#422](https://github.com/bijux/bijux-pollenomics/pull/422) — Complete adjusted LOVE populations and workspace ownership
 
 - Support an explicit adjusted-cover population across all eighteen development

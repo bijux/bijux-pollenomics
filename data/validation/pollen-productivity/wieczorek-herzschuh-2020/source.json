@@ -1,0 +1,202 @@
+{
+  "schema_version": "pollen-productivity-reference.v1",
+  "role": "Published parameter reference and coverage comparison; not an admitted local parameter configuration",
+  "paper": {
+    "authors": "Mareike Wieczorek and Ulrike Herzschuh",
+    "year": 2020,
+    "title": "Compilation of relative pollen productivity (RPP) estimates and taxonomically harmonised RPP datasets for single continents and Northern Hemisphere extratropics",
+    "doi": "10.5194/essd-12-3515-2020",
+    "url": "https://essd.copernicus.org/articles/12/3515/2020/",
+    "license": "CC BY 4.0"
+  },
+  "dataset": {
+    "doi": "10.1594/PANGAEA.922661",
+    "url": "https://doi.pangaea.de/10.1594/PANGAEA.922661",
+    "license": "CC-BY-4.0",
+    "published_date": "2020-09-11",
+    "doi_registered_date": "2020-10-30",
+    "attribution": "Wieczorek and Herzschuh (2020), cite dataset DOI and accompanying paper. The deposited compilation has explicit reuse terms; this does not grant rights over separately held historical pollen workbooks or establish a physical-core admission."
+  },
+  "retrieved_date": "2026-11-14",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_originals": [
+    {
+      "filename": "Dataset_readme.pdf",
+      "requested_url": "https://download.pangaea.de/dataset/922661/files/Dataset_readme.pdf",
+      "final_url": "https://download.pangaea.de/dataset/922661/files/Dataset_readme.pdf",
+      "bytes": 228207,
+      "sha256": "6421bf07d9c940419b0d79648f0e18edd85c1dcf551cf3791112c7e65a4f1042"
+    },
+    {
+      "filename": "Table_A1_Overview_of_available_studies_and_their_pollen_productivity_estimates_RPPs.xlsx",
+      "requested_url": "https://download.pangaea.de/dataset/922661/files/Table_A1_Overview_of_available_studies_and_their_pollen_productivity_estimates_RPPs.xlsx",
+      "final_url": "https://download.pangaea.de/dataset/922661/files/Table_A1_Overview_of_available_studies_and_their_pollen_productivity_estimates_RPPs.xlsx",
+      "bytes": 96360,
+      "sha256": "7601a248be84d364a72b54ab4b4c66d2f7941b132bc22cdb4b7d06105ae0bc06"
+    },
+    {
+      "filename": "Table_A2_Overview_of_relative_pollen_productivity_RPP_studies_presented_in_Table_A1.xlsx",
+      "requested_url": "https://download.pangaea.de/dataset/922661/files/Table_A2_Overview_of_relative_pollen_productivity_RPP_studies_presented_in_Table_A1.xlsx",
+      "final_url": "https://download.pangaea.de/dataset/922661/files/Table_A2_Overview_of_relative_pollen_productivity_RPP_studies_presented_in_Table_A1.xlsx",
+      "bytes": 116644,
+      "sha256": "c53845bc94153433c4487f655428fa786018ea8d0e4e6b2ba19356e4c991cd2b"
+    },
+    {
+      "filename": "Table_A3_Overview_of_relative_pollen_productivity_RPP_models_presented_in_Table_A1.xlsx",
+      "requested_url": "https://download.pangaea.de/dataset/922661/files/Table_A3_Overview_of_relative_pollen_productivity_RPP_models_presented_in_Table_A1.xlsx",
+      "final_url": "https://download.pangaea.de/dataset/922661/files/Table_A3_Overview_of_relative_pollen_productivity_RPP_models_presented_in_Table_A1.xlsx",
+      "bytes": 21422,
+      "sha256": "26d366f1145b81426dbc13de70712ced8ea8106e697a8d4b7002f4c9d6506db5"
+    },
+    {
+      "filename": "Table_A4_Fall_speeds.xlsx",
+      "requested_url": "https://download.pangaea.de/dataset/922661/files/Table_A4_Fall_speeds.xlsx",
+      "final_url": "https://download.pangaea.de/dataset/922661/files/Table_A4_Fall_speeds.xlsx",
+      "bytes": 38828,
+      "sha256": "009cb82e88ba96f21d7e6134d0316c3a073fc8b88669db8d13928ef827565b91"
+    },
+    {
+      "filename": "RPP_Dataset_v1_Table_3_4.xlsx",
+      "requested_url": "https://download.pangaea.de/dataset/922661/files/RPP_Dataset_v1_Table_3_4.xlsx",
+      "final_url": "https://download.pangaea.de/dataset/922661/files/RPP_Dataset_v1_Table_3_4.xlsx",
+      "bytes": 16020,
+      "sha256": "a1106d3b20f466d40e6c600d7e1b4a8f74a5155f5821a45d9caf2dc419fd7ce8"
+    },
+    {
+      "filename": "RPP_Dataset_v2_Table_5_6.xlsx",
+      "requested_url": "https://download.pangaea.de/dataset/922661/files/RPP_Dataset_v2_Table_5_6.xlsx",
+      "final_url": "https://download.pangaea.de/dataset/922661/files/RPP_Dataset_v2_Table_5_6.xlsx",
+      "bytes": 16802,
+      "sha256": "19a0f6e79770402e0c18e60f48275782d2a2489be35580b94ebd16335b616e31"
+    }
+  ],
+  "reference_table": {
+    "path": "continental-europe.csv",
+    "bytes": 21504,
+    "sha256": "7b52416cf8caf7bc55eacfa55935836b9a9068cbc1567593e99a8458091c7db5"
+  },
+  "normalization": "Exact original OOXML numeric strings and taxon spellings retained, including exponent notation. Empty CSV fields represent missing worksheet values, never zero. Per-field cell locators are included. Dataset v1 and v2 retain the authors’ published labels.",
+  "coverage_by_dataset": [
+    {
+      "dataset_version": "v1",
+      "region": "Europe",
+      "target_rows": 55,
+      "positive_n_rows": 34,
+      "reported_rpp_rows": 34,
+      "reported_se_rows": 33,
+      "reported_fall_speed_rows": 34,
+      "complete_rpp_se_fall_speed_rows": 32,
+      "n_zero_taxa": [
+        "Anacardiaceae",
+        "Moraceaea",
+        "Cupressaceae",
+        "Ulmus",
+        "Juglans",
+        "Castanea",
+        "Thymelaceae",
+        "Equisetum",
+        "Convolvulaceae",
+        "Orobanchaceae",
+        "Lamiaceae",
+        "Liliaceae",
+        "Amaryllidaceae",
+        "Cornaceae",
+        "Campanulaceae",
+        "Thalictrum",
+        "Elaeagnaceae",
+        "Humulus",
+        "Amaranthaceae",
+        "Caryophyllaceae",
+        "Sanguisorba"
+      ],
+      "positive_n_incomplete_rows": [
+        {
+          "taxon": "wild.herbs",
+          "n_estimates": "1",
+          "rpp": "7.0000000000000007E-2",
+          "rpp_se": "7.0000000000000007E-2",
+          "fall_speed_m_s": ""
+        },
+        {
+          "taxon": "Poaceae",
+          "n_estimates": "14",
+          "rpp": "1",
+          "rpp_se": "",
+          "fall_speed_m_s": "3.5000000000000003E-2"
+        }
+      ]
+    },
+    {
+      "dataset_version": "v2",
+      "region": "Europe",
+      "target_rows": 55,
+      "positive_n_rows": 34,
+      "reported_rpp_rows": 34,
+      "reported_se_rows": 33,
+      "reported_fall_speed_rows": 34,
+      "complete_rpp_se_fall_speed_rows": 32,
+      "n_zero_taxa": [
+        "Acardiaceae",
+        "Moraceaea",
+        "Cupressaceae",
+        "Ulmus",
+        "Juglans",
+        "Castanea",
+        "Thymelaceae",
+        "Equisetum",
+        "Convolvulaceae",
+        "Orobanchaceae",
+        "Lamiaceae",
+        "Liliaceae",
+        "Amaryllidaceae",
+        "Corceae",
+        "Campanulaceae",
+        "Caryophyllaceae",
+        "Thalictrum",
+        "Elaeagnaceae",
+        "Humulus",
+        "Amaranthaceae",
+        "Sanguisorba"
+      ],
+      "positive_n_incomplete_rows": [
+        {
+          "taxon": "Poaceae",
+          "n_estimates": "14",
+          "rpp": "1",
+          "rpp_se": "",
+          "fall_speed_m_s": "3.5000000000000003E-2"
+        },
+        {
+          "taxon": "Sambucus nigra-type",
+          "n_estimates": "1",
+          "rpp": "1.3",
+          "rpp_se": "0.12",
+          "fall_speed_m_s": ""
+        }
+      ]
+    }
+  ],
+  "statistical_semantics": {
+    "reference_taxon": "Poaceae",
+    "rpp_units": "relative to Poaceae = 1",
+    "rpp_se": "Reported standard error of the compiled mean; not automatically population or between-study SD",
+    "n_estimates": "Number of contributing RPP estimates, not independent sites or automatically distinct studies",
+    "fall_speed_units": "m/s",
+    "cross_taxon_covariance": "Not supplied by the combined mean/SE tables",
+    "blank_handling": "Missing RPP/SE remains missing even when a fall speed exists; Poaceae SE is not imputed to zero",
+    "taxonomy": "Source-native spellings are preserved; no automatic cross-version taxon aliasing is introduced"
+  },
+  "use_scope": {
+    "europe": "Continental reference; original-study methods, model selection, taxa and environmental applicability still need assessment for a local profile",
+    "northern_hemisphere": "The paper restricts the pooled Northern Hemisphere set away from site-specific vegetation composition",
+    "current_study": "The completed 54-score/55,296-slot calculation retains the separately sourced LANDCLIM 2022 working parameters",
+    "automatic_parameter_replacement": false,
+    "current_results_recomputed": false
+  },
+  "source_discrepancy": {
+    "published_table": "https://essd.copernicus.org/articles/12/3515/2020/essd-12-3515-2020-t03.xlsx",
+    "cell": "M13",
+    "value": "0.032",
+    "issue": "Published Table 3 places this value under SE despite n = 0 and no European Ulmus RPP. Deposited canonical v1 places the value in fall-speed cell N12, with RPP/SE absent. The reference CSV follows the deposited workbook; it does not manufacture an Ulmus SE."
+  }
+}

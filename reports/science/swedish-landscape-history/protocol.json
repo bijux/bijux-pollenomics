@@ -1,0 +1,231 @@
+{
+  "area_rule": "Full1degree spherical cell area at earth radius6371.0088km, proportional to cos(center latitude); represented grid support only",
+  "available": "All eligible high/low cells in each published window; changing support is descriptive",
+  "band_counts": [
+    4,
+    5,
+    6
+  ],
+  "band_rule": "Equal latitude width; south-inclusive/north-exclusive;70N included last; center assignment only",
+  "cereal_ratio_rule": "Ratio of weighted cereals to weighted non-tree; null at zero denominator; not a mean of per-cell ratios",
+  "classification": {
+    "cereal_share_non_tree": "100*cereals/non_tree; ratio of aggregated covers, not average of cell ratios; undefined at zero denominator.",
+    "denominator": "31 modeled taxa, direct sums without clipping or renormalization.",
+    "groups": {
+      "broadleaved_trees": [
+        "Alnus.glutinosa",
+        "Betula",
+        "Carpinus.betulus",
+        "Carpinus.orientalis",
+        "Castanea",
+        "Fagus.sylvatica",
+        "Fraxinus",
+        "Quercus.deciduous",
+        "Quercus.evergreen",
+        "Tilia",
+        "Ulmus"
+      ],
+      "cereals": [
+        "Cerealia.t",
+        "Secale"
+      ],
+      "conifers": [
+        "Abies.alba",
+        "Picea",
+        "Pinus"
+      ],
+      "non_cereal_herbs": [
+        "Amanranthaceae.Chenopodiaceae",
+        "Artemisia",
+        "Cyperaceae",
+        "Filipendula",
+        "Plantago.lanceolata.type",
+        "Poaceae",
+        "Rumex.acetosa.t"
+      ],
+      "shrubs_heath": [
+        "Buxus.sempervirens",
+        "Calluna.vulgaris",
+        "Corylus.avellana",
+        "Ericaceae",
+        "Juniperus",
+        "Phillyrea",
+        "Pistacia",
+        "Salix"
+      ]
+    },
+    "non_tree": "Shrubs/heath plus non-cereal herbs plus cereals on the same 31-taxon denominator; not the published OL class.",
+    "other_non_tree": "Shrubs/heath plus non-cereal herbs; cereals are excluded.",
+    "shrubs_heath": "Operationally includes Corylus, Juniperus, Salix, Buxus, Phillyrea, Pistacia and heath; mixed tree/shrub life forms remain an assumption.",
+    "source_AL": "Unchanged published AL agricultural/cereal cover; nested within source OL.",
+    "source_ET_ST": "Source ET and ST include tall-shrub PFTs; their sum is not shrub-exclusive forest.",
+    "source_OL": "Unchanged published OL=LSE+GL+AL; includes cereals and low shrubs, but not all operational shrubs.",
+    "tree_assigned": "Conifers plus broadleaved trees; tree-associated operational proxy, not measured forest.",
+    "unit": "percentage_cover"
+  },
+  "closure_tolerance_percentage_points": 1e-08,
+  "epoch": "BP1950",
+  "evidence_role": "derived_published_model;not_independent_vegetation_validation",
+  "fixed_recent": "Intersection of eligible grids across all8whole published windows0-3200BP; no values outside those windows",
+  "high_quality": "Only eligible source high-quality cells in each window",
+  "latitude_extent": [
+    55,
+    70
+  ],
+  "mean_rule": "Direct weighted sums with one common mask/weight per component; no clipping or renormalization",
+  "missing_rule": "All no_pollen_data rows excluded regardless native means; zero31taxon mass refused; true component zero retained",
+  "policies": [
+    "available",
+    "high_quality",
+    "fixed_recent"
+  ],
+  "primary_recent_display": "five bands;fixed_recent;area",
+  "quality_counts": "coverage.high/low count eligible high/low rows; source_quality_counts include every raw quality row including invalid rows",
+  "recent_windows": [
+    [
+      0,
+      100
+    ],
+    [
+      100,
+      350
+    ],
+    [
+      350,
+      700
+    ],
+    [
+      700,
+      1200
+    ],
+    [
+      1200,
+      1700
+    ],
+    [
+      1700,
+      2200
+    ],
+    [
+      2200,
+      2700
+    ],
+    [
+      2700,
+      3200
+    ]
+  ],
+  "regional_confidence_intervals": false,
+  "schema_version": "swedish-landscape-history-protocol.v1",
+  "selection": "26governed Swedish-center cells x25published windows; whole cells assigned by center, not Swedish land intersections",
+  "source_dataset": "10.1594/PANGAEA.937075",
+  "source_windows": [
+    [
+      0,
+      100
+    ],
+    [
+      100,
+      350
+    ],
+    [
+      350,
+      700
+    ],
+    [
+      700,
+      1200
+    ],
+    [
+      1200,
+      1700
+    ],
+    [
+      1700,
+      2200
+    ],
+    [
+      2200,
+      2700
+    ],
+    [
+      2700,
+      3200
+    ],
+    [
+      3200,
+      3700
+    ],
+    [
+      3700,
+      4200
+    ],
+    [
+      4200,
+      4700
+    ],
+    [
+      4700,
+      5200
+    ],
+    [
+      5200,
+      5700
+    ],
+    [
+      5700,
+      6200
+    ],
+    [
+      6200,
+      6700
+    ],
+    [
+      6700,
+      7200
+    ],
+    [
+      7200,
+      7700
+    ],
+    [
+      7700,
+      8200
+    ],
+    [
+      8200,
+      8700
+    ],
+    [
+      8700,
+      9200
+    ],
+    [
+      9200,
+      9700
+    ],
+    [
+      9700,
+      10200
+    ],
+    [
+      10200,
+      10700
+    ],
+    [
+      10700,
+      11200
+    ],
+    [
+      11200,
+      11700
+    ]
+  ],
+  "time_rule": "Retain discrete source windows, including2700-3200BP whole; no interpolation or artificial100year information",
+  "uncertainty": "Cellwise minimum/maximum describe spatial variation. Only source OL/AL SE ranges retained, unpooled; no spatial/taxon covariance or joint draws available",
+  "units": "percentage_cover",
+  "weightings": [
+    "area",
+    "equal"
+  ]
+}

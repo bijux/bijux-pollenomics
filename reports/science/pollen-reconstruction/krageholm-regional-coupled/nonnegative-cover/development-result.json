@@ -1,0 +1,773 @@
+{
+  "schema_version": "love-six-window-development-comparison.v1",
+  "date": "2026-11-14",
+  "source_commit": "dbcc4c3435da29d4e066fc34774d3118c46eaf32",
+  "analytical_cover_policy": "clip-and-renormalize",
+  "scientific_acceptance": "not_evaluated",
+  "population": {
+    "windows": 6,
+    "target_places": 3,
+    "target_window_folds": 18,
+    "requested_method_cells": 54,
+    "scored_method_cells": 54,
+    "refused_method_cells": 0,
+    "historical_source_raw_predicted": 9,
+    "historical_source_raw_refused": 45
+  },
+  "historical_boundary": "The original source-raw nine predicted / 45 refused dispositions and the earlier 1f25f44fc nominal/three-fold adjustment remain separate unchanged records.",
+  "nominal_scores": {
+    "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/nonnegative-cover/matched-scores.json",
+    "bytes": 89182,
+    "sha256": "4295dd8fc89cbf20d93b17ae4caa7c3da6148feb46c58b99fdf64ea3142d1e83"
+  },
+  "by_method": {
+    "training_mean": {
+      "requested_cells": 18,
+      "paired_scored_cells": 18,
+      "refused_cells": 0,
+      "physical_mean_errors": {
+        "mae_fraction": 0.1468930758178845,
+        "total_variation_fraction": 0.1468930758178845,
+        "hellinger": 0.13757555149288947
+      },
+      "matched_direct_mean_errors": {
+        "mae_fraction": 0.18190677069849595,
+        "total_variation_fraction": 0.18190677069849595,
+        "hellinger": 0.16604253625629772
+      },
+      "physical_minus_direct_mean_errors": {
+        "mae_fraction": -0.03501369488061146,
+        "total_variation_fraction": -0.03501369488061146,
+        "hellinger": -0.028466984763408254
+      }
+    },
+    "nearest_site": {
+      "requested_cells": 18,
+      "paired_scored_cells": 18,
+      "refused_cells": 0,
+      "physical_mean_errors": {
+        "mae_fraction": 0.1647343825109164,
+        "total_variation_fraction": 0.1647343825109164,
+        "hellinger": 0.1503747801081385
+      },
+      "matched_direct_mean_errors": {
+        "mae_fraction": 0.1876637418741287,
+        "total_variation_fraction": 0.1876637418741287,
+        "hellinger": 0.16433764970245418
+      },
+      "physical_minus_direct_mean_errors": {
+        "mae_fraction": -0.022929359363212304,
+        "total_variation_fraction": -0.022929359363212304,
+        "hellinger": -0.013962869594315669
+      }
+    },
+    "inverse_distance_squared": {
+      "requested_cells": 18,
+      "paired_scored_cells": 18,
+      "refused_cells": 0,
+      "physical_mean_errors": {
+        "mae_fraction": 0.17787971846168169,
+        "total_variation_fraction": 0.17787971846168169,
+        "hellinger": 0.16268899346622767
+      },
+      "matched_direct_mean_errors": {
+        "mae_fraction": 0.2204922697930418,
+        "total_variation_fraction": 0.2204922697930418,
+        "hellinger": 0.19345469079098257
+      },
+      "physical_minus_direct_mean_errors": {
+        "mae_fraction": -0.042612551331360105,
+        "total_variation_fraction": -0.042612551331360105,
+        "hellinger": -0.030765697324754898
+      }
+    }
+  },
+  "by_window": {
+    "cal-bp-2700-3200": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.06216516633715343,
+          "total_variation_fraction": 0.06216516633715343,
+          "hellinger": 0.08040036976890425
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.07039739696772175,
+          "total_variation_fraction": 0.07039739696772175,
+          "hellinger": 0.08998679980294187
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.00823223063056832,
+          "total_variation_fraction": -0.00823223063056832,
+          "hellinger": -0.009586430034037627
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.0968382130348745,
+          "total_variation_fraction": 0.0968382130348745,
+          "hellinger": 0.11802992792764853
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.10426861258167595,
+          "total_variation_fraction": 0.10426861258167595,
+          "hellinger": 0.12508087547646388
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.0074303995468014555,
+          "total_variation_fraction": -0.0074303995468014555,
+          "hellinger": -0.007050947548815342
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.0822948448536092,
+          "total_variation_fraction": 0.0822948448536092,
+          "hellinger": 0.10190021521587068
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.0884973553464045,
+          "total_variation_fraction": 0.0884973553464045,
+          "hellinger": 0.10863678271249118
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.006202510492795299,
+          "total_variation_fraction": -0.006202510492795299,
+          "hellinger": -0.006736567496620494
+        }
+      }
+    },
+    "cal-bp-3200-3700": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.08560000677659463,
+          "total_variation_fraction": 0.08560000677659463,
+          "hellinger": 0.09497911740285876
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.09535913872452333,
+          "total_variation_fraction": 0.09535913872452333,
+          "hellinger": 0.1052183077665817
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.009759131947928698,
+          "total_variation_fraction": -0.009759131947928698,
+          "hellinger": -0.010239190363722936
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.09239477246472261,
+          "total_variation_fraction": 0.09239477246472261,
+          "hellinger": 0.09815205094667374
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.09602975016436556,
+          "total_variation_fraction": 0.09602975016436556,
+          "hellinger": 0.100497318672945
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.0036349776996429523,
+          "total_variation_fraction": -0.0036349776996429523,
+          "hellinger": -0.0023452677262712496
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.10680925987331301,
+          "total_variation_fraction": 0.10680925987331301,
+          "hellinger": 0.11523057532703351
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.11697604743185441,
+          "total_variation_fraction": 0.11697604743185441,
+          "hellinger": 0.12513658214767262
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.010166787558541404,
+          "total_variation_fraction": -0.010166787558541404,
+          "hellinger": -0.009906006820639107
+        }
+      }
+    },
+    "cal-bp-3700-4200": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.21930886384687634,
+          "total_variation_fraction": 0.21930886384687634,
+          "hellinger": 0.18550666176705902
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.28097558687574,
+          "total_variation_fraction": 0.28097558687574,
+          "hellinger": 0.2345982443364328
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.06166672302886364,
+          "total_variation_fraction": -0.06166672302886364,
+          "hellinger": -0.04909158256937379
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.24116308930371486,
+          "total_variation_fraction": 0.24116308930371486,
+          "hellinger": 0.19775791049839012
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.28097558687574004,
+          "total_variation_fraction": 0.28097558687574004,
+          "hellinger": 0.22471084555959073
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.03981249757202518,
+          "total_variation_fraction": -0.03981249757202518,
+          "hellinger": -0.02695293506120061
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.26762091477357747,
+          "total_variation_fraction": 0.26762091477357747,
+          "hellinger": 0.22073066717094417
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.33662461850200404,
+          "total_variation_fraction": 0.33662461850200404,
+          "hellinger": 0.2699314276667079
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.06900370372842657,
+          "total_variation_fraction": -0.06900370372842657,
+          "hellinger": -0.049200760495763746
+        }
+      }
+    },
+    "cal-bp-4200-4700": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.20382714199651134,
+          "total_variation_fraction": 0.20382714199651134,
+          "hellinger": 0.1808689792521685
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.27750780719874696,
+          "total_variation_fraction": 0.27750780719874696,
+          "hellinger": 0.2423292601962468
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.07368066520223562,
+          "total_variation_fraction": -0.07368066520223562,
+          "hellinger": -0.061460280944078294
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.22159216702550302,
+          "total_variation_fraction": 0.22159216702550302,
+          "hellinger": 0.19022046739671347
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.27750780719874696,
+          "total_variation_fraction": 0.27750780719874696,
+          "hellinger": 0.2286982636345428
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.055915640173243936,
+          "total_variation_fraction": -0.055915640173243936,
+          "hellinger": -0.03847779623782932
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.2448502999868125,
+          "total_variation_fraction": 0.2448502999868125,
+          "hellinger": 0.21316725836013226
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.3360029765432293,
+          "total_variation_fraction": 0.3360029765432293,
+          "hellinger": 0.28060660163367146
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.09115267655641682,
+          "total_variation_fraction": -0.09115267655641682,
+          "hellinger": -0.0674393432735392
+        }
+      }
+    },
+    "cal-bp-4700-5200": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.26149432722312665,
+          "total_variation_fraction": 0.26149432722312665,
+          "hellinger": 0.22527215259307742
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.34348616467349674,
+          "total_variation_fraction": 0.34348616467349674,
+          "hellinger": 0.29292515171708217
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.08199183745037009,
+          "total_variation_fraction": -0.08199183745037009,
+          "hellinger": -0.06765299912400474
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.2874551045096389,
+          "total_variation_fraction": 0.2874551045096389,
+          "hellinger": 0.2396622957061363
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.34348616467349663,
+          "total_variation_fraction": 0.34348616467349663,
+          "hellinger": 0.27652071501531134
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.05603106016385773,
+          "total_variation_fraction": -0.05603106016385773,
+          "hellinger": -0.03685841930917502
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.31674004255573335,
+          "total_variation_fraction": 0.31674004255573335,
+          "hellinger": 0.26667921655011656
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.41712929577185304,
+          "total_variation_fraction": 0.41712929577185304,
+          "hellinger": 0.3407162409256295
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.10038925321611969,
+          "total_variation_fraction": -0.10038925321611969,
+          "hellinger": -0.07403702437551296
+        }
+      }
+    },
+    "cal-bp-5200-5700": {
+      "training_mean": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.04896294872704457,
+          "total_variation_fraction": 0.04896294872704457,
+          "hellinger": 0.05842602817326889
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.023714529750747056,
+          "total_variation_fraction": 0.023714529750747056,
+          "hellinger": 0.03119745371850097
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": 0.025248418976297513,
+          "total_variation_fraction": 0.025248418976297513,
+          "hellinger": 0.02722857445476792
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.04896294872704457,
+          "total_variation_fraction": 0.04896294872704457,
+          "hellinger": 0.05842602817326889
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.023714529750747036,
+          "total_variation_fraction": 0.023714529750747036,
+          "hellinger": 0.03051787985587137
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": 0.025248418976297534,
+          "total_variation_fraction": 0.025248418976297534,
+          "hellinger": 0.02790814831739752
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 3,
+        "paired_scored_cells": 3,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.04896294872704457,
+          "total_variation_fraction": 0.04896294872704457,
+          "hellinger": 0.05842602817326889
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.027723325162905446,
+          "total_variation_fraction": 0.027723325162905446,
+          "hellinger": 0.03570050965972283
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": 0.021239623564139123,
+          "total_variation_fraction": 0.021239623564139123,
+          "hellinger": 0.02272551851354606
+        }
+      }
+    }
+  },
+  "by_target": {
+    "BOKE": {
+      "training_mean": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.07931016416474451,
+          "total_variation_fraction": 0.07931016416474451,
+          "hellinger": 0.08390757657122229
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.11676553680097161,
+          "total_variation_fraction": 0.11676553680097161,
+          "hellinger": 0.111407365824163
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.0374553726362271,
+          "total_variation_fraction": -0.0374553726362271,
+          "hellinger": -0.027499789252940707
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.1730438142298654,
+          "total_variation_fraction": 0.1730438142298654,
+          "hellinger": 0.15777233004615643
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.2532202707168802,
+          "total_variation_fraction": 0.2532202707168802,
+          "hellinger": 0.21240778558218024
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.0801764564870148,
+          "total_variation_fraction": -0.0801764564870148,
+          "hellinger": -0.05463545553602381
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.17120073137274763,
+          "total_variation_fraction": 0.17120073137274763,
+          "hellinger": 0.1564221421299611
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.2511658298892816,
+          "total_variation_fraction": 0.2511658298892816,
+          "hellinger": 0.210935424337805
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.07996509851653397,
+          "total_variation_fraction": -0.07996509851653397,
+          "hellinger": -0.05451328220784388
+        }
+      }
+    },
+    "BUS": {
+      "training_mean": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.24686968363146733,
+          "total_variation_fraction": 0.24686968363146733,
+          "hellinger": 0.20414041835688942
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.26306486927434874,
+          "total_variation_fraction": 0.26306486927434874,
+          "hellinger": 0.2231618883190061
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.016195185642881416,
+          "total_variation_fraction": -0.016195185642881416,
+          "hellinger": -0.019021469962116677
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.2526394929710688,
+          "total_variation_fraction": 0.2526394929710688,
+          "hellinger": 0.21085617429971526
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.2532202707168802,
+          "total_variation_fraction": 0.2532202707168802,
+          "hellinger": 0.21240778558218024
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.0005807777458113894,
+          "total_variation_fraction": -0.0005807777458113894,
+          "hellinger": -0.0015516112824649764
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.2525462972637121,
+          "total_variation_fraction": 0.2525462972637121,
+          "hellinger": 0.21076428051315052
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.25334632379428673,
+          "total_variation_fraction": 0.25334632379428673,
+          "hellinger": 0.2125417849849337
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.000800026530574649,
+          "total_variation_fraction": -0.000800026530574649,
+          "hellinger": -0.0017775044717831812
+        }
+      }
+    },
+    "SOLSOE83": {
+      "training_mean": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.11449937965744166,
+          "total_variation_fraction": 0.11449937965744166,
+          "hellinger": 0.1246786595505567
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.1658899060201676,
+          "total_variation_fraction": 0.1658899060201676,
+          "hellinger": 0.16355835462572407
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.05139052636272594,
+          "total_variation_fraction": -0.05139052636272594,
+          "hellinger": -0.03887969507516738
+        }
+      },
+      "nearest_site": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.068519840331815,
+          "total_variation_fraction": 0.068519840331815,
+          "hellinger": 0.08249583597854386
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.05655068418862568,
+          "total_variation_fraction": 0.05655068418862568,
+          "hellinger": 0.06819737794300203
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": 0.011969156143189323,
+          "total_variation_fraction": 0.011969156143189323,
+          "hellinger": 0.014298458035541833
+        }
+      },
+      "inverse_distance_squared": {
+        "requested_cells": 6,
+        "paired_scored_cells": 6,
+        "refused_cells": 0,
+        "physical_mean_errors": {
+          "mae_fraction": 0.10989212674858528,
+          "total_variation_fraction": 0.10989212674858528,
+          "hellinger": 0.12088055775557138
+        },
+        "matched_direct_mean_errors": {
+          "mae_fraction": 0.156964655695557,
+          "total_variation_fraction": 0.156964655695557,
+          "hellinger": 0.15688686305020907
+        },
+        "physical_minus_direct_mean_errors": {
+          "mae_fraction": -0.047072528946971726,
+          "total_variation_fraction": -0.047072528946971726,
+          "hellinger": -0.03600630529463769
+        }
+      }
+    }
+  },
+  "uncertainty": {
+    "replicates": 1024,
+    "source_owner_window_streams": 24,
+    "target_window_folds": 18,
+    "method_replicate_slots": 55296,
+    "methods": {
+      "training_mean": {
+        "target_window_folds": 18,
+        "total_replicates": 1024,
+        "joint_defined_replicates": 1024,
+        "undefined_replicates": 0,
+        "physical_mae_mean_fraction": 0.14676118779753422,
+        "matched_direct_mae_mean_fraction": 0.1820785026689742,
+        "paired_physical_minus_direct_mean_fraction": -0.03531731487144034,
+        "paired_physical_minus_direct_quantiles": {
+          "0.025": -0.044047336097193746,
+          "0.5": -0.035379106327957016,
+          "0.975": -0.025929276753506737
+        },
+        "paired_difference_mean_mcse": 0.0001379004251027352,
+        "interpretation": "Conditional count/PPE working-law variability, not calibrated field confidence or independent-site uncertainty"
+      },
+      "nearest_site": {
+        "target_window_folds": 18,
+        "total_replicates": 1024,
+        "joint_defined_replicates": 1024,
+        "undefined_replicates": 0,
+        "physical_mae_mean_fraction": 0.16444482164291505,
+        "matched_direct_mae_mean_fraction": 0.1887488116640957,
+        "paired_physical_minus_direct_mean_fraction": -0.024303990021180544,
+        "paired_physical_minus_direct_quantiles": {
+          "0.025": -0.033897687535785266,
+          "0.5": -0.024456143409600728,
+          "0.975": -0.013868384950569735
+        },
+        "paired_difference_mean_mcse": 0.00015734139093878452,
+        "interpretation": "Conditional count/PPE working-law variability, not calibrated field confidence or independent-site uncertainty"
+      },
+      "inverse_distance_squared": {
+        "target_window_folds": 18,
+        "total_replicates": 1024,
+        "joint_defined_replicates": 1024,
+        "undefined_replicates": 0,
+        "physical_mae_mean_fraction": 0.17738992254686542,
+        "matched_direct_mae_mean_fraction": 0.22050920205253816,
+        "paired_physical_minus_direct_mean_fraction": -0.04311927950567272,
+        "paired_physical_minus_direct_quantiles": {
+          "0.025": -0.05564398097474713,
+          "0.5": -0.04304400963757456,
+          "0.975": -0.02988915044736403
+        },
+        "paired_difference_mean_mcse": 0.00019735210986334352,
+        "interpretation": "Conditional count/PPE working-law variability, not calibrated field confidence or independent-site uncertainty"
+      }
+    },
+    "prediction_manifest": {
+      "path": "artifacts/lra-completion/science/uncertainty/products/prediction-manifest.json",
+      "bytes": 692,
+      "sha256": "4eaa90bcf3bea67d384f8f0d9f855f361a7e5466eb54f07cedc2003fac5c3db2"
+    },
+    "source_files_verified": 221,
+    "protocol": {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/nonnegative-cover/all-window-uncertainty-protocol.json",
+      "bytes": 6908,
+      "sha256": "8efb7d98c5f1f487dff7f76cfd936b718f1857373644c6d2fae7749d175eefd3"
+    },
+    "producer_resources": {
+      "elapsed_seconds": 36.9981207919991,
+      "peak_rss_bytes": 479461376,
+      "product_bytes": 42171533
+    },
+    "observer_resources": {
+      "elapsed_seconds": 15.62108066699875,
+      "peak_rss_bytes": 301121536,
+      "product_bytes": 7850
+    }
+  },
+  "independent_verification": {
+    "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/nonnegative-cover/independent-verification.json",
+    "bytes": 3688,
+    "sha256": "cb8624f2b95e9cb5c674e6b08af5ae97c99b82defc77f8ff99aeaaeebd137609"
+  },
+  "installed_verification": {
+    "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/nonnegative-cover/installed-verification.json",
+    "bytes": 824,
+    "sha256": "5d44874452032fa829a4f41988115e65126d3e12e6d788c366a4a6289975f0a7"
+  },
+  "executed_receipts": [
+    {
+      "path": "artifacts/lra-completion/science/nominal-scores.json",
+      "bytes": 89182,
+      "sha256": "4295dd8fc89cbf20d93b17ae4caa7c3da6148feb46c58b99fdf64ea3142d1e83"
+    },
+    {
+      "path": "artifacts/lra-completion/science/uncertainty/products/result.json",
+      "bytes": 1437,
+      "sha256": "ad6ddb5df22e6796e01470ff38db0bb1b9f6fd80058257f08ad19eac8075ac2c"
+    },
+    {
+      "path": "artifacts/lra-completion/science/uncertainty/products/summary.json",
+      "bytes": 1189126,
+      "sha256": "383d428c7a27ba0870a17dc7b4ce3992cf1d121552f38eda001e57774a9c11a0"
+    },
+    {
+      "path": "artifacts/lra-completion/science/uncertainty/verification.json",
+      "bytes": 1333,
+      "sha256": "294328e06db8155d3d351f5aeda019b2400eaed562ed5bd833795af2d942e341"
+    },
+    {
+      "path": "artifacts/lra-completion/science/sourcehold-disposition.json",
+      "bytes": 5134,
+      "sha256": "8886ab1799614cd501cf112c5aa02dd512db370b1737492686e3af0692e5336e"
+    }
+  ],
+  "mixed_results": [
+    "The 5200\u20135700 cal BP window has worse nominal physical MAE for all three methods than its matched direct baseline.",
+    "Nearest-site physical MAE for Sols\u00f8 across six windows is worse than its matched direct baseline."
+  ],
+  "limitations": [
+    "Three exposed physical target places repeated over six windows, not 18 independent sites or untouched confirmation.",
+    "Two-taxon Betula/Ulmus denominator, fixed point chronologies, saved finite kernels, prescribed static geometry and conditional parameter transfer.",
+    "Count/PPE variability is not calibrated empirical interval coverage or joint chronology/basin uncertainty.",
+    "BOKE physical admission still needs a core/basin crosswalk and source-bound chronology, taxonomy/denominator, PPE/use and qualified decisions.",
+    "No newly admitted independent measured vegetation pair, untouched cohort, historical-paper reproduction or qualified scientific acceptance.",
+    "No push, hosted workflow, package/site publication or live native R execution."
+  ]
+}

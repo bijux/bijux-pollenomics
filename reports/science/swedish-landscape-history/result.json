@@ -1,0 +1,185 @@
+{
+  "schema_version": "swedish-published-landscape-history.v1",
+  "claim": "Descriptive summaries of published REVEALS model estimates for represented Swedish-centre grids; no fresh pollen model or independent vegetation accuracy claim.",
+  "calculation_source_commit": "b768c7b1204c2dd43b2c88e69d47ce2b61f662b8",
+  "source": {
+    "dataset": "10.1594/PANGAEA.937075",
+    "paper": "10.5194/essd-14-1581-2022",
+    "license": "CC BY 4.0",
+    "citation": "Fyfe, R. M., et al. (2021), A full Holocene record of transient gridded vegetation cover in Europe; Githumbi, E., et al. (2022), ESSD14,1581\u20131619."
+  },
+  "input_pins": [
+    {
+      "bytes": 17075784,
+      "path": "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+      "sha256": "2c04cff11aee3ea191540ef00084854402f90ebe8c3b09e0605d22827d29b15e"
+    },
+    {
+      "bytes": 4880,
+      "path": "data/landclim/raw/landclim_sources.json",
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    },
+    {
+      "bytes": 4007032,
+      "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    {
+      "bytes": 49189,
+      "path": "data/landclim/raw/landclim_ii_grid_cell_quality.xlsx",
+      "sha256": "6b805ee27f07d3d047bb785ae5315388b1d3a4b123d510a27f77a86915bc7488"
+    },
+    {
+      "bytes": 1773,
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    },
+    {
+      "bytes": 2269341,
+      "path": "data/boundaries/normalized/nordic_country_boundaries.geojson",
+      "sha256": "8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394"
+    },
+    {
+      "bytes": 2191,
+      "path": "data/boundaries/raw/source_manifest.json",
+      "sha256": "1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
+    }
+  ],
+  "calculation_source_pins": [
+    {
+      "bytes": 306,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/__init__.py",
+      "sha256": "260b4a0fe74a7fd4ff9543c6b6db92b8304e88fe3a748d99e13878a1a7b31389"
+    },
+    {
+      "bytes": 587,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/__main__.py",
+      "sha256": "383f2f82ddf943869c68e52ec8d6d9f0d885d70d9a09090e8bd58815f9c51c0f"
+    },
+    {
+      "bytes": 4224,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/classification.py",
+      "sha256": "6c8705431b3f9ff30df33b7830397b1dba69ae98e0cd816e055d5a0a2c1e84fe"
+    },
+    {
+      "bytes": 5042,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/inputs.py",
+      "sha256": "84ec7f89df29bf67c02c28d900ea0c8c2b1aa84cae60a2949813e7307378245d"
+    },
+    {
+      "bytes": 7924,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/aggregation.py",
+      "sha256": "a0b06ac2fdd05806042bde20d1cd62fd4c4c69bca2a874ba7e38ad5ee1d5e361"
+    },
+    {
+      "bytes": 9749,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/workflow.py",
+      "sha256": "cb6bcce14adc482ffd283b0441e11de94595585a39297ac799da8cf25aee4688"
+    },
+    {
+      "bytes": 2830,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/contracts.py",
+      "sha256": "e66708bc222d7add0184d6f372a21f235e1154e0fd25271272f2b66c379faf97"
+    },
+    {
+      "bytes": 6299,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/metric_families.py",
+      "sha256": "621d2fe9df9b8328e03ef6524eae28bf246cdb0f871da0df81db6b3510d51e67"
+    }
+  ],
+  "population": {
+    "grids": 26,
+    "source_windows": 25,
+    "cell_windows": 650,
+    "eligible": 567,
+    "source_no_data": 82,
+    "invalid_zero_mass": 1,
+    "trajectory_rows": 2250,
+    "layouts": [
+      4,
+      5,
+      6
+    ],
+    "support_policies": [
+      "available",
+      "high_quality",
+      "fixed_recent"
+    ],
+    "weightings": [
+      "area",
+      "equal"
+    ]
+  },
+  "primary_recent": {
+    "latitude_edges": [
+      55,
+      58,
+      61,
+      64,
+      67,
+      70
+    ],
+    "window_count": 8,
+    "support": "fixed_recent",
+    "weighting": "area",
+    "common_grids": 21,
+    "common_grids_by_band": [
+      8,
+      5,
+      4,
+      0,
+      4
+    ],
+    "missing_band_windows": 8,
+    "defined_band_windows": 32
+  },
+  "protocol": "protocol.json",
+  "trajectories": "trajectories.csv",
+  "cell_dispositions": "cell-dispositions.csv",
+  "independent_verification": "independent-check.json",
+  "execution": {
+    "exit_code": 0,
+    "source_commit_before": "b768c7b1204c2dd43b2c88e69d47ce2b61f662b8",
+    "source_commit_after": "b768c7b1204c2dd43b2c88e69d47ce2b61f662b8",
+    "wall_seconds": 1.572051333001582,
+    "peak_child_rss_bytes": 179421184,
+    "product_bytes": 9264756,
+    "limits": {
+      "wall_seconds": 60,
+      "peak_rss_bytes": 1500000000,
+      "product_bytes": 96000000
+    }
+  },
+  "environment": {
+    "python": "3.11.18 (main, Oct 25 2026, 19:41:29) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "installed_distribution_metadata": {
+      "bijux-pollenomics": "0.1.9.dev2950+dirty",
+      "bijux-pollenomics-dev": "0.1.9.dev2950+dirty"
+    },
+    "identity_note": "Editable distribution metadata predates this study; exact committed source and guarded module bytes above identify the calculation."
+  },
+  "uncertainty": "Source OL/AL SE ranges remain unpooled. Spatial ranges are descriptive, not confidence intervals. Joint covariance is unavailable.",
+  "negative_love_policy": "Not applied: these are existing published REVEALS means, with one zero composition refused and no negative source mean admitted.",
+  "figure_renderer": {
+    "source": "render.py",
+    "matplotlib": "3.11.2",
+    "formats": [
+      "svg",
+      "pdf",
+      "png"
+    ],
+    "temporal_interpolation": false,
+    "regional_confidence_bands": false,
+    "source_sha256": "39e68842e4773ca3e5369ce433851aae520c412b93b941d0a2f91639e1578479",
+    "boundary_sha256": "20e2ca00f348cddb95a41ca8e8f22a92390a8210618a525e2cef98d3069fc00d"
+  },
+  "checks": {
+    "focused_tests": 20,
+    "existing_landclim_tests": 131,
+    "configured_ruff": "passed",
+    "configured_format": "passed",
+    "strict_mypy_files": 12,
+    "independent_original_archive": "passed"
+  },
+  "remaining": "No independent vegetation reference, exact local-LRA admission, qualified botanical/chronology acceptance or quantitative Estonia equivalence is established."
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": "love-six-window-independent-verification.v1",
+  "status": "passed",
+  "source_commit": "dbcc4c3435da29d4e066fc34774d3118c46eaf32",
+  "nominal": {
+    "counts": {
+      "windows": 6,
+      "physical_target_places": 3,
+      "target_window_folds": 18,
+      "scored_method_slots": 54,
+      "refused_method_slots": 0,
+      "historical_predicted_slots": 9,
+      "historical_refused_slots": 45
+    },
+    "checks": [
+      "Raw materialized source counts and exact score-source hashes match all 24 owners.",
+      "Every fold excludes its target from regional and both local training roles and count identity.",
+      "Fresh scalar rational REVEALS rounding, signed LOVE, per-local clipping/closure, fixed spatial weighting and forward pollen match all 54 frozen predictions.",
+      "MAE, total variation, Hellinger, matched direct scores and all method/window/target aggregation means match independent math.fsum arithmetic."
+    ],
+    "maximum_absolute_differences": {
+      "regional": 1.1102230246251565e-16,
+      "signed": 6.661338147750939e-16,
+      "adjusted": 2.220446049250313e-16,
+      "methods": 2.7929047963226594e-16,
+      "score_prediction": 1.1102230246251565e-16,
+      "score_matched_direct_prediction": 2.220446049250313e-16,
+      "score_observed": 0.0,
+      "score_physical_errors": 1.1102230246251565e-16,
+      "score_direct_errors": 1.1102230246251565e-16,
+      "by_method": 0.0,
+      "by_window": 0.0,
+      "by_target": 0.0
+    }
+  },
+  "uncertainty": {
+    "counts": {
+      "physical_target_places": 3,
+      "repeated_windows": 6,
+      "target_window_folds": 18,
+      "nominal_method_slots": 54,
+      "historical_predicted_slots": 9,
+      "historical_refused_slots": 45,
+      "draw_owners": 24,
+      "shared_replicates": 1024,
+      "verified_method_replicate_slots": 55296,
+      "jointly_defined_all18_replicates": 1024
+    },
+    "independent_arithmetic": "Fresh standard-library Fraction reconstruction, decimal-grid percentage rounding, clipping and closure, source-only interpolation, forward deposition, scalar metrics, full empirical covariance and quantiles; only NumPy PCG64/SeedSequence/multinomial/normal reused for primitive RNG replay. No producer prediction, draw or verification helper imported.",
+    "maximum_absolute_differences": {
+      "raw_kernel": 0.0,
+      "regional": 1.1102230246251565e-16,
+      "signed": 1.3322676295501878e-15,
+      "adjusted": 5.551115123125783e-16,
+      "methods": 8.548717289613705e-15,
+      "nominal_pollen": 1.1102230246251565e-16,
+      "nominal_cover": 2.220446049250313e-16,
+      "case_scores": 6.439293542825908e-15,
+      "joint": 8.548717289613705e-15,
+      "aggregate": 1.942890293094024e-16
+    }
+  },
+  "source_observation": {
+    "status": "passed",
+    "source_files_verified": 221,
+    "owners_verified": 24,
+    "active_fold_kernels_verified": 18,
+    "nominal_predictions_verified": 54,
+    "source_bytes_read": 3293026,
+    "scope": "Qualified saved inputs and pre-score products; no new native-source census or model execution"
+  },
+  "raw_receipts": [
+    {
+      "path": "artifacts/lra-completion/source-review/nominal-score-verification.json",
+      "bytes": 11116,
+      "sha256": "72a4039e32f2ec48389cbd8b9eb39f6a8688677d04aadf1e32bd175857187809"
+    },
+    {
+      "path": "artifacts/lra-completion/source-review/study-verification.json",
+      "bytes": 59683,
+      "sha256": "96a34a6432deb092286ef8f5f170b50c4fe8df219cb33fe02781ee9885c21c6a"
+    },
+    {
+      "path": "artifacts/lra-completion/source-review/challenge.json",
+      "bytes": 8808,
+      "sha256": "d35a82e233103524e6823c0e81423d0904c191af34d54fdab0379aeecda68418"
+    }
+  ]
+}
