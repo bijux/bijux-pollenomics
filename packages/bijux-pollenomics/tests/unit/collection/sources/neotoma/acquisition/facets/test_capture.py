@@ -3,9 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import replace
-import importlib
 from pathlib import Path
-from types import ModuleType
 from typing import Any
 
 import pytest
@@ -14,20 +12,8 @@ from bijux_pollenomics.collection.sources.neotoma.capture.resources import (
     NeotomaResourceLimits,
 )
 
-from .test_resource_capture import response, spec
-
-FACETS = ("chronologies", "lithology", "projects", "publications", "taxa")
-BODY = b'{"status":"success","data":[{"depth":10,"age":120}]}'
-
-
-def owner() -> ModuleType:
-    return importlib.import_module(
-        "bijux_pollenomics.collection.sources.neotoma.capture.facets"
-    )
-
-
-def plan(*resources: Any, facets: tuple[str, ...] = FACETS) -> Any:
-    return owner().NeotomaFacetPlan(tuple(resources), "b" * 64, facets=facets)
+from ..resources.native_payloads import response, spec
+from .native_payloads import BODY, FACETS, owner, plan
 
 
 def test_exact_five_dataset_facets_keep_raw_bytes_and_unqualified_payload_owners(

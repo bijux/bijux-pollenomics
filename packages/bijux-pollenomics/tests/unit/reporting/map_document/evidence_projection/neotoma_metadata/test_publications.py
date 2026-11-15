@@ -17,14 +17,14 @@ from bijux_pollenomics.reporting.bundles.atlas_bundle.layers import prepare_laye
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     build_map_evidence_projection,
 )
-from bijux_pollenomics.reporting.map_document.evidence_projection import (
-    neotoma_publications as citations,
+from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma_metadata import (
+    publications as citations,
 )
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
 )
 
-from .test_source_site_links import source as source
+from ..test_source_site_links import source as source
 
 
 def publication(

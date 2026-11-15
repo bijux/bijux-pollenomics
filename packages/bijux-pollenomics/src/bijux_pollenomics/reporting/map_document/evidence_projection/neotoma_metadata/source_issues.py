@@ -7,8 +7,8 @@ from collections.abc import Mapping
 import copy
 import json
 
-from .io import _required_text
-from .records import _row_table, _unavailable, _unique_rows
+from ..io import _required_text
+from ..records import _row_table, _unavailable, _unique_rows
 
 LoadedSurfaces = Mapping[str, tuple[list[Mapping[str, object]], tuple[int, ...]]]
 _ID_FIELDS = {

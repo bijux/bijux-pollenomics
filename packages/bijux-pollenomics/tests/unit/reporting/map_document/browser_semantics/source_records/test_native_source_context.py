@@ -25,7 +25,7 @@ from tests.support.sead_evidence import (
 )
 
 from ...evidence_projection.fixtures.neotoma import _neotoma_fixture
-from ...evidence_projection.test_neotoma_chronology_models import (
+from ...evidence_projection.neotoma_metadata.test_chronology_models import (
     materialized,
     native_source,
 )

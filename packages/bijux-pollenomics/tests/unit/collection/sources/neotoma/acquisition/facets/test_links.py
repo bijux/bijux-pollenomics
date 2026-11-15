@@ -10,7 +10,7 @@ from types import ModuleType
 
 import pytest
 
-from .test_facet_profiles import capture
+from .test_profiles import capture
 
 
 def owner() -> ModuleType:

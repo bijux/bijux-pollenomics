@@ -12,7 +12,7 @@ import pytest
 from tests.support.neotoma import download_row
 from tests.support.neotoma.relational_shapes import nested, rows
 
-from ...evidence_projection.test_neotoma_chronology_models import materialized
+from ...evidence_projection.neotoma_metadata.test_chronology_models import materialized
 from ..pollen.test_pollen_small_multiples import script
 from ..support import run_node_json
 

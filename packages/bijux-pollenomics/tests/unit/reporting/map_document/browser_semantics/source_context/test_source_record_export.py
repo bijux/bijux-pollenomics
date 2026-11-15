@@ -10,7 +10,7 @@ from bijux_pollenomics.reporting.map_document.template import (
     URL_STATE_CONTROLLER,
 )
 
-from ...evidence_projection.test_neotoma_chronology_models import (
+from ...evidence_projection.neotoma_metadata.test_chronology_models import (
     materialized,
     native_source,
 )

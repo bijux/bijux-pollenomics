@@ -188,13 +188,15 @@ def test_inventory_requires_explicit_opt_in_for_unverified_tls_fallback(
 
 @pytest.mark.parametrize("identity", [True, False, 0, -1, 201.9, "201", None])
 def test_inventory_does_not_promote_invalid_dataset_identity(identity: object) -> None:
-    rows = [{"site": {"datasets": [{"datasetid": 201}, {"datasetid": identity}]}}]
+    rows: list[dict[str, object]] = [
+        {"site": {"datasets": [{"datasetid": 201}, {"datasetid": identity}]}}
+    ]
     with pytest.raises(ValueError, match="Neotoma.*positive integer"):
         extract_neotoma_dataset_ids(rows)
 
 
 def test_inventory_retains_distinct_positive_native_dataset_ids() -> None:
-    rows = [
+    rows: list[dict[str, object]] = [
         {
             "site": {
                 "datasets": [{"datasetid": 202}, {"datasetid": 201}, {"datasetid": 202}]

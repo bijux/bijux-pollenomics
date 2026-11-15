@@ -8,15 +8,15 @@ from typing import Any
 
 import pytest
 
-from ...evidence_projection.test_neotoma_publications import (
+from ...evidence_projection.neotoma_metadata.test_publications import (
     capture as capture,
 )
-from ...evidence_projection.test_neotoma_publications import (
+from ...evidence_projection.neotoma_metadata.test_publications import (
     projected,
     publication,
     save_capture,
 )
-from ...evidence_projection.test_neotoma_publications import (
+from ...evidence_projection.neotoma_metadata.test_publications import (
     source as source,
 )
 from .test_native_source_context import observe, parse_html

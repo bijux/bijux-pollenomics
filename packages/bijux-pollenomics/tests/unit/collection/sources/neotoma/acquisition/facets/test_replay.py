@@ -13,8 +13,8 @@ from bijux_pollenomics.collection.sources.neotoma.capture.resources import (
     NeotomaResourceLimits,
 )
 
-from .test_dataset_facets import BODY, owner, plan
-from .test_resource_capture import response, spec
+from ..resources.native_payloads import response, spec
+from .native_payloads import BODY, owner, plan
 
 
 def captured(root: Path) -> Any:

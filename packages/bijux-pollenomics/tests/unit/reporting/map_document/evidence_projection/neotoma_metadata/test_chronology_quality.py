@@ -7,13 +7,13 @@ from typing import Any
 
 import pytest
 
-from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma_chronology import (
+from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma_metadata.chronology import (
     chronology_quality_tables,
 )
 from tests.support.neotoma import download_row
 from tests.support.neotoma.relational_shapes import nested, rows
 
-from .test_neotoma_chronology_models import materialized
+from .test_chronology_models import materialized
 
 
 def decode(table: dict[str, Any]) -> list[dict[str, Any]]:

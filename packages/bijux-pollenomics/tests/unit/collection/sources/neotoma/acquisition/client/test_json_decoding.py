@@ -19,7 +19,7 @@ from bijux_pollenomics.collection.sources.neotoma.site_inventory.connected_resou
     parse_neotoma_site_datasets,
 )
 
-from .test_resource_capture import body, plan, response, spec
+from ..resources.native_payloads import body, plan, response, spec
 
 
 @pytest.mark.parametrize(

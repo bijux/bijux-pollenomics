@@ -11,7 +11,7 @@ from .constants import _NEOTOMA_LAYER_KEY, _SEAD_LAYER_KEYS, PROJECTION_SCHEMA_V
 from .io import _regular_absolute_directory, _required_text
 from .models import MapEvidenceProjection
 from .neotoma import _project_neotoma
-from .neotoma_publications import attach_publication_capture
+from .neotoma_metadata.publications import attach_publication_capture
 from .records import _features, _is_unavailable, _tabs
 from .sead import _project_sead
 

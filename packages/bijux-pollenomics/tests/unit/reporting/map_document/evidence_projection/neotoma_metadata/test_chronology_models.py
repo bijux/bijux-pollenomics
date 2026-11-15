@@ -18,18 +18,18 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     neotoma as projection,
 )
-from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma_chronology import (
+from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma_metadata.chronology import (
     chronology_model_tables,
 )
 from tests.support.neotoma import country_decisions, download_row
 from tests.support.neotoma.relational_shapes import nested, rows
 
-from ..browser_semantics.chronology.test_age_depth_diagram import (
+from ...browser_semantics.chronology.test_age_depth_diagram import (
     diagram_script,
     render_drawer,
 )
-from ..browser_semantics.support import run_node_json
-from .fixtures.neotoma import _neotoma_fixture
+from ...browser_semantics.support import run_node_json
+from ..fixtures.neotoma import _neotoma_fixture
 
 
 @pytest.mark.parametrize("legacy_selected", [False, True])

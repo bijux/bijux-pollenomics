@@ -13,7 +13,7 @@ from typing import Any, cast
 
 import pytest
 
-from .test_resource_capture import response, spec
+from ..resources.native_payloads import response, spec
 
 
 def profiles() -> ModuleType:

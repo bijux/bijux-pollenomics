@@ -16,8 +16,8 @@ from bijux_pollenomics.collection.sources.neotoma.relational.identifiers import 
     source_reference_matches,
 )
 
-from .io import _required_text
-from .records import _row_table, _unavailable, _unique_rows
+from ..io import _required_text
+from ..records import _row_table, _unavailable, _unique_rows
 
 _MODEL_FIELDS = (
     "chronology_id",

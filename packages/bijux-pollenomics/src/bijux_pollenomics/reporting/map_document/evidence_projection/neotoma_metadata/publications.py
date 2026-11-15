@@ -16,8 +16,8 @@ from bijux_pollenomics.analysis.lra.materialization.neotoma.publication_intake i
     parse_dataset_publications,
 )
 
-from .io import _decode_json_object, _mapping, _regular_absolute_directory
-from .records import _row_table
+from ..io import _decode_json_object, _mapping, _regular_absolute_directory
+from ..records import _row_table
 
 # Existing retained raw identity, also owned by the qualified publication source.
 PUBLICATION_CAPTURE_MANIFEST_SHA256 = (

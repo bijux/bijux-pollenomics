@@ -15,10 +15,10 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     neotoma as projection,
 )
-from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma_chronology import (
+from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma_metadata.chronology import (
     chronology_model_tables,
 )
-from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma_source_issues import (
+from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma_metadata.source_issues import (
     LoadedSurfaces,
     source_issue_tables,
 )
