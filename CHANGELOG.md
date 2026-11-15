@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Native proxy qualification and whole-unit source roles
+### [#438](https://github.com/bijux/bijux-pollenomics/pull/438) — Native proxy qualification and whole-unit source roles
 
 - Qualify five observed current native proxy layouts while preserving scalar kinds,
   variables, units and context without count-denominator, physical-depth or scientific-
