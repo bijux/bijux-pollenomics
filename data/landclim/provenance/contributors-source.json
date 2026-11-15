@@ -1,0 +1,48 @@
+{
+  "schema_version": "landclim-attribution-source-receipt.v1",
+  "dataset_id": "937075",
+  "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+  "source_url": "https://download.pangaea.de/dataset/937075/files/LandClimII_contributors.xlsx",
+  "asset_filename": "landclim_ii_contributors.xlsx",
+  "asset_role": "published contributor and database attribution metadata",
+  "scientific_admission": false,
+  "license": "CC-BY-4.0",
+  "license_source": "https://doi.pangaea.de/10.1594/PANGAEA.937075",
+  "http_status": 200,
+  "response_complete": true,
+  "body_size_bytes": 23990,
+  "body_sha256": "9d53af3013032307eace31f7bc90e35c73fd7fa975500f18841f52b636a8f320",
+  "response_headers": {
+    "server": "nginx/1.31.8",
+    "date": "Sun, 15 Nov 2026 22:27:13 GMT",
+    "content-type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "content-length": "23990",
+    "last-modified": "Thu, 17 Feb 2022 17:21:28 GMT",
+    "cache-control": "public",
+    "etag": "\"620e8418-5db6\""
+  },
+  "response_header_scope": "selected source headers; session cookies and request correlation identifiers omitted",
+  "transport": {
+    "client": "curl 8.7.1 (x86_64-apple-darwin26.0) libcurl/8.7.1 (SecureTransport) LibreSSL/3.3.6 zlib/1.2.12 nghttp2/1.69.0",
+    "tls_verification": true,
+    "redirects_followed": 0,
+    "socket_connect_timeout_seconds": 10,
+    "total_timeout_seconds": 30,
+    "max_response_bytes": 4194304,
+    "attempts_in_successful_invocation": 1,
+    "requested_at_utc": "2026-11-15T22:27:13.155622+00:00",
+    "received_at_utc": "2026-11-15T22:27:13.538564+00:00",
+    "returncode": 0
+  },
+  "preceding_failed_requests": {
+    "matrix_requests": 1,
+    "workbook_requests": 1,
+    "client": "Python urllib with verified TLS",
+    "observed_http_status": 500,
+    "scope": "separate refused attempts; no acquisition or TLS success inferred for them"
+  },
+  "raw_inventory_predecessor_sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677",
+  "raw_inventory_sha256": "c2a34ecfc5fc83a811b9a7d84eb3ff4d44edce403f1c06d3de9cc43048ddf80e",
+  "source_revision": "f0a608a3163e2537318ddcc97066fe28cba59359",
+  "discovery_scope": "official PANGAEA dataset metadata; attribution does not establish sequence-specific reuse permission or model-input applicability"
+}

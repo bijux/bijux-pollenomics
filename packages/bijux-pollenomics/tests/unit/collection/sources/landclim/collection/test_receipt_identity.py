@@ -20,10 +20,28 @@ def _canonical_digest(value: object) -> str:
     return hashlib.sha256(payload).hexdigest()
 
 
+def _without_contributor(receipt: dict[str, object], generated_on: str) -> object:
+    original = json.loads(json.dumps(receipt))
+    original["assets"] = [
+        row
+        for row in original["assets"]
+        if row["filename"] != "landclim_ii_contributors.xlsx"
+    ]
+    original["asset_count"] = 7
+    original["generated_on"] = generated_on
+    for dataset in original["datasets"]:
+        if dataset["dataset_id"] == "937075":
+            dataset["files"].remove("landclim_ii_contributors.xlsx")
+    return original
+
+
 def test_checked_in_receipt_keeps_canonical_identity() -> None:
     receipt = collection.validate_landclim_raw_receipt(RAW_ROOT)
 
     assert _canonical_digest(receipt) == (
+        "d5fa0f35ebf08cc705313413fbd9fc43318e4182543b3c3c3377a15f77b5ebd9"
+    )
+    assert _canonical_digest(_without_contributor(receipt, "2026-03-31")) == (
         "0e7df7823bf041adfe76518af99c8772796f3e7969b67aab9de3818f5dad03d1"
     )
 
@@ -50,6 +68,9 @@ def test_receipt_builder_keeps_canonical_identity() -> None:
     )
 
     assert _canonical_digest(built) == (
+        "839b12ea03d648801da98b2d46bb6feb0e47032db6f6c6d58955d869fd0b4f1e"
+    )
+    assert _canonical_digest(_without_contributor(built, "2026-09-05")) == (
         "469dfa55548acec2f0ff18a7d538482883d67ddd0f07aef5ec2e331bb28293fe"
     )
 

@@ -23,8 +23,8 @@ def test_checked_in_landclim_receipt_binds_all_raw_assets() -> None:
     archives = receipt["archive_summaries"]
     assert isinstance(assets, list)
     assert isinstance(archives, list)
-    assert receipt["asset_count"] == 7
-    assert len(assets) == 7
+    assert receipt["asset_count"] == 8
+    assert len(assets) == 8
     assert all(
         isinstance(asset, dict)
         and isinstance(asset["size_bytes"], int)

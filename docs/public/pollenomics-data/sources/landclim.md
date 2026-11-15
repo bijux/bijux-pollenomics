@@ -255,6 +255,21 @@ unit it counts.
 
 ## Bibliography And Attribution
 
+The captured source inventory contains eight assets, including
+`raw/landclim_ii_contributors.xlsx` from
+[PANGAEA 937075](https://doi.pangaea.de/10.1594/PANGAEA.937075). This workbook
+identifies the individuals and databases owning or collating the analyzed
+pollen records. `provenance/contributors-source.json` records its exact byte
+identity and the successful verified-TLS retrieval on 15 November 2026. The
+raw inventory receipt was regenerated for the added asset; its date does not
+redate the seven previously retained downloads.
+
+Contributor attribution helps trace sequence ownership and shared data
+lineage. It does not establish sequence-specific reuse permission, qualify an
+LRA input profile or provide an independent vegetation reference. The existing
+numerical reconstructions and their normalized products are unchanged by this
+attribution capture.
+
 The governed bibliography names the three captured PANGAEA datasets and four
 publications that establish the reconstruction and method lineage. Temporal
 grid features link back to the applicable keys, so a map export does not lose
