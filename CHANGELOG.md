@@ -2,12 +2,23 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Frozen native resource qualification and chronology support
+### [#430](https://github.com/bijux/bijux-pollenomics/pull/430) — Frozen native resource qualification and chronology support
 
-- Qualify two explicit native frozen Neotoma wrappers in a separate authenticated ledger without relabelling source captures, inferring snapshot dates or asserting scientific admission. Preserve exact owners, arrays, native fields, missing identifiers and successful-empty unavailability.
-- Require original retained-source resolvers for mixed captures and preserve original body/receipt identities and times through reuse. Keep qualification read-only and separate from acquisition or certified absence.
-- Describe source-owned chronology support through independent reliable age bounds, control midpoint envelopes, finite depth spacing and point-age ordering. Preserve contradictory units, conflicting controls, foreign owners, missing values and model alternatives without changing eligibility.
-- Expose chronology quality in source accounting and bounded screen/series review while retaining existing refusal decisions. Record retained native-measure provenance and its observed imported source closure; no new scientific execution is claimed by this delivery.
+- Qualify two explicit native frozen Neotoma wrappers in a separate authenticated ledger
+  without relabelling source captures, inferring snapshot dates or asserting scientific
+  admission. Preserve exact owners, arrays, native fields, missing identifiers and
+  successful-empty unavailability.
+- Require original retained-source resolvers for mixed captures and preserve original
+  body/receipt identities and times through reuse. Keep qualification read-only and
+  separate from acquisition or certified absence.
+- Describe source-owned chronology support through independent reliable age bounds,
+  control midpoint envelopes, finite depth spacing and point-age ordering. Preserve
+  contradictory units, conflicting controls, foreign owners, missing values and model
+  alternatives without changing eligibility.
+- Expose chronology quality in source accounting and bounded screen/series review while
+  retaining existing refusal decisions. Record retained native-measure provenance and
+  its observed imported source closure; no new scientific execution is claimed by this
+  delivery.
 
 ### [#429](https://github.com/bijux/bijux-pollenomics/pull/429) — Native resource lineage and source chronology issues
 
