@@ -1,0 +1,63 @@
+{
+  "status": "proposal_consistent_with_observed_metadata_pending_frozen_roster_check",
+  "evidence": [
+    "metadata-primary-and-role-audit.json",
+    "prior-protected-geography-audit.json",
+    "metadata-chronology-field-probe.json"
+  ],
+  "target_resources": 1255,
+  "immutable_old_rows": 504,
+  "matching_current_old_rows": 500,
+  "historical_only_rows": [
+    53969,
+    53970,
+    54004,
+    54005
+  ],
+  "new_rows": 751,
+  "old_current_role_counts": {
+    "development_resource_discovery": 475,
+    "reserved_candidate_confirmation": 27,
+    "heldout_no_numerical_access": 2
+  },
+  "new_role_result_under_requested_known_dependency_rules": {
+    "development_resource_discovery": 751
+  },
+  "current_and_prior_protected_geometry_leads": 0,
+  "bbox_overlap_or_same_name_leads": 0,
+  "assigned_and_review_resources": {
+    "assigned": 1154,
+    "review_UNASSIGNED_context": 97
+  },
+  "country_site_status_counts": {
+    "assigned": 437,
+    "review": 86,
+    "unassigned": 949
+  },
+  "unassigned_site_refusal_reasons": {
+    "outside_governed_boundaries": 949
+  },
+  "new_types_current_native_parser_unregistered": {
+    "testate amoebae surface sample": 370,
+    "dinoflagellates": 1,
+    "pollen surface sample": 92,
+    "speleothem": 8,
+    "ostracode surface sample": 140
+  },
+  "required_final_roster_invariants": [
+    "Copy every one of504old JSON rows unchanged, including both version roles, original locators/epoch/role authority. Same owner tuple does not mean all old metadata fields match the new epoch. Attach new metadata view as separate evidence.",
+    "Each of751new IDs must bind its exact10000view bodySHA/receiptSHA/captureSHA/JSONpointer and native site/core/type/database missing-null-value state. No dataset-array sorting or400view pointer substitution.",
+    "Role partial order heldout_no_numerical_access > reserved_candidate_confirmation > development; apply all known site/core/source-geography/model dependencies across every requested version. Retain explicit reason/proof per positive inherited restriction.",
+    "No chronology/model IDs are supplied in2237metadata age-range entries (only units/ageold/ageyoung). Record shared_model_identity=not_established; never derive model equality from equal ranges or request numeric chronology bodies under a metadata exception. Apply any separately known alreadyexposed explicit model links conservatively.",
+    "Do not treat null/missing/invalid geography as a co-location match or as proven non-overlap. Observed frozen protected-site geometries were available; no exact/bbox/name lead found among these751. Unobserved physical aliases remain possible and no independence/untouched claim follows.",
+    "The97review resources/86sites remain UNASSIGNED context, not country scientific admission.949unassigned sites here explicitly have outside_governed_boundaries; do not merge these two categories.",
+    "A numerical GET itself exposes a new development source even when unsupported/unparsed. Do not relabel source permissions/classification/chronology/vegetation accuracy as admitted, and do not change fixed study cohorts.",
+    "Existing9reserved sites plus Lilla retain29protected old resources at10sites unchanged. A future source conflict updates review history, never silently rewrites prior exposures.",
+    "Keep4historical-only rows distinct from current metadata membership; current unobserved is not zero counts or general source absence."
+  ],
+  "capability_limit": "Several new method types have no registered current native type profile. Capture can retain them as unsupported_dataset_type/raw evidence, but this is parser qualification unavailable rather than provider data unavailable. No schema/units/outcome interpretation or source type\u2192pollen coercion. Speleothem and aeDNA/assay endpoints remain separate reviewed role-bound capabilities.",
+  "new_GETs": 0,
+  "new_numerical_or_newsite_download_bodies_read": 0,
+  "global_source_stability_run_performed": false,
+  "next": "Root generates exact frozen preGET roster and hashes; independent readback checks these invariants before any broader numerical request."
+}
