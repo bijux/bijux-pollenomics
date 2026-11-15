@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Authenticated materialization buffers and Atlas chronology scope
+### [#431](https://github.com/bijux/bijux-pollenomics/pull/431) — Authenticated materialization buffers and Atlas chronology scope
 
 - Hash and decode the same retained bytes for Neotoma materialization surfaces and
   reconciliation metadata, preventing substituted second reads from separating source
