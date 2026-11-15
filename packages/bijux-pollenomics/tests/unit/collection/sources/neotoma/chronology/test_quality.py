@@ -365,3 +365,19 @@ def test_finite_signed_depths_with_overflowing_spacing_keep_input_and_refuse_gap
     assert profile["maximum_positive_adjacent_point_age_gap_bp"] == 400
     assert result["source_profile"]["eligibility_changed"] is False
     json.dumps(result, allow_nan=False)
+
+
+def test_unaged_sample_retains_explicit_depth_unit_contradiction_flag() -> None:
+    data = source()
+    unaged = deepcopy(data["samples"][0])
+    unaged["sample_id"] = "sample:unaged"
+    unaged["source_payload"]["depthunits"] = "mm"
+    data["samples"].append(unaged)
+    original = deepcopy(data)
+    result = assess_neotoma_chronology_quality(**data)
+    assert result["sample_flags"]["sample:unaged"] == [
+        "explicit_depth_unit_contradiction",
+        "sample_has_no_source_age_claim",
+    ]
+    assert data == original
+    assert result["source_profile"]["eligibility_changed"] is False
