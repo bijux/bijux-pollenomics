@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Selected native resource readers and scoped facet links
+### [#436](https://github.com/bijux/bijux-pollenomics/pull/436) — Selected native resource readers and scoped facet links
 
 - Qualify explicit captured facet source shapes separately from original HTTP
   assessments, retaining partial owner proof, unsupported envelopes, nulls and explicit
