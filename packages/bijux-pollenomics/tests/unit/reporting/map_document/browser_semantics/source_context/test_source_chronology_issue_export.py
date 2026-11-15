@@ -30,15 +30,15 @@ const issues={
 const tabs={overview:{source_family:'neotoma'},samples:{samples:table(['sample_id'],[['s1']])},
  chronology:{...table(['comparability_status'],[['comparable']]),source_issues:issues},
  pollen_composition:table(['sample_id','source_value','source_unit'],[['s1',1,'NISP']]),provenance:{build_id:'retained'}};
-const original=JSON.stringify(tabs);
 const decodeRow=(table,row)=>Object.fromEntries(table.fields.map((field,index)=>[field,row[index]]));
 """
             + action
             + r"""
-let result,temporalSupport,error;
-try { const exported=buildSourcePollenRecordExport({kind:'point',recordId:'neotoma:site:12',detailTabs:tabs},{},decodeRow); result=exported.source_chronology_issues; temporalSupport=exported.temporal_support; }
+const original=JSON.stringify(tabs);
+let result,quality,temporalSupport,error;
+try { const exported=buildSourcePollenRecordExport({kind:'point',recordId:'neotoma:site:12',detailTabs:tabs},{},decodeRow); result=exported.source_chronology_issues; quality=exported.source_chronology_quality; temporalSupport=exported.temporal_support; }
 catch(observed){error=String(observed.message)}
-console.log(JSON.stringify({result,temporalSupport,error,unchanged:original===JSON.stringify(tabs)}));
+console.log(JSON.stringify({result,quality,temporalSupport,error,unchanged:original===JSON.stringify(tabs)}));
 """
         ),
     )

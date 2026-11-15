@@ -26,6 +26,7 @@ function renderPollenSmallMultiples(tabs, anchorNativeGroupKey, selectedAgeGroup
   const data = pollenSmallMultiplesData(tabs, anchorNativeGroupKey, selectedAgeGroupKey);
   const text = value => escapeHtml(pollenDepthText(value));
   if (data.status === 'unavailable') return `<section aria-label="Compatible native variable panels"><p>Compatible native panels unavailable: ${text(pollenSmallMultiplesReason(data.reason))}. Original source tables remain below.</p></section>`;
+  if (data.status === 'depth' && data.panels.some(panel => panel.group.depthProfile?.refused)) return `<section aria-label="Compatible native variable panels">${sourceDepthProfileHtml(data.panels.find(panel => panel.group.depthProfile?.refused).group.depthProfile)}<p>Native source depth comparison refused. All original observations remain in the source tables.</p></section>`;
   const values = [], coordinates = [];
   let eligible = 0, selectedTotal = 0;
   for (const panel of data.panels) {
@@ -41,7 +42,7 @@ function renderPollenSmallMultiples(tabs, anchorNativeGroupKey, selectedAgeGroup
   const shown = shownPanels.reduce((total,panel) => total + Math.min(500,panel.alignment.rows.length), 0);
   const nativeOmissions = Object.entries(data.nativeOmitted).sort().map(([reason,count]) => `${text(pollenDepthReasonText(reason))}: ${count}`).join('; ') || 'none';
   const selected = data.panels[0].alignment.selected;
-  const ageBasis = selected ? `Explicit source age group: ${text(JSON.stringify(selected.identity))}. Source names: ${text(selected.names.join(' / '))}.` : 'Native source depth; depth units are not supplied.';
+  const ageBasis = selected ? `Explicit source age group: ${text(JSON.stringify(selected.identity))}. Source names: ${text(selected.names.join(' / '))}.` : `${text(sourceDepthLabel(data.panels[0]?.group.depthProfile))}; qualification is reported for each panel.`;
   const summary = `<h3>Compatible native variable panels</h3><p>${ageBasis} ${shownPanels.length} of ${data.panels.length} compatible panels displayed; ${shown} of ${eligible} aligned observations drawn, from ${selectedTotal} compatible source observations. ${data.incompatibleGroupCount} incompatible source groups are kept separate. Across all ${data.nativeTotal} native source observations, not chartable: ${nativeOmissions}.</p><p>Shared scales include every compatible aligned observation, even undisplayed panels and marks. Only native variable/taxon identities may differ; units, contexts, elements and denominator/status remain exact. No values are summed, converted to percentages or filled with zero. No ecological mapping, preferred chronology, interpolation, physical-core equivalence or vegetation inference is introduced. All original source tables remain below.</p>${data.status === 'age' ? pollenAgeSemanticsHtml() : ''}`;
   if (!eligible) return `<section aria-label="Compatible native variable panels">${summary}<p>No observations have an unambiguous assignment in this selected source group.</p>${shownPanels.map(panel => `<p>${text(pollenDepthGroupLabel(panel.group))}: ${Object.entries(panel.alignment.omitted).map(([reason,count]) => `${text(pollenSmallMultiplesReason(reason))}: ${count}`).join('; ') || 'no drawable observations'}.</p>`).join('')}</section>`;
   const scales = {x:pollenDepthScale(values, 85, 500), y:pollenDepthScale(coordinates, 40, 190)};

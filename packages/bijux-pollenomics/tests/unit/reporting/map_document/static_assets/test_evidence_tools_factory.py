@@ -28,6 +28,9 @@ console.log(JSON.stringify({frozen:Object.isFrozen(tools),methods:Object.keys(to
 country:tools.countryData([]),time:tools.timeData([]),picker:tools.pickerCatalog([]),
 sourceFrozen:Object.isFrozen(source),sourceMethods:Object.keys(source),sourceHtml:source.overview({},{}),
 chronologyHtml:source.chronology({chronology:{}}),
+depth:source.depthProfile({},'collection','dataset'),
+ageGroup:source.ageDepthGroup({identity:['collection','dataset','model','basis','year'],names:['native'],
+ rows:[{point:10,endpoints:null,depth:2,sample:'sample',claim:{chronology_claim_id:'claim'}}]},0),
 html:tools.pickerHtml(catalog,{pinnedIds:[],visibleIds:[]})}));
 """
     )
@@ -58,9 +61,16 @@ html:tools.pickerHtml(catalog,{pinnedIds:[],visibleIds:[]})}));
         "chronology",
         "classification",
         "provenance",
+        "depthProfile",
+        "ageDepthGroup",
     ]
     assert "Selected sample metadata is supported for Neotoma" in observed["sourceHtml"]
     assert 'data-source-chronology-review="unavailable"' in observed["chronologyHtml"]
     assert (
         "does not establish that no source issues exist" in observed["chronologyHtml"]
     )
+    assert observed["depth"]["unit"] is None
+    assert observed["depth"]["label"] == "Source depth (unit not supplied)"
+    assert "matching source depth profile unavailable" in observed["depth"]["html"]
+    assert "Source depth (unit not supplied)" in observed["ageGroup"]
+    assert "claim; sample sample; depth 2 (unit not supplied)" in observed["ageGroup"]

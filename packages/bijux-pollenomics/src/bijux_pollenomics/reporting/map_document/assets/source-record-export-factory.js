@@ -33,6 +33,19 @@ function createSourceRecordExport(bindings) {
     };
   }
 
+  function sourcePollenChronologyQuality(quality) {
+    if (quality == null) return {status:'unavailable', reason_code:'source_chronology_quality_not_available'};
+    if (typeof quality !== 'object' || Array.isArray(quality)) throw Error('source_chronology_quality_invalid');
+    if (quality.status === 'unavailable') return {...quality};
+    const {profiles, sample_flags, claim_diagnostics, ...metadata} = quality;
+    return {
+      ...metadata,
+      profiles: sourcePollenChronologyMetadata(profiles, 'chronology_quality_profiles', decodeRow),
+      sample_flags: sourcePollenChronologyMetadata(sample_flags, 'chronology_quality_sample_flags', decodeRow),
+      claim_diagnostics: sourcePollenChronologyMetadata(claim_diagnostics, 'chronology_quality_claim_diagnostics', decodeRow),
+    };
+  }
+
   function buildSourcePollenRecordExport(focus, selection) {
     if (!sourcePollenExportAvailable(focus)) throw Error('source_pollen_record_export_unavailable');
     const tabs = focus.detailTabs;
@@ -63,6 +76,7 @@ function createSourceRecordExport(bindings) {
       source_chronology_models: sourcePollenChronologyMetadata(tabs.chronology.models, 'chronologies', decodeRow),
       source_chronology_controls: sourcePollenChronologyMetadata(tabs.chronology.controls, 'chronology_controls', decodeRow),
       source_chronology_issues: sourcePollenChronologyIssues(tabs.chronology.source_issues),
+      source_chronology_quality: sourcePollenChronologyQuality(tabs.chronology.source_quality),
       pollen_observations: sourcePollenDecodedTable(tabs.pollen_composition, decodeRow),
       source_variables: sourcePollenTableAvailable(tabs.pollen_composition.variables)
         ? sourcePollenDecodedTable(tabs.pollen_composition.variables, decodeRow) : null,

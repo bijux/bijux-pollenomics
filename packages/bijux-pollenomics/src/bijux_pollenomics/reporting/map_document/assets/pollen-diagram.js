@@ -87,7 +87,10 @@ function pollenObservationDiagramData(tabs, requireDepth = false) {
       groups.get(key).rows.push({observation, sample:sample.sample_id, depth:sample.source_depth, value:observation.source_value});
     }
     const ordered = [...groups.values()].sort((a,b) => a.key < b.key ? -1 : a.key > b.key ? 1 : 0);
-    for (const group of ordered) group.rows.sort((a,b) => a.observation.observation_id < b.observation.observation_id ? -1 : a.observation.observation_id > b.observation.observation_id ? 1 : 0);
+    for (const group of ordered) {
+      group.depthProfile = sourceDepthProfile(tabs,group.identity[0],group.identity[1],null,group.rows.map(row=>row.sample));
+      group.rows.sort((a,b) => a.observation.observation_id < b.observation.observation_id ? -1 : a.observation.observation_id > b.observation.observation_id ? 1 : 0);
+    }
     return {status:'available', reason:'', groups:ordered, total:observations.length, omitted};
   } catch (error) {
     return unavailable('encoded_native_observation_table_invalid');
@@ -123,6 +126,8 @@ function pollenObservationSelectionCaption(rows, shown, selection) {
   return selection.size ? `<br/>${count(shown)} of ${count(rows)} aligned selected map-signal observations drawn. Dashed selection boxes mark exact observation IDs, not uncertainty or ecological admission.` : '';
 }
 function pollenDepthGroupHtml(group, index = null, scales = null, selectedObservationIds = []) {
+  const qualification = sourceDepthProfileHtml(group.depthProfile);
+  if (group.depthProfile?.refused) return `${qualification}<p>All original source observations remain in the table; no depth coordinates are compared.</p>`;
   const total = group.rows.length;
   group = {...group, rows:group.rows.filter(row => pollenDepthFinite(row.depth))};
   if (!group.rows.length) return '<p>No observations have numeric source depth. Original values remain in the source table; choose a source age axis explicitly where available.</p>';
@@ -134,10 +139,10 @@ function pollenDepthGroupHtml(group, index = null, scales = null, selectedObserv
   const shown = group.rows.slice(0, 500), selection = pollenObservationSelection(selectedObservationIds);
   const marks = shown.map(row => {
     const selected = selection.has(row.observation.observation_id);
-    const label = `${selected ? 'Selected map-signal observation; ' : ''}${row.observation.observation_id}; sample ${row.sample}; reported value ${row.value} ${group.identity[4]}; source depth ${row.depth} (unit not supplied)`;
+    const label = `${selected ? 'Selected map-signal observation; ' : ''}${row.observation.observation_id}; sample ${row.sample}; reported value ${row.value} ${group.identity[4]}; source depth ${row.depth} (${group.depthProfile?.unit || 'unit not supplied'})`;
     return `<g role="img" tabindex="0"${selected ? ' data-selected-observation="true"' : ''} aria-label="${text(label)}"><title>${text(label)}</title>${selected ? pollenObservationSelectionBox(x.position(row.value),[y.position(row.depth)]) : ''}<circle cx="${x.position(row.value)}" cy="${y.position(row.depth)}" r="4" fill="#0f172a" stroke="white" stroke-width="1"/></g>`;
   }).join('');
-  return `<figure style="margin:1rem 0"><figcaption><strong>${text(group.variable.source_reported_name)}</strong><br/>${text(pollenDepthGroupLabel(group))}<br/>Native variable semantics: ${text(group.variable.source_semantics)}<br/>Denominator: ${text(group.identity[8])}; status: ${text(group.identity[9])}. ${shown.length} of ${total} individual source observations drawn; ${total-group.rows.length} lack numeric source depth; all remain in the table.${pollenObservationSelectionCaption(group.rows,shown,selection)}</figcaption>${pollenObservationPlotHtml(x,y,marks,{titleId,descriptionId,title:'Native reported observation values versus source depth',description:'Individual exact-source observations, not ecological groups, reconstructed vegetation or percentages calculated from counts. Depth increases downward; values increase rightward. Separate observations at the same sample remain separate, even where marks overlap.',unit:group.identity[4],verticalLabel:"Source depth (unit not supplied)",scrollLabel:"Scrollable native value-depth plot"})}</figure>`;
+  return `<figure style="margin:1rem 0"><figcaption><strong>${text(group.variable.source_reported_name)}</strong><br/>${text(pollenDepthGroupLabel(group))}<br/>Native variable semantics: ${text(group.variable.source_semantics)}<br/>Denominator: ${text(group.identity[8])}; status: ${text(group.identity[9])}. ${shown.length} of ${total} individual source observations drawn; ${total-group.rows.length} lack numeric source depth; all remain in the table.${pollenObservationSelectionCaption(group.rows,shown,selection)}${qualification}</figcaption>${pollenObservationPlotHtml(x,y,marks,{titleId,descriptionId,title:'Native reported observation values versus source depth',description:'Individual exact-source observations, not ecological groups, reconstructed vegetation or percentages calculated from counts. Depth increases downward; values increase rightward. Separate observations at the same sample remain separate, even where marks overlap.',unit:group.identity[4],verticalLabel:sourceDepthLabel(group.depthProfile),scrollLabel:"Scrollable native value-depth plot"})}</figure>`;
 }
 function renderPollenDepthDiagram(tabs, selectedGroupKey = null, renderGroup = (group, ids) => pollenDepthGroupHtml(group,null,null,ids), options = {}) {
   const data = pollenObservationDiagramData(tabs);
@@ -145,7 +150,7 @@ function renderPollenDepthDiagram(tabs, selectedGroupKey = null, renderGroup = (
   if (data.status !== 'available') return unavailable(data.reason);
   const omitted = Object.entries(data.omitted).sort().map(([reason,count]) => `${escapeHtml(pollenDepthReasonText(reason))}: ${count}`).join('; ') || 'none';
   const plotted = data.groups.reduce((total,group) => total + group.rows.length, 0);
-  const summary = `<h3>Native reported observations</h3><p>${plotted} of ${data.total} source observations have joinable numeric reported values, in ${data.groups.length} exact source groups. Not charted: ${omitted}. Axis-specific omissions are reported separately. All source tables are unchanged.</p><p>Display only: the anchor fixes native variable, unit, context, dataset and collection. Source element and semantics preserve reported material; no ecological classification is accepted here. No counts are summed or converted to percentages; denominators are not invented. Missing is not zero; separate observation IDs remain separate. Depth units are not supplied. Choose any source-age axis explicitly. No age conversion, interpolation, physical-core equivalence or vegetation inference is made.</p>`;
+  const summary = `<h3>Native reported observations</h3><p>${plotted} of ${data.total} source observations have joinable numeric reported values, in ${data.groups.length} exact source groups. Not charted: ${omitted}. Axis-specific omissions are reported separately. All source tables are unchanged.</p><p>Display only: the anchor fixes native variable, unit, context, dataset and collection. Source element and semantics preserve reported material; no ecological classification is accepted here. No counts are summed or converted to percentages; denominators are not invented. Missing is not zero; separate observation IDs remain separate. Depth units require the matching source profile and are qualified separately below. Choose any source-age axis explicitly. No age conversion, interpolation, physical-core equivalence or vegetation inference is made.</p>`;
   if (!data.groups.length) return `<section aria-label="Native observation diagrams">${summary}<p>No source group has drawable values.</p></section>`;
   const chosen = selectedGroupKey === null ? (options.requireExplicitAnchor ? null : data.groups[0]) : data.groups.find(group => group.key === selectedGroupKey);
   if (selectedGroupKey !== null && !chosen) return unavailable('selected_native_source_group_not_available');
