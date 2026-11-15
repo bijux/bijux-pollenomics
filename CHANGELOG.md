@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Owned Neotoma source publication
+### [#443](https://github.com/bijux/bijux-pollenomics/pull/443) — Owned source publication and authenticated Atlas metadata
 
 - Capture source outputs and publish closed archives through exclusively owned,
   descriptor-anchored trees, refusing changed roots, foreign entries and unsafe links.
