@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Explicit native bytes and final source readback
+### [#439](https://github.com/bijux/bijux-pollenomics/pull/439) — Explicit native bytes and final source readback
 
 - Return exact authenticated native resource bytes only through a literal opt-in,
   preserving the default JSON-compatible result and all
