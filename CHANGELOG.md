@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Role-bound ancillary resources and exact native focus
+### [#434](https://github.com/bijux/bijux-pollenomics/pull/434) — Role-bound ancillary resources and exact native focus
 
 - Capture finite current dataset facets under exact inherited exposure roles, retaining
   bounded HTTP/error bodies, retries, timestamps and explicit
