@@ -578,3 +578,136 @@ def test_provider_availability_does_not_override_contradictory_success_field(
         source, expected_manifest_sha256=captured.manifest_sha256
     )
     assert qualified["resources"][0]["qualification_status"] == "refused_frozen_native"
+
+
+@pytest.mark.parametrize(
+    "state,current_database,strict_status",
+    [
+        ("missing", None, "refused_database_missing"),
+        ("null", None, "matches_current_metadata"),
+        ("value", "European Plant Macrofossil Database", "refused_database_difference"),
+        ("value", "European Pollen Database", "matches_current_metadata"),
+    ],
+)
+def test_snapshot_database_metadata_is_versioned_without_weakening_strict_parser(
+    state: str, current_database: str | None, strict_status: str
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.resources import frozen
+
+    document = payload("dataset_wrapper")
+    dataset = document["data"][0]["download"]["data"]["dataset"]["dataset"]
+    if state == "missing":
+        del dataset["database"]
+    else:
+        dataset["database"] = None if state == "null" else "European Pollen Database"
+    resource = replace(spec(), database=current_database)
+    content = encode(document)
+    snapshot = frozen.parse_neotoma_frozen_snapshot(
+        resource, content, expected_body_sha256=sha256(content).hexdigest()
+    )
+    assert snapshot.native.payload == document
+    assert snapshot.database_metadata["snapshot"]["field_state"] == state
+    assert snapshot.strict_current_binding_status == strict_status
+    assert "taxonid" not in snapshot.native.samples[0]["datum"][0]
+    if state == "missing":
+        assert (
+            "value" not in snapshot.database_metadata["snapshot"]
+            and "database" not in snapshot.native.dataset
+        )
+    if strict_status.startswith("refused"):
+        with pytest.raises(ValueError):
+            parse_neotoma_frozen_resource(
+                resource, content, expected_body_sha256=sha256(content).hexdigest()
+            )
+    else:
+        assert (
+            parse_neotoma_frozen_resource(
+                resource, content, expected_body_sha256=sha256(content).hexdigest()
+            ).payload
+            == document
+        )
+
+
+@pytest.mark.parametrize("field", ["dataset", "site", "unit", "type"])
+def test_snapshot_parser_still_requires_exact_native_owners(field: str) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.resources import frozen
+
+    document = payload("site_wrapper")
+    site = document["data"][0]["download"]["data"]["site"]
+    if field == "dataset":
+        site["dataset"]["datasetid"] = 999
+    elif field == "site":
+        site["siteid"] = 999
+    elif field == "unit":
+        site["collectionunit"]["collectionunitid"] = 999
+    else:
+        site["dataset"]["datasettype"] = "charcoal"
+    content = encode(document)
+    with pytest.raises(ValueError):
+        frozen.parse_neotoma_frozen_snapshot(
+            spec(), content, expected_body_sha256=sha256(content).hexdigest()
+        )
+
+
+@pytest.mark.parametrize("invalid", [True, 7, [], {}])
+def test_snapshot_database_value_must_be_native_text_null_or_missing(
+    invalid: object,
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.resources import frozen
+
+    document = payload("dataset_wrapper")
+    document["data"][0]["download"]["data"]["dataset"]["dataset"]["database"] = invalid
+    content = encode(document)
+    with pytest.raises(ValueError, match="database"):
+        frozen.parse_neotoma_frozen_snapshot(
+            spec(), content, expected_body_sha256=sha256(content).hexdigest()
+        )
+
+
+def test_snapshot_qualification_does_not_relabel_strict_source_binding(
+    tmp_path: Path,
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.resources import frozen
+
+    document = payload("dataset_wrapper")
+    del document["data"][0]["download"]["data"]["dataset"]["dataset"]["database"]
+    source = tmp_path / "source"
+    captured = capture(source, encode(document))
+    before = {path.name: path.read_bytes() for path in source.iterdir()}
+    strict = qualify_neotoma_frozen_capture(
+        source, expected_manifest_sha256=captured.manifest_sha256
+    )
+    assert strict["resources"][0]["qualification_status"] == "refused_frozen_native"
+    snapshot = frozen.qualify_neotoma_frozen_snapshot_capture(
+        source, expected_manifest_sha256=captured.manifest_sha256
+    )
+    assert snapshot["schema_version"] == "neotoma-frozen-snapshot-qualification.v1"
+    row = snapshot["resources"][0]
+    assert row["qualification_status"] == "parsed_frozen_snapshot"
+    assert row["strict_current_binding_status"] == "refused_database_missing"
+    assert row["database_metadata"]["snapshot"] == {"field_state": "missing"}
+    assert "database" not in row["summary"]
+    assert row["scientific_admission"] == "not_asserted"
+    assert before == {path.name: path.read_bytes() for path in source.iterdir()}
+
+
+@pytest.mark.parametrize(
+    "status,data,expected",
+    [
+        ("success", [], "unavailable_frozen_api_empty"),
+        ("success", _NO_FROZEN_RECORD, "unavailable_frozen_record"),
+        ("error", _NO_FROZEN_RECORD, "refused_frozen_native"),
+        ("success", "Unknown message", "refused_frozen_native"),
+    ],
+)
+def test_snapshot_availability_keeps_existing_source_error_distinctions(
+    tmp_path: Path, status: str, data: object, expected: str
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.resources import frozen
+
+    source = tmp_path / "source"
+    captured = capture(source, encode({"status": status, "data": data}))
+    result = frozen.qualify_neotoma_frozen_snapshot_capture(
+        source, expected_manifest_sha256=captured.manifest_sha256
+    )
+    assert result["resources"][0]["qualification_status"] == expected
