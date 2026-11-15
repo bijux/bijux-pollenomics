@@ -5,13 +5,11 @@ from __future__ import annotations
 from collections.abc import Mapping
 from dataclasses import dataclass, field
 from hashlib import sha256
-import math
 from pathlib import Path
 import re
 import stat
 from typing import Any
 
-from ...capture.facets.protocol import facet_identity
 from ...capture.facets.replay import _control as facet_control
 from ...capture.linked_resources.replay import _control as linked_control
 from ...capture.receipts import _object, _read, _safe_root
@@ -22,37 +20,14 @@ from ..capsule.inventory import _FIELDS as CAPSULE_FIELDS
 from ..capsule.models import CAPSULE_SCHEMA, verify_metadata_population
 from ..federation.models import FACETS, INDEX_SCHEMA, SCHEMA
 from ..federation.validation import _FIELDS
+from .budgets import _COUNT_LIMITS as _COUNT_LIMITS
+from .budgets import _validate_limits as _validate_limits
+from .budgets import capture_response_bound
 
 MAX_METADATA = 16 * 1024 * 1024
 MAX_BYTES = 512 * 1024 * 1024
 MAX_FILES = 20000
 _ID = re.compile(r"([0-9a-f]{64}):/(facets|resources)/(0|[1-9][0-9]*)\Z")
-
-
-_COUNT_LIMITS = (
-    "max_requests",
-    "max_attempts",
-    "max_response_bytes",
-    "max_total_bytes",
-)
-
-
-def _validate_limits(limits: NeotomaResourceLimits) -> None:
-    if not isinstance(limits, NeotomaResourceLimits) or any(
-        type(getattr(limits, key)) is not int or getattr(limits, key) < 1
-        for key in _COUNT_LIMITS
-    ):
-        raise ValueError("Selected capture limits must use positive native integers")
-    for key in ("timeout_seconds", "wall_seconds", "retry_delay_seconds"):
-        value = getattr(limits, key)
-        if (
-            type(value) not in (int, float)
-            or not math.isfinite(value)
-            or value < 0
-            or key != "retry_delay_seconds"
-            and value == 0
-        ):
-            raise ValueError("Selected capture time limit is invalid")
 
 
 def pinned(
@@ -185,65 +160,7 @@ class SelectedMetadata:
         self, capture: dict[str, Any], selected: dict[str, Any], receipt: dict[str, Any]
     ) -> int:
         """Budget this original capture prefix, not aggregate SDK I/O or later history."""
-        recorded = capture["limits"]
-        _validate_limits(recorded)
-        limits: dict[str, int] = {
-            key: min(
-                getattr(recorded, key),
-                getattr(self.limits, key),
-                getattr(DEFAULT_RESOURCE_LIMITS, key),
-            )
-            for key in _COUNT_LIMITS
-        }
-        facet = capture["descriptor"]["kind"] == "facet"
-        rows = capture["document"]["facets" if facet else "resources"]
-        if facet:
-            expected = [
-                facet_identity(root, name)
-                for root in sorted(
-                    capture["plan"].resources, key=lambda root: root.dataset_id
-                )
-                for name in capture["plan"].facets
-            ]
-            if len(rows) != len(expected) or any(
-                not _same({key: row.get(key) for key in owner}, owner)
-                for row, owner in zip(rows, expected, strict=True)
-            ):
-                raise ValueError("Selected capture budget ledger order differs")
-        count = total = 0
-        for row in rows:
-            for ordinal, reference in enumerate(row["attempts"], 1):
-                count += 1
-                if (
-                    count > limits["max_requests"]
-                    or ordinal > limits["max_attempts"]
-                    or total >= limits["max_total_bytes"]
-                ):
-                    raise ValueError("Selected request exceeds its capture budget")
-                bound = min(
-                    limits["max_response_bytes"], limits["max_total_bytes"] - total
-                )
-                size = (
-                    capture["descriptor"]["files"][reference["body_file"]]["bytes"]
-                    if "body_file" in reference
-                    else 0
-                )
-                own = row is selected and ordinal == len(selected["attempts"])
-                complete = row["terminal_status"] in {
-                    "received_complete_unqualified_facet",
-                    "received_complete_unqualified_linked_resource",
-                    "refused_http_receipt",
-                    "refused_native_json",
-                } and ordinal == len(row["attempts"])
-                extra = int(not receipt["body_complete"]) if own else int(not complete)
-                if size > bound + extra:
-                    raise ValueError(
-                        "Selected capture body exceeds its remaining byte budget"
-                    )
-                if own:
-                    return bound
-                total += size
-        raise ValueError("Selected capture budget attempt is absent")
+        return capture_response_bound(capture, selected, receipt, self.limits)
 
     def slot(self, observation: dict[str, Any], parent: dict[str, Any]) -> None:
         """Check selected correspondence without claiming other epoch statuses were replayed."""
