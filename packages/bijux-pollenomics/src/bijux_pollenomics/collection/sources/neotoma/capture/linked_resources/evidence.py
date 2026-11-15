@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Iterator, Mapping
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -191,7 +191,8 @@ def _namespace(root: Path, index: dict[str, Any]) -> None:
 
 
 def _part(root: Path, descriptor: dict[str, Any]) -> list[dict[str, Any]]:
-    raw = _read(root / "proofs" / (descriptor["sha256"] + ".json"), descriptor["bytes"])
+    path = _safe_root(root / "proofs" / (descriptor["sha256"] + ".json"))
+    raw = _read(path, descriptor["bytes"])
     if (
         len(raw) != descriptor["bytes"]
         or sha256(raw).hexdigest() != descriptor["sha256"]
@@ -244,6 +245,67 @@ def load_neotoma_linked_evidence(
     return index
 
 
+def _proof_owner(
+    proof: dict[str, Any], index: dict[str, Any], kind: str, native_id: int
+) -> None:
+    if (
+        proof.get("target_kind") != kind
+        or type(proof.get("native_id")) is not int
+        or proof["native_id"] != native_id
+    ):
+        raise ValueError("Linked selected proof native target differs")
+    if (
+        proof.get("source_capture_manifest_sha256")
+        not in index["authority"]["source_captures"]
+    ):
+        raise ValueError("Linked selected proof source scope differs")
+    dataset = positive_native_id(proof.get("root_dataset_id"))
+    if not _same_json(
+        proof.get("root_identity"),
+        index["authority"]["root_identities"].get(str(dataset)),
+    ):
+        raise ValueError("Linked selected proof native root differs")
+
+
+def read_neotoma_linked_evidence_metadata(
+    directory: Path, *, expected_manifest_sha256: str
+) -> dict[str, Any]:
+    """Authenticate the anchored metadata header, without source or proof-body claims."""
+    return _index(_safe_root(directory), expected_manifest_sha256)
+
+
+def _occurrences(
+    root: Path, index: dict[str, Any], keys: set[str]
+) -> Iterator[tuple[dict[str, Any], dict[str, Any]]]:
+    ranges: dict[str, list[tuple[int, int, str]]] = {}
+    for key in sorted(keys):
+        for ref in index["targets"][key]["proof_ranges"]:
+            ranges.setdefault(ref["part_sha256"], []).append(
+                (ref["start"], ref["count"], key)
+            )
+    for descriptor in index["parts"]:
+        digest = descriptor["sha256"]
+        if digest not in ranges:
+            continue
+        rows = _part(root, descriptor)
+        for start, count, key in sorted(ranges[digest]):
+            target = index["targets"][key]
+            for offset in range(start, start + count):
+                proof = rows[offset]
+                _proof_owner(proof, index, target["kind"], target["native_id"])
+                yield proof, {"part_sha256": digest, "row_offset": offset}
+
+
+def iter_neotoma_linked_evidence_occurrences(
+    directory: Path, *, expected_manifest_sha256: str
+) -> Iterator[tuple[dict[str, Any], dict[str, Any]]]:
+    """Yield all dated proofs from each same authenticated part buffer once."""
+    root = _safe_root(directory)
+    index = _index(root, expected_manifest_sha256)
+    for proof, locator in _occurrences(root, index, set(index["targets"])):
+        yield proof, {"evidence_manifest_sha256": expected_manifest_sha256, **locator}
+
+
 def read_neotoma_linked_evidence_target(
     directory: Path,
     *,
@@ -264,40 +326,12 @@ def read_neotoma_linked_evidence_target(
     if key not in index["targets"]:
         raise ValueError("Linked target has no authenticated source proof")
     target = index["targets"][key]
-    descriptors = {row["sha256"]: row for row in index["parts"]}
-    buffers: dict[str, list[dict[str, Any]]] = {}
     proofs, locators = [], []
-    for ref in target["proof_ranges"]:
-        digest = ref["part_sha256"]
-        if digest not in buffers:
-            buffers[digest] = _part(root, descriptors[digest])
-        for offset in range(ref["start"], ref["start"] + ref["count"]):
-            proof = buffers[digest][offset]
-            if (
-                proof.get("target_kind") != kind
-                or type(proof.get("native_id")) is not int
-                or proof["native_id"] != native_id
-            ):
-                raise ValueError("Linked selected proof native target differs")
-            if (
-                proof.get("source_capture_manifest_sha256")
-                not in index["authority"]["source_captures"]
-            ):
-                raise ValueError("Linked selected proof source scope differs")
-            dataset = positive_native_id(proof.get("root_dataset_id"))
-            if not _same_json(
-                proof.get("root_identity"),
-                index["authority"]["root_identities"].get(str(dataset)),
-            ):
-                raise ValueError("Linked selected proof native root differs")
-            proofs.append(proof)
-            locators.append(
-                {
-                    "evidence_manifest_sha256": expected_manifest_sha256,
-                    "part_sha256": digest,
-                    "row_offset": offset,
-                }
-            )
+    for proof, locator in _occurrences(root, index, {key}):
+        proofs.append(proof)
+        locators.append(
+            {"evidence_manifest_sha256": expected_manifest_sha256, **locator}
+        )
     return {
         "target": target,
         "source_proofs": tuple(proofs),

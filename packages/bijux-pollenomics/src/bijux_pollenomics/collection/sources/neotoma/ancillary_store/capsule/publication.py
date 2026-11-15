@@ -32,6 +32,7 @@ def write_neotoma_ancillary_capsule(
     facet_captures: Mapping[str, Path],
     linked_captures: Mapping[str, Path] | None = None,
     predecessor_facets: Mapping[str, Path] | None = None,
+    evidence_sources: Mapping[str, Path] | None = None,
 ) -> dict[str, Any]:
     """Replay original source proofs, copy pinned buffers, then verify published bytes."""
     final = _safe_root(directory)
@@ -44,6 +45,7 @@ def write_neotoma_ancillary_capsule(
         "facet_captures": facet_captures,
         "linked_captures": linked_captures,
         "predecessor_facets": predecessor_facets,
+        "evidence_sources": evidence_sources,
     }
     manifest, paths, buffers, _ = prepare_capsule(**kwargs)
     content = encoded_json(manifest)
@@ -67,6 +69,7 @@ def write_neotoma_ancillary_capsule(
         "context_directory": context_directory,
         "native_archive_directory": native_archive_directory,
         "predecessor_facets": predecessor_facets,
+        "evidence_sources": evidence_sources,
     }
     load_neotoma_ancillary_capsule(staging, **load)
     publish_new_output_tree(final_output_root=final, staging_output_root=staging)
