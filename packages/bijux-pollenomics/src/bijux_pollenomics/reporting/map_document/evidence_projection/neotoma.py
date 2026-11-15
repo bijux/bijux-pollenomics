@@ -31,7 +31,11 @@ from .io import (
     _required_text,
     _safe_relative_path,
 )
-from .neotoma_chronology import chronology_model_tables, chronology_tab
+from .neotoma_chronology import (
+    chronology_model_tables,
+    chronology_quality_tables,
+    chronology_tab,
+)
 from .neotoma_source_issues import source_issue_tables
 from .records import (
     _compact_rows_by_site,
@@ -89,6 +93,7 @@ def _project_neotoma(
         source_issues_by_subject=issue_subjects,
         control_variant_ids_by_site=variant_coverage,
     )
+    quality_tables = chronology_quality_tables(loaded_surfaces, set(sites))
     collection_rows = _compact_rows_by_site(
         surfaces["collection_units"],
         fields=("collection_unit_id", "source_collection_unit_id", "source_payload"),
@@ -319,6 +324,17 @@ def _project_neotoma(
                         {
                             **model_tables[site_id],
                             "source_issues": issue_tables[site_id],
+                            "source_quality": {
+                                **quality_tables[site_id],
+                                "source_scope": {
+                                    "source_family": "neotoma",
+                                    "source_snapshot_id": source_snapshot_id,
+                                    "build_id": build_id,
+                                    "materialization_sha256": materialization_sha256,
+                                    "site_id": site_id,
+                                    "country_code": site.get("country_code"),
+                                },
+                            },
                         },
                     ),
                     "pollen_composition": (

@@ -55,7 +55,11 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
                     b"    _required_text,\n"
                     b"    _safe_relative_path,\n"
                     b")\n"
-                    b"from .neotoma_chronology import chronology_model_tables, chronology_tab\n"
+                    b"from .neotoma_chronology import (\n"
+                    b"    chronology_model_tables,\n"
+                    b"    chronology_quality_tables,\n"
+                    b"    chronology_tab,\n"
+                    b")\n"
                     b"from .neotoma_source_issues import source_issue_tables\n"
                     b"from .records import (\n"
                     b"    _compact_rows_by_site,\n"
@@ -108,6 +112,7 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
                     b"        source_issues_by_subject=issue_subjects,\n"
                     b"        control_variant_ids_by_site=variant_coverage,\n"
                     b"    )\n"
+                    b"    quality_tables = chronology_quality_tables(loaded_surfaces, set(sites))\n"
                     b"    collection_rows = _compact_rows_by_site(\n"
                     b'        surfaces["collection_units"],\n'
                     b'        fields=("collection_unit_id", "source_collection_unit_id", "source_payload"),\n'
@@ -152,6 +157,17 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
                     b"                        {\n"
                     b"                            **model_tables[site_id],\n"
                     b'                            "source_issues": issue_tables[site_id],\n'
+                    b'                            "source_quality": {\n'
+                    b"                                **quality_tables[site_id],\n"
+                    b'                                "source_scope": {\n'
+                    b'                                    "source_family": "neotoma",\n'
+                    b'                                    "source_snapshot_id": source_snapshot_id,\n'
+                    b'                                    "build_id": build_id,\n'
+                    b'                                    "materialization_sha256": materialization_sha256,\n'
+                    b'                                    "site_id": site_id,\n'
+                    b'                                    "country_code": site.get("country_code"),\n'
+                    b"                                },\n"
+                    b"                            },\n"
                     b"                        },\n"
                     b"                    ),\n"
                     b'                    "pollen_composition": (\n'
