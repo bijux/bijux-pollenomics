@@ -2738,6 +2738,11 @@ __NATIVE_LRA_SCRIPT_TAG__
         const compatibilityKeys = { provenance: 'provenance_schema', nodes: 'node_schema', details: 'detail_schema', edges: 'edge_schema', sequences: 'sequence_schema', resources: 'resource_schema', indexes: 'index_schema' };
         Object.entries(STATIC_ATLAS_SCHEMAS).forEach(([domain, schemas]) => {
           const declared = STATIC_ATLAS_BOOTSTRAP.compatibility?.[compatibilityKeys[domain]];
+          if (domain === 'resources') {
+            const resourceBindings = [declared !== undefined, Object.hasOwn(STATIC_ATLAS_BOOTSTRAP.domains || {}, domain), STATIC_ATLAS_BOOTSTRAP.assets.some(row => row.domain === domain)];
+            if (resourceBindings.every(value => !value)) return;
+            if (!resourceBindings.every(Boolean)) staticAtlasFailure(`${domain} compatibility declaration mismatch`);
+          }
           const legacyWithoutDetails = domain === 'details' && STATIC_ATLAS_BOOTSTRAP.compatibility?.provenance_schema === 'atlas-provenance-chunk.v2' && declared === undefined;
           if (!legacyWithoutDetails && !schemas.includes(declared)) staticAtlasFailure(`${domain} compatibility declaration mismatch`);
         });

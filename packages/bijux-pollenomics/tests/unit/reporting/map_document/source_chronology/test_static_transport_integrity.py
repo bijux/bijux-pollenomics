@@ -333,9 +333,12 @@ def test_bootstrap_allows_governed_compressed_domains_without_weakening_legacy_j
     bootstrap = template_block(
         "function validateStaticAtlasBootstrap", "async function staticAtlasSha256"
     )
-    assert "!['provenance', 'nodes', 'details'].includes(row.domain)" in bootstrap
     assert (
-        "['provenance', 'nodes', 'details'].includes(row.domain) && "
+        "!['provenance', 'nodes', 'details', 'resources'].includes(row.domain)"
+        in bootstrap
+    )
+    assert (
+        "['provenance', 'nodes', 'details', 'resources'].includes(row.domain) && "
         "payloadEncoding === 'gzip_base64'" in bootstrap
     )
     assert "row.decoded_byte_count" in bootstrap
