@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Selected ancillary guards and portable unit metadata
+### [#451](https://github.com/bijux/bijux-pollenomics/pull/451) — Selected ancillary guards and portable unit metadata
 
 - Guard exact selected facet/linked occurrences with fresh current owner/parent
   obligations before source bodies, verifying the selected native pointer while
