@@ -10,10 +10,10 @@ from typing import Any
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
 from ...capture.receipts import _read, _safe_root
+from ...publication.ownership import publish_owned_source_tree
 from ...resource_catalogue.archive.files import encoded_json
 from .validation import (
     MAX_BYTES,
@@ -64,14 +64,17 @@ def write_neotoma_ancillary_capsule(
         for relative, raw in buffers.items():
             writer.write_bytes(relative, raw)
         writer.write_bytes("manifest.json", content)
-    load: dict[str, Any] = {
-        "expected_manifest_sha256": pin,
-        "context_directory": context_directory,
-        "native_archive_directory": native_archive_directory,
-        "predecessor_facets": predecessor_facets,
-        "evidence_sources": evidence_sources,
-    }
-    load_neotoma_ancillary_capsule(staging, **load)
-    publish_new_output_tree(final_output_root=final, staging_output_root=staging)
-    load_neotoma_ancillary_capsule(final, **load)
+        load: dict[str, Any] = {
+            "expected_manifest_sha256": pin,
+            "context_directory": context_directory,
+            "native_archive_directory": native_archive_directory,
+            "predecessor_facets": predecessor_facets,
+            "evidence_sources": evidence_sources,
+        }
+        publish_owned_source_tree(
+            writer,
+            staging=staging,
+            final=final,
+            validate=lambda location: load_neotoma_ancillary_capsule(location, **load),
+        )
     return manifest

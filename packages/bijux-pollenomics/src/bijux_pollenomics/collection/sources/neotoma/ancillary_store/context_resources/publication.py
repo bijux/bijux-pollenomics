@@ -13,13 +13,13 @@ from bijux_pollenomics.core.filesystem import (
 )
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
 from ...capture.context_resources.models import DEFAULT_CONTEXT_LIMITS
 from ...capture.context_resources.protocol import validate_plan
 from ...capture.receipts import _safe_root
 from ...capture.resources.models import NeotomaResourceLimits
+from ...publication.ownership import publish_owned_source_tree
 from ...resource_catalogue.archive.files import encoded_json
 from .metadata import (
     MAX_BYTES,
@@ -161,18 +161,19 @@ def write_neotoma_context_resource_archive(
             )
             writer.write_bytes(name, body)
         writer.write_bytes("manifest.json", raw)
-        load_neotoma_context_resource_archive(staging, **options)
-        validate_regular_namespace(
-            capture,
-            {name.removeprefix("capture/") for name in source.files},
-            max_files=MAX_FILES,
-            max_bytes=MAX_BYTES,
+
+        def validate(location: Path) -> dict[str, Any]:
+            result = load_neotoma_context_resource_archive(location, **options)
+            if location == staging:
+                validate_regular_namespace(
+                    capture,
+                    {name.removeprefix("capture/") for name in source.files},
+                    max_files=MAX_FILES,
+                    max_bytes=MAX_BYTES,
+                )
+            return result
+
+        publish_owned_source_tree(
+            writer, staging=staging, final=final, validate=validate
         )
-        writer.validate_attachment()
-        owned = staging.stat(follow_symlinks=False)
-        publish_new_output_tree(final_output_root=final, staging_output_root=staging)
-        published = final.stat(follow_symlinks=False)
-        if (owned.st_dev, owned.st_ino) != (published.st_dev, published.st_ino):
-            raise ValueError("Published context archive is not the owned staging inode")
-        load_neotoma_context_resource_archive(final, **options)
     return manifest

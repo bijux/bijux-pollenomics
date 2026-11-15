@@ -10,10 +10,10 @@ from typing import Any
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
 from ...capture.receipts import _safe_root
+from ...publication.ownership import publish_owned_source_tree
 from ...resource_catalogue.archive.files import encoded_json
 from .validation import (
     MAX_BYTES,
@@ -50,14 +50,19 @@ def write_neotoma_ancillary_federation(
         for relative, content in prepared.buffers.items():
             writer.write_bytes(relative, content)
         writer.write_bytes("manifest.json", raw)
-    kwargs: dict[str, Any] = {
-        "expected_manifest_sha256": digest,
-        "context_directory": context_directory,
-        "native_archive_directory": native_archive_directory,
-        "capsule_sources": capsule_sources,
-        "evidence_sources": evidence_sources,
-    }
-    load_neotoma_ancillary_federation(staging, **kwargs)
-    publish_new_output_tree(final_output_root=final, staging_output_root=staging)
-    load_neotoma_ancillary_federation(final, **kwargs)
+        kwargs: dict[str, Any] = {
+            "expected_manifest_sha256": digest,
+            "context_directory": context_directory,
+            "native_archive_directory": native_archive_directory,
+            "capsule_sources": capsule_sources,
+            "evidence_sources": evidence_sources,
+        }
+        publish_owned_source_tree(
+            writer,
+            staging=staging,
+            final=final,
+            validate=lambda location: load_neotoma_ancillary_federation(
+                location, **kwargs
+            ),
+        )
     return prepared.manifest

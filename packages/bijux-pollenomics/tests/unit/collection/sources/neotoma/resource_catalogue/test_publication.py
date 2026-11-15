@@ -11,10 +11,10 @@ from typing import Any
 
 import pytest
 
+from bijux_pollenomics.collection.sources.neotoma.publication import ownership
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import (
     build_neotoma_resource_catalogue,
     load_neotoma_resource_catalogue,
-    publication,
     write_neotoma_resource_catalogue,
 )
 from bijux_pollenomics.core.owned_tree import publish_new_output_tree
@@ -55,7 +55,7 @@ def test_publication_refuses_late_source_swaps_and_preserves_published_evidence(
             staging_output_root=staging_output_root,
         )
 
-    monkeypatch.setattr(publication, "publish_new_output_tree", publish_with_late_swap)
+    monkeypatch.setattr(ownership, "publish_new_output_tree", publish_with_late_swap)
     with pytest.raises(ValueError, match="identity|digest|source|population"):
         write_neotoma_resource_catalogue(
             output,
