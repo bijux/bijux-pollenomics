@@ -1,4 +1,4 @@
-"""Bind deferred public imports to three fixed original/current whole-source pairs."""
+"""Bind deferred public imports to fixed original/current whole-source pairs."""
 
 from __future__ import annotations
 
@@ -28,6 +28,12 @@ _SOURCE_PAIRS: dict[str, tuple[int, str, int, str]] = {
         "658a9590a1ae9e688af5243f601f5ec6a4744907ee71c69e6fd44f16a489ca98",
         4460,
         "919c80cdf20b41758ab2147dfb36f932b60081ca3bea433426f2a6e7eab3008d",
+    ),
+    _ROOT + "reporting/__init__.py": (
+        878,
+        "285a7d53937b912552298bd0aab00d0ad6f2da370d5eaa71b03fa295405390ab",
+        1878,
+        "351b964bfef656ad0cfd86b1f811f59ff805f905cbc8783fb61482864925b5b0",
     ),
 }
 PUBLIC_IMPORT_FACADE_SOURCES = frozenset(_SOURCE_PAIRS)
@@ -126,5 +132,5 @@ def validated_import_facade_source(
         "current_api_qualification_required_separately": True,
         "current_source_or_numerical_equivalence_claimed": False,
         "historical_program_execution_claimed": False,
-        "scope": "Only three exact public import facades defer existing owner imports. Original source/Git witnesses and execution epochs remain literal; current API compatibility has separate constructed controls. No whole-tree, numerical, browser or scientific equivalence follows.",
+        "scope": "Only the declared exact public import facades defer existing owner imports. Original source/Git witnesses and execution epochs remain literal; current API compatibility has separate constructed controls. No whole-tree, numerical, browser or scientific equivalence follows.",
     }

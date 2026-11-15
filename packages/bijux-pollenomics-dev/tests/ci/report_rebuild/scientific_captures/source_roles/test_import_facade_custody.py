@@ -40,6 +40,7 @@ _SOURCES = tuple(
         "__init__.py",
         "collection/__init__.py",
         "collection/sources/neotoma/__init__.py",
+        "reporting/__init__.py",
     )
 )
 _CONTEXTS = (
@@ -50,7 +51,7 @@ _OLD = b"# Inert original import-facade fixture, never executed.\n"
 _CURRENT = b"# Inert current import-facade fixture, never executed.\n"
 
 
-def test_role_is_limited_to_the_three_original_facades_and_two_capture_epochs() -> None:
+def test_role_is_limited_to_declared_facades_and_original_capture_epochs() -> None:
     assert frozenset(_SOURCES) == subject.PUBLIC_IMPORT_FACADE_SOURCES
     assert set(subject._SOURCE_PAIRS) == set(_SOURCES)
     assert {
@@ -225,7 +226,7 @@ def test_actual_two_git_witnesses_bind_whole_old_and_current_facades(
         source, originals[0], current + b"# foreign\n"
     )
     assert not subject.import_facade_pair_matches(
-        _ROOT + "reporting/__init__.py", originals[0], current
+        _ROOT + "analysis/__init__.py", originals[0], current
     )
 
 
@@ -261,7 +262,7 @@ def test_successful_pair_then_each_binding_and_byte_mutation_refuses(
     elif mutation == "historical":
         case.row = {**case.row, "sha256": "0" * 64}
     elif mutation == "unknown_source":
-        case.row = {**case.row, "path": _ROOT + "reporting/__init__.py"}
+        case.row = {**case.row, "path": _ROOT + "analysis/__init__.py"}
     elif mutation == "logical":
         case.logical = "foreign/" + case.row["path"]
     elif mutation == "detached":
