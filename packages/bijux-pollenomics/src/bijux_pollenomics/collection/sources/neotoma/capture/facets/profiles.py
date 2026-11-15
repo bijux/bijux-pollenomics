@@ -12,6 +12,7 @@ from ..resources.models import (
     NeotomaResourceSpec,
 )
 from ..resources.protocol import identity
+from .associations import qualify_association
 from .models import NeotomaFacetPlan
 from .protocol import validate_plan
 
@@ -349,6 +350,14 @@ def qualify_neotoma_facet_body(
                 raise ValueError("populated projects source schema is not qualified")
             count = 0
             owner["dataset"] = "native_payload_matches_request"
+        elif facet in {"contacts", "doi", "sites"}:
+            try:
+                count, association_owners = qualify_association(data, resource, facet)
+            except ValueError as error:
+                raise ValueError(
+                    f"Native association shape not registered: {error}"
+                ) from error
+            owner.update(association_owners)
         else:
             raise ValueError("Source profile is not registered for this dataset facet")
         result.update(

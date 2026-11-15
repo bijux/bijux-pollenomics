@@ -82,6 +82,15 @@ def discover_neotoma_facet_links(
                     f"/data/{index}/chronology/preparedby/contactid",
                     "chronology_preparer",
                 )
+        elif entry["facet"] == "contacts":
+            for index, row in enumerate(data):
+                for contact_index, contact in enumerate(row["contacts"]["contacts"]):
+                    add(
+                        "contact",
+                        contact["contactid"],
+                        f"/data/{index}/contacts/contacts/{contact_index}/contactid",
+                        "dataset_contributor",
+                    )
         elif entry["facet"] == "publications":
             for index, row in enumerate(data):
                 add(
