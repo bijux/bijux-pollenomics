@@ -13,7 +13,6 @@ import pytest
 
 from bijux_pollenomics.collection.sources.neotoma.capture.facets import (
     NeotomaFacetPlan,
-    capture_neotoma_dataset_facets,
 )
 from bijux_pollenomics.collection.sources.neotoma.capture.resources.models import (
     NeotomaResourceLimits,
@@ -22,6 +21,7 @@ from bijux_pollenomics.collection.sources.neotoma.capture.transport import (
     NeotomaHttpResponse,
 )
 
+from ..facets.parent_scope.native_sources import capture_fixture, linked_scope_resolvers
 from ..facets.test_profiles import capture as facet_capture
 from ..facets.test_profiles import payload, resource
 from ..resources.native_payloads import response
@@ -84,6 +84,7 @@ def test_three_exact_routes_preserve_all_root_proofs_and_original_sources(
         source_facets=sources,
         limits=limits(),
         fetch=fetch,
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert calls == [
         "https://api.neotomadb.org/v2.0/data/contacts/8720",
@@ -125,6 +126,7 @@ def test_invalid_or_unproved_targets_fail_before_get(
             source_facets=sources,
             limits=limits(),
             fetch=lambda *a, **k: pytest.fail("unproved request reached HTTP"),
+            scope_inputs=linked_scope_resolvers(sources),
         )
     assert not (tmp_path / "linked").exists()
 
@@ -141,6 +143,7 @@ def test_higher_taxa_are_explicit_nonrecursive_and_proofs_are_not_deduplicated(
             source_facets=sources,
             limits=limits(),
             fetch=lambda *a, **k: pytest.fail("implicit higher taxon GET"),
+            scope_inputs=linked_scope_resolvers(sources),
         )
     result = owner().capture_neotoma_linked_resources(
         tmp_path / "linked",
@@ -148,6 +151,7 @@ def test_higher_taxa_are_explicit_nonrecursive_and_proofs_are_not_deduplicated(
         source_facets=sources,
         limits=limits(),
         fetch=lambda url, **k: response(url, b"{}"),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     publication = next(
         row for row in result.resources if row["identity"]["kind"] == "publication"
@@ -162,7 +166,7 @@ def test_higher_taxa_are_explicit_nonrecursive_and_proofs_are_not_deduplicated(
 
 def test_protected_source_cannot_be_opened_to_supply_a_link(tmp_path: Path) -> None:
     root = tmp_path / "facets"
-    captured = capture_neotoma_dataset_facets(
+    captured = capture_fixture(
         root,
         plan=NeotomaFacetPlan((resource("heldout_no_numerical_access"),), "b" * 64),
         fetch=lambda *a, **k: pytest.fail("protected facet GET"),
@@ -174,6 +178,7 @@ def test_protected_source_cannot_be_opened_to_supply_a_link(tmp_path: Path) -> N
             source_facets={captured.manifest_sha256: root},
             limits=limits(),
             fetch=lambda *a, **k: pytest.fail("protected linked GET"),
+            scope_inputs=linked_scope_resolvers({captured.manifest_sha256: root}),
         )
     assert not list(root.glob("*.body"))
 
@@ -187,7 +192,7 @@ def test_native_foreign_dataset_cannot_supply_contact_proof(tmp_path: Path) -> N
             value["data"][0]["chronology"]["datasets"][0]["datasetid"] = 999
         return response(url, json.dumps(value).encode())
 
-    captured = capture_neotoma_dataset_facets(
+    captured = capture_fixture(
         root, plan=NeotomaFacetPlan((resource(),), "b" * 64), fetch=fetch
     )
     with pytest.raises(ValueError, match="proof"):
@@ -197,6 +202,7 @@ def test_native_foreign_dataset_cannot_supply_contact_proof(tmp_path: Path) -> N
             source_facets={captured.manifest_sha256: root},
             limits=limits(),
             fetch=lambda *a, **k: pytest.fail("foreign source contact GET"),
+            scope_inputs=linked_scope_resolvers({captured.manifest_sha256: root}),
         )
 
 
@@ -213,6 +219,7 @@ def test_http_failure_states_are_retained_without_absence_claim(
         fetch=lambda url, **k: response(
             url, b'{"error":"source failure"}', status=status
         ),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert result.partitions == {"unavailable_http": 1}
     assert result.resources[0]["absence_certified"] is False
@@ -231,6 +238,7 @@ def test_budget_and_transport_failure_have_exact_partitions(tmp_path: Path) -> N
         source_facets=sources,
         limits=limits(1),
         fetch=fetch,
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert result.partitions == {"transport_failure": 1, "not_attempted_budget": 2}
     assert result.request_count == 1 and result.response_bytes == 0
@@ -248,6 +256,7 @@ def test_existing_destination_and_caller_limit_are_preserved(tmp_path: Path) -> 
             source_facets=sources,
             limits=limits(),
             fetch=lambda *a, **k: pytest.fail("existing destination GET"),
+            scope_inputs=linked_scope_resolvers(sources),
         )
     assert (destination / "owned.txt").read_text() == "existing bytes"
     with pytest.raises(ValueError):
@@ -257,6 +266,7 @@ def test_existing_destination_and_caller_limit_are_preserved(tmp_path: Path) -> 
             source_facets=sources,
             limits=replace(limits(), max_requests=True),
             fetch=lambda *a, **k: pytest.fail("invalid budget GET"),
+            scope_inputs=linked_scope_resolvers(sources),
         )
 
 
@@ -273,6 +283,7 @@ def test_ambiguous_or_lossy_json_is_retained_unqualified_as_refusal(
         source_facets=sources,
         limits=limits(),
         fetch=lambda url, **k: response(url, body),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert result.partitions == {"refused_native_json": 1}
     assert next((tmp_path / "linked").glob("*.body")).read_bytes() == body
@@ -288,6 +299,7 @@ def test_incomplete_body_and_foreign_callback_destination_are_preserved(
         source_facets=sources,
         limits=limits(),
         fetch=lambda url, **k: NeotomaHttpResponse(url, 200, (), b'{"partial":', False),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert result.partitions == {"refused_incomplete_body": 1}
     with pytest.raises(ValueError, match="identity"):
@@ -299,6 +311,7 @@ def test_incomplete_body_and_foreign_callback_destination_are_preserved(
             fetch=lambda url, **k: response(
                 "https://foreign.invalid/contacts/8720", b"{}"
             ),
+            scope_inputs=linked_scope_resolvers(sources),
         )
     assert not (tmp_path / "foreign").exists()
     assert next((tmp_path / ".foreign.staging").glob("*.body")).read_bytes() == b"{}"
@@ -310,7 +323,7 @@ def test_shared_target_preserves_all_source_roots_and_restrictive_role(
 ) -> None:
     digest, sources = source(tmp_path / "facets")
     second_root = tmp_path / "exposed"
-    second = capture_neotoma_dataset_facets(
+    second = capture_fixture(
         second_root,
         plan=NeotomaFacetPlan((resource("exposed_development"),), "b" * 64),
         fetch=lambda url, **k: response(
@@ -328,6 +341,7 @@ def test_shared_target_preserves_all_source_roots_and_restrictive_role(
         source_facets=sources,
         limits=limits(1),
         fetch=lambda url, **k: response(url, b"{}"),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     identity = result.resources[0]["identity"]
     assert identity["exposure_role"] == "exposed_development"

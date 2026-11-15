@@ -8,6 +8,7 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any
 
+from ..facets.models import NeotomaFacetScopeInputs
 from ..receipts import (
     _object,
     _read,
@@ -100,12 +101,15 @@ def replay_neotoma_linked_resources(
     source_facets: Mapping[str, Path],
     expected_manifest_sha256: str | None = None,
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> NeotomaLinkedResourceCapture:
     """Original facet identities and every occurrence are recomputed, never trusted."""
     root = _safe_root(directory)
     manifest, control, plan, recorded, digest = _control(root, expected_manifest_sha256)
-    targets, policies = prepare_targets(plan, source_facets, limits)
-    prepare_targets(plan, source_facets, recorded)
+    targets, policies = prepare_targets(
+        plan, source_facets, limits, scope_inputs=scope_inputs
+    )
+    prepare_targets(plan, source_facets, recorded, scope_inputs=scope_inputs)
     if not _same_json(control["targets"], targets) or not _same_json(
         control["policy_sources"], policies
     ):
@@ -236,11 +240,12 @@ def read_neotoma_linked_body(
     target_key: str,
     source_facets: Mapping[str, Path],
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> NeotomaLinkedBody:
     """Check inherited roles before body access, then hash the actual returned buffer."""
     root = _safe_root(directory)
     _, _, plan, _, _ = _control(root, expected_manifest_sha256)
-    targets, _ = prepare_targets(plan, source_facets, limits)
+    targets, _ = prepare_targets(plan, source_facets, limits, scope_inputs=scope_inputs)
     selected = [target for target in targets if target["target_key"] == target_key]
     if len(selected) != 1:
         raise ValueError("Neotoma linked target is absent or ambiguous")
@@ -251,6 +256,7 @@ def read_neotoma_linked_body(
         root,
         expected_manifest_sha256=expected_manifest_sha256,
         source_facets=source_facets,
+        scope_inputs=scope_inputs,
         limits=limits,
     )
     entry = next(row for row in capture.resources if row["target_key"] == target_key)

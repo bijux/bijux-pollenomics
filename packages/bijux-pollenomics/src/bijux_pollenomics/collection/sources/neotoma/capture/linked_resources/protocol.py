@@ -11,6 +11,7 @@ from typing import Any
 
 from ...client import positive_native_id
 from ..facets.links import discover_neotoma_facet_links
+from ..facets.models import NeotomaFacetScopeInputs
 from ..facets.replay import _control as facet_control
 from ..models import _Request
 from ..receipts import _safe_root
@@ -32,6 +33,8 @@ def prepare_targets(
     plan: NeotomaLinkedResourcePlan,
     source_facets: Mapping[str, Path],
     limits: NeotomaResourceLimits,
+    *,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     """Authenticate endpoint roots before discovering links; no source body shortcut.
 
@@ -80,6 +83,7 @@ def prepare_targets(
             root,
             expected_manifest_sha256=digest,
             include_higher_taxa=plan.include_higher_taxa,
+            scope_inputs=scope_inputs,
         )
         for proof in links["links"]:
             key = (proof["target_kind"], proof["native_id"])

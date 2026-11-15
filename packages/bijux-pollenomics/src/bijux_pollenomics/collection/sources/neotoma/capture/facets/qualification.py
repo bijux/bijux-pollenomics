@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
@@ -11,8 +12,13 @@ from ..resources.models import (
     NeotomaResourceLimits,
     NeotomaResourceSpec,
 )
+from .models import SCOPED_FACET_SCHEMA, NeotomaFacetScopeInputs
 from .profiles import PROFILE_SCHEMA, qualify_neotoma_facet_body
-from .replay import read_neotoma_facet_body, replay_neotoma_facet_capture
+from .replay import (
+    _control,
+    _read_authenticated_facet_body,
+    replay_neotoma_facet_capture,
+)
 
 
 def qualify_neotoma_facet_capture(
@@ -20,10 +26,20 @@ def qualify_neotoma_facet_capture(
     *,
     expected_manifest_sha256: str,
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> dict[str, Any]:
     """Leave original HTTP assessments intact, including blocked or incomplete roots."""
     capture = replay_neotoma_facet_capture(
-        directory, expected_manifest_sha256=expected_manifest_sha256, limits=limits
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        limits=limits,
+        scope_inputs=scope_inputs,
+    )
+    manifest, _, _, _ = _control(directory, expected_manifest_sha256)
+    verification = (
+        "authenticated_source_inputs"
+        if manifest["schema_version"] == SCOPED_FACET_SCHEMA
+        else "not_recorded_legacy_capture"
     )
     entries = []
     for entry in capture.facets:
@@ -36,6 +52,8 @@ def qualify_neotoma_facet_capture(
             "content_version": entry["content_version"],
             "api_version": entry["api_version"],
             "scientific_admission": "not_asserted",
+            "parent_scope_verification": verification,
+            "effective_parent_scope_role": entry.get("parent_scope_role"),
         }
         if entry["terminal_status"] != "received_complete_unqualified_facet":
             derived.update(
@@ -43,13 +61,12 @@ def qualify_neotoma_facet_capture(
                 reason=entry["terminal_status"],
             )
         else:
-            body = read_neotoma_facet_body(
-                directory,
-                expected_manifest_sha256=expected_manifest_sha256,
-                facet_key=entry["facet_key"],
-                limits=limits,
+            resource = NeotomaResourceSpec(
+                **entry["root_identity"], versions=("current",)
             )
-            resource = NeotomaResourceSpec(**body.root_identity, versions=("current",))
+            body = _read_authenticated_facet_body(
+                directory, resource, entry["facet"], entry, limits
+            )
             derived.update(
                 qualify_neotoma_facet_body(
                     resource,

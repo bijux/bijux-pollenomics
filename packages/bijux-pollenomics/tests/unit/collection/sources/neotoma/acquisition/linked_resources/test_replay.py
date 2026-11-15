@@ -9,6 +9,7 @@ from typing import Any
 
 import pytest
 
+from ..facets.parent_scope.native_sources import linked_scope_resolvers
 from ..resources.native_payloads import response
 from .test_capture import limits, owner, plan, source
 
@@ -22,6 +23,7 @@ def captured(tmp_path: Path) -> tuple[Path, Any, dict[str, Path]]:
         source_facets=sources,
         limits=limits(),
         fetch=lambda url, **k: response(url, b'{"status":"success","data":[]}'),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     return root, result, sources
 
@@ -39,6 +41,7 @@ def test_replay_and_body_read_authenticate_original_bytes(tmp_path: Path) -> Non
         expected_manifest_sha256=result.manifest_sha256,
         source_facets=sources,
         limits=limits(),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert replayed == result
     body = owner().read_neotoma_linked_body(
@@ -47,6 +50,7 @@ def test_replay_and_body_read_authenticate_original_bytes(tmp_path: Path) -> Non
         target_key="contact-8720",
         source_facets=sources,
         limits=limits(),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert body.body == b'{"status":"success","data":[]}'
     assert body.body_sha256 == sha256(body.body).hexdigest()
@@ -73,6 +77,7 @@ def test_changed_actual_source_buffers_are_refused(tmp_path: Path, part: str) ->
             expected_manifest_sha256=result.manifest_sha256,
             source_facets=sources,
             limits=limits(),
+            scope_inputs=linked_scope_resolvers(sources),
         )
 
 
@@ -109,6 +114,7 @@ def test_legally_rehashed_plan_cannot_forge_native_proof(
             expected_manifest_sha256=digest,
             source_facets=sources,
             limits=limits(),
+            scope_inputs=linked_scope_resolvers(sources),
         )
 
 
@@ -149,6 +155,7 @@ def test_source_selection_and_owned_control_fields_are_exact(
             expected_manifest_sha256=digest,
             source_facets=sources,
             limits=limits(),
+            scope_inputs=linked_scope_resolvers(sources),
         )
 
 
@@ -160,6 +167,7 @@ def test_stricter_caller_limits_refuse_historical_overrun(tmp_path: Path) -> Non
             expected_manifest_sha256=result.manifest_sha256,
             source_facets=sources,
             limits=limits(1),
+            scope_inputs=linked_scope_resolvers(sources),
         )
 
 
@@ -187,6 +195,7 @@ def test_actual_body_return_is_rechecked_after_replay(
             target_key="contact-8720",
             source_facets=sources,
             limits=limits(),
+            scope_inputs=linked_scope_resolvers(sources),
         )
 
 
@@ -214,6 +223,7 @@ def test_legally_rehashed_receipt_cannot_change_target_or_add_authority(
             expected_manifest_sha256=digest,
             source_facets=sources,
             limits=limits(),
+            scope_inputs=linked_scope_resolvers(sources),
         )
 
 
@@ -240,6 +250,7 @@ def test_success_attests_actual_published_tree(
             source_facets=sources,
             limits=limits(),
             fetch=lambda url, **k: response(url, b"{}"),
+            scope_inputs=linked_scope_resolvers(sources),
         )
     assert any(
         path.read_bytes() == b'{"foreign_stage":true}'

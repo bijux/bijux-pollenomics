@@ -14,6 +14,7 @@ from typing import Any, cast
 import pytest
 
 from ..resources.native_payloads import response, spec
+from .parent_scope.native_sources import capture_fixture, qualify_fixture
 
 
 def profiles() -> ModuleType:
@@ -249,10 +250,9 @@ def test_role_and_body_custody_refusals_are_not_schema_qualification() -> None:
 def capture(root: Path) -> Any:
     from bijux_pollenomics.collection.sources.neotoma.capture.facets import (
         NeotomaFacetPlan,
-        capture_neotoma_dataset_facets,
     )
 
-    return capture_neotoma_dataset_facets(
+    return capture_fixture(
         root,
         plan=NeotomaFacetPlan((resource(),), "b" * 64),
         fetch=lambda url, **_: response(
@@ -266,7 +266,7 @@ def test_authenticated_qualification_preserves_original_capture_labels(
 ) -> None:
     result = capture(tmp_path / "capture")
     before = {p.name: p.read_bytes() for p in (tmp_path / "capture").iterdir()}
-    report = qualification().qualify_neotoma_facet_capture(
+    report = qualify_fixture(
         tmp_path / "capture",
         expected_manifest_sha256=result.manifest_sha256,
     )
@@ -352,24 +352,26 @@ def test_unavailable_and_protected_facets_are_partitioned_without_body_access(
 ) -> None:
     from bijux_pollenomics.collection.sources.neotoma.capture.facets import (
         NeotomaFacetPlan,
-        capture_neotoma_dataset_facets,
     )
 
     root = tmp_path / "capture"
-    captured = capture_neotoma_dataset_facets(
+    captured = capture_fixture(
         root,
         plan=NeotomaFacetPlan(
             (
                 resource(),
-                replace(resource("heldout_no_numerical_access"), dataset_id=19914),
+                replace(
+                    resource("heldout_no_numerical_access"),
+                    dataset_id=19914,
+                    site_id=13339,
+                    collection_unit_id=14911,
+                ),
             ),
             "b" * 64,
         ),
         fetch=lambda url, **_: response(url, b'{"error":"source failed"}', status=500),
     )
-    report = qualification().qualify_neotoma_facet_capture(
-        root, expected_manifest_sha256=captured.manifest_sha256
-    )
+    report = qualify_fixture(root, expected_manifest_sha256=captured.manifest_sha256)
     assert len(report["entries"]) == 10
     assert report["partitions"] == {"source_entity_unavailable": 10}
     assert (

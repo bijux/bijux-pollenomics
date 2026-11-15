@@ -14,6 +14,7 @@ from bijux_pollenomics.collection.sources.neotoma.capture.resources import (
 
 from ..resources.native_payloads import response, spec
 from .native_payloads import BODY, FACETS, owner, plan
+from .parent_scope.native_sources import capture_fixture, read_fixture, replay_fixture
 
 
 def test_exact_five_dataset_facets_keep_raw_bytes_and_unqualified_payload_owners(
@@ -26,7 +27,7 @@ def test_exact_five_dataset_facets_keep_raw_bytes_and_unqualified_payload_owners
         return response(url, BODY)
 
     directory = tmp_path / "facets"
-    result = owner().capture_neotoma_dataset_facets(
+    result = capture_fixture(
         directory, plan=plan(spec(versions=("doi_frozen",))), fetch=fetch
     )
     assert urls == [
@@ -42,16 +43,14 @@ def test_exact_five_dataset_facets_keep_raw_bytes_and_unqualified_payload_owners
         assert row["summary"]["payload_owner_status"] == "not_established"
         assert row["summary"]["schema_qualified"] is False
         assert row["scientific_admission"] == "not_asserted"
-        admitted = owner().read_neotoma_facet_body(
+        admitted = read_fixture(
             directory,
             expected_manifest_sha256=result.manifest_sha256,
             facet_key=row["facet_key"],
         )
         assert admitted.body == BODY
         assert admitted.root_identity["dataset_id"] == 201
-    replay = owner().replay_neotoma_facet_capture(
-        directory, expected_manifest_sha256=result.manifest_sha256
-    )
+    replay = replay_fixture(directory, expected_manifest_sha256=result.manifest_sha256)
     assert replay == result
 
 
@@ -64,14 +63,14 @@ def test_every_facet_is_role_gated_before_fetch_or_body_access(
     def never(*_args: Any, **_kwargs: Any) -> Any:
         raise AssertionError("Blocked numerical facet accessed transport")
 
-    result = owner().capture_neotoma_dataset_facets(
+    result = capture_fixture(
         tmp_path / "blocked", plan=plan(spec(role=role)), fetch=never
     )
     assert result.request_count == 0 and result.response_bytes == 0
     assert result.partitions == {"not_attempted_exposure_role": 5}
     assert not list((tmp_path / "blocked").glob("*.body"))
     with pytest.raises(ValueError, match="exposure role"):
-        owner().read_neotoma_facet_body(
+        read_fixture(
             tmp_path / "blocked",
             expected_manifest_sha256=result.manifest_sha256,
             facet_key=result.facets[0]["facet_key"],
@@ -97,7 +96,7 @@ def test_malformed_plan_refuses_before_any_request(tmp_path: Path, damage: str) 
         raise AssertionError("Malformed plan reached transport")
 
     with pytest.raises(ValueError):
-        owner().capture_neotoma_dataset_facets(
+        capture_fixture(
             tmp_path / "invalid", plan=plan(resource, facets=facets), fetch=never
         )
     assert not (tmp_path / "invalid").exists()
@@ -125,19 +124,15 @@ def test_explicit_association_facets_keep_native_entities_unqualified(
         return response(url, content)
 
     directory = tmp_path / facet
-    result = owner().capture_neotoma_dataset_facets(
-        directory, plan=plan(spec(), facets=(facet,)), fetch=fetch
-    )
+    result = capture_fixture(directory, plan=plan(spec(), facets=(facet,)), fetch=fetch)
     assert urls == [f"https://api.neotomadb.org/v2.0/data/datasets/201/{facet}"]
     assert result.request_count == 1
     assert result.partitions == {"received_complete_unqualified_facet": 1}
     assert (
-        owner().replay_neotoma_facet_capture(
-            directory, expected_manifest_sha256=result.manifest_sha256
-        )
+        replay_fixture(directory, expected_manifest_sha256=result.manifest_sha256)
         == result
     )
-    body = owner().read_neotoma_facet_body(
+    body = read_fixture(
         directory,
         expected_manifest_sha256=result.manifest_sha256,
         facet_key=result.facets[0]["facet_key"],
@@ -162,13 +157,13 @@ def test_association_facets_obey_parent_exposure_before_fetch(
     def never(*_args: Any, **_kwargs: Any) -> Any:
         raise AssertionError("Protected association reached transport")
 
-    result = owner().capture_neotoma_dataset_facets(
+    result = capture_fixture(
         tmp_path / "blocked", plan=plan(spec(role=role), facets=(facet,)), fetch=never
     )
     assert result.request_count == 0
     assert result.partitions == {"not_attempted_exposure_role": 1}
     with pytest.raises(ValueError, match="exposure role"):
-        owner().read_neotoma_facet_body(
+        read_fixture(
             tmp_path / "blocked",
             expected_manifest_sha256=result.manifest_sha256,
             facet_key=result.facets[0]["facet_key"],
@@ -179,9 +174,16 @@ def test_exposed_root_does_not_promote_another_roots_reserved_facets(
     tmp_path: Path,
 ) -> None:
     directory = tmp_path / "mixed"
-    result = owner().capture_neotoma_dataset_facets(
+    result = capture_fixture(
         directory,
-        plan=plan(spec(), spec(202, role="reserved_candidate_confirmation")),
+        plan=plan(
+            spec(),
+            replace(
+                spec(202, role="reserved_candidate_confirmation"),
+                site_id=13,
+                collection_unit_id=101,
+            ),
+        ),
         fetch=lambda url, **_: response(url, BODY),
     )
     assert result.request_count == 5
@@ -194,7 +196,7 @@ def test_exposed_root_does_not_promote_another_roots_reserved_facets(
         row for row in result.facets if row["root_identity"]["dataset_id"] == 202
     )
     with pytest.raises(ValueError, match="exposure role"):
-        owner().read_neotoma_facet_body(
+        read_fixture(
             directory,
             expected_manifest_sha256=result.manifest_sha256,
             facet_key=blocked["facet_key"],
@@ -229,7 +231,7 @@ def test_failures_remain_reasoned_retained_entities(
         )
 
     directory = tmp_path / "failure"
-    result = owner().capture_neotoma_dataset_facets(
+    result = capture_fixture(
         directory,
         plan=plan(spec(), facets=("chronologies",)),
         limits=NeotomaResourceLimits(max_attempts=1),
@@ -241,7 +243,7 @@ def test_failures_remain_reasoned_retained_entities(
         body_path = directory / result.facets[0]["attempts"][0]["body_file"]
         assert body_path.read_bytes() == content
     with pytest.raises(ValueError):
-        owner().read_neotoma_facet_body(
+        read_fixture(
             directory,
             expected_manifest_sha256=result.manifest_sha256,
             facet_key=result.facets[0]["facet_key"],
@@ -251,7 +253,7 @@ def test_failures_remain_reasoned_retained_entities(
 def test_request_budget_closes_unattempted_facets_without_claiming_absence(
     tmp_path: Path,
 ) -> None:
-    result = owner().capture_neotoma_dataset_facets(
+    result = capture_fixture(
         tmp_path / "bounded",
         plan=plan(spec()),
         limits=NeotomaResourceLimits(max_requests=2),
@@ -271,7 +273,7 @@ def test_foreign_response_owner_refuses_capture_without_discarding_raw_entity(
 
     output = tmp_path / "foreign"
     with pytest.raises(ValueError, match="final_url"):
-        owner().capture_neotoma_dataset_facets(
+        capture_fixture(
             output,
             plan=plan(spec(), facets=("chronologies",)),
             fetch=lambda url, **_: response(url + "/foreign", BODY),
@@ -289,7 +291,7 @@ def test_retry_keeps_original_failed_http_entity(tmp_path: Path) -> None:
         attempts.append(url)
         return response(url, BODY, 503 if len(attempts) == 1 else 200)
 
-    result = owner().capture_neotoma_dataset_facets(
+    result = capture_fixture(
         tmp_path / "retry",
         plan=plan(spec(), facets=("lithology",)),
         limits=NeotomaResourceLimits(retry_delay_seconds=0),
@@ -306,7 +308,7 @@ def test_existing_output_is_preserved_before_transport(tmp_path: Path) -> None:
     sentinel = output / "untouched"
     sentinel.write_bytes(b"original")
     with pytest.raises(FileExistsError):
-        owner().capture_neotoma_dataset_facets(
+        capture_fixture(
             output,
             plan=plan(spec()),
             fetch=lambda *_args, **_kwargs: pytest.fail("Existing output reached GET"),

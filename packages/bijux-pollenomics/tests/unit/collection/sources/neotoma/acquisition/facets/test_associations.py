@@ -13,10 +13,6 @@ import pytest
 from bijux_pollenomics.collection.sources.neotoma.capture import NeotomaMetadataResponse
 from bijux_pollenomics.collection.sources.neotoma.capture.facets import (
     NeotomaFacetPlan,
-    capture_neotoma_dataset_facets,
-)
-from bijux_pollenomics.collection.sources.neotoma.capture.facets.links import (
-    discover_neotoma_facet_links,
 )
 from bijux_pollenomics.collection.sources.neotoma.capture.facets.profiles import (
     qualify_neotoma_facet_body,
@@ -24,6 +20,8 @@ from bijux_pollenomics.collection.sources.neotoma.capture.facets.profiles import
 from bijux_pollenomics.collection.sources.neotoma.capture.resources import (
     NeotomaResourceSpec,
 )
+
+from .parent_scope.native_sources import capture_fixture, discover_fixture
 
 
 def native_payload(facet: str) -> dict[str, Any]:
@@ -186,12 +184,12 @@ def test_contributor_link_uses_exact_authenticated_nested_contact_pointer(
         )
 
     directory = tmp_path / "contacts"
-    capture = capture_neotoma_dataset_facets(
+    capture = capture_fixture(
         directory,
         plan=NeotomaFacetPlan((resource(),), "c" * 64, ("contacts",)),
         fetch=fetch,
     )
-    links = discover_neotoma_facet_links(
+    links = discover_fixture(
         directory, expected_manifest_sha256=capture.manifest_sha256
     )
     assert len(links["links"]) == 1

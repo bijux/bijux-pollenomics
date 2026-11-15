@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
 from ..resources.models import DEFAULT_RESOURCE_LIMITS, NeotomaResourceLimits
+from .models import NeotomaFacetScopeInputs
 from .qualification import qualify_neotoma_facet_capture
 
 
@@ -15,12 +17,16 @@ def discover_neotoma_facet_links(
     expected_manifest_sha256: str,
     include_higher_taxa: bool = False,
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> dict[str, Any]:
     """Collect direct references only; targets are proposals, never authorization to GET."""
     if type(include_higher_taxa) is not bool:
         raise ValueError("higher taxon lead selection must be a boolean")
     qualified = qualify_neotoma_facet_capture(
-        directory, expected_manifest_sha256=expected_manifest_sha256, limits=limits
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        limits=limits,
+        scope_inputs=scope_inputs,
     )
     links: list[dict[str, Any]] = []
     higher: list[dict[str, Any]] = []
@@ -48,7 +54,8 @@ def discover_neotoma_facet_links(
         scope.update(
             root_dataset_id=entry["root_identity"]["dataset_id"],
             root_identity=entry["root_identity"],
-            inherited_exposure_role=entry["root_identity"]["exposure_role"],
+            inherited_exposure_role=entry.get("effective_parent_scope_role")
+            or entry["root_identity"]["exposure_role"],
         )
 
         def add(

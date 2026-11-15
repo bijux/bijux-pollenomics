@@ -7,6 +7,7 @@ from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
+from ..facets.models import NeotomaFacetScopeInputs
 from ..resources.models import (
     DEFAULT_RESOURCE_LIMITS,
     DEVELOPMENT_ROLES,
@@ -26,12 +27,14 @@ def qualify_neotoma_linked_capture(
     expected_manifest_sha256: str,
     source_facets: Mapping[str, Path],
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> dict[str, Any]:
     """Authenticate exact returned buffers and every root occurrence before parsing."""
     captured = replay_neotoma_linked_resources(
         directory,
         expected_manifest_sha256=expected_manifest_sha256,
         source_facets=source_facets,
+        scope_inputs=scope_inputs,
         limits=limits,
     )
     rows = []
@@ -55,6 +58,7 @@ def qualify_neotoma_linked_capture(
             expected_manifest_sha256=expected_manifest_sha256,
             target_key=entry["target_key"],
             source_facets=source_facets,
+            scope_inputs=scope_inputs,
             limits=limits,
         )
         reference = entry["attempts"][-1]
