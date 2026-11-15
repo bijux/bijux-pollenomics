@@ -23,6 +23,7 @@ class AtlasAncillaryFederationInput:
     context_directory: Path
     expected_context_sha256: str
     capsule_sources: Mapping[str, Path]
+    evidence_sources: Mapping[str, Path] | None = None
 
     def __post_init__(self) -> None:
         if not _digest(self.expected_manifest_sha256) or not _digest(
@@ -45,6 +46,17 @@ class AtlasAncillaryFederationInput:
         object.__setattr__(
             self, "capsule_sources", MappingProxyType(dict(self.capsule_sources))
         )
+        if self.evidence_sources is not None:
+            if not isinstance(self.evidence_sources, Mapping) or any(
+                not _digest(key) or not isinstance(path, Path)
+                for key, path in self.evidence_sources.items()
+            ):
+                raise ValueError(
+                    "Atlas ancillary evidence resolvers have the wrong owner"
+                )
+            object.__setattr__(
+                self, "evidence_sources", MappingProxyType(dict(self.evidence_sources))
+            )
 
 
 @dataclass(frozen=True)

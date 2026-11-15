@@ -58,3 +58,32 @@ def test_capsule_resolver_is_explicit_and_not_coerced(
     constructor = owner.AtlasAncillaryFederationInput
     with pytest.raises(ValueError):
         constructor(tmp_path, "1" * 64, tmp_path, "2" * 64, resolvers)
+
+
+@pytest.mark.parametrize(
+    "resolvers",
+    [[], {"not-a-digest": Path(".")}, {"1" * 64: "/source"}, {"A" * 64: Path(".")}],
+)
+def test_evidence_resolver_is_explicit_and_not_coerced(
+    tmp_path: Path, resolvers: Any
+) -> None:
+    with pytest.raises(ValueError, match="evidence|resolver"):
+        owner.AtlasAncillaryFederationInput(
+            tmp_path, "1" * 64, tmp_path, "2" * 64, {}, evidence_sources=resolvers
+        )
+
+
+def test_evidence_resolver_is_frozen_and_none_stays_absent(tmp_path: Path) -> None:
+    supplied = {"3" * 64: tmp_path}
+    declared = owner.AtlasAncillaryFederationInput(
+        tmp_path, "1" * 64, tmp_path, "2" * 64, {}, evidence_sources=supplied
+    )
+    supplied.clear()
+    assert dict(declared.evidence_sources or {}) == {"3" * 64: tmp_path}
+    frozen: Any = declared.evidence_sources
+    with pytest.raises(TypeError):
+        frozen["4" * 64] = tmp_path
+    legacy = owner.AtlasAncillaryFederationInput(
+        tmp_path, "1" * 64, tmp_path, "2" * 64, {}
+    )
+    assert legacy.evidence_sources is None
