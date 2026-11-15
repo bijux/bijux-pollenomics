@@ -67,6 +67,8 @@ Repository changes are recorded by pull request, newest merge first.
 
 ### [#423](https://github.com/bijux/bijux-pollenomics/pull/423) — Swedish landscape histories and retained source comparisons
 
+- Document the synthetic source-mean and cell-window fixture helpers so the
+  developer package retains its configured docstring quality checks.
 - Derive Swedish forest/open/cereal histories over four, five and six latitude bands
   using explicit operational taxon groups, source windows, weights and support
   policies. Preserve no-data/invalid cell dispositions, the zero-mass refusal,
