@@ -176,23 +176,58 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
             ),
             (
                 (
+                    b"    detail_row_counts = {\n"
+                    b'        "collection_units": sum(len(rows) for rows in collection_rows.values()),\n'
+                    b'        "datasets": sum(len(rows) for rows in dataset_rows.values()),\n'
+                    b'        "samples": sum(len(rows) for rows in sample_rows.values()),\n'
+                    b'        "age_claims": sum(len(rows) for rows in age_rows.values()),\n'
                     b'        "observations": sum(len(rows) for rows in observation_rows.values()),\n'
                     b'        "variables": len(variables),\n'
                     b"    }\n"
-                    b"    source_node_result = derive_neotoma_source_chronology_nodes(\n"
-                    b'        observations=surfaces["observations"],\n'
-                    b'        samples=surfaces["samples"],\n'
                 ),
                 (
-                    b'        "observations": sum(len(rows) for rows in observation_rows.values()),\n'
-                    b'        "variables": len(variables),\n'
+                    b"    detail_surface_names = (\n"
+                    b'        "collection_units",\n'
+                    b'        "datasets",\n'
+                    b'        "samples",\n'
+                    b'        "age_claims",\n'
+                    b'        "observations",\n'
+                    b'        *(name for name in ("chronologies", "chronology_controls") if name in surfaces),\n'
+                    b"    )\n"
+                    b"    detail_row_denominators = {\n"
+                    b"        name: len(surfaces[name]) for name in detail_surface_names\n"
                     b"    }\n"
-                    b'    for name in ("chronologies", "chronology_controls"):\n'
-                    b"        if name in surfaces:\n"
-                    b"            detail_row_counts[name] = len(surfaces[name])\n"
-                    b"    source_node_result = derive_neotoma_source_chronology_nodes(\n"
-                    b'        observations=surfaces["observations"],\n'
-                    b'        samples=surfaces["samples"],\n'
+                    b"    detail_row_counts = {\n"
+                    b'        name: sum(row.get("site_id") in observed_sites for row in surfaces[name])\n'
+                    b"        for name in detail_surface_names\n"
+                    b"    }\n"
+                    b"    projected_variable_ids = {\n"
+                    b'        _required_text(row[2], "Neotoma observation variable ID")\n'
+                    b"        for site_id in observed_sites\n"
+                    b"        for row in observation_rows[site_id]\n"
+                    b"    }\n"
+                    b"    # A shared variable is one native identity even when multiple sites use it.\n"
+                    b'    detail_row_denominators["variables"] = len(variables)\n'
+                    b'    detail_row_counts["variables"] = len(projected_variable_ids)\n'
+                    b"    excluded_detail_row_counts = {\n"
+                    b"        name: denominator - detail_row_counts[name]\n"
+                    b"        for name, denominator in detail_row_denominators.items()\n"
+                    b"    }\n"
+                ),
+            ),
+            (
+                (
+                    b'        "detail_row_counts": detail_row_counts,\n'
+                    b'        "detail_row_denominators": dict(detail_row_counts),\n'
+                ),
+                (
+                    b'        "detail_row_counts": detail_row_counts,\n'
+                    b'        "detail_row_denominators": detail_row_denominators,\n'
+                    b'        "excluded_detail_row_counts": excluded_detail_row_counts,\n'
+                    b'        "detail_row_exclusion_reason_code": "site_without_governed_country_assignment",\n'
+                    b'        "variable_count_semantics": (\n'
+                    b'            "unique_variable_ids; excluded_counts_include_only_ids_absent_from_projected_sites"\n'
+                    b"        ),\n"
                 ),
             ),
         ),
@@ -202,6 +237,61 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
         "cd11e76268f0abcb2a541136da6112a6e5a5ab9e23c8e3ad1365c7cc5b1b94b0",
         "ordinary_original_bytes",
         (
+            (
+                (
+                    b"from collections.abc import MutableMapping, Sequence\n"
+                    b"from pathlib import Path\n"
+                    b"from typing import cast\n"
+                    b"\n"
+                    b"from bijux_pollenomics.core.geospatial.geojson import JsonObject\n"
+                    b"from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS\n"
+                ),
+                (
+                    b"from collections.abc import Mapping, MutableMapping, Sequence\n"
+                    b"from pathlib import Path\n"
+                    b"\n"
+                    b"from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS\n"
+                ),
+            ),
+            (
+                b'    records.sort(key=lambda row: str(row["record_id"]))\n',
+                (
+                    b"    return _assemble_evidence_projection(\n"
+                    b"        detail_records=records,\n"
+                    b"        source_layers=list(selected_layers.values()),\n"
+                    b"        projected_point_layers=projected_point_layers,\n"
+                    b"        source_accounting=source_accounting,\n"
+                    b"    )\n"
+                    b"\n"
+                    b"\n"
+                    b"def _assemble_evidence_projection(\n"
+                    b"    *,\n"
+                    b"    detail_records: Sequence[Mapping[str, object]],\n"
+                    b"    source_layers: Sequence[MutableMapping[str, object]],\n"
+                    b"    projected_point_layers: Sequence[Mapping[str, object]],\n"
+                    b"    source_accounting: dict[str, dict[str, object]],\n"
+                    b") -> MapEvidenceProjection:\n"
+                    b'    """Reconcile supplied source records and layers without acquiring source data."""\n'
+                    b"    records = list(detail_records)\n"
+                    b'    records.sort(key=lambda row: str(row["record_id"]))\n'
+                ),
+            ),
+            (
+                b"    evidence_layers = [*selected_layers.values(), *projected_point_layers]\n",
+                b"    evidence_layers = [*source_layers, *projected_point_layers]\n",
+            ),
+            (
+                (
+                    b"        detail_records=tuple(cast(JsonObject, row) for row in records),\n"
+                    b"        reconciliation=reconciliation,\n"
+                    b"        point_layers=tuple(cast(JsonObject, row) for row in projected_point_layers),\n"
+                ),
+                (
+                    b"        detail_records=tuple(records),\n"
+                    b"        reconciliation=reconciliation,\n"
+                    b"        point_layers=tuple(projected_point_layers),\n"
+                ),
+            ),
             (
                 (
                     b"from .io import _regular_absolute_directory, _required_text\n"

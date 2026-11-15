@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections.abc import Callable, Iterable
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import copy
+from hashlib import sha256
 import json
 import time
 from urllib.error import HTTPError, URLError
@@ -18,6 +19,7 @@ __all__ = [
     "neotoma_download_dataset_id",
     "neotoma_retryable_error",
     "validate_neotoma_download_coverage",
+    "validate_neotoma_selected_download",
 ]
 
 
@@ -193,6 +195,58 @@ def neotoma_download_dataset_id(
     return next(iter(identities)) if len(identities) == 1 else None
 
 
+def validate_neotoma_selected_download(
+    download_row: object,
+    *,
+    expected_dataset_id: int,
+    expected_site_id: int,
+    expected_collection_unit_id: int,
+    expected_dataset_type: str,
+    expected_database: str,
+) -> None:
+    """Bind both dataset metadata paths to the caller's declared site and core."""
+    if any(
+        type(value) is not int or value <= 0
+        for value in (
+            expected_dataset_id,
+            expected_site_id,
+            expected_collection_unit_id,
+        )
+    ) or any(
+        not isinstance(value, str) or not value.strip()
+        for value in (expected_dataset_type, expected_database)
+    ):
+        raise ValueError("Neotoma selected download expectations are invalid")
+    if (
+        neotoma_download_dataset_id(download_row, clean_optional_text_fn=str)
+        != expected_dataset_id
+    ):
+        raise ValueError("Neotoma selected download dataset identities differ")
+    if not isinstance(download_row, dict) or not isinstance(
+        site := download_row.get("site"), dict
+    ):
+        raise ValueError("Neotoma selected download site is missing")
+    unit = site.get("collectionunit")
+    if not isinstance(unit, dict):
+        raise ValueError("Neotoma selected download collection unit is missing")
+    if type(site.get("siteid")) is not int or site["siteid"] != expected_site_id:
+        raise ValueError("Neotoma selected download site owner differs")
+    if (
+        type(unit.get("collectionunitid")) is not int
+        or unit["collectionunitid"] != expected_collection_unit_id
+    ):
+        raise ValueError("Neotoma selected download collection-unit owner differs")
+    for dataset in (site.get("dataset"), unit.get("dataset")):
+        if (
+            not isinstance(dataset, dict)
+            or dataset.get("datasettype") != expected_dataset_type
+            or dataset.get("database") != expected_database
+        ):
+            raise ValueError(
+                "Neotoma selected download source type or database differs"
+            )
+
+
 def fetch_neotoma_api_rows(
     endpoint: str,
     *,
@@ -200,27 +254,53 @@ def fetch_neotoma_api_rows(
     fetch_neotoma_api_payload_fn: Callable[..., dict[str, object]],
     neotoma_datasettype: str,
     neotoma_limit: int,
+    max_pages: int = 256,
 ) -> list[object]:
-    """Fetch all rows from one Neotoma data endpoint with stable chunked pagination."""
+    """Require bounded, non-overlapping pages and successful short-page termination."""
+    if (
+        isinstance(neotoma_limit, bool)
+        or not isinstance(neotoma_limit, int)
+        or not 1 <= neotoma_limit <= 10000
+    ):
+        raise ValueError("Neotoma page limit must be an integer in 1..10000")
+    if isinstance(max_pages, bool) or not isinstance(max_pages, int) or max_pages < 1:
+        raise ValueError("Neotoma page budget must be a positive integer")
+    if extra_params and {"limit", "offset"}.intersection(extra_params):
+        raise ValueError("Neotoma extra parameters cannot override owned pagination")
     rows: list[object] = []
-    offset = 0
-    while True:
+    seen_rows: set[str] = set()
+    seen_units: set[int] = set()
+    for page in range(max_pages):
         params = {
             "datasettype": neotoma_datasettype,
             "limit": str(neotoma_limit),
-            "offset": str(offset),
+            "offset": str(page * neotoma_limit),
         }
         if extra_params:
             params.update(extra_params)
         payload = fetch_neotoma_api_payload_fn(endpoint, params=params)
         chunk = _validated_neotoma_rows(payload)
-        if not chunk:
-            break
+        if len(chunk) > neotoma_limit:
+            raise ValueError("Neotoma response exceeds its requested page limit")
+        for row in chunk:
+            fingerprint = sha256(
+                json.dumps(row, sort_keys=True, allow_nan=False).encode()
+            ).hexdigest()
+            if fingerprint in seen_rows:
+                raise ValueError("Neotoma pagination contains duplicate source rows")
+            seen_rows.add(fingerprint)
+            site = row.get("site")
+            unit = site.get("collectionunitid") if isinstance(site, dict) else None
+            if isinstance(unit, int) and not isinstance(unit, bool):
+                if unit in seen_units:
+                    raise ValueError(
+                        "Neotoma pagination repeats a native collection unit"
+                    )
+                seen_units.add(unit)
         rows.extend(chunk)
         if len(chunk) < neotoma_limit:
-            break
-        offset += neotoma_limit
-    return rows
+            return rows
+    raise ValueError("Neotoma page budget exhausted without short-page termination")
 
 
 def fetch_neotoma_api_payload(

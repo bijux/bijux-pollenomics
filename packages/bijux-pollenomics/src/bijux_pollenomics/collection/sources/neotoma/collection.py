@@ -2,13 +2,14 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 import copy
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import date
 import json
 from pathlib import Path
 
 from ....core.files import write_json
 from ....core.http import fetch_json
+from ....core.owned_tree import build_staging_output_dir, publish_new_output_tree
 from ....core.text import clean_optional_text
 from ...contracts.artifacts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
 from ...exports.context_points import (
@@ -267,8 +268,39 @@ def collect_neotoma_data(
     country_boundaries: Mapping[str, Mapping[str, object]],
     bbox: tuple[float, float, float, float],
 ) -> NeotomaDataReport:
-    """Download and write the Neotoma dataset under data/neotoma."""
-    output_root = Path(output_root)
+    """Publish one complete collection to an absent output directory.
+
+    Recollection creates a separate source epoch. Existing source or derived
+    trees and interrupted staging remain available for explicit reconciliation.
+    """
+    final = Path(output_root).absolute()
+    if any(path.is_symlink() for path in (final, *final.parents)):
+        raise ValueError("Neotoma collection cannot use symlink output paths")
+    if final != final.resolve(strict=False):
+        raise ValueError("Neotoma collection output must use its physical path")
+    if final.exists():
+        raise FileExistsError(f"Neotoma collection output already exists: {final}")
+    final.parent.mkdir(parents=True, exist_ok=True)
+    staging = build_staging_output_dir(final)
+    staging.mkdir(exist_ok=False)
+    report = _collect_neotoma_data_into_dir(staging, country_boundaries, bbox)
+    publish_new_output_tree(final_output_root=final, staging_output_root=staging)
+    return replace(
+        report,
+        output_dir=final,
+        raw_path=final / report.raw_path.relative_to(staging),
+        normalized_csv_path=final / report.normalized_csv_path.relative_to(staging),
+        normalized_geojson_path=final
+        / report.normalized_geojson_path.relative_to(staging),
+    )
+
+
+def _collect_neotoma_data_into_dir(
+    output_root: Path,
+    country_boundaries: Mapping[str, Mapping[str, object]],
+    bbox: tuple[float, float, float, float],
+) -> NeotomaDataReport:
+    """Build only within the source owner's exclusively created staging tree."""
     raw_dir = output_root / "raw"
     normalized_dir = output_root / "normalized"
     raw_dir.mkdir(parents=True, exist_ok=True)

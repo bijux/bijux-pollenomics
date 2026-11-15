@@ -19,15 +19,23 @@ def collect_context_source(
 ) -> dict[str, int]:
     """Collect one context source and return the counts it contributes."""
     source_output_root = output_root / spec.output_dir_name
-    report = collect_into_staging_dir(
-        final_output_root=source_output_root,
-        collect=lambda staging_root: collect_context_source_into_dir(
+    if spec.owns_output_publication:
+        report = collect_context_source_into_dir(
             spec=spec,
             collect_function=collect_function,
-            source_output_root=staging_root,
+            source_output_root=source_output_root,
             country_boundaries=country_boundaries,
-        ),
-    )
+        )
+    else:
+        report = collect_into_staging_dir(
+            final_output_root=source_output_root,
+            collect=lambda staging_root: collect_context_source_into_dir(
+                spec=spec,
+                collect_function=collect_function,
+                source_output_root=staging_root,
+                country_boundaries=country_boundaries,
+            ),
+        )
     return {
         summary_field: int(getattr(report, report_field))
         for summary_field, report_field in spec.count_attributes
@@ -41,7 +49,7 @@ def collect_context_source_into_dir(
     source_output_root: Path,
     country_boundaries: dict[str, dict[str, object]],
 ) -> object:
-    """Collect one context source into a prepared directory."""
+    """Invoke a collector at the directory governed by its publication owner."""
     collect_kwargs = {
         "output_root": source_output_root,
         "country_boundaries": country_boundaries,

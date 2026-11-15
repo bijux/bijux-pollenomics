@@ -11,6 +11,10 @@ import math
 from pathlib import Path
 from typing import Any
 
+from bijux_pollenomics.collection.sources.neotoma.relational.chronology import (
+    require_neotoma_point_age,
+)
+
 from .landclim_taxonomy_mass import LOOKUP, LOOKUP_SHA256, _lookup
 from .nordic_author_target_pollen import (
     _compressed_write,
@@ -69,9 +73,17 @@ def _claims_for_samples(
             and row["source_age_type"] == "Calibrated radiocarbon years BP"
         ):
             continue
-        age = row["source_age_value"]
-        if not isinstance(age, (int, float)) or not math.isfinite(float(age)):
-            raise ValueError(f"Selected age is not finite: {sample_id}")
+        try:
+            require_neotoma_point_age(
+                row["source_age_value"],
+                younger_bp=row.get("younger_bp"),
+                older_bp=row.get("older_bp"),
+                require_bounds=True,
+            )
+        except ValueError as error:
+            raise ValueError(
+                f"Selected age is invalid ({error}): {sample_id}"
+            ) from error
         if sample_id in claims:
             raise ValueError(f"Multiple selected ages: {sample_id}")
         claims[sample_id] = row

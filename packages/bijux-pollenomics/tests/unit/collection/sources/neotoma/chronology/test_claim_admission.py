@@ -135,3 +135,60 @@ def test_legitimate_point_and_interval_age_sources_keep_their_original_posture(
         (1150, 1250) if bounds == "numeric" else (0, 0)
     )
     assert claim["source_payload"] == age
+
+
+@pytest.mark.parametrize(
+    ("point", "reason"),
+    [
+        (True, "invalid_point_age"),
+        (5000, "point_outside_interval"),
+        (-5, "negative_bp"),
+    ],
+)
+def test_present_invalid_point_cannot_acquire_comparable_bounds(
+    point: object, reason: str
+) -> None:
+    row = download_row()
+    sample = rows(nested(row, "site", "collectionunit", "dataset")["samples"])[0]
+    age = mapping(rows(sample["ages"])[0])
+    age["age"] = point
+    raw = copy.deepcopy(age)
+    payload = build_neotoma_relational_snapshot(
+        [row], source_snapshot_id="sha256:fixture", build_id="fixture-build"
+    )
+    claim = next(
+        c
+        for c in rows(payload["age_claims"])
+        if c["source_age_type"] == "Calibrated radiocarbon years BP"
+    )
+    assert claim["comparability_status"] == "refused"
+    assert claim["admission_reason"] == claim["refusal_reason"] == reason
+    assert claim["younger_bp"] is claim["older_bp"] is None
+    assert claim["source_age_value"] == point
+    assert type(claim["source_age_value"]) is type(point)
+    assert claim["source_payload"] == raw
+
+
+@pytest.mark.parametrize("point_present", [True, False])
+def test_valid_bound_only_claim_does_not_manufacture_a_point_age(
+    point_present: bool,
+) -> None:
+    row = download_row()
+    sample = rows(nested(row, "site", "collectionunit", "dataset")["samples"])[0]
+    age = mapping(rows(sample["ages"])[0])
+    if point_present:
+        age["age"] = None
+    else:
+        age.pop("age")
+    payload = build_neotoma_relational_snapshot(
+        [row], source_snapshot_id="sha256:fixture", build_id="fixture-build"
+    )
+    claim = next(
+        c
+        for c in rows(payload["age_claims"])
+        if c["source_age_type"] == "Calibrated radiocarbon years BP"
+    )
+    assert claim["comparability_status"] == "comparable"
+    assert (claim["younger_bp"], claim["older_bp"]) == (1150, 1250)
+    assert claim["source_age_value"] is None
+    assert claim["source_payload"] == age

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter, defaultdict
+from collections.abc import Mapping
 import csv
 import hashlib
 import json
@@ -27,9 +28,17 @@ from bijux_pollenomics.analysis.lra_validation.spatial import (
     half_count_composition,
 )
 from bijux_pollenomics.analysis.lra_validation.spatial.configuration import distance_km
+from bijux_pollenomics.collection.sources.neotoma.client import (
+    validate_neotoma_selected_download,
+)
+from bijux_pollenomics.collection.sources.neotoma.relational.chronology import (
+    require_neotoma_point_age,
+)
 from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
     is_native_pollen,
 )
+
+from .swedish_direct_pollen import DATASETS as SWEDISH_SOURCE_DATASETS
 
 BASELINE_METHODS: tuple[
     Literal["training_mean"],
@@ -43,9 +52,7 @@ BASELINE_METHODS: tuple[
 METHODS = BASELINE_METHODS + ("clr_rbf_ridge",)
 COUNTRIES = ("DK", "FI", "NO")
 SWEDISH_DATASETS = {
-    "19913": {"label": "Abborrtjärnen", "site_id": "13338", "part": "part-004.json"},
-    "53995": {"label": "Bussjösjön", "site_id": "28869", "part": "part-008.json"},
-    "54001": {"label": "Bökesjön", "site_id": "28872", "part": "part-008.json"},
+    dataset_id: dict(spec) for dataset_id, spec in SWEDISH_SOURCE_DATASETS.items()
 }
 TAXA = (
     "Alnus",
@@ -82,8 +89,21 @@ def _sha(path: Path) -> str:
     return digest.hexdigest()
 
 
-def _read_rows(path: Path) -> list[dict[str, Any]]:
-    payload = json.loads(path.read_text(encoding="utf-8"))
+def _read_source_bytes(path: Path, expected_sha256: str | None = None) -> bytes:
+    """Verify the exact source buffer that the consumer will parse."""
+    body = path.read_bytes()
+    if (
+        expected_sha256 is not None
+        and hashlib.sha256(body).hexdigest() != expected_sha256
+    ):
+        raise ValueError(f"Neotoma source digest mismatch: {path}")
+    return body
+
+
+def _read_rows(
+    path: Path, *, expected_sha256: str | None = None
+) -> list[dict[str, Any]]:
+    payload = json.loads(_read_source_bytes(path, expected_sha256).decode("utf-8"))
     if not isinstance(payload, dict):
         raise ValueError(f"invalid Neotoma source table: {path}")
     if payload.get("source_snapshot_id") != SOURCE_SNAPSHOT:
@@ -94,6 +114,44 @@ def _read_rows(path: Path) -> list[dict[str, Any]]:
     if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
         raise ValueError(f"unexpected Neotoma row shape: {path}")
     return [dict(row) for row in rows]
+
+
+def _prepared_relational_file_pins(
+    relational_root: Path, declared: object
+) -> dict[str, str]:
+    """Require the prepared manifest and every declared scoring source to remain fixed."""
+    if (
+        not isinstance(declared, dict)
+        or not declared
+        or "manifest.json" not in declared
+    ):
+        raise ValueError("Neotoma prepared source pins are missing")
+    pins: dict[str, str] = {}
+    manifest_body = b""
+    for relative, checksum in declared.items():
+        if (
+            not isinstance(relative, str)
+            or not relative
+            or Path(relative).is_absolute()
+            or ".." in Path(relative).parts
+            or not isinstance(checksum, str)
+            or len(checksum) != 64
+            or any(character not in "0123456789abcdef" for character in checksum)
+        ):
+            raise ValueError("Neotoma prepared source pin is invalid")
+        body = _read_source_bytes(relational_root / relative, checksum)
+        pins[relative] = checksum
+        if relative == "manifest.json":
+            manifest_body = body
+    manifest = json.loads(manifest_body)
+    required = {
+        part["path"]
+        for name in ("samples", "age_claims", "observations")
+        for part in manifest["surfaces"][name]["parts"]
+    }
+    if not required.issubset(pins):
+        raise ValueError("Neotoma prepared source pins omit a scoring surface")
+    return pins
 
 
 def _json_write(path: Path, value: Any) -> None:
@@ -211,6 +269,15 @@ def _swedish_training(
             dataset_id = str(dataset.get("datasetid"))
             if dataset_id not in wanted:
                 continue
+            spec = SWEDISH_DATASETS[dataset_id]
+            validate_neotoma_selected_download(
+                row,
+                expected_dataset_id=int(dataset_id),
+                expected_site_id=int(spec["site_id"]),
+                expected_collection_unit_id=int(spec["collection_unit_id"]),
+                expected_dataset_type=spec["dataset_type"],
+                expected_database=spec["database"],
+            )
             if dataset_id in records:
                 raise ValueError(f"duplicate Swedish Neotoma dataset {dataset_id}")
             records[dataset_id] = {"site": site, "dataset": dataset}
@@ -245,9 +312,14 @@ def _swedish_training(
                 raise ValueError(
                     f"Swedish sample lacks its admitted calibrated BP age: {dataset_id}"
                 )
-            age = float(ages[0]["age"])
-            if not math.isfinite(age):
-                raise ValueError("Swedish sample age is not finite")
+            age = float(
+                require_neotoma_point_age(
+                    ages[0]["age"],
+                    younger_bp=ages[0].get("ageyounger"),
+                    older_bp=ages[0].get("ageolder"),
+                    allow_negative_bp=True,
+                )
+            )
             all_ages.append(age)
             bin_id = str(math.floor(age / AGE_WIDTH))
             seen: set[str] = set()
@@ -337,7 +409,7 @@ def _neotoma_candidates(
             if digest != part["sha256"]:
                 raise ValueError(f"Neotoma manifest digest mismatch: {part['path']}")
             file_hashes[part["path"]] = digest
-            result.extend(_read_rows(path))
+            result.extend(_read_rows(path, expected_sha256=part["sha256"]))
         if len(result) != surface["row_count"]:
             raise ValueError(f"Neotoma surface count mismatch: {name}")
         return result
@@ -412,11 +484,17 @@ def _neotoma_candidates(
             age_type = claim["source_age_type"]
             if age_type not in {"Calibrated radiocarbon years BP", "Calendar years BP"}:
                 raise ValueError(f"unsupported comparable BP basis: {age_type}")
-            value = claim["source_age_value"]
-            if not isinstance(value, (int, float)) or not math.isfinite(float(value)):
-                raise ValueError(
-                    f"candidate sample has no finite comparable age: {sample_id}"
+            try:
+                value = require_neotoma_point_age(
+                    claim["source_age_value"],
+                    younger_bp=claim.get("younger_bp"),
+                    older_bp=claim.get("older_bp"),
+                    require_bounds=True,
                 )
+            except ValueError as error:
+                raise ValueError(
+                    f"candidate sample has invalid comparable age ({error}): {sample_id}"
+                ) from error
             age_basis_by_sample[sample_id] = (float(value), age_type)
             sample_row = sample_by_id[sample_id]
             dataset = dataset_by_id[sample_row["dataset_id"]]
@@ -794,18 +872,41 @@ def predict_country(workdir: Path, country: str) -> None:
 
 
 def _nordic_target_outcomes(
-    relational_root: Path, country: str, metadata: dict[str, Any]
+    relational_root: Path,
+    country: str,
+    metadata: dict[str, Any],
+    *,
+    prepared_file_sha256: Mapping[str, str] | None = None,
 ) -> dict[str, Any]:
     manifest = json.loads(
-        (relational_root / "manifest.json").read_text(encoding="utf-8")
+        _read_source_bytes(
+            relational_root / "manifest.json",
+            prepared_file_sha256["manifest.json"]
+            if prepared_file_sha256 is not None
+            else None,
+        ).decode("utf-8")
     )
+
+    def source_part_rows(part: dict[str, Any]) -> list[dict[str, Any]]:
+        if (
+            prepared_file_sha256 is not None
+            and prepared_file_sha256.get(part["path"]) != part["sha256"]
+        ):
+            raise ValueError(f"Neotoma prepared part digest mismatch: {part['path']}")
+        return _read_rows(
+            relational_root / part["path"], expected_sha256=part["sha256"]
+        )
+
+    def source_surface_rows(name: str) -> list[dict[str, Any]]:
+        spec = manifest["surfaces"][name]
+        rows = [row for part in spec["parts"] for row in source_part_rows(part)]
+        if len(rows) != spec["row_count"]:
+            raise ValueError(f"Neotoma scoring surface row count differs: {name}")
+        return rows
+
     surface = manifest["surfaces"]["observations"]
-    samples = _read_rows(
-        relational_root / manifest["surfaces"]["samples"]["parts"][0]["path"]
-    )
-    ages = _read_rows(
-        relational_root / manifest["surfaces"]["age_claims"]["parts"][0]["path"]
-    )
+    samples = source_surface_rows("samples")
+    ages = source_surface_rows("age_claims")
     selected_age_claim_ids = metadata["selected_age_claim_ids"]
     age_by_sample = {
         row["subject_id"]: row
@@ -816,26 +917,34 @@ def _nordic_target_outcomes(
     }
     if set(age_by_sample) != set(selected_age_claim_ids):
         raise ValueError("selected target age-claim identities changed before scoring")
+    age_points = {
+        sample_id: float(
+            require_neotoma_point_age(
+                claim["source_age_value"],
+                younger_bp=claim.get("younger_bp"),
+                older_bp=claim.get("older_bp"),
+                require_bounds=True,
+            )
+        )
+        for sample_id, claim in age_by_sample.items()
+    }
     sample_by_id = {row["sample_id"]: row for row in samples}
     outcome_ids: set[str] = set()
     for site in metadata["sites"]:
         outcome_ids.update(site["candidate_sample_ids"])
     by_site_bin: dict[str, dict[str, Any]] = defaultdict(_empty_bin)
+    observation_rows = 0
     for part in surface["parts"]:
-        path = relational_root / part["path"]
-        if _sha(path) != part["sha256"]:
-            raise ValueError(
-                f"Neotoma observation part digest mismatch: {part['path']}"
-            )
-        for row in _read_rows(path):
+        rows = source_part_rows(part)
+        observation_rows += len(rows)
+        for row in rows:
             sample_id = row["sample_id"]
             if sample_id not in outcome_ids:
                 continue
             if not _is_direct_pollen_count(row):
                 continue
             sample = sample_by_id[sample_id]
-            claim = age_by_sample[sample_id]
-            age = float(claim["source_age_value"])
+            age = age_points[sample_id]
             bin_id = str(math.floor(age / AGE_WIDTH))
             key = f"{sample['site_id']}:{bin_id}"
             cell = by_site_bin[key]
@@ -844,12 +953,17 @@ def _nordic_target_outcomes(
             if row["source_reported_name"] in TAXA:
                 cell["counts"][row["source_reported_name"]] += row["source_value"]
             cell["closed_nisp"] = sum(cell["counts"].values())
+    if observation_rows != surface["row_count"]:
+        raise ValueError("Neotoma scoring surface row count differs: observations")
     return {"country": country, "sites": dict(by_site_bin)}
 
 
 def score(relational_root: Path, workdir: Path, publish_dir: Path) -> None:
     """Score frozen Nordic predictions on paired country support."""
     input_manifest = json.loads((workdir / "input-manifest.json").read_text())
+    prepared_pins = _prepared_relational_file_pins(
+        relational_root, input_manifest.get("relational_file_sha256")
+    )
     prediction_payloads: dict[str, dict[str, Any]] = {}
     prediction_hashes: dict[str, str] = {}
     target_metadata = json.loads((workdir / "target-metadata.json").read_text())
@@ -863,7 +977,10 @@ def score(relational_root: Path, workdir: Path, publish_dir: Path) -> None:
 
     target_outcomes = {
         country: _nordic_target_outcomes(
-            relational_root, country, target_metadata[country]
+            relational_root,
+            country,
+            target_metadata[country],
+            prepared_file_sha256=prepared_pins,
         )
         for country in COUNTRIES
     }
@@ -1015,6 +1132,7 @@ def score(relational_root: Path, workdir: Path, publish_dir: Path) -> None:
                     ),
                 }
             )
+    _prepared_relational_file_pins(relational_root, prepared_pins)
     _csv_write(workdir / "scores.csv", scores)
     _csv_write(workdir / "site-scores.csv", stats)
     _csv_write(workdir / "coverage.csv", coverage_rows)

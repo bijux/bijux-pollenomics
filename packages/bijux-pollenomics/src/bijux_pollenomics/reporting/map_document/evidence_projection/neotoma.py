@@ -362,17 +362,33 @@ def _project_neotoma(
             "Neotoma map and governed-country relational site identities do not "
             "reconcile"
         )
-    detail_row_counts = {
-        "collection_units": sum(len(rows) for rows in collection_rows.values()),
-        "datasets": sum(len(rows) for rows in dataset_rows.values()),
-        "samples": sum(len(rows) for rows in sample_rows.values()),
-        "age_claims": sum(len(rows) for rows in age_rows.values()),
-        "observations": sum(len(rows) for rows in observation_rows.values()),
-        "variables": len(variables),
+    detail_surface_names = (
+        "collection_units",
+        "datasets",
+        "samples",
+        "age_claims",
+        "observations",
+        *(name for name in ("chronologies", "chronology_controls") if name in surfaces),
+    )
+    detail_row_denominators = {
+        name: len(surfaces[name]) for name in detail_surface_names
     }
-    for name in ("chronologies", "chronology_controls"):
-        if name in surfaces:
-            detail_row_counts[name] = len(surfaces[name])
+    detail_row_counts = {
+        name: sum(row.get("site_id") in observed_sites for row in surfaces[name])
+        for name in detail_surface_names
+    }
+    projected_variable_ids = {
+        _required_text(row[2], "Neotoma observation variable ID")
+        for site_id in observed_sites
+        for row in observation_rows[site_id]
+    }
+    # A shared variable is one native identity even when multiple sites use it.
+    detail_row_denominators["variables"] = len(variables)
+    detail_row_counts["variables"] = len(projected_variable_ids)
+    excluded_detail_row_counts = {
+        name: denominator - detail_row_counts[name]
+        for name, denominator in detail_row_denominators.items()
+    }
     source_node_result = derive_neotoma_source_chronology_nodes(
         observations=surfaces["observations"],
         samples=surfaces["samples"],
@@ -411,7 +427,12 @@ def _project_neotoma(
         "build_id": build_id,
         "materialization_sha256": materialization_sha256,
         "detail_row_counts": detail_row_counts,
-        "detail_row_denominators": dict(detail_row_counts),
+        "detail_row_denominators": detail_row_denominators,
+        "excluded_detail_row_counts": excluded_detail_row_counts,
+        "detail_row_exclusion_reason_code": "site_without_governed_country_assignment",
+        "variable_count_semantics": (
+            "unique_variable_ids; excluded_counts_include_only_ids_absent_from_projected_sites"
+        ),
         "source_chronology": source_projection.reconciliation,
     }
     return (

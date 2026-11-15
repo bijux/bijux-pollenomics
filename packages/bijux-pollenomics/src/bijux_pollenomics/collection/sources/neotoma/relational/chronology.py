@@ -150,7 +150,55 @@ def age_temporal_posture(age: Mapping[str, object]) -> dict[str, object]:
         return temporal_result(
             calibration_status, "refused", None, None, "reversed_interval"
         )
+    if age.get("age") is not None:
+        try:
+            require_neotoma_point_age(
+                age["age"], younger_bp=younger, older_bp=older, require_bounds=True
+            )
+        except ValueError as error:
+            return temporal_result(
+                calibration_status, "refused", None, None, str(error)
+            )
     return temporal_result(calibration_status, "comparable", younger, older, None)
+
+
+def require_neotoma_point_age(
+    value: object,
+    *,
+    younger_bp: object = None,
+    older_bp: object = None,
+    allow_negative_bp: bool = False,
+    require_bounds: bool = False,
+) -> int | float:
+    """Require a finite point within its declared bounds before age-bin assignment.
+
+    Signed native points require an explicit source profile. Comparable claims
+    require their admitted interval; a bound-only claim supplies no point here.
+    """
+    point = finite_number(value)
+    if point is None:
+        raise ValueError("invalid_point_age")
+    younger, older = finite_number(younger_bp), finite_number(older_bp)
+    if (younger_bp is not None and younger is None) or (
+        older_bp is not None and older is None
+    ):
+        raise ValueError("invalid_interval_bound")
+    if (younger is None) != (older is None):
+        raise ValueError("partial_interval")
+    if require_bounds and younger is None:
+        raise ValueError("missing_comparable_interval")
+    if not allow_negative_bp and (
+        point < 0
+        or (younger is not None and younger < 0)
+        or (older is not None and older < 0)
+    ):
+        raise ValueError("negative_bp")
+    if younger is not None and older is not None:
+        if younger > older:
+            raise ValueError("reversed_interval")
+        if not younger <= point <= older:
+            raise ValueError("point_outside_interval")
+    return point
 
 
 def temporal_result(
@@ -172,6 +220,10 @@ def temporal_result(
 def finite_number(value: object) -> int | float | None:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         return None
-    if not math.isfinite(value):
+    try:
+        finite = math.isfinite(value)
+    except OverflowError:
+        return None
+    if not finite:
         return None
     return value

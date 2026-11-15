@@ -11,6 +11,10 @@ import math
 from pathlib import Path
 from typing import Any
 
+from bijux_pollenomics.collection.sources.neotoma.relational.chronology import (
+    require_neotoma_point_age,
+)
+
 from .landclim_taxonomy_mass import LOOKUP, LOOKUP_SHA256, _lookup
 from .nordic_author_target_pollen import (
     _compressed_write,
@@ -45,11 +49,17 @@ def _selected_claims(ages: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
         ):
             continue
         sample_id = row["subject_id"]
-        age = row["source_age_value"]
-        if not isinstance(age, (float, int)) or not math.isfinite(age) or age < 0:
-            raise ValueError(
-                f"Selected source age is not finite nonnegative BP: {sample_id}"
+        try:
+            require_neotoma_point_age(
+                row["source_age_value"],
+                younger_bp=row.get("younger_bp"),
+                older_bp=row.get("older_bp"),
+                require_bounds=True,
             )
+        except ValueError as error:
+            raise ValueError(
+                f"Selected source age is not finite nonnegative BP ({error}): {sample_id}"
+            ) from error
         if sample_id in selected:
             raise ValueError(f"Multiple source-default calibrated ages: {sample_id}")
         selected[sample_id] = row

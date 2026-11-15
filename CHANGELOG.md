@@ -2,6 +2,28 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#427](https://github.com/bijux/bijux-pollenomics/pull/427) — Neotoma archive and metadata source custody
+
+- Reconcile and stage Neotoma archive members before replacement of an authenticated
+  owned archive. Publish complete collections only to absent roots, preserving prior
+  source epochs and interrupted attempts; bind selected pollen to declared
+  dataset/site/core/type/database owners.
+- Add bounded metadata capture and read-only replay with exact entities,
+  request/response receipts, duplicate headers, verified TLS, finite budgets and
+  complete source-plan closure. Retain linked-resource identities and refuse
+  overlapping/oversized pagination or missing successful termination.
+- Validate finite point ages and declared bounds before chronological binning,
+  retaining explicit signed-source policy. Preserve the prepared source epoch during
+  Nordic scoring and refuse changed, missing or substituted custody.
+- Reconcile Atlas relational denominators with projected/excluded populations and
+  unique shared-variable identities. Preserve lazy source chronology exports and
+  source locators, and restore shared point focus after selection settles without
+  silently dropping its identity.
+- Authenticate the accepted assembly-helper extraction through literal inverse spans
+  and complete fixed-original byte equality. Retain negative controls for changed
+  helper bodies, foreign/counterfeit source bytes and incomplete span composition;
+  this does not grant broader historical scientific qualification.
+
 ### [#426](https://github.com/bijux/bijux-pollenomics/pull/426) — Neotoma response ownership and pollen specimen admission
 
 - Preserve TLS certificate verification and refuse unsuccessful or malformed Neotoma

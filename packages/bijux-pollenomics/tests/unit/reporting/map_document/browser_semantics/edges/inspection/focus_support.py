@@ -110,7 +110,7 @@ const sidebar={classList:{contains(){return false}}},legendCollapsed=true,native
 const TIME_HAS_DATA=false,signedNativeTime=null,modeledContextActive=false;
 function currentModeledContextWindow(){return null}function defaultPanelCollapsed(){return false}
 const DETAIL_TAB_DEFINITIONS=[['overview','Overview'],['relation','Relation'],['provenance','Provenance']];
-let savedHash='',pendingEdgeFocus=null,focusState=null,activeFocusTab='overview',focusCardReturnFocus=null,mobilePanelReturnFocus=null;
+let savedHash='',pendingEdgeFocus=null,pendingPointFocus=null,unresolvedPointFocus=null,focusState=null,activeFocusTab='overview',focusCardReturnFocus=null,mobilePanelReturnFocus=null;
 const atlasURLState={canPublish(){return true},publish(hash){savedHash=hash}};
 const focusCard={hidden:true,contains(){return false}},focusTabs={contains(){return false},querySelectorAll(){return []},querySelector(){return {focus(){}}}},detailTablePages=new Map();
 const DETAIL_TABLE_PAGE_SIZE=25;
