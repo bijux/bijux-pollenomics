@@ -1,0 +1,360 @@
+{
+  "historical_snapshot_replaced": false,
+  "input_captures": [],
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 48,
+    "max_response_bytes": 33554432,
+    "max_total_bytes": 67108864,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 300
+  },
+  "plan": {
+    "policy_sources": [
+      "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+      "https://epdweblog.org/epd_data_home/epd_policy/"
+    ],
+    "resources": [
+      {
+        "collection_unit_id": 34890,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48434,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1250/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27197,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34891,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48435,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1251/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27197,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34892,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48436,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1252/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27197,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34893,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48437,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1253/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27197,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34894,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48438,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1254/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27197,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34895,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48439,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1255/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27197,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34896,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48440,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1256/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27197,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34897,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48441,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1257/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27197,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34898,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48442,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1258/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27197,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34899,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48443,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1259/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27197,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34911,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48458,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1270/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34912,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48459,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1271/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34913,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48460,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1272/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34914,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48461,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1273/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34915,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48462,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1274/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34916,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48463,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1275/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34917,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48464,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1276/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34918,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48465,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1277/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34919,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48466,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1278/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34920,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48467,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1279/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34921,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48468,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1280/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34922,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48469,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1281/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34923,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48470,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1282/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 34924,
+        "database": "Neotoma Testate Amoebae Database",
+        "dataset_id": 48471,
+        "dataset_type": "testate amoebae surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1283/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 27199,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      }
+    ],
+    "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4"
+  },
+  "retry_failed": false,
+  "schema_version": "neotoma-resource-http-capture.v1"
+}

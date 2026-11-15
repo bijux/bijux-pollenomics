@@ -1,0 +1,1647 @@
+{
+  "all_resources_parsed": false,
+  "capture_utc_end": "2026-11-15T02:58:41.299930+00:00",
+  "capture_utc_start": "2026-11-15T02:58:09.772893+00:00",
+  "partitions": {
+    "not_attempted_exposure_role": 2,
+    "parsed_native": 23,
+    "unresolved_frozen_schema": 23
+  },
+  "plan_sha256": "c06a58843c0649c743cabc64d1f04979505081c3762d505228dc58aadcd8c51e",
+  "request_count": 46,
+  "resources": [
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-21789-current-attempt-1.body",
+          "receipt_file": "dataset-21789-current-attempt-1.receipt.json",
+          "receipt_sha256": "27b46d51024f554fe4cc8a13c4b3df95d636e4e79d30314900eaa8023c5c7695",
+          "request_name": "dataset-21789-current-attempt-1"
+        }
+      ],
+      "dataset_id": 21789,
+      "identity": {
+        "collection_unit_id": 15810,
+        "database": "European Pollen Database",
+        "dataset_id": 21789,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "1f56bf3356753448a54fbcb77facfb8339d42ac5c109d39920c1b6fba22e5938",
+        "site_id": 14040
+      },
+      "resource_key": "dataset-21789-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-21789-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-21789-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "2c62c1d5edaa8867149f75b6af5b3602f17f1da1fd2e1e4fa1536c50587d25ec",
+          "request_name": "dataset-21789-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 21789,
+      "identity": {
+        "collection_unit_id": 15810,
+        "database": "European Pollen Database",
+        "dataset_id": 21789,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "1f56bf3356753448a54fbcb77facfb8339d42ac5c109d39920c1b6fba22e5938",
+        "site_id": 14040
+      },
+      "resource_key": "dataset-21789-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-21790-current-attempt-1.body",
+          "receipt_file": "dataset-21790-current-attempt-1.receipt.json",
+          "receipt_sha256": "55f0cc7d46b3c63a852142e322c3f46c2db827b3266ece027eaae6c3f85a14bc",
+          "request_name": "dataset-21790-current-attempt-1"
+        }
+      ],
+      "dataset_id": 21790,
+      "identity": {
+        "collection_unit_id": 15810,
+        "database": "European Pollen Database",
+        "dataset_id": 21790,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "1f56bf3356753448a54fbcb77facfb8339d42ac5c109d39920c1b6fba22e5938",
+        "site_id": 14040
+      },
+      "resource_key": "dataset-21790-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 2699,
+        "identified_samples": 101,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 101,
+        "source_units": [
+          "NISP"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-21790-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-21790-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "f96f46288ed09010a65fc3f8f76283fa70a85907716fa8343b8a9a30b0602ae9",
+          "request_name": "dataset-21790-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 21790,
+      "identity": {
+        "collection_unit_id": 15810,
+        "database": "European Pollen Database",
+        "dataset_id": 21790,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "1f56bf3356753448a54fbcb77facfb8339d42ac5c109d39920c1b6fba22e5938",
+        "site_id": 14040
+      },
+      "resource_key": "dataset-21790-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-21819-current-attempt-1.body",
+          "receipt_file": "dataset-21819-current-attempt-1.receipt.json",
+          "receipt_sha256": "7ab1f43530cde783477ec8a48ba9b962552ac4debdd4292c59a5b19f2c1eeb71",
+          "request_name": "dataset-21819-current-attempt-1"
+        }
+      ],
+      "dataset_id": 21819,
+      "identity": {
+        "collection_unit_id": 15826,
+        "database": "European Pollen Database",
+        "dataset_id": 21819,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "e0c1246bea63ac3d2df5a6a2859d6d6b29a5d59db5a51b6fc4cc1d55d1770212",
+        "site_id": 14054
+      },
+      "resource_key": "dataset-21819-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-21819-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-21819-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "15ba03b7a0f9f6a8a32f91af8a09430dd692c2796a88d1a03e9fa208879f6a72",
+          "request_name": "dataset-21819-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 21819,
+      "identity": {
+        "collection_unit_id": 15826,
+        "database": "European Pollen Database",
+        "dataset_id": 21819,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "e0c1246bea63ac3d2df5a6a2859d6d6b29a5d59db5a51b6fc4cc1d55d1770212",
+        "site_id": 14054
+      },
+      "resource_key": "dataset-21819-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-21820-current-attempt-1.body",
+          "receipt_file": "dataset-21820-current-attempt-1.receipt.json",
+          "receipt_sha256": "519f291932202e0cc0a3745936f71915b816b65c0244e07c968c6f0e7b5cc34c",
+          "request_name": "dataset-21820-current-attempt-1"
+        }
+      ],
+      "dataset_id": 21820,
+      "identity": {
+        "collection_unit_id": 15826,
+        "database": "European Pollen Database",
+        "dataset_id": 21820,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "e0c1246bea63ac3d2df5a6a2859d6d6b29a5d59db5a51b6fc4cc1d55d1770212",
+        "site_id": 14054
+      },
+      "resource_key": "dataset-21820-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 361,
+        "identified_samples": 16,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 16,
+        "source_units": [
+          "NISP"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-21820-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-21820-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "0fc2f8f2a01a9e3937b30b1cc47d494802b504072245f3156ca39e229dd4fdb2",
+          "request_name": "dataset-21820-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 21820,
+      "identity": {
+        "collection_unit_id": 15826,
+        "database": "European Pollen Database",
+        "dataset_id": 21820,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "e0c1246bea63ac3d2df5a6a2859d6d6b29a5d59db5a51b6fc4cc1d55d1770212",
+        "site_id": 14054
+      },
+      "resource_key": "dataset-21820-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22317-current-attempt-1.body",
+          "receipt_file": "dataset-22317-current-attempt-1.receipt.json",
+          "receipt_sha256": "7e31bbb93209e924734976bf606facc687ed14f550ae87ec3010f54a0c47b15f",
+          "request_name": "dataset-22317-current-attempt-1"
+        }
+      ],
+      "dataset_id": 22317,
+      "identity": {
+        "collection_unit_id": 16191,
+        "database": "European Pollen Database",
+        "dataset_id": 22317,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "b811ed21be291bbf8b8412b97e48ba61c885319b88dca4d6eca2531ffdec6e50",
+        "site_id": 14265
+      },
+      "resource_key": "dataset-22317-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22317-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-22317-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "3e48c2f84ef2c0d787c08a498900c9434958d70696f266932fb5a0275b8e7b2d",
+          "request_name": "dataset-22317-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 22317,
+      "identity": {
+        "collection_unit_id": 16191,
+        "database": "European Pollen Database",
+        "dataset_id": 22317,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "b811ed21be291bbf8b8412b97e48ba61c885319b88dca4d6eca2531ffdec6e50",
+        "site_id": 14265
+      },
+      "resource_key": "dataset-22317-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22318-current-attempt-1.body",
+          "receipt_file": "dataset-22318-current-attempt-1.receipt.json",
+          "receipt_sha256": "d4366acbf583d5db6ebad9cf86284a3f31b2ceee60ce45e37449349c36099537",
+          "request_name": "dataset-22318-current-attempt-1"
+        }
+      ],
+      "dataset_id": 22318,
+      "identity": {
+        "collection_unit_id": 16191,
+        "database": "European Pollen Database",
+        "dataset_id": 22318,
+        "dataset_type": "charcoal",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "b811ed21be291bbf8b8412b97e48ba61c885319b88dca4d6eca2531ffdec6e50",
+        "site_id": 14265
+      },
+      "resource_key": "dataset-22318-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "charcoal",
+        "datum_rows": 38,
+        "identified_samples": 38,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "charcoal_proxy",
+        "sample_population": "array",
+        "sample_rows": 38,
+        "source_units": [
+          "number/g"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22318-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-22318-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "de3a9d477eee94ffab9308408a46fb8b42b0b4c4a2352260019472e9687b729c",
+          "request_name": "dataset-22318-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 22318,
+      "identity": {
+        "collection_unit_id": 16191,
+        "database": "European Pollen Database",
+        "dataset_id": 22318,
+        "dataset_type": "charcoal",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "b811ed21be291bbf8b8412b97e48ba61c885319b88dca4d6eca2531ffdec6e50",
+        "site_id": 14265
+      },
+      "resource_key": "dataset-22318-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22319-current-attempt-1.body",
+          "receipt_file": "dataset-22319-current-attempt-1.receipt.json",
+          "receipt_sha256": "773a5ee5c00b170aa882b4ef54d52e8a53de40d6d16df42e0c28528a38134ebb",
+          "request_name": "dataset-22319-current-attempt-1"
+        }
+      ],
+      "dataset_id": 22319,
+      "identity": {
+        "collection_unit_id": 16191,
+        "database": "European Pollen Database",
+        "dataset_id": 22319,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/2",
+        "metadata_sha256": "b811ed21be291bbf8b8412b97e48ba61c885319b88dca4d6eca2531ffdec6e50",
+        "site_id": 14265
+      },
+      "resource_key": "dataset-22319-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 796,
+        "identified_samples": 39,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 39,
+        "source_units": [
+          "NISP",
+          "g",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22319-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-22319-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "50e71fb89e1fdc8eab14543d596bbbe0b03a5ad6fa37e11d9fd2852583690daf",
+          "request_name": "dataset-22319-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 22319,
+      "identity": {
+        "collection_unit_id": 16191,
+        "database": "European Pollen Database",
+        "dataset_id": 22319,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/2",
+        "metadata_sha256": "b811ed21be291bbf8b8412b97e48ba61c885319b88dca4d6eca2531ffdec6e50",
+        "site_id": 14265
+      },
+      "resource_key": "dataset-22319-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22624-current-attempt-1.body",
+          "receipt_file": "dataset-22624-current-attempt-1.receipt.json",
+          "receipt_sha256": "6448ba938e8ba093d516c72469c0177c96f9402324cf15c5d4886b439c426312",
+          "request_name": "dataset-22624-current-attempt-1"
+        }
+      ],
+      "dataset_id": 22624,
+      "identity": {
+        "collection_unit_id": 16388,
+        "database": "European Pollen Database",
+        "dataset_id": 22624,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "6debd04e6d58049ccd89dd62a72471b99001b3f5f99b1d4b3db930bc47a0083c",
+        "site_id": 14455
+      },
+      "resource_key": "dataset-22624-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 4195,
+        "identified_samples": 127,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 127,
+        "source_units": [
+          "NISP"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22624-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-22624-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "7b4b48bf01cd43ac1258ae5e7989f6d7365f960195f479b0140850049bc39190",
+          "request_name": "dataset-22624-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 22624,
+      "identity": {
+        "collection_unit_id": 16388,
+        "database": "European Pollen Database",
+        "dataset_id": 22624,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "6debd04e6d58049ccd89dd62a72471b99001b3f5f99b1d4b3db930bc47a0083c",
+        "site_id": 14455
+      },
+      "resource_key": "dataset-22624-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22629-current-attempt-1.body",
+          "receipt_file": "dataset-22629-current-attempt-1.receipt.json",
+          "receipt_sha256": "a26d7e781ab009f7d04d1825bd24084056792b065efb00ccb7e2329e075edb20",
+          "request_name": "dataset-22629-current-attempt-1"
+        }
+      ],
+      "dataset_id": 22629,
+      "identity": {
+        "collection_unit_id": 16391,
+        "database": "European Pollen Database",
+        "dataset_id": 22629,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "bfa962aed8f96a240783a73940a70473a098828fa4e87e528e068659d60bafbe",
+        "site_id": 14458
+      },
+      "resource_key": "dataset-22629-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22629-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-22629-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "6369741764b37131f7bb213ffd7bf0cc5e9a1c427efdca5f061ba678809d8818",
+          "request_name": "dataset-22629-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 22629,
+      "identity": {
+        "collection_unit_id": 16391,
+        "database": "European Pollen Database",
+        "dataset_id": 22629,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "bfa962aed8f96a240783a73940a70473a098828fa4e87e528e068659d60bafbe",
+        "site_id": 14458
+      },
+      "resource_key": "dataset-22629-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22630-current-attempt-1.body",
+          "receipt_file": "dataset-22630-current-attempt-1.receipt.json",
+          "receipt_sha256": "694edbe2b5fec3ff8147563e310acc6f723de80a6c00169cdb12dbdfc062f8a7",
+          "request_name": "dataset-22630-current-attempt-1"
+        }
+      ],
+      "dataset_id": 22630,
+      "identity": {
+        "collection_unit_id": 16391,
+        "database": "European Pollen Database",
+        "dataset_id": 22630,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "bfa962aed8f96a240783a73940a70473a098828fa4e87e528e068659d60bafbe",
+        "site_id": 14458
+      },
+      "resource_key": "dataset-22630-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 619,
+        "identified_samples": 28,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 28,
+        "source_units": [
+          "NISP"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-22630-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-22630-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "9b9119794ea4a7dbac6e5d7af5212e751461ade589df10b158d50b9bbd577283",
+          "request_name": "dataset-22630-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 22630,
+      "identity": {
+        "collection_unit_id": 16391,
+        "database": "European Pollen Database",
+        "dataset_id": 22630,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "bfa962aed8f96a240783a73940a70473a098828fa4e87e528e068659d60bafbe",
+        "site_id": 14458
+      },
+      "resource_key": "dataset-22630-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-23013-current-attempt-1.body",
+          "receipt_file": "dataset-23013-current-attempt-1.receipt.json",
+          "receipt_sha256": "4c402334b7f7c6e907c7438937e38a240561bf3606a79ce7ba1713bbf8571b10",
+          "request_name": "dataset-23013-current-attempt-1"
+        }
+      ],
+      "dataset_id": 23013,
+      "identity": {
+        "collection_unit_id": 16622,
+        "database": "European Pollen Database",
+        "dataset_id": 23013,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1/site/datasets/0",
+        "metadata_sha256": "ebb5b0e80be0f28cc6dec85f43451b7a87f152233b31e3ac1e958161788db478",
+        "site_id": 3204
+      },
+      "resource_key": "dataset-23013-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 3425,
+        "identified_samples": 96,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 96,
+        "source_units": [
+          "NISP"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-23013-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-23013-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "ad2c231f5ffa4e93b8a53b19475b64866d6ff4337ecec5e8a32dc843d9ed6f14",
+          "request_name": "dataset-23013-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 23013,
+      "identity": {
+        "collection_unit_id": 16622,
+        "database": "European Pollen Database",
+        "dataset_id": 23013,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1/site/datasets/0",
+        "metadata_sha256": "ebb5b0e80be0f28cc6dec85f43451b7a87f152233b31e3ac1e958161788db478",
+        "site_id": 3204
+      },
+      "resource_key": "dataset-23013-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-24109-current-attempt-1.body",
+          "receipt_file": "dataset-24109-current-attempt-1.receipt.json",
+          "receipt_sha256": "5ad48b1fdb70924e53835da7ff2806ec59988a14790cda96c8646996000396c8",
+          "request_name": "dataset-24109-current-attempt-1"
+        }
+      ],
+      "dataset_id": 24109,
+      "identity": {
+        "collection_unit_id": 17684,
+        "database": "European Pollen Database",
+        "dataset_id": 24109,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "a7167c7a40beafff7c9de6d574e45f600ff19b13bf2c2978129376b997d47026",
+        "site_id": 15711
+      },
+      "resource_key": "dataset-24109-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-24109-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-24109-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "140e52967a90514d402009b7a23d5e0e7e7e839981be829f2eab4a7b879e18c9",
+          "request_name": "dataset-24109-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 24109,
+      "identity": {
+        "collection_unit_id": 17684,
+        "database": "European Pollen Database",
+        "dataset_id": 24109,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "a7167c7a40beafff7c9de6d574e45f600ff19b13bf2c2978129376b997d47026",
+        "site_id": 15711
+      },
+      "resource_key": "dataset-24109-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-24110-current-attempt-1.body",
+          "receipt_file": "dataset-24110-current-attempt-1.receipt.json",
+          "receipt_sha256": "d1efd347fbaf342fa01ff749b93fa0c9c992ad624141ef975b689bbee6543ec7",
+          "request_name": "dataset-24110-current-attempt-1"
+        }
+      ],
+      "dataset_id": 24110,
+      "identity": {
+        "collection_unit_id": 17684,
+        "database": "European Pollen Database",
+        "dataset_id": 24110,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "a7167c7a40beafff7c9de6d574e45f600ff19b13bf2c2978129376b997d47026",
+        "site_id": 15711
+      },
+      "resource_key": "dataset-24110-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 3084,
+        "identified_samples": 131,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 131,
+        "source_units": [
+          "NISP"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-24110-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-24110-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "fbc6def5f9653683b656492e53c7647e000202d3d14a7aa7aa4b18a2e6d70a3b",
+          "request_name": "dataset-24110-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 24110,
+      "identity": {
+        "collection_unit_id": 17684,
+        "database": "European Pollen Database",
+        "dataset_id": 24110,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "a7167c7a40beafff7c9de6d574e45f600ff19b13bf2c2978129376b997d47026",
+        "site_id": 15711
+      },
+      "resource_key": "dataset-24110-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-24154-current-attempt-1.body",
+          "receipt_file": "dataset-24154-current-attempt-1.receipt.json",
+          "receipt_sha256": "708774fdb6b70f8d644edbe06a057ad2bcfc9f5e7a8eee6bd908c047c6e5aaf0",
+          "request_name": "dataset-24154-current-attempt-1"
+        }
+      ],
+      "dataset_id": 24154,
+      "identity": {
+        "collection_unit_id": 17711,
+        "database": "European Pollen Database",
+        "dataset_id": 24154,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "34ac85b53b47dedfb026210c9eba14ead2e85e571d17cd52abd0c62a20aecc07",
+        "site_id": 15733
+      },
+      "resource_key": "dataset-24154-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-24154-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-24154-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "ac7d2d9e5db5e9e4bc7b98291a319823eeafa60ba2a4f182181f7323f4b498a2",
+          "request_name": "dataset-24154-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 24154,
+      "identity": {
+        "collection_unit_id": 17711,
+        "database": "European Pollen Database",
+        "dataset_id": 24154,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "34ac85b53b47dedfb026210c9eba14ead2e85e571d17cd52abd0c62a20aecc07",
+        "site_id": 15733
+      },
+      "resource_key": "dataset-24154-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-24155-current-attempt-1.body",
+          "receipt_file": "dataset-24155-current-attempt-1.receipt.json",
+          "receipt_sha256": "e4895fc859f6b6d2954eac0145e93c65a5021acac41d42ae99947189e95304a3",
+          "request_name": "dataset-24155-current-attempt-1"
+        }
+      ],
+      "dataset_id": 24155,
+      "identity": {
+        "collection_unit_id": 17711,
+        "database": "European Pollen Database",
+        "dataset_id": 24155,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "34ac85b53b47dedfb026210c9eba14ead2e85e571d17cd52abd0c62a20aecc07",
+        "site_id": 15733
+      },
+      "resource_key": "dataset-24155-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 3629,
+        "identified_samples": 146,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 146,
+        "source_units": [
+          "NISP"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-24155-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-24155-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "8670e4eaa40a921fad6735ad003fb5456d5554c388ce19355131ff4752c5fe10",
+          "request_name": "dataset-24155-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 24155,
+      "identity": {
+        "collection_unit_id": 17711,
+        "database": "European Pollen Database",
+        "dataset_id": 24155,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "34ac85b53b47dedfb026210c9eba14ead2e85e571d17cd52abd0c62a20aecc07",
+        "site_id": 15733
+      },
+      "resource_key": "dataset-24155-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-39356-current-attempt-1.body",
+          "receipt_file": "dataset-39356-current-attempt-1.receipt.json",
+          "receipt_sha256": "8482a26b850985837615a991bf72ba2340f2939e8d612de2bee0ccfdc3f000fd",
+          "request_name": "dataset-39356-current-attempt-1"
+        }
+      ],
+      "dataset_id": 39356,
+      "identity": {
+        "collection_unit_id": 27234,
+        "database": "European Pollen Database",
+        "dataset_id": 39356,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1/site/datasets/0",
+        "metadata_sha256": "5eda89df2bde5fc0a96835abfab90696f7ee08c88ed1a55195c6d1562100f5a6",
+        "site_id": 22656
+      },
+      "resource_key": "dataset-39356-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-39356-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-39356-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "a65e648d58344ab13d61912f2e8c1c76858af826fe614bc15de723c9d313ebc8",
+          "request_name": "dataset-39356-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 39356,
+      "identity": {
+        "collection_unit_id": 27234,
+        "database": "European Pollen Database",
+        "dataset_id": 39356,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1/site/datasets/0",
+        "metadata_sha256": "5eda89df2bde5fc0a96835abfab90696f7ee08c88ed1a55195c6d1562100f5a6",
+        "site_id": 22656
+      },
+      "resource_key": "dataset-39356-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-39357-current-attempt-1.body",
+          "receipt_file": "dataset-39357-current-attempt-1.receipt.json",
+          "receipt_sha256": "6439b935683e356daa008ad70655d43c4dec27fc33e6f7aa71216eae5e5ac4b2",
+          "request_name": "dataset-39357-current-attempt-1"
+        }
+      ],
+      "dataset_id": 39357,
+      "identity": {
+        "collection_unit_id": 27220,
+        "database": "European Pollen Database",
+        "dataset_id": 39357,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "5eda89df2bde5fc0a96835abfab90696f7ee08c88ed1a55195c6d1562100f5a6",
+        "site_id": 22656
+      },
+      "resource_key": "dataset-39357-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 502,
+        "identified_samples": 15,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 15,
+        "source_units": [
+          "NISP"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-39357-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-39357-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "5f5d0d4cfddfdbbf5558d180767974f35d22c32a59e954e0ed38494eb1d0aced",
+          "request_name": "dataset-39357-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 39357,
+      "identity": {
+        "collection_unit_id": 27220,
+        "database": "European Pollen Database",
+        "dataset_id": 39357,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "5eda89df2bde5fc0a96835abfab90696f7ee08c88ed1a55195c6d1562100f5a6",
+        "site_id": 22656
+      },
+      "resource_key": "dataset-39357-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-39363-current-attempt-1.body",
+          "receipt_file": "dataset-39363-current-attempt-1.receipt.json",
+          "receipt_sha256": "c86296e2da807afd2729384dc819bea289b57f0d02b989e0653c0d735cdc6802",
+          "request_name": "dataset-39363-current-attempt-1"
+        }
+      ],
+      "dataset_id": 39363,
+      "identity": {
+        "collection_unit_id": 27224,
+        "database": "European Pollen Database",
+        "dataset_id": 39363,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "3830694c2340a7dd75f9c61b891bd3208d6e5004e0e77e18730a52d84a632e8d",
+        "site_id": 22660
+      },
+      "resource_key": "dataset-39363-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-39363-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-39363-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "eb703ba2c0799414d5cc7604f38b141bc5fbfb4d105d4a96aaba18407d51bb3a",
+          "request_name": "dataset-39363-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 39363,
+      "identity": {
+        "collection_unit_id": 27224,
+        "database": "European Pollen Database",
+        "dataset_id": 39363,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "3830694c2340a7dd75f9c61b891bd3208d6e5004e0e77e18730a52d84a632e8d",
+        "site_id": 22660
+      },
+      "resource_key": "dataset-39363-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-39364-current-attempt-1.body",
+          "receipt_file": "dataset-39364-current-attempt-1.receipt.json",
+          "receipt_sha256": "81cae3932e365b996a3a8b04c6ad169ccd0502db9b05c84d05c06562d28e10f5",
+          "request_name": "dataset-39364-current-attempt-1"
+        }
+      ],
+      "dataset_id": 39364,
+      "identity": {
+        "collection_unit_id": 27224,
+        "database": "European Pollen Database",
+        "dataset_id": 39364,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "3830694c2340a7dd75f9c61b891bd3208d6e5004e0e77e18730a52d84a632e8d",
+        "site_id": 22660
+      },
+      "resource_key": "dataset-39364-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 1077,
+        "identified_samples": 30,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 30,
+        "source_units": [
+          "NISP",
+          "number"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-39364-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-39364-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "95114116da2e1e465657e1bb670b22d3581690853a11a15c2bdf76e7d0665d13",
+          "request_name": "dataset-39364-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 39364,
+      "identity": {
+        "collection_unit_id": 27224,
+        "database": "European Pollen Database",
+        "dataset_id": 39364,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "3830694c2340a7dd75f9c61b891bd3208d6e5004e0e77e18730a52d84a632e8d",
+        "site_id": 22660
+      },
+      "resource_key": "dataset-39364-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-40112-current-attempt-1.body",
+          "receipt_file": "dataset-40112-current-attempt-1.receipt.json",
+          "receipt_sha256": "e32b28fc75100cb983635cee293e06ebb305b1b26687ecb82660bc36d3a6eddb",
+          "request_name": "dataset-40112-current-attempt-1"
+        }
+      ],
+      "dataset_id": 40112,
+      "identity": {
+        "collection_unit_id": 27894,
+        "database": "European Pollen Database",
+        "dataset_id": 40112,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "eca2fd2629b3cd06099a1793a5c83f047969121f8f127587d0eabacc3c7cf2dc",
+        "site_id": 23293
+      },
+      "resource_key": "dataset-40112-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 2154,
+        "identified_samples": 66,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 66,
+        "source_units": [
+          "NISP"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-40112-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-40112-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "b13565cc998efe7215787e7d1a83bf348eb082f68f95d44ed02519345dd291c0",
+          "request_name": "dataset-40112-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 40112,
+      "identity": {
+        "collection_unit_id": 27894,
+        "database": "European Pollen Database",
+        "dataset_id": 40112,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "eca2fd2629b3cd06099a1793a5c83f047969121f8f127587d0eabacc3c7cf2dc",
+        "site_id": 23293
+      },
+      "resource_key": "dataset-40112-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-41281-current-attempt-1.body",
+          "receipt_file": "dataset-41281-current-attempt-1.receipt.json",
+          "receipt_sha256": "03b4512f4354d30fa1085bc9f6a08e52d51fcedeaeb6194657bf282ac99546a1",
+          "request_name": "dataset-41281-current-attempt-1"
+        }
+      ],
+      "dataset_id": 41281,
+      "identity": {
+        "collection_unit_id": 3915,
+        "database": "European Pollen Database",
+        "dataset_id": 41281,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "a676188dca04b6fd157a01d88468d6a4a3bd32e741807c8a3a7f153ee0a5c54e",
+        "site_id": 3107
+      },
+      "resource_key": "dataset-41281-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-41281-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-41281-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "afdb9ef027596196c70c2804691cc2e726ae027a91e031d7c59b11ba440874ed",
+          "request_name": "dataset-41281-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 41281,
+      "identity": {
+        "collection_unit_id": 3915,
+        "database": "European Pollen Database",
+        "dataset_id": 41281,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "a676188dca04b6fd157a01d88468d6a4a3bd32e741807c8a3a7f153ee0a5c54e",
+        "site_id": 3107
+      },
+      "resource_key": "dataset-41281-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-41763-current-attempt-1.body",
+          "receipt_file": "dataset-41763-current-attempt-1.receipt.json",
+          "receipt_sha256": "23888edea58c48a51a320963189d9eb779000205329e3e4ee1499f2bb15be143",
+          "request_name": "dataset-41763-current-attempt-1"
+        }
+      ],
+      "dataset_id": 41763,
+      "identity": {
+        "collection_unit_id": 28852,
+        "database": "European Pollen Database",
+        "dataset_id": 41763,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "03547f56e5d85a95199f5ab2f5aef615ef10691a0140bd937d02c7635e77c068",
+        "site_id": 24041
+      },
+      "resource_key": "dataset-41763-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "geochronologic",
+        "datum_rows": 1,
+        "identified_samples": 0,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "dating_controls",
+        "sample_population": "array",
+        "sample_rows": 1,
+        "source_units": [
+          null
+        ],
+        "unidentified_sample_rows": 1,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-41763-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-41763-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "607bb4c93b1b5757d5572da00c924129763c91332c3406e7ea1118a9610952c2",
+          "request_name": "dataset-41763-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 41763,
+      "identity": {
+        "collection_unit_id": 28852,
+        "database": "European Pollen Database",
+        "dataset_id": 41763,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "03547f56e5d85a95199f5ab2f5aef615ef10691a0140bd937d02c7635e77c068",
+        "site_id": 24041
+      },
+      "resource_key": "dataset-41763-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-41764-current-attempt-1.body",
+          "receipt_file": "dataset-41764-current-attempt-1.receipt.json",
+          "receipt_sha256": "9ba4fedc5dbd674f8297f4eb8546d01cc6447209291ab549bcac66a6ee69948f",
+          "request_name": "dataset-41764-current-attempt-1"
+        }
+      ],
+      "dataset_id": 41764,
+      "identity": {
+        "collection_unit_id": 28852,
+        "database": "European Pollen Database",
+        "dataset_id": 41764,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "03547f56e5d85a95199f5ab2f5aef615ef10691a0140bd937d02c7635e77c068",
+        "site_id": 24041
+      },
+      "resource_key": "dataset-41764-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "database": "European Pollen Database",
+        "dataset_type": "pollen",
+        "datum_rows": 2020,
+        "identified_samples": 100,
+        "parser_profile": "current_native_hierarchy.v1",
+        "resource_role": "pollen_assemblage",
+        "sample_population": "array",
+        "sample_rows": 100,
+        "source_units": [
+          "NISP"
+        ],
+        "unidentified_sample_rows": 0,
+        "units_interpreted": false
+      },
+      "terminal_status": "parsed_native",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-41764-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-41764-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "5378675c006c80471ee2984c6fb525106fae1768d4a2a3c1a4acbac7a4e74961",
+          "request_name": "dataset-41764-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 41764,
+      "identity": {
+        "collection_unit_id": 28852,
+        "database": "European Pollen Database",
+        "dataset_id": 41764,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "03547f56e5d85a95199f5ab2f5aef615ef10691a0140bd937d02c7635e77c068",
+        "site_id": 24041
+      },
+      "resource_key": "dataset-41764-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [],
+      "dataset_id": 41765,
+      "identity": {
+        "collection_unit_id": 28853,
+        "database": "European Pollen Database",
+        "dataset_id": 41765,
+        "dataset_type": "geochronologic",
+        "exposure_role": "reserved_candidate_confirmation",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "96c1574bd2ab261585c0c38370b2944c1c575e8c7553e0244cb870e0dba51b24",
+        "site_id": 24042
+      },
+      "reason": "reserved_candidate_confirmation",
+      "resource_key": "dataset-41765-current",
+      "scientific_admission": "not_asserted",
+      "terminal_status": "not_attempted_exposure_role",
+      "version": "current"
+    },
+    {
+      "attempts": [],
+      "dataset_id": 41765,
+      "identity": {
+        "collection_unit_id": 28853,
+        "database": "European Pollen Database",
+        "dataset_id": 41765,
+        "dataset_type": "geochronologic",
+        "exposure_role": "reserved_candidate_confirmation",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "96c1574bd2ab261585c0c38370b2944c1c575e8c7553e0244cb870e0dba51b24",
+        "site_id": 24042
+      },
+      "reason": "reserved_candidate_confirmation",
+      "resource_key": "dataset-41765-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "terminal_status": "not_attempted_exposure_role",
+      "version": "doi_frozen"
+    }
+  ],
+  "response_bytes": 8546888,
+  "schema_version": "neotoma-resource-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed live or explicitly reused responses; no transaction snapshot",
+  "status": "closed"
+}

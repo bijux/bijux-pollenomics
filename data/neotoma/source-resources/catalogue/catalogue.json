@@ -1,0 +1,323 @@
+{
+  "catalogue_context": {
+    "countries": {
+      "DK": {
+        "numerical_atlas_denominator_changed": false,
+        "resource_count": 38,
+        "resource_role_counts": {
+          "development_resource_discovery": 29,
+          "reserved_candidate_confirmation": 9
+        },
+        "site_count": 9,
+        "version_status_counts": {
+          "not_attempted_exposure_role": 18,
+          "parsed_native": 11,
+          "unresolved_frozen_schema": 29,
+          "unsupported_dataset_type": 18
+        }
+      },
+      "FI": {
+        "numerical_atlas_denominator_changed": false,
+        "resource_count": 212,
+        "resource_role_counts": {
+          "development_resource_discovery": 199,
+          "reserved_candidate_confirmation": 13
+        },
+        "site_count": 70,
+        "version_status_counts": {
+          "not_attempted_exposure_role": 26,
+          "parsed_native": 97,
+          "unresolved_frozen_schema": 199,
+          "unsupported_dataset_type": 102
+        }
+      },
+      "NO": {
+        "numerical_atlas_denominator_changed": false,
+        "resource_count": 337,
+        "resource_role_counts": {
+          "development_resource_discovery": 332,
+          "reserved_candidate_confirmation": 5
+        },
+        "site_count": 149,
+        "version_status_counts": {
+          "not_attempted_exposure_role": 10,
+          "parsed_native": 255,
+          "unresolved_frozen_schema": 332,
+          "unsupported_dataset_type": 77
+        }
+      },
+      "SE": {
+        "numerical_atlas_denominator_changed": false,
+        "resource_count": 567,
+        "resource_role_counts": {
+          "development_resource_discovery": 565,
+          "heldout_no_numerical_access": 2
+        },
+        "site_count": 209,
+        "version_status_counts": {
+          "not_attempted_exposure_role": 4,
+          "parsed_native": 222,
+          "reused_qualified_native": 1,
+          "unresolved_frozen_schema": 565,
+          "unsupported_dataset_type": 342
+        }
+      },
+      "UNASSIGNED": {
+        "numerical_atlas_denominator_changed": false,
+        "resource_count": 104,
+        "resource_role_counts": {
+          "development_resource_discovery": 104
+        },
+        "site_count": 90,
+        "version_status_counts": {
+          "parsed_native": 27,
+          "unavailable_api_empty": 4,
+          "unresolved_frozen_schema": 104,
+          "unsupported_dataset_type": 73
+        }
+      }
+    },
+    "current_source_profile_schema": "neotoma-current-source-qualification.v1",
+    "expected_roster_sha256": "0af2a76f408b3abc7d59eabc94dc3998060244e1a4202d28c51bc99be56f9f32",
+    "inventory_scope": {
+      "coverage": "declared source inventory only",
+      "discovery_is_all_nordic_resources": false,
+      "outside_inventory": "not_assessed"
+    },
+    "metadata_capture_manifest_sha256": [
+      "1a92982745f741f9d4cecfc426529914ef981654232671b20b90c9f8587b8374",
+      "248fb70ef1490ddb49ac53a93127f6fff9cdca0e664bab941901cf2a9084a446",
+      "34cacfe00a53b29f317d23e01b02716c0c53c0a4ed1a017781f5b46dc1fbb547",
+      "3b6205eb33a5861b36c7d7fbca1eb064e74703ec145e47987ffdc73c3d327c24",
+      "424dd65284831dff836d48cc6bae4d72e99e03f04ce8bd993280c72dcc2bbaa0",
+      "5cdeb645154acb7bbe04a9b7765d6777fcae26041ec007ed129a545c757d7e2b",
+      "6ab44333d2a55d89952c0627f79a3e5a984de4cf5639b304bfa2db87269b0200",
+      "717ca51f2999ac11490f389505e35dad45f0b93b3e1bd36388a22e9e3326a441",
+      "86880dac9f157bd245a651658ab7bd0c776ab1ebaa2ec833416577af514b3cb0",
+      "a4f5bd0cfd64093381a66e1161dc1b297716932b007a800b9ddc5c02ef423e7c",
+      "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+      "bed0f55ef40b7bd01d55f726ac0c704e1186cb90bb8d12d5b2fe5ef16c9f564e"
+    ],
+    "related_facets": {
+      "absence_certified": false,
+      "expected_native_facets": [
+        "chronologies",
+        "lithology",
+        "projects",
+        "publications",
+        "taxa"
+      ],
+      "status": "not_captured_by_download_coverage"
+    },
+    "schema_version": "neotoma-resource-catalogue.v1",
+    "selected_resource_capture_manifest_sha256": [
+      "016e8b65fdc30bd61419a4015723973cd20f29c1785c82f2b500cdd7da91d4ae",
+      "01b9cb0e45b62f057191d3743cf2c9cbe969b13363a0cfe4e50e13ce533f787c",
+      "07887e5402a2de87e7d65d506721599446bcfde4673b8892224b0f9521fe4206",
+      "07902271309539f959dbd70a2bb8a00c640eb0239aecc370b8a4241056d0f486",
+      "08ef0922dfb6de8c5851a0fd54c444f5e488c76b7739452d813d7360e0a6d2b0",
+      "093f877ac7c5dfedb9eab5fc5bdbd36ad91d95c02279dfe5a5e1c3371432af82",
+      "10666f271cb5c7c5d06b3d062456cd042df5b9beb6453c836d6b7b6432e7cf35",
+      "1338d5268d35d49f6a4e1571423ff7b5f874c06f9746960acf9e9f37265e7c41",
+      "13a64af57d9f2e768a4dfe75a794e11064a47f63cbd105cf373ed86da7f8bfb4",
+      "16aeb5de7b95384341a7b86e3401ee1d55db0e2dd76b26b001280273aadb24be",
+      "1712fbed46662d2132c2d7a5c56fca5406b8c379fbb7fcbd3b4d81a6ca1d4fd4",
+      "1d6ca790cb153638d08765df5ca0e8b979750b8f799f47ed992d522647257f12",
+      "1e5ba5400b21c3d19fc2b517e08124ee2bdd517080054d1d1f5ee0d1d9139f2c",
+      "1f66bfb857b4475fdaeca0e5312f9c8b2db5fe95f919ca29d58590b83f5c8d1b",
+      "21153fd23298bfba16a50f8616883881165ece4f2e43b4f0c3f0af69bc3abe48",
+      "230dad802f4d1ac5aa58450a77d4457379b12583fcbfcd5332c9caf1c6ed6b5e",
+      "2aa5fa8e984c27a1c182ff0a947a4a889d529c9beef1050dbd5cdcc92648651d",
+      "2bd8abd89abc16ac5750886df8dbefe24121724d528303287b8f67f40a90cd12",
+      "36fda3a9c283e4a7947754db0cf1c5678e9c98217ba197de67adebfaab0a35e1",
+      "42d9033127c19ba41518ce9756be9723e2fa6d354dfddecfeff9d01dd61e5236",
+      "52e5a7601400f6d306d4d622ba5d5cc091c20cc373a616ff44020bb12e8616d8",
+      "5687a9752c891eec880ee0f7eec5c9357b48fa21261901abd1e039c0e454db9b",
+      "5cec33a29b89ceb6e30009db3b1037289897919c985dd0d466fca036d363e268",
+      "685595d7f4d80ee16f041ebae355ac3b82c727434d7f07d162ee790f5c9ae240",
+      "68e22214870aaca47aeee244b1e5163f9e41de5431f9c9a347e4dab357013ee8",
+      "72bed61659c5464d29af17c1f36653c3779b31b75866c8cc458de9064ad29dd0",
+      "760ef01762b0e9d9d885be5c247c74f729cb339aa206e184dd21ad5c07ffe9f1",
+      "79a6ce8292de86ac9a8dd1ba32950b333d2261f4103350b9dfcf10f0d00d0192",
+      "7a43dd83208505d8b6b974e203bcd2cbea6aa51c8895d4e07814618fe05d62c7",
+      "84c97d4d06bea861a929e625227c21eed71e4029199a2da001d4f7e8de1d4d50",
+      "8c8134225e4afce5e770cea18b6c1656ad57730365608e5d209d0e8f82db20e0",
+      "8f7b47b6bad6448efcb66e19836ebe541bbb4e1073ae004a716acfe89c140b16",
+      "95d5d8ee4f6643f98374167e312a8dc47822b8e5937db5c703d563c931e75a6f",
+      "96b24bece3b1336176835832e0f317b8c73d781fd9749a284215bf6ceb215c76",
+      "9803e6757754bb48c58e04685b01320f43bbebd6a7e8fc91c942c6dc806b0edb",
+      "98e30319e2f0892acf8c996dad8acda240ca5a4be4b486c52267430ad5e1a000",
+      "9f384f2d2ecb70f179a8e1053b3592229063181c0c73edf9dae8fba2848f3fc7",
+      "a8d640b94031c7f7b3f4df494f4bf5fb746f55dbfceb298dd738a2ac4f009633",
+      "aee90cf3f2cf41d56e3235751b0db4fc14f344ca62b38a655d014892ab3876b4",
+      "b3c3ceeec10baa8b60c61d988ac8cf629603bd137c7ce335075a2b215f339ff4",
+      "c2304acde970fb3f1d962c54639c8ca3249ff00bb81b1d3795d344b7bf6bd64d",
+      "c819beb54eaaca9ecc45012d1a757620fdb5998890e4bb8ea1aba6adf749f083",
+      "d2a6bd280d91eaa06d7576b0060221aa9c7e00286c356537873934b906bece8e",
+      "d8f568bbd19a5e252d6ccafdf1e42d644081750357b69118eed4f0e8b53d062d",
+      "dc49e71db6b06618a51c48a9526ab9589e61a423372b87501a9ab0298ea234fe",
+      "de4c874499ee23e63bcd11ffdad2617ba1d31ce8337bcb9ad0ef90ba865fbd69",
+      "e1ecde243c5503196bdfb5c3259f9a7fff4e2e2c42cec6b385c40fda24b05eab",
+      "e6d2458e1ace19b168083b4009e987dbc65e8691b0adaf2f2db70d60672b927b",
+      "ecc483ae73610010e82facb2a08cc8089420a1d91f3bfa3c8780756ae13320d0",
+      "f0b1533f6d0d6c94be5fc75b49b415e00de374c3c23b2dbd4c9b4998c464c97b",
+      "f504f03323f3c9e08f7fca6350bef7a3c34038bb125633cd17bfe17b1c2ceca4",
+      "f54b22d27eba863c914caaff1f420b7219e18d67bc6eafff4fca068d795c7345",
+      "f5d2f17c2dfb8c87aacc2304c70e8ed277195cb53fb76eb6979bbaaa9716fcc4",
+      "fe970c1b146d2787926ad783d5d248d1e2d28f4be6e16a93092d1e6133c34d43"
+    ],
+    "source_country_association_profile": {
+      "associated_resource_count": 1012,
+      "association_count": 1012,
+      "authority_capture_manifest_sha256": [
+        "076f80f077ae128ea2d9ec548db8947c00e162725cafebbe05668fe065266ef8"
+      ],
+      "comparison_counts": {
+        "agrees": 960,
+        "boundary_unassigned": 51,
+        "conflicts": 1
+      },
+      "geometry_country_replaced": false,
+      "inventory_capture_manifest_sha256": [
+        "1a92982745f741f9d4cecfc426529914ef981654232671b20b90c9f8587b8374",
+        "248fb70ef1490ddb49ac53a93127f6fff9cdca0e664bab941901cf2a9084a446",
+        "5cdeb645154acb7bbe04a9b7765d6777fcae26041ec007ed129a545c757d7e2b",
+        "bed0f55ef40b7bd01d55f726ac0c704e1186cb90bb8d12d5b2fe5ef16c9f564e"
+      ],
+      "schema_version": "neotoma-source-country-associations.v1",
+      "scientific_admission": "not_asserted",
+      "territorial_or_dictionary_completeness": "not_established"
+    },
+    "source_family": "neotoma",
+    "summary": {
+      "acquisition_partition_complete": true,
+      "numerical_atlas_denominator_changed": false,
+      "original_relational_snapshot_replaced": false,
+      "resource_count": 1258,
+      "resource_role_counts": {
+        "development_resource_discovery": 1229,
+        "heldout_no_numerical_access": 2,
+        "reserved_candidate_confirmation": 27
+      },
+      "scientific_admission": "not_asserted",
+      "version_partition_exact": true,
+      "version_status_count": 2516,
+      "version_status_counts": {
+        "not_attempted_exposure_role": 58,
+        "parsed_native": 612,
+        "reused_qualified_native": 1,
+        "unavailable_api_empty": 4,
+        "unresolved_frozen_schema": 1229,
+        "unsupported_dataset_type": 612
+      }
+    }
+  },
+  "collections": {
+    "capture_descriptors": {
+      "parts": [
+        {
+          "bytes": 1370033,
+          "path": "parts/capture_descriptors/3666aae45ae541836b01350d4eb5fe5f474e036bf9cdd982497e3313f4db9a0e.json",
+          "row_count": 68,
+          "sha256": "3666aae45ae541836b01350d4eb5fe5f474e036bf9cdd982497e3313f4db9a0e"
+        }
+      ],
+      "row_count": 68
+    },
+    "resources": {
+      "parts": [
+        {
+          "bytes": 2084429,
+          "path": "parts/resources/c024108682309e2c2a9e0e40850000416e0a8e8dba1e2684a25d331f5720032d.json",
+          "row_count": 137,
+          "sha256": "c024108682309e2c2a9e0e40850000416e0a8e8dba1e2684a25d331f5720032d"
+        },
+        {
+          "bytes": 2083659,
+          "path": "parts/resources/68bc8bc8b387921e670b5b366a4dc5098745f654375faa93f0b7871169ca6620.json",
+          "row_count": 130,
+          "sha256": "68bc8bc8b387921e670b5b366a4dc5098745f654375faa93f0b7871169ca6620"
+        },
+        {
+          "bytes": 2075930,
+          "path": "parts/resources/449bc711b4503d54dce9c28b86ad23529ff733f90bfa93604940e0649c15abf9.json",
+          "row_count": 108,
+          "sha256": "449bc711b4503d54dce9c28b86ad23529ff733f90bfa93604940e0649c15abf9"
+        },
+        {
+          "bytes": 2077850,
+          "path": "parts/resources/b7b1b37783708cd56bd7a2ed1a08209623f6fde2df8cc9ec6a0df70fa9365b46.json",
+          "row_count": 59,
+          "sha256": "b7b1b37783708cd56bd7a2ed1a08209623f6fde2df8cc9ec6a0df70fa9365b46"
+        },
+        {
+          "bytes": 2096247,
+          "path": "parts/resources/7d71198c08692008933b55026e4c1a5adaef53362251cd4352f5213dfc3290b4.json",
+          "row_count": 63,
+          "sha256": "7d71198c08692008933b55026e4c1a5adaef53362251cd4352f5213dfc3290b4"
+        },
+        {
+          "bytes": 2066665,
+          "path": "parts/resources/af7a5a99b9ce311b67461f4dbbb46c32e4775baf55b6d7a93f7eee8a48e538b9.json",
+          "row_count": 53,
+          "sha256": "af7a5a99b9ce311b67461f4dbbb46c32e4775baf55b6d7a93f7eee8a48e538b9"
+        },
+        {
+          "bytes": 2092886,
+          "path": "parts/resources/47c07c6b83b7b6d81f6bb04a45824ccd9e975286212012e27a000424b8b3011e.json",
+          "row_count": 64,
+          "sha256": "47c07c6b83b7b6d81f6bb04a45824ccd9e975286212012e27a000424b8b3011e"
+        },
+        {
+          "bytes": 2095124,
+          "path": "parts/resources/030a1098c3e4f0f05daa1b637d3502a02416e957fa1f338ca428941bfa71f4c1.json",
+          "row_count": 65,
+          "sha256": "030a1098c3e4f0f05daa1b637d3502a02416e957fa1f338ca428941bfa71f4c1"
+        },
+        {
+          "bytes": 2082845,
+          "path": "parts/resources/94862a4358112f3074f78a4bb8b7a8b39c7eddb1462e47ae5f450140e2f7dc0e.json",
+          "row_count": 118,
+          "sha256": "94862a4358112f3074f78a4bb8b7a8b39c7eddb1462e47ae5f450140e2f7dc0e"
+        },
+        {
+          "bytes": 2086928,
+          "path": "parts/resources/cb1b17bb1bd9f71f18d15ae66fd8c9e34fb4005f502229283d32b143af17c503.json",
+          "row_count": 123,
+          "sha256": "cb1b17bb1bd9f71f18d15ae66fd8c9e34fb4005f502229283d32b143af17c503"
+        },
+        {
+          "bytes": 2093436,
+          "path": "parts/resources/e7ee9763316f674577f653099aeef29e986963b435401623a9ea1acf37622c14.json",
+          "row_count": 143,
+          "sha256": "e7ee9763316f674577f653099aeef29e986963b435401623a9ea1acf37622c14"
+        },
+        {
+          "bytes": 2079896,
+          "path": "parts/resources/5b02394b6db63ec3052041e6fedd366268a88cb6d88505b0d3024905124fbeb2.json",
+          "row_count": 111,
+          "sha256": "5b02394b6db63ec3052041e6fedd366268a88cb6d88505b0d3024905124fbeb2"
+        },
+        {
+          "bytes": 1569837,
+          "path": "parts/resources/495954182fbc88f920d2a66d767a8b56cd8d93d368abfae34c9f669556a34185.json",
+          "row_count": 84,
+          "sha256": "495954182fbc88f920d2a66d767a8b56cd8d93d368abfae34c9f669556a34185"
+        }
+      ],
+      "row_count": 1258
+    },
+    "sites": {
+      "parts": [
+        {
+          "bytes": 455335,
+          "path": "parts/sites/28b001169ff7e1f7455898fd8bee11ecdc013aadf92121ebd75693492e6fa5e7.json",
+          "row_count": 527,
+          "sha256": "28b001169ff7e1f7455898fd8bee11ecdc013aadf92121ebd75693492e6fa5e7"
+        }
+      ],
+      "row_count": 527
+    }
+  },
+  "schema_version": "neotoma-resource-catalogue-storage.v1"
+}

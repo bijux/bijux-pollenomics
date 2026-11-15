@@ -1,0 +1,102 @@
+{
+  "body_complete": true,
+  "body_file": "inventory-limit-10000-offset-0.body",
+  "expected_site_id": null,
+  "final_url": "https://api.neotomadb.org/v2.0/data/datasets?loc=%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B2%2C-55%5D%2C%5B5%2C-55%5D%2C%5B5%2C-53%5D%2C%5B2%2C-53%5D%2C%5B2%2C-55%5D%5D%5D%7D&limit=10000&offset=0",
+  "http_status": 200,
+  "parameters": {
+    "limit": "10000",
+    "loc": "{\"type\":\"Polygon\",\"coordinates\":[[[2,-55],[5,-55],[5,-53],[2,-53],[2,-55]]]}",
+    "offset": "0"
+  },
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/datasets?loc=%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B2%2C-55%5D%2C%5B5%2C-55%5D%2C%5B5%2C-53%5D%2C%5B2%2C-53%5D%2C%5B2%2C-55%5D%5D%5D%7D&limit=10000&offset=0",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/datasets?loc=%7B%22type%22%3A%22Polygon%22%2C%22coordinates%22%3A%5B%5B%5B2%2C-55%5D%2C%5B5%2C-55%5D%2C%5B5%2C-53%5D%2C%5B2%2C-53%5D%2C%5B2%2C-55%5D%5D%5D%7D&limit=10000&offset=0",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "cache-control",
+      "max-age=300"
+    ],
+    [
+      "content-length",
+      "63"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 01:14:31 GMT"
+    ],
+    [
+      "etag",
+      "W/\"3f-708EmwLz87l6djPrypRI+39Q/nU\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4990"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794705318"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "244"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 63,
+  "retained_body_sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc",
+  "role": "dataset_inventory",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T01:14:31.486558+00:00",
+  "utc_start": "2026-11-15T01:14:30.870343+00:00"
+}

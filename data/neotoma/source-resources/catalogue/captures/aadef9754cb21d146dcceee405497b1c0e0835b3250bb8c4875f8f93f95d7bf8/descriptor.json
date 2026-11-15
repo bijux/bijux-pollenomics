@@ -1,0 +1,118 @@
+{
+  "body_resolver": "explicit capture_sources mapping keyed by capture_manifest_sha256",
+  "capture_kind": "metadata",
+  "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+  "files": [
+    {
+      "bytes": 2349,
+      "name": "capture-manifest.json",
+      "sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+      "source_entity": false
+    },
+    {
+      "bytes": 5243161,
+      "name": "inventory-limit-10000-offset-0.body",
+      "sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+      "source_entity": true
+    },
+    {
+      "bytes": 2512,
+      "name": "inventory-limit-10000-offset-0.receipt.json",
+      "sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+      "source_entity": false
+    },
+    {
+      "bytes": 501720,
+      "name": "inventory-limit-400-offset-0.body",
+      "sha256": "3b2f44aaa705f5f5e74cdba0fb85628ad838b58bcd5f6d166a5c89a70e900204",
+      "source_entity": true
+    },
+    {
+      "bytes": 2498,
+      "name": "inventory-limit-400-offset-0.receipt.json",
+      "sha256": "9fb58b82b16c25408324b769d0ea65eea12859eb2995e9d42303f86d6fd2336a",
+      "source_entity": false
+    },
+    {
+      "bytes": 792493,
+      "name": "inventory-limit-400-offset-1200.body",
+      "sha256": "7b428e16adada43eaee05380e9529f32dc9fbd6cc67a1f17141adc2d0ffb07c7",
+      "source_entity": true
+    },
+    {
+      "bytes": 2513,
+      "name": "inventory-limit-400-offset-1200.receipt.json",
+      "sha256": "a50d729d14640e6a6b64958f39dabe4d0b5d54f45f7c88deb26a36f5e2fca159",
+      "source_entity": false
+    },
+    {
+      "bytes": 718677,
+      "name": "inventory-limit-400-offset-1600.body",
+      "sha256": "7ee9b11a0b0110f0d3ee6388add58a8058354c0c1d1b2b1584aae580157229c1",
+      "source_entity": true
+    },
+    {
+      "bytes": 2513,
+      "name": "inventory-limit-400-offset-1600.receipt.json",
+      "sha256": "72cd514adcd629fe229265c9778c50f07f757941dea20eb50e31a5bccc7ba405",
+      "source_entity": false
+    },
+    {
+      "bytes": 1088285,
+      "name": "inventory-limit-400-offset-2000.body",
+      "sha256": "4661b1d2ca77d379b1ee222de61479e1707d71458ee478c55bc8907473adf871",
+      "source_entity": true
+    },
+    {
+      "bytes": 2516,
+      "name": "inventory-limit-400-offset-2000.receipt.json",
+      "sha256": "406f755a309c70db1383bb0ed2f5ab8fc120037eb43cfebfe7c1a82a319d4034",
+      "source_entity": false
+    },
+    {
+      "bytes": 406949,
+      "name": "inventory-limit-400-offset-2400.body",
+      "sha256": "ba05bb45f7d4052d6449f745242d6248e6f796d4c6f424422484d86b5f7f1d54",
+      "source_entity": true
+    },
+    {
+      "bytes": 2513,
+      "name": "inventory-limit-400-offset-2400.receipt.json",
+      "sha256": "8155c2f80a9a7837d08e3687d86f4a0c42a0041577e5ee9309a6c8ad30edd052",
+      "source_entity": false
+    },
+    {
+      "bytes": 678207,
+      "name": "inventory-limit-400-offset-400.body",
+      "sha256": "ae60d7d1aa68b76943a8ae5e5872842ae80ca77c3c07cf50e289c49404cb9181",
+      "source_entity": true
+    },
+    {
+      "bytes": 2508,
+      "name": "inventory-limit-400-offset-400.receipt.json",
+      "sha256": "b5a93c335898a6f6fa70445b4112513ea4e7099904480f221d77b6bd9f49f670",
+      "source_entity": false
+    },
+    {
+      "bytes": 1057202,
+      "name": "inventory-limit-400-offset-800.body",
+      "sha256": "4766d89a4765b799b4dcfb66c2a1ea0f050db28b5db0cb0c8735d622f9bd19ed",
+      "source_entity": true
+    },
+    {
+      "bytes": 2511,
+      "name": "inventory-limit-400-offset-800.receipt.json",
+      "sha256": "0d35daab8b9b515201aa34850c0a231e23ec94bf1cc691d3f4643078d024f5b9",
+      "source_entity": false
+    },
+    {
+      "bytes": 571,
+      "name": "request-plan.json",
+      "sha256": "7a08b36d80dde78fa395c705f8c7f4dcd7b7d4109376b327d406e568e513ec12",
+      "source_entity": false
+    }
+  ],
+  "native_schema_version": "neotoma-metadata-http-capture.v1",
+  "schema_version": "neotoma-resource-source-descriptor.v1",
+  "source_bodies_in_descriptor": false
+}

@@ -107,6 +107,8 @@ def discover_neotoma_facet_links(
                     "dataset_publication",
                 )
         elif entry["facet"] == "taxa":
+            if entry.get("population_status") == "source_null_aggregate_placeholder":
+                continue
             for index, row in enumerate(data):
                 add(
                     "taxon",

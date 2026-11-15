@@ -1,0 +1,70 @@
+{
+  "body_resolver": "explicit capture_sources mapping keyed by capture_manifest_sha256",
+  "capture_kind": "country_authority",
+  "capture_manifest_sha256": "076f80f077ae128ea2d9ec548db8947c00e162725cafebbe05668fe065266ef8",
+  "files": [
+    {
+      "bytes": 4213,
+      "name": "capture-manifest.json",
+      "sha256": "076f80f077ae128ea2d9ec548db8947c00e162725cafebbe05668fe065266ef8",
+      "source_entity": false
+    },
+    {
+      "bytes": 234,
+      "name": "country-authority-Denmark-current-attempt-1.body",
+      "sha256": "c60477900e726f675f6643958c53c0e4ae2d104f36d26e77f153f053e1bd6d75",
+      "source_entity": true
+    },
+    {
+      "bytes": 1996,
+      "name": "country-authority-Denmark-current-attempt-1.receipt.json",
+      "sha256": "b5470d6fda687cb421e7d1b3640b797090ee5704b7508b9e8d74c7f04c0e3ec8",
+      "source_entity": false
+    },
+    {
+      "bytes": 234,
+      "name": "country-authority-Finland-current-attempt-1.body",
+      "sha256": "d4b33895ad384b294d080261191cc613334c11fe5945e35e1cc37471844a8727",
+      "source_entity": true
+    },
+    {
+      "bytes": 1995,
+      "name": "country-authority-Finland-current-attempt-1.receipt.json",
+      "sha256": "98f8bc528b8bbd841b980b9f2fbcc5a226d512351a8fd43075a36bdb1a1cb2b4",
+      "source_entity": false
+    },
+    {
+      "bytes": 233,
+      "name": "country-authority-Norway-current-attempt-1.body",
+      "sha256": "b7af7c6f827fcc2126056d6435599c3844faf40afe4577982d2d7c2a0dcecd4e",
+      "source_entity": true
+    },
+    {
+      "bytes": 1989,
+      "name": "country-authority-Norway-current-attempt-1.receipt.json",
+      "sha256": "dd82fd11aaf016f2d0d4f8804431624d94932fa76ec869e4ab6402a80256e875",
+      "source_entity": false
+    },
+    {
+      "bytes": 233,
+      "name": "country-authority-Sweden-current-attempt-1.body",
+      "sha256": "6076814ef1c39adaad40b82610b3bca652bcccc3c899c9a846544b177ac2577e",
+      "source_entity": true
+    },
+    {
+      "bytes": 1989,
+      "name": "country-authority-Sweden-current-attempt-1.receipt.json",
+      "sha256": "50f68002f9bf89a3414eaa534b70f153fc78889377a3d930cc58dd142f1483a7",
+      "source_entity": false
+    },
+    {
+      "bytes": 652,
+      "name": "request-plan.json",
+      "sha256": "d9f1b9e5bd58a53979f0ce1ba4aa20d25c6ac82f796c5585bcaa7af189e9bb9b",
+      "source_entity": false
+    }
+  ],
+  "native_schema_version": "neotoma-country-authority-http-capture.v1",
+  "schema_version": "neotoma-resource-source-descriptor.v1",
+  "source_bodies_in_descriptor": false
+}

@@ -1,0 +1,59 @@
+{
+  "capture_utc_end": "2026-11-14T21:45:09.785931+00:00",
+  "capture_utc_start": "2026-11-14T21:45:06.236985+00:00",
+  "plan_file": "request-plan.json",
+  "plan_sha256": "8504b191e02c54e21a1617dac0cf2c04a464ec388f3a2b9b379557929397741a",
+  "records": [
+    {
+      "receipt_file": "site-3200-datasets.receipt.json",
+      "receipt_sha256": "f26a5a52f5a49a36ad5c5841c9c3328d96cce8aaa288e5825e5c3ce8481bd36a",
+      "request_name": "site-3200-datasets"
+    },
+    {
+      "receipt_file": "site-24042-datasets.receipt.json",
+      "receipt_sha256": "988338f160a767c1d588c788ad2dfa5b1c885408e81c89db48e62bbeb15a256d",
+      "request_name": "site-24042-datasets"
+    },
+    {
+      "receipt_file": "site-36445-datasets.receipt.json",
+      "receipt_sha256": "cf6adda6a4d66e046a281cb1369b0c03986a9eb608ee425faaf57d30fcd0a119",
+      "request_name": "site-36445-datasets"
+    },
+    {
+      "receipt_file": "site-42019-datasets.receipt.json",
+      "receipt_sha256": "aa99213c2e576ebc0cceedf7ed7240735bc3702f41c7fb4a74714cb2194b26b8",
+      "request_name": "site-42019-datasets"
+    },
+    {
+      "receipt_file": "site-42047-datasets.receipt.json",
+      "receipt_sha256": "f49dfcd105f6c085b1eaef242bb500b45f686948cbc0e5802da481b29eeaabdd",
+      "request_name": "site-42047-datasets"
+    },
+    {
+      "receipt_file": "site-42048-datasets.receipt.json",
+      "receipt_sha256": "80c8c8c925bc78f3f264a850b7c5b64fcce37f9bcf16a883f5aa89887bfc5452",
+      "request_name": "site-42048-datasets"
+    },
+    {
+      "receipt_file": "site-42133-datasets.receipt.json",
+      "receipt_sha256": "9c3154fd77a6024e9c9909455477af726099cdbc5b75ed2a2f23317f235e16aa",
+      "request_name": "site-42133-datasets"
+    },
+    {
+      "receipt_file": "site-42566-datasets.receipt.json",
+      "receipt_sha256": "286cc9f3ee67119c778f4431502ee2686fdfa0264f66584ff713a06211539e78",
+      "request_name": "site-42566-datasets"
+    },
+    {
+      "receipt_file": "site-42567-datasets.receipt.json",
+      "receipt_sha256": "22b994c8ddf3989aa6b5fae47029d562e814d28f51c94ecabbc95a219e5e5315",
+      "request_name": "site-42567-datasets"
+    }
+  ],
+  "request_count": 9,
+  "response_bytes": 18038,
+  "schema_version": "neotoma-metadata-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "sequential_live_responses; no transaction snapshot",
+  "status": "complete"
+}

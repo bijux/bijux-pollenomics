@@ -1,0 +1,360 @@
+{
+  "historical_snapshot_replaced": false,
+  "input_captures": [],
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 48,
+    "max_response_bytes": 33554432,
+    "max_total_bytes": 67108864,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 300
+  },
+  "plan": {
+    "policy_sources": [
+      "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+      "https://epdweblog.org/epd_data_home/epd_policy/"
+    ],
+    "resources": [
+      {
+        "collection_unit_id": 49345,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66497,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1761/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36710,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49346,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66498,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1781/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36738,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49347,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66499,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1734/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36704,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49348,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66500,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1754/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36709,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49349,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66501,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1732/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36703,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49350,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66502,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1785/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36739,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49351,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66503,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1786/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36739,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49356,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66508,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1789/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36741,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49368,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66520,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1797/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36746,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49369,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66521,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1707/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36686,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49370,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66522,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1708/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36686,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49482,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66634,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1819/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36772,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49486,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66638,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1820/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36790,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49501,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66653,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1821/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36791,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49503,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66655,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1747/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36706,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49504,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66656,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1752/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36708,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49505,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66657,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1768/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36713,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49508,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66660,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1782/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36738,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49515,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66667,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1730/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36702,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49526,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66678,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1709/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36686,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 49542,
+        "database": "Pollen Monitoring Programme",
+        "dataset_id": 66694,
+        "dataset_type": "pollen trap",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1720/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 36694,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 50135,
+        "database": null,
+        "dataset_id": 67854,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1828/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 37264,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 50346,
+        "database": "SISAL",
+        "dataset_id": 68269,
+        "dataset_type": "speleothem",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1830/site/datasets/1",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 37353,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      },
+      {
+        "collection_unit_id": 50346,
+        "database": null,
+        "dataset_id": 68270,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1830/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 37353,
+        "versions": [
+          "current",
+          "doi_frozen"
+        ]
+      }
+    ],
+    "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4"
+  },
+  "retry_failed": false,
+  "schema_version": "neotoma-resource-http-capture.v1"
+}

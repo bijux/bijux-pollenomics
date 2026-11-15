@@ -1,0 +1,54 @@
+{
+  "capture_utc_end": "2026-11-15T01:14:30.010550+00:00",
+  "capture_utc_start": "2026-11-15T01:14:17.102971+00:00",
+  "plan_file": "request-plan.json",
+  "plan_sha256": "7a08b36d80dde78fa395c705f8c7f4dcd7b7d4109376b327d406e568e513ec12",
+  "records": [
+    {
+      "receipt_file": "inventory-limit-400-offset-0.receipt.json",
+      "receipt_sha256": "9fb58b82b16c25408324b769d0ea65eea12859eb2995e9d42303f86d6fd2336a",
+      "request_name": "inventory-limit-400-offset-0"
+    },
+    {
+      "receipt_file": "inventory-limit-400-offset-400.receipt.json",
+      "receipt_sha256": "b5a93c335898a6f6fa70445b4112513ea4e7099904480f221d77b6bd9f49f670",
+      "request_name": "inventory-limit-400-offset-400"
+    },
+    {
+      "receipt_file": "inventory-limit-400-offset-800.receipt.json",
+      "receipt_sha256": "0d35daab8b9b515201aa34850c0a231e23ec94bf1cc691d3f4643078d024f5b9",
+      "request_name": "inventory-limit-400-offset-800"
+    },
+    {
+      "receipt_file": "inventory-limit-400-offset-1200.receipt.json",
+      "receipt_sha256": "a50d729d14640e6a6b64958f39dabe4d0b5d54f45f7c88deb26a36f5e2fca159",
+      "request_name": "inventory-limit-400-offset-1200"
+    },
+    {
+      "receipt_file": "inventory-limit-400-offset-1600.receipt.json",
+      "receipt_sha256": "72cd514adcd629fe229265c9778c50f07f757941dea20eb50e31a5bccc7ba405",
+      "request_name": "inventory-limit-400-offset-1600"
+    },
+    {
+      "receipt_file": "inventory-limit-400-offset-2000.receipt.json",
+      "receipt_sha256": "406f755a309c70db1383bb0ed2f5ab8fc120037eb43cfebfe7c1a82a319d4034",
+      "request_name": "inventory-limit-400-offset-2000"
+    },
+    {
+      "receipt_file": "inventory-limit-400-offset-2400.receipt.json",
+      "receipt_sha256": "8155c2f80a9a7837d08e3687d86f4a0c42a0041577e5ee9309a6c8ad30edd052",
+      "request_name": "inventory-limit-400-offset-2400"
+    },
+    {
+      "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+      "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+      "request_name": "inventory-limit-10000-offset-0"
+    }
+  ],
+  "request_count": 8,
+  "response_bytes": 10486694,
+  "schema_version": "neotoma-metadata-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "sequential_live_responses; no transaction snapshot",
+  "status": "complete"
+}

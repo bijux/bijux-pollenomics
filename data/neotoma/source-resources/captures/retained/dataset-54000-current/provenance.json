@@ -1,0 +1,84 @@
+{
+  "schema_version": "bokesjon-public-core-sources.v1",
+  "purpose": "Public source core/chronology/rights qualification; no physical LRA or independent accuracy admission",
+  "capture_date_utc": "2026-11-14",
+  "sources": [
+    {
+      "source_url": "https://api.neotomadb.org/v2.0/data/datasets/54001",
+      "final_url": "https://api.neotomadb.org/v2.0/data/datasets/54001",
+      "status": 200,
+      "retrieved_at": "2026-11-14T17:31:53.696251+00:00",
+      "bytes": 998,
+      "sha256": "71f91c750ddeef63ffb67b0862d55b42e285181a3ddc585f24c98e9567af6501",
+      "path": "data/neotoma/raw/bokesjon-core-sources/neotoma-dataset-metadata.json",
+      "original_capture_path": "artifacts/bokesjon-pilot/physical-sources/neotoma-dataset-metadata.json"
+    },
+    {
+      "source_url": "https://api.neotomadb.org/v2.0/data/sites/28872",
+      "final_url": "https://api.neotomadb.org/v2.0/data/sites/28872",
+      "status": 200,
+      "retrieved_at": "2026-11-14T17:31:54.073911+00:00",
+      "bytes": 747,
+      "sha256": "b648b6ceb4755b01573167cede3133c1e6903de65d5ccb00ab35e262e3511b6e",
+      "path": "data/neotoma/raw/bokesjon-core-sources/neotoma-site-metadata.json",
+      "original_capture_path": "artifacts/bokesjon-pilot/physical-sources/neotoma-site-metadata.json"
+    },
+    {
+      "source_url": "https://api.datacite.org/dois/10.21233/A5HN-WW50",
+      "final_url": "https://api.datacite.org/dois/10.21233/A5HN-WW50",
+      "status": 200,
+      "retrieved_at": "2026-11-14T17:31:54.274938+00:00",
+      "bytes": 8603,
+      "sha256": "17ac39ab054e57332efba88263447952d9bdce47c5ccca8a7d6a6ef7982629fc",
+      "path": "data/neotoma/raw/bokesjon-core-sources/datacite-dataset-metadata.json",
+      "original_capture_path": "artifacts/bokesjon-pilot/physical-sources/datacite-dataset-metadata.json"
+    },
+    {
+      "source_url": "https://api.neotomadb.org/v2.0/data/datasets/54000",
+      "final_url": "https://api.neotomadb.org/v2.0/data/datasets/54000",
+      "status": 200,
+      "retrieved_at": "2026-11-14T17:32:38.349797+00:00",
+      "bytes": 810,
+      "sha256": "47dd2596a82b25cb1bfe2f3588859e34c0873c947f03792d29720845a276d7d7",
+      "path": "data/neotoma/raw/bokesjon-core-sources/neotoma-geochronologic-metadata.json",
+      "original_capture_path": "artifacts/bokesjon-pilot/physical-sources/neotoma-geochronologic-metadata.json"
+    },
+    {
+      "source_url": "https://api.neotomadb.org/v2.0/data/downloads/54000",
+      "final_url": "https://api.neotomadb.org/v2.0/data/downloads/54000",
+      "status": 200,
+      "retrieved_at": "2026-11-14T17:32:38.790438+00:00",
+      "bytes": 18975,
+      "sha256": "d308d535c1a8a4ed239cfd433df4feb44ee8efd54523861c4a86ca139f41b5bd",
+      "path": "data/neotoma/raw/bokesjon-core-sources/neotoma-geochronologic-download.json",
+      "original_capture_path": "artifacts/bokesjon-pilot/physical-sources/neotoma-geochronologic-download.json"
+    },
+    {
+      "source_url": "https://api.datacite.org/dois/10.21233/0msh-1a51",
+      "final_url": "https://api.datacite.org/dois/10.21233/0msh-1a51",
+      "status": 200,
+      "retrieved_at": "2026-11-14T17:32:38.948849+00:00",
+      "bytes": 9883,
+      "sha256": "4e2ebd97506df6dc348eb20f2efe0c41b192c98979620d5a2f733a2f2a00b9a3",
+      "path": "data/neotoma/raw/bokesjon-core-sources/datacite-alternative-metadata.json",
+      "original_capture_path": "artifacts/bokesjon-pilot/physical-sources/datacite-alternative-metadata.json"
+    }
+  ],
+  "attribution": [
+    "Neotoma Paleoecology Database",
+    "European Pollen Database",
+    "Marie-José Gaillard-Lemdahl, pollen contributor",
+    "Anna-Kari Trondman, LANDCLIM chronology"
+  ],
+  "public_data_policy": {
+    "url": "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+    "version": "V.2025",
+    "approved": "2025-03-27",
+    "locator": "sections2(Data Use)and3(Data Citation and Attribution)",
+    "license": "CC BY 4.0",
+    "captured_body_sha256": "f3fbb625538a150b972e8e54bd861d3e0f28a99f70f638ea608d72e74e3209cf",
+    "scope": "Public Neotoma datasets including54000; independent of54001DOI scope. No license for private author workbooks follows."
+  },
+  "doi_notice_policy": "Both dataset-declared pollen DOIs and all their rights entries are retained, including the newer Local Contexts Open to Collaborate notice; no endorsement or accepted scientific profile follows.",
+  "old_source_scope": "Current public metadata is compared against the separately pinned retained pollen download; old execution metadata is not relabeled as a fresh capture."
+}

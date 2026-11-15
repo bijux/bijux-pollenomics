@@ -1,0 +1,24 @@
+{
+  "capture_utc_end": "2026-11-15T05:29:34.271628+00:00",
+  "capture_utc_start": "2026-11-15T05:29:32.453615+00:00",
+  "plan_file": "request-plan.json",
+  "plan_sha256": "88861969fd34a4c271a2cf92f39a4d5c09f4efb8146ab762cadaf0d62a9115db",
+  "records": [
+    {
+      "receipt_file": "inventory-gpid-1411-limit-400-offset-0.receipt.json",
+      "receipt_sha256": "6f4071f3c0cbe9b52589e7b5ace23462f841869e11047129f37f61bd47c499f7",
+      "request_name": "inventory-gpid-1411-limit-400-offset-0"
+    },
+    {
+      "receipt_file": "inventory-gpid-1411-limit-10000-offset-0.receipt.json",
+      "receipt_sha256": "c1672a98c2216bbd51d4074408e41f9eda3247a1ab9dd9f25b0347ed83b9230e",
+      "request_name": "inventory-gpid-1411-limit-10000-offset-0"
+    }
+  ],
+  "request_count": 2,
+  "response_bytes": 786820,
+  "schema_version": "neotoma-metadata-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "sequential_live_responses; no transaction snapshot",
+  "status": "complete"
+}

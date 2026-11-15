@@ -1,0 +1,58 @@
+{
+  "body_resolver": "explicit capture_sources mapping keyed by capture_manifest_sha256",
+  "capture_kind": "metadata",
+  "capture_manifest_sha256": "248fb70ef1490ddb49ac53a93127f6fff9cdca0e664bab941901cf2a9084a446",
+  "files": [
+    {
+      "bytes": 1255,
+      "name": "capture-manifest.json",
+      "sha256": "248fb70ef1490ddb49ac53a93127f6fff9cdca0e664bab941901cf2a9084a446",
+      "source_entity": false
+    },
+    {
+      "bytes": 1046419,
+      "name": "inventory-gpid-5392-limit-10000-offset-0.body",
+      "sha256": "7f8bec44b22c069d0f5ecf88c3b0562205010ceb546654bd50c055762ee9b69b",
+      "source_entity": true
+    },
+    {
+      "bytes": 2014,
+      "name": "inventory-gpid-5392-limit-10000-offset-0.receipt.json",
+      "sha256": "2dbc79abb018691c57a9b651cc86b074cb2f9a68d9092d4171a9875173e8231a",
+      "source_entity": false
+    },
+    {
+      "bytes": 889969,
+      "name": "inventory-gpid-5392-limit-400-offset-0.body",
+      "sha256": "6061f371f40b508930200a55980fe95ffbd4f6863d010be5975ee6d45b05a776",
+      "source_entity": true
+    },
+    {
+      "bytes": 2002,
+      "name": "inventory-gpid-5392-limit-400-offset-0.receipt.json",
+      "sha256": "e366f741b110d6144316b881a8f3945f92557e60b69552b962d1314e434d7062",
+      "source_entity": false
+    },
+    {
+      "bytes": 156512,
+      "name": "inventory-gpid-5392-limit-400-offset-400.body",
+      "sha256": "2ca7db1d8d3c1c732ce626a7d2ea41915f11740883ffbbed504bc65e0034b886",
+      "source_entity": true
+    },
+    {
+      "bytes": 2011,
+      "name": "inventory-gpid-5392-limit-400-offset-400.receipt.json",
+      "sha256": "45d3a3e90a0b749f23780f46b60cc63956201f6877349009faddfb2eeec72f2c",
+      "source_entity": false
+    },
+    {
+      "bytes": 576,
+      "name": "request-plan.json",
+      "sha256": "8b0fc4f272df3d7a2ac65c594ccd7d3bc012d5c132403a329762f2bce75612bd",
+      "source_entity": false
+    }
+  ],
+  "native_schema_version": "neotoma-metadata-http-capture.v1",
+  "schema_version": "neotoma-resource-source-descriptor.v1",
+  "source_bodies_in_descriptor": false
+}

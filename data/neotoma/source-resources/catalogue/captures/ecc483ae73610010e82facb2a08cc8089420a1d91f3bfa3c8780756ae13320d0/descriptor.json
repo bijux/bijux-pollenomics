@@ -1,0 +1,94 @@
+{
+  "body_resolver": "explicit capture_sources mapping keyed by capture_manifest_sha256",
+  "capture_kind": "resources",
+  "capture_manifest_sha256": "ecc483ae73610010e82facb2a08cc8089420a1d91f3bfa3c8780756ae13320d0",
+  "files": [
+    {
+      "bytes": 8192,
+      "name": "capture-manifest.json",
+      "sha256": "ecc483ae73610010e82facb2a08cc8089420a1d91f3bfa3c8780756ae13320d0",
+      "source_entity": false
+    },
+    {
+      "bytes": 4162,
+      "name": "dataset-53100-current-attempt-1.body",
+      "sha256": "599853c6b05b9f760288f2b6ed7e4275a6f4e43f5d8be03ce8aeb10b6eb76726",
+      "source_entity": true
+    },
+    {
+      "bytes": 1892,
+      "name": "dataset-53100-current-attempt-1.receipt.json",
+      "sha256": "2f11727ee10c3a1621935eac2f9e1dfd516f654fbba67aafc922e05ebdfdf89f",
+      "source_entity": false
+    },
+    {
+      "bytes": 203,
+      "name": "dataset-53100-doi_frozen-attempt-1.body",
+      "sha256": "ecb521379da21ff233834f5df2fba592649451be40082b14cdf014f7c806fb02",
+      "source_entity": true
+    },
+    {
+      "bytes": 1828,
+      "name": "dataset-53100-doi_frozen-attempt-1.receipt.json",
+      "sha256": "5afc8b5650477314ad8067bb22734c672de38c6e70a6433ae4fd52596b7607b1",
+      "source_entity": false
+    },
+    {
+      "bytes": 524906,
+      "name": "dataset-53101-current-attempt-1.body",
+      "sha256": "9a3caf09ae873c5c635159984bdb604becb60ca532d9bed81eff11723dbe0318",
+      "source_entity": true
+    },
+    {
+      "bytes": 1898,
+      "name": "dataset-53101-current-attempt-1.receipt.json",
+      "sha256": "903f3071048ee7565d17e7e58f5d478d8fd9858c451fe2aab54b6ba7c5afd0fa",
+      "source_entity": false
+    },
+    {
+      "bytes": 434935,
+      "name": "dataset-53101-doi_frozen-attempt-1.body",
+      "sha256": "cd8f8291b35b7c424c847074940532c689c41dedb3c0580cd305f9009c2cdaad",
+      "source_entity": true
+    },
+    {
+      "bytes": 1838,
+      "name": "dataset-53101-doi_frozen-attempt-1.receipt.json",
+      "sha256": "6f6bde1a8466fc9fa991c760ac14b79681020fede631c67169dfd061589f257b",
+      "source_entity": false
+    },
+    {
+      "bytes": 6820,
+      "name": "dataset-71567-current-attempt-1.body",
+      "sha256": "2fe5db5c500ba91a50149368d3a2a95bf23ad91da34bc5e7a46bf1b5e8179f4a",
+      "source_entity": true
+    },
+    {
+      "bytes": 1892,
+      "name": "dataset-71567-current-attempt-1.receipt.json",
+      "sha256": "fc6e9e2c631f22ce8a7f026819c09fe9e406af593936f70290dbeba4824ed19b",
+      "source_entity": false
+    },
+    {
+      "bytes": 3300,
+      "name": "dataset-71567-doi_frozen-attempt-1.body",
+      "sha256": "6a33500cb02cc02af4ec31473021df002f329466f40637b2e0efc28b378656a3",
+      "source_entity": true
+    },
+    {
+      "bytes": 1831,
+      "name": "dataset-71567-doi_frozen-attempt-1.receipt.json",
+      "sha256": "9bc2f04434be00cd3231f97059da219007d3796b30902fe752972839199e572c",
+      "source_entity": false
+    },
+    {
+      "bytes": 2133,
+      "name": "request-plan.json",
+      "sha256": "fa5738ee0dc2732beae1909b72da577e95b1acf59289b73b3f36fd7778522003",
+      "source_entity": false
+    }
+  ],
+  "native_schema_version": "neotoma-resource-http-capture.v1",
+  "schema_version": "neotoma-resource-source-descriptor.v1",
+  "source_bodies_in_descriptor": false
+}

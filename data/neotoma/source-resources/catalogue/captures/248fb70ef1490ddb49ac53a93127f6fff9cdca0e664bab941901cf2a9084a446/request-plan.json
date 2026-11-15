@@ -1,0 +1,25 @@
+{
+  "exposure_role": "metadata_only; no samples or observation outcomes",
+  "historical_capture_replaced": false,
+  "limits": {
+    "max_pages_per_inventory": 8,
+    "max_requests": 16,
+    "max_response_bytes": 33554431,
+    "max_total_bytes": 67108863,
+    "timeout_seconds": 45
+  },
+  "plan": {
+    "dataset_ids": [],
+    "geopolitical_unit_ids": [
+      5392
+    ],
+    "inventory_all_dataset_types": true,
+    "inventory_bbox": null,
+    "inventory_limits": [
+      400,
+      10000
+    ],
+    "site_ids": []
+  },
+  "schema_version": "neotoma-metadata-http-capture.v1"
+}

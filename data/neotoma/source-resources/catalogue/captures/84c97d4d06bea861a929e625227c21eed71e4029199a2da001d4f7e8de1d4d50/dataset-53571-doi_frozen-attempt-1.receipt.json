@@ -1,0 +1,95 @@
+{
+  "body_complete": true,
+  "body_file": "dataset-53571-doi_frozen-attempt-1.body",
+  "expected_dataset_id": 53571,
+  "expected_site_id": 28672,
+  "final_url": "https://api.neotomadb.org/v2.0/data/frozen/53571",
+  "http_status": 200,
+  "parameters": {},
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/frozen/53571",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/frozen/53571",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "3391"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 04:08:51 GMT"
+    ],
+    [
+      "etag",
+      "W/\"d3f-1kqI9PQebG6FCIreLTdGJL5LzlI\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4835"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794715762"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "3"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 3391,
+  "retained_body_sha256": "c8461f3cf0ec312110f2c8f6bf33c7d49040f6fc4730893f89327903580ed7df",
+  "role": "native_doi_frozen",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T04:08:51.315926+00:00",
+  "utc_start": "2026-11-15T04:08:50.945386+00:00"
+}

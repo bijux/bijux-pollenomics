@@ -2,6 +2,16 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#446](https://github.com/bijux/bijux-pollenomics/pull/446) — Portable Nordic source archive and exact retained buffers
+
+- Return the exact authenticated retained-source buffer instead of reopening its
+  pathname after provenance and schema checks.
+- Preserve successful empty lithology arrays and exact all-null taxon aggregate
+  placeholders as observed source populations, without inventing absence or links.
+- Retain the portable Nordic native source archive with pinned catalogue, original
+  capture receipts and dataset metadata; distinguish download-only entities from
+  qualified numerical access and preserve protected-role refusals.
+
 ### [#445](https://github.com/bijux/bijux-pollenomics/pull/445) — Portable selected-source access and literal Atlas context
 
 - Bound native reads to one descriptor-identified buffer and one sentinel byte,

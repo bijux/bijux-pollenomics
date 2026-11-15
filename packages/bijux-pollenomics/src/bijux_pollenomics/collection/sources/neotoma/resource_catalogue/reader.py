@@ -29,7 +29,7 @@ from ..capture.resources.protocol import (
     request_for,
     resource_key,
 )
-from ..capture.resources.retained import read_retained_source
+from ..capture.resources.retained import read_retained_source_entity
 from ..client import positive_native_id
 from .current_profiles import current_profiles_enabled
 from .custody import pinned_object, public_member
@@ -156,7 +156,9 @@ def _selected_body(
         retained = (retained_sources or {}).get(key)
         if retained is None:
             raise ValueError("Selected retained source resolver is required")
-        reference, summary = read_retained_source(resource, version, retained, maximum)
+        reference, summary, body = read_retained_source_entity(
+            resource, version, retained, maximum
+        )
         if (
             not _same(entry["retained_source"], reference)
             or not _same(entry["summary"], summary)
@@ -170,7 +172,6 @@ def _selected_body(
             )
         ):
             raise ValueError("Selected original retained provenance identity differs")
-        body = _read(_safe_root(retained.body_path), maximum)
         if sha256(body).hexdigest() != reference["body_sha256"]:
             raise ValueError("Selected retained body identity differs")
         return body

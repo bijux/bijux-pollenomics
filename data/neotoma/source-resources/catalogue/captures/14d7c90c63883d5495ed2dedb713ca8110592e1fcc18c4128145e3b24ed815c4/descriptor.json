@@ -1,0 +1,118 @@
+{
+  "body_resolver": "explicit capture_sources mapping keyed by capture_manifest_sha256",
+  "capture_kind": "resources",
+  "capture_manifest_sha256": "14d7c90c63883d5495ed2dedb713ca8110592e1fcc18c4128145e3b24ed815c4",
+  "files": [
+    {
+      "bytes": 11312,
+      "name": "capture-manifest.json",
+      "sha256": "14d7c90c63883d5495ed2dedb713ca8110592e1fcc18c4128145e3b24ed815c4",
+      "source_entity": false
+    },
+    {
+      "bytes": 6615,
+      "name": "dataset-19911-current-attempt-1.body",
+      "sha256": "8622eda400199f61a1e2e0f0e6c7e11d5f80aa207fccafd62ae5a19a189f293b",
+      "source_entity": true
+    },
+    {
+      "bytes": 1892,
+      "name": "dataset-19911-current-attempt-1.receipt.json",
+      "sha256": "4a6f8d840a6504ea7e9470814c2ebdfd0bd3eaa410675a8b2873d5a31e4bfec6",
+      "source_entity": false
+    },
+    {
+      "bytes": 170399,
+      "name": "dataset-19912-current-attempt-1.body",
+      "sha256": "b0539a9e8d93b84a4e2e51a486d7aa6925371179f519fb800c607a8987ae7c02",
+      "source_entity": true
+    },
+    {
+      "bytes": 1897,
+      "name": "dataset-19912-current-attempt-1.receipt.json",
+      "sha256": "861ef10ac7c745381a23d135ab55cc268811bdc7593b79eedfb528c744fd4c3c",
+      "source_entity": false
+    },
+    {
+      "bytes": 639576,
+      "name": "dataset-19913-current-attempt-1.body",
+      "sha256": "af4d316db9a0415470239733b3d0089a6b5c260153c09a3f3d0e0de3da0a01af",
+      "source_entity": true
+    },
+    {
+      "bytes": 1898,
+      "name": "dataset-19913-current-attempt-1.receipt.json",
+      "sha256": "61075c9a00218a73b38c3792485bcd102ebd8c7f9820af9baf1399728ff290a2",
+      "source_entity": false
+    },
+    {
+      "bytes": 327543,
+      "name": "dataset-19913-doi_frozen-attempt-1.body",
+      "sha256": "3add3099010768dc5eff35b6ff8070971dde771242335ea3f6cc6c52ec295a50",
+      "source_entity": true
+    },
+    {
+      "bytes": 1838,
+      "name": "dataset-19913-doi_frozen-attempt-1.receipt.json",
+      "sha256": "376b6bb929ec415bf82aafdfdb4758be753ccfc89510102a8d0b2128b00aa8fb",
+      "source_entity": false
+    },
+    {
+      "bytes": 489922,
+      "name": "dataset-53995-current-attempt-1.body",
+      "sha256": "8bf3bd73f3b0be204e96495107fe327574b3c826446cde1b8af239ec5322a374",
+      "source_entity": true
+    },
+    {
+      "bytes": 1898,
+      "name": "dataset-53995-current-attempt-1.receipt.json",
+      "sha256": "6fa0ec487cee97540da57d58c89f3007c3cb351eeaa35a010d37107086c12b55",
+      "source_entity": false
+    },
+    {
+      "bytes": 403203,
+      "name": "dataset-53995-doi_frozen-attempt-1.body",
+      "sha256": "1fce44fbd836760fb0c47ad75a2955cc3531dbabcaac8deebef3056177cc7dc7",
+      "source_entity": true
+    },
+    {
+      "bytes": 1838,
+      "name": "dataset-53995-doi_frozen-attempt-1.receipt.json",
+      "sha256": "c0016fe98da5aa22a81c4c673890afb233f5ef2bfde2e7ce7e444b3bcde4e1aa",
+      "source_entity": false
+    },
+    {
+      "bytes": 423919,
+      "name": "dataset-54001-current-attempt-1.body",
+      "sha256": "3ca799a0c00450b376c15654121882d70a5079322e5d12c5715c783b0d5cdaa5",
+      "source_entity": true
+    },
+    {
+      "bytes": 1898,
+      "name": "dataset-54001-current-attempt-1.receipt.json",
+      "sha256": "bcad331f85cd69300d6bbedaf0930c64dfd026078abc93e4af7e723f3049d74b",
+      "source_entity": false
+    },
+    {
+      "bytes": 350667,
+      "name": "dataset-54001-doi_frozen-attempt-1.body",
+      "sha256": "0512d34fd396dbed5ece9e8f3f9b4167502027a2a27c8a75d8e6eee3301c14bb",
+      "source_entity": true
+    },
+    {
+      "bytes": 1838,
+      "name": "dataset-54001-doi_frozen-attempt-1.receipt.json",
+      "sha256": "5e5d0da7166eaf2464eac5f481e59816be136fb8a4ae2eac03eacaad8203b919",
+      "source_entity": false
+    },
+    {
+      "bytes": 2999,
+      "name": "request-plan.json",
+      "sha256": "3b4a4fd799d183132fcc2380731af3c1477f24e4a25288cb7c2b1daacf14ce7f",
+      "source_entity": false
+    }
+  ],
+  "native_schema_version": "neotoma-resource-http-capture.v1",
+  "schema_version": "neotoma-resource-source-descriptor.v1",
+  "source_bodies_in_descriptor": false
+}

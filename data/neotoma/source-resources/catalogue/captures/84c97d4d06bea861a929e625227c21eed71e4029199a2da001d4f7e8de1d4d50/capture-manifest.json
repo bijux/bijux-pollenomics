@@ -1,0 +1,1386 @@
+{
+  "all_resources_parsed": false,
+  "capture_utc_end": "2026-11-15T04:08:53.713144+00:00",
+  "capture_utc_start": "2026-11-15T04:08:33.213619+00:00",
+  "partitions": {
+    "unresolved_frozen_schema": 24,
+    "unsupported_dataset_type": 24
+  },
+  "plan_sha256": "2f7ac260060dca0121f0243c8c45a6d61c8604b316b421fdfb5b470d92aabdc3",
+  "request_count": 48,
+  "resources": [
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53551-current-attempt-1.body",
+          "receipt_file": "dataset-53551-current-attempt-1.receipt.json",
+          "receipt_sha256": "b014049ff75b7e16d2062c6e77beb397a7e3fda9f405458568b6bac6017be8ca",
+          "request_name": "dataset-53551-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53551,
+      "identity": {
+        "collection_unit_id": 38830,
+        "database": "Neotoma",
+        "dataset_id": 53551,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1573/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28652
+      },
+      "resource_key": "dataset-53551-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53551-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53551-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "c42f2660b14535d48ff7e61d7d1e724ffebe80306ff46da27a00ea5cf7607da5",
+          "request_name": "dataset-53551-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53551,
+      "identity": {
+        "collection_unit_id": 38830,
+        "database": "Neotoma",
+        "dataset_id": 53551,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1573/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28652
+      },
+      "resource_key": "dataset-53551-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53552-current-attempt-1.body",
+          "receipt_file": "dataset-53552-current-attempt-1.receipt.json",
+          "receipt_sha256": "0ed384e8eff4f3e185d6387dd602d736734cd4581551f8448ac1484584023e4a",
+          "request_name": "dataset-53552-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53552,
+      "identity": {
+        "collection_unit_id": 38831,
+        "database": "Neotoma",
+        "dataset_id": 53552,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1574/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28653
+      },
+      "resource_key": "dataset-53552-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53552-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53552-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "125fba70e90ee768dcf629150b0c9ef80130ef71ee559f8b2d879f6f9775d694",
+          "request_name": "dataset-53552-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53552,
+      "identity": {
+        "collection_unit_id": 38831,
+        "database": "Neotoma",
+        "dataset_id": 53552,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1574/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28653
+      },
+      "resource_key": "dataset-53552-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53553-current-attempt-1.body",
+          "receipt_file": "dataset-53553-current-attempt-1.receipt.json",
+          "receipt_sha256": "b88672d37ebcd86554c0d7a4a69a15fb8ac69304bce83ab42bba89c1c43cd7c4",
+          "request_name": "dataset-53553-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53553,
+      "identity": {
+        "collection_unit_id": 38832,
+        "database": "Neotoma",
+        "dataset_id": 53553,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1575/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28654
+      },
+      "resource_key": "dataset-53553-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53553-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53553-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "d3b9c5395093ab68ad27c4a659004cab9c694b7afddf83e68aca59883de53da0",
+          "request_name": "dataset-53553-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53553,
+      "identity": {
+        "collection_unit_id": 38832,
+        "database": "Neotoma",
+        "dataset_id": 53553,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1575/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28654
+      },
+      "resource_key": "dataset-53553-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53554-current-attempt-1.body",
+          "receipt_file": "dataset-53554-current-attempt-1.receipt.json",
+          "receipt_sha256": "a9d2d9ec9b40025c3f370e6d4190da5d8c0027bf1e65dff0bd9a73ac0057adf0",
+          "request_name": "dataset-53554-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53554,
+      "identity": {
+        "collection_unit_id": 38833,
+        "database": "Neotoma",
+        "dataset_id": 53554,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1576/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28655
+      },
+      "resource_key": "dataset-53554-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53554-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53554-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "127d3060f71239a7c0f8e8a7df1ea4d13af46291bcbb3a41f64aa63204d307e2",
+          "request_name": "dataset-53554-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53554,
+      "identity": {
+        "collection_unit_id": 38833,
+        "database": "Neotoma",
+        "dataset_id": 53554,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1576/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28655
+      },
+      "resource_key": "dataset-53554-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53555-current-attempt-1.body",
+          "receipt_file": "dataset-53555-current-attempt-1.receipt.json",
+          "receipt_sha256": "5f750cbcd3a8f4df04a5cb08be28233155cf2891755cf80b6e3d49a0ed1e314f",
+          "request_name": "dataset-53555-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53555,
+      "identity": {
+        "collection_unit_id": 38834,
+        "database": "Neotoma",
+        "dataset_id": 53555,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1577/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28656
+      },
+      "resource_key": "dataset-53555-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53555-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53555-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "0ad96c344adce25a6d893057b69755aa2d84730299a299f1af46391dc4e43713",
+          "request_name": "dataset-53555-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53555,
+      "identity": {
+        "collection_unit_id": 38834,
+        "database": "Neotoma",
+        "dataset_id": 53555,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1577/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28656
+      },
+      "resource_key": "dataset-53555-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53556-current-attempt-1.body",
+          "receipt_file": "dataset-53556-current-attempt-1.receipt.json",
+          "receipt_sha256": "3600f03a15aa1cfea4b540434661eee20a30873fde85e7f599822dec3297704c",
+          "request_name": "dataset-53556-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53556,
+      "identity": {
+        "collection_unit_id": 38835,
+        "database": "Neotoma",
+        "dataset_id": 53556,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1578/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28657
+      },
+      "resource_key": "dataset-53556-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53556-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53556-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "2c29483ee65c69828fcbc9e8e09bc0b5a3cf3271cd8c9820a6ebfbdd2425bc60",
+          "request_name": "dataset-53556-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53556,
+      "identity": {
+        "collection_unit_id": 38835,
+        "database": "Neotoma",
+        "dataset_id": 53556,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1578/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28657
+      },
+      "resource_key": "dataset-53556-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53557-current-attempt-1.body",
+          "receipt_file": "dataset-53557-current-attempt-1.receipt.json",
+          "receipt_sha256": "2781607aea717aa37a9090a07ccf55f5ca787617b3788accf260fd9ab7d437a6",
+          "request_name": "dataset-53557-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53557,
+      "identity": {
+        "collection_unit_id": 38836,
+        "database": "Neotoma",
+        "dataset_id": 53557,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1579/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28658
+      },
+      "resource_key": "dataset-53557-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53557-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53557-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "11f0467942306ad1ddf2eab6c3b37f8a823509df9989a04d9e8a62c4dfce21aa",
+          "request_name": "dataset-53557-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53557,
+      "identity": {
+        "collection_unit_id": 38836,
+        "database": "Neotoma",
+        "dataset_id": 53557,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1579/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28658
+      },
+      "resource_key": "dataset-53557-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53558-current-attempt-1.body",
+          "receipt_file": "dataset-53558-current-attempt-1.receipt.json",
+          "receipt_sha256": "ffb1832be6137be90d6863bad8244c10c1b1948419c0a1765c1e587434e0794b",
+          "request_name": "dataset-53558-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53558,
+      "identity": {
+        "collection_unit_id": 38837,
+        "database": "Neotoma",
+        "dataset_id": 53558,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1580/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28659
+      },
+      "resource_key": "dataset-53558-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53558-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53558-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "933e415dd8668466895e9dbacf659713c99d26d7cf37dbf2ff2fd98b8e6af1e1",
+          "request_name": "dataset-53558-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53558,
+      "identity": {
+        "collection_unit_id": 38837,
+        "database": "Neotoma",
+        "dataset_id": 53558,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1580/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28659
+      },
+      "resource_key": "dataset-53558-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53559-current-attempt-1.body",
+          "receipt_file": "dataset-53559-current-attempt-1.receipt.json",
+          "receipt_sha256": "6be749003c79de779fb9b121f563cf5f9ec01107007bd040fec6c220aadccb32",
+          "request_name": "dataset-53559-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53559,
+      "identity": {
+        "collection_unit_id": 38838,
+        "database": "Neotoma",
+        "dataset_id": 53559,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1581/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28660
+      },
+      "resource_key": "dataset-53559-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53559-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53559-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "5b7288b6981a7d349b2c393b4912db7aab1f42d304c711d1a8306a48a4ab46a8",
+          "request_name": "dataset-53559-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53559,
+      "identity": {
+        "collection_unit_id": 38838,
+        "database": "Neotoma",
+        "dataset_id": 53559,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1581/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28660
+      },
+      "resource_key": "dataset-53559-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53560-current-attempt-1.body",
+          "receipt_file": "dataset-53560-current-attempt-1.receipt.json",
+          "receipt_sha256": "315a86be6ce87144ec84ab19cc76c0777ba9ffffd7a9ff9fbbedb08bb997284d",
+          "request_name": "dataset-53560-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53560,
+      "identity": {
+        "collection_unit_id": 38839,
+        "database": "Neotoma",
+        "dataset_id": 53560,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1582/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28661
+      },
+      "resource_key": "dataset-53560-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53560-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53560-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "988ab25be572c6f6a960fd7ab887b3b974cdcff2c41e2225358ed48ccc41e774",
+          "request_name": "dataset-53560-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53560,
+      "identity": {
+        "collection_unit_id": 38839,
+        "database": "Neotoma",
+        "dataset_id": 53560,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1582/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28661
+      },
+      "resource_key": "dataset-53560-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53561-current-attempt-1.body",
+          "receipt_file": "dataset-53561-current-attempt-1.receipt.json",
+          "receipt_sha256": "905d854ef159e7b88c8e19de72b86f0c139035d52e65b4861d770a646836c0b6",
+          "request_name": "dataset-53561-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53561,
+      "identity": {
+        "collection_unit_id": 38840,
+        "database": "Neotoma",
+        "dataset_id": 53561,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1583/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28662
+      },
+      "resource_key": "dataset-53561-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53561-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53561-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "67c2a8c85506eca100709f46067e6d14825dcb7f7228e715dcdb6cad9f568abf",
+          "request_name": "dataset-53561-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53561,
+      "identity": {
+        "collection_unit_id": 38840,
+        "database": "Neotoma",
+        "dataset_id": 53561,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1583/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28662
+      },
+      "resource_key": "dataset-53561-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53562-current-attempt-1.body",
+          "receipt_file": "dataset-53562-current-attempt-1.receipt.json",
+          "receipt_sha256": "b90acfa8c847178529e576d50c9f0688a55c232fa66515a173343e5d82230cd2",
+          "request_name": "dataset-53562-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53562,
+      "identity": {
+        "collection_unit_id": 38841,
+        "database": "Neotoma",
+        "dataset_id": 53562,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1584/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28663
+      },
+      "resource_key": "dataset-53562-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53562-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53562-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "eb9c8a3872504eb5f91189b7a65502becb2865005a380b82c9d85b287550d46d",
+          "request_name": "dataset-53562-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53562,
+      "identity": {
+        "collection_unit_id": 38841,
+        "database": "Neotoma",
+        "dataset_id": 53562,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1584/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28663
+      },
+      "resource_key": "dataset-53562-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53563-current-attempt-1.body",
+          "receipt_file": "dataset-53563-current-attempt-1.receipt.json",
+          "receipt_sha256": "379fcc5f30ff65e287350c632bb1e011324c990047bfcb53a350d7c71f96edba",
+          "request_name": "dataset-53563-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53563,
+      "identity": {
+        "collection_unit_id": 38842,
+        "database": "Neotoma",
+        "dataset_id": 53563,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1585/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28664
+      },
+      "resource_key": "dataset-53563-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53563-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53563-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "264f1e07c9daaf4d9eb79c96840f33b4925bdff9a3dcf165ad5188b8ac898ce8",
+          "request_name": "dataset-53563-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53563,
+      "identity": {
+        "collection_unit_id": 38842,
+        "database": "Neotoma",
+        "dataset_id": 53563,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1585/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28664
+      },
+      "resource_key": "dataset-53563-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53564-current-attempt-1.body",
+          "receipt_file": "dataset-53564-current-attempt-1.receipt.json",
+          "receipt_sha256": "81b2aaf1b16aaeecb6553894a45d9836a6afb55361e154b2d6ca89de52908e3f",
+          "request_name": "dataset-53564-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53564,
+      "identity": {
+        "collection_unit_id": 38843,
+        "database": "Neotoma",
+        "dataset_id": 53564,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1586/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28665
+      },
+      "resource_key": "dataset-53564-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53564-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53564-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "8da263ee11fa56d6511331ab69689b72f3d296d586b2ec8fb700a0d3587cefcd",
+          "request_name": "dataset-53564-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53564,
+      "identity": {
+        "collection_unit_id": 38843,
+        "database": "Neotoma",
+        "dataset_id": 53564,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1586/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28665
+      },
+      "resource_key": "dataset-53564-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53565-current-attempt-1.body",
+          "receipt_file": "dataset-53565-current-attempt-1.receipt.json",
+          "receipt_sha256": "cea3ce04536e0b5bcd0a36f61b38cc6010084cba8b4387f95b3ca7e93eece860",
+          "request_name": "dataset-53565-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53565,
+      "identity": {
+        "collection_unit_id": 38844,
+        "database": "Neotoma",
+        "dataset_id": 53565,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1587/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28666
+      },
+      "resource_key": "dataset-53565-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53565-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53565-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "5f2c9e551f133506100afccc3f188849659b2c2bf3f9a9514292461b3897f6df",
+          "request_name": "dataset-53565-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53565,
+      "identity": {
+        "collection_unit_id": 38844,
+        "database": "Neotoma",
+        "dataset_id": 53565,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1587/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28666
+      },
+      "resource_key": "dataset-53565-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53566-current-attempt-1.body",
+          "receipt_file": "dataset-53566-current-attempt-1.receipt.json",
+          "receipt_sha256": "028a8ca2d768a9cf189bd622b040c404618be5061382b1f99d282bac734849ca",
+          "request_name": "dataset-53566-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53566,
+      "identity": {
+        "collection_unit_id": 38845,
+        "database": "Neotoma",
+        "dataset_id": 53566,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1588/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28667
+      },
+      "resource_key": "dataset-53566-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53566-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53566-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "0e60a24bad7233708f308426aa9a4cc207a94f91b6be96f112c2aa0bc222afb8",
+          "request_name": "dataset-53566-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53566,
+      "identity": {
+        "collection_unit_id": 38845,
+        "database": "Neotoma",
+        "dataset_id": 53566,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1588/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28667
+      },
+      "resource_key": "dataset-53566-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53567-current-attempt-1.body",
+          "receipt_file": "dataset-53567-current-attempt-1.receipt.json",
+          "receipt_sha256": "ecf0cb2ffd1be0160c35371ce8a4209a331604391019fd41553cab261a37f590",
+          "request_name": "dataset-53567-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53567,
+      "identity": {
+        "collection_unit_id": 38846,
+        "database": "Neotoma",
+        "dataset_id": 53567,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1589/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28668
+      },
+      "resource_key": "dataset-53567-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53567-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53567-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "3052e89f3d1b240af749e23434b2d7c3c41060e7ad3d5c8bba2b1e93ab34c094",
+          "request_name": "dataset-53567-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53567,
+      "identity": {
+        "collection_unit_id": 38846,
+        "database": "Neotoma",
+        "dataset_id": 53567,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1589/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28668
+      },
+      "resource_key": "dataset-53567-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53568-current-attempt-1.body",
+          "receipt_file": "dataset-53568-current-attempt-1.receipt.json",
+          "receipt_sha256": "db35600ac3493246957456ff81dc9f89d64388afb30210d11cd9543e77c86a41",
+          "request_name": "dataset-53568-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53568,
+      "identity": {
+        "collection_unit_id": 38847,
+        "database": "Neotoma",
+        "dataset_id": 53568,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1590/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28669
+      },
+      "resource_key": "dataset-53568-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53568-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53568-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "6f4bf84a196a28bd7b04c1ae7e030b3ab9d7fd2540d2be0554bc15ec4e284498",
+          "request_name": "dataset-53568-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53568,
+      "identity": {
+        "collection_unit_id": 38847,
+        "database": "Neotoma",
+        "dataset_id": 53568,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1590/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28669
+      },
+      "resource_key": "dataset-53568-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53569-current-attempt-1.body",
+          "receipt_file": "dataset-53569-current-attempt-1.receipt.json",
+          "receipt_sha256": "bf5f0bf74567e9677ec66b5ecc4755c59daca5cf625e3ea12580bdffab7fa416",
+          "request_name": "dataset-53569-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53569,
+      "identity": {
+        "collection_unit_id": 38848,
+        "database": "Neotoma",
+        "dataset_id": 53569,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1591/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28670
+      },
+      "resource_key": "dataset-53569-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53569-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53569-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "54154e9a7fcd18372b6c9cc08b89bce080046a693c0c4312be0ed2103aeca0e8",
+          "request_name": "dataset-53569-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53569,
+      "identity": {
+        "collection_unit_id": 38848,
+        "database": "Neotoma",
+        "dataset_id": 53569,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1591/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28670
+      },
+      "resource_key": "dataset-53569-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53570-current-attempt-1.body",
+          "receipt_file": "dataset-53570-current-attempt-1.receipt.json",
+          "receipt_sha256": "ae330aa29dadabfd69be8f6aaa9fcf24a98a7aef9644677bb6c35be18417415a",
+          "request_name": "dataset-53570-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53570,
+      "identity": {
+        "collection_unit_id": 38849,
+        "database": "Neotoma",
+        "dataset_id": 53570,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1592/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28671
+      },
+      "resource_key": "dataset-53570-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53570-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53570-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "2e4a58e668ee7da1bd0d5a963c2fa0df7b69cfea9186dbee1cc2210f96af5ab8",
+          "request_name": "dataset-53570-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53570,
+      "identity": {
+        "collection_unit_id": 38849,
+        "database": "Neotoma",
+        "dataset_id": 53570,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1592/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28671
+      },
+      "resource_key": "dataset-53570-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53571-current-attempt-1.body",
+          "receipt_file": "dataset-53571-current-attempt-1.receipt.json",
+          "receipt_sha256": "3c467a5f4538de16e62736d51b40da5ac283ea712f77c0b785b30437e67319ae",
+          "request_name": "dataset-53571-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53571,
+      "identity": {
+        "collection_unit_id": 38850,
+        "database": "Neotoma",
+        "dataset_id": 53571,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1593/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28672
+      },
+      "resource_key": "dataset-53571-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53571-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53571-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "30da052890fd0db7e236513d53d2a0a624e7103ca40c740fac775f06433fb708",
+          "request_name": "dataset-53571-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53571,
+      "identity": {
+        "collection_unit_id": 38850,
+        "database": "Neotoma",
+        "dataset_id": 53571,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1593/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28672
+      },
+      "resource_key": "dataset-53571-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53572-current-attempt-1.body",
+          "receipt_file": "dataset-53572-current-attempt-1.receipt.json",
+          "receipt_sha256": "793158579f32d6478a2aee468c1363cb4335bcf2c1594a2cc48ac40f372ed98b",
+          "request_name": "dataset-53572-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53572,
+      "identity": {
+        "collection_unit_id": 38851,
+        "database": "Neotoma",
+        "dataset_id": 53572,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1594/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28673
+      },
+      "resource_key": "dataset-53572-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53572-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53572-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "5f945f2469c35555539f28edf47c4c31f60b39bcbb343e390043554a6d240212",
+          "request_name": "dataset-53572-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53572,
+      "identity": {
+        "collection_unit_id": 38851,
+        "database": "Neotoma",
+        "dataset_id": 53572,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1594/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28673
+      },
+      "resource_key": "dataset-53572-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53573-current-attempt-1.body",
+          "receipt_file": "dataset-53573-current-attempt-1.receipt.json",
+          "receipt_sha256": "dc1c32f6651565bae6f72cd3d6e7be3c62098ff2502ca023b8b632169bbcea87",
+          "request_name": "dataset-53573-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53573,
+      "identity": {
+        "collection_unit_id": 38852,
+        "database": "Neotoma",
+        "dataset_id": 53573,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1595/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28674
+      },
+      "resource_key": "dataset-53573-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53573-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53573-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "e66917c5b7c82523c76eb2c2aca124536392307a0844540a3c23b0f3e13792aa",
+          "request_name": "dataset-53573-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53573,
+      "identity": {
+        "collection_unit_id": 38852,
+        "database": "Neotoma",
+        "dataset_id": 53573,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1595/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28674
+      },
+      "resource_key": "dataset-53573-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53574-current-attempt-1.body",
+          "receipt_file": "dataset-53574-current-attempt-1.receipt.json",
+          "receipt_sha256": "d9c22d2f7e0410ed6484882964f5a5d7eccdced16bfcb182026262dc3b9f5165",
+          "request_name": "dataset-53574-current-attempt-1"
+        }
+      ],
+      "dataset_id": 53574,
+      "identity": {
+        "collection_unit_id": 38853,
+        "database": "Neotoma",
+        "dataset_id": 53574,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1596/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28675
+      },
+      "resource_key": "dataset-53574-current",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "unregistered_current_type.v1"
+      },
+      "terminal_status": "unsupported_dataset_type",
+      "version": "current"
+    },
+    {
+      "attempts": [
+        {
+          "body_file": "dataset-53574-doi_frozen-attempt-1.body",
+          "receipt_file": "dataset-53574-doi_frozen-attempt-1.receipt.json",
+          "receipt_sha256": "e3d15156b864b9e31dd3cfb2292aa42f3703a75546bf120dd19849626fb5352b",
+          "request_name": "dataset-53574-doi_frozen-attempt-1"
+        }
+      ],
+      "dataset_id": 53574,
+      "identity": {
+        "collection_unit_id": 38853,
+        "database": "Neotoma",
+        "dataset_id": 53574,
+        "dataset_type": "pollen surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1596/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 28675
+      },
+      "resource_key": "dataset-53574-doi_frozen",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "parser_profile": "doi_frozen_unqualified.v1",
+        "reason": "Provider DOI-mint snapshot schema requires source qualification; no current-shape assumption"
+      },
+      "terminal_status": "unresolved_frozen_schema",
+      "version": "doi_frozen"
+    }
+  ],
+  "response_bytes": 248412,
+  "schema_version": "neotoma-resource-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed live or explicitly reused responses; no transaction snapshot",
+  "status": "closed"
+}
