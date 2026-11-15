@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 
+from ..client import decode_neotoma_json_object
 from .models import _HEADERS, _Request
 from .transport import NeotomaHttpResponse
 
@@ -202,7 +203,7 @@ def _read(path: Path, bound: int) -> bytes:
 
 def _object(content: bytes) -> dict[str, Any]:
     try:
-        value = json.loads(content)
+        value = decode_neotoma_json_object(content)
     except (ValueError, UnicodeError, RecursionError) as error:
         raise ValueError("Neotoma capture input is not bounded JSON") from error
     if not isinstance(value, dict):

@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 
-import json
 from typing import Any
 
-from ...client import _validated_neotoma_rows, neotoma_download_dataset_id
+from ...client import (
+    _validated_neotoma_rows,
+    decode_neotoma_json_object,
+    neotoma_download_dataset_id,
+)
 from ...site_inventory.connected_resources import positive_native_id
 from .models import NeotomaResourceSpec
 
@@ -34,7 +37,7 @@ def classify_body(
             "parser_profile": "unregistered_current_type.v1"
         }
     try:
-        payload = json.loads(body)
+        payload = decode_neotoma_json_object(body)
         rows = _validated_neotoma_rows(payload)
         if payload.get("status") != "success":
             raise ValueError("Unsuccessful native source status")

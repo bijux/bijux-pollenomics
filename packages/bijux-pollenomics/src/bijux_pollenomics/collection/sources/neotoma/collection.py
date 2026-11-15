@@ -8,7 +8,6 @@ import json
 from pathlib import Path
 
 from ....core.files import write_json
-from ....core.http import fetch_json
 from ....core.owned_tree import build_staging_output_dir, publish_new_output_tree
 from ....core.text import clean_optional_text
 from ...contracts.artifacts import NEOTOMA_POINT_CSV, NEOTOMA_POINT_GEOJSON
@@ -44,6 +43,7 @@ from .client import (
 from .client import (
     fetch_neotoma_dataset_inventory_rows as fetch_neotoma_dataset_inventory_rows_from_client,
 )
+from .client import fetch_neotoma_json as fetch_json
 from .client import (
     neotoma_download_dataset_id as neotoma_download_dataset_id_from_client,
 )

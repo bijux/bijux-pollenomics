@@ -5,23 +5,83 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import copy
 from hashlib import sha256
 import json
+import math
 import time
+from typing import Any
 from urllib.error import HTTPError, URLError
+
+from ....core.http import fetch_text
 
 __all__ = [
     "build_neotoma_bbox_geojson",
+    "decode_neotoma_json_object",
     "extract_neotoma_download_dataset_ids",
     "fetch_neotoma_api_payload",
     "fetch_neotoma_api_rows",
     "fetch_neotoma_dataset_download_row",
     "fetch_neotoma_dataset_download_rows",
     "fetch_neotoma_dataset_inventory_rows",
+    "fetch_neotoma_json",
     "neotoma_download_dataset_id",
     "neotoma_retryable_error",
     "positive_native_id",
     "validate_neotoma_download_coverage",
     "validate_neotoma_selected_download",
 ]
+
+
+def _unique_json_members(items: list[tuple[str, Any]]) -> dict[str, Any]:
+    members: dict[str, Any] = {}
+    for key, value in items:
+        if key in members:
+            raise ValueError(f"Neotoma JSON contains a duplicate member: {key[:80]!r}")
+        members[key] = value
+    return members
+
+
+def _invalid_json_constant(_value: str) -> None:
+    raise ValueError("Neotoma JSON contains a nonfinite numeric constant")
+
+
+def _finite_json_float(text: str) -> float:
+    value = float(text)
+    if not math.isfinite(value):
+        raise ValueError("Neotoma JSON number is not finite")
+    mantissa = text.lower().split("e", 1)[0]
+    if value == 0 and any(digit in "123456789" for digit in mantissa):
+        raise ValueError("Neotoma JSON number underflows to zero")
+    return value
+
+
+def decode_neotoma_json_object(content: bytes | str) -> dict[str, Any]:
+    """Reject ambiguous members and numeric loss before assigning native owners."""
+    try:
+        value = json.loads(
+            content,
+            object_pairs_hook=_unique_json_members,
+            parse_constant=_invalid_json_constant,
+            parse_float=_finite_json_float,
+        )
+    except (UnicodeError, json.JSONDecodeError, RecursionError) as error:
+        raise ValueError("Neotoma JSON cannot be decoded") from error
+    if not isinstance(value, dict):
+        raise ValueError("Neotoma JSON must be an object")
+    return value
+
+
+def fetch_neotoma_json(
+    url: str,
+    params: dict[str, str] | None = None,
+    headers: dict[str, str] | None = None,
+    insecure: bool = False,
+    timeout: float | None = None,
+) -> dict[str, Any]:
+    """Apply native JSON fidelity to the existing HTTP transport and TLS policy."""
+    return decode_neotoma_json_object(
+        fetch_text(
+            url, params=params, headers=headers, insecure=insecure, timeout=timeout
+        )
+    )
 
 
 def positive_native_id(value: object) -> int:

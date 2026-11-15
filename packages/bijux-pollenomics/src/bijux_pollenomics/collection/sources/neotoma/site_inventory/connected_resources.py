@@ -6,10 +6,9 @@ from collections import Counter
 from collections.abc import Mapping, Sequence
 import copy
 from hashlib import sha256
-import json
 from typing import Any
 
-from ..client import _validated_neotoma_rows
+from ..client import _validated_neotoma_rows, decode_neotoma_json_object
 from ..client import positive_native_id as positive_native_id
 
 
@@ -28,7 +27,7 @@ def _refuse_numerical_outcomes(value: object) -> None:
 
 def _metadata_rows(content: bytes) -> list[dict[str, object]]:
     try:
-        payload = json.loads(content)
+        payload = decode_neotoma_json_object(content)
     except (ValueError, UnicodeError, RecursionError) as error:
         raise ValueError("Neotoma metadata response is not bounded JSON") from error
     rows = _validated_neotoma_rows(payload)
