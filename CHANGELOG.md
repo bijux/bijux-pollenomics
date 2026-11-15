@@ -2,24 +2,24 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Six-window analytical LOVE evaluation
+### [#422](https://github.com/bijux/bijux-pollenomics/pull/422) — Complete adjusted LOVE populations and workspace ownership
 
 - Support an explicit adjusted-cover population across all eighteen development
-  folds and six windows while retaining the original signed-result dispositions.
-- Share source-owner count draws and productivity draws across the complete
-  population; compare physical and direct-pollen predictions on matched targets.
-- Extend independent source, scalar and score verification to all fifty-four
-  nominal method slots, retaining undefined draws and target-exclusion checks.
+  folds and six windows while retaining original signed-result dispositions. Share
+  source-owner count and productivity draws and extend independent
+  source/scalar/score verification to all fifty-four nominal method slots, retaining
+  undefined draws and target-exclusion checks.
+- Use a virtual workspace root with canonical package distributions. Discover owned
+  checkouts/source archives through repository configuration and declared host
+  membership; retain missing, unrelated, excluded and symlink refusals. Reject
+  undeclared editable root distributions in dependency audits.
 - Restore real source-retention metadata and Git custody in retained-reference
-  test fixtures, including explicit missing and altered transport refusals.
-
-### Canonical workspace package identities
-
-- Use a virtual workspace root and retain canonical distributions under
-  `packages/`; remove the artificial repository distribution.
-- Identify owned checkouts and source archives through repository configuration
-  and declared host membership, preserving missing, unrelated and symlink
-  refusals. Dependency audits and current runtime provenance use real packages.
+  fixtures, preserving missing/altered transport refusals. Clarify strict
+  covariance/counting test contracts without changing numerical or malformed-input
+  assertions.
+- These changes prepare complete development evaluation and preserve scientific
+  admission limits; fresh historical replay and installed-wheel qualification are
+  not established by this delivery.
 
 ### [#421](https://github.com/bijux/bijux-pollenomics/pull/421) — Nonnegative analytical LOVE cover
 
@@ -39,8 +39,6 @@ Repository changes are recorded by pull request, newest merge first.
   bootstrap has all 9,216 method-replicate slots defined. Independent numerical
   and source checks pass; static geometry, restricted taxonomy and scientific
   admission limits remain explicit.
-- Restore strict typing for existing covariance and counting test controls
-  without changing their numerical or malformed-input assertions.
 
 ### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
 
