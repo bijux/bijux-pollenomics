@@ -10,9 +10,9 @@ from pathlib import Path
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
+from ..publication.ownership import publish_owned_source_tree
 from .models import (
     _SCHEMA,
     DEFAULT_METADATA_LIMITS,
@@ -108,7 +108,7 @@ def capture_neotoma_metadata(
 
         try:
             _walk_plan(plan, limits, consume)
-            _write_json(
+            manifest_digest = _write_json(
                 staging / "capture-manifest.json",
                 {
                     "schema_version": _SCHEMA,
@@ -125,13 +125,13 @@ def capture_neotoma_metadata(
                 },
                 writer=writer,
             )
-            result = replay_neotoma_metadata_capture(staging, limits=limits)
-            writer.validate_attachment()
-            publish_new_output_tree(
-                final_output_root=final, staging_output_root=staging
-            )
-            return replay_neotoma_metadata_capture(
-                final, expected_manifest_sha256=result.manifest_sha256, limits=limits
+            return publish_owned_source_tree(
+                writer,
+                staging=staging,
+                final=final,
+                validate=lambda location: replay_neotoma_metadata_capture(
+                    location, expected_manifest_sha256=manifest_digest, limits=limits
+                ),
             )
         except Exception as error:
             if staging.exists():

@@ -232,10 +232,11 @@ def test_success_attests_actual_published_tree(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     digest, sources = source(tmp_path / "facets")
-    module = __import__(
-        owner().__name__ + ".workflow", fromlist=["publish_new_output_tree"]
-    )
-    original = module.publish_new_output_tree
+    evidence = evidence_for(sources)
+    from bijux_pollenomics.collection.sources.neotoma.publication import ownership
+
+    module = ownership
+    original = vars(module)["publish_new_output_tree"]
 
     def mutate(**kwargs: Any) -> Any:
         next(kwargs["staging_output_root"].glob("*.body")).write_bytes(
@@ -249,7 +250,7 @@ def test_success_attests_actual_published_tree(
             tmp_path / "linked",
             plan=plan(digest),
             source_facets=sources,
-            evidence=evidence_for(sources),
+            evidence=evidence,
             limits=limits(),
             fetch=lambda url, **k: response(url, b"{}"),
             scope_inputs=linked_scope_resolvers(sources),

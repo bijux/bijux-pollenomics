@@ -147,10 +147,10 @@ def test_actual_buffer_is_rechecked_after_replay(
 def test_success_reauthenticates_actual_published_tree(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    module = __import__(
-        owner().__name__ + ".workflow", fromlist=["publish_new_output_tree"]
-    )
-    original = module.publish_new_output_tree
+    from bijux_pollenomics.collection.sources.neotoma.publication import ownership
+
+    module = ownership
+    original = vars(module)["publish_new_output_tree"]
 
     def mutate(**kwargs: Any) -> Any:
         next(kwargs["staging_output_root"].glob("*.body")).write_bytes(

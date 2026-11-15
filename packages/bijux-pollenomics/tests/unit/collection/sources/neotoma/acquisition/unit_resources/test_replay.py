@@ -142,10 +142,10 @@ def test_actual_publication_is_replayed_before_success(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     plan, roster, sources = prepared(tmp_path)
-    module = __import__(
-        owner().__name__ + ".workflow", fromlist=["publish_new_output_tree"]
-    )
-    original = module.publish_new_output_tree
+    from bijux_pollenomics.collection.sources.neotoma.publication import ownership
+
+    module = ownership
+    original = vars(module)["publish_new_output_tree"]
 
     def mutate(**kwargs: Any) -> Any:
         next(kwargs["staging_output_root"].glob("*.body")).write_bytes(

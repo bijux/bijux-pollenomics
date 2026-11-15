@@ -12,9 +12,9 @@ from typing import Any
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
+from ...publication.ownership import publish_owned_source_tree
 from ..facets.models import NeotomaFacetScopeInputs
 from ..receipts import (
     _retain_http_response,
@@ -184,27 +184,22 @@ def capture_neotoma_linked_resources(
                 raise ValueError(
                     "Linked capture manifest exceeds finite metadata byte budget"
                 )
-            _write_json(staging / "capture-manifest.json", manifest, writer=writer)
-            verified = replay_neotoma_linked_resources(
-                staging,
-                source_facets=source_facets,
-                limits=limits,
-                scope_inputs=scope_inputs,
-                evidence=evidence,
-                legacy_rosters=legacy_rosters,
+            manifest_digest = _write_json(
+                staging / "capture-manifest.json", manifest, writer=writer
             )
-            writer.validate_attachment()
-            publish_new_output_tree(
-                final_output_root=final, staging_output_root=staging
-            )
-            return replay_neotoma_linked_resources(
-                final,
-                expected_manifest_sha256=verified.manifest_sha256,
-                source_facets=source_facets,
-                scope_inputs=scope_inputs,
-                evidence=evidence,
-                legacy_rosters=legacy_rosters,
-                limits=limits,
+            return publish_owned_source_tree(
+                writer,
+                staging=staging,
+                final=final,
+                validate=lambda location: replay_neotoma_linked_resources(
+                    location,
+                    expected_manifest_sha256=manifest_digest,
+                    source_facets=source_facets,
+                    scope_inputs=scope_inputs,
+                    evidence=evidence,
+                    legacy_rosters=legacy_rosters,
+                    limits=limits,
+                ),
             )
         except Exception as error:
             if staging.exists():
