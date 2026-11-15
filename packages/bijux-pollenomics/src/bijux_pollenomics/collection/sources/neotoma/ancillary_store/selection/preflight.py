@@ -42,6 +42,20 @@ def prepare_facet_access(
     """Check independent anchors, native owner, original/current duties and budget."""
     dataset = positive_native_id(dataset_id)
     metadata, scope = _prepare(directory, kwargs)
+    return _prepared_facet_access(
+        metadata, scope, observation_id=observation_id, dataset_id=dataset, facet=facet
+    )
+
+
+def _prepared_facet_access(
+    metadata: SelectedMetadata,
+    scope: CurrentScope,
+    *,
+    observation_id: str,
+    dataset_id: int,
+    facet: str,
+) -> FacetAccess:
+    dataset = positive_native_id(dataset_id)
     row = _observation(metadata, observation_id, "facet")
     if (
         row.get("facet") != facet

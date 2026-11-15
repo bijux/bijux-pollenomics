@@ -8,9 +8,9 @@ from typing import Any
 
 from ...capture.linked_resources.authority import authenticate_linked_root_metadata
 from ...capture.linked_resources.evidence import (
+    _read_target,
     load_neotoma_linked_evidence,
     read_neotoma_linked_evidence_metadata,
-    read_neotoma_linked_evidence_target,
 )
 from ...capture.linked_resources.models import EVIDENCE_SCHEMA, NeotomaLinkedEvidence
 from ...capture.linked_resources.protocol import _RANK
@@ -82,22 +82,24 @@ def scoped_metadata(
     return evidence, header, current
 
 
-def read_scoped_target(
+def _prepared_scoped_target(
     evidence: NeotomaLinkedEvidence,
     identity: dict[str, Any],
     current: dict[str, Any],
     *,
     attempted: bool,
+    reader: Any = None,
 ) -> dict[str, Any]:
     """Authenticate selected dated proof parts, then apply every current restriction."""
     kind, native = identity.get("kind"), identity.get("native_id")
     if not isinstance(kind, str) or type(native) is not int:
         raise ValueError("Scoped linked native target identity is missing or malformed")
-    selected = read_neotoma_linked_evidence_target(
+    selected = _read_target(
         evidence.directory,
         expected_manifest_sha256=evidence.manifest_sha256,
         kind=kind,
         native_id=native,
+        reader=reader,
     )
     target = selected["target"]
     expected = {
@@ -139,6 +141,17 @@ def read_scoped_target(
         "current_use_role": role,
         "integrity_scope": "anchored_selected_proof_parts_and_current_root_metadata",
     }
+
+
+def read_scoped_target(
+    evidence: NeotomaLinkedEvidence,
+    identity: dict[str, Any],
+    current: dict[str, Any],
+    *,
+    attempted: bool,
+) -> dict[str, Any]:
+    """Apply every original and current duty to a fresh selected target read."""
+    return _prepared_scoped_target(evidence, identity, current, attempted=attempted)
 
 
 def full_evidence_inputs(

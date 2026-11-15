@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import dataclass, field
+import json
 from pathlib import Path
 import re
 from typing import Any
@@ -28,7 +29,11 @@ from ..selection.access import (
 )
 from ..selection.metadata import SelectedMetadata
 from ..selection.scope import CurrentScope
-from .sources import read_scoped_target, resolve_linked_evidence
+from .sources import (
+    _prepared_scoped_target,
+    read_scoped_target,
+    resolve_linked_evidence,
+)
 
 
 @dataclass(frozen=True)
@@ -84,6 +89,27 @@ def prepare_linked_access(
     }
     native = positive_native_id(native_id)
     metadata, scope = _prepare(directory, kwargs)
+    return _prepared_linked_access(
+        metadata,
+        scope,
+        observation_id=observation_id,
+        occurrence_id=occurrence_id,
+        kind=kind,
+        native_id=native,
+    )
+
+
+def _prepared_linked_access(
+    metadata: SelectedMetadata,
+    scope: CurrentScope,
+    *,
+    observation_id: str,
+    occurrence_id: str,
+    kind: str,
+    native_id: int,
+    parts: Any = None,
+) -> LinkedAccess:
+    native = positive_native_id(native_id)
     row = _observation(metadata, observation_id, "linked")
     capture, entry = _source(metadata, row, "linked")
     target = entry["identity"]
@@ -112,8 +138,34 @@ def prepare_linked_access(
         evidence = resolve_linked_evidence(
             capture["control"], metadata.evidence_sources
         )
-        selected = read_scoped_target(
-            evidence, target, scope.linked_metadata(), attempted=True
+        current = scope.linked_metadata()
+
+        def load_target() -> dict[str, Any]:
+            if parts is None:
+                return read_scoped_target(evidence, target, current, attempted=True)
+            return _prepared_scoped_target(
+                evidence,
+                target,
+                current,
+                attempted=True,
+                reader=lambda path, digest, bound: parts.read(
+                    path, digest, bound, source=evidence.manifest_sha256
+                ),
+            )
+
+        selected = (
+            load_target()
+            if parts is None
+            else parts.memo(
+                evidence.manifest_sha256
+                + ":"
+                + json.dumps(target, sort_keys=True, allow_nan=False)
+                + ":"
+                + metadata.context_pin
+                + ":"
+                + metadata.native_pin,
+                load_target,
+            )
         )
         proofs = selected["source_proofs"]
         names = [

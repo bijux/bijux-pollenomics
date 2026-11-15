@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -23,7 +23,7 @@ from ...resource_catalogue.source_projection import _same
 from ..capsule.inventory import _legacy_roots
 from ..context.validation import _FIELDS as CONTEXT_FIELDS
 from ..context.validation import SCHEMA, NeotomaAncillaryContext
-from .metadata import SelectedMetadata, members, pinned
+from .metadata import SelectedMetadata, members
 
 _OWNER = ("dataset_id", "site_id", "collection_unit_id", "dataset_type", "database")
 
@@ -56,6 +56,15 @@ class CurrentScope:
     published: dict[str, Any]
     proof: dict[str, Any] | None = None
     original_scope: tuple[str, dict[str, Any]] | None = None
+    _native_manifest: dict[str, Any] | None = None
+    _snapshot: dict[str, Any] | None = None
+    _originals: dict[str, dict[str, Any]] = field(default_factory=dict)
+    _legacy_checked: set[str] = field(default_factory=set)
+
+    def _freeze_operation(self) -> None:
+        if self._snapshot is not None:
+            raise ValueError("Current operation scope is already established")
+        self._snapshot = self.linked_metadata()
 
     def guard(self, owners: list[dict[str, Any]]) -> dict[int, dict[str, Any]]:
         """Check every recorded owner before deduplicating native dataset roots."""
@@ -75,13 +84,24 @@ class CurrentScope:
             ):
                 raise ValueError("Selected source role forbids entity access")
             selected[dataset] = resource(row)
-        self.proof = prepare_facet_parent_scope(
-            NeotomaFacetPlan(
-                tuple(selected[key] for key in sorted(selected)),
-                self.roster_pin,
-                ("taxa",),
-            ),
-            self.inputs,
+        self.proof = (
+            prepare_facet_parent_scope(
+                NeotomaFacetPlan(
+                    tuple(selected[key] for key in sorted(selected)),
+                    self.roster_pin,
+                    ("taxa",),
+                ),
+                self.inputs,
+            )
+            if self._snapshot is None
+            else {
+                **self._snapshot["proof"],
+                "parents": [
+                    row
+                    for row in self._snapshot["proof"]["parents"]
+                    if row["dataset_id"] in selected
+                ],
+            }
         )
         if not _same(_header(self.proof), _header(self.published)):
             raise ValueError("Selected current parent proof header is stale or differs")
@@ -105,6 +125,8 @@ class CurrentScope:
 
     def linked_metadata(self) -> dict[str, Any]:
         """Recheck all current roots and native PI duties, including unrecorded roots."""
+        if self._snapshot is not None:
+            return self._snapshot
         current = authenticate_linked_root_metadata(
             expected_roster_sha256=self.roster_pin, scope=self.inputs
         )
@@ -128,24 +150,35 @@ class CurrentScope:
         control = capture["control"]
         plan = capture["plan"]
         if capture["document"]["schema_version"] != SCOPED_FACET_SCHEMA:
-            # Restrict original identity validation to the named root; no pre-GET proof is invented.
-            selected_control = {
-                **control,
-                "plan": {
-                    **control["plan"],
-                    "resources": [
-                        row
-                        for row in control["plan"]["resources"]
-                        if row["dataset_id"] == entry["root_identity"]["dataset_id"]
-                    ],
-                },
-            }
+            # Legacy checks establish original identity, never historical pre-GET scope.
+            source = capture["descriptor"]["files"]["capture-manifest.json"]["sha256"]
+            if self._snapshot is not None and source in self._legacy_checked:
+                return
+            selected_control = (
+                control
+                if self._snapshot is not None
+                else {
+                    **control,
+                    "plan": {
+                        **control["plan"],
+                        "resources": [
+                            row
+                            for row in control["plan"]["resources"]
+                            if row["dataset_id"] == entry["root_identity"]["dataset_id"]
+                        ],
+                    },
+                }
+            )
             digest = plan.roster_sha256
             if digest not in self.context.legacy_rosters:
                 raise ValueError("Selected original roster identity is unavailable")
             member = self.context.manifest["legacy_rosters"][digest]
-            pinned(self.context.legacy_rosters[digest], digest, member["bytes"])
+            metadata._header(
+                self.context.legacy_rosters[digest], digest, member["bytes"]
+            )
             _legacy_roots(selected_control, self.context)
+            if self._snapshot is not None:
+                self._legacy_checked.add(source)
             return
         if plan.roster_sha256 != self.roster_pin or self.proof is None:
             raise ValueError(
@@ -176,7 +209,12 @@ class CurrentScope:
             raise ValueError("Selected original parent scope identity differs")
         source = capture["descriptor"]["files"]["capture-manifest.json"]["sha256"]
         if self.original_scope is None or self.original_scope[0] != source:
-            original = _object(metadata.source_member(capture, reference["file"]))
+            if self._snapshot is not None and source in self._originals:
+                original = self._originals[source]
+            else:
+                original = _object(metadata.source_member(capture, reference["file"]))
+                if self._snapshot is not None:
+                    self._originals[source] = original
             if not _same(_header(original), _header(self.proof)):
                 raise ValueError("Selected original parent scope header differs")
             self.original_scope = (source, original)
@@ -206,7 +244,7 @@ def current_scope(
         _safe_root(context_directory),
         _safe_root(native_archive_directory),
     )
-    raw = pinned(root / "manifest.json", metadata.context_pin)
+    raw = metadata._header(root / "manifest.json", metadata.context_pin)
     context = _object(raw)
     members(context, raw)
     if (
@@ -229,7 +267,9 @@ def current_scope(
         != metadata.manifest["current_roster_sha256"]
     ):
         raise ValueError("Selected context and native archive anchors differ")
-    archive = _object(pinned(native_root / "manifest.json", metadata.native_pin))
+    archive = _object(
+        metadata._header(native_root / "manifest.json", metadata.native_pin)
+    )
     validate_manifest(archive)
     if archive["catalogue_manifest_sha256"] != claim.get("catalogue_manifest_sha256"):
         raise ValueError("Selected native catalogue identity differs")
@@ -345,4 +385,5 @@ def current_scope(
         inputs,
         roster_pin,
         published,
+        _native_manifest=archive,
     )
