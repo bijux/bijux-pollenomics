@@ -340,7 +340,7 @@ def qualify_neotoma_facet_body(
         elif facet == "taxa":
             count = _taxa(data)
             owner["dataset"] = "authenticated_request_endpoint_only"
-        else:
+        elif facet == "projects":
             projects = _object(data, "projects data")
             if set(projects) != {"datasetid", "projects"}:
                 raise ValueError("unobserved projects dataset wrapper")
@@ -349,6 +349,8 @@ def qualify_neotoma_facet_body(
                 raise ValueError("populated projects source schema is not qualified")
             count = 0
             owner["dataset"] = "native_payload_matches_request"
+        else:
+            raise ValueError("Source profile is not registered for this dataset facet")
         result.update(
             qualification_status="qualified_source_schema",
             received_record_count=count,

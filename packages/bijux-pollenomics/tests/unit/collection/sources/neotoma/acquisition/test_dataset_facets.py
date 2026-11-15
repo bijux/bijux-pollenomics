@@ -97,7 +97,7 @@ def test_malformed_plan_refuses_before_any_request(tmp_path: Path, damage: str) 
     resource = spec()
     facets: tuple[str, ...] = FACETS
     if damage == "unknown":
-        facets = ("contacts",)
+        facets = ("unsupported_facet",)
     elif damage == "duplicate":
         facets = ("chronologies", "chronologies")
     elif damage == "empty":
@@ -115,6 +115,78 @@ def test_malformed_plan_refuses_before_any_request(tmp_path: Path, damage: str) 
             tmp_path / "invalid", plan=plan(resource, facets=facets), fetch=never
         )
     assert not (tmp_path / "invalid").exists()
+
+
+@pytest.mark.parametrize("facet", ["contacts", "doi", "sites"])
+def test_explicit_association_facets_keep_native_entities_unqualified(
+    tmp_path: Path, facet: str
+) -> None:
+    from hashlib import sha256
+
+    from bijux_pollenomics.collection.sources.neotoma.capture.facets.profiles import (
+        qualify_neotoma_facet_body,
+    )
+
+    # This observed projects shape must never qualify a different endpoint.
+    content = (
+        b'{"status":"success","data":{"datasetid":201,"projects":[]},'
+        b'"message":"Retrieved"}'
+    )
+    urls = []
+
+    def fetch(url: str, **_kwargs: Any) -> Any:
+        urls.append(url)
+        return response(url, content)
+
+    directory = tmp_path / facet
+    result = owner().capture_neotoma_dataset_facets(
+        directory, plan=plan(spec(), facets=(facet,)), fetch=fetch
+    )
+    assert urls == [f"https://api.neotomadb.org/v2.0/data/datasets/201/{facet}"]
+    assert result.request_count == 1
+    assert result.partitions == {"received_complete_unqualified_facet": 1}
+    assert (
+        owner().replay_neotoma_facet_capture(
+            directory, expected_manifest_sha256=result.manifest_sha256
+        )
+        == result
+    )
+    body = owner().read_neotoma_facet_body(
+        directory,
+        expected_manifest_sha256=result.manifest_sha256,
+        facet_key=result.facets[0]["facet_key"],
+    )
+    assert body.body == content
+    qualified = qualify_neotoma_facet_body(
+        spec(), facet, content, expected_body_sha256=sha256(content).hexdigest()
+    )
+    assert qualified["qualification_status"] == "unqualified_source_schema"
+    assert qualified["source_payload"]["data"] == {"datasetid": 201, "projects": []}
+    assert "not registered" in qualified["reason"]
+    assert owner().NeotomaFacetPlan((spec(),), "b" * 64).facets == FACETS
+
+
+@pytest.mark.parametrize("facet", ["contacts", "doi", "sites"])
+@pytest.mark.parametrize(
+    "role", ["reserved_candidate_confirmation", "heldout_no_numerical_access"]
+)
+def test_association_facets_obey_parent_exposure_before_fetch(
+    tmp_path: Path, facet: str, role: str
+) -> None:
+    def never(*_args: Any, **_kwargs: Any) -> Any:
+        raise AssertionError("Protected association reached transport")
+
+    result = owner().capture_neotoma_dataset_facets(
+        tmp_path / "blocked", plan=plan(spec(role=role), facets=(facet,)), fetch=never
+    )
+    assert result.request_count == 0
+    assert result.partitions == {"not_attempted_exposure_role": 1}
+    with pytest.raises(ValueError, match="exposure role"):
+        owner().read_neotoma_facet_body(
+            tmp_path / "blocked",
+            expected_manifest_sha256=result.manifest_sha256,
+            facet_key=result.facets[0]["facet_key"],
+        )
 
 
 def test_exposed_root_does_not_promote_another_roots_reserved_facets(

@@ -13,7 +13,7 @@ from ..resources.models import (
 )
 from ..resources.protocol import identity
 from ..resources.protocol import validate_plan as validate_resource_plan
-from .models import DATASET_FACETS, NeotomaFacetPlan
+from .models import SUPPORTED_DATASET_FACETS, NeotomaFacetPlan
 
 
 def validate_plan(plan: NeotomaFacetPlan, limits: NeotomaResourceLimits) -> None:
@@ -23,7 +23,7 @@ def validate_plan(plan: NeotomaFacetPlan, limits: NeotomaResourceLimits) -> None
         or any(not isinstance(root, NeotomaResourceSpec) for root in plan.resources)
         or not isinstance(plan.facets, tuple)
         or not plan.facets
-        or any(facet not in DATASET_FACETS for facet in plan.facets)
+        or any(facet not in SUPPORTED_DATASET_FACETS for facet in plan.facets)
         or len(set(plan.facets)) != len(plan.facets)
     ):
         raise ValueError("Neotoma dataset facet plan is malformed")
