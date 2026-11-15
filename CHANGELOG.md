@@ -2,6 +2,23 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#439](https://github.com/bijux/bijux-pollenomics/pull/439) — Explicit native bytes and final source readback
+
+- Return exact authenticated native resource bytes only through a literal opt-in,
+  preserving the default JSON-compatible result and all
+  role/version/qualification/source-custody refusals.
+- Declare derived current proxy qualifications in an explicit catalogue namespace,
+  validating compact claims and complete summaries against authenticated selected
+  buffers without relabelling original unsupported acquisition ledgers or frozen/legacy
+  results.
+- Authenticate catalogue final-path metadata and complete source projections after
+  atomic publication, retaining failures when published files or source resolvers
+  change.
+- Qualify observed linked contact/publication/taxon native fields and exact target
+  identities in a separate ledger. Preserve original facet relationship proofs
+  separately from later detail-body associations, unavailable empty results and
+  malformed/unknown-source refusals.
+
 ### [#438](https://github.com/bijux/bijux-pollenomics/pull/438) — Native proxy qualification and whole-unit source roles
 
 - Qualify five observed current native proxy layouts while preserving scalar kinds,
