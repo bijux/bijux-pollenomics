@@ -40,6 +40,7 @@ TAXA = (
 
 
 def means(**amounts: float) -> dict[str, float]:
+    """Build source-spelled means with matching cereal and open-land totals."""
     values = dict.fromkeys(TAXA, 0.0)
     values.update(amounts)
     values["AL"] = values["Cerealia.t"] + values["Secale"]
@@ -70,6 +71,7 @@ def cell(
     status: str = "eligible",
     **amounts: float,
 ) -> Any:
+    """Build a cell window with explicit support, quality and source means."""
     from bijux_pollenomics_dev.landscape_history.landclim.inputs import CellWindow
 
     return CellWindow(
