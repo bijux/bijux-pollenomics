@@ -22,5 +22,24 @@ function createAtlasURLStateController({ readURL, publishURL, replayURL }) {
     }
     return true;
   }
-  return Object.freeze({ observe, canPublish, publish });
+  function publishResources(values) {
+    if (!canPublish()) return false;
+    const keys = new Set(['neotoma_catalogue', 'neotoma_site', 'neotoma_dataset', 'neotoma_version']);
+    if (!values || typeof values !== 'object' || Array.isArray(values)
+      || Object.entries(values).some(([key, value]) => !keys.has(key)
+        || value !== null && (typeof value !== 'string' || value.length > 4096))) {
+      throw Error('Source resource URL values must use bounded namespaced strings or null.');
+    }
+    const next = new URL(appliedURL);
+    Object.entries(values).forEach(([key, value]) => {
+      if (value === null) next.searchParams.delete(key);
+      else next.searchParams.set(key, value);
+    });
+    if (next.href !== appliedURL) {
+      publishURL(next.href);
+      appliedURL = readURL();
+    }
+    return true;
+  }
+  return Object.freeze({ observe, canPublish, publish, publishResources });
 }

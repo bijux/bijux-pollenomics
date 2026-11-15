@@ -228,6 +228,13 @@ function renderNativeClassificationContext(tabs) {
     return `<section aria-label="Native classification context">${heading}<p>Native classification context is unavailable for source family ${escapeHtml(detailTableText(family))}: the supported native taxon table is not available. This does not establish an accepted classification.</p></section>`;
   }
 }
+function renderSourceResourceEntry(tabs) {
+  const overview=tabs?.overview, identity=overview?.source_site_id;
+  if (bindings.resourceCatalogueAvailable !== true || overview?.source_family !== 'neotoma'
+    || typeof identity !== 'string' || !/^[1-9][0-9]*$/.test(identity)
+    || overview.site_id !== `neotoma:site:${identity}`) return '';
+  return `<p><button type="button" class="toolbar-button" data-source-resources="${escapeHtml(overview.site_id)}">Browse source resources for native site ${escapeHtml(identity)}</button></p>`;
+}
 function renderSourceProvenanceContext(tabs) {
   const family = tabs?.overview?.source_family, heading = '<h3>Source dataset metadata</h3>';
   const transformations = renderSourceTransformationContext(tabs);

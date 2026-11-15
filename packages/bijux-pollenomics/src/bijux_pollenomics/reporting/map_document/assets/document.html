@@ -2166,6 +2166,7 @@ __NATIVE_LRA_CONTROLS__
                     <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
                     <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
                     <button id="selection-export" class="toolbar-button" type="button" aria-describedby="selection-export-status">Download selection</button>
+                    <button id="source-resources-open" class="toolbar-button" type="button" aria-live="polite" aria-haspopup="dialog" aria-controls="source-resources-dialog" hidden>Neotoma source resources</button>
                     <button id="help-toggle" class="toolbar-button" type="button" aria-controls="help-dialog" aria-expanded="false">Help</button>
                     <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
                   </div>
@@ -3293,6 +3294,7 @@ __URL_STATE_CONTROLLER__
       const timeControls = document.getElementById('time-controls');
       const basemapSwitch = document.getElementById('basemap-switch');
       const appShell = document.querySelector('.app-shell');
+      const sourceResourcesButton = document.getElementById('source-resources-open');
       const helpToggleButton = document.getElementById('help-toggle');
       const helpDialog = document.getElementById('help-dialog');
       const helpCloseButton = document.getElementById('help-close');
@@ -5611,7 +5613,7 @@ __URL_STATE_CONTROLLER__
       let sourceDetailRenderers = null;
       function sourceDetailContext() {
         const tools = currentEvidenceTools();
-        return tools ? (sourceDetailRenderers ||= tools.sourceDetails({detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, renderDetailObjectEntries, escapeHtml})) : null;
+        return tools ? (sourceDetailRenderers ||= tools.sourceDetails({detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, renderDetailObjectEntries, escapeHtml, resourceCatalogueAvailable:typeof STATIC_ATLAS_BOOTSTRAP !== 'undefined' && Boolean(STATIC_ATLAS_BOOTSTRAP?.domains?.resources)})) : null;
       }
       function renderSourceDetailContext(kind, tabs, feature) {
         const renderers = sourceDetailContext();
@@ -7007,6 +7009,9 @@ __URL_STATE_CONTROLLER__
       __RELATION_TIME_SUMMARY_CONTROLLER__
       __SCIENTIFIC_PICKER_CONTROLLER__
       __SCIENTIFIC_PICKER_MOUNT_CONTROLLER__
+      __SOURCE_RESOURCE_GEOGRAPHY__
+      __SOURCE_RESOURCE_READER__
+      __SOURCE_RESOURCE_DOWNLOADS__
       __SOURCE_RESOURCE_BROWSER_FACTORY__
       __SOURCE_RECORD_DETAILS_FACTORY__
       __SOURCE_RECORD_EXPORT_FACTORY__
@@ -7072,7 +7077,18 @@ __URL_STATE_CONTROLLER__
         const tools = await loadEvidenceTools();
         if (typeof tools?.sourceResources !== 'function') throw Error('Source resource metadata tools are unavailable.');
         return sourceResourceBrowser ||= tools.sourceResources({manifest: STATIC_ATLAS_BOOTSTRAP,
-          loadAsset: loadStaticAtlasAsset, payloadForAsset: key => STATIC_ATLAS_CHUNKS.resources.find(part => part.asset_key === key)});
+          loadAsset: loadStaticAtlasAsset, payloadForAsset: key => STATIC_ATLAS_CHUNKS.resources.find(part => part.asset_key === key),
+          readerContext: {map,leaflet:L,publishQuery:atlasURLState.publishResources,canPublish:atlasURLState.canPublish,countries:()=>[...activeCountries]}});
+      }
+      let resourceOpenGeneration = 0;
+      async function openSourceResources(selection = {}) {
+        const generation = ++resourceOpenGeneration;
+        sourceResourcesButton.textContent='Loading source resources…';
+        try {
+          if (evidenceToolsError) {evidenceToolsRequest=null;evidenceToolsError='';}
+          const browser = await loadSourceResourceBrowser();
+          if (generation === resourceOpenGeneration && atlasURLState.canPublish()) {await browser.open(selection);sourceResourcesButton.textContent='Neotoma source resources';}
+        } catch(error) {if(generation===resourceOpenGeneration)sourceResourcesButton.textContent=`Retry source resources: ${error.message}`;}
       }
       function renderRelationTimeSummaryPanel() {
         const container = document.getElementById('relation-time-summary');
@@ -7465,6 +7481,7 @@ __URL_STATE_CONTROLLER__
         emptyState.innerHTML = renderSelectionEmptyState(summary);
       }
       async function renderMapState() {
+        if (STATIC_ATLAS_BOOTSTRAP?.domains?.resources) sourceResourceBrowser?.countriesChanged();
         const generation = ++staticAtlasLoadGeneration;
         edgeFocusLoadState.generation = generation;
         retainedNeighborRecordCountries = atlasRetainedNeighborRecordCountries(visibleGovernedEdges(), activeCountries);
@@ -8159,6 +8176,11 @@ __URL_STATE_CONTROLLER__
         selectionReadout.dataset.resetRestoredVisibleEdges = String(DEFAULT_GOVERNED_EDGE_VISIBLE_COUNT);
         resetView();
       }
+      sourceResourcesButton.hidden = !STATIC_ATLAS_BOOTSTRAP?.domains?.resources;
+      if (!sourceResourcesButton.hidden) {
+        sourceResourcesButton.addEventListener('click',()=>openSourceResources());
+        if ([...new URL(window.location.href).searchParams.keys()].some(key=>key.startsWith('neotoma_'))) void openSourceResources({url:window.location.href,write:false});
+      }
       document.getElementById('countries-all').addEventListener('click', () => { activeCountries = new Set(COUNTRIES); renderCountryControls(); renderMapState(); });
       document.getElementById('countries-none').addEventListener('click', () => { activeCountries = new Set(); renderCountryControls(); renderMapState(); });
       document.getElementById('countries-fit').addEventListener('click', fitToActive);
@@ -8472,6 +8494,8 @@ __URL_STATE_CONTROLLER__
         }
       });
       document.addEventListener('click', (event) => {
+        const resource=event.target.closest('[data-source-resources]')?.dataset.sourceResources;
+        if (/^neotoma:site:[1-9][0-9]*$/.test(resource || '')) void openSourceResources({site:resource.slice(13),record:resource});
         if (!searchResults.contains(event.target) && event.target !== searchInput) {
           searchResults.hidden = true;
         }

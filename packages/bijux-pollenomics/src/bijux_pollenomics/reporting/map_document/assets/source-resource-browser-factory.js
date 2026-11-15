@@ -1,5 +1,5 @@
 // Read only independently pinned catalogue metadata through the common asset loader.
-function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset}) {
+function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, downloadTransport = {}, readerContext = {}}) {
   const domain = manifest?.domains?.resources;
   const fail = message => { throw Error(`Source resource metadata: ${message}`); };
   if (!domain || domain.schema_version !== 'atlas-source-resources.v1'
@@ -54,7 +54,9 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset}) {
     return payloads.get(identity);
   }
   function loadIndex() {
-    return indexRequest ||= (async () => {
+    if(indexRequest)return indexRequest;
+    indexRequest = (async () => {
+      const next = new Map();
       const parts = await Promise.all(domain.index_part_ids.map(part));
       for (const payload of parts) {
         if (payload.kind !== 'index') fail('index part has another kind');
@@ -63,15 +65,18 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset}) {
           if (!['sites','resources','descriptors'].includes(kind)
             || (kind === 'descriptors' ? !/^[a-f0-9]{64}$/.test(identity || '') : !nativeId(identity))
             || typeof record.part_id !== 'string' || !record.part_id.startsWith(`${kind}:`)
-            || !mapping[record.part_id] || index.has(key)) fail('index identity repeats or dangles');
-          index.set(key, record);
+            || !mapping[record.part_id] || next.has(key)) fail('index identity repeats or dangles');
+          next.set(key, record);
         }
       }
       for (const [kind, field] of [['resources','record_count'],['sites','site_count'],['descriptors','source_descriptor_count']]) {
-        if ([...index.values()].filter(row => row.entity_type === kind).length !== count(field)) fail('index population differs');
+        if ([...next.values()].filter(row => row.entity_type === kind).length !== count(field)) fail('index population differs');
       }
       if (count('version_status_count') !== 2 * count('record_count')) fail('version population differs');
+      next.forEach((value,key)=>index.set(key,value));
     })();
+    indexRequest = indexRequest.catch(error=>{indexRequest=null;throw error;});
+    return indexRequest;
   }
   async function record(kind, identity) {
     if (!nativeId(identity) && kind !== 'descriptors') fail('native identity is invalid');
@@ -90,11 +95,34 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset}) {
     return [...index.values()].filter(row => {
       if (row.entity_type !== 'resources') return false;
       const site = index.get(`sites:${row.site_id}`), names = site?.native_site_names || [];
-      return (!filters.country || row.country_code === filters.country)
+      return (!filters.country || (row.country_code ?? 'UNASSIGNED') === filters.country)
         && (!filters.type || row.dataset_type === filters.type)
         && (!filters.role || row.exposure_role === filters.role)
+        && (!filters.statusField || Object.hasOwn(row.version_statuses?.[filters.version] || {}, filters.statusField)
+          && row.version_statuses[filters.version][filters.statusField] === filters.status)
         && (!text || [row.record_id, row.site_id, row.collection_unit_id, row.dataset_type, row.country_code, ...names].join(' ').toLocaleLowerCase().includes(text));
     }).map(clone);
   }
-  return Object.freeze({consume, loadIndex, search, site: identity => record('sites', identity), resource: identity => record('resources', identity)});
+  async function inventory() {
+    await loadIndex();
+    return Object.fromEntries(['resources','sites','descriptors'].map(kind => [kind,
+      [...index.values()].filter(row => row.entity_type === kind).map(clone)]));
+  }
+  async function context() {
+    if (domain.context_part_id !== undefined && domain.context_part_id !== 'context:0') fail('context part identity differs');
+    const payload = await part(domain.context_part_id ?? 'context:0');
+    if (payload.kind !== 'context' || payload.records.length !== 1 || payload.records[0].record_id !== 'catalogue') fail('catalogue context differs');
+    return clone(payload.records[0]);
+  }
+  let reader = null;
+  const api = {consume, loadIndex, search, inventory, context, site: identity => record('sites', identity), resource: identity => record('resources', identity)};
+  let downloads = null;
+  function downloadManager() {
+    return downloads ||= createSourceResourceDownloads({domain, context, resource: identity => record('resources', identity),
+      fetcher: downloadTransport.fetcher, cryptoProvider: downloadTransport.cryptoProvider, location: downloadTransport.location});
+  }
+  return Object.freeze(Object.assign(api, {open: selection => (reader ||= createSourceResourceReader({...readerContext,browser:api,domain})).open(selection),
+    countriesChanged: () => reader?.countriesChanged(),
+    downloadResource: (identity, version, options) => downloadManager().body(identity, version, options),
+    downloadReceipt: (identity, version, options) => downloadManager().receipt(identity, version, options)}));
 }
