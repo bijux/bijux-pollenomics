@@ -251,6 +251,7 @@ def build_neotoma_resource_catalogue(
     country_boundaries: Mapping[str, Mapping[str, object]] | None = None,
     policy_sources: Sequence[str] | None = None,
     qualify_current_source_profiles: bool = False,
+    country_authority_captures: Mapping[str, Path] | None = None,
 ) -> dict[str, Any]:
     """Join the exact declared roster to selected captures and separate source epochs.
 
@@ -268,6 +269,7 @@ def build_neotoma_resource_catalogue(
         source_captures=source_captures,
         retained_sources=retained_sources,
         original_relational_root=original_relational_root,
+        country_authority_captures=country_authority_captures,
     )
     expected_keys = {
         f"dataset-{row['dataset_id']}-{version}"
@@ -358,6 +360,10 @@ def build_neotoma_resource_catalogue(
                 },
             }
         )
+    if sources.country_associations is not None:
+        from .geopolitical.associations import project_associations
+
+        project_associations(resources, sources.country_associations)
     catalogue = {
         "schema_version": "neotoma-resource-catalogue.v1",
         "source_family": "neotoma",
@@ -372,6 +378,14 @@ def build_neotoma_resource_catalogue(
     }
     if qualify_current_source_profiles:
         catalogue["current_source_profile_schema"] = CURRENT_SOURCE_PROFILE_SCHEMA
+    if sources.country_associations is not None:
+        from .geopolitical.associations import association_profile
+
+        catalogue["source_country_association_profile"] = association_profile(
+            resources,
+            sorted(country_authority_captures or {}),
+            sources.country_inventory_captures,
+        )
     return catalogue
 
 
