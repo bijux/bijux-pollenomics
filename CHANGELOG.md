@@ -2,6 +2,25 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#424](https://github.com/bijux/bijux-pollenomics/pull/424) — Swedish agricultural indicators and public core metadata
+
+- Derive rye, other cereals, plantain and non-cereal herbs on the unchanged
+  published-model cohorts. Authenticate selected cell identities, coverage, weight
+  denominators and baseline means/extrema; preserve missing support and scientific
+  interpretation limits.
+- Pair open-land and cereal means with spatial min/max ranges and fixed labelled
+  axes, retain separate latitude-region exports, and reorganize the scientific
+  report with methods and forest/open/support diagnostics available separately.
+  Ranges describe spatial variation, not confidence intervals.
+- Authenticate the Bokesjon public site/core/pollen/dating/chronology identities and
+  dataset-specific DOI rights evidence. Preserve control-age semantics, the
+  distinction between site points and measured core GPS, unestablished
+  shoreline/field admission, and the lack of private-workbook or transferred dating-
+  data rights.
+- Retain generated figures and source/calculation provenance without claiming a
+  fresh historical replay, rendering or independent scientific qualification in this
+  delivery.
+
 ### [#423](https://github.com/bijux/bijux-pollenomics/pull/423) — Swedish landscape histories and retained source comparisons
 
 - Document the synthetic source-mean and cell-window fixture helpers so the

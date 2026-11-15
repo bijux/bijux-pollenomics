@@ -1,0 +1,302 @@
+{
+  "evidence_role": "Existing public source-model context audit, not independent observed agriculture",
+  "source_url": "https://essd.copernicus.org/articles/14/1581/2022/",
+  "paper_capture": {
+    "path": "/Users/bijan/bijux/-bijux-pollenomics-data/landclim/provider-descriptions/essd_article.html",
+    "bytes": 443030,
+    "sha256": "d965af99738e1b068e6cf371747c6d96080046d0ca09db42ec1911916c19ed38"
+  },
+  "paper_claim_locator": "AppendixA,TableA1,footnote b",
+  "paper_claim": "This synthesis distinguishes Cerealia type excluding Secale from Secale; Wieczorek&Herzschuh2020 combinesallcereals.",
+  "native_numeric_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/data/landclim/raw/landclim_ii_reveals_results.zip",
+    "bytes": 4007032,
+    "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+  },
+  "native_quality_source": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/data/landclim/raw/landclim_ii_grid_cell_quality.xlsx",
+    "bytes": 49189,
+    "sha256": "6b805ee27f07d3d047bb785ae5315388b1d3a4b123d510a27f77a86915bc7488"
+  },
+  "independent_reader": {
+    "path": "artifacts/sweden-landscape-history/independent/observe.py",
+    "bytes": 24440,
+    "sha256": "38806c8e1579ce223b5a5d0fb2a1bbecf7bd5bed48537a222f0b67512659791d"
+  },
+  "fixed_recent_grid_ids": [
+    "1030",
+    "1031",
+    "1082",
+    "1128",
+    "1178",
+    "1180",
+    "1386",
+    "1387",
+    "1434",
+    "1436",
+    "779",
+    "829",
+    "830",
+    "831",
+    "832",
+    "878",
+    "880",
+    "882",
+    "927",
+    "929",
+    "980"
+  ],
+  "recent_windows": [
+    [
+      0,
+      100
+    ],
+    [
+      100,
+      350
+    ],
+    [
+      350,
+      700
+    ],
+    [
+      700,
+      1200
+    ],
+    [
+      1200,
+      1700
+    ],
+    [
+      1700,
+      2200
+    ],
+    [
+      2200,
+      2700
+    ],
+    [
+      2700,
+      3200
+    ]
+  ],
+  "native_ranges": {
+    "all_windows": {
+      "rye": {
+        "cell_window_count": 567,
+        "nonzero_cell_window_count": 117,
+        "minimum_percentage_cover": "0",
+        "maximum_percentage_cover": "20.8199368534988",
+        "maximum_locations": [
+          {
+            "grid_id": "829",
+            "latitude": 56.5,
+            "window": [
+              100,
+              350
+            ],
+            "quality": "high"
+          }
+        ]
+      },
+      "other_cereals": {
+        "cell_window_count": 567,
+        "nonzero_cell_window_count": 152,
+        "minimum_percentage_cover": "0",
+        "maximum_percentage_cover": "12.2941632209659",
+        "maximum_locations": [
+          {
+            "grid_id": "927",
+            "latitude": 58.5,
+            "window": [
+              100,
+              350
+            ],
+            "quality": "low"
+          }
+        ]
+      },
+      "ribwort_plantain_type": {
+        "cell_window_count": 567,
+        "nonzero_cell_window_count": 202,
+        "minimum_percentage_cover": "0",
+        "maximum_percentage_cover": "1.20239510913904",
+        "maximum_locations": [
+          {
+            "grid_id": "779",
+            "latitude": 55.5,
+            "window": [
+              350,
+              700
+            ],
+            "quality": "high"
+          }
+        ]
+      },
+      "non_cereal_herbs": {
+        "cell_window_count": 567,
+        "nonzero_cell_window_count": 567,
+        "minimum_percentage_cover": "0.95022157053402043",
+        "maximum_percentage_cover": "88.2995692645014292",
+        "maximum_locations": [
+          {
+            "grid_id": "832",
+            "latitude": 56.5,
+            "window": [
+              0,
+              100
+            ],
+            "quality": "high"
+          }
+        ]
+      }
+    },
+    "recent_eight_available": {
+      "rye": {
+        "cell_window_count": 203,
+        "nonzero_cell_window_count": 87,
+        "minimum_percentage_cover": "0",
+        "maximum_percentage_cover": "20.8199368534988",
+        "maximum_locations": [
+          {
+            "grid_id": "829",
+            "latitude": 56.5,
+            "window": [
+              100,
+              350
+            ],
+            "quality": "high"
+          }
+        ]
+      },
+      "other_cereals": {
+        "cell_window_count": 203,
+        "nonzero_cell_window_count": 104,
+        "minimum_percentage_cover": "0",
+        "maximum_percentage_cover": "12.2941632209659",
+        "maximum_locations": [
+          {
+            "grid_id": "927",
+            "latitude": 58.5,
+            "window": [
+              100,
+              350
+            ],
+            "quality": "low"
+          }
+        ]
+      },
+      "ribwort_plantain_type": {
+        "cell_window_count": 203,
+        "nonzero_cell_window_count": 114,
+        "minimum_percentage_cover": "0",
+        "maximum_percentage_cover": "1.20239510913904",
+        "maximum_locations": [
+          {
+            "grid_id": "779",
+            "latitude": 55.5,
+            "window": [
+              350,
+              700
+            ],
+            "quality": "high"
+          }
+        ]
+      },
+      "non_cereal_herbs": {
+        "cell_window_count": 203,
+        "nonzero_cell_window_count": 203,
+        "minimum_percentage_cover": "1.9201889996457157",
+        "maximum_percentage_cover": "88.2995692645014292",
+        "maximum_locations": [
+          {
+            "grid_id": "832",
+            "latitude": 56.5,
+            "window": [
+              0,
+              100
+            ],
+            "quality": "high"
+          }
+        ]
+      }
+    },
+    "recent_eight_fixed": {
+      "rye": {
+        "cell_window_count": 168,
+        "nonzero_cell_window_count": 81,
+        "minimum_percentage_cover": "0",
+        "maximum_percentage_cover": "20.8199368534988",
+        "maximum_locations": [
+          {
+            "grid_id": "829",
+            "latitude": 56.5,
+            "window": [
+              100,
+              350
+            ],
+            "quality": "high"
+          }
+        ]
+      },
+      "other_cereals": {
+        "cell_window_count": 168,
+        "nonzero_cell_window_count": 92,
+        "minimum_percentage_cover": "0",
+        "maximum_percentage_cover": "12.2941632209659",
+        "maximum_locations": [
+          {
+            "grid_id": "927",
+            "latitude": 58.5,
+            "window": [
+              100,
+              350
+            ],
+            "quality": "low"
+          }
+        ]
+      },
+      "ribwort_plantain_type": {
+        "cell_window_count": 168,
+        "nonzero_cell_window_count": 105,
+        "minimum_percentage_cover": "0",
+        "maximum_percentage_cover": "1.20239510913904",
+        "maximum_locations": [
+          {
+            "grid_id": "779",
+            "latitude": 55.5,
+            "window": [
+              350,
+              700
+            ],
+            "quality": "high"
+          }
+        ]
+      },
+      "non_cereal_herbs": {
+        "cell_window_count": 168,
+        "nonzero_cell_window_count": 168,
+        "minimum_percentage_cover": "2.3138416174660806",
+        "maximum_percentage_cover": "88.2995692645014292",
+        "maximum_locations": [
+          {
+            "grid_id": "832",
+            "latitude": 56.5,
+            "window": [
+              0,
+              100
+            ],
+            "quality": "high"
+          }
+        ]
+      }
+    }
+  },
+  "interpretation_limits": [
+    "Secale is rye-associated modeled cover; Cerealia.t is a pooled cereal-type excludingrye, not separately resolved wheat,barley,oats.",
+    "Plantago.lanceolata.type is noncropcontext; no direct conversion to pasture hectares,grazing intensityor livestock.",
+    "Seven noncerealherbs include Cyperaceae,Filipendula,Poaceae and other natural/wetland vegetation; not exclusively agricultural or anthropogenic.",
+    "Wheat,barley,oats,flax,hemp,buckwheat lack separate numeric columns; absence of column is unavailable,not zero.",
+    "Native percent cover uses the31modeledtaxon denominator; min/max ranges describe selected spatialcells,not confidenceintervals."
+  ]
+}

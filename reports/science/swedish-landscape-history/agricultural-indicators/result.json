@@ -1,0 +1,292 @@
+{
+  "arguments": {
+    "output": "/Users/bijan/bijux/bijux-pollenomics/artifacts/sweden-agricultural-indicators/products",
+    "repository": "/Users/bijan/bijux/bijux-pollenomics"
+  },
+  "baseline_statistics_verified": 20250,
+  "calculation_guard_count": 13,
+  "calculation_source_pins": [
+    {
+      "bytes": 306,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/__init__.py",
+      "sha256": "260b4a0fe74a7fd4ff9543c6b6db92b8304e88fe3a748d99e13878a1a7b31389"
+    },
+    {
+      "bytes": 587,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/__main__.py",
+      "sha256": "383f2f82ddf943869c68e52ec8d6d9f0d885d70d9a09090e8bd58815f9c51c0f"
+    },
+    {
+      "bytes": 4224,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/classification.py",
+      "sha256": "6c8705431b3f9ff30df33b7830397b1dba69ae98e0cd816e055d5a0a2c1e84fe"
+    },
+    {
+      "bytes": 5042,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/inputs.py",
+      "sha256": "84ec7f89df29bf67c02c28d900ea0c8c2b1aa84cae60a2949813e7307378245d"
+    },
+    {
+      "bytes": 7924,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/aggregation.py",
+      "sha256": "a0b06ac2fdd05806042bde20d1cd62fd4c4c69bca2a874ba7e38ad5ee1d5e361"
+    },
+    {
+      "bytes": 9749,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/workflow.py",
+      "sha256": "cb6bcce14adc482ffd283b0441e11de94595585a39297ac799da8cf25aee4688"
+    },
+    {
+      "bytes": 2830,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/contracts.py",
+      "sha256": "e66708bc222d7add0184d6f372a21f235e1154e0fd25271272f2b66c379faf97"
+    },
+    {
+      "bytes": 6299,
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/metric_families.py",
+      "sha256": "621d2fe9df9b8328e03ef6524eae28bf246cdb0f871da0df81db6b3510d51e67"
+    },
+    {
+      "bytes": 206,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/indicators/__init__.py",
+      "sha256": "e5ad61887e265c5270fdb028bbcaab5d282581712526a844f375945bc19987a7"
+    },
+    {
+      "bytes": 556,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/indicators/__main__.py",
+      "sha256": "cc6a01f350f45f87f8be7d6647f4a6ed7643ee3a5a3d9bd86a7a1775e9358707"
+    },
+    {
+      "bytes": 4765,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/indicators/inputs.py",
+      "sha256": "7805a399fe614158d845d029a4a5a68996f7242fc9b4293a1d182f5427877253"
+    },
+    {
+      "bytes": 6478,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/indicators/analysis.py",
+      "sha256": "fd14c6e538b0f83d7a77406ce0b2bfaa7d7e1b46401be5504cc45ddcd0fcf989"
+    },
+    {
+      "bytes": 6467,
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/landscape_history/landclim/indicators/workflow.py",
+      "sha256": "6a0a3faaa00f87dbfde96547846e52f7ed2fd914592794710130c8cf073030f6"
+    }
+  ],
+  "cell_count": 650,
+  "cell_status_counts": {
+    "eligible": 567,
+    "invalid": 1,
+    "no_data": 82
+  },
+  "git_head": "9f5bb2bb326016a3a1192b92c86cdf6af12b8687",
+  "input_guard_count": 10,
+  "input_pins": [
+    {
+      "bytes": 17075784,
+      "path": "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+      "sha256": "2c04cff11aee3ea191540ef00084854402f90ebe8c3b09e0605d22827d29b15e"
+    },
+    {
+      "bytes": 4880,
+      "path": "data/landclim/raw/landclim_sources.json",
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    },
+    {
+      "bytes": 4007032,
+      "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    {
+      "bytes": 49189,
+      "path": "data/landclim/raw/landclim_ii_grid_cell_quality.xlsx",
+      "sha256": "6b805ee27f07d3d047bb785ae5315388b1d3a4b123d510a27f77a86915bc7488"
+    },
+    {
+      "bytes": 1773,
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    },
+    {
+      "bytes": 2269341,
+      "path": "data/boundaries/normalized/nordic_country_boundaries.geojson",
+      "sha256": "8c011078f381380e0384edcf2b056ac5fbf5ae33d8f497e0e48b6347663c9394"
+    },
+    {
+      "bytes": 2191,
+      "path": "data/boundaries/raw/source_manifest.json",
+      "sha256": "1e7094480f32ee1a7742bb8d9066fbe9437e9b43f059e51d9a0c71e3cecd58ed"
+    },
+    {
+      "bytes": 1740671,
+      "path": "reports/science/swedish-landscape-history/trajectories.csv",
+      "sha256": "17299c41e317053eb3a2a3e68640f0e083b1c34023aed61f017deeff6b207750"
+    },
+    {
+      "bytes": 5373,
+      "path": "reports/science/swedish-landscape-history/protocol.json",
+      "sha256": "1a6affc9c0f372e034a22a534a30f94f94045f6e491dbaef0ac70674fffa7e08"
+    },
+    {
+      "bytes": 5000,
+      "path": "reports/science/swedish-landscape-history/independent-check.json",
+      "sha256": "98fb8d33c65093242f40b4dca3befeb50b07164a30f69a8c9dd9b3bc175d3782"
+    }
+  ],
+  "metric_count": 6,
+  "products": [
+    {
+      "bytes": 2961,
+      "path": "protocol.json",
+      "sha256": "f7d9d922db099e448ddbf4b811574de1001624e94fe2acf24c88872b668e72d1"
+    },
+    {
+      "bytes": 4498255,
+      "path": "trajectories.json",
+      "sha256": "e7b8a2802e64159e42b5a56a9380f0c5007cbf375df75d448659435195f2ca5a"
+    },
+    {
+      "bytes": 1197320,
+      "path": "trajectories.csv",
+      "sha256": "5258691ab3768331ca87ce0139c550b85031e285714510b78da90bf5abc7696f"
+    }
+  ],
+  "protocol": {
+    "absolute_tolerance_percentage_points": 1e-08,
+    "baseline_csv": "reports/science/swedish-landscape-history/trajectories.csv",
+    "baseline_sha256": "17299c41e317053eb3a2a3e68640f0e083b1c34023aed61f017deeff6b207750",
+    "cohort_rule": "Exact2250baseline band/window/policy/weighting rows; selected IDs, eligibility, counts and weights checked without changing cohorts",
+    "definitions": {
+      "cereals": "Cerealia.t excluding rye plus Secale; equals source AL per cell. Not all arable land or a measured acreage.",
+      "non_cereal_herbs": {
+        "definition": "Operational seven-taxon non-cereal herb cover; includes plantain, not all agriculture.",
+        "taxa": [
+          "Amanranthaceae.Chenopodiaceae",
+          "Artemisia",
+          "Cyperaceae",
+          "Filipendula",
+          "Plantago.lanceolata.type",
+          "Poaceae",
+          "Rumex.acetosa.t"
+        ]
+      },
+      "other_cereals": "Source Cerealia.t excluding Secale; aggregate cereal type, not an identified list of individual crops.",
+      "plantain": "Plantago.lanceolata.type modeled vegetation cover; non-crop context, not a measured pasture or grazing proxy.",
+      "ranges": "Minimum/maximum of contributing individual-cell components. Total extrema are computed directly, never sums of component extrema; spatial variation, not confidence intervals.",
+      "rye": "Source Secale modeled vegetation cover.",
+      "source_OL": "Published open land; includes low shrub Calluna, non-cereal herbs and cereals; not identical to operational non-tree cover.",
+      "units": "percentage_cover"
+    },
+    "epoch": "BP1950",
+    "evidence_role": "components_of_published_modeled_vegetation;not_independent_validation",
+    "metrics": [
+      "source_OL",
+      "cereals",
+      "rye",
+      "other_cereals",
+      "plantain",
+      "non_cereal_herbs"
+    ],
+    "missing_rule": "Baseline missing and policy-excluded rows remain null; true modeled zero remains numeric zero; zero-mass and no-data refusals unchanged",
+    "new_reconstruction": false,
+    "primary_display": "five bands;fixed_recent;area;full eight windows0-3200BP; four/six bands and available/high_quality/equal diagnostics retained",
+    "regional_confidence_intervals": false,
+    "schema_version": "swedish-agricultural-indicators-protocol.v1",
+    "source_guards": "Per-cell31taxon closure and nonnegativity, Cerealia.t+Secale=AL, source OL subset identity; source OL, total cereals and seven-herb mean/min/max agree with all frozen baseline statistics",
+    "source_support": "26Swedish-center one-degree grids x25published windows;650cell/windows, whole cells not Swedish polygon intersections",
+    "statistics": "Direct weighted component means plus individual-cell minimum/maximum on the same mask. Total extrema are computed directly; never sums of component extrema",
+    "uncertainty": "No new uncertainty law, standard-error aggregation, covariance or confidence interval. Ranges describe spatial variation of selected source cells",
+    "units": "percentage_cover"
+  },
+  "runtime": {
+    "executable": "/Users/bijan/bijux/bijux-pollenomics/artifacts/validation/venv/bin/python",
+    "python": "3.11.18 (main, Oct 25 2026, 19:41:29) [Clang 21.0.0 (clang-2100.3.34.2)]"
+  },
+  "schema_version": "swedish-agricultural-indicators-result.v1",
+  "source_quality_counts": {
+    "high": 268,
+    "low": 300,
+    "no_pollen_data": 82
+  },
+  "status": "complete",
+  "trajectory_row_count": 2250,
+  "calculation_source_commit": "9f5bb2bb326016a3a1192b92c86cdf6af12b8687",
+  "source": {
+    "dataset": "10.1594/PANGAEA.937075",
+    "paper": "10.5194/essd-14-1581-2022",
+    "license": "CC BY 4.0",
+    "definition_locator": "Appendix A,Table A1,footnote b"
+  },
+  "execution": {
+    "exit_code": 0,
+    "wall_seconds": 1.82,
+    "maximum_resident_set_size_bytes": 164200448,
+    "product_bytes": 5707971,
+    "bounds": {
+      "wall_seconds": 60,
+      "maximum_resident_set_size_bytes": 262144000,
+      "product_bytes": 10000000
+    }
+  },
+  "parent_calculation_source_commit": "b768c7b1204c2dd43b2c88e69d47ce2b61f662b8",
+  "figure_renderer": {
+    "matplotlib": "3.11.2",
+    "figures": 28,
+    "formats": [
+      "png",
+      "svg",
+      "pdf"
+    ],
+    "spatial_range_maxima": {
+      "rye": 20.8199368534988,
+      "other_cereals": 12.2941632209659,
+      "plantain": 1.20239510913904,
+      "non_cereal_herbs": 88.29956926450143
+    },
+    "fixed_right_axis_limits": {
+      "rye": 25.0,
+      "other_cereals": 15.0,
+      "plantain": 2.0,
+      "non_cereal_herbs": 100.0
+    },
+    "numerical_temporal_interpolation": false,
+    "confidence_intervals": false,
+    "inputs": [
+      {
+        "name": "render_indicators.py",
+        "sha256": "9e517b3b1c39440b21a803d685dbe30fb0cd3726fd792278495add418b19c8d6"
+      },
+      {
+        "name": "render.py",
+        "sha256": "111a02d0b049d947d8a7b8a197a35fe264035dfccf92971703af8c69e4bf7d86"
+      },
+      {
+        "name": "figure_series.py",
+        "sha256": "73a1056d42b5750390c5c5d6bea6bb300114edbb99446f223e4be84f3d0b7627"
+      },
+      {
+        "name": "trajectories.json",
+        "sha256": "e7b8a2802e64159e42b5a56a9380f0c5007cbf375df75d448659435195f2ca5a"
+      }
+    ]
+  },
+  "verification": {
+    "focused_tests": 52,
+    "new_indicator_tests": 22,
+    "configured_ruff": "passed",
+    "configured_format": "passed",
+    "strict_mypy_files": 8,
+    "independent_native_archive": "passed",
+    "independent_proof": "independent-check.json",
+    "old_scientific_owner_byte_identity": 8,
+    "original_figure_export_byte_identity": 36,
+    "inspected_exports": [
+      "rye/latitude-55-58.png",
+      "plantain/recent.png",
+      "other-cereals/latitude-55-58.pdf",
+      "non-cereal-herbs/recent.pdf"
+    ],
+    "standalone_attribution": "Published REVEALS modeled cover, dataset, authors and CC BY 4.0 printed on every export"
+  },
+  "negative_love_policy": "Not applied to existing published REVEALS means; no new LOVE calculation.",
+  "independent_accuracy_established": false
+}

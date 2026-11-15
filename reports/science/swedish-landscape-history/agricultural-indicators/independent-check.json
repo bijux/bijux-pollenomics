@@ -1,0 +1,153 @@
+{
+  "status": "passed",
+  "source_revision": "9f5bb2bb326016a3a1192b92c86cdf6af12b8687",
+  "method": "Independent originalZIP/XLSX XML reader,31taxon Decimal classification, spherical boundary-sine areas, independent baseline2250cohort calculation; no producer modules imported",
+  "observer": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/sweden-agricultural-indicators/independent/observe.py",
+    "bytes": 17224,
+    "sha256": "2eda77a98072929062d5d95c9afaaa0a5cc1c5f58cf00a170ef6c40e12a77b1c"
+  },
+  "independent_reader": {
+    "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/sweden-agricultural-indicators/independent/source_data.py",
+    "bytes": 12731,
+    "sha256": "004f5bb304937c95f506631c9bedcf2bec2693ef370c466e6bf8fa2ede7a55e8"
+  },
+  "elapsed_seconds": 0.9331284169966239,
+  "peak_rss_bytes": 132005888,
+  "raw_and_baseline_inputs": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/data/landclim/raw/landclim_ii_reveals_results.zip",
+      "bytes": 4007032,
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/data/landclim/raw/landclim_ii_grid_cell_quality.xlsx",
+      "bytes": 49189,
+      "sha256": "6b805ee27f07d3d047bb785ae5315388b1d3a4b123d510a27f77a86915bc7488"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/reports/science/swedish-landscape-history/trajectories.csv",
+      "bytes": 1740671,
+      "sha256": "17299c41e317053eb3a2a3e68640f0e083b1c34023aed61f017deeff6b207750"
+    }
+  ],
+  "input_pin_count": 10,
+  "calculation_pin_count": 13,
+  "original_calculation_files_unchanged": 8,
+  "products": [
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/sweden-agricultural-indicators/products/trajectories.json",
+      "bytes": 4498255,
+      "sha256": "e7b8a2802e64159e42b5a56a9380f0c5007cbf375df75d448659435195f2ca5a"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/sweden-agricultural-indicators/products/trajectories.csv",
+      "bytes": 1197320,
+      "sha256": "5258691ab3768331ca87ce0139c550b85031e285714510b78da90bf5abc7696f"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/sweden-agricultural-indicators/products/protocol.json",
+      "bytes": 2961,
+      "sha256": "f7d9d922db099e448ddbf4b811574de1001624e94fe2acf24c88872b668e72d1"
+    },
+    {
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/sweden-agricultural-indicators/products/summary.json",
+      "bytes": 9435,
+      "sha256": "4c79dd64b50fa0320c2883866513e9376b7bb9d91bfeddd56c140da9e4d832e3"
+    }
+  ],
+  "verified_json_rows": 2250,
+  "verified_csv_rows": 2250,
+  "metrics_per_row": 6,
+  "metric_statistics_per_row": 18,
+  "native_cell_windows": 650,
+  "native_eligible": 567,
+  "native_no_data": 82,
+  "native_invalid": 1,
+  "fixed_recent_grid_count": 21,
+  "primary_recent_rows": 40,
+  "primary_missing_band": [
+    64,
+    67
+  ],
+  "primary_missing_rows": 8,
+  "numeric_check_counts": {
+    "exact": 260078,
+    "area": 95159,
+    "percentage_or_coordinate": 61427
+  },
+  "maximum_absolute_errors": {
+    "area": "1.52E-10",
+    "percentage_or_coordinate": "1.7866666666666666666666666666666667E-14"
+  },
+  "independent_expected_trajectory_sha256": "6af1b5f2f7000bad3de3a8cb9bd2c06bd96b2835bf301b4c508b8712563f0be1",
+  "metric_audit": {
+    "source_OL": {
+      "native_eligible_nonzero_count": 567,
+      "native_eligible_count": 567,
+      "native_minimum_pp": "1.37445118380976",
+      "native_maximum_pp": "89.8378153551851",
+      "fixed_recent_nonzero_count": 168,
+      "fixed_recent_cell_window_count": 168,
+      "primary_mean_minimum_pp": "15.948630244352842755826039296306071122965490697114",
+      "primary_mean_maximum_pp": "60.833789868507857401440773183156026242898644250196"
+    },
+    "cereals": {
+      "native_eligible_nonzero_count": 176,
+      "native_eligible_count": 567,
+      "native_minimum_pp": "0",
+      "native_maximum_pp": "22.13919817864998",
+      "fixed_recent_nonzero_count": 99,
+      "fixed_recent_cell_window_count": 168,
+      "primary_mean_minimum_pp": "0",
+      "primary_mean_maximum_pp": "6.0624960561128352239502791800777471104542754802498"
+    },
+    "rye": {
+      "native_eligible_nonzero_count": 117,
+      "native_eligible_count": 567,
+      "native_minimum_pp": "0",
+      "native_maximum_pp": "20.8199368534988",
+      "fixed_recent_nonzero_count": 81,
+      "fixed_recent_cell_window_count": 168,
+      "primary_mean_minimum_pp": "0",
+      "primary_mean_maximum_pp": "4.0905097421340120493836469464660094615633066152295"
+    },
+    "other_cereals": {
+      "native_eligible_nonzero_count": 152,
+      "native_eligible_count": 567,
+      "native_minimum_pp": "0",
+      "native_maximum_pp": "12.2941632209659",
+      "fixed_recent_nonzero_count": 92,
+      "fixed_recent_cell_window_count": 168,
+      "primary_mean_minimum_pp": "0",
+      "primary_mean_maximum_pp": "4.8603651587775087269551337265873711585003063205228"
+    },
+    "plantain": {
+      "native_eligible_nonzero_count": 202,
+      "native_eligible_count": 567,
+      "native_minimum_pp": "0",
+      "native_maximum_pp": "1.20239510913904",
+      "fixed_recent_nonzero_count": 105,
+      "fixed_recent_cell_window_count": 168,
+      "primary_mean_minimum_pp": "0",
+      "primary_mean_maximum_pp": "0.47586580358952437344690848285852996375430747942197"
+    },
+    "non_cereal_herbs": {
+      "native_eligible_nonzero_count": 567,
+      "native_eligible_count": 567,
+      "native_minimum_pp": "0.95022157053402043",
+      "native_maximum_pp": "88.2995692645014292",
+      "fixed_recent_nonzero_count": 168,
+      "fixed_recent_cell_window_count": 168,
+      "primary_mean_minimum_pp": "14.189610554299284785146776943145211552412484439437",
+      "primary_mean_maximum_pp": "42.544984422730227401575249832577972770513033968107"
+    }
+  },
+  "limits": [
+    "Published source-model components,not independent agriculture measurements.",
+    "Cerealia.t excludesrye but doesnotresolvewheat/barley/oats.",
+    "Plantago is noncropcontext and a subsetofsevenherbs; contextpanels are notdisjointcategories or pasture/grazing measures.",
+    "Absent flax/hemp/buckwheat/separatecropcolumns remain unavailable,not zero.",
+    "Mean/minimum/maximum are chosen-cell spatial summaries; no newSE,covarianceor confidenceinterval."
+  ]
+}
