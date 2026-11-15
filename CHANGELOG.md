@@ -2,54 +2,62 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Swedish open-land and cereal figures
+### Swedish agricultural indicators and public core metadata
 
-- Pair open-land and cereal means with spatial min–max shading and fixed,
-  clearly labelled axes; preserve missing support and the source-window values.
-- Export each latitude region separately, simplify the main scientific report
-  and retain forest/open and support diagnostics as distinct reading routes.
+- Derive rye, other cereals, plantain and non-cereal herbs on the unchanged
+  published-model cohorts. Authenticate selected cell identities, coverage, weight
+  denominators and baseline means/extrema; preserve missing support and scientific
+  interpretation limits.
+- Pair open-land and cereal means with spatial min/max ranges and fixed labelled
+  axes, retain separate latitude-region exports, and reorganize the scientific
+  report with methods and forest/open/support diagnostics available separately.
+  Ranges describe spatial variation, not confidence intervals.
+- Authenticate the Bokesjon public site/core/pollen/dating/chronology identities and
+  dataset-specific DOI rights evidence. Preserve control-age semantics, the
+  distinction between site points and measured core GPS, unestablished
+  shoreline/field admission, and the lack of private-workbook or transferred dating-
+  data rights.
+- Retain generated figures and source/calculation provenance without claiming a
+  fresh historical replay, rendering or independent scientific qualification in this
+  delivery.
 
-### Swedish vegetation history by latitude
+### [#423](https://github.com/bijux/bijux-pollenomics/pull/423) — Swedish landscape histories and retained source comparisons
 
-- Derive four-, five- and six-band Swedish forest/open/cereal summaries from
-  published REVEALS grids with explicit taxonomy, spatial weights and coverage.
-- Publish fixed recent support, changing-grid and quality diagnostics, six
-  exportable figures and independent original-archive verification; preserve
-  no-data flags, the zero-mass refusal and unavailable regional uncertainty.
+- Derive Swedish forest/open/cereal histories over four, five and six latitude bands
+  using explicit operational taxon groups, source windows, weights and support
+  policies. Preserve no-data/invalid cell dispositions, the zero-mass refusal,
+  changing-grid/fixed-recent support and unavailable regional uncertainty.
+- Retain six exportable figure families, cell dispositions, trajectories and
+  input/calculation provenance. Spatial ranges describe cell variation and do not
+  establish regional confidence intervals or independent vegetation validation.
+- Retain the attributed European RPP reference with exact deposited cells, missing
+  values, reported SE identity and source hashes; preserve missing European Ulmus
+  productivity and the SE/SD distinction without changing completed inputs.
+- Record the retained complete six-window LOVE development comparisons, including
+  oldest-window and nearest-site losses, installed qualification scope and
+  unresolved physical/field acceptance. This delivery does not perform a fresh
+  historical replay or establish new scientific admission.
 
-### Published European pollen-productivity reference
+### [#422](https://github.com/bijux/bijux-pollenomics/pull/422) — Complete adjusted LOVE populations and workspace ownership
 
-- Ingest both Wieczorek–Herzschuh European RPP datasets with exact source cells,
-  missing values, reported SE, original download hashes and CC BY 4.0 attribution.
-- Compare the published reference with the executed LANDCLIM inputs. Preserve
-  missing European Ulmus RPP and the SE/SD distinction without changing earlier
-  calculations or declaring physical-source admission.
-
-### Six-window analytical LOVE evaluation
-
-- Score all 54 adjusted nominal predictions and all 55,296 uncertainty slots at
-  one held source. Preserve the oldest-window and Solsø nearest-site losses;
-  independent scalar/source checks and four fresh install environments pass.
-- Publish complete matched development scores, the executed all-window protocol,
-  installed qualification and precise unresolved physical/field acceptance.
 - Support an explicit adjusted-cover population across all eighteen development
-  folds and six windows while retaining the original signed-result dispositions.
-- Share source-owner count draws and productivity draws across the complete
-  population; compare physical and direct-pollen predictions on matched targets.
-- Extend independent source, scalar and score verification to all fifty-four
-  nominal method slots, retaining undefined draws and target-exclusion checks.
+  folds and six windows while retaining original signed-result dispositions. Share
+  source-owner count and productivity draws and extend independent
+  source/scalar/score verification to all fifty-four nominal method slots, retaining
+  undefined draws and target-exclusion checks.
+- Use a virtual workspace root with canonical package distributions. Discover owned
+  checkouts/source archives through repository configuration and declared host
+  membership; retain missing, unrelated, excluded and symlink refusals. Reject
+  undeclared editable root distributions in dependency audits.
 - Restore real source-retention metadata and Git custody in retained-reference
-  test fixtures, including explicit missing and altered transport refusals.
+  fixtures, preserving missing/altered transport refusals. Clarify strict
+  covariance/counting test contracts without changing numerical or malformed-input
+  assertions.
+- These changes prepare complete development evaluation and preserve scientific
+  admission limits; fresh historical replay and installed-wheel qualification are
+  not established by this delivery.
 
-### Canonical workspace package identities
-
-- Use a virtual workspace root and retain canonical distributions under
-  `packages/`; remove the artificial repository distribution.
-- Identify owned checkouts and source archives through repository configuration
-  and declared host membership, preserving missing, unrelated and symlink
-  refusals. Dependency audits and current runtime provenance use real packages.
-
-### Nonnegative analytical LOVE cover
+### [#421](https://github.com/bijux/bijux-pollenomics/pull/421) — Nonnegative analytical LOVE cover
 
 - Clip negative analytical LOVE cover to zero and normalize each draw before
   calculating summaries. Retain raw summaries, optional raw draws and outlier
@@ -67,8 +75,6 @@ Repository changes are recorded by pull request, newest merge first.
   bootstrap has all 9,216 method-replicate slots defined. Independent numerical
   and source checks pass; static geometry, restricted taxonomy and scientific
   admission limits remain explicit.
-- Restore strict typing for existing covariance and counting test controls
-  without changing their numerical or malformed-input assertions.
 
 ### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
 
