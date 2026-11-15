@@ -11,6 +11,8 @@ from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import _regular_confined_file
 from ...retained_source import SourceCapsule
 from .atlas_runtime_transport import atlas_runtime_transport_extension_matches
+from .atlas_transport.indexes import without_index_transport_refinement
+from .atlas_transport.renderer import atlas_renderer_transport_matches
 
 _SELECTION_TRANSPORT_CONTRACTS: dict[
     str, tuple[int, str, str, tuple[tuple[bytes, bytes], ...]]
@@ -490,6 +492,14 @@ def atlas_evidence_selection_extension_matches(
     size, digest, composition, spans = contract
     if len(captured) != size or hashlib.sha256(captured).hexdigest() != digest:
         return False
+    predecessor = without_index_transport_refinement(name, current)
+    if predecessor is None:
+        return False
+    current = predecessor
+    if name == _RENDER_SOURCE and atlas_renderer_transport_matches(
+        name, captured, current
+    ):
+        return True
     if name == _RENDER_SOURCE:
         stripped = _strip_controller_declarations(current)
         if stripped is None:

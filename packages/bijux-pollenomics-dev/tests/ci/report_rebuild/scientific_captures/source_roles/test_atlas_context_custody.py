@@ -27,6 +27,9 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles im
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.atlas_runtime_transport import (
     atlas_runtime_transport_extension_matches,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.atlas_transport.resources import (
+    without_resource_context_additions,
+)
 
 from ...source_contracts.test_execution_helper_batches import (
     Consumer,
@@ -418,10 +421,12 @@ def test_actual_two_normal_git_witnesses_require_only_known_context_spans(
         source, old[0] + b"# counterfeit old bytes\n", current
     )
     assert not subject.atlas_context_extension_matches(_OTHER, old[0], current)
+    context_current = without_resource_context_additions(source, current)
+    assert context_current is not None
     for before, after in pairs:
-        assert current.count(after) == 1
+        assert context_current.count(after) == 1
         assert not subject.atlas_context_extension_matches(
-            source, old[0], current.replace(after, before, 1)
+            source, old[0], context_current.replace(after, before, 1)
         )
 
 
@@ -505,7 +510,9 @@ def test_actual_post_runtime_original_spans_are_unique_at_restored_stage(
     spans = subject._SOURCE_CONTEXT_CONTRACTS[source][3]
     assert any(captured.count(original) != 1 for original, _ in spans)
     assert subject.atlas_context_extension_matches(source, captured, current)
-    restored = current
+    restored = without_resource_context_additions(source, current)
+    assert restored is not None
+    context_current = restored
     for original, extension in spans:
         assert restored.count(extension) == 1
         restored = restored.replace(extension, original, 1)
@@ -524,7 +531,9 @@ def test_actual_post_runtime_original_spans_are_unique_at_restored_stage(
     duplicate = next(
         original
         for original, _ in spans
-        if all((current + original).count(extension) == 1 for _, extension in spans)
+        if all(
+            (context_current + original).count(extension) == 1 for _, extension in spans
+        )
     )
     assert not subject.atlas_context_extension_matches(
         source, captured, current + duplicate

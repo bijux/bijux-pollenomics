@@ -15,6 +15,7 @@ import pytest
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.ownership import ReportOwnershipError
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source import SourceCapsule, index
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.index import _descriptor
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
     sample_chronology_capture as chronology,
 )
@@ -25,7 +26,25 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.presentation_so
     atlas_extension_matches,
 )
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles import (
+    atlas_context as context_owner,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles import (
+    atlas_evidence_selection as selection_owner,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles import (
     atlas_runtime_transport as subject,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.atlas_transport import (
+    indexes as index_owner,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.atlas_transport import (
+    products as product_owner,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.atlas_transport.indexes import (
+    without_index_transport_refinement,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.atlas_transport.resources import (
+    without_resource_context_additions,
 )
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.documentation import (
     _documented_source_matches,
@@ -321,6 +340,47 @@ def _dispatch(case: TransportCase) -> object:
     return None
 
 
+def _bind_outer_role(case: TransportCase, monkeypatch: pytest.MonkeyPatch) -> str:
+    """Give prioritized owners their own authenticated layer above runtime bytes."""
+    source = case.row["path"]
+    owner: Any
+    if source in context_owner.ATLAS_CONTEXT_SOURCES:
+        owner = context_owner
+        contract_name = "_SOURCE_CONTEXT_CONTRACTS"
+        classification = "source_view_context_extension"
+    elif source in selection_owner.ATLAS_EVIDENCE_SELECTION_SOURCES:
+        owner = selection_owner
+        contract_name = "_SELECTION_TRANSPORT_CONTRACTS"
+        classification = "atlas_evidence_selection_extension"
+        if source == _RENDER:
+            # This fixture adds no selection declarations. Its seven runtime
+            # declarations remain checked by the composed actual runtime law.
+            monkeypatch.setattr(owner, "_RENDER_DECLARATION_ORDER", ())
+    else:
+        return "runtime_transport_extension"
+    original = b"# Own inert old source; never imported.\n"
+    extension = b"# Own inert source with a declared outer context.\n"
+    current = case.target.read_bytes()
+    assert current.count(original) == 1
+    contracts = dict(getattr(owner, contract_name))
+    contracts[source] = (
+        len(_OLD),
+        _identity(_OLD)["sha256"],
+        "runtime_transport_extension",
+        ((original, extension),),
+    )
+    monkeypatch.setattr(owner, contract_name, contracts)
+    contexts = dict(owner._CAPTURE_CONTEXTS)
+    prefix = case.consumer.prefix
+    contexts[prefix] = (
+        case.buffer.descriptor.capture["sha256"],
+        subject._CAPTURE_CONTEXTS[prefix][1],
+    )
+    monkeypatch.setattr(owner, "_CAPTURE_CONTEXTS", contexts)
+    case.target.write_bytes(current.replace(original, extension, 1))
+    return classification
+
+
 @pytest.mark.parametrize("prefix,source", _VALID_BINDINGS)
 def test_fixed_contexts_preserve_old_identity_without_native_equivalence(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, prefix: str, source: str
@@ -369,12 +429,26 @@ def test_owning_dispatch_refuses_unknown_code_after_real_positive_baseline(
     """Exercise both actual guarded entrypoints and their strict current-byte refusal."""
     case = _case(tmp_path / "repository", monkeypatch, prefix, source)
     assert case.admit()["whole_old_module_reconstructed"] is True
+    classification = _bind_outer_role(case, monkeypatch)
     result = _dispatch(case)
     if prefix == _CONTEXTS[0]:
         assert isinstance(result, dict)
-        assert result["classification"] == "runtime_transport_extension"
+        assert result["classification"] == classification
+        assert result["whole_old_module_reconstructed"] is True
     else:
         assert result is None
+    if classification != "runtime_transport_extension":
+        admitted = case.target.read_bytes()
+        case.target.write_bytes(
+            admitted.replace(
+                b"# Own inert source with a declared outer context.\n",
+                b"# Own inert old source; never imported.\n",
+                1,
+            )
+        )
+        with pytest.raises(ReportRebuildError):
+            _dispatch(case)
+        case.target.write_bytes(admitted)
     case.target.write_bytes(
         case.target.read_bytes() + b"# unrelated executable statement\n"
     )
@@ -576,12 +650,63 @@ def _actual_pair(source: str) -> tuple[bytes, bytes]:
     return old[0], (repository / source).read_bytes()
 
 
+def _actual_runtime_pair(source: str) -> tuple[bytes, bytes]:
+    """Check current owning law, then exercise the explicitly narrower runtime epoch."""
+    old, current = _actual_pair(source)
+    if source in context_owner.ATLAS_CONTEXT_SOURCES:
+        assert context_owner.atlas_context_extension_matches(source, old, current)
+        assert not context_owner.atlas_context_extension_matches(
+            source, old, current + b"# foreign tail\n"
+        )
+        stage = without_resource_context_additions(source, current)
+        assert stage is not None
+        for prior, extension in context_owner._SOURCE_CONTEXT_CONTRACTS[source][3]:
+            assert stage.count(extension) == 1
+            stage = stage.replace(extension, prior, 1)
+        current = stage
+    elif source in selection_owner.ATLAS_EVIDENCE_SELECTION_SOURCES:
+        assert selection_owner.atlas_evidence_selection_extension_matches(
+            source, old, current
+        )
+        assert not selection_owner.atlas_evidence_selection_extension_matches(
+            source, old, current + b"# foreign tail\n"
+        )
+        if source == _RENDER:
+            # The current renderer has one fixed whole-module owner. The older
+            # seven-declaration runtime law is tested against its own normal Git
+            # witness; this does not execute that historical renderer.
+            current = subprocess.check_output(
+                [
+                    "git",
+                    "--no-replace-objects",
+                    "show",
+                    "d37a306ccd39ffb853352ec03cd8d8b6dce29483:" + source,
+                ],
+                cwd=Path(__file__).resolve().parents[7],
+                timeout=20,
+            )
+            assert (
+                _identity(current)["sha256"]
+                == "dac4b213d95ca06090a3bb559715284969be830f3f27a7ddf9a521926488cb1a"
+            )
+        else:
+            stage = without_index_transport_refinement(source, current)
+            assert stage is not None
+            for prior, extension in selection_owner._SELECTION_TRANSPORT_CONTRACTS[
+                source
+            ][3]:
+                assert stage.count(extension) == 1
+                stage = stage.replace(extension, prior, 1)
+            current = stage
+    return old, current
+
+
 @pytest.mark.parametrize("source", _SOURCES)
 def test_actual_old_witnesses_require_only_runtime_and_exact_preexisting_laws(
     source: str,
 ) -> None:
     """Separate original ordinary bytes and the two prior named correspondence laws."""
-    old, current = _actual_pair(source)
+    old, current = _actual_runtime_pair(source)
     assert subject.atlas_runtime_transport_extension_matches(source, old, current)
     assert not subject.atlas_runtime_transport_extension_matches(
         source, old, current + b"# foreign tail\n"
@@ -602,7 +727,7 @@ def test_existing_named_correspondence_executes_after_runtime_inverse(
     source: str, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """Observe the actual existing predicate, without mocking its acceptance result."""
-    old, current = _actual_pair(source)
+    old, current = _actual_runtime_pair(source)
     assert subject.atlas_runtime_transport_extension_matches(source, old, current)
     calls: list[str] = []
     original = (
@@ -630,7 +755,7 @@ def test_ordinary_sources_have_no_generic_correspondence_fallback(
     source: str, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """Keep the other ten paths on exact reconstructed original bytes."""
-    old, current = _actual_pair(source)
+    old, current = _actual_runtime_pair(source)
     assert subject.atlas_runtime_transport_extension_matches(source, old, current)
 
     def forbidden(name: str, captured: bytes, reversed_transport: bytes) -> bool:
@@ -780,3 +905,99 @@ def test_new_deferred_bodies_are_separate_software_scope_not_historical_equality
     )
     assert result["historical_native_equal_current_output_claimed"] is False
     assert result["historical_browser_equal_current_browser_claimed"] is False
+
+
+@pytest.mark.parametrize(
+    "source,revision",
+    (
+        (_SOURCES[3], "7d9a2b8b4ea804b63c3df96e5405eac5af759741"),
+        (_SOURCES[5], "7d9a2b8b4ea804b63c3df96e5405eac5af759741"),
+        (_WORKFLOW, "20c42b29609f20f8b42ecb65905031f5faa73f20"),
+    ),
+)
+def test_actual_refinements_restore_git_predecessors_and_refuse_partial_changes(
+    source: str, revision: str
+) -> None:
+    """Keep multipart readers and product declarations on fixed whole predecessors."""
+    old, current = _actual_pair(source)
+    owner = product_owner if source == _WORKFLOW else index_owner
+    inverse = (
+        product_owner.without_regional_product_refinement
+        if source == _WORKFLOW
+        else index_owner.without_index_transport_refinement
+    )
+    predecessor = subprocess.check_output(
+        ["git", "--no-replace-objects", "show", revision + ":" + source],
+        cwd=Path(__file__).resolve().parents[7],
+        timeout=20,
+    )
+    digest, spans = owner._REFINEMENTS[source]
+    assert _identity(predecessor)["sha256"] == digest
+    assert inverse(source, current) == predecessor
+    assert subject.atlas_runtime_transport_extension_matches(source, old, current)
+    assert subject.atlas_runtime_transport_extension_matches(source, old, predecessor)
+    for before, after in spans:
+        assert current.count(after) == 1
+        for altered in (
+            current.replace(after, before, 1),
+            current.replace(after, after + after, 1),
+        ):
+            assert inverse(source, altered) is None
+            assert not subject.atlas_runtime_transport_extension_matches(
+                source, old, altered
+            )
+    assert inverse(source, current + b"# unowned extra byte\n") is None
+
+
+@pytest.mark.parametrize("prefix", _CONTEXTS)
+@pytest.mark.parametrize("source", (_SOURCES[3], _SOURCES[5], _SOURCES[6], _WORKFLOW))
+def test_actual_refinements_preserve_fixed_capture_binding_and_real_dispatch(
+    prefix: str, source: str
+) -> None:
+    """Read immutable original capsules without executing old scientific programs."""
+    repository = Path(__file__).resolve().parents[7]
+    capture_path = repository / prefix / "capture.json"
+    raw = capture_path.read_bytes()
+    capture = json.loads(raw)
+    buffer = _descriptor(
+        repository, prefix, capture.get("members", capture.get("files"))
+    )
+    logical = subject._CAPTURE_CONTEXTS[prefix][1] + source
+    old = buffer.read_source(logical)
+    row = {"path": source, **_identity(old)}
+    current = (repository / source).read_bytes()
+    if source == _SOURCES[6]:
+        result = selection_owner.validated_atlas_evidence_selection_source(
+            repository, row, logical, buffer
+        )
+        matcher = selection_owner.atlas_evidence_selection_extension_matches
+        classification = "atlas_evidence_selection_extension"
+    else:
+        result = subject.validated_atlas_runtime_transport_source(
+            repository, row, logical, buffer
+        )
+        matcher = subject.atlas_runtime_transport_extension_matches
+        classification = "runtime_transport_extension"
+    assert result["classification"] == classification
+    assert result["whole_old_module_reconstructed"] is True
+    assert matcher(source, old, current)
+    assert not matcher(source, old, current + b"# unowned extra byte\n")
+    assert not matcher(source, old + b"# fabricated original byte\n", current)
+    if prefix == _CONTEXTS[0]:
+        dispatched = router.validated_current_scientific_source(
+            repository, row, logical, buffer
+        )
+        assert isinstance(dispatched, dict)
+        assert dispatched["classification"] == classification
+    else:
+        chronology._validate_current_source(
+            repository,
+            source,
+            logical,
+            old,
+            _identity(old)["sha256"],
+            buffer.detached,
+            source_buffer=buffer,
+        )
+    buffer.fresh()
+    assert capture_path.read_bytes() == raw

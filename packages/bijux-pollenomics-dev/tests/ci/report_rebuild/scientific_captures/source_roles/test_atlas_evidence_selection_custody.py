@@ -28,6 +28,15 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles im
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.atlas_runtime_transport import (
     atlas_runtime_transport_extension_matches,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.atlas_transport import (
+    indexes as index_owner,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.atlas_transport import (
+    renderer as renderer_owner,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles.atlas_transport.indexes import (
+    without_index_transport_refinement,
+)
 
 from ...source_contracts.test_execution_helper_batches import (
     Consumer,
@@ -475,19 +484,50 @@ def test_three_actual_old_git_witnesses_and_all_named_inverse_stages(
         source, old, current + b"unknown_call()\n"
     )
     assert not subject.atlas_evidence_selection_extension_matches(_OTHER, old, current)
-    for before, after in subject._SELECTION_TRANSPORT_CONTRACTS[source][3]:
-        assert current.count(after) == 1
+    stage: bytes | None
+    if source == _RENDER:
+        factory = b"sourceExport:createSourceRecordExport,sourceResources:createSourceResourceBrowser,"
+        assert current.count(factory) == 1
+        stage = current.replace(factory, b"sourceExport:createSourceRecordExport,", 1)
+        spans = renderer_owner._TRANSPORT_SPANS
+    else:
+        stage = without_index_transport_refinement(source, current)
+        assert stage is not None
+        spans = subject._SELECTION_TRANSPORT_CONTRACTS[source][3]
+    assert subject.atlas_evidence_selection_extension_matches(source, old, stage)
+    restored = stage
+    for before, after in spans:
+        assert stage.count(after) == 1
         assert not subject.atlas_evidence_selection_extension_matches(
-            source, old, current.replace(after, before, 1)
+            source, old, stage.replace(after, before, 1)
         )
+        assert restored.count(after) == 1
+        restored = restored.replace(after, before, 1)
+    if source == _RENDER:
+        assert restored == old
 
 
 @pytest.mark.parametrize("source", (_RENDER, _FINALIZATION))
-def test_actual_whole_parent_is_restored_before_unchanged_runtime_law(
+def test_actual_whole_parent_reaches_its_exact_owning_transport_law(
     source: str, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     old, current = _actual_pair(source)
     assert subject.atlas_evidence_selection_extension_matches(source, old, current)
+    if source == _RENDER:
+        renderer_calls: list[str] = []
+        actual = renderer_owner.atlas_renderer_transport_matches
+
+        def observed_renderer(name: str, captured: bytes, body: bytes) -> bool:
+            assert captured == old and body == current
+            renderer_calls.append(name)
+            return actual(name, captured, body)
+
+        monkeypatch.setattr(
+            subject, "atlas_renderer_transport_matches", observed_renderer
+        )
+        assert subject.atlas_evidence_selection_extension_matches(source, old, current)
+        assert renderer_calls == [source]
+        return
     repository = Path(__file__).resolve().parents[7]
     parent = subprocess.check_output(
         [
@@ -642,3 +682,51 @@ def test_closed_new_deferred_bodies_are_software_scope_not_old_native_equality(
     )
     assert role["current_ordinary_software_controls_required"] is True
     assert role["historical_native_equal_current_output_claimed"] is False
+
+
+def test_actual_index_labels_restore_whole_git_predecessor_before_selection() -> None:
+    """One exact label span preserves the valid older optional-controller layout."""
+    old, current = _actual_pair(_FINALIZATION)
+    predecessor = subprocess.check_output(
+        [
+            "git",
+            "--no-replace-objects",
+            "show",
+            "7d9a2b8b4ea804b63c3df96e5405eac5af759741:" + _FINALIZATION,
+        ],
+        cwd=Path(__file__).resolve().parents[7],
+        timeout=20,
+    )
+    digest, spans = index_owner._REFINEMENTS[_FINALIZATION]
+    assert _identity(predecessor)["sha256"] == digest
+    assert without_index_transport_refinement(_FINALIZATION, current) == predecessor
+    assert subject.atlas_evidence_selection_extension_matches(
+        _FINALIZATION, old, current
+    )
+    assert subject.atlas_evidence_selection_extension_matches(
+        _FINALIZATION, old, predecessor
+    )
+    assert len(spans) == 1
+    before, after = spans[0]
+    assert current.count(after) == 1
+    assert current.replace(after, before, 1) == predecessor
+    for altered in (
+        current.replace(after, after + after, 1),
+        current + b"# unowned extra byte\n",
+    ):
+        assert without_index_transport_refinement(_FINALIZATION, altered) is None
+        assert not subject.atlas_evidence_selection_extension_matches(
+            _FINALIZATION, old, altered
+        )
+    altered_label = current.replace(
+        b"Static atlas index transport", b"Unowned index label", 1
+    )
+    # No complete extension remains to preprocess. Returning input confers no
+    # admission; the unchanged enclosing selection law must still refuse it.
+    assert (
+        without_index_transport_refinement(_FINALIZATION, altered_label)
+        == altered_label
+    )
+    assert not subject.atlas_evidence_selection_extension_matches(
+        _FINALIZATION, old, altered_label
+    )
