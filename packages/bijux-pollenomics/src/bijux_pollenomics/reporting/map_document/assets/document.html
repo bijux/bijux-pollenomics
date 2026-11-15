@@ -2934,7 +2934,7 @@ __NATIVE_LRA_SCRIPT_TAG__
                     ? globalThis.scheduler.yield() : new Promise(resolve => window.setTimeout(resolve, 0)),
                   searchGrams: text => staticAtlasIndexTransport.searchGrams(text),
                   rememberRestoredSearch: (index, postings) => atlasRememberRestoredSearch(index, postings)});
-                if (!controller || !['validatePayload', 'consume', 'searchGrams'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
+                if (!controller || !['validatePayload', 'consume', 'searchGrams', 'planNodeAssets'].every(key => typeof controller[key] === 'function')) staticAtlasFailure('Index transport interface is incomplete');
                 staticAtlasIndexTransport = controller;
                 resolve(controller);
               } catch (error) { reject(error); }
@@ -2942,7 +2942,7 @@ __NATIVE_LRA_SCRIPT_TAG__
             script.addEventListener('error', () => reject(new Error('Index transport could not be loaded. Keep all atlas files together and reload.')), {once: true});
             document.head.appendChild(script);
           });
-        });
+        }).catch(error => { staticAtlasIndexTransportRequest = null; throw error; });
         return staticAtlasIndexTransportRequest;
       }
       function staticAtlasIndexRows() {
@@ -4875,27 +4875,14 @@ __URL_STATE_CONTROLLER__
         }
         return result;
       }
-      function requiredStaticAtlasNodeAssets() {
+      function requiredStaticAtlasNodeAssets(overhead) {
         if (STATIC_ATLAS_INLINE) return [];
-        const endpointKeys = requiredStaticAtlasEdgeNodeKeys();
-        const required = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => {
-          if (row.domain !== 'nodes' || staticAtlasLoadedAssets.has(row.asset_key)) return false;
-          return staticAtlasNodeSelectionNeeded(row)
-            && (endpointKeys.has(row.asset_key) || staticAtlasViewportNeeded(row));
-        });
-        if (Object.hasOwn(STATIC_ATLAS_BOOTSTRAP.compatibility || {}, 'search_index_abi')) {
-          if (STATIC_ATLAS_BOOTSTRAP.compatibility.search_index_abi !== 'atlas-substring-postings.v1') staticAtlasFailure('unsupported search ABI');
-          const indexes = staticAtlasIndexRows();
-          if (!indexes.length) staticAtlasFailure('published search index is missing');
-          required.push(...indexes.filter(row => !staticAtlasLoadedAssets.has(row.asset_key)));
-        }
-        const overhead = staticAtlasIndexOverhead(required.filter(row => row.domain === 'indexes'));
-        const interactionRequestBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests, 'interaction request budget');
-        if (required.length + overhead.request_count > interactionRequestBudget) staticAtlasFailure(`selection requires ${required.length + overhead.request_count} requests, above the interaction budget`);
-        const requiredBytes = overhead.byte_count + required.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
-        const interactionByteBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget');
-        if (requiredBytes > interactionByteBudget) staticAtlasFailure(`selection requires ${requiredBytes} bytes, above the interaction budget`);
-        return required;
+        return staticAtlasIndexTransport.planNodeAssets({endpointKeys: requiredStaticAtlasEdgeNodeKeys(),
+          nodeNeeded: staticAtlasNodeSelectionNeeded, viewportNeeded: staticAtlasViewportNeeded,
+          layerForRow: staticAtlasLayerForRow, isLoaded: key => staticAtlasLoadedAssets.has(key),
+          indexes: staticAtlasIndexRows, overhead: overhead || staticAtlasIndexOverhead(staticAtlasIndexRows()),
+          sourceSelection: layer => ({code: activeSourceChronologyCode, taxon: activeSourceChronologyTaxon,
+            preset: sourceChronologyPresetForSelection(layer, activeSourceChronologyPreset)})});
       }
       function refreshStaticAtlasLayers() {
         if (STATIC_ATLAS_INLINE) return;
@@ -4911,15 +4898,24 @@ __URL_STATE_CONTROLLER__
         }
       }
       async function ensureStaticAtlasSelectionLoaded() {
-        let required;
+        let signal = null, required;
         try {
-          required = requiredStaticAtlasNodeAssets();
+          const overhead = STATIC_ATLAS_INLINE ? null : staticAtlasIndexOverhead(staticAtlasIndexRows());
+          if (!STATIC_ATLAS_INLINE && !staticAtlasIndexTransport) {
+            signal = beginStaticAtlasSelection([]);
+            const indexes = staticAtlasIndexRows(), count = indexes.length + overhead.request_count;
+            const bytes = indexes.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), overhead.byte_count);
+            if (count > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests, 'interaction request budget') || bytes > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget')) staticAtlasFailure('index transport and parts exceed the interaction budget');
+            await waitForStaticAtlasSelection(loadIndexTransport(), signal);
+            signal.throwIfAborted();
+          }
+          required = requiredStaticAtlasNodeAssets(overhead);
         } catch (error) {
+          if (signal) signal.throwIfAborted();
           beginStaticAtlasSelection([]);
           throw error;
         }
-        const signal = beginStaticAtlasSelection(required);
-        if (required.some(row => row.domain === 'indexes')) await waitForStaticAtlasSelection(loadIndexTransport(), signal);
+        signal = beginStaticAtlasSelection(required);
         signal.throwIfAborted();
         await waitForStaticAtlasSelection(Promise.all(required.map((row) => loadStaticAtlasAsset(row, true))), signal);
         signal.throwIfAborted();

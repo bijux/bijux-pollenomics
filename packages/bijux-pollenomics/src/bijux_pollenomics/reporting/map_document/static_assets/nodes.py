@@ -12,6 +12,7 @@ from .budgets import (
 )
 from .indexes import feature_temporal_admission
 from .serialization import canonical_json
+from .source_facets import order_source_features
 
 
 def build_node_payloads(
@@ -61,7 +62,9 @@ def build_node_payloads(
             ).append((feature_index, feature))
         part_number = 0
         for country_key, indexed_features in sorted(grouped_features.items()):
-            for part in _partition_indexed_features(indexed_features):
+            for part in _partition_indexed_features(
+                order_source_features(layer, indexed_features)
+            ):
                 part_number += 1
                 feature_indexes = [index for index, _feature in part]
                 part_features = [feature for _index, feature in part]
