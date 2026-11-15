@@ -10,14 +10,22 @@ from bijux_pollenomics.collection.sources.sead.acquisition.client import (
     fetch_sead_rows,
     fetch_sead_rows_by_ids,
 )
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    optional_sead_identifier,
+    required_sead_identifier,
+)
 
 Row = dict[str, object]
 
 
 class SeadTableReader(Protocol):
+    """Provide projected source rows for the site inventory relation graph."""
+
     def all_rows(
         self, table_name: str, *, select: str, order_by: tuple[str, ...]
-    ) -> list[Row]: ...
+    ) -> list[Row]:
+        """Read all source rows with an explicit projection and key order."""
+        ...
 
     def rows_by_ids(
         self,
@@ -27,16 +35,21 @@ class SeadTableReader(Protocol):
         filter_field: str,
         ids: Iterable[int],
         order_by: tuple[str, ...],
-    ) -> list[Row]: ...
+    ) -> list[Row]:
+        """Read the source rows owned by the requested native identities."""
+        ...
 
 
 @dataclass(frozen=True, slots=True)
 class ApiSeadTableReader:
+    """Read provider rows through the bounded source query contract."""
+
     fetch_json_fn: Callable[..., object]
 
     def all_rows(
         self, table_name: str, *, select: str, order_by: tuple[str, ...]
     ) -> list[Row]:
+        """Collect a complete source table under the declared projection."""
         return fetch_sead_rows(
             table_name,
             fetch_json_fn=self.fetch_json_fn,
@@ -53,6 +66,7 @@ class ApiSeadTableReader:
         ids: Iterable[int],
         order_by: tuple[str, ...],
     ) -> list[Row]:
+        """Collect exact requested identities through bounded provider queries."""
         return fetch_sead_rows_by_ids(
             table_name,
             fetch_json_fn=self.fetch_json_fn,
@@ -72,6 +86,7 @@ class MappingSeadTableReader:
     def all_rows(
         self, table_name: str, *, select: str, order_by: tuple[str, ...]
     ) -> list[Row]:
+        """Project admitted rows while retaining native source values."""
         return self._project_rows(
             table_name,
             select=select,
@@ -87,7 +102,8 @@ class MappingSeadTableReader:
         ids: Iterable[int],
         order_by: tuple[str, ...],
     ) -> list[Row]:
-        admitted_ids = {int(value) for value in ids}
+        """Select exact identities without rewriting source representations."""
+        admitted_ids = {required_sead_identifier(value) for value in ids}
         return self._project_rows(
             table_name,
             select=select,
@@ -111,9 +127,7 @@ class MappingSeadTableReader:
         projected_rows: list[Row] = []
         for source_row in self.rows_by_table[table_name]:
             if filter_field is not None and admitted_ids is not None:
-                value = source_row.get(filter_field)
-                if isinstance(value, bool) or not isinstance(value, int):
-                    continue
+                value = optional_sead_identifier(source_row.get(filter_field))
                 if value not in admitted_ids:
                     continue
             missing_fields = set(fields) - set(source_row)
@@ -126,10 +140,17 @@ class MappingSeadTableReader:
         if order_by:
             projected_rows.sort(
                 key=lambda row: tuple(
-                    (row.get(field) is None, row.get(field)) for field in order_by
+                    _source_order_value(row, field) for field in order_by
                 )
             )
         return projected_rows
+
+
+def _source_order_value(row: Mapping[str, object], field: str) -> tuple[bool, object]:
+    value = row.get(field)
+    if field.endswith("_id"):
+        value = optional_sead_identifier(value)
+    return value is None, value
 
 
 __all__ = ["ApiSeadTableReader", "MappingSeadTableReader", "SeadTableReader"]

@@ -135,3 +135,60 @@ def test_nonempty_source_cannot_exceed_page_budget(
     with pytest.raises(ValueError, match="pagination exceeded"):
         client.fetch_sead_rows("tbl_sites", select="site_id", fetch_json_fn=fetch)
     assert calls == 2
+
+
+@pytest.mark.parametrize(
+    "identifier", [True, False, 1.9, 1.0, float("inf"), float("nan"), 0, -1]
+)
+def test_invalid_filter_identity_refuses_before_any_source_request(
+    identifier: object,
+) -> None:
+    def fetch(_url: str, **_kwargs: object) -> object:
+        pytest.fail("invalid source identity reached HTTP")
+
+    with pytest.raises(ValueError):
+        client.fetch_sead_rows_by_ids(
+            "tbl_sites",
+            select="site_id",
+            filter_field="site_id",
+            ids=cast(list[int], [identifier]),
+            fetch_json_fn=fetch,
+        )
+
+
+def test_exact_decimal_filter_keys_keep_adjacent_large_source_identities() -> None:
+    parameters: list[object] = []
+
+    def fetch(_url: str, **kwargs: object) -> object:
+        parameters.append(kwargs["params"])
+        return []
+
+    client.fetch_sead_rows_by_ids(
+        "tbl_sites",
+        select="site_id",
+        filter_field="site_id",
+        ids=cast(list[int], ["9007199254740993", 9007199254740992, "9007199254740992"]),
+        fetch_json_fn=fetch,
+    )
+    assert parameters == [
+        [("select", "site_id"), ("site_id", "in.(9007199254740992,9007199254740993)")]
+    ]
+
+
+def test_oversized_range_total_preserves_the_original_http_failure() -> None:
+    failure = _range_error("*/" + "9" * 5000)
+
+    def fetch(_url: str, **_kwargs: object) -> object:
+        raise failure
+
+    with pytest.raises(HTTPError) as raised:
+        client.fetch_sead_rows("tbl_sites", select="site_id", fetch_json_fn=fetch)
+    assert raised.value is failure
+
+
+@pytest.mark.parametrize("identifier", [True, 1.9, float("inf"), 0])
+def test_direct_filter_rendering_refuses_invalid_source_keys(
+    identifier: object,
+) -> None:
+    with pytest.raises(ValueError):
+        client.build_sead_in_filter(cast(list[int], [identifier]))
