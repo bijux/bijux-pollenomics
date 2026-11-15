@@ -425,3 +425,35 @@ def test_geometry_hint_corruption_refuses(tmp_path: Path, mutation: str) -> None
     with pytest.raises(ValueError, match="endpoint assets or geometry"):
         _validate_static_payloads(manifest, manifest["assets"], payloads)
     assert "error" in browser(manifest, payloads)
+
+
+@pytest.mark.parametrize("map_loaded", [True, False])
+def test_optional_planner_owns_exact_cross_border_endpoint_selection(
+    tmp_path: Path, map_loaded: bool, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(nodes, "ATLAS_COMPRESSED_CHUNK_TARGET_BYTES", 1)
+    manifest, payloads = published(tmp_path, faraway=True)
+    expected = (
+        ["left", "right"] if map_loaded else ["far-left", "far-right", "left", "right"]
+    )
+    observed = browser(
+        manifest,
+        payloads,
+        "map._loaded="
+        + json.dumps(map_loaded)
+        + ";await loadIndexTransport();"
+        + "const planned=staticAtlasIndexTransport.planNodeAssets({"
+        + "edgeSelection:{STATIC_ATLAS_INLINE,STATIC_ATLAS_CHUNKS,"
+        + "validateStaticAtlasEdgeAssets,visibleGovernedEdges,"
+        + "staticAtlasNodeSelectionNeeded,map,featureCoordinatePair,atlasEdgeIntersectsViewport},"
+        + "nodeNeeded:staticAtlasNodeSelectionNeeded,viewportNeeded:staticAtlasViewportNeeded,"
+        + "layerForRow:staticAtlasLayerForRow,isLoaded:key=>staticAtlasLoadedAssets.has(key),"
+        + "indexes:staticAtlasIndexRows,overhead:staticAtlasIndexOverhead(staticAtlasIndexRows())});"
+        + "const records=planned.filter(row=>row.domain==='nodes').flatMap(row=>"
+        + "payloads[row.asset_key].features.map(feature=>feature.record_id)).sort();"
+        + "require('node:assert/strict').deepEqual(records,"
+        + json.dumps(expected)
+        + ");",
+    )
+    assert "error" not in observed, observed
+    assert sorted(observed["features"]) == expected

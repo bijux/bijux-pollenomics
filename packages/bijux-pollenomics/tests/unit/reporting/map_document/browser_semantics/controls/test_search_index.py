@@ -32,30 +32,7 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
 from ..support import index_transport_helpers, run_node_json, template_block
-
-
-def layers() -> list[dict[str, Any]]:
-    return [
-        {
-            "key": f"layer:{i}",
-            "label": "Pollen layer Åland",
-            "features": [
-                {
-                    "record_id": f"shared:{j}",
-                    "title": f"ÄLG 💠 punctuation.( {j}",
-                    "subtitle": "Source-native context",
-                    "country": "Sweden",
-                    "latitude": 60,
-                    "longitude": 18,
-                    "time_start_bp": 0,
-                    "time_end_bp": 100,
-                    "time_label": "source C14 (uncalibrated)",
-                }
-                for j in range(15)
-            ],
-        }
-        for i in range(2)
-    ]
+from .search_index.native_inputs import layers
 
 
 def test_utf16_gram_encoding_preserves_exact_reference_order() -> None:
@@ -242,6 +219,9 @@ const document={getElementById(){return mapElement}};
         + decoder
         + index_transport_helpers(common=False, include_search=False)
         + selection
+        + template_block(
+            "function atlasEdgeIntersectsViewport", "function renderEdgeLayers"
+        )
         + helper
         + renderer
         + r"""
