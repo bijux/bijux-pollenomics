@@ -25,13 +25,15 @@ from bijux_pollenomics.collection.sources.neotoma.capture.facets.models import (
 from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources import (
     NeotomaLinkedResourcePlan,
     NeotomaLinkedTarget,
-    capture_neotoma_linked_resources,
 )
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive import (
     write_neotoma_source_archive,
 )
 
 from ...acquisition.facets.parent_scope.native_sources import source_inputs
+from ...acquisition.linked_resources.evidence.native_products import (
+    capture_legacy_linked_fixture,
+)
 from ...acquisition.resources.native_payloads import spec
 
 
@@ -142,7 +144,7 @@ def capsule_inputs(tmp_path: Path) -> dict[str, Any]:
         del entry["parent_scope_role"]
     (legacy / "capture-manifest.json").write_text(json.dumps(manifest))
     linked = tmp_path / "linked"
-    target = capture_neotoma_linked_resources(
+    target = capture_legacy_linked_fixture(
         linked,
         plan=NeotomaLinkedResourcePlan(
             (captured.manifest_sha256,), (NeotomaLinkedTarget("taxon", 1),)

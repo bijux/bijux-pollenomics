@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Callable, Mapping
-from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
 import time
@@ -31,11 +30,18 @@ from ..resources.models import (
 from ..transport import NeotomaHttpResponse, _fetch_response
 from .assessment import assess_http
 from .models import (
-    LINKED_SCHEMA,
+    SCOPED_LINKED_SCHEMA,
+    NeotomaLinkedEvidence,
     NeotomaLinkedResourceCapture,
     NeotomaLinkedResourcePlan,
 )
-from .protocol import prepare_targets, request_for
+from .protocol import (
+    MAX_MANIFEST_BYTES,
+    encoded_control,
+    prepare_scoped_targets,
+    request_for,
+    scoped_control,
+)
 from .replay import SNAPSHOT_CONSISTENCY, replay_neotoma_linked_resources
 
 
@@ -44,20 +50,27 @@ def capture_neotoma_linked_resources(
     *,
     plan: NeotomaLinkedResourcePlan,
     source_facets: Mapping[str, Path],
+    evidence: NeotomaLinkedEvidence,
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
     scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
+    legacy_rosters: Mapping[str, Path] | None = None,
     fetch: Callable[..., NeotomaHttpResponse] = _fetch_response,
 ) -> NeotomaLinkedResourceCapture:
     """Capture selected direct references; no recursive expansion or schema admission."""
-    targets, policies = prepare_targets(
-        plan, source_facets, limits, scope_inputs=scope_inputs
+    targets, policies, source_reference = prepare_scoped_targets(
+        plan,
+        source_facets,
+        limits,
+        evidence=evidence,
+        scope_inputs=scope_inputs,
+        legacy_rosters=legacy_rosters,
     )
     final = _safe_root(directory)
     if final.exists():
         raise FileExistsError(f"Neotoma linked output exists: {final}")
     staging = build_staging_output_dir(final)
     receipt_allowance = limits.max_requests * 64 * 1024
-    manifest_allowance = 16 * 1024 * 1024
+    manifest_allowance = 2 * 16 * 1024 * 1024
     with OwnedTreeWriter(
         staging,
         max_bytes=limits.max_total_bytes + receipt_allowance + manifest_allowance,
@@ -70,13 +83,7 @@ def capture_neotoma_linked_resources(
         try:
             plan_digest = _write_json(
                 staging / "request-plan.json",
-                {
-                    "schema_version": LINKED_SCHEMA,
-                    "plan": asdict(plan),
-                    "limits": asdict(limits),
-                    "targets": targets,
-                    "policy_sources": policies,
-                },
+                scoped_control(plan, limits, targets, policies, source_reference),
                 writer=writer,
             )
             for target in targets:
@@ -159,30 +166,32 @@ def capture_neotoma_linked_resources(
                         )
                 entry.update(assessed)
                 entries.append(entry)
-            _write_json(
-                staging / "capture-manifest.json",
-                {
-                    "schema_version": LINKED_SCHEMA,
-                    "status": "closed",
-                    "capture_utc_start": started,
-                    "capture_utc_end": datetime.now(UTC).isoformat(),
-                    "plan_sha256": plan_digest,
-                    "resources": entries,
-                    "request_count": count,
-                    "response_bytes": total,
-                    "partitions": dict(
-                        Counter(row["terminal_status"] for row in entries)
-                    ),
-                    "scientific_admission": "not_asserted",
-                    "snapshot_consistency": SNAPSHOT_CONSISTENCY,
-                },
-                writer=writer,
-            )
+            manifest = {
+                "schema_version": SCOPED_LINKED_SCHEMA,
+                "source_evidence": source_reference,
+                "status": "closed",
+                "capture_utc_start": started,
+                "capture_utc_end": datetime.now(UTC).isoformat(),
+                "plan_sha256": plan_digest,
+                "resources": entries,
+                "request_count": count,
+                "response_bytes": total,
+                "partitions": dict(Counter(row["terminal_status"] for row in entries)),
+                "scientific_admission": "not_asserted",
+                "snapshot_consistency": SNAPSHOT_CONSISTENCY,
+            }
+            if len(encoded_control(manifest)) > MAX_MANIFEST_BYTES:
+                raise ValueError(
+                    "Linked capture manifest exceeds finite metadata byte budget"
+                )
+            _write_json(staging / "capture-manifest.json", manifest, writer=writer)
             verified = replay_neotoma_linked_resources(
                 staging,
                 source_facets=source_facets,
                 limits=limits,
                 scope_inputs=scope_inputs,
+                evidence=evidence,
+                legacy_rosters=legacy_rosters,
             )
             writer.validate_attachment()
             publish_new_output_tree(
@@ -193,6 +202,8 @@ def capture_neotoma_linked_resources(
                 expected_manifest_sha256=verified.manifest_sha256,
                 source_facets=source_facets,
                 scope_inputs=scope_inputs,
+                evidence=evidence,
+                legacy_rosters=legacy_rosters,
                 limits=limits,
             )
         except Exception as error:
@@ -201,7 +212,7 @@ def capture_neotoma_linked_resources(
                 _write_json(
                     staging / "refusal.json",
                     {
-                        "schema_version": LINKED_SCHEMA,
+                        "schema_version": SCOPED_LINKED_SCHEMA,
                         "status": "refused_execution",
                         "error": f"{type(error).__name__}: {error}",
                         "request_count": count,

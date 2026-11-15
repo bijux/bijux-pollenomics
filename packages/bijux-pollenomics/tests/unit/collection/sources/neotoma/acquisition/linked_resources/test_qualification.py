@@ -9,12 +9,9 @@ from typing import Any
 
 import pytest
 
-from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources import (
-    capture_neotoma_linked_resources,
-)
-
 from ..facets.parent_scope.native_sources import linked_scope_resolvers
 from ..resources.native_payloads import response
+from .evidence.native_products import capture_legacy_linked_fixture
 from .test_capture import limits, plan, source
 from .test_profiles import payload
 
@@ -44,7 +41,7 @@ def acquired(
         return response(url, json.dumps(value).encode(), status=status)
 
     root = tmp_path / "linked"
-    captured = capture_neotoma_linked_resources(
+    captured = capture_legacy_linked_fixture(
         root,
         plan=plan(digest),
         source_facets=sources,
@@ -148,7 +145,7 @@ def test_unavailable_http_entities_do_not_open_the_native_body_reader(
     root, capture, sources = acquired(tmp_path, status=500)
     monkeypatch.setattr(
         owner(),
-        "read_neotoma_linked_body",
+        "_read_linked_entry_body",
         lambda *a, **k: pytest.fail("unavailable body reader called"),
     )
     report = owner().qualify_neotoma_linked_capture(

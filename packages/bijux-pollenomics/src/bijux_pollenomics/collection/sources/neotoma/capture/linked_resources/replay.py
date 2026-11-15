@@ -25,13 +25,23 @@ from ..resources.models import (
 )
 from ..resources.replay import _same_json
 from .assessment import assess_http
+from .evidence import read_neotoma_linked_evidence_target
 from .models import (
+    EVIDENCE_SCHEMA,
     LINKED_SCHEMA,
+    SCOPED_LINKED_SCHEMA,
     NeotomaLinkedBody,
+    NeotomaLinkedEvidence,
     NeotomaLinkedResourceCapture,
     NeotomaLinkedResourcePlan,
 )
-from .protocol import plan_from_json, prepare_targets, request_for
+from .protocol import (
+    plan_from_json,
+    prepare_scoped_targets,
+    prepare_targets,
+    request_for,
+    validate_scoped_limits,
+)
 
 SNAPSHOT_CONSISTENCY = (
     "individually timed current linked responses; no transaction or frozen snapshot"
@@ -75,7 +85,12 @@ def _control(
             "scientific_admission",
             "snapshot_consistency",
         }
-        or manifest["schema_version"] != LINKED_SCHEMA
+        | (
+            {"source_evidence"}
+            if manifest.get("schema_version") == SCOPED_LINKED_SCHEMA
+            else set()
+        )
+        or manifest["schema_version"] not in {LINKED_SCHEMA, SCOPED_LINKED_SCHEMA}
         or manifest["status"] != "closed"
         or manifest["scientific_admission"] != "not_asserted"
         or manifest["snapshot_consistency"] != SNAPSHOT_CONSISTENCY
@@ -88,11 +103,54 @@ def _control(
     if (
         set(control)
         != {"schema_version", "plan", "limits", "targets", "policy_sources"}
-        or control["schema_version"] != LINKED_SCHEMA
+        | (
+            {"source_evidence"}
+            if manifest["schema_version"] == SCOPED_LINKED_SCHEMA
+            else set()
+        )
+        or control["schema_version"] != manifest["schema_version"]
     ):
         raise ValueError("Neotoma linked control fields differ")
     plan, recorded = plan_from_json(control)
     return manifest, control, plan, recorded, digest
+
+
+def _targets_for_control(
+    manifest: dict[str, Any],
+    control: dict[str, Any],
+    plan: NeotomaLinkedResourcePlan,
+    source_facets: Mapping[str, Path],
+    limits: NeotomaResourceLimits,
+    *,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None,
+    evidence: NeotomaLinkedEvidence | None,
+    legacy_rosters: Mapping[str, Path] | None,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    if manifest["schema_version"] == LINKED_SCHEMA:
+        return prepare_targets(plan, source_facets, limits, scope_inputs=scope_inputs)
+    if not isinstance(evidence, NeotomaLinkedEvidence):
+        raise ValueError(
+            "Scoped linked replay requires an externally anchored evidence resolver"
+        )
+    reference = {
+        "schema_version": EVIDENCE_SCHEMA,
+        "manifest_sha256": evidence.manifest_sha256,
+    }
+    if not _same_json(manifest["source_evidence"], reference) or not _same_json(
+        control["source_evidence"], reference
+    ):
+        raise ValueError(
+            "Scoped linked evidence reference differs from external anchor"
+        )
+    targets, policies, _ = prepare_scoped_targets(
+        plan,
+        source_facets,
+        limits,
+        evidence=evidence,
+        scope_inputs=scope_inputs,
+        legacy_rosters=legacy_rosters,
+    )
+    return targets, policies
 
 
 def replay_neotoma_linked_resources(
@@ -102,14 +160,27 @@ def replay_neotoma_linked_resources(
     expected_manifest_sha256: str | None = None,
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
     scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
+    evidence: NeotomaLinkedEvidence | None = None,
+    legacy_rosters: Mapping[str, Path] | None = None,
 ) -> NeotomaLinkedResourceCapture:
     """Original facet identities and every occurrence are recomputed, never trusted."""
     root = _safe_root(directory)
     manifest, control, plan, recorded, digest = _control(root, expected_manifest_sha256)
-    targets, policies = prepare_targets(
-        plan, source_facets, limits, scope_inputs=scope_inputs
+    targets, policies = _targets_for_control(
+        manifest,
+        control,
+        plan,
+        source_facets,
+        limits,
+        scope_inputs=scope_inputs,
+        evidence=evidence,
+        legacy_rosters=legacy_rosters,
     )
-    prepare_targets(plan, source_facets, recorded, scope_inputs=scope_inputs)
+    if manifest["schema_version"] == SCOPED_LINKED_SCHEMA:
+        assert evidence is not None
+        validate_scoped_limits(evidence, recorded)
+    else:
+        prepare_targets(plan, source_facets, recorded, scope_inputs=scope_inputs)
     if not _same_json(control["targets"], targets) or not _same_json(
         control["policy_sources"], policies
     ):
@@ -241,11 +312,22 @@ def read_neotoma_linked_body(
     source_facets: Mapping[str, Path],
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
     scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
+    evidence: NeotomaLinkedEvidence | None = None,
+    legacy_rosters: Mapping[str, Path] | None = None,
 ) -> NeotomaLinkedBody:
     """Check inherited roles before body access, then hash the actual returned buffer."""
     root = _safe_root(directory)
-    _, _, plan, _, _ = _control(root, expected_manifest_sha256)
-    targets, _ = prepare_targets(plan, source_facets, limits, scope_inputs=scope_inputs)
+    manifest, control, plan, _, _ = _control(root, expected_manifest_sha256)
+    targets, _ = _targets_for_control(
+        manifest,
+        control,
+        plan,
+        source_facets,
+        limits,
+        scope_inputs=scope_inputs,
+        evidence=evidence,
+        legacy_rosters=legacy_rosters,
+    )
     selected = [target for target in targets if target["target_key"] == target_key]
     if len(selected) != 1:
         raise ValueError("Neotoma linked target is absent or ambiguous")
@@ -257,11 +339,37 @@ def read_neotoma_linked_body(
         expected_manifest_sha256=expected_manifest_sha256,
         source_facets=source_facets,
         scope_inputs=scope_inputs,
+        evidence=evidence,
+        legacy_rosters=legacy_rosters,
         limits=limits,
     )
     entry = next(row for row in capture.resources if row["target_key"] == target_key)
+    return _read_linked_entry_body(root, entry, limits, evidence=evidence)
+
+
+def _read_linked_entry_body(
+    root: Path,
+    entry: dict[str, Any],
+    limits: NeotomaResourceLimits,
+    *,
+    evidence: NeotomaLinkedEvidence | None = None,
+) -> NeotomaLinkedBody:
+    target = entry["identity"]
+    target_key = entry["target_key"]
+    if target["exposure_role"] not in DEVELOPMENT_ROLES:
+        raise ValueError("Neotoma linked exposure role forbids body access")
     if entry["terminal_status"] != "received_complete_unqualified_linked_resource":
         raise ValueError("Neotoma complete linked source entity is unavailable")
+    proofs = target.get("source_proofs")
+    if "source_proof_reference" in target:
+        if not isinstance(evidence, NeotomaLinkedEvidence):
+            raise ValueError("Scoped linked body requires its evidence resolver")
+        proofs = read_neotoma_linked_evidence_target(
+            evidence.directory,
+            expected_manifest_sha256=evidence.manifest_sha256,
+            kind=target["kind"],
+            native_id=target["native_id"],
+        )["source_proofs"]
     reference = entry["attempts"][-1]
     raw = _read(root / reference["receipt_file"], 1024 * 1024)
     if sha256(raw).hexdigest() != reference["receipt_sha256"]:
@@ -279,5 +387,5 @@ def read_neotoma_linked_body(
         body,
         sha256(body).hexdigest(),
         reference["receipt_sha256"],
-        tuple(target["source_proofs"]),
+        tuple(proofs),
     )

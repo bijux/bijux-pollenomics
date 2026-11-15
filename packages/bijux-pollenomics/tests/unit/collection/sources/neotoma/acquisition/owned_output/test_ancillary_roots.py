@@ -17,6 +17,7 @@ from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources impor
 from bijux_pollenomics.core.owned_tree import build_staging_output_dir
 
 from ..facets.parent_scope.native_sources import linked_scope_resolvers, source_inputs
+from ..linked_resources.test_capture import evidence_for
 from ..linked_resources.test_capture import plan as linked_plan
 from ..linked_resources.test_capture import source as linked_source
 from ..resources.native_payloads import response, spec
@@ -35,6 +36,7 @@ def arguments(family: str, root: Path) -> tuple[Any, dict[str, Any], Any]:
         {
             "plan": linked_plan(digest, targets=[("taxon", 1)]),
             "source_facets": sources,
+            "evidence": evidence_for(sources),
             "scope_inputs": linked_scope_resolvers(sources),
         },
         workflow,
