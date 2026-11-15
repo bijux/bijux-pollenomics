@@ -23,6 +23,7 @@ class NeotomaMetadataPlan:
     site_ids: tuple[int, ...] = ()
     dataset_ids: tuple[int, ...] = ()
     inventory_all_dataset_types: bool = False
+    geopolitical_unit_ids: tuple[int, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -49,6 +50,9 @@ class NeotomaMetadataCapture:
     request_count: int
     response_bytes: int
     dataset_responses: dict[int, bytes] = field(default_factory=dict)
+    geopolitical_inventory_rows: dict[int, dict[int, list[dict[str, object]]]] = field(
+        default_factory=dict
+    )
 
 
 @dataclass(frozen=True)
