@@ -57,6 +57,158 @@ def source_response(url: str, **_: Any) -> NeotomaMetadataResponse:
     return NeotomaMetadataResponse(url, 200, (), json.dumps(body).encode())
 
 
+def capture_legacy_context_fixture(
+    directory: Path,
+    *,
+    plan: Any,
+    context_directory: Path,
+    native_archive_directory: Path,
+    fetch: Callable[..., Any],
+    limits: Any = None,
+) -> Any:
+    """TEST-ONLY old wire builder from maintained primitives, never a live producer.
+
+    The old siteid environment query is retained for replay controls. A fetcher
+    is mandatory; this fixture has no default network transport or source-code
+    snapshot execution and cannot enable legacy acquisition in production.
+    """
+    from collections import Counter
+    from dataclasses import asdict
+    from datetime import UTC, datetime
+    import time
+
+    from bijux_pollenomics.collection.sources.neotoma.capture.context_resources.models import (
+        CONTEXT_SCHEMA,
+        DEFAULT_CONTEXT_LIMITS,
+        MAX_BYTES,
+        MAX_FILES,
+        POLICY_SOURCES,
+        RESOURCE_KINDS,
+        SNAPSHOT_CONSISTENCY,
+        SOURCE_SCOPE,
+    )
+    from bijux_pollenomics.collection.sources.neotoma.capture.context_resources.protocol import (
+        assess_http,
+        request_for,
+        validate_plan,
+    )
+    from bijux_pollenomics.collection.sources.neotoma.capture.context_resources.replay import (
+        replay_neotoma_context_resources,
+    )
+    from bijux_pollenomics.collection.sources.neotoma.capture.context_resources.scope import (
+        prepare_scope,
+    )
+    from bijux_pollenomics.collection.sources.neotoma.capture.receipts import (
+        _retain_http_response,
+        _retain_transport_failure,
+        _write_json,
+    )
+    from bijux_pollenomics.core.filesystem import OwnedTreeWriter
+
+    limits = DEFAULT_CONTEXT_LIMITS if limits is None else limits
+    validate_plan(plan, limits)
+    assert all(kind in RESOURCE_KINDS for kind in plan.resource_kinds)
+    started, clock = datetime.now(UTC).isoformat(), time.monotonic()
+    scope = prepare_scope(
+        plan,
+        context_directory=context_directory,
+        native_archive_directory=native_archive_directory,
+    )
+    entries = []
+    count = total = 0
+    with OwnedTreeWriter(directory, max_bytes=MAX_BYTES, max_files=MAX_FILES) as writer:
+        scope_pin = _write_json(directory / "parent-scope.json", scope, writer=writer)
+        plan_pin = _write_json(
+            directory / "request-plan.json",
+            {
+                "schema_version": CONTEXT_SCHEMA,
+                "plan": asdict(plan),
+                "limits": asdict(limits),
+                "parent_scope_sha256": scope_pin,
+                "source_scope": SOURCE_SCOPE,
+                "policy_sources": list(POLICY_SOURCES),
+            },
+            writer=writer,
+        )
+        for kind in plan.resource_kinds:
+            for parent in scope["requested_sites"]:
+                row = {
+                    "site_id": parent["site_id"],
+                    "resource_kind": kind,
+                    "content_version": "current",
+                    "api_version": "v2.0",
+                    "scope_status": parent["scope_status"],
+                    "exposure_role": parent["effective_scope_role"],
+                    "attempts": [],
+                    "scientific_admission": "not_asserted",
+                }
+                remaining = limits.wall_seconds - (time.monotonic() - clock)
+                if parent["scope_status"] != "eligible_current_scope":
+                    row["terminal_status"] = "not_attempted_parent_scope"
+                elif (
+                    count >= limits.max_requests
+                    or total >= limits.max_total_bytes
+                    or remaining <= 0
+                ):
+                    row["terminal_status"] = "not_attempted_budget"
+                else:
+                    request = request_for(kind, parent["site_id"])
+                    count += 1
+                    bound = min(
+                        limits.max_response_bytes, limits.max_total_bytes - total
+                    )
+                    utc = datetime.now(UTC).isoformat()
+                    try:
+                        response = fetch(
+                            request.url,
+                            timeout=min(limits.timeout_seconds, remaining),
+                            max_bytes=bound,
+                        )
+                    except Exception as error:
+                        ref, record = _retain_transport_failure(
+                            directory, request, utc, error, writer=writer
+                        )
+                        assessed = {
+                            "terminal_status": "transport_failure",
+                            "reason": record["error"],
+                        }
+                    else:
+                        ref, record = _retain_http_response(
+                            directory, request, response, utc, writer=writer
+                        )
+                        total += len(response.body)
+                        assessed = assess_http(record, request, response.body, bound)
+                    row["attempts"].append(ref)
+                    row.update(assessed)
+                entries.append(row)
+        _write_json(
+            directory / "capture-manifest.json",
+            {
+                "schema_version": CONTEXT_SCHEMA,
+                "status": "closed",
+                "capture_utc_start": started,
+                "capture_utc_end": datetime.now(UTC).isoformat(),
+                "plan_sha256": plan_pin,
+                "resources": entries,
+                "request_count": count,
+                "response_bytes": total,
+                "partitions": dict(Counter(row["terminal_status"] for row in entries)),
+                "source_scope": SOURCE_SCOPE,
+                "snapshot_consistency": SNAPSHOT_CONSISTENCY,
+                "scientific_admission": "not_asserted",
+            },
+            writer=writer,
+        )
+    return replay_neotoma_context_resources(
+        directory,
+        expected_context_sha256=plan.context_manifest_sha256,
+        expected_native_archive_sha256=plan.native_archive_manifest_sha256,
+        context_directory=context_directory,
+        native_archive_directory=native_archive_directory,
+        limits=limits,
+    )
+
+
 def rebuild_context(
     inputs: dict[str, Any], directory: Path, mutate: Callable[..., None]
 ) -> dict[str, Any]:
@@ -153,6 +305,7 @@ def captured(
         (12,),
         inputs.pop("context_manifest_sha256"),
         inputs.pop("native_archive_manifest_sha256"),
+        ("dataset_depositional_environment", "lake_candidates"),
     )
     output = tmp_path / "capture"
     result = capture_neotoma_context_resources(

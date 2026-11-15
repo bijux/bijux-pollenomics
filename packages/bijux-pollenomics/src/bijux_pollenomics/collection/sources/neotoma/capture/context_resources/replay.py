@@ -34,8 +34,10 @@ from .models import (
 from .protocol import (
     assess_http,
     digest,
+    native_dataset_ids,
     plan_from_json,
     request_for,
+    request_name,
     validate_plan,
     verify_request_metadata,
 )
@@ -133,7 +135,7 @@ def _files(entries: list[Any], plan: NeotomaContextResourcePlan) -> set[str]:
             raise ValueError("Context resource identity or attempts differ")
         if not entry["attempts"]:
             continue
-        request = request_for(kind, site_id)
+        name = request_name(kind, site_id)
         reference = entry["attempts"][0]
         if (
             not isinstance(reference, dict)
@@ -142,14 +144,14 @@ def _files(entries: list[Any], plan: NeotomaContextResourcePlan) -> set[str]:
                 {"request_name", "receipt_file", "receipt_sha256"},
                 {"request_name", "receipt_file", "receipt_sha256", "body_file"},
             )
-            or reference.get("request_name") != request.name
-            or reference.get("receipt_file") != f"{request.name}.receipt.json"
+            or reference.get("request_name") != name
+            or reference.get("receipt_file") != f"{name}.receipt.json"
         ):
             raise ValueError("Context resource receipt pointer differs")
         digest(reference["receipt_sha256"])
         files.add(reference["receipt_file"])
         if "body_file" in reference:
-            if reference["body_file"] != f"{request.name}.body":
+            if reference["body_file"] != f"{name}.body":
                 raise ValueError("Context resource body pointer differs")
             files.add(reference["body_file"])
     return files
@@ -226,7 +228,13 @@ def replay_neotoma_context_resources(
             count += 1
             if count > maximum_requests or total >= maximum_total:
                 raise ValueError("Context source exceeds request or total byte budget")
-            request = request_for(entry["resource_kind"], entry["site_id"])
+            request = request_for(
+                entry["resource_kind"],
+                entry["site_id"],
+                dataset_ids=native_dataset_ids(parents[entry["site_id"]])
+                if entry["resource_kind"] == "dataset_depositional_environment"
+                else None,
+            )
             reference = entry["attempts"][0]
             content = _read(root / reference["receipt_file"], 1024 * 1024)
             if sha256(content).hexdigest() != reference["receipt_sha256"]:

@@ -27,6 +27,7 @@ def test_protected_parent_or_alias_is_indexed_zero_GET_for_both_resource_kinds(
         site_ids=(12,),
         context_manifest_sha256=inputs.pop("context_manifest_sha256"),
         native_archive_manifest_sha256=inputs.pop("native_archive_manifest_sha256"),
+        resource_kinds=("dataset_depositional_environment", "lake_candidates"),
     )
     calls = []
 
@@ -57,6 +58,7 @@ def test_missing_roster_site_is_explicit_unestablished_scope_with_zero_GET(
         site_ids=(999,),
         context_manifest_sha256=inputs.pop("context_manifest_sha256"),
         native_archive_manifest_sha256=inputs.pop("native_archive_manifest_sha256"),
+        resource_kinds=("dataset_depositional_environment", "lake_candidates"),
     )
 
     def fetch(*_: Any, **__: Any) -> Any:
@@ -93,6 +95,7 @@ def test_unrostered_current_native_sibling_cannot_authorize_known_subset(
         (12,),
         inputs.pop("context_manifest_sha256"),
         inputs.pop("native_archive_manifest_sha256"),
+        ("dataset_depositional_environment", "lake_candidates"),
     )
     result = capture_neotoma_context_resources(
         tmp_path / "context-capture",

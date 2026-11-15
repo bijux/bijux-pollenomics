@@ -22,6 +22,9 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive imp
     write_neotoma_source_archive,
 )
 
+from ...acquisition.context_resources.native_products import (
+    capture_legacy_context_fixture,
+)
 from ...acquisition.facets.parent_scope.native_sources import source_inputs
 from ...acquisition.resources.native_payloads import spec
 
@@ -147,7 +150,6 @@ def site_context_products(tmp_path: Path) -> Callable[..., dict[str, Any]]:
     ) -> dict[str, Any]:
         from bijux_pollenomics.collection.sources.neotoma.capture.context_resources import (
             NeotomaContextResourcePlan,
-            capture_neotoma_context_resources,
         )
 
         original = make_binding(tmp_path / "original")
@@ -190,7 +192,7 @@ def site_context_products(tmp_path: Path) -> Callable[..., dict[str, Any]]:
             original.expected_context_sha256,
             original.expected_native_archive_sha256,
         )
-        result = capture_neotoma_context_resources(
+        result = capture_legacy_context_fixture(
             capture,
             plan=plan,
             context_directory=original.context_directory,

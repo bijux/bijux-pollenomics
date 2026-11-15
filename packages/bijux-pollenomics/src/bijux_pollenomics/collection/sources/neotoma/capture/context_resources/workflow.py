@@ -38,7 +38,13 @@ from .models import (
     NeotomaContextResourceCapture,
     NeotomaContextResourcePlan,
 )
-from .protocol import assess_http, request_for, validate_plan
+from .protocol import (
+    assess_http,
+    native_dataset_ids,
+    request_for,
+    validate_new_capture_plan,
+    validate_plan,
+)
 from .replay import replay_neotoma_context_resources
 from .scope import prepare_scope
 
@@ -61,6 +67,7 @@ def capture_neotoma_context_resources(
     final = _safe_root(directory)
     if final.exists():
         raise FileExistsError(f"Context resource output exists: {final}")
+    validate_new_capture_plan(plan)
     start, wall_start = datetime.now(UTC).isoformat(), time.monotonic()
     scope = prepare_scope(
         plan,
@@ -115,7 +122,13 @@ def capture_neotoma_context_resources(
                     ):
                         entry["terminal_status"] = "not_attempted_budget"
                     else:
-                        request = request_for(kind, site_id)
+                        request = request_for(
+                            kind,
+                            site_id,
+                            dataset_ids=native_dataset_ids(parent)
+                            if kind == "dataset_depositional_environment"
+                            else None,
+                        )
                         count += 1
                         bound = min(
                             limits.max_response_bytes, limits.max_total_bytes - total

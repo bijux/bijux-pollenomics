@@ -11,6 +11,7 @@ from typing import Any
 import pytest
 
 from .native_products import (
+    capture_legacy_context_fixture,
     captured,
     forbid_context_bodies,
     pin,
@@ -24,7 +25,6 @@ def test_replay_preserves_original_requests_and_unqualified_source_assessment(
 ) -> None:
     from bijux_pollenomics.collection.sources.neotoma.capture.context_resources import (
         NeotomaContextResourcePlan,
-        capture_neotoma_context_resources,
         replay_neotoma_context_resources,
     )
 
@@ -38,7 +38,7 @@ def test_replay_preserves_original_requests_and_unqualified_source_assessment(
     options = {
         key: inputs[key] for key in ("context_directory", "native_archive_directory")
     }
-    captured = capture_neotoma_context_resources(
+    captured = capture_legacy_context_fixture(
         directory, plan=plan, fetch=source_response, **options
     )
     replayed = replay_neotoma_context_resources(
@@ -172,3 +172,50 @@ def test_closed_source_namespace_precedes_body_access(
     with pytest.raises(ValueError):
         replay_neotoma_context_resources(**arguments)
     assert opened == [] and path.exists()
+
+
+@pytest.mark.parametrize("field", ["datasetid", "limit", "offset", "siteid"])
+def test_dataset_query_receipt_cannot_narrow_or_replace_native_scope(
+    context_resource_inputs: Callable[..., dict[str, Any]],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    field: str,
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.context_resources import (
+        NeotomaContextResourcePlan,
+        capture_neotoma_context_resources,
+        replay_neotoma_context_resources,
+    )
+
+    inputs = context_resource_inputs()
+    plan = NeotomaContextResourcePlan(
+        (12,),
+        inputs.pop("context_manifest_sha256"),
+        inputs.pop("native_archive_manifest_sha256"),
+        ("dataset_depositional_environment",),
+    )
+    directory = tmp_path / "capture"
+    result = capture_neotoma_context_resources(
+        directory, plan=plan, fetch=source_response, **inputs
+    )
+    options = {
+        "directory": directory,
+        "expected_manifest_sha256": result.manifest_sha256,
+        "expected_context_sha256": plan.context_manifest_sha256,
+        "expected_native_archive_sha256": plan.native_archive_manifest_sha256,
+        **inputs,
+    }
+
+    def change(manifest: dict[str, Any], control: dict[str, Any], root: Path) -> None:
+        ref = manifest["resources"][0]["attempts"][0]
+        path = root / ref["receipt_file"]
+        receipt = json.loads(path.read_bytes())
+        receipt["parameters"][field] = "201" if field == "datasetid" else "1"
+        path.write_text(json.dumps(receipt))
+        ref["receipt_sha256"] = pin(path)
+
+    rehash_source(options, change)
+    opened = forbid_context_bodies(monkeypatch)
+    with pytest.raises(ValueError, match="receipt"):
+        replay_neotoma_context_resources(**options)
+    assert opened == []

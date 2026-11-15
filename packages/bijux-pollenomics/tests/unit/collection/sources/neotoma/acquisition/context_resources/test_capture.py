@@ -11,15 +11,97 @@ import pytest
 
 from bijux_pollenomics.collection.sources.neotoma.capture import NeotomaMetadataResponse
 
-from .native_products import captured, source_response
+from .native_products import capture_legacy_context_fixture, captured, source_response
 
 
-def test_capture_routes_apps_and_data_without_qualifying_native_payloads(
+def test_new_capture_inhibits_known_ignored_site_environment_filter(
     context_resource_inputs: Callable[..., dict[str, Any]], tmp_path: Path
 ) -> None:
     from bijux_pollenomics.collection.sources.neotoma.capture.context_resources import (
         NeotomaContextResourcePlan,
         capture_neotoma_context_resources,
+    )
+
+    inputs = context_resource_inputs()
+    plan = NeotomaContextResourcePlan(
+        (12,),
+        inputs.pop("context_manifest_sha256"),
+        inputs.pop("native_archive_manifest_sha256"),
+    )
+    calls = []
+
+    def fetched(url: str, **kwargs: Any) -> Any:
+        calls.append(url)
+        return source_response(url, **kwargs)
+
+    with pytest.raises(ValueError, match="siteid"):
+        capture_neotoma_context_resources(
+            tmp_path / "capture", plan=plan, fetch=fetched, **inputs
+        )
+    assert calls == [] and not (tmp_path / "capture").exists()
+
+
+def test_dataset_environment_query_uses_all_authenticated_native_parents(
+    context_resource_inputs: Callable[..., dict[str, Any]], tmp_path: Path
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.context_resources import (
+        NeotomaContextResourcePlan,
+        capture_neotoma_context_resources,
+    )
+
+    inputs = context_resource_inputs()
+    plan = NeotomaContextResourcePlan(
+        (13, 12),
+        inputs.pop("context_manifest_sha256"),
+        inputs.pop("native_archive_manifest_sha256"),
+        ("dataset_depositional_environment", "lake_candidates"),
+    )
+    calls = []
+
+    def fetched(url: str, **kwargs: Any) -> Any:
+        calls.append(url)
+        return source_response(url, **kwargs)
+
+    result = capture_neotoma_context_resources(
+        tmp_path / "capture", plan=plan, fetch=fetched, **inputs
+    )
+    assert calls == [
+        "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=401%2C402&limit=2&offset=0",
+        "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=201%2C202&limit=2&offset=0",
+        "https://api.neotomadb.org/v2.0/data/spatial/lakes?siteid=13&buffer=1000&prec=0.0001&proj=4326",
+        "https://api.neotomadb.org/v2.0/data/spatial/lakes?siteid=12&buffer=1000&prec=0.0001&proj=4326",
+    ]
+    assert result.request_count == 4
+
+
+@pytest.mark.parametrize(
+    "values", [None, (), (201, 201), (202, 201), (True,), (201.0,), [201, 202], (-1,)]
+)
+def test_dataset_query_factory_refuses_non_native_or_ambiguous_ID_tuple(
+    values: Any,
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.context_resources.protocol import (
+        request_for,
+    )
+
+    with pytest.raises(ValueError):
+        request_for("dataset_depositional_environment", 12, dataset_ids=values)
+
+
+def test_lake_query_does_not_accept_dataset_filter_aliases() -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.context_resources.protocol import (
+        request_for,
+    )
+
+    with pytest.raises(ValueError):
+        request_for("lake_candidates", 12, dataset_ids=(201, 202))
+
+
+def test_legacy_wire_routes_apps_and_data_without_qualifying_native_payloads(
+    context_resource_inputs: Callable[..., dict[str, Any]], tmp_path: Path
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.context_resources import (
+        NeotomaContextResourcePlan,
     )
 
     inputs = context_resource_inputs()
@@ -34,7 +116,7 @@ def test_capture_routes_apps_and_data_without_qualifying_native_payloads(
         calls.append(url)
         return source_response(url, **kwargs)
 
-    result = capture_neotoma_context_resources(
+    result = capture_legacy_context_fixture(
         tmp_path / "capture", plan=plan, fetch=fetch, **inputs
     )
     assert calls == [
@@ -269,6 +351,7 @@ def test_parent_proof_metadata_cap_is_checked_before_any_GET(
         (12,),
         inputs.pop("context_manifest_sha256"),
         inputs.pop("native_archive_manifest_sha256"),
+        ("dataset_depositional_environment", "lake_candidates"),
     )
     monkeypatch.setattr(workflow, "MAX_METADATA_BYTES", 1, raising=False)
     calls = []
