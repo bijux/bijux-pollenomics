@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import json
-import os
 from pathlib import Path, PurePosixPath
 import re
-import stat
 from typing import Any
+
+from bijux_pollenomics.core.filesystem import validate_regular_namespace
 
 ARCHIVE_SCHEMA = "neotoma-source-resource-archive.v1"
 MAX_BYTES = 512 * 1024 * 1024
@@ -106,43 +106,10 @@ def validate_manifest(manifest: dict[str, Any]) -> None:
 
 
 def validate_namespace(root: Path, expected_files: set[str]) -> None:
-    """Visit only declared parent directories; aliases and special entries refuse."""
-    if len(expected_files) > MAX_FILES:
-        raise ValueError("Neotoma source archive file population exceeds its bound")
-    expected_directories: set[str] = set()
-    for relative in expected_files:
-        path = PurePosixPath(_member(relative))
-        expected_directories.update(str(p) for p in path.parents if str(p) != ".")
-    seen_files, seen_directories = set(), set()
-    pending = [(root, "")]
-    visited = 0
-    while pending:
-        directory, prefix = pending.pop()
-        with os.scandir(directory) as entries:
-            for entry in entries:
-                visited += 1
-                if visited > len(expected_files) + len(expected_directories):
-                    raise ValueError(
-                        "Neotoma source archive namespace exceeds its bound"
-                    )
-                relative = prefix + entry.name
-                node = entry.stat(follow_symlinks=False)
-                if stat.S_ISDIR(node.st_mode):
-                    if relative not in expected_directories:
-                        raise ValueError(
-                            "Neotoma source archive contains an unowned directory"
-                        )
-                    seen_directories.add(relative)
-                    pending.append((Path(entry.path), relative + "/"))
-                elif stat.S_ISREG(node.st_mode) and node.st_nlink == 1:
-                    if relative not in expected_files:
-                        raise ValueError(
-                            "Neotoma source archive file population differs"
-                        )
-                    seen_files.add(relative)
-                else:
-                    raise ValueError(
-                        "Neotoma source archive contains a nonregular namespace entry"
-                    )
-    if seen_files != expected_files or seen_directories != expected_directories:
-        raise ValueError("Neotoma source archive closed namespace population differs")
+    """Keep archive namespace refusals under the shared ordinary file owner."""
+    try:
+        validate_regular_namespace(
+            root, expected_files, max_files=MAX_FILES, max_bytes=MAX_BYTES
+        )
+    except ValueError as error:
+        raise ValueError(f"Neotoma source archive {error}") from error
