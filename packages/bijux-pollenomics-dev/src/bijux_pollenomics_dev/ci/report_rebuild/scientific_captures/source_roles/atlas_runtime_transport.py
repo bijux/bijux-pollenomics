@@ -11,6 +11,8 @@ from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import _regular_confined_file
 from ...retained_source import SourceCapsule
 from ..presentation_source_roles import atlas_extension_matches
+from .atlas_transport.indexes import without_index_transport_refinement
+from .atlas_transport.products import without_regional_product_refinement
 from .documentation import DOCUMENTED_SOURCE_STRINGS, _documented_source_matches
 
 _RUNTIME_TRANSPORT_CONTRACTS: dict[
@@ -1135,8 +1137,16 @@ def atlas_runtime_transport_extension_matches(
     size, digest, composition, spans = contract
     if len(captured) != size or hashlib.sha256(captured).hexdigest() != digest:
         return False
+    predecessor = without_index_transport_refinement(name, current)
+    if predecessor is None:
+        return False
+    predecessor = without_regional_product_refinement(name, predecessor)
+    if predecessor is None:
+        return False
     restored = (
-        _without_runtime_additions(current) if name == _RUNTIME_SOURCE else current
+        _without_runtime_additions(predecessor)
+        if name == _RUNTIME_SOURCE
+        else predecessor
     )
     if restored is None:
         return False

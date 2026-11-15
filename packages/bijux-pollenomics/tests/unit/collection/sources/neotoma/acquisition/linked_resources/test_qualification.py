@@ -13,6 +13,7 @@ from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources impor
     capture_neotoma_linked_resources,
 )
 
+from ..facets.parent_scope.native_sources import linked_scope_resolvers
 from ..resources.native_payloads import response
 from .test_capture import limits, plan, source
 from .test_profiles import payload
@@ -44,7 +45,12 @@ def acquired(
 
     root = tmp_path / "linked"
     captured = capture_neotoma_linked_resources(
-        root, plan=plan(digest), source_facets=sources, limits=limits(), fetch=fetch
+        root,
+        plan=plan(digest),
+        source_facets=sources,
+        limits=limits(),
+        fetch=fetch,
+        scope_inputs=linked_scope_resolvers(sources),
     )
     return root, captured, sources
 
@@ -59,6 +65,7 @@ def test_separate_detail_qualification_preserves_all_native_capture_bytes(
         expected_manifest_sha256=capture.manifest_sha256,
         source_facets=sources,
         limits=limits(),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert report["source_capture_relabelled"] is False
     assert report["partitions"] == {"parsed_linked_source": 3}
@@ -79,6 +86,7 @@ def test_source_explicit_empty_is_unavailable_without_general_absence_claim(
         expected_manifest_sha256=capture.manifest_sha256,
         source_facets=sources,
         limits=limits(),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert report["partitions"] == {"unavailable_linked_api_empty": 3}
     assert all(row["absence_certified"] is False for row in report["resources"])
@@ -108,6 +116,7 @@ def test_changed_actual_reader_buffer_is_refused(
             expected_manifest_sha256=capture.manifest_sha256,
             source_facets=sources,
             limits=limits(),
+            scope_inputs=linked_scope_resolvers(sources),
         )
 
 
@@ -118,6 +127,7 @@ def test_foreign_native_owner_keeps_a_reasoned_accounting_row(tmp_path: Path) ->
         expected_manifest_sha256=capture.manifest_sha256,
         source_facets=sources,
         limits=limits(),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert len(report["resources"]) == 3
     assert report["partitions"] == {
@@ -146,5 +156,6 @@ def test_unavailable_http_entities_do_not_open_the_native_body_reader(
         expected_manifest_sha256=capture.manifest_sha256,
         source_facets=sources,
         limits=limits(),
+        scope_inputs=linked_scope_resolvers(sources),
     )
     assert report["partitions"] == {"not_qualified_source_result": 3}

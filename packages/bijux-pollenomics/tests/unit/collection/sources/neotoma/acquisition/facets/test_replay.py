@@ -14,11 +14,12 @@ from bijux_pollenomics.collection.sources.neotoma.capture.resources import (
 )
 
 from ..resources.native_payloads import response, spec
-from .native_payloads import BODY, owner, plan
+from .native_payloads import BODY, plan
+from .parent_scope.native_sources import capture_fixture, read_fixture, replay_fixture
 
 
 def captured(root: Path) -> Any:
-    return owner().capture_neotoma_dataset_facets(
+    return capture_fixture(
         root,
         plan=plan(spec(), facets=("chronologies",)),
         fetch=lambda url, **_: response(url, BODY),
@@ -53,10 +54,10 @@ def test_replay_refuses_changed_body_or_declared_identity(
         row["unowned_assertion"] = True
     manifest_path.write_text(json.dumps(manifest))
     with pytest.raises(ValueError):
-        owner().replay_neotoma_facet_capture(directory)
+        replay_fixture(directory)
     if damage in {"body", "receipt"}:
         with pytest.raises(ValueError):
-            owner().read_neotoma_facet_body(
+            read_fixture(
                 directory,
                 expected_manifest_sha256=result.manifest_sha256,
                 facet_key=result.facets[0]["facet_key"],
@@ -68,14 +69,14 @@ def test_replay_refuses_changed_body_or_declared_identity(
 )
 def test_replay_enforces_stricter_caller_limits(tmp_path: Path, limit: str) -> None:
     directory = tmp_path / "capture"
-    owner().capture_neotoma_dataset_facets(
+    capture_fixture(
         directory,
         plan=plan(spec(), facets=("projects", "taxa")),
         fetch=lambda url, **_: response(url, BODY),
     )
     limits = NeotomaResourceLimits(**{limit: 1})
     with pytest.raises(ValueError):
-        owner().replay_neotoma_facet_capture(directory, limits=limits)
+        replay_fixture(directory, limits=limits)
 
 
 def test_replay_refuses_extra_or_symlinked_capture_files(tmp_path: Path) -> None:
@@ -84,11 +85,11 @@ def test_replay_refuses_extra_or_symlinked_capture_files(tmp_path: Path) -> None
     extra = directory / "not-declared.body"
     extra.write_bytes(b"preserve")
     with pytest.raises(ValueError):
-        owner().replay_neotoma_facet_capture(directory)
+        replay_fixture(directory)
     extra.unlink()
     extra.symlink_to(directory / "request-plan.json")
     with pytest.raises(ValueError):
-        owner().replay_neotoma_facet_capture(directory)
+        replay_fixture(directory)
 
 
 def test_body_reader_authenticates_the_buffer_returned_after_replay(
@@ -110,7 +111,7 @@ def test_body_reader_authenticates_the_buffer_returned_after_replay(
 
     monkeypatch.setattr(Path, "read_bytes", changed_second_read)
     with pytest.raises(ValueError):
-        owner().read_neotoma_facet_body(
+        read_fixture(
             directory,
             expected_manifest_sha256=result.manifest_sha256,
             facet_key=result.facets[0]["facet_key"],
@@ -136,4 +137,4 @@ def test_refusal_label_cannot_launder_changed_body_with_original_receipt(
     manifest.update(response_bytes=len(changed), partitions={"refused_http_receipt": 1})
     manifest_path.write_text(json.dumps(manifest))
     with pytest.raises(ValueError):
-        owner().replay_neotoma_facet_capture(directory)
+        replay_fixture(directory)

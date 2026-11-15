@@ -15,6 +15,7 @@ from bijux_pollenomics.core.owned_tree import (
     publish_new_output_tree,
 )
 
+from ..facets.models import NeotomaFacetScopeInputs
 from ..receipts import (
     _retain_http_response,
     _retain_transport_failure,
@@ -43,10 +44,13 @@ def capture_neotoma_linked_resources(
     plan: NeotomaLinkedResourcePlan,
     source_facets: Mapping[str, Path],
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
     fetch: Callable[..., NeotomaHttpResponse] = _fetch_response,
 ) -> NeotomaLinkedResourceCapture:
     """Capture selected direct references; no recursive expansion or schema admission."""
-    targets, policies = prepare_targets(plan, source_facets, limits)
+    targets, policies = prepare_targets(
+        plan, source_facets, limits, scope_inputs=scope_inputs
+    )
     final = _safe_root(directory)
     if final.exists():
         raise FileExistsError(f"Neotoma linked output exists: {final}")
@@ -154,13 +158,17 @@ def capture_neotoma_linked_resources(
             },
         )
         verified = replay_neotoma_linked_resources(
-            staging, source_facets=source_facets, limits=limits
+            staging,
+            source_facets=source_facets,
+            limits=limits,
+            scope_inputs=scope_inputs,
         )
         publish_new_output_tree(final_output_root=final, staging_output_root=staging)
         return replay_neotoma_linked_resources(
             final,
             expected_manifest_sha256=verified.manifest_sha256,
             source_facets=source_facets,
+            scope_inputs=scope_inputs,
             limits=limits,
         )
     except Exception as error:

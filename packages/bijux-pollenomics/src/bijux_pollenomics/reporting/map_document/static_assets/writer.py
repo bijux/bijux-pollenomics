@@ -11,6 +11,7 @@ from typing import Any, cast
 from ....core.geospatial.geojson import JsonObject
 from ..evidence import normalize_atlas_evidence, validate_feature_signal_references
 from ..native_lra import bind_native_view, validate_native_layers
+from ..source_resources import AtlasResourceCatalogue
 from ..temporal_admission import calendar_profile_metadata, read_calendar_profile
 from .asset_inventory import encode_asset_inventory
 from .budgets import (
@@ -46,6 +47,7 @@ from .serialization import (
     validate_decoded_payload_size,
     write_immutable,
 )
+from .source_resources import build_source_resource_payloads
 from .validation import validate_static_atlas_assets
 
 
@@ -62,6 +64,7 @@ def write_static_atlas_assets(
     sequence_records: Sequence[JsonObject] | None = None,
     temporal_profile: str | None = None,
     native_lra: dict[str, Any] | None = None,
+    source_resources: AtlasResourceCatalogue | None = None,
 ) -> StaticAtlasAssets:
     """Write deterministic hashed map chunks and their small bootstrap manifest."""
     profile_fields = calendar_profile_metadata(temporal_profile)
@@ -127,6 +130,11 @@ def write_static_atlas_assets(
             for record in partition
         },
     }
+    resource_transport = (
+        build_source_resource_payloads(source_resources)
+        if source_resources is not None
+        else None
+    )
     build_id = (
         "atlas-"
         + hashlib.sha256(
@@ -143,6 +151,16 @@ def write_static_atlas_assets(
                     "scientific_signals": evidence.scientific_signals,
                     "edge_records": evidence.edge_records,
                     "sequence_records": evidence.sequence_records,
+                    **(
+                        {
+                            "source_resources": {
+                                "domain": resource_transport.domain,
+                                "payloads": resource_transport.payloads,
+                            }
+                        }
+                        if resource_transport is not None
+                        else {}
+                    ),
                 }
             ).encode("utf-8")
         ).hexdigest()
@@ -260,6 +278,12 @@ def write_static_atlas_assets(
             )
         )
 
+    if resource_transport is not None:
+        payloads.extend(
+            ("resources", len(part["records"]), part)
+            for part in resource_transport.payloads
+        )
+    resource_part_assets: dict[str, str] = {}
     assets: list[dict[str, object]] = []
     asset_paths: list[Path] = []
     for sequence, (domain, record_count, source_payload) in enumerate(payloads):
@@ -270,11 +294,16 @@ def write_static_atlas_assets(
             "build_id": build_id,
             "asset_key": asset_key,
         }
+        if domain == "resources":
+            payload.update(scope_slug=slug, version=version)
+            resource_part_assets[str(payload["part_id"])] = asset_key
         payload_json = canonical_json(payload)
         validate_decoded_payload_size(payload_json, asset_key=asset_key)
         payload_sha256 = hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
         payload_encoding = (
-            "gzip_base64" if domain in {"nodes", "details", "provenance"} else "json"
+            "gzip_base64"
+            if domain in {"nodes", "details", "provenance", "resources"}
+            else "json"
         )
         script_bytes = chunk_script_bytes(
             asset_key=asset_key,
@@ -299,7 +328,7 @@ def write_static_atlas_assets(
             "decoded_byte_count": len(payload_json.encode("utf-8")),
             "byte_count": len(script_bytes),
             "record_count": record_count,
-            "initial_load": domain not in {"nodes", "details", "indexes"},
+            "initial_load": domain not in {"nodes", "details", "indexes", "resources"},
         }
         if domain == "nodes":
             row.update(node_asset_selection(payload))
@@ -323,6 +352,11 @@ def write_static_atlas_assets(
             "file_pre_execution_sri": False,
         },
         "compatibility": {
+            **(
+                {"resource_schema": "atlas-source-resource-chunk.v1"}
+                if resource_transport is not None
+                else {}
+            ),
             "provenance_schema": "atlas-provenance-chunk.v3",
             "node_schema": "atlas-node-chunk.v2"
             if temporal_profile is not None
@@ -348,6 +382,23 @@ def write_static_atlas_assets(
             "filter_main_thread_max_ms": ATLAS_FILTER_MAIN_THREAD_MAX_MS,
         },
         "domains": {
+            **(
+                {
+                    "resources": {
+                        **resource_transport.domain,
+                        "status": "available",
+                        "reason_code": None,
+                        "metadata_only": True,
+                        "part_asset_keys": resource_part_assets,
+                        "index_asset_keys": [
+                            resource_part_assets[key]
+                            for key in resource_transport.domain["index_part_ids"]
+                        ],
+                    }
+                }
+                if resource_transport is not None
+                else {}
+            ),
             "nodes": {
                 "status": "available",
                 "record_count": sum(

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Mapping
 from hashlib import sha256
 from pathlib import Path
 from typing import Any
@@ -25,11 +26,14 @@ from ..resources.replay import _same_json
 from .assessment import assess_http
 from .models import (
     FACET_SCHEMA,
+    SCOPED_FACET_SCHEMA,
     NeotomaFacetBody,
     NeotomaFacetCapture,
     NeotomaFacetPlan,
+    NeotomaFacetScopeInputs,
 )
 from .protocol import facet_identity, plan_from_json, request_for, validate_plan
+from .scope import authenticate_parent_scope
 
 _MANIFEST_FIELDS = {
     "schema_version",
@@ -68,7 +72,7 @@ def _control(
     manifest = _object(content)
     if (
         set(manifest) != _MANIFEST_FIELDS
-        or manifest["schema_version"] != FACET_SCHEMA
+        or manifest["schema_version"] not in {FACET_SCHEMA, SCOPED_FACET_SCHEMA}
         or manifest["status"] != "closed"
         or manifest["scientific_admission"] != "not_asserted"
         or manifest["snapshot_consistency"] != SNAPSHOT_CONSISTENCY
@@ -87,7 +91,12 @@ def _control(
             "policy_sources",
             "historical_snapshot_replaced",
         }
-        or control["schema_version"] != FACET_SCHEMA
+        | (
+            {"parent_scope"}
+            if manifest["schema_version"] == SCOPED_FACET_SCHEMA
+            else set()
+        )
+        or control["schema_version"] != manifest["schema_version"]
         or control["historical_snapshot_replaced"] is not False
     ):
         raise ValueError("Neotoma facet plan fields differ")
@@ -105,6 +114,7 @@ def replay_neotoma_facet_capture(
     *,
     expected_manifest_sha256: str | None = None,
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> NeotomaFacetCapture:
     """Recompute each status from authenticated attempts, without any network access."""
     root = _safe_root(directory)
@@ -123,6 +133,13 @@ def replay_neotoma_facet_capture(
     if not isinstance(entries, list) or len(entries) != len(expected):
         raise ValueError("Neotoma facet request closure differs")
     files = {"capture-manifest.json", "request-plan.json"}
+    parents = {}
+    scoped = manifest["schema_version"] == SCOPED_FACET_SCHEMA
+    if scoped:
+        control = _object(_read(root / "request-plan.json", 4 * 1024 * 1024))
+        proof = authenticate_parent_scope(root, control, plan, scope_inputs)
+        parents = {row["dataset_id"]: row for row in proof["parents"]}
+        files.add("parent-scope.json")
     count = total = 0
     previous_end, end = (
         _utc(manifest["capture_utc_start"]),
@@ -143,12 +160,26 @@ def replay_neotoma_facet_capture(
         ):
             raise ValueError("Neotoma facet root or request identity differs")
         assessed: dict[str, Any] = {"terminal_status": "not_attempted_budget"}
+        scope_role = (
+            parents[resource.dataset_id]["effective_scope_role"]
+            if scoped
+            else resource.exposure_role
+        )
+        if scoped and entry.get("parent_scope_role") != scope_role:
+            raise ValueError("Facet parent scope role differs")
         if resource.exposure_role not in DEVELOPMENT_ROLES:
             if entry["attempts"]:
                 raise ValueError("Neotoma facet exposure role forbids body access")
             assessed = {
                 "terminal_status": "not_attempted_exposure_role",
                 "reason": resource.exposure_role,
+            }
+        elif scope_role not in DEVELOPMENT_ROLES:
+            if entry["attempts"]:
+                raise ValueError("Facet parent scope forbids body access")
+            assessed = {
+                "terminal_status": "not_attempted_parent_scope",
+                "reason": scope_role,
             }
         for index, reference in enumerate(entry["attempts"], 1):
             count += 1
@@ -205,9 +236,9 @@ def replay_neotoma_facet_capture(
                 and 500 <= record["http_status"] <= 599
             ):
                 raise ValueError("Neotoma facet retried a nontransient response")
-        if set(entry) != _ENTRY_FIELDS | set(assessed) or not _same_json(
-            {key: entry[key] for key in assessed}, assessed
-        ):
+        if set(entry) != _ENTRY_FIELDS | set(assessed) | (
+            {"parent_scope_role"} if scoped else set()
+        ) or not _same_json({key: entry[key] for key in assessed}, assessed):
             raise ValueError("Neotoma facet derived assessment differs")
     partitions = dict(Counter(entry["terminal_status"] for entry in entries))
     if (
@@ -232,10 +263,11 @@ def read_neotoma_facet_body(
     expected_manifest_sha256: str,
     facet_key: str,
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> NeotomaFacetBody:
     """Gate the root role, replay custody, then authenticate the actual returned buffer."""
     root = _safe_root(directory)
-    _, plan, _, _ = _control(root, expected_manifest_sha256)
+    manifest, plan, _, _ = _control(root, expected_manifest_sha256)
     selected = [
         (resource, facet)
         for resource in plan.resources
@@ -247,12 +279,35 @@ def read_neotoma_facet_body(
     resource, facet = selected[0]
     if resource.exposure_role not in DEVELOPMENT_ROLES:
         raise ValueError("Neotoma facet exposure role forbids body access")
+    if manifest["schema_version"] == SCOPED_FACET_SCHEMA:
+        control = _object(_read(root / "request-plan.json", 4 * 1024 * 1024))
+        proof = authenticate_parent_scope(root, control, plan, scope_inputs)
+        parent = next(
+            row for row in proof["parents"] if row["dataset_id"] == resource.dataset_id
+        )
+        if parent["effective_scope_role"] not in DEVELOPMENT_ROLES:
+            raise ValueError("Facet parent scope forbids body access")
     capture = replay_neotoma_facet_capture(
-        root, expected_manifest_sha256=expected_manifest_sha256, limits=limits
+        root,
+        expected_manifest_sha256=expected_manifest_sha256,
+        limits=limits,
+        scope_inputs=scope_inputs,
     )
     entry = next(row for row in capture.facets if row["facet_key"] == facet_key)
     if entry["terminal_status"] != "received_complete_unqualified_facet":
         raise ValueError("Neotoma facet complete source entity is unavailable")
+    return _read_authenticated_facet_body(root, resource, facet, entry, limits)
+
+
+def _read_authenticated_facet_body(
+    root: Path,
+    resource: Any,
+    facet: str,
+    entry: dict[str, Any],
+    limits: NeotomaResourceLimits,
+) -> NeotomaFacetBody:
+    """Recheck the same returned receipt/body buffer after its enclosing replay."""
+    facet_key = entry["facet_key"]
     reference = entry["attempts"][-1]
     receipt = _read(root / reference["receipt_file"], 1024 * 1024)
     if sha256(receipt).hexdigest() != reference["receipt_sha256"]:

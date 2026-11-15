@@ -19,6 +19,7 @@ from ..geography import (
     render_geography_scope_registry_markdown,
     render_geography_subset_validation_markdown,
 )
+from ..map_document.source_resources import AtlasResourceCatalogueInput
 from ..models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from ..presentation import publish_report_portal
 from ..review.repository_truth_outputs import publish_repository_truth_outputs
@@ -51,6 +52,7 @@ def publish_published_reports_tree(
     generate_multi_country_map_fn: Callable[..., MultiCountryMapReport],
     slugify_fn: Callable[[str], str],
     write_summary_json_fn: Callable[[Path, dict[str, object]], None],
+    source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
 ) -> PublishedReportsReport:
     """Publish the full report tree as one world surface plus derived regional and country views."""
     published_output_root = (
@@ -86,6 +88,11 @@ def publish_published_reports_tree(
             *world_scope.output_dir_parts
         ),
         geography_scope=world_scope,
+        **(
+            {"source_resource_catalogue": source_resource_catalogue}
+            if source_resource_catalogue is not None
+            else {}
+        ),
     )
     scope_reports[world_scope.key] = map_report
 
@@ -103,6 +110,11 @@ def publish_published_reports_tree(
                 *scope.output_dir_parts
             ),
             geography_scope=scope,
+            **(
+                {"source_resource_catalogue": source_resource_catalogue}
+                if source_resource_catalogue is not None
+                else {}
+            ),
         )
         scope_reports[scope.key] = scope_report
         regional_output_dirs.append(scope_dir)

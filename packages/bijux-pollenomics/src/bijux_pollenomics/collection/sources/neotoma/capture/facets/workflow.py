@@ -29,15 +29,22 @@ from ..resources.models import (
 )
 from ..transport import NeotomaHttpResponse, _fetch_response
 from .assessment import assess_http
-from .models import FACET_SCHEMA, NeotomaFacetCapture, NeotomaFacetPlan
+from .models import (
+    SCOPED_FACET_SCHEMA,
+    NeotomaFacetCapture,
+    NeotomaFacetPlan,
+    NeotomaFacetScopeInputs,
+)
 from .protocol import facet_identity, request_for, validate_plan
 from .replay import SNAPSHOT_CONSISTENCY, replay_neotoma_facet_capture
+from .scope import prepare_facet_parent_scope
 
 
 def capture_neotoma_dataset_facets(
     directory: Path,
     *,
     plan: NeotomaFacetPlan,
+    scope: NeotomaFacetScopeInputs,
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
     fetch: Callable[..., NeotomaHttpResponse] = _fetch_response,
 ) -> NeotomaFacetCapture:
@@ -51,6 +58,8 @@ def capture_neotoma_dataset_facets(
     final = _safe_root(directory)
     if final.exists():
         raise FileExistsError(f"Neotoma facet output exists: {final}")
+    parent_scope = prepare_facet_parent_scope(plan, scope)
+    parents = {row["dataset_id"]: row for row in parent_scope["parents"]}
     staging = build_staging_output_dir(final)
     staging.mkdir(exist_ok=False)
     started = datetime.now(UTC).isoformat()
@@ -58,10 +67,12 @@ def capture_neotoma_dataset_facets(
     requests = total = 0
     entries: list[dict[str, Any]] = []
     try:
+        scope_digest = _write_json(staging / "parent-scope.json", parent_scope)
         plan_digest = _write_json(
             staging / "request-plan.json",
             {
-                "schema_version": FACET_SCHEMA,
+                "schema_version": SCOPED_FACET_SCHEMA,
+                "parent_scope": {"file": "parent-scope.json", "sha256": scope_digest},
                 "plan": asdict(plan),
                 "limits": asdict(limits),
                 "policy_sources": NeotomaResourcePlan(
@@ -76,11 +87,21 @@ def capture_neotoma_dataset_facets(
                     **facet_identity(resource, facet),
                     "attempts": [],
                     "scientific_admission": "not_asserted",
+                    "parent_scope_role": parents[resource.dataset_id][
+                        "effective_scope_role"
+                    ],
                 }
                 if resource.exposure_role not in DEVELOPMENT_ROLES:
                     entry.update(
                         terminal_status="not_attempted_exposure_role",
                         reason=resource.exposure_role,
+                    )
+                    entries.append(entry)
+                    continue
+                if entry["parent_scope_role"] not in DEVELOPMENT_ROLES:
+                    entry.update(
+                        terminal_status="not_attempted_parent_scope",
+                        reason=entry["parent_scope_role"],
                     )
                     entries.append(entry)
                     continue
@@ -143,7 +164,7 @@ def capture_neotoma_dataset_facets(
         _write_json(
             staging / "capture-manifest.json",
             {
-                "schema_version": FACET_SCHEMA,
+                "schema_version": SCOPED_FACET_SCHEMA,
                 "status": "closed",
                 "capture_utc_start": started,
                 "capture_utc_end": datetime.now(UTC).isoformat(),
@@ -156,14 +177,16 @@ def capture_neotoma_dataset_facets(
                 "snapshot_consistency": SNAPSHOT_CONSISTENCY,
             },
         )
-        result = replay_neotoma_facet_capture(staging, limits=limits)
+        result = replay_neotoma_facet_capture(
+            staging, limits=limits, scope_inputs={plan.roster_sha256: scope}
+        )
         publish_new_output_tree(final_output_root=final, staging_output_root=staging)
         return result
     except Exception as error:
         _write_json(
             staging / "refusal.json",
             {
-                "schema_version": FACET_SCHEMA,
+                "schema_version": SCOPED_FACET_SCHEMA,
                 "status": "refused_execution",
                 "error": f"{type(error).__name__}: {error}",
                 "request_count": requests,

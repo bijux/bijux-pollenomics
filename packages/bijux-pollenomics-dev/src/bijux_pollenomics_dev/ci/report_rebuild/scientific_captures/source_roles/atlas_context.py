@@ -9,6 +9,7 @@ from ...contracts import JsonObject, ReportRebuildError
 from ...ownership import _regular_confined_file
 from ...retained_source import SourceCapsule
 from .atlas_runtime_transport import atlas_runtime_transport_extension_matches
+from .atlas_transport.resources import without_resource_context_additions
 
 _SOURCE_CONTEXT_CONTRACTS: dict[
     str, tuple[int, str, str, tuple[tuple[bytes, bytes], ...]]
@@ -628,6 +629,76 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
             ),
         ),
     ),
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/asset_inventory.py": (
+        19701,
+        "dccd61cc2a03bbd20d89a4ef95e397bafc1ed3bd2736bb430761f0f691391bab",
+        "ordinary_original_bytes",
+        (),
+    ),
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/contracts.py": (
+        3119,
+        "5674253433e951e2f06254c03437ba533574119f45dd2c548e3f9ba684d4c65d",
+        "ordinary_original_bytes",
+        (),
+    ),
+    "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/published_reports.py": (
+        18226,
+        "1c2845f6752bd18da541c07edb8efaba1133d35d063a362c131a8b4d9f0a7d25",
+        "ordinary_original_bytes",
+        (
+            (
+                (
+                    b"    if not isinstance(payload, dict):\n"
+                    b'        raise ValueError("Animal atlas evidence must be a JSON object")\n'
+                    b'    if payload.get("schema_version") != "animal-atlas-evidence-rows.v1":\n'
+                    b'        raise ValueError("Animal atlas evidence schema version is unsupported")\n'
+                    b'    rows = payload.get("rows")\n'
+                ),
+                (
+                    b"    if not isinstance(payload, dict):\n"
+                    b'        raise ValueError("Animal atlas evidence must be a JSON object")\n'
+                    b"    # V2 adds owned sample chronology; the evidence-row identity stays unchanged.\n"
+                    b'    if payload.get("schema_version") not in (\n'
+                    b'        "animal-atlas-evidence-rows.v1",\n'
+                    b'        "animal-atlas-evidence-rows.v2",\n'
+                    b"    ):\n"
+                    b'        raise ValueError("Animal atlas evidence schema version is unsupported")\n'
+                    b'    rows = payload.get("rows")\n'
+                ),
+            ),
+            (
+                (
+                    b"    for row in rows:\n"
+                    b"        if not isinstance(row, dict):\n"
+                    b"            continue\n"
+                    b'        evidence_row_id = str(row.get("evidence_row_id", "")).strip()\n'
+                    b"        if evidence_row_id:\n"
+                    b"            identifiers.add(evidence_row_id)\n"
+                    b"    return identifiers\n"
+                    b"\n"
+                ),
+                (
+                    b"    for row in rows:\n"
+                    b"        if not isinstance(row, dict):\n"
+                    b'            raise ValueError("Animal atlas evidence rows must be JSON objects")\n'
+                    b'        evidence_row_id = row.get("evidence_row_id")\n'
+                    b"        if (\n"
+                    b"            not isinstance(evidence_row_id, str)\n"
+                    b"            or not evidence_row_id\n"
+                    b"            or evidence_row_id != evidence_row_id.strip()\n"
+                    b"        ):\n"
+                    b"            raise ValueError(\n"
+                    b'                "Animal atlas evidence row identity must be exact nonblank text"\n'
+                    b"            )\n"
+                    b"        if evidence_row_id in identifiers:\n"
+                    b'            raise ValueError("Animal atlas evidence row identities must be unique")\n'
+                    b"        identifiers.add(evidence_row_id)\n"
+                    b"    return identifiers\n"
+                    b"\n"
+                ),
+            ),
+        ),
+    ),
 }
 _RUNTIME_CONTEXT_SOURCES = frozenset(
     (
@@ -657,7 +728,9 @@ def atlas_context_extension_matches(name: str, captured: bytes, current: bytes) 
     size, digest, composition, spans = contract
     if len(captured) != size or hashlib.sha256(captured).hexdigest() != digest:
         return False
-    restored = current
+    restored = without_resource_context_additions(name, current)
+    if restored is None:
+        return False
     for original, extension in spans:
         if restored.count(extension) != 1:
             return False

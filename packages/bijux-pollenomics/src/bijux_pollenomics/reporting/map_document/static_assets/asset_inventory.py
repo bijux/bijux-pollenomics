@@ -79,6 +79,7 @@ _ASSET_DOMAINS = {
     "edges",
     "sequences",
     "indexes",
+    "resources",
 }
 
 
@@ -307,13 +308,17 @@ def _integrity_from_digest(digest: str) -> str:
 def _payload_encoding(domain: str) -> str:
     if domain not in _ASSET_DOMAINS:
         raise ValueError("static atlas asset domain is invalid")
-    return "gzip_base64" if domain in {"nodes", "details", "provenance"} else "json"
+    return (
+        "gzip_base64"
+        if domain in {"nodes", "details", "provenance", "resources"}
+        else "json"
+    )
 
 
 def _initial_load(domain: str) -> bool:
     if domain not in _ASSET_DOMAINS:
         raise ValueError("static atlas asset domain is invalid")
-    return domain not in {"nodes", "details", "indexes"}
+    return domain not in {"nodes", "details", "indexes", "resources"}
 
 
 def _validate_rows(

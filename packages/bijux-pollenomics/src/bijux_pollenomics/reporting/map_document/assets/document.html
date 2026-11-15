@@ -2604,7 +2604,7 @@ __NATIVE_LRA_SCRIPT_TAG__
       const STATIC_ATLAS_INLINE = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-inline-bootstrap.v1';
       globalThis.__BIJUX_ATLAS_RAW_CHUNKS__ = globalThis.__BIJUX_ATLAS_RAW_CHUNKS__ || [];
       const STATIC_ATLAS_RAW_CHUNKS = globalThis.__BIJUX_ATLAS_RAW_CHUNKS__;
-      const STATIC_ATLAS_CHUNKS = { nodes: [], details: [] };
+      const STATIC_ATLAS_CHUNKS = { nodes: [], details: [], resources: [] };
       const staticAtlasLoadedAssets = new Set();
       const staticAtlasInFlightAssets = new Map();
       let staticAtlasIndexTransport = null;
@@ -2614,6 +2614,7 @@ __NATIVE_LRA_SCRIPT_TAG__
         provenance: ['atlas-provenance-chunk.v2', 'atlas-provenance-chunk.v3'],
         nodes: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? ['atlas-node-chunk.v2'] : ['atlas-node-chunk.v1'],
         details: ['atlas-details-chunk.v1'],
+        resources: ['atlas-source-resource-chunk.v1'],
         edges: ['atlas-edges-chunk.v1', 'atlas-edges-chunk.v2'],
         sequences: ['atlas-sequences-chunk.v1'],
         indexes: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? ['atlas-static-indexes.v4'] : ['atlas-static-indexes.v1', 'atlas-static-indexes.v2', 'atlas-static-indexes.v3', 'atlas-static-indexes.v5'],
@@ -2683,11 +2684,11 @@ __NATIVE_LRA_SCRIPT_TAG__
                 sha256: stored.sha256,
                 integrity: staticAtlasIntegrityFromHex(stored.sha256),
                 payload_sha256: stored.payload_sha256,
-                payload_encoding: ['provenance', 'nodes', 'details'].includes(domain) ? 'gzip_base64' : 'json',
+                payload_encoding: ['provenance', 'nodes', 'details', 'resources'].includes(domain) ? 'gzip_base64' : 'json',
                 decoded_byte_count: stored.decoded_byte_count,
                 byte_count: stored.byte_count,
                 record_count: stored.record_count,
-                initial_load: !['nodes', 'details', 'indexes'].includes(domain),
+                initial_load: !['nodes', 'details', 'indexes', 'resources'].includes(domain),
                 ...Object.fromEntries(STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).map((field) => [field, stored[field]])),
               }
             : stored;
@@ -2701,7 +2702,7 @@ __NATIVE_LRA_SCRIPT_TAG__
           }
           if (STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(0, STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).some((field) => row[field] === null || row[field] === undefined)) staticAtlasFailure(`asset table row ${recordIndex} core field is missing`);
           if (typeof row.asset_key !== 'string' || !row.asset_key || typeof row.domain !== 'string' || !row.domain || typeof row.path !== 'string' || !row.path) staticAtlasFailure(`asset table row ${recordIndex} identity is invalid`);
-          if (!['provenance', 'nodes', 'details', 'edges', 'sequences', 'indexes'].includes(row.domain)) staticAtlasFailure(`asset table row ${recordIndex} domain is invalid`);
+          if (!['provenance', 'nodes', 'details', 'edges', 'sequences', 'indexes', 'resources'].includes(row.domain)) staticAtlasFailure(`asset table row ${recordIndex} domain is invalid`);
           if (['sha256', 'integrity', 'payload_sha256', 'payload_encoding'].some((field) => typeof row[field] !== 'string' || !row[field])) staticAtlasFailure(`asset table row ${recordIndex} transport field is invalid`);
           if (['decoded_byte_count', 'byte_count', 'record_count'].some((field) => !Number.isSafeInteger(row[field]) || row[field] < 0) || typeof row.initial_load !== 'boolean') staticAtlasFailure(`asset table row ${recordIndex} accounting field is invalid`);
           if (!Number.isSafeInteger(row.sequence) || row.sequence !== recordIndex || sequences.has(row.sequence)) staticAtlasFailure(`asset table row ${recordIndex} sequence is invalid`);
@@ -2733,7 +2734,7 @@ __NATIVE_LRA_SCRIPT_TAG__
         if (!/^atlas-[a-f0-9]{64}$/.test(String(STATIC_ATLAS_BOOTSTRAP.build_id || ''))) staticAtlasFailure('bootstrap build identity is invalid');
         if (!Array.isArray(STATIC_ATLAS_BOOTSTRAP.assets)) staticAtlasFailure('bootstrap asset inventory is missing');
         if (STATIC_ATLAS_BOOTSTRAP.transport_integrity?.http_https !== 'subresource_integrity_plus_payload_sha256' || STATIC_ATLAS_BOOTSTRAP.transport_integrity?.file !== 'payload_sha256_after_script_registration' || STATIC_ATLAS_BOOTSTRAP.transport_integrity?.file_pre_execution_sri !== false) staticAtlasFailure('transport-integrity posture mismatch');
-        const compatibilityKeys = { provenance: 'provenance_schema', nodes: 'node_schema', details: 'detail_schema', edges: 'edge_schema', sequences: 'sequence_schema', indexes: 'index_schema' };
+        const compatibilityKeys = { provenance: 'provenance_schema', nodes: 'node_schema', details: 'detail_schema', edges: 'edge_schema', sequences: 'sequence_schema', resources: 'resource_schema', indexes: 'index_schema' };
         Object.entries(STATIC_ATLAS_SCHEMAS).forEach(([domain, schemas]) => {
           const declared = STATIC_ATLAS_BOOTSTRAP.compatibility?.[compatibilityKeys[domain]];
           const legacyWithoutDetails = domain === 'details' && STATIC_ATLAS_BOOTSTRAP.compatibility?.provenance_schema === 'atlas-provenance-chunk.v2' && declared === undefined;
@@ -2744,9 +2745,10 @@ __NATIVE_LRA_SCRIPT_TAG__
           if (!/^[a-f0-9]{64}$/.test(String(row.sha256 || '')) || !/^[a-f0-9]{64}$/.test(String(row.payload_sha256 || ''))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} digest is invalid`);
           if (!/^sha256-[A-Za-z0-9+/]{43}=$/.test(String(row.integrity || ''))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} integrity declaration is invalid`);
           const payloadEncoding = row.payload_encoding || 'json';
+          if (row.domain === 'resources' && (payloadEncoding !== 'gzip_base64' || row.initial_load !== false)) staticAtlasFailure('Resource metadata transport declaration is invalid');
           if (!['json', 'gzip_base64'].includes(payloadEncoding)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} payload encoding is invalid`);
-          if (payloadEncoding === 'gzip_base64' && !['provenance', 'nodes', 'details'].includes(row.domain)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} compressed payload domain is invalid`);
-          const requiresDecodedByteCount = ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(STATIC_ATLAS_BOOTSTRAP.compatibility?.index_schema) || (['provenance', 'nodes', 'details'].includes(row.domain) && payloadEncoding === 'gzip_base64');
+          if (payloadEncoding === 'gzip_base64' && !['provenance', 'nodes', 'details', 'resources'].includes(row.domain)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} compressed payload domain is invalid`);
+          const requiresDecodedByteCount = ['atlas-static-indexes.v3','atlas-static-indexes.v4','atlas-static-indexes.v5'].includes(STATIC_ATLAS_BOOTSTRAP.compatibility?.index_schema) || (['provenance', 'nodes', 'details', 'resources'].includes(row.domain) && payloadEncoding === 'gzip_base64');
           if (requiresDecodedByteCount && (!Number.isSafeInteger(row.decoded_byte_count) || row.decoded_byte_count <= 0)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} decoded byte count is invalid`);
           if (row.decoded_byte_count !== undefined && (!Number.isSafeInteger(row.decoded_byte_count) || row.decoded_byte_count <= 0 || row.decoded_byte_count > Number(STATIC_ATLAS_BOOTSTRAP.budgets?.chunk_max_bytes))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} decoded byte count exceeds its byte budget`);
           const recordCount = staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key || 'unknown asset'} record count`);
@@ -3022,7 +3024,7 @@ __NATIVE_LRA_SCRIPT_TAG__
           if (!Array.isArray(payload.features) || !Array.isArray(payload.feature_indexes) || payload.features.length !== payload.feature_indexes.length) staticAtlasFailure(`${row.asset_key} feature accounting is invalid`);
           if (payload.features.length !== row.record_count || payload.layer_key !== row.layer_key || payload.layer_index !== row.layer_index || payload.layer_kind !== row.layer_kind) staticAtlasFailure(`${row.asset_key} layer accounting mismatch`);
         }
-        if ((row.domain === 'edges' || row.domain === 'sequences') && (!Array.isArray(payload.records) || payload.records.length !== row.record_count)) staticAtlasFailure(`${row.asset_key} record accounting mismatch`);
+        if ((row.domain === 'edges' || row.domain === 'sequences' || row.domain === 'resources') && (!Array.isArray(payload.records) || payload.records.length !== row.record_count)) staticAtlasFailure(`${row.asset_key} record accounting mismatch`);
         if (row.domain === 'edges') validateStaticAtlasEdgeAssets(payload);
         if (row.domain === 'details' && (!Array.isArray(payload.records) || payload.records.length !== row.record_count || payload.records.some((record) => !record || typeof record.record_id !== 'string'))) staticAtlasFailure(`${row.asset_key} detail accounting mismatch`);
         if (row.domain === 'provenance' && (!Array.isArray(payload.layers) || !Array.isArray(payload.scientific_signals) || (payload.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(payload.detail_records)))) staticAtlasFailure(`${row.asset_key} evidence accounting mismatch`);
@@ -3064,10 +3066,12 @@ __NATIVE_LRA_SCRIPT_TAG__
           staticAtlasFailure(`${row.asset_key} payload JSON is invalid`);
         }
         if (row.domain === 'indexes') await loadIndexTransport();
+        if (row.domain === 'resources') await loadSourceResourceBrowser();
         validateStaticAtlasPayload(row, payload);
         const acceptedPayload = row.domain === 'indexes' ? await staticAtlasIndexTransport.consume(row, payload, staticAtlasIndexRows()) : payload;
         signal?.throwIfAborted();
-        if (row.domain === 'nodes') STATIC_ATLAS_CHUNKS.nodes.push(payload);
+        if (row.domain === 'resources') { sourceResourceBrowser.consume(row, payload); STATIC_ATLAS_CHUNKS.resources.push(payload); }
+        else if (row.domain === 'nodes') STATIC_ATLAS_CHUNKS.nodes.push(payload);
         else if (row.domain === 'details') STATIC_ATLAS_CHUNKS.details.push(payload);
         else if (acceptedPayload !== null) STATIC_ATLAS_CHUNKS[row.domain] = acceptedPayload;
         staticAtlasLoadedAssets.add(row.asset_key);
@@ -7023,6 +7027,7 @@ __URL_STATE_CONTROLLER__
       __RELATION_TIME_SUMMARY_CONTROLLER__
       __SCIENTIFIC_PICKER_CONTROLLER__
       __SCIENTIFIC_PICKER_MOUNT_CONTROLLER__
+      __SOURCE_RESOURCE_BROWSER_FACTORY__
       __SOURCE_RECORD_DETAILS_FACTORY__
       __SOURCE_RECORD_EXPORT_FACTORY__
       __SELECTION_EXPORT_CONTROLLER__
@@ -7035,7 +7040,7 @@ __URL_STATE_CONTROLLER__
             pickerCatalog: scientificPickerCatalog, pickerSearch: scientificPickerSearch,
             pickerInitial: scientificPickerInitialState, pickerAction: scientificPickerAction,
             pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker, sourceDetails: createSourceRecordDetails,
-            sourceExport: createSourceRecordExport, selectionExport: prepareAtlasSelectionExport});
+            sourceExport: createSourceRecordExport, sourceResources: createSourceResourceBrowser, selectionExport: prepareAtlasSelectionExport});
         }
         return evidenceTools;
       }
@@ -7080,6 +7085,14 @@ __URL_STATE_CONTROLLER__
           });
         }).catch(error => { evidenceToolsError = String(error.message || error); throw error; });
         return evidenceToolsRequest;
+      }
+      let sourceResourceBrowser = null;
+      async function loadSourceResourceBrowser() {
+        if (sourceResourceBrowser) return sourceResourceBrowser;
+        const tools = await loadEvidenceTools();
+        if (typeof tools?.sourceResources !== 'function') throw Error('Source resource metadata tools are unavailable.');
+        return sourceResourceBrowser ||= tools.sourceResources({manifest: STATIC_ATLAS_BOOTSTRAP,
+          loadAsset: loadStaticAtlasAsset, payloadForAsset: key => STATIC_ATLAS_CHUNKS.resources.find(part => part.asset_key === key)});
       }
       function renderRelationTimeSummaryPanel() {
         const container = document.getElementById('relation-time-summary');

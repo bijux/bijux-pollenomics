@@ -39,6 +39,8 @@ class CatalogueSources:
     qualifications: dict[str, dict[str, Any]]
     retained: Mapping[str, NeotomaRetainedSource]
     source_snapshots: dict[str, dict[str, Any]] = field(default_factory=dict)
+    country_associations: dict[int, list[dict[str, Any]]] | None = None
+    country_inventory_captures: list[str] = field(default_factory=list)
 
     def source(
         self, digest: str, entry: dict[str, Any]
@@ -235,6 +237,7 @@ def prepare_catalogue_sources(
     source_captures: Mapping[str, Path] | None = None,
     retained_sources: Mapping[str, NeotomaRetainedSource] | None = None,
     original_relational_root: Path | None = None,
+    country_authority_captures: Mapping[str, Path] | None = None,
 ) -> CatalogueSources:
     content = _read(roster_path, 16 * 1024 * 1024)
     if sha256(content).hexdigest() != expected_roster_sha256:
@@ -411,6 +414,23 @@ def prepare_catalogue_sources(
             },
         }
     roots = {**(source_captures or {}), **resource_captures}
+    country_associations = None
+    country_inventory_captures = []
+    if country_authority_captures is not None:
+        from .geopolitical.associations import derive_associations
+
+        country_associations = derive_associations(
+            metadata_results, metadata_captures, country_authority_captures
+        )
+        country_inventory_captures = sorted(
+            digest
+            for digest, result in metadata_results.items()
+            if result.geopolitical_inventory_rows
+        )
+        for digest, root in country_authority_captures.items():
+            if digest in descriptors:
+                raise ValueError("Source country capture kind is ambiguous")
+            descriptors[digest] = describe_capture(root, digest, "country_authority")
     selected: dict[str, tuple[str, dict[str, Any]]] = {}
     manifests: dict[str, dict[str, Any]] = {}
     qualifications: dict[str, dict[str, Any]] = {}
@@ -480,4 +500,6 @@ def prepare_catalogue_sources(
         qualifications,
         retained_sources or {},
         source_snapshots,
+        country_associations,
+        country_inventory_captures,
     )

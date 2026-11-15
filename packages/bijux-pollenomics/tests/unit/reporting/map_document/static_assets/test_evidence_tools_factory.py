@@ -49,6 +49,7 @@ html:tools.pickerHtml(catalog,{pinnedIds:[],visibleIds:[]})}));
         "pickerMount",
         "sourceDetails",
         "sourceExport",
+        "sourceResources",
         "selectionExport",
     ]
     assert all(

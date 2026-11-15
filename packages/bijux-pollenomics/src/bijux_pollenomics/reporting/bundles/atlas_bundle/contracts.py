@@ -53,6 +53,19 @@ def publish_contracts(
         "budgets": static_assets.manifest["budgets"],
         "domains": static_assets.manifest["domains"],
     }
+    resource_domain = static_assets.manifest["domains"].get("resources")
+    if resource_domain is not None:
+        map_publication_contract["source_resources"] = {
+            key: resource_domain[key]
+            for key in (
+                "catalogue_manifest_sha256",
+                "record_count",
+                "site_count",
+                "version_status_count",
+                "scientific_admission",
+                "numerical_atlas_denominator_changed",
+            )
+        }
     if animal_chronology_context is not None:
         payload, identity = _animal_chronology_publication(
             animal_chronology_context,

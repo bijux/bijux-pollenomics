@@ -15,6 +15,7 @@ from bijux_pollenomics.core.owned_tree import (
 )
 
 from ..capture import replay_neotoma_metadata_capture
+from ..capture.country_authority import replay_neotoma_country_authority
 from ..capture.receipts import _object, _read, _safe_root, _write_json
 from ..capture.resources import NeotomaRetainedSource, replay_neotoma_resource_capture
 from .coverage import verify_catalogue_source_projection
@@ -24,6 +25,7 @@ from .custody import (
     pinned_object,
     public_member,
 )
+from .geopolitical.associations import validate_associations, verify_associations
 from .source_projection import (
     verify_derived_projection,
     verify_native_metadata_projection,
@@ -47,6 +49,7 @@ def _validate(catalogue: dict[str, Any]) -> None:
     ].get("version_status_count") != 2 * len(rows):
         raise ValueError("Catalogue declared coverage population differs")
     verify_derived_projection(catalogue)
+    validate_associations(catalogue)
     for digest, descriptor in catalogue["capture_descriptors"].items():
         if (
             not isinstance(digest, str)
@@ -260,11 +263,12 @@ def load_neotoma_resource_catalogue(
     verify_roster_projection(catalogue, roster)
     if require_source_bodies:
         sources = capture_sources or {}
+        metadata_results = {}
         for digest, descriptor in catalogue["capture_descriptors"].items():
             if digest not in sources:
                 raise ValueError("Catalogue source body resolver is required")
             if descriptor["capture_kind"] == "metadata":
-                replay_neotoma_metadata_capture(
+                metadata_results[digest] = replay_neotoma_metadata_capture(
                     sources[digest],
                     expected_manifest_sha256=digest,
                     limits=METADATA_REPLAY_LIMITS,
@@ -275,6 +279,10 @@ def load_neotoma_resource_catalogue(
                     expected_manifest_sha256=digest,
                     source_captures=sources,
                     retained_sources=retained_sources,
+                )
+            elif descriptor["capture_kind"] == "country_authority":
+                replay_neotoma_country_authority(
+                    sources[digest], expected_manifest_sha256=digest
                 )
             else:
                 raise ValueError("Unsupported catalogue capture descriptor kind")
@@ -290,5 +298,6 @@ def load_neotoma_resource_catalogue(
         verify_native_metadata_projection(
             catalogue, root / "source-inventory.json", sources, original_relational_root
         )
+        verify_associations(catalogue, metadata_results, sources)
         verify_catalogue_source_projection(catalogue, sources, retained_sources)
     return catalogue

@@ -6,24 +6,36 @@ from datetime import UTC, datetime
 from hashlib import sha256
 import json
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 from urllib.parse import urlsplit
 
 from ..client import decode_neotoma_json_object
 from .models import _HEADERS, _Request
 from .transport import NeotomaHttpResponse
 
+if TYPE_CHECKING:
+    from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 
-def _write_json(path: Path, payload: object) -> str:
+
+def _write_json(
+    path: Path, payload: object, *, writer: OwnedTreeWriter | None = None
+) -> str:
     content = (
         json.dumps(
             payload, sort_keys=True, ensure_ascii=False, allow_nan=False, indent=2
         )
         + "\n"
     ).encode()
-    with path.open("xb") as stream:
-        stream.write(content)
+    _write_bytes(path, content, writer=writer)
     return sha256(content).hexdigest()
+
+
+def _write_bytes(path: Path, content: bytes, *, writer: OwnedTreeWriter | None) -> None:
+    if writer is not None:
+        writer.write_bytes(path.relative_to(writer.root).as_posix(), content)
+    else:
+        with path.open("xb") as stream:
+            stream.write(content)
 
 
 def _safe_root(path: Path) -> Path:
@@ -121,7 +133,12 @@ def _request_record(request: _Request, started: str) -> dict[str, Any]:
 
 
 def _retain_http_response(
-    directory: Path, request: _Request, response: NeotomaHttpResponse, started: str
+    directory: Path,
+    request: _Request,
+    response: NeotomaHttpResponse,
+    started: str,
+    *,
+    writer: OwnedTreeWriter | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     record = _request_record(request, started)
     record.update(
@@ -137,10 +154,9 @@ def _retain_http_response(
         if response.http_status == 200 and response.body_complete
         else "refused_http_response",
     )
-    with (directory / record["body_file"]).open("xb") as stream:
-        stream.write(response.body)
+    _write_bytes(directory / record["body_file"], response.body, writer=writer)
     filename = f"{request.name}.receipt.json"
-    digest = _write_json(directory / filename, record)
+    digest = _write_json(directory / filename, record, writer=writer)
     return {
         "request_name": request.name,
         "receipt_file": filename,
@@ -150,7 +166,12 @@ def _retain_http_response(
 
 
 def _retain_transport_failure(
-    directory: Path, request: _Request, started: str, error: Exception
+    directory: Path,
+    request: _Request,
+    started: str,
+    error: Exception,
+    *,
+    writer: OwnedTreeWriter | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     record = _request_record(request, started)
     record.update(
@@ -160,7 +181,7 @@ def _retain_transport_failure(
         body_complete=False,
     )
     filename = f"{request.name}.receipt.json"
-    digest = _write_json(directory / filename, record)
+    digest = _write_json(directory / filename, record, writer=writer)
     return {
         "request_name": request.name,
         "receipt_file": filename,

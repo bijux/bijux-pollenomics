@@ -10,6 +10,7 @@ from types import ModuleType
 
 import pytest
 
+from .parent_scope.native_sources import discover_fixture
 from .test_profiles import capture
 
 
@@ -27,7 +28,7 @@ def test_every_discovered_id_is_bound_to_actual_source_buffer_and_pointer(
     source = tmp_path / "capture"
     captured = capture(source)
     before = {p.name: p.read_bytes() for p in source.iterdir()}
-    report = owner().discover_neotoma_facet_links(
+    report = discover_fixture(
         source,
         expected_manifest_sha256=captured.manifest_sha256,
         include_higher_taxa=higher,
@@ -59,7 +60,7 @@ def test_dataset_and_taxonomic_publications_are_separate_without_author_id_guess
     tmp_path: Path,
 ) -> None:
     result = capture(tmp_path / "capture")
-    report = owner().discover_neotoma_facet_links(
+    report = discover_fixture(
         tmp_path / "capture",
         expected_manifest_sha256=result.manifest_sha256,
     )
@@ -112,7 +113,7 @@ def test_swapped_body_cannot_supply_ids_under_an_authentic_old_manifest(
     body = tmp_path / "capture" / entry["attempts"][-1]["body_file"]
     body.write_bytes(b'{"status":"success","data":[{"taxonid":999}]}')
     with pytest.raises(ValueError):
-        owner().discover_neotoma_facet_links(
+        discover_fixture(
             tmp_path / "capture",
             expected_manifest_sha256=result.manifest_sha256,
         )

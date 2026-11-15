@@ -2,6 +2,17 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#443](https://github.com/bijux/bijux-pollenomics/pull/443) — Owned source publication and authenticated Atlas metadata
+
+- Capture source outputs and publish closed archives through exclusively owned,
+  descriptor-anchored trees, refusing changed roots, foreign entries and unsafe links.
+- Preserve authenticated country associations and ancillary parent obligations with
+  exact occurrence/epoch evidence, strongest known roles and explicit unknown scope.
+- Package original dataset metadata separately from numerical surfaces and expose
+  authenticated lazy Atlas resource metadata with pinned transport and bounded parts.
+- Retain exact whole-byte predecessor witnesses and literal inverse guards for the
+  source transport, including the renderer controller export required by its tests.
+
 ### [#442](https://github.com/bijux/bijux-pollenomics/pull/442) — Portable source capsules and bounded catalogue storage
 
 - Authenticate download-only source entities and complete native attribution while
