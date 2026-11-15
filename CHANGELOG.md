@@ -2,6 +2,28 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### Bokesjon source assessment and conditional basin sensitivity
+
+- Retain attributed public Bokesjon Neotoma core/site/pollen/dating and DOI metadata
+  with exact source identities and hashes, keeping public-data rights separate from
+  private workbook rights and scientific endorsement.
+- Audit selected native taxon/count slots, literal parameter-label coverage and
+  optional source-owned workbook/lookup witnesses. Preserve
+  omitted/null/invalid/reported-zero distinctions, age ownership, source
+  denominators and unresolved taxonomic/parameter applicability; do not invent
+  biological zeros or apply candidate mappings.
+- Publish the retained pilot source assessment with chronology, basin, taxon/PPE and
+  independent-vegetation admission limits. Add an authenticated three-profile
+  static-basin sensitivity route that rebuilds geometry and compares signed/clipped
+  spans without asserting execution, ancient shoreline recovery or cover accuracy.
+- Synthetic and metadata controls qualify the implementation boundary only;
+  historical numerical replay, private-source-body review, fresh sensitivity
+  execution and independent scientific admission remain unperformed in this
+  delivery.
+- Guard the public projection with synthetic private-row sentinels while preserving
+  public native counts and PPE source fields. Both author-lookup and workbook-row
+  filter mutations are refused by the regression.
+
 ### [#424](https://github.com/bijux/bijux-pollenomics/pull/424) — Swedish agricultural indicators and public core metadata
 
 - Derive rye, other cereals, plantain and non-cereal herbs on the unchanged
