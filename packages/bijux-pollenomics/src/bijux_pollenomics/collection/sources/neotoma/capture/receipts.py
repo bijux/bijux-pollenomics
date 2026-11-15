@@ -5,7 +5,9 @@ from __future__ import annotations
 from datetime import UTC, datetime
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
+import stat
 from typing import TYPE_CHECKING, Any
 from urllib.parse import urlsplit
 
@@ -217,9 +219,29 @@ def _utc(value: object) -> datetime:
 
 
 def _read(path: Path, bound: int) -> bytes:
-    if path.is_symlink() or not path.is_file() or path.stat().st_size > bound:
+    if type(bound) is not int or bound < 0:
+        raise ValueError(
+            "Neotoma capture byte bound must be a nonnegative native integer"
+        )
+    try:
+        node = path.stat(follow_symlinks=False)
+    except OSError as error:
+        raise ValueError(
+            f"Neotoma capture input is not a bounded regular file: {path}"
+        ) from error
+    if not stat.S_ISREG(node.st_mode) or node.st_size > bound:
         raise ValueError(f"Neotoma capture input is not a bounded regular file: {path}")
-    return path.read_bytes()
+    with path.open("rb") as stream:
+        opened = os.fstat(stream.fileno())
+        if not stat.S_ISREG(opened.st_mode) or (opened.st_dev, opened.st_ino) != (
+            node.st_dev,
+            node.st_ino,
+        ):
+            raise ValueError("Neotoma capture input identity changed while opening")
+        content = stream.read(bound + 1)
+    if len(content) > bound:
+        raise ValueError("Neotoma capture input grew beyond its byte bound")
+    return content
 
 
 def _object(content: bytes) -> dict[str, Any]:

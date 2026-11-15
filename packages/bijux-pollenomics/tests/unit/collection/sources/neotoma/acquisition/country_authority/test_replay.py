@@ -108,13 +108,13 @@ def test_unknown_country_read_refuses_before_any_body_buffer(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     root, result = captured(tmp_path)
-    original = Path.read_bytes
+    original = Path.open
 
-    def guard(path: Path) -> bytes:
+    def guard(path: Path, *args: Any, **kwargs: Any) -> Any:
         assert path.suffix != ".body", "Unselected source body opened"
-        return original(path)
+        return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "read_bytes", guard)
+    monkeypatch.setattr(Path, "open", guard)
     with pytest.raises(ValueError):
         owner().read_neotoma_country_authority_body(
             root, expected_manifest_sha256=result.manifest_sha256, country="samples"
