@@ -8,7 +8,7 @@ function sourceRecordRows(table, required) {
 function sourceRecordFields(rows) {
   return rows.map(([label,value]) => `<div class="focus-detail-row"><span class="focus-detail-key">${escapeHtml(label)}</span><span>${escapeHtml(detailTableText(value))}</span></div>`).join('');
 }
-function renderSourceChronologyContext(tabs) {
+function renderSourceChronologyIssues(tabs) {
   const unavailable = () => '<section aria-label="Source chronology review" data-source-chronology-review="unavailable"><h3>Source chronology review</h3><p>Source issue review is not available in these retained tables. This does not establish that no source issues exist. Original model, control and age tables remain below.</p></section>';
   const issues = tabs?.chronology?.source_issues;
   if (!issues || issues.status === 'unavailable') return unavailable();
@@ -29,6 +29,26 @@ function renderSourceChronologyContext(tabs) {
     const tables = sections.map(([key,label]) => `<h4>${escapeHtml(label)}</h4>${renderDetailTable(issues[key], `chronology.source_issues.${key}`)}`).join('');
     return `<section aria-label="Source chronology review" data-source-chronology-review="available"><h3>Source chronology review</h3><p>${conflicts.length} retained conflict records, ${orphans.length} orphan records and ${variants.length} constituent dated-specimen variants. A source control may combine several dated specimens. Canonical storage does not select a specimen or an analysis chronology.</p><p>${escapeHtml(references)}</p><p>All retained issue records, variants and native locators remain in the tables below and the source record download. These records are not additional pollen observations or independent validation data.</p>${metadata}${tables}</section>`;
   } catch { return unavailable(); }
+}
+function renderSourceChronologyQuality(tabs) {
+  const unavailable = () => '<section aria-label="Source chronology support" data-source-chronology-quality="unavailable"><h3>Source chronology support</h3><p>Matching chronology-quality metadata is unavailable or could not be decoded. This does not establish that no chronology-quality issues exist. Original chronology tables and source downloads remain available.</p></section>';
+  const quality = tabs?.chronology?.source_quality;
+  if (!quality || !sourceChronologyQualityMatches(tabs)) return unavailable();
+  try {
+    const profiles = sourceRecordRows(quality.profiles,['profile_id','flags']);
+    const samples = sourceRecordRows(quality.sample_flags,['sample_id','flags']);
+    const claims = sourceRecordRows(quality.claim_diagnostics,['chronology_claim_id','sample_id','profile_id','point_status','flags']);
+    const counts = quality.site_denominators;
+    if (counts?.profiles !== profiles.length || counts?.samples !== samples.length || counts?.age_claims !== claims.length
+      || quality.source_profile?.eligibility_changed !== false || quality.source_profile?.chronology_selected !== false) return unavailable();
+    const sections = [['profiles','Source chronology profiles'],['sample_flags','Sample flags across profiles'],['claim_diagnostics','Individual age-claim diagnostics']];
+    const metadata = sourceRecordFields(Object.entries(quality).filter(([key]) => !sections.some(([name]) => key === name)));
+    const tables = sections.map(([key,label]) => `<h4>${escapeHtml(label)}</h4>${renderDetailTable(quality[key], `chronology.source_quality.${key}`)}`).join('');
+    return `<section aria-label="Source chronology support" data-source-chronology-quality="available"><h3>Source chronology support</h3><p>${profiles.length} source profile${profiles.length === 1 ? '' : 's'}, ${samples.length} sample flag record${samples.length === 1 ? '' : 's'} and ${claims.length} age-claim diagnostic${claims.length === 1 ? '' : 's'}. This review does not select a chronology or change sample eligibility.</p><p>Profiles keep source models and age bases separate. Sample flags combine their associated profile context; inspect the matching profile and claim before interpreting a flag. Declared reliable-age bounds and control midpoint depth envelopes are distinct checks. These diagnostics do not establish chronological precision, a hiatus, model extrapolation, the physical core base or ecological accuracy.</p>${metadata}${tables}</section>`;
+  } catch { return unavailable(); }
+}
+function renderSourceChronologyContext(tabs) {
+  return renderSourceChronologyIssues(tabs) + renderSourceChronologyQuality(tabs);
 }
 function renderSelectedSourceOverview(tabs, feature) {
   const unavailable = reason => `<section aria-label="Selected source record" data-source-record-details="unavailable"><h3>Selected source record</h3><p>${escapeHtml(reason)} Original source tables remain available.</p></section>`;

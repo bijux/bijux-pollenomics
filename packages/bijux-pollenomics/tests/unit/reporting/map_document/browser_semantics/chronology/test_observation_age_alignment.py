@@ -10,10 +10,14 @@ from xml.etree import ElementTree as ET
 
 import pytest
 
-from bijux_pollenomics.reporting.map_document import template
-
-from ..support import check_javascript_syntax, run_node_json, template_block
-from .test_age_depth_diagram import decoded, projected_tabs, set_claim, set_sample
+from ..support import check_javascript_syntax, run_node_json
+from .test_age_depth_diagram import (
+    decoded,
+    diagram_script,
+    projected_tabs,
+    set_claim,
+    set_sample,
+)
 
 
 def required_element(tree: ET.Element, path: str) -> ET.Element:
@@ -23,16 +27,7 @@ def required_element(tree: ET.Element, path: str) -> ET.Element:
 
 
 def alignment_script() -> str:
-    assets = Path(template.__file__).parent / "assets"
-    return (
-        template_block("function escapeHtml", "function normalizedMediaLinks")
-        + template_block(
-            "function detailTableShape", "const DETAIL_TABLE_INTERNAL_KEYS"
-        )
-        + (assets / "chronology-diagram.js").read_text()
-        + (assets / "pollen-diagram.js").read_text()
-        + (assets / "pollen-age-axis.js").read_text()
-    )
+    return diagram_script()
 
 
 def observe(tabs: dict[str, object], expression: str) -> Any:

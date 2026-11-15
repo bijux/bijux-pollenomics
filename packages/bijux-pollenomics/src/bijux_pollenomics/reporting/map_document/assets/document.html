@@ -5570,7 +5570,7 @@ __URL_STATE_CONTROLLER__
         'source_relation_path_dictionary', 'source_relation_path_value_semantics',
       ]);
       function renderDetailObjectEntries(value, valuePath, excludedKeys = new Set()) {
-        return Object.entries(value).filter(([key]) => !excludedKeys.has(key) && !(valuePath === 'chronology' && key === 'source_issues')).map(([key, item]) => `<div class="focus-detail-row"><span class="focus-detail-key">${escapeHtml(key.replaceAll('_', ' '))}</span>${detailTableShape(item) ? `<div>${renderDetailTable(item, `${valuePath}.${key}`)}</div>` : `<span>${escapeHtml(detailTableText(item))}</span>`}</div>`).join('');
+        return Object.entries(value).filter(([key]) => !excludedKeys.has(key) && !(valuePath === 'chronology' && ['source_issues','source_quality'].includes(key))).map(([key, item]) => `<div class="focus-detail-row"><span class="focus-detail-key">${escapeHtml(key.replaceAll('_', ' '))}</span>${detailTableShape(item) ? `<div>${renderDetailTable(item, `${valuePath}.${key}`)}</div>` : `<span>${escapeHtml(detailTableText(item))}</span>`}</div>`).join('');
       }
       function renderDetailTable(table, tablePath) {
         try {
@@ -5660,11 +5660,14 @@ __URL_STATE_CONTROLLER__
             {selectedObservationIds:selected.focused.observationIds,requireExplicitAnchor:selected.requireExplicitAnchor});
       }
       let sourceDetailRenderers = null;
-      function renderSourceDetailContext(kind, tabs, feature) {
+      function sourceDetailContext() {
         const tools = currentEvidenceTools();
-        if (!tools) return `<p role="status">${escapeHtml(evidenceToolsError || 'Loading source detail context…')} Original source tables remain available below.</p>`;
-        sourceDetailRenderers ||= tools.sourceDetails({detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, escapeHtml});
-        return sourceDetailRenderers[kind](tabs, feature);
+        return tools ? (sourceDetailRenderers ||= tools.sourceDetails({detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, escapeHtml})) : null;
+      }
+      function renderSourceDetailContext(kind, tabs, feature) {
+        const renderers = sourceDetailContext();
+        return renderers ? renderers[kind](tabs, feature)
+          : `<p role="status">${escapeHtml(evidenceToolsError || 'Loading source detail context…')} Original source tables remain available below.</p>`;
       }
       function renderFieldworkDetail(feature) {
         const rows = (Array.isArray(feature?.popup_rows) ? feature.popup_rows : [])

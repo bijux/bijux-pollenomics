@@ -309,7 +309,16 @@ def test_large_group_has_bounded_marks_full_domain_and_all_table_rows(
 def test_scale_preserves_signed_extremes_constant_zero_and_small_values() -> None:
     output = run_node_json(
         diagram_script()
-        + "console.log(JSON.stringify([[-Number.MAX_VALUE,0,Number.MAX_VALUE],[0,0],[Number.MIN_VALUE,2*Number.MIN_VALUE]].map(values=>{const scale=ageDepthScale(values,85,500);return values.map(value=>scale.position(value));})));"
+        + """
+console.log(JSON.stringify([[-Number.MAX_VALUE,0,Number.MAX_VALUE],[0,0],
+ [Number.MIN_VALUE,2*Number.MIN_VALUE]].map(values=>{
+ const group={identity:['collection','dataset','chronology','basis','year',null,'comparable'],names:[],
+ rows:values.map((point,index)=>({point,depth:index,endpoints:null,sample:'sample-'+index,
+ claim:{chronology_claim_id:'claim-'+index,is_default_chronology:false,comparability_status:'comparable'}}))};
+ const html=sourceDetailContext().ageDepthGroup(group,0);
+ return [...html.matchAll(/<circle cx="([^"]+)"/g)].map(match=>Number(match[1]));
+})));
+"""
     )
     assert output == [[85, 335, 585], [335, 335], [85, 585]]
 

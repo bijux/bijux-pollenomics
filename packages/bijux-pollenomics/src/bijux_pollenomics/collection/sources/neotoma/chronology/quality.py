@@ -184,7 +184,12 @@ def assess_neotoma_chronology_quality(
                 raise ValueError("Duplicate Neotoma control conflict subject")
             conflict_index[subject] = conflict
     groups: dict[tuple[Any, ...], list[tuple[Row, Row]]] = defaultdict(list)
-    sample_flags: dict[str, set[str]] = {identity: set() for identity in sample_index}
+    sample_flags: dict[str, set[str]] = {
+        identity: {"explicit_depth_unit_contradiction"}
+        if _unit_contradiction(sample)
+        else set()
+        for identity, sample in sample_index.items()
+    }
     claim_diagnostics: dict[str, dict[str, Any]] = {}
     for claim in age_claims:
         identity = claim["chronology_claim_id"]

@@ -36,7 +36,17 @@ def diagram_script() -> str:
         + template_block(
             "function detailTableShape", "const DETAIL_TABLE_INTERNAL_KEYS"
         )
+        + template_block("function renderDetailTable", "function renderDetailValue")
+        + (Path(template.__file__).parent / "assets/chronology-diagram.js").read_text()
         + (Path(template.__file__).parent / "assets/pollen-diagram.js").read_text()
+        + template_block(
+            "function createSourceRecordDetails", "/* atlas-evidence-tools:end */"
+        )
+        + template_block("let sourceDetailRenderers", "function renderFieldworkDetail")
+        + """
+const evidenceToolsError=null;
+function currentEvidenceTools(){return {sourceDetails:createSourceRecordDetails};}
+"""
     )
 
 

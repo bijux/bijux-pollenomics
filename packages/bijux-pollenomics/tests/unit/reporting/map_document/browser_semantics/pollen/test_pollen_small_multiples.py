@@ -31,6 +31,7 @@ def script() -> str:
         + template_block(
             "function detailTableShape", "const DETAIL_TABLE_INTERNAL_KEYS"
         )
+        + template_block("function renderDetailTable", "function renderDetailValue")
         + "\n".join(
             (assets / name).read_text()
             for name in (
@@ -40,6 +41,14 @@ def script() -> str:
                 "pollen-small-multiples.js",
             )
         )
+        + template_block(
+            "function createSourceRecordDetails", "/* atlas-evidence-tools:end */"
+        )
+        + template_block("let sourceDetailRenderers", "function renderFieldworkDetail")
+        + """
+const evidenceToolsError=null;
+function currentEvidenceTools(){return {sourceDetails:createSourceRecordDetails};}
+"""
     )
 
 

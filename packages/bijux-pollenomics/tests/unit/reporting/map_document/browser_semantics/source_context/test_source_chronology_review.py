@@ -64,7 +64,12 @@ def test_reference_caveat_precedes_raw_chronology_tables_in_actual_drawer() -> N
     assert rendered["unchanged"] is True
 
 
-def paged_reader(tabs: dict[str, object], actions: list[str]) -> dict[str, Any]:
+def paged_reader(
+    tabs: dict[str, object],
+    actions: list[str],
+    *,
+    table_path: str = "chronology.source_issues.chronology_control_variants",
+) -> dict[str, Any]:
     """Run the production drawer and its actual pager callbacks against DOM sinks."""
     return cast(
         dict[str, Any],
@@ -90,11 +95,13 @@ const tabs="""
             + json.dumps(tabs)
             + ";const actions="
             + json.dumps(actions)
+            + ";const tablePath="
+            + json.dumps(table_path)
             + r""";
 const original=JSON.stringify(tabs),focusState={kind:'point',detailTabs:tabs};let activeFocusTab='chronology';
 renderFocusDetail();const snapshots=[focusDetail.innerHTML];
 for(const direction of actions){
- const button=buttons.find(node=>node.dataset.detailTablePage==='chronology.source_issues.chronology_control_variants'&&node.dataset.pageDirection===direction);
+ const button=buttons.find(node=>node.dataset.detailTablePage===tablePath&&node.dataset.pageDirection===direction);
  if(!button||button.disabled)throw Error('Required variant page action unavailable');
  button.click();snapshots.push(focusDetail.innerHTML);
 }

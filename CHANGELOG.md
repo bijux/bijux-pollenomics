@@ -2,6 +2,22 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#432](https://github.com/bijux/bijux-pollenomics/pull/432) — Frozen snapshot facts and scoped chronology review
+
+- Preserve frozen snapshot database text/null/missing facts separately from strict
+  current-metadata binding. Keep exact provider no-record messages and successful-empty
+  sets distinct without inferring general absence or relabelling original captures.
+- Retain explicit depth-unit contradictions for unaged samples and qualify Atlas depth
+  axes only through exact source scope, native profile identity, unique sample/claim
+  linkage and documented coordinate sources.
+- Render source chronology support with per-profile, sample and claim context and
+  preserve all quality tables, metadata and unavailable states in complete source
+  downloads. Keep diagnostics separate from chronology selection and sample admission.
+- Keep raw source age/depth assignments, point/bound/default distinctions and complete
+  source counts while bounding drawn marks and scaling extreme finite coordinates
+  safely. Verify refusals and export semantics with synthetic Node controls; no fresh
+  browser/scientific qualification is claimed.
+
 ### [#431](https://github.com/bijux/bijux-pollenomics/pull/431) — Authenticated materialization buffers and Atlas chronology scope
 
 - Hash and decode the same retained bytes for Neotoma materialization surfaces and

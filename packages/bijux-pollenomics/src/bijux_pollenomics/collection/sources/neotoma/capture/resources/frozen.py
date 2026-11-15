@@ -20,6 +20,15 @@ from .models import (
 from .protocol import plan_from_json, resource_key
 from .replay import replay_neotoma_resource_capture
 
+_NO_FROZEN_RECORD = (
+    "There is no frozen record for this dataset.  Contact Neotoma Maintainers "
+    "if you believe this record should have an associated frozen record."
+)
+
+
+class _UnavailableFrozenRecord(ValueError):
+    """The provider explicitly reports no frozen record for this request."""
+
 
 class _UnavailableFrozenResource(ValueError):
     """The authenticated API entity explicitly contains a successful empty set."""
@@ -39,10 +48,63 @@ class NeotomaFrozenResource:
     chronologies: list[dict[str, Any]]
 
 
+@dataclass(frozen=True)
+class NeotomaFrozenSnapshot:
+    """Native snapshot facts, separate from strict current-metadata binding."""
+
+    native: NeotomaFrozenResource
+    database_metadata: dict[str, Any]
+    strict_current_binding_status: str
+
+
 def parse_neotoma_frozen_resource(
     resource: NeotomaResourceSpec, body: bytes, *, expected_body_sha256: str
 ) -> NeotomaFrozenResource:
     """Require exact native owners in either observed frozen wrapper shape."""
+    return _parse_frozen(
+        resource, body, expected_body_sha256=expected_body_sha256, source_snapshot=False
+    )
+
+
+def parse_neotoma_frozen_snapshot(
+    resource: NeotomaResourceSpec, body: bytes, *, expected_body_sha256: str
+) -> NeotomaFrozenSnapshot:
+    """Preserve a source snapshot's constituent metadata without current binding."""
+    native = _parse_frozen(
+        resource, body, expected_body_sha256=expected_body_sha256, source_snapshot=True
+    )
+    observed = _database_state(native.dataset)
+    current = _database_state({"database": resource.database})
+    binding = (
+        "refused_database_missing"
+        if observed["field_state"] == "missing"
+        else "matches_current_metadata"
+        if observed == current
+        else "refused_database_difference"
+    )
+    return NeotomaFrozenSnapshot(
+        native,
+        {"snapshot": observed, "current_metadata": current, "comparison": binding},
+        binding,
+    )
+
+
+def _database_state(dataset: dict[str, Any]) -> dict[str, Any]:
+    if "database" not in dataset:
+        return {"field_state": "missing"}
+    value = dataset["database"]
+    if value is not None and not isinstance(value, str):
+        raise ValueError("Frozen native database must be text, null, or missing")
+    return {"field_state": "null" if value is None else "value", "value": value}
+
+
+def _parse_frozen(
+    resource: NeotomaResourceSpec,
+    body: bytes,
+    *,
+    expected_body_sha256: str,
+    source_snapshot: bool,
+) -> NeotomaFrozenResource:
     if resource.exposure_role not in DEVELOPMENT_ROLES:
         raise ValueError("Frozen qualification refuses this exposure role")
     for value in (resource.dataset_id, resource.site_id, resource.collection_unit_id):
@@ -50,9 +112,14 @@ def parse_neotoma_frozen_resource(
     if sha256(body).hexdigest() != expected_body_sha256:
         raise ValueError("Frozen source body identity differs")
     payload = _object(body)
-    rows = _validated_neotoma_rows(payload)
     if payload.get("status") != "success":
         raise ValueError("Frozen native source status is unsuccessful")
+    if payload.get("data") == _NO_FROZEN_RECORD:
+        _validated_neotoma_rows({**payload, "data": []})
+        raise _UnavailableFrozenRecord(
+            "Provider reports no frozen record at this endpoint; general absence is not certified"
+        )
+    rows = _validated_neotoma_rows(payload)
     if not rows:
         raise _UnavailableFrozenResource(
             "Frozen API explicitly returned successful empty data; absence is not certified"
@@ -89,10 +156,12 @@ def parse_neotoma_frozen_resource(
         != resource.collection_unit_id
         or positive_native_id(dataset.get("datasetid")) != resource.dataset_id
         or dataset.get("datasettype") != resource.dataset_type
-        or "database" not in dataset
-        or dataset["database"] != resource.database
     ):
         raise ValueError("Frozen native dataset/site/unit/type/database owner differs")
+    observed_database = _database_state(dataset)
+    current_database = _database_state({"database": resource.database})
+    if not source_snapshot and observed_database != current_database:
+        raise ValueError("Frozen native database differs from strict current metadata")
     if (
         "collectionunitid" in site
         and positive_native_id(site["collectionunitid"]) != resource.collection_unit_id
@@ -112,8 +181,7 @@ def parse_neotoma_frozen_resource(
                 not isinstance(declared, dict)
                 or positive_native_id(declared.get("datasetid")) != resource.dataset_id
                 or declared.get("datasettype") != resource.dataset_type
-                or "database" not in declared
-                or declared["database"] != resource.database
+                or _database_state(declared) != observed_database
             ):
                 raise ValueError("Frozen native dataset owner declarations disagree")
     samples = data.get("samples")
@@ -188,10 +256,9 @@ def _summary(parsed: NeotomaFrozenResource) -> dict[str, Any]:
         for datum in datums
         if datum.get("units") is None or isinstance(datum.get("units"), str)
     }
-    return {
+    result = {
         "parser_profile": parsed.parser_profile,
         "dataset_type": parsed.dataset["datasettype"],
-        "database": parsed.dataset["database"],
         "sample_rows": len(parsed.samples),
         "distinct_identified_samples": len(sample_ids),
         "datum_rows": len(datums),
@@ -215,6 +282,9 @@ def _summary(parsed: NeotomaFrozenResource) -> dict[str, Any]:
         "units_interpreted": False,
         "scientific_admission": "not_asserted",
     }
+    if "database" in parsed.dataset:
+        result["database"] = parsed.dataset["database"]
+    return result
 
 
 def qualify_neotoma_frozen_capture(
@@ -224,6 +294,45 @@ def qualify_neotoma_frozen_capture(
     source_captures: Mapping[str, Path] | None = None,
     retained_sources: Mapping[str, NeotomaRetainedSource] | None = None,
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+) -> dict[str, Any]:
+    """Qualify native frozen data against strict current constituent metadata."""
+    return _qualify_frozen_capture(
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        source_captures=source_captures,
+        retained_sources=retained_sources,
+        limits=limits,
+        source_snapshot=False,
+    )
+
+
+def qualify_neotoma_frozen_snapshot_capture(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str,
+    source_captures: Mapping[str, Path] | None = None,
+    retained_sources: Mapping[str, NeotomaRetainedSource] | None = None,
+    limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+) -> dict[str, Any]:
+    """Qualify separately declared source-snapshot facts without method admission."""
+    return _qualify_frozen_capture(
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        source_captures=source_captures,
+        retained_sources=retained_sources,
+        limits=limits,
+        source_snapshot=True,
+    )
+
+
+def _qualify_frozen_capture(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str,
+    source_captures: Mapping[str, Path] | None = None,
+    retained_sources: Mapping[str, NeotomaRetainedSource] | None = None,
+    limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    source_snapshot: bool,
 ) -> dict[str, Any]:
     """Derive a separate qualification ledger without relabelling captured results.
 
@@ -306,14 +415,36 @@ def qualify_neotoma_frozen_capture(
                 "tls_mode": receipt["tls_mode"],
             }
             try:
-                parsed = parse_neotoma_frozen_resource(
-                    resource, body, expected_body_sha256=receipt["retained_body_sha256"]
-                )
+                if source_snapshot:
+                    snapshot = parse_neotoma_frozen_snapshot(
+                        resource,
+                        body,
+                        expected_body_sha256=receipt["retained_body_sha256"],
+                    )
+                    row.update(
+                        qualification_status="parsed_frozen_snapshot",
+                        summary=_summary(snapshot.native),
+                        database_metadata=snapshot.database_metadata,
+                        strict_current_binding_status=snapshot.strict_current_binding_status,
+                    )
+                    del snapshot
+                else:
+                    parsed = parse_neotoma_frozen_resource(
+                        resource,
+                        body,
+                        expected_body_sha256=receipt["retained_body_sha256"],
+                    )
+                    row.update(
+                        qualification_status="parsed_frozen_native",
+                        summary=_summary(parsed),
+                    )
+                    del parsed
+            except _UnavailableFrozenRecord as error:
                 row.update(
-                    qualification_status="parsed_frozen_native",
-                    summary=_summary(parsed),
+                    qualification_status="unavailable_frozen_record",
+                    reason=str(error),
+                    absence_certified=False,
                 )
-                del parsed
             except _UnavailableFrozenResource as error:
                 row.update(
                     qualification_status="unavailable_frozen_api_empty",
@@ -327,7 +458,9 @@ def qualify_neotoma_frozen_capture(
             del body
         qualifications.append(row)
     return {
-        "schema_version": "neotoma-frozen-resource-qualification.v1",
+        "schema_version": "neotoma-frozen-snapshot-qualification.v1"
+        if source_snapshot
+        else "neotoma-frozen-resource-qualification.v1",
         "source_capture_manifest_sha256": captured.manifest_sha256,
         "source_capture_relabelled": False,
         "resources": qualifications,
