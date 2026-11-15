@@ -4,6 +4,8 @@ Repository changes are recorded by pull request, newest merge first.
 
 ### Bokesjon source assessment and conditional basin sensitivity
 
+- Document the source-audit command and authenticated baseline accessors for
+  the developer package's configured docstring checks.
 - Retain attributed public Bokesjon Neotoma core/site/pollen/dating and DOI metadata
   with exact source identities and hashes, keeping public-data rights separate from
   private workbook rights and scientific endorsement.
