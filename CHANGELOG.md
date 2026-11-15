@@ -2,6 +2,16 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#444](https://github.com/bijux/bijux-pollenomics/pull/444) — Exclusive catalogue custody and archive input bounds
+
+- Write compact and partitioned catalogues through one exclusive owned writer;
+  validate finite, closed ordinary namespaces before reading member buffers.
+- Keep ancillary success, transport failure and refusal evidence attached to its
+  original owned tree, and require final published readback before returning success.
+- Preflight complete archive input populations, physical sizes and generated index/
+  manifest overhead before native-body reads; retain exact-byte publication checks.
+- Preserve captured Neotoma HTTP entity bytes in Git through explicit binary attributes.
+
 ### [#443](https://github.com/bijux/bijux-pollenomics/pull/443) — Owned source publication and authenticated Atlas metadata
 
 - Capture source outputs and publish closed archives through exclusively owned,

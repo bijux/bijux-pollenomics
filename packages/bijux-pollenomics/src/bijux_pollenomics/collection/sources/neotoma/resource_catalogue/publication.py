@@ -9,6 +9,10 @@ from pathlib import Path
 import re
 from typing import Any
 
+from bijux_pollenomics.core.filesystem import (
+    OwnedTreeWriter,
+    validate_regular_namespace,
+)
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
     publish_new_output_tree,
@@ -32,6 +36,9 @@ from .source_projection import (
     verify_roster_projection,
 )
 from .storage import load_partitioned_catalogue, write_partitioned_catalogue
+
+MAX_BYTES = 512 * 1024 * 1024
+MAX_FILES = 20000
 
 
 def _validate(catalogue: dict[str, Any]) -> None:
@@ -125,55 +132,55 @@ def write_neotoma_resource_catalogue(
         raise ValueError("Catalogue source inventory identity differs")
     verify_roster_projection(catalogue, _object(roster_bytes))
     staging = build_staging_output_dir(final)
-    staging.mkdir(exist_ok=False)
-    files = {"source-inventory.json": sha256(roster_bytes).hexdigest()}
-    with (staging / "source-inventory.json").open("xb") as stream:
-        stream.write(roster_bytes)
-    if partition_collections:
-        files.update(write_partitioned_catalogue(staging, catalogue))
-    else:
-        files["catalogue.json"] = _write_json(staging / "catalogue.json", catalogue)
-    for digest, descriptor in catalogue["capture_descriptors"].items():
-        if digest not in capture_sources:
-            raise ValueError(
-                "Catalogue publication requires every source capture resolver"
+    with OwnedTreeWriter(staging, max_bytes=MAX_BYTES, max_files=MAX_FILES) as writer:
+        files = {"source-inventory.json": sha256(roster_bytes).hexdigest()}
+        writer.write_bytes("source-inventory.json", roster_bytes)
+        if partition_collections:
+            files.update(write_partitioned_catalogue(staging, catalogue, writer=writer))
+        else:
+            files["catalogue.json"] = _write_json(
+                staging / "catalogue.json", catalogue, writer=writer
             )
-        root = _safe_root(capture_sources[digest])
-        destination = staging / "captures" / digest
-        destination.mkdir(parents=True, exist_ok=False)
-        relative = f"captures/{digest}/descriptor.json"
-        files[relative] = _write_json(staging / relative, descriptor)
-        for member in descriptor["files"]:
-            name = public_member(member["name"])
-            if member["source_entity"]:
-                continue
-            content = _read(root / name, 16 * 1024 * 1024)
-            if (
-                len(content) != member["bytes"]
-                or sha256(content).hexdigest() != member["sha256"]
-            ):
-                raise ValueError("Catalogue source metadata identity differs")
-            relative = f"captures/{digest}/{name}"
-            with (staging / relative).open("xb") as stream:
-                stream.write(content)
-            files[relative] = member["sha256"]
-    manifest = {
-        "schema_version": "neotoma-resource-catalogue-publication.v2"
-        if partition_collections
-        else "neotoma-resource-catalogue-publication.v1",
-        "status": "published_native_coverage",
-        "catalogue_file": "catalogue.json",
-        "source_inventory_file": "source-inventory.json",
-        "country_validation_scope": "Authenticated committed boundary-derived projection; no independent country derivation without original bound geometry",
-        "resource_count": len(catalogue["resources"]),
-        "version_status_count": 2 * len(catalogue["resources"]),
-        "expected_roster_sha256": catalogue["expected_roster_sha256"],
-        "files": files,
-        "source_bodies": "required explicit content-addressed capture_sources resolver; not reconstructed from current API",
-        "historical_snapshot_replaced": False,
-        "scientific_admission": "not_asserted",
-    }
-    manifest_digest = _write_json(staging / "manifest.json", manifest)
+        for digest, descriptor in catalogue["capture_descriptors"].items():
+            if digest not in capture_sources:
+                raise ValueError(
+                    "Catalogue publication requires every source capture resolver"
+                )
+            root = _safe_root(capture_sources[digest])
+            relative = f"captures/{digest}/descriptor.json"
+            files[relative] = _write_json(staging / relative, descriptor, writer=writer)
+            for member in descriptor["files"]:
+                name = public_member(member["name"])
+                if member["source_entity"]:
+                    continue
+                content = _read(root / name, 16 * 1024 * 1024)
+                if (
+                    len(content) != member["bytes"]
+                    or sha256(content).hexdigest() != member["sha256"]
+                ):
+                    raise ValueError("Catalogue source metadata identity differs")
+                relative = f"captures/{digest}/{name}"
+                writer.write_bytes(relative, content)
+                files[relative] = member["sha256"]
+        manifest = {
+            "schema_version": "neotoma-resource-catalogue-publication.v2"
+            if partition_collections
+            else "neotoma-resource-catalogue-publication.v1",
+            "status": "published_native_coverage",
+            "catalogue_file": "catalogue.json",
+            "source_inventory_file": "source-inventory.json",
+            "country_validation_scope": "Authenticated committed boundary-derived projection; no independent country derivation without original bound geometry",
+            "resource_count": len(catalogue["resources"]),
+            "version_status_count": 2 * len(catalogue["resources"]),
+            "expected_roster_sha256": catalogue["expected_roster_sha256"],
+            "files": files,
+            "source_bodies": "required explicit content-addressed capture_sources resolver; not reconstructed from current API",
+            "historical_snapshot_replaced": False,
+            "scientific_admission": "not_asserted",
+        }
+        manifest_digest = _write_json(
+            staging / "manifest.json", manifest, writer=writer
+        )
     load_neotoma_resource_catalogue(
         staging,
         expected_manifest_sha256=manifest_digest,
@@ -218,25 +225,24 @@ def load_neotoma_resource_catalogue(
         or manifest.get("historical_snapshot_replaced") is not False
     ):
         raise ValueError("Unsupported catalogue publication or source epoch")
-    expected_files = {"manifest.json"}
+    if not isinstance(manifest.get("files"), dict):
+        raise ValueError("Catalogue public file population differs")
+    sizes = validate_regular_namespace(
+        root,
+        {"manifest.json", *manifest["files"]},
+        max_files=MAX_FILES,
+        max_bytes=MAX_BYTES,
+    )
     for relative, digest in manifest["files"].items():
-        path = Path(relative)
-        if path.is_absolute() or ".." in path.parts or "\\" in relative:
-            raise ValueError("Catalogue public path escapes its owned tree")
-        expected_files.add(relative)
         if manifest[
             "schema_version"
         ] == "neotoma-resource-catalogue-publication.v2" and relative.startswith(
             "parts/"
         ):
             continue
-        content = _read(root / relative, 16 * 1024 * 1024)
+        content = _read(root / relative, min(sizes[relative], 16 * 1024 * 1024))
         if sha256(content).hexdigest() != digest:
             raise ValueError("Catalogue public file identity differs")
-    if {
-        str(path.relative_to(root)) for path in root.rglob("*") if path.is_file()
-    } != expected_files:
-        raise ValueError("Catalogue public file population differs")
     catalogue = pinned_object(
         root / "catalogue.json", manifest["files"]["catalogue.json"], 16 * 1024 * 1024
     )

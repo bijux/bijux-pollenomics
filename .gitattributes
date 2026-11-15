@@ -5,6 +5,9 @@ data/adna/governance/source_library/papers/**/article.html.gz linguist-vendored
 data/adna/governance/source_library/projects/**/archive_metadata.html linguist-vendored
 data/adna/governance/source_library/projects/**/archive_metadata.html.gz linguist-vendored
 
+# Retained Neotoma HTTP entities must keep their exact captured bytes.
+data/neotoma/**/*.body -text
+
 # Shared partials come from synchronized docs infrastructure, not repository-owned HTML work.
 .bijux/shared/bijux-docs/partials/*.html linguist-vendored
 docs/overrides/partials/*.html linguist-vendored

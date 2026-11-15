@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from bijux_pollenomics.core.filesystem import OwnedTreeWriter
+
 from ..capture.receipts import _object, _read, _write_json
 
 TARGET_PART_BYTES = 2 * 1024 * 1024
@@ -29,7 +31,7 @@ def _part(name: str, records: list[dict[str, Any]]) -> dict[str, Any]:
 
 
 def write_partitioned_catalogue(
-    root: Path, catalogue: dict[str, Any]
+    root: Path, catalogue: dict[str, Any], *, writer: OwnedTreeWriter | None = None
 ) -> dict[str, str]:
     """Retain indivisible native rows and their order; refuse oversized records."""
     files = {}
@@ -49,9 +51,12 @@ def write_partitioned_catalogue(
         digest = sha256(content).hexdigest()
         relative = f"parts/{name}/{digest}.json"
         target = root / relative
-        target.parent.mkdir(parents=True, exist_ok=True)
-        with target.open("xb") as stream:
-            stream.write(content)
+        if writer is None:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            with target.open("xb") as stream:
+                stream.write(content)
+        else:
+            writer.write_bytes(target.relative_to(writer.root).as_posix(), content)
         files[relative] = digest
         parts.append(
             {
@@ -96,7 +101,7 @@ def write_partitioned_catalogue(
     }
     if len(_encode(index)) > MAX_PART_BYTES:
         raise ValueError("Catalogue partition index exceeds its bounded file size")
-    files["catalogue.json"] = _write_json(root / "catalogue.json", index)
+    files["catalogue.json"] = _write_json(root / "catalogue.json", index, writer=writer)
     return files
 
 
