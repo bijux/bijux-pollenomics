@@ -8,12 +8,7 @@ import copy
 import hashlib
 from pathlib import Path
 
-from bijux_pollenomics.core.owned_tree import (
-    build_recovery_output_dir,
-    build_staging_output_dir,
-    remove_output_tree,
-    replace_output_tree,
-)
+from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.evidence.sources.neotoma import (
     DEFAULT_ROWS_PER_PART,
     validate_neotoma_relational_materialization,
@@ -37,6 +32,11 @@ from bijux_pollenomics.evidence.sources.neotoma.contract import (
     validate_reconciliation_counts,
 )
 
+from .publication.replacement import (
+    RELATIONAL_MATERIALIZATION_MAX_BYTES,
+    replace_neotoma_tree,
+)
+
 __all__ = ["materialize_neotoma_relational_snapshot"]
 
 
@@ -46,35 +46,22 @@ def materialize_neotoma_relational_snapshot(
     *,
     rows_per_part: int = DEFAULT_ROWS_PER_PART,
 ) -> Path:
-    """Publish one validated multipart snapshot through a sibling staging tree."""
+    """Publish one validated multipart snapshot through an owned candidate tree."""
     final_root = _validate_publication_target(final_output_root)
     if rows_per_part < 1:
         raise ValueError("rows_per_part must be at least 1")
-    if final_root.exists():
-        validate_neotoma_relational_materialization(final_root)
 
-    staging_root = build_staging_output_dir(final_root)
-    recovery_root = build_recovery_output_dir(final_root)
-    if staging_root.exists() or staging_root.is_symlink():
-        raise FileExistsError(f"Neotoma staging path collision: {staging_root}")
-    if recovery_root.exists() or recovery_root.is_symlink():
-        raise FileExistsError(f"Neotoma recovery path collision: {recovery_root}")
-
-    staging_root.mkdir()
-    try:
+    def build(writer: OwnedTreeWriter) -> None:
         _write_materialization(
-            staging_root,
-            snapshot=snapshot,
-            rows_per_part=rows_per_part,
+            writer.root, snapshot=snapshot, rows_per_part=rows_per_part, writer=writer
         )
-        validate_neotoma_relational_materialization(staging_root)
-        replace_output_tree(
-            final_output_root=final_root,
-            staging_output_root=staging_root,
-        )
-    except Exception:
-        remove_output_tree(staging_root)
-        raise
+
+    replace_neotoma_tree(
+        final_root,
+        build=build,
+        validate=validate_neotoma_relational_materialization,
+        max_bytes=RELATIONAL_MATERIALIZATION_MAX_BYTES,
+    )
     return final_root / "manifest.json"
 
 
@@ -83,6 +70,7 @@ def _write_materialization(
     *,
     snapshot: Mapping[str, object],
     rows_per_part: int,
+    writer: OwnedTreeWriter,
 ) -> None:
     expect_equal(
         snapshot.get("schema_version"),
@@ -98,8 +86,6 @@ def _write_materialization(
     if not isinstance(reconciliation, Mapping):
         raise ValueError("Input snapshot reconciliation must be an object")
 
-    surfaces_root = staging_root / "surfaces"
-    surfaces_root.mkdir()
     surface_manifests: dict[str, object] = {}
     digest_records: list[dict[str, str]] = []
     surface_row_counts: dict[str, int] = {}
@@ -133,8 +119,6 @@ def _write_materialization(
             )
         if surface_name == "orphans":
             accumulate_source_occurrence_refusals(rows, counts=source_refusals)
-        surface_root = surfaces_root / surface_name
-        surface_root.mkdir()
         chunks = [
             rows[start : start + rows_per_part]
             for start in range(0, len(rows), rows_per_part)
@@ -157,7 +141,9 @@ def _write_materialization(
                 "row_count": len(chunk),
                 "rows": chunk,
             }
-            digest = _write_json_exclusive(staging_root / relative_path, part_payload)
+            digest = _write_json_exclusive(
+                staging_root / relative_path, part_payload, writer=writer
+            )
             part_record = {
                 "path": relative_path,
                 "schema_version": PART_SCHEMA_VERSION,
@@ -197,6 +183,7 @@ def _write_materialization(
     reconciliation_digest = _write_json_exclusive(
         staging_root / reconciliation_path,
         reconciliation_payload,
+        writer=writer,
     )
     digest_records.append(
         {"path": reconciliation_path, "sha256": reconciliation_digest}
@@ -216,7 +203,7 @@ def _write_materialization(
         },
         "materialization_sha256": materialization_digest(digest_records),
     }
-    _write_json_exclusive(staging_root / "manifest.json", manifest)
+    _write_json_exclusive(staging_root / "manifest.json", manifest, writer=writer)
 
 
 def _normalized_rows(
@@ -242,12 +229,12 @@ def _normalized_rows(
     return rows
 
 
-def _write_json_exclusive(path: Path, payload: object) -> str:
+def _write_json_exclusive(
+    path: Path, payload: object, *, writer: OwnedTreeWriter
+) -> str:
+    """Serialize canonical bytes through the held exclusive writer."""
     content = canonical_json_bytes(payload)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("xb") as stream:
-        stream.write(content)
-        stream.flush()
+    writer.write_bytes(path.relative_to(writer.root).as_posix(), content)
     return hashlib.sha256(content).hexdigest()
 
 

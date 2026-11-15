@@ -6,13 +6,13 @@ from pathlib import Path
 import re
 
 from ....core.files import write_json
-from ....core.filesystem import OwnedTreeWriter
-from ....core.owned_tree import (
-    build_staging_output_dir,
-    remove_output_tree,
-    replace_output_tree,
-)
+from ....core.filesystem import OwnedTreeWriter, read_regular_file
 from .client import validate_neotoma_download_coverage
+from .publication.replacement import (
+    MANIFEST_MAX_BYTES,
+    SOURCE_MAX_BYTES,
+    replace_neotoma_tree,
+)
 
 __all__ = ["build_neotoma_download_archive_parts", "write_neotoma_download_archive"]
 
@@ -106,11 +106,19 @@ def write_neotoma_download_archive(
             writer=writer,
         )
         return archive_dir / "manifest.json"
-    stage = build_staging_output_dir(archive_dir)
-    stage.mkdir(parents=True, exist_ok=False)
-    try:
+
+    def validate(root: Path) -> None:
+        _require_owned_archive(
+            root,
+            endpoint=f"{neotoma_data_url}/downloads/{{datasetid}}",
+            dataset_type=neotoma_datasettype,
+            archive_label=neotoma_download_archive_label,
+            extract_ids=extract_neotoma_download_dataset_ids_fn,
+        )
+
+    def build(owned: OwnedTreeWriter) -> None:
         _write_archive_members(
-            stage,
+            owned.root,
             parts=parts,
             requested_ids=requested_ids,
             returned_ids=returned_ids,
@@ -119,11 +127,12 @@ def write_neotoma_download_archive(
             neotoma_data_url=neotoma_data_url,
             neotoma_datasettype=neotoma_datasettype,
             neotoma_download_archive_label=neotoma_download_archive_label,
+            writer=owned,
         )
-        replace_output_tree(final_output_root=archive_dir, staging_output_root=stage)
-    except Exception:
-        remove_output_tree(stage)
-        raise
+
+    replace_neotoma_tree(
+        archive_dir, build=build, validate=validate, max_bytes=SOURCE_MAX_BYTES
+    )
     return archive_dir / "manifest.json"
 
 
@@ -167,7 +176,8 @@ def _require_owned_archive(
 
     try:
         manifest = validation.json_object(
-            validation.read_regular_file(path / "manifest.json"), path / "manifest.json"
+            read_regular_file(path / "manifest.json", max_bytes=MANIFEST_MAX_BYTES),
+            path / "manifest.json",
         )
         count = validation.non_negative_integer(
             manifest.get("part_count"), "part_count"

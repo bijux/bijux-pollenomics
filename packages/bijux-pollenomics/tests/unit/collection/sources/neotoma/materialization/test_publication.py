@@ -204,10 +204,12 @@ class NeotomaMaterializationTests(unittest.TestCase):
             prior_files = _published_files(output_root)
             original_write = materialization._write_json_exclusive
 
-            def fail_during_candidate(path: Path, payload: object) -> str:
+            def fail_during_candidate(
+                path: Path, payload: object, **kwargs: Any
+            ) -> str:
                 if path.name == "part-00001.json" and "observations" in path.parts:
                     raise OSError("candidate write failed")
-                return original_write(path, payload)
+                return original_write(path, payload, **kwargs)
 
             with (
                 patch.object(
