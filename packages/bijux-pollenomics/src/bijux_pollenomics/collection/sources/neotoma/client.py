@@ -18,9 +18,17 @@ __all__ = [
     "fetch_neotoma_dataset_inventory_rows",
     "neotoma_download_dataset_id",
     "neotoma_retryable_error",
+    "positive_native_id",
     "validate_neotoma_download_coverage",
     "validate_neotoma_selected_download",
 ]
+
+
+def positive_native_id(value: object) -> int:
+    """Require a native positive integer before promoting an acquisition identity."""
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise ValueError("Neotoma metadata identity must be a positive integer")
+    return value
 
 
 def fetch_neotoma_dataset_inventory_rows(
@@ -49,7 +57,9 @@ def fetch_neotoma_dataset_download_rows(
     ],
 ) -> list[dict[str, object]]:
     """Fetch full Neotoma dataset downloads for each matched dataset identifier."""
-    unique_dataset_ids = sorted({int(dataset_id) for dataset_id in dataset_ids})
+    unique_dataset_ids = sorted(
+        {positive_native_id(dataset_id) for dataset_id in dataset_ids}
+    )
     if not unique_dataset_ids:
         return []
 
@@ -84,6 +94,7 @@ def fetch_neotoma_dataset_download_row(
     download_retries: int,
 ) -> list[dict[str, object]]:
     """Fetch one full Neotoma dataset download with bounded retries."""
+    positive_native_id(dataset_id)
     for attempt in range(download_retries):
         try:
             payload = fetch_json_fn(
@@ -117,7 +128,9 @@ def validate_neotoma_download_coverage(
     ],
 ) -> None:
     """Require exactly one identified download row per requested dataset."""
-    requested = sorted({int(dataset_id) for dataset_id in requested_dataset_ids})
+    requested = sorted(
+        {positive_native_id(dataset_id) for dataset_id in requested_dataset_ids}
+    )
     returned: list[int] = []
     for row in download_rows:
         row_ids = extract_neotoma_download_dataset_ids_fn([row])

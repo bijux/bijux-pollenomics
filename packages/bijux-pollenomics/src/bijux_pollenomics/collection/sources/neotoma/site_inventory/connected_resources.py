@@ -9,14 +9,7 @@ from hashlib import sha256
 import json
 from typing import Any
 
-from ..client import _validated_neotoma_rows
-
-
-def positive_native_id(value: object) -> int:
-    """Require the positive integer identity supplied by native metadata."""
-    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
-        raise ValueError("Neotoma metadata identity must be a positive integer")
-    return value
+from ..client import _validated_neotoma_rows, positive_native_id
 
 
 def _refuse_numerical_outcomes(value: object) -> None:

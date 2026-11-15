@@ -2,16 +2,32 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from http.client import HTTPSConnection, IncompleteRead
 import ssl
 from urllib.parse import urlsplit
 
-from .models import _HEADERS, NeotomaMetadataResponse
+_HEADERS = (
+    ("Host", "api.neotomadb.org"),
+    ("Accept", "application/json"),
+    ("Accept-Encoding", "identity"),
+    ("User-Agent", "bijux-pollenomics"),
+    ("Connection", "close"),
+)
 
 
-def _fetch_response(
-    url: str, *, timeout: float, max_bytes: int
-) -> NeotomaMetadataResponse:
+@dataclass(frozen=True)
+class NeotomaHttpResponse:
+    """An authenticated source HTTP entity before metadata or numerical decoding."""
+
+    final_url: str
+    http_status: int
+    headers: tuple[tuple[str, str], ...]
+    body: bytes
+    body_complete: bool = True
+
+
+def _fetch_response(url: str, *, timeout: float, max_bytes: int) -> NeotomaHttpResponse:
     parts = urlsplit(url)
     if parts.scheme != "https" or parts.netloc != "api.neotomadb.org":
         raise ValueError("Neotoma metadata requires its official HTTPS origin")
@@ -37,7 +53,7 @@ def _fetch_response(
                     complete = complete and int(value) == len(body)
                 except ValueError:
                     complete = False
-        return NeotomaMetadataResponse(
+        return NeotomaHttpResponse(
             final_url=url,
             http_status=response.status,
             headers=headers,

@@ -2,6 +2,25 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#429](https://github.com/bijux/bijux-pollenomics/pull/429) — Native resource lineage and source chronology issues
+
+- Retain role-bound current/frozen native resource entities in a bounded closed
+  attempt ledger, with explicit unavailable/refused/unattempted partitions and no
+  numerical GET for reserved or held-out roles. Preserve native types and unknown
+  frozen content without pollen recasting or inferred scientific admission.
+- Authenticate resumed/reused result lineage, original receipts and body identities
+  through explicit prior-result and ancestor resolvers. Reject malformed requested
+  dataset identities before acquisition and keep HTTP unavailability separate from
+  certified source absence.
+- Preserve Atlas source chronology issues, orphans, control variants and locators
+  with projected/excluded/unresolved accounting. Keep retained reference flags
+  distinct from effective identified selection and preserve source metadata without
+  inventing an original reference or fitted chronology.
+- Reconcile maintained animal evidence-envelope versions through exact unique row
+  identities, preserving owned sample chronology and refusing malformed or ambiguous
+  publication inputs. Qualify these source/readers with mocked and synthetic
+  controls; no fresh provider, scientific or real-browser qualification is claimed.
+
 ### [#428](https://github.com/bijux/bijux-pollenomics/pull/428) — Retained source accounting and reachable Atlas readers
 
 - Bind retained direct-pollen measure accounting to the published study's fixed

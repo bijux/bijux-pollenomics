@@ -56,6 +56,7 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
                     b"    _safe_relative_path,\n"
                     b")\n"
                     b"from .neotoma_chronology import chronology_model_tables, chronology_tab\n"
+                    b"from .neotoma_source_issues import source_issue_tables\n"
                     b"from .records import (\n"
                     b"    _compact_rows_by_site,\n"
                     b"    _features,\n"
@@ -75,7 +76,7 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
                     b"        )\n"
                     b"    }\n"
                     b'    manifest_surfaces = _mapping(manifest.get("surfaces"), "Neotoma surfaces")\n'
-                    b'    for name in ("chronologies", "chronology_controls"):\n'
+                    b'    for name in ("chronologies", "chronology_controls", "conflicts", "orphans"):\n'
                     b"        if name in manifest_surfaces:\n"
                     b"            loaded_surfaces[name] = _load_neotoma_surface(\n"
                     b"                relational_root, manifest, name\n"
@@ -98,7 +99,15 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
                     b'        "Neotoma sites",\n'
                     b"    )\n"
                     b"    governed_sites = _governed_neotoma_sites(sites)\n"
-                    b"    model_tables = chronology_model_tables(loaded_surfaces, set(sites))\n"
+                    b"    issue_tables, issue_accounting, issue_subjects, variant_coverage = (\n"
+                    b"        source_issue_tables(loaded_surfaces, set(sites), set(governed_sites))\n"
+                    b"    )\n"
+                    b"    model_tables = chronology_model_tables(\n"
+                    b"        loaded_surfaces,\n"
+                    b"        set(sites),\n"
+                    b"        source_issues_by_subject=issue_subjects,\n"
+                    b"        control_variant_ids_by_site=variant_coverage,\n"
+                    b"    )\n"
                     b"    collection_rows = _compact_rows_by_site(\n"
                     b'        surfaces["collection_units"],\n'
                     b'        fields=("collection_unit_id", "source_collection_unit_id", "source_payload"),\n'
@@ -138,7 +147,12 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
                     b"                        ),\n"
                     b"                    },\n"
                     b'                    "chronology": chronology_tab(\n'
-                    b"                        age_fields, site_age_rows, model_tables[site_id]\n"
+                    b"                        age_fields,\n"
+                    b"                        site_age_rows,\n"
+                    b"                        {\n"
+                    b"                            **model_tables[site_id],\n"
+                    b'                            "source_issues": issue_tables[site_id],\n'
+                    b"                        },\n"
                     b"                    ),\n"
                     b'                    "pollen_composition": (\n'
                     b"                        {\n"
@@ -228,6 +242,13 @@ _SOURCE_CONTEXT_CONTRACTS: dict[
                     b'        "variable_count_semantics": (\n'
                     b'            "unique_variable_ids; excluded_counts_include_only_ids_absent_from_projected_sites"\n'
                     b"        ),\n"
+                ),
+            ),
+            (
+                b'        "source_chronology": source_projection.reconciliation,\n',
+                (
+                    b'        "source_chronology": source_projection.reconciliation,\n'
+                    b'        "source_issues": issue_accounting,\n'
                 ),
             ),
         ),

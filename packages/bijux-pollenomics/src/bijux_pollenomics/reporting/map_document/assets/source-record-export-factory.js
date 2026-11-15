@@ -20,6 +20,19 @@ function createSourceRecordExport(bindings) {
     };
   }
 
+  function sourcePollenChronologyIssues(issues) {
+    if (issues == null) return {status:'unavailable', reason_code:'source_chronology_issues_not_available'};
+    if (typeof issues !== 'object' || Array.isArray(issues)) throw Error('source_chronology_issues_invalid');
+    if (issues.status === 'unavailable') return {...issues};
+    const {conflicts, orphans, chronology_control_variants, ...metadata} = issues;
+    return {
+      ...metadata,
+      conflicts: sourcePollenChronologyMetadata(conflicts, 'conflicts', decodeRow),
+      orphans: sourcePollenChronologyMetadata(orphans, 'orphans', decodeRow),
+      chronology_control_variants: sourcePollenChronologyMetadata(chronology_control_variants, 'chronology_control_variants', decodeRow),
+    };
+  }
+
   function buildSourcePollenRecordExport(focus, selection) {
     if (!sourcePollenExportAvailable(focus)) throw Error('source_pollen_record_export_unavailable');
     const tabs = focus.detailTabs;
@@ -37,6 +50,7 @@ function createSourceRecordExport(bindings) {
         interpolation_allowed: false,
         site_range_is_continuous_support: false,
         model_metadata_posture: tabs.chronology.model_metadata_posture || null,
+        ...(Object.hasOwn(tabs.chronology, 'reference_verification_posture') ? {reference_verification_posture:tabs.chronology.reference_verification_posture} : {}),
       },
       source_semantics: {
         unit_policy: 'literal_source_unit_per_observation',
@@ -48,6 +62,7 @@ function createSourceRecordExport(bindings) {
       chronology_claims: sourcePollenDecodedTable(tabs.chronology, decodeRow),
       source_chronology_models: sourcePollenChronologyMetadata(tabs.chronology.models, 'chronologies', decodeRow),
       source_chronology_controls: sourcePollenChronologyMetadata(tabs.chronology.controls, 'chronology_controls', decodeRow),
+      source_chronology_issues: sourcePollenChronologyIssues(tabs.chronology.source_issues),
       pollen_observations: sourcePollenDecodedTable(tabs.pollen_composition, decodeRow),
       source_variables: sourcePollenTableAvailable(tabs.pollen_composition.variables)
         ? sourcePollenDecodedTable(tabs.pollen_composition.variables, decodeRow) : null,

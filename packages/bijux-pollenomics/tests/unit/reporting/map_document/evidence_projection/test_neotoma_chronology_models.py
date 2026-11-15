@@ -18,6 +18,9 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     neotoma as projection,
 )
+from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma_chronology import (
+    chronology_model_tables,
+)
 from tests.support.neotoma import country_decisions, download_row
 from tests.support.neotoma.relational_shapes import nested, rows
 
@@ -27,6 +30,34 @@ from ..browser_semantics.chronology.test_age_depth_diagram import (
 )
 from ..browser_semantics.support import run_node_json
 from .fixtures.neotoma import _neotoma_fixture
+
+
+@pytest.mark.parametrize("legacy_selected", [False, True])
+def test_retained_null_model_reference_is_unverified_without_rewriting_source(
+    legacy_selected: bool,
+) -> None:
+    model = {
+        "chronology_id": "neotoma:chronology:301:unidentified:placeholder",
+        "source_chronology_id": None,
+        "site_id": "neotoma:site:20",
+        "collection_unit_id": "neotoma:collection-unit:301",
+        "selected_by_collection_unit_reference": legacy_selected,
+        "source_is_default_assertion": False,
+        "source_payload": {"chronologyid": None, "chronology": None},
+    }
+    original = deepcopy(model)
+    tables = chronology_model_tables(
+        {"chronologies": ([model], (1,))}, {"neotoma:site:20"}
+    )
+    table = cast(dict[str, Any], tables["neotoma:site:20"]["models"])
+    record = dict(zip(table["fields"], table["records"][0], strict=True))
+    assert model == original
+    assert record["selected_by_collection_unit_reference"] is legacy_selected
+    assert record["effective_reference_selected"] is False
+    assert (
+        record["reference_verification_status"] == "refused_missing_source_identifier"
+    )
+    assert record["source_payload"] == original["source_payload"]
 
 
 def native_source(*, age_claims: bool = True) -> dict[str, object]:

@@ -5,10 +5,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import asdict
 from datetime import UTC, datetime
-from hashlib import sha256
 from pathlib import Path
-from typing import Any
-from urllib.parse import urlsplit
 
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
@@ -16,7 +13,6 @@ from bijux_pollenomics.core.owned_tree import (
 )
 
 from .models import (
-    _HEADERS,
     _SCHEMA,
     DEFAULT_METADATA_LIMITS,
     NeotomaMetadataCapture,
@@ -26,7 +22,13 @@ from .models import (
     _Request,
 )
 from .protocol import _validate_plan, _walk_plan
-from .receipts import _safe_root, _validate_receipt, _write_json
+from .receipts import (
+    _retain_http_response,
+    _retain_transport_failure,
+    _safe_root,
+    _validate_receipt,
+    _write_json,
+)
 from .replay import replay_neotoma_metadata_capture
 from .transport import _fetch_response
 
@@ -71,60 +73,19 @@ def capture_neotoma_metadata(
         if len(records) >= limits.max_requests or total >= limits.max_total_bytes:
             raise ValueError("Neotoma metadata request or total-byte budget exhausted")
         bound = min(limits.max_response_bytes, limits.max_total_bytes - total)
-        parts = urlsplit(request.url)
-        record: dict[str, Any] = {
-            "requested_url": request.url,
-            "request_method": "GET",
-            "request_target": parts.path + ("?" + parts.query if parts.query else ""),
-            "parameters": request.parameters,
-            "role": request.role,
-            "expected_site_id": request.site_id,
-            "request_headers": [list(pair) for pair in _HEADERS],
-            "tls_mode": "verified_no_insecure_fallback",
-            "utc_start": datetime.now(UTC).isoformat(),
-        }
-        if request.dataset_id is not None:
-            record["expected_dataset_id"] = request.dataset_id
+        request_started = datetime.now(UTC).isoformat()
         try:
             response = fetch(
                 request.url, timeout=limits.timeout_seconds, max_bytes=bound
             )
         except Exception as error:
-            record.update(
-                {
-                    "utc_end": datetime.now(UTC).isoformat(),
-                    "terminal_status": "transport_failure",
-                    "error": f"{type(error).__name__}: {error}",
-                    "body_complete": False,
-                }
-            )
-            _write_json(staging / f"{request.name}.receipt.json", record)
+            _retain_transport_failure(staging, request, request_started, error)
             raise
-        record.update(
-            {
-                "utc_end": datetime.now(UTC).isoformat(),
-                "final_url": response.final_url,
-                "http_status": response.http_status,
-                "response_headers": [list(pair) for pair in response.headers],
-                "body_file": f"{request.name}.body",
-                "body_complete": response.body_complete,
-                "retained_body_bytes": len(response.body),
-                "retained_body_sha256": sha256(response.body).hexdigest(),
-                "terminal_status": "complete_http_200"
-                if response.http_status == 200 and response.body_complete
-                else "refused_http_response",
-            }
+        reference, record = _retain_http_response(
+            staging, request, response, request_started
         )
-        with (staging / record["body_file"]).open("xb") as stream:
-            stream.write(response.body)
-        receipt_name = f"{request.name}.receipt.json"
-        receipt_digest = _write_json(staging / receipt_name, record)
         records.append(
-            {
-                "request_name": request.name,
-                "receipt_file": receipt_name,
-                "receipt_sha256": receipt_digest,
-            }
+            {key: value for key, value in reference.items() if key != "body_file"}
         )
         total += len(response.body)
         _validate_receipt(record, request, response.body, bound)

@@ -6,5 +6,5 @@ function createSourceRecordDetails(bindings) {
   }
   __SOURCE_RECORD_DETAILS_CONTROLLER__
   return Object.freeze({overview: renderSelectedSourceOverview, samples: renderSourceSampleObservations,
-    classification: renderNativeClassificationContext, provenance: renderSourceProvenanceContext});
+    chronology: renderSourceChronologyContext, classification: renderNativeClassificationContext, provenance: renderSourceProvenanceContext});
 }

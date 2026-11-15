@@ -32,6 +32,7 @@ from .io import (
     _safe_relative_path,
 )
 from .neotoma_chronology import chronology_model_tables, chronology_tab
+from .neotoma_source_issues import source_issue_tables
 from .records import (
     _compact_rows_by_site,
     _features,
@@ -67,7 +68,7 @@ def _project_neotoma(
         )
     }
     manifest_surfaces = _mapping(manifest.get("surfaces"), "Neotoma surfaces")
-    for name in ("chronologies", "chronology_controls"):
+    for name in ("chronologies", "chronology_controls", "conflicts", "orphans"):
         if name in manifest_surfaces:
             loaded_surfaces[name] = _load_neotoma_surface(
                 relational_root, manifest, name
@@ -79,7 +80,15 @@ def _project_neotoma(
         "Neotoma sites",
     )
     governed_sites = _governed_neotoma_sites(sites)
-    model_tables = chronology_model_tables(loaded_surfaces, set(sites))
+    issue_tables, issue_accounting, issue_subjects, variant_coverage = (
+        source_issue_tables(loaded_surfaces, set(sites), set(governed_sites))
+    )
+    model_tables = chronology_model_tables(
+        loaded_surfaces,
+        set(sites),
+        source_issues_by_subject=issue_subjects,
+        control_variant_ids_by_site=variant_coverage,
+    )
     collection_rows = _compact_rows_by_site(
         surfaces["collection_units"],
         fields=("collection_unit_id", "source_collection_unit_id", "source_payload"),
@@ -305,7 +314,12 @@ def _project_neotoma(
                         ),
                     },
                     "chronology": chronology_tab(
-                        age_fields, site_age_rows, model_tables[site_id]
+                        age_fields,
+                        site_age_rows,
+                        {
+                            **model_tables[site_id],
+                            "source_issues": issue_tables[site_id],
+                        },
                     ),
                     "pollen_composition": (
                         {
@@ -434,6 +448,7 @@ def _project_neotoma(
             "unique_variable_ids; excluded_counts_include_only_ids_absent_from_projected_sites"
         ),
         "source_chronology": source_projection.reconciliation,
+        "source_issues": issue_accounting,
     }
     return (
         records,
