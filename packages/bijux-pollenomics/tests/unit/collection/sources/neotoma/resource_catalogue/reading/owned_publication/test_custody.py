@@ -139,14 +139,14 @@ def test_catalogue_loader_preflights_total_namespace_before_member_buffers(
         else len(members) - 1,
         raising=False,
     )
-    read = Path.read_bytes
+    read = Path.open
 
-    def observed(path: Path) -> bytes:
+    def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path != manifest and path.is_relative_to(root):
             pytest.fail("over-budget compact member buffer opened")
-        return read(path)
+        return read(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "read_bytes", observed)
+    monkeypatch.setattr(Path, "open", observed)
     with pytest.raises(ValueError):
         api.load_neotoma_resource_catalogue(root, expected_manifest_sha256=digest)
 

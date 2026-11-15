@@ -15,8 +15,8 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import (
     archive as api,
 )
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive import (
+    inventory,
     publication,
-    validation,
 )
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 
@@ -62,16 +62,21 @@ def test_oversized_member_is_refused_before_opening_its_buffer(
         path.write_text(json.dumps(manifest))
     raw = path.read_bytes()
     if limit == "remaining_budget":
-        monkeypatch.setattr(validation, "MAX_BYTES", len(raw) + size - 1)
-    read = Path.read_bytes
+        monkeypatch.setattr(inventory, "MAX_BYTES", len(raw) + size - 1)
+    read = Path.open
 
-    def observed(selected: Path) -> bytes:
+    def observed(selected: Path, *args: Any, **kwargs: Any) -> Any:
         if selected == member:
             pytest.fail("oversized source member buffer was opened")
-        return read(selected)
+        return read(selected, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "read_bytes", observed)
-    with pytest.raises(ValueError, match="bounded regular file"):
+    monkeypatch.setattr(Path, "open", observed)
+    message = (
+        "bounded regular file"
+        if limit == "declared_size"
+        else "finite publication budget"
+    )
+    with pytest.raises(ValueError, match=message):
         api.load_neotoma_source_archive(
             output, expected_manifest_sha256=sha256(raw).hexdigest()
         )
