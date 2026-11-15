@@ -355,3 +355,38 @@ statuses[FIELD]='refused_native_protocol';console.log(JSON.stringify(sourceResou
         "value": "refused_native_protocol",
         "metadataOnly": False,
     }
+
+
+@pytest.mark.parametrize(
+    ("width", "height"),
+    [(320, 568), (390, 844), (568, 320), (768, 1024), (844, 390), (1440, 900)],
+)
+def test_initial_reader_search_is_visible_without_scrolling_or_split_header_words(
+    browser_probe: Callable[..., dict[str, Any]], width: int, height: int
+) -> None:
+    observed = browser_probe(
+        """(async()=>{document.getElementById('source-resources-open').click();
+for(let i=0;i<150&&document.querySelector('[data-resource-status]')?.dataset.state!=='available';i++)await new Promise(ok=>setTimeout(ok,20));
+const dialog=document.getElementById('source-resources-dialog'),search=dialog.querySelector('input[type=search]'),title=dialog.querySelector('h2'),close=dialog.querySelector('.help-dialog-head button');
+const box=search.getBoundingClientRect(),bounds=dialog.getBoundingClientRect(),hit=document.elementFromPoint(box.x+box.width/2,box.y+box.height/2),brokenWords=[];
+for(const node of [title,close]){for(const match of node.textContent.matchAll(/\\S+/g)){const range=document.createRange();range.setStart(node.firstChild,match.index);range.setEnd(node.firstChild,match.index+match[0].length);if(range.getClientRects().length>1)brokenWords.push(match[0]);}}
+const scope=dialog.querySelector('[data-resource-scope]');
+return {scroll:dialog.scrollTop,searchVisible:box.left>=bounds.left&&box.right<=bounds.right&&box.top>=bounds.top&&box.bottom<=bounds.bottom&&box.bottom<=innerHeight,searchHit:hit===search||search.contains(hit),brokenWords,scopeCollapsed:scope?.open===false,scopeText:scope?.textContent,closeLabel:close.getAttribute('aria-label')};})()""",
+        width=width,
+        height=height,
+    )
+    result = observed["result"]
+    assert result["scroll"] == 0
+    assert result["searchVisible"] is True and result["searchHit"] is True
+    assert result["brokenWords"] == []
+    assert result["scopeCollapsed"] is True
+    for caveat in (
+        "Current and DOI-frozen",
+        "epochs, rights and qualification",
+        "original-paper identity",
+        "published scientific population",
+        "independent evidence",
+    ):
+        assert caveat in result["scopeText"]
+    assert result["closeLabel"] == "Close Neotoma source resource metadata"
+    assert observed["failures"] == []
