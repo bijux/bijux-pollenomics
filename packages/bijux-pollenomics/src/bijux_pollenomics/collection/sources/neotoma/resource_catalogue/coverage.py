@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections import Counter
 from collections.abc import Mapping, Sequence
 from dataclasses import asdict
 import math
@@ -25,24 +26,52 @@ from .source_projection import (
     related_facets,
 )
 
+_MISSING_COLLECTION = object()
+
+
+def _native_collection_members(
+    parents: object, field: str, *, wrapper: str | None = None
+) -> tuple[list[Any], dict[str, int], bool]:
+    """Count provided array elements without turning unavailable collections into zero."""
+    if not isinstance(parents, list):
+        return [], {"parent_unavailable": 1}, False
+    elements: list[Any] = []
+    states: Counter[str] = Counter()
+    complete = True
+    for parent in parents:
+        if wrapper is not None:
+            parent = parent.get(wrapper) if isinstance(parent, dict) else None
+        if not isinstance(parent, dict):
+            states["unavailable_wrapper" if wrapper else "nonrecord_parent"] += 1
+            complete = False
+            continue
+        value = parent.get(field, _MISSING_COLLECTION)
+        if isinstance(value, list):
+            states["array"] += 1
+            elements.extend(value)
+        else:
+            state = (
+                "missing"
+                if value is _MISSING_COLLECTION
+                else "null"
+                if value is None
+                else "malformed"
+            )
+            states[state] += 1
+            complete = False
+    return elements, dict(sorted(states.items())), complete
+
 
 def _native_counts(samples: object, chronologies: object) -> dict[str, Any]:
     sample_rows = samples if isinstance(samples, list) else []
-    datums = [
-        datum
-        for sample in sample_rows
-        if isinstance(sample, dict)
-        for datum in sample.get("datum", [])
-        if isinstance(datum, dict)
-    ]
-    chronology_rows = chronologies if isinstance(chronologies, list) else []
-    controls = [
-        control
-        for row in chronology_rows
-        if isinstance(row, dict) and isinstance(row.get("chronology"), dict)
-        for control in row["chronology"].get("chroncontrols", [])
-        if isinstance(control, dict)
-    ]
+    datum_elements, datum_states, datums_available = _native_collection_members(
+        samples, "datum"
+    )
+    control_elements, control_states, controls_available = _native_collection_members(
+        chronologies, "chroncontrols", wrapper="chronology"
+    )
+    datums = [datum for datum in datum_elements if isinstance(datum, dict)]
+    controls = [control for control in control_elements if isinstance(control, dict)]
     identified_samples = [
         row["sampleid"]
         for row in sample_rows
@@ -67,7 +96,9 @@ def _native_counts(samples: object, chronologies: object) -> dict[str, Any]:
         else "null_or_unavailable",
         "identified_sample_rows": len(identified_samples),
         "distinct_identified_samples": len(set(identified_samples)),
-        "raw_datum_rows": len(datums) if isinstance(samples, list) else None,
+        "raw_datum_rows": len(datum_elements) if datums_available else None,
+        "available_datum_rows": len(datum_elements),
+        "datum_population_states": datum_states,
         "datum_rows_with_values": sum(
             datum.get("value") is not None for datum in datums
         ),
@@ -80,7 +111,12 @@ def _native_counts(samples: object, chronologies: object) -> dict[str, Any]:
         "raw_chronology_rows": len(chronologies)
         if isinstance(chronologies, list)
         else None,
-        "raw_chroncontrol_rows": len(controls),
+        "raw_chroncontrol_rows": len(control_elements) if controls_available else None,
+        "available_chroncontrol_rows": len(control_elements),
+        "chroncontrol_record_rows": len(controls),
+        "chroncontrol_nonrecord_rows": len(control_elements) - len(controls),
+        "chroncontrol_population_states": control_states,
+        "chroncontrol_collections_available": controls_available,
         "distinct_identified_chroncontrols": len(set(identified_controls)),
         "source_units": sorted(
             units, key=lambda value: (value is not None, str(value))

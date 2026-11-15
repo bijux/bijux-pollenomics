@@ -14,6 +14,77 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import (
 )
 
 
+@pytest.mark.parametrize(
+    ("chronologies", "raw_total", "available_rows", "records", "states"),
+    [
+        ([], 0, 0, 0, {}),
+        (None, None, 0, 0, {"parent_unavailable": 1}),
+        ([{"chronology": {"chroncontrols": None}}], None, 0, 0, {"null": 1}),
+        ([{"chronology": {}}], None, 0, 0, {"missing": 1}),
+        ([{"chronology": {"chroncontrols": {}}}], None, 0, 0, {"malformed": 1}),
+        ([{"chronology": None}], None, 0, 0, {"unavailable_wrapper": 1}),
+        ([None], None, 0, 0, {"unavailable_wrapper": 1}),
+        (
+            [{"chronology": {"chroncontrols": [None, {"chroncontrolid": 11}]}}],
+            2,
+            2,
+            1,
+            {"array": 1},
+        ),
+        (
+            [
+                {"chronology": {"chroncontrols": [{"chroncontrolid": 11}]}},
+                {"chronology": {"chroncontrols": None}},
+            ],
+            None,
+            1,
+            1,
+            {"array": 1, "null": 1},
+        ),
+    ],
+)
+def test_control_population_counts_preserve_unavailable_and_literal_rows(
+    catalogue_sources: Callable[..., dict[str, Any]],
+    chronologies: object,
+    raw_total: int | None,
+    available_rows: int,
+    records: int,
+    states: dict[str, int],
+) -> None:
+    inputs = catalogue_sources(chronology_metadata=chronologies)
+    catalogue = build_neotoma_resource_catalogue(**inputs)
+    resource = next(row for row in catalogue["resources"] if row["dataset_id"] == 201)
+    current = resource["versions"]["current"]
+    assert current["acquisition_status"] == "parsed_native"
+    counts = current["native_counts"]
+    assert counts["raw_chroncontrol_rows"] == raw_total
+    assert counts["available_chroncontrol_rows"] == available_rows
+    assert counts["chroncontrol_record_rows"] == records
+    assert counts["chroncontrol_nonrecord_rows"] == available_rows - records
+    assert counts["chroncontrol_population_states"] == states
+    assert counts["chroncontrol_collections_available"] is (raw_total is not None)
+    assert counts["dated_measurements"] is None
+    assert resource["method_capability"]["scientific_admission"] == "not_asserted"
+
+
+def test_missing_datum_population_is_unavailable_while_empty_array_is_zero(
+    catalogue_sources: Callable[..., dict[str, Any]],
+) -> None:
+    catalogue = build_neotoma_resource_catalogue(
+        **catalogue_sources(
+            sample_metadata=[{"sampleid": 41}, {"sampleid": 42, "datum": []}]
+        )
+    )
+    resource = next(row for row in catalogue["resources"] if row["dataset_id"] == 201)
+    current = resource["versions"]["current"]
+    assert current["acquisition_status"] == "parsed_native"
+    counts = current["native_counts"]
+    assert counts["raw_sample_rows"] == 2
+    assert counts["raw_datum_rows"] is None
+    assert counts["available_datum_rows"] == 0
+    assert counts["datum_population_states"] == {"array": 1, "missing": 1}
+
+
 def test_resource_version_partition_preserves_roles_epochs_and_null_native_rows(
     catalogue_sources: Callable[..., dict[str, Any]],
 ) -> None:

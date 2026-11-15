@@ -21,6 +21,8 @@ from bijux_pollenomics.collection.sources.neotoma.capture.resources import (
     capture_neotoma_resources,
 )
 
+_DEFAULT_SOURCE_COLLECTION = object()
+
 
 @pytest.fixture
 def catalogue_sources(tmp_path: Path) -> Callable[..., dict[str, Any]]:
@@ -29,6 +31,8 @@ def catalogue_sources(tmp_path: Path) -> Callable[..., dict[str, Any]]:
         auxiliary_type: str = "geochronologic",
         capture_resources: bool = True,
         large_integer: bool = False,
+        chronology_metadata: object = _DEFAULT_SOURCE_COLLECTION,
+        sample_metadata: object = _DEFAULT_SOURCE_COLLECTION,
     ) -> dict[str, Any]:
         root = tmp_path / auxiliary_type.replace(" ", "-")
         root.mkdir()
@@ -142,7 +146,7 @@ def catalogue_sources(tmp_path: Path) -> Callable[..., dict[str, Any]]:
                 identity = int(url.split("/")[-1])
                 assert identity in (201, 202), "Blocked numerical source requested"
                 site, unit = sites[identity]
-                samples = [
+                samples: object = [
                     {
                         "sampleid": 41 if identity == 201 else None,
                         "datum": [
@@ -155,6 +159,8 @@ def catalogue_sources(tmp_path: Path) -> Callable[..., dict[str, Any]]:
                         ],
                     }
                 ]
+                if sample_metadata is not _DEFAULT_SOURCE_COLLECTION:
+                    samples = sample_metadata
                 if "/frozen/" in url:
                     document = {
                         "status": "success",
@@ -190,7 +196,10 @@ def catalogue_sources(tmp_path: Path) -> Callable[..., dict[str, Any]]:
                                             **native_dataset(identity),
                                             "samples": samples,
                                         },
-                                        "chronologies": [],
+                                        "chronologies": []
+                                        if chronology_metadata
+                                        is _DEFAULT_SOURCE_COLLECTION
+                                        else chronology_metadata,
                                     },
                                 }
                             }
