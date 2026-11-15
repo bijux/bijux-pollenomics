@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Authenticated linked details and native associations
+### [#437](https://github.com/bijux/bijux-pollenomics/pull/437) — Authenticated linked details and native associations
 
 - Qualify observed native contributor/DOI/physical-site associations with exact
   dataset/core/type ownership, retaining original text and nulls without DOI/geography
