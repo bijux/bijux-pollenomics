@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Portable source capsules and bounded catalogue storage
+### [#442](https://github.com/bijux/bijux-pollenomics/pull/442) — Portable source capsules and bounded catalogue storage
 
 - Authenticate download-only source entities and complete native attribution while
   preserving original acquisition/qualification status and refusing protected roles
