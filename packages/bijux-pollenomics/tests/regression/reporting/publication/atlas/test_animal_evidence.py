@@ -13,7 +13,7 @@ from bijux_pollenomics.reporting import (
 
 from ..fixtures.aadr import write_anno
 from ..fixtures.animal_adna import write_tracked_animal_species
-from ..static_assets import read_static_atlas_payload_text
+from ..static_assets import read_static_atlas_payload_text, read_static_atlas_runtime
 
 pytestmark = pytest.mark.generated_artifacts
 
@@ -96,6 +96,7 @@ class CountryReportTests(unittest.TestCase):
             )
 
             map_html = (output / "nordic-atlas_map.html").read_text(encoding="utf-8")
+            runtime_text = read_static_atlas_runtime(output, "nordic-atlas")
             atlas_payload_text = read_static_atlas_payload_text(output, "nordic-atlas")
             readme_text = (output / "README.md").read_text(encoding="utf-8")
             summary = json.loads(
@@ -123,21 +124,21 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn('id="animal-evidence-metrics"', map_html)
             self.assertIn('id="animal-evidence-confidence"', map_html)
             self.assertIn('id="animal-evidence-state"', map_html)
-            self.assertIn("Domesticated animal aDNA", map_html)
-            self.assertIn("Comparator animal aDNA", map_html)
-            self.assertIn("data-animal-species", map_html)
-            self.assertIn("data-animal-scope", map_html)
-            self.assertIn("data-animal-confidence", map_html)
-            self.assertIn("data-animal-temporal-window", map_html)
-            self.assertIn("featureMatchesAnimalFilters", map_html)
-            self.assertIn("summarizeAnimalMetrics", map_html)
-            self.assertIn("renderAnimalEvidencePanel", map_html)
+            self.assertIn("Domesticated animal aDNA", runtime_text)
+            self.assertIn("Comparator animal aDNA", runtime_text)
+            self.assertIn("data-animal-species", runtime_text)
+            self.assertIn("data-animal-scope", runtime_text)
+            self.assertIn("data-animal-confidence", runtime_text)
+            self.assertIn("data-animal-temporal-window", runtime_text)
+            self.assertIn("featureMatchesAnimalFilters", runtime_text)
+            self.assertIn("summarizeAnimalMetrics", runtime_text)
+            self.assertIn("renderAnimalEvidencePanel", runtime_text)
             self.assertIn("Coordinate trust", map_html)
-            self.assertIn("Visible species", map_html)
+            self.assertIn("Visible species", runtime_text)
             self.assertIn("popup-section-title", map_html)
-            self.assertIn("Citation and provenance", map_html)
-            self.assertIn("Sample and locality detail", map_html)
-            self.assertIn("Warnings and caveats", map_html)
+            self.assertIn("Citation and provenance", runtime_text)
+            self.assertIn("Sample and locality detail", runtime_text)
+            self.assertIn("Warnings and caveats", runtime_text)
             self.assertIn("Ovis aries", atlas_payload_text)
             self.assertIn("Rangifer tarandus", atlas_payload_text)
             self.assertIn("Baltic sheep lead", atlas_payload_text)

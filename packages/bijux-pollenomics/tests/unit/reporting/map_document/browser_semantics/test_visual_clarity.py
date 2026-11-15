@@ -83,49 +83,44 @@ def test_viewport_chrome_is_compact_clipped_and_non_overlapping() -> None:
     )
     assert match is not None
     declarations = re.findall(r"([a-z-]+)\s*:\s*([^;]+);", match.group(1))
-    assert declarations == [
-        ("position", "relative"),
-        ("display", "grid"),
-        ("grid-template-rows", "minmax(0, 1fr) auto"),
-        ("height", "100vh"),
-        ("height", "100dvh"),
-        ("overflow", "hidden"),
-    ]
-    assert (
-        ".map-topbar .eyebrow,\n      .map-topbar .topbar-note {\n"
-        "        display: none;"
-    ) in MAP_DOCUMENT_TEMPLATE
-    assert (
-        ".map-topbar .topbar-state-pill {\n          display: none;"
-        in MAP_DOCUMENT_TEMPLATE
+    declaration_map = dict(declarations)
+    assert declaration_map["display"] == "grid"
+    assert declaration_map["height"] == "100dvh"
+    assert declaration_map["overflow"] == "hidden"
+    assert "minmax(min(260px, 30dvh), 1fr)" in declaration_map["grid-template-rows"]
+    assert declaration_map["grid-template-areas"] == (
+        '"toolbar" "map" "reader" "status" "footer"'
     )
-    assert "max-height: min(60vh, calc(100dvh - 188px));" in (MAP_DOCUMENT_TEMPLATE)
-    assert "body.has-legend-open .map-status" in MAP_DOCUMENT_TEMPLATE
+    reader_rule = template_block(".focus-card {", ".focus-card[hidden]")
+    assert "overflow: auto;" in reader_rule
+    assert "min-height: 0;" in reader_rule
     assert "body.has-search-open .map-topbar-main" not in MAP_DOCUMENT_TEMPLATE
-    assert "width: min(188px, calc(100vw - 16px));" in MAP_DOCUMENT_TEMPLATE
-    assert "--legend-max-height: min(24vh, 184px);" in MAP_DOCUMENT_TEMPLATE
+    assert "body.has-legend-open .map-status" in MAP_DOCUMENT_TEMPLATE
 
 
-def test_narrow_search_is_a_locally_bounded_popover_outside_topbar_flow() -> None:
-    narrow_css = MAP_DOCUMENT_TEMPLATE.split("@media (max-width: 640px) {", maxsplit=1)[
-        1
-    ].split("</style>", maxsplit=1)[0]
-    search_rule = narrow_css.split(".topbar-search {", maxsplit=1)[1].split(
-        "}", maxsplit=1
-    )[0]
-    results_rule = narrow_css.split(".search-results--floating {", maxsplit=1)[1].split(
-        "}", maxsplit=1
-    )[0]
-
-    assert "position: absolute;" in search_rule
-    assert "top: calc(100% + 8px);" in search_rule
-    assert "right: 0;" in search_rule
-    assert "width: min(220px, calc(100vw - 16px));" in search_rule
+def test_narrow_search_results_keep_a_local_scroll_region() -> None:
+    narrow_css = template_block(
+        "@media (max-width: 640px)", "@media (max-height: 640px)"
+    )
+    search_rule = narrow_css.split(".topbar-search {", 1)[1].split("}", 1)[0]
+    results_rule = narrow_css.split(".search-results--floating {", 1)[1].split("}", 1)[
+        0
+    ]
+    results_base = template_block(
+        ".search-results--floating {", ".search-results--floating[hidden]"
+    )
+    assert "position: relative;" in search_rule
+    assert "width: 100%;" in search_rule
     assert "position: relative;" in results_rule
-    assert "top: auto;" in results_rule
-    assert "right: auto;" in results_rule
-    assert "width: 100%;" in results_rule
     assert "max-height: min(14vh, 88px);" in results_rule
+    assert "overflow: auto;" in results_base
+    short_css = template_block(
+        "@media (max-height: 640px)",
+        "@media (min-width: 480px) and (max-height: 640px)",
+    )
+    short_search = short_css.split(".topbar-search {", 1)[1].split("}", 1)[0]
+    assert "position: absolute;" in short_search
+    assert "top: calc(100% + 8px);" in short_search
 
 
 def test_expanded_legend_scrolls_inside_its_bounded_surface() -> None:
@@ -246,13 +241,17 @@ def test_collapsed_chrome_preserves_map_space_and_open_surfaces_are_exclusive() 
 
 
 def test_status_strip_uses_one_column_per_desktop_status() -> None:
-    assert (
-        MAP_DOCUMENT_TEMPLATE.count(
-            "grid-template-columns: repeat(5, minmax(0, auto));"
-        )
-        == 1
+    status_rule = template_block(".map-status {", ".north-orientation {")
+    status_markup = template_block(
+        '<div class="map-status">', '<footer class="map-reader-footer"'
     )
-    assert (
-        MAP_DOCUMENT_TEMPLATE.count("grid-template-columns: repeat(5, minmax(0, 1fr));")
-        == 1
+    assert status_markup.count('class="status-pill"') == 5
+    assert "grid-template-columns: repeat(5, minmax(0, 1fr));" in status_rule
+    narrow_css = template_block(
+        "@media (max-width: 900px)", "@media (max-width: 640px)"
     )
+    assert "grid-template-columns: repeat(3, minmax(0, 1fr));" in narrow_css
+    assert ".map-status .status-pill:nth-child(1)," in narrow_css
+    assert ".map-status .status-pill:nth-child(3) {" in narrow_css
+    for role in ("center-readout", "selection-readout", "basemap-readout"):
+        assert f'id="{role}"' in status_markup

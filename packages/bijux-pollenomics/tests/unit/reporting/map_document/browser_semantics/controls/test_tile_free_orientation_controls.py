@@ -36,9 +36,12 @@ def test_narrow_status_retains_center_and_basemap_with_clear_map_controls() -> N
             "}", 1
         )[0]
     )
-    assert (
-        "top: 176px;" in mobile_css.split(".north-orientation {", 1)[1].split("}", 1)[0]
+    map_markup = MAP_DOCUMENT_TEMPLATE.split('<div class="map-viewport">', 1)[1]
+    assert map_markup.index('id="north-orientation"') < map_markup.index(
+        'id="atlas-capture-overlay"'
     )
+    north_rule = mobile_css.split(".north-orientation {", 1)[1].split("}", 1)[0]
+    assert "top:" not in north_rule
     assert 'id="center-readout"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="basemap-readout"' in MAP_DOCUMENT_TEMPLATE
     assert (

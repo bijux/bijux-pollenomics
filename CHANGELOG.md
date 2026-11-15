@@ -2,6 +2,23 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#428](https://github.com/bijux/bijux-pollenomics/pull/428) — Retained source accounting and reachable Atlas readers
+
+- Bind retained direct-pollen measure accounting to the published study's fixed
+  reachable producer witness, keeping original count/age decisions separate from
+  later producer guards and current account-implementation integrity. Do not execute
+  the archived producer or infer current equivalence.
+- Keep source readers and controls reachable in short viewports through explicit
+  layout, touch targets and scrollable reader bounds. Add supplied-candidate reader-
+  surface verification with geometry refusal controls; local Node fixtures do not
+  establish a fresh real-browser qualification.
+- Require present matching chronology references before selecting a source default,
+  preserving missing identifiers and orphan records without admitting them through
+  null equality.
+- Authenticate the main Atlas runtime declared by generated documents and use
+  source-owned animal/publication fixtures. Preserve runtime hash, size, integrity,
+  identity and source-role refusals in synthetic publication regressions.
+
 ### [#427](https://github.com/bijux/bijux-pollenomics/pull/427) — Neotoma archive and metadata source custody
 
 - Reconcile and stage Neotoma archive members before replacement of an authenticated

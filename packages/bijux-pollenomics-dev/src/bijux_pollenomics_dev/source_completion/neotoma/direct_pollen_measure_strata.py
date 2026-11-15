@@ -13,13 +13,25 @@ from typing import Any, cast
 from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
     require_absent_artifact_output,
 )
-from bijux_pollenomics_dev.source_completion import nordic_direct_pollen as study
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source.objects import (
+    GitSourceMember,
+    read_blob,
+)
 
 MANIFEST_PATH = Path("docs/report/regions/nordic/direct-pollen/manifest.json")
 MANIFEST_SHA256 = "43ec4aa62c1c93c0b3af0da2733706eb68a9685bd3f37b18a3041d22e7382573"
 SCREEN_PATH = Path("docs/report/source-relations/neotoma/pollen-screen/report.json")
 SCREEN_SHA256 = "ffecf23d5f1eb9e7287b418b70a140daa1d30d8c9648672f32b37a47dbbf7b31"
 RELATIONAL = Path("data/neotoma/relational")
+STUDY_SOURCE = "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py"
+PUBLISHED_STUDY_RUNNER = GitSourceMember(
+    member=STUDY_SOURCE,
+    repository_path=STUDY_SOURCE,
+    source_revision="30686f5445179be884d61c4289cc28837bc863d7",
+    git_blob="8c0dbae972a37886da42622bed84f7f7d749355f",
+    sha256="59f6f432ce931eb080d1321c06ea4f4eb44dd6606adb122caacf2a495eaa6b77",
+    bytes=57928,
+)
 COUNTRIES = ("DK", "FI", "NO")
 SOURCE_MEASURES = (
     "NISP_raw_count",
@@ -47,11 +59,38 @@ def _read(repository: Path, relative: Path, expected: str) -> bytes:
     return content
 
 
-def _rows(repository: Path, part: str, pins: Mapping[str, str]) -> list[dict[str, Any]]:
+def _published_study_source(repository: Path, expected: str) -> dict[str, Any]:
+    """Authenticate immutable producer bytes without executing the archived program."""
+    witness = PUBLISHED_STUDY_RUNNER
+    if expected != witness.sha256:
+        raise ValueError("published study producer identity differs")
+    body = read_blob(repository, witness)
+    if _sha(body) != expected or len(body) != witness.bytes:
+        raise ValueError("published study producer identity differs")
+    return {
+        "repository_path": witness.repository_path,
+        "source_revision": witness.source_revision,
+        "source_revision_role": "reachable_source_byte_witness",
+        "git_blob": witness.git_blob,
+        "sha256": witness.sha256,
+        "bytes": witness.bytes,
+        "archived_program_executed_by_account": False,
+        "current_producer_equivalence_claimed": False,
+    }
+
+
+def _rows(
+    repository: Path,
+    part: str,
+    pins: Mapping[str, str],
+    *,
+    source_snapshot_id: str,
+    build_id: str,
+) -> list[dict[str, Any]]:
     document = json.loads(_read(repository, RELATIONAL / part, pins[part]))
     if (
-        document.get("source_snapshot_id") != study.SOURCE_SNAPSHOT
-        or document.get("build_id") != study.RELATIONAL_BUILD
+        document.get("source_snapshot_id") != source_snapshot_id
+        or document.get("build_id") != build_id
         or not isinstance(document.get("rows"), list)
         or any(not isinstance(row, dict) for row in document["rows"])
     ):
@@ -123,7 +162,15 @@ def chosen_target_samples(
         claims = ages.get(sample_id, [])
         if not claims:
             raise ValueError("screen candidate lacks comparable age")
-        claim = study._select_comparable_age(claims, dict(chronologies))
+        if len(claims) == 1:
+            claim: dict[str, Any] | None = claims[0]
+        else:
+            defaults = [
+                claim
+                for claim in claims
+                if chronologies[claim["chronology_id"]]["source_is_default_assertion"]
+            ]
+            claim = defaults[0] if len(defaults) == 1 else None
         if claim is None:
             continue
         if claim["source_age_type"] not in {
@@ -174,8 +221,6 @@ def account_rows(
             family, ensure_ascii=False, sort_keys=True, separators=(",", ":")
         )
         reason = refusal_reason(row)
-        if (reason is None) != study._is_direct_pollen_count(row):
-            raise ValueError("published direct-pollen count predicate differs")
         decision = "accepted" if reason is None else "refused"
         key = (country, unit_json, family_json, decision, reason or "accepted")
         group = groups.setdefault(
@@ -259,13 +304,9 @@ def build_report(repository: Path) -> dict[str, Any]:
     if manifest.get("schema_version") != "nordic-direct-pollen-results.v1":
         raise ValueError("published study manifest schema differs")
     identity = manifest["input_identity"]
-    if (
-        identity["schema_version"] != "nordic-direct-pollen-inputs.v1"
-        or identity["source_snapshot_id"] != study.SOURCE_SNAPSHOT
-        or identity["relational_build_id"] != study.RELATIONAL_BUILD
-        or identity["runner_sha256"] != _sha(Path(study.__file__).read_bytes())
-    ):
+    if identity["schema_version"] != "nordic-direct-pollen-inputs.v1":
         raise ValueError("published study source identity differs")
+    historical_source = _published_study_source(repository, identity["runner_sha256"])
     screen = json.loads(_read(repository, SCREEN_PATH, SCREEN_SHA256))
     if (
         _sha(json.dumps(screen, sort_keys=True, separators=(",", ":")).encode())
@@ -275,16 +316,25 @@ def build_report(repository: Path) -> dict[str, Any]:
     pins: dict[str, str] = identity["relational_file_sha256"]
     for part, digest in pins.items():
         _read(repository, RELATIONAL / part, digest)
+
+    def source_rows(part: str) -> list[dict[str, Any]]:
+        return _rows(
+            repository,
+            part,
+            pins,
+            source_snapshot_id=identity["source_snapshot_id"],
+            build_id=identity["relational_build_id"],
+        )
+
     samples = {
-        r["sample_id"]: r
-        for r in _rows(repository, "surfaces/samples/part-00001.json", pins)
+        r["sample_id"]: r for r in source_rows("surfaces/samples/part-00001.json")
     }
     chronologies = {
         r["chronology_id"]: r
-        for r in _rows(repository, "surfaces/chronologies/part-00001.json", pins)
+        for r in source_rows("surfaces/chronologies/part-00001.json")
     }
     ages: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for claim in _rows(repository, "surfaces/age_claims/part-00001.json", pins):
+    for claim in source_rows("surfaces/age_claims/part-00001.json"):
         if (
             claim["subject_type"] == "sample"
             and claim["comparability_status"] == "comparable"
@@ -302,7 +352,7 @@ def build_report(repository: Path) -> dict[str, Any]:
         for part in sorted(
             path for path in pins if path.startswith("surfaces/observations/")
         ):
-            yield from _rows(repository, part, pins)
+            yield from source_rows(part)
 
     groups, summary = account_rows(observations(), selected)
     if summary["unique_observation_count"] != 174970 or len(groups) != 22:
@@ -317,9 +367,11 @@ def build_report(repository: Path) -> dict[str, Any]:
     return {
         "schema_version": "nordic-direct-pollen-target-measure-account.v1",
         "scope": "published_DK_FI_NO_16_label_target_candidates_only",
-        "source_snapshot_id": study.SOURCE_SNAPSHOT,
-        "relational_build_id": study.RELATIONAL_BUILD,
+        "source_snapshot_id": identity["source_snapshot_id"],
+        "relational_build_id": identity["relational_build_id"],
         "published_study_producer_sha256": identity["runner_sha256"],
+        "historical_study_source": historical_source,
+        "account_implementation_sha256": _sha(Path(__file__).read_bytes()),
         "source_readset_sha256": dict(sorted(readset.items())),
         "summary": summary,
         "strata": groups,
@@ -336,6 +388,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
     stage = require_absent_artifact_output(
         repository, output.with_name(output.name + ".stage")
     )
+    implementation_before = _sha(Path(__file__).read_bytes())
     report = build_report(repository)
     try:
         stage.write_text(
@@ -345,8 +398,15 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         for relative, digest in report["source_readset_sha256"].items():
             _read(repository, Path(relative), digest)
         if (
-            _sha(Path(study.__file__).read_bytes())
-            != report["published_study_producer_sha256"]
+            report["account_implementation_sha256"] != implementation_before
+            or _sha(Path(__file__).read_bytes()) != implementation_before
+        ):
+            raise ValueError("account implementation changed before publication")
+        if (
+            _published_study_source(
+                repository, report["published_study_producer_sha256"]
+            )
+            != report["historical_study_source"]
         ):
             raise ValueError("published source producer changed before publication")
         require_absent_artifact_output(repository, destination)

@@ -198,8 +198,8 @@ const map={getZoom:()=>11,flyTo:(...args)=>calls.push(args)};
     assert observed == {
         "calls": [[[59.25, 18.75], 11, options]],
         "focused": [1],
-        "timers": [250],
-        "popup": 1,
+        "timers": [],
+        "popup": 0,
         "searchOpen": False,
     }
 

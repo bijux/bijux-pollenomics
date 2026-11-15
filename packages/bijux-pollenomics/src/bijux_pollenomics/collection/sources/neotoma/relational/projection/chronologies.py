@@ -6,7 +6,7 @@ from collections.abc import Mapping
 import copy
 
 from ..diagnostics import add_conflict, add_orphan, register_record
-from ..identifiers import digest, optional_source_id
+from ..identifiers import digest, optional_source_id, source_reference_matches
 from ..source_payloads import copy_source_payload_excluding
 from ..state import RelationalBuildState
 from .parent_refusals import native_rows
@@ -87,7 +87,7 @@ def project_chronologies(
                 "site_id": site_id,
                 "country_code": country_code,
                 "selected_by_collection_unit_reference": (
-                    chronology_source_id == default_source_id
+                    source_reference_matches(chronology_source_id, default_source_id)
                 ),
                 "source_is_default_assertion": source_is_default,
                 "source_payload": copy_source_payload_excluding(
