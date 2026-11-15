@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Native resource lineage and source chronology issues
+### [#429](https://github.com/bijux/bijux-pollenomics/pull/429) — Native resource lineage and source chronology issues
 
 - Retain role-bound current/frozen native resource entities in a bounded closed
   attempt ledger, with explicit unavailable/refused/unattempted partitions and no
