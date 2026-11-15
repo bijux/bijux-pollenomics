@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Swedish agricultural indicators and public core metadata
+### [#424](https://github.com/bijux/bijux-pollenomics/pull/424) — Swedish agricultural indicators and public core metadata
 
 - Derive rye, other cereals, plantain and non-cereal herbs on the unchanged
   published-model cohorts. Authenticate selected cell identities, coverage, weight
