@@ -2,6 +2,22 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#441](https://github.com/bijux/bijux-pollenomics/pull/441) — Exact country authority and bounded Atlas metadata
+
+- Reject ambiguous/lossy encoded country geometries through the strict native JSON
+  decoder, admitting historical correspondence only through two literal inverse spans
+  restoring fixed complete original source bytes under exact capture contexts.
+- Capture four exact named rank-one country records under fixed metadata-only routes and
+  hard transport caps. Qualify only unique literal native identities while preserving
+  unavailable/empty cases and avoiding territorial hierarchy or country-assignment
+  inference.
+- Partition complete Atlas source metadata into bounded logical parts with reconciled
+  index/population/site-variant/descriptor relationships, refusing native reader bodies
+  and awaiting the common immutable publication owner.
+- Share Atlas label typography within the existing stylesheet budget and verify
+  constructed country/source/partition controls without retained scientific replay or
+  fresh browser qualification.
+
 ### [#440](https://github.com/bijux/bijux-pollenomics/pull/440) — Bounded reference prefixes and explicit source-site joins
 
 - Qualify observed native speleothem unit fields separately from immutable source

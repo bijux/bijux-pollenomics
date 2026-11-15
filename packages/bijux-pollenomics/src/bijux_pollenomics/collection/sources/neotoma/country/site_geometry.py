@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-import json
 
 from bijux_pollenomics.collection.spatial import (
     classify_country,
@@ -9,6 +8,8 @@ from bijux_pollenomics.collection.spatial import (
     point_in_bbox,
 )
 from bijux_pollenomics.core.text import clean_optional_text
+
+from ..client import decode_neotoma_json_object
 
 
 def classify_neotoma_site_country(
@@ -34,9 +35,7 @@ def neotoma_site_representative_point(
     if not geography_text:
         return None
     try:
-        geography = json.loads(geography_text)
-    except json.JSONDecodeError:
-        return None
-    if not isinstance(geography, dict):
+        geography = decode_neotoma_json_object(geography_text)
+    except ValueError:
         return None
     return geometry_to_representative_point(geography)

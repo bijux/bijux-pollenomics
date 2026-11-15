@@ -47,6 +47,10 @@ from .source_roles.native_reference_transport import (
     NATIVE_REFERENCE_TRANSPORT_SOURCES,
     validated_native_reference_transport_source,
 )
+from .source_roles.neotoma_country_json import (
+    NEOTOMA_COUNTRY_JSON_SOURCE,
+    validated_neotoma_country_json_source,
+)
 from .source_roles.numerical_precision import (
     METRICS_SOURCE,
     validated_hellinger_precision_source,
@@ -561,6 +565,10 @@ def validated_current_scientific_source(
         and hashlib.sha256(body).hexdigest() == historical["sha256"]
     ):
         return None
+    if name == NEOTOMA_COUNTRY_JSON_SOURCE:
+        return validated_neotoma_country_json_source(
+            repository, historical, logical, source_buffer
+        )
     if name in PUBLIC_IMPORT_FACADE_SOURCES:
         return validated_import_facade_source(
             repository, historical, logical, source_buffer
