@@ -17,6 +17,13 @@ from ..serialization import (
     chunk_script_bytes,
     validate_decoded_payload_size,
 )
+from .ancillary.publication import ancillary_index_entry
+from .ancillary.validation import (
+    ANCILLARY_KINDS,
+    ancillary_record_id,
+    metadata_only,
+    validate_ancillary_groups,
+)
 
 if TYPE_CHECKING:
     from .publication import SourceResourcePayloads
@@ -37,6 +44,8 @@ def _digest(value: object) -> str:
 
 
 def _record_id(kind: str, row: Mapping[str, Any]) -> str:
+    if kind in ANCILLARY_KINDS:
+        return ancillary_record_id(kind, row)
     if kind == "context":
         if row.get("record_id") != "catalogue":
             raise ValueError("Source resource catalogue context identity differs")
@@ -62,6 +71,8 @@ def _refuse_native_reader(row: Mapping[str, Any]) -> None:
 
 
 def _index_entry(kind: str, row: Mapping[str, Any], part_id: str) -> dict[str, Any]:
+    if kind in ANCILLARY_KINDS:
+        return ancillary_index_entry(kind, row, part_id, ancillary_record_id(kind, row))
     result: dict[str, Any] = {
         "entity_type": kind,
         "record_id": _record_id(kind, row),
@@ -180,7 +191,8 @@ def validate_source_resource_payloads(
     anchor = _digest(expected_catalogue_manifest_sha256)
     domain = transport.domain
     if (
-        domain.get("schema_version") != "atlas-source-resources.v1"
+        domain.get("schema_version")
+        not in {"atlas-source-resources.v1", "atlas-source-resources.v2"}
         or domain.get("source_family") != "neotoma"
         or domain.get("catalogue_manifest_sha256") != anchor
         or domain.get("scientific_admission") != "not_asserted"
@@ -196,10 +208,17 @@ def validate_source_resource_payloads(
     expected_index: list[dict[str, Any]] = []
     observed_index: list[dict[str, Any]] = []
     part_numbers: dict[str, int] = defaultdict(int)
+    kinds = (
+        (*_KINDS, *ANCILLARY_KINDS)
+        if domain["schema_version"] == "atlas-source-resources.v2"
+        else _KINDS
+    )
     for payload in transport.payloads:
         kind, part_id = payload.get("kind"), payload.get("part_id")
         if (
-            kind not in _KINDS
+            not isinstance(kind, str)
+            or not isinstance(part_id, str)
+            or kind not in kinds
             or part_id != f"{kind}:{part_numbers[kind]}"
             or part_id in parts
         ):
@@ -222,6 +241,8 @@ def validate_source_resource_payloads(
             or any(not isinstance(row, dict) for row in records)
         ):
             raise ValueError("Source resource part records are invalid")
+        if kind in ANCILLARY_KINDS:
+            metadata_only(payload)
         encoded = canonical_json(payload)
         validate_decoded_payload_size(encoded, asset_key=part_id)
         script = chunk_script_bytes(
@@ -327,3 +348,6 @@ def validate_source_resource_payloads(
         )
     ):
         raise ValueError("Source resource original summary population differs")
+
+    if domain["schema_version"] == "atlas-source-resources.v2":
+        validate_ancillary_groups(domain, groups, resources)

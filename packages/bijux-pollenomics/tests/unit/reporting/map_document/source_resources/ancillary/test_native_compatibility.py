@@ -34,7 +34,33 @@ def test_native_projection_and_existing_transport_remain_identical(
             assert getattr(original, field.name) == getattr(joined, field.name)
     before = build_source_resource_payloads(original)
     after = build_source_resource_payloads(joined)
-    assert before == after
+    assert before.domain["schema_version"] == "atlas-source-resources.v1"
+    assert after.domain["schema_version"] == "atlas-source-resources.v2"
+    for key in (
+        "record_count",
+        "site_count",
+        "version_status_count",
+        "source_descriptor_count",
+        "legacy_site_reference_count",
+    ):
+        assert before.domain[key] == after.domain[key]
+    native_kinds = {"context", "sites", "resources", "descriptors"}
+    assert [part for part in before.payloads if part["kind"] != "index"] == [
+        part for part in after.payloads if part["kind"] in native_kinds
+    ]
+    assert [
+        row
+        for part in before.payloads
+        if part["kind"] == "index"
+        for row in part["records"]
+    ] == [
+        row
+        for part in after.payloads
+        if part["kind"] == "index"
+        for row in part["records"]
+        if row["entity_type"] in native_kinds
+    ]
+    assert build_source_resource_payloads(replace(joined, ancillary=None)) == before
     assert all(
         site["legacy_numerical_membership"] == "not_joined"
         for site in joined.site_records
