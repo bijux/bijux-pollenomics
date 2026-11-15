@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Bounded reference prefixes and explicit source-site joins
+### [#440](https://github.com/bijux/bijux-pollenomics/pull/440) — Bounded reference prefixes and explicit source-site joins
 
 - Qualify observed native speleothem unit fields separately from immutable source
   capture ledgers, preserving exact unit/site owners, join variants, nulls and unit
