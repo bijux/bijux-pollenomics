@@ -2,6 +2,23 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#433](https://github.com/bijux/bijux-pollenomics/pull/433) — Isolated native charcoal context and source support reports
+
+- Project literal native CHAR observations as an isolated, initially disabled Atlas
+  context layer with exact source epochs, material/unit/detection facts and one feature
+  per observation. Reconcile published/excluded and timed/untimed source counts without
+  inferring fire or national absence.
+- Exclude native charcoal display context from candidate ranking, scientific
+  classification and propagation, refusing contradictory analytical posture and
+  retaining exact observation/age source locators.
+- Prepare a source-bound chronology support report producer with complete
+  input/implementation identities, staged and published byte/inode readback, changed-
+  source refusals and preservation of foreign publication files. Local qualification
+  uses synthetic receipts; no new retained scientific report execution is claimed.
+- Refuse duplicate native JSON members, nonfinite/overflowing numbers and underflow to
+  zero before source-owner assignment. Extend the exact historical context contract for
+  literal charcoal registration and retain source mutation refusal controls.
+
 ### [#432](https://github.com/bijux/bijux-pollenomics/pull/432) — Frozen snapshot facts and scoped chronology review
 
 - Preserve frozen snapshot database text/null/missing facts separately from strict

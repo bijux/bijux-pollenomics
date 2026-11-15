@@ -31,6 +31,12 @@ from bijux_pollenomics.reporting.map_playback import (
 )
 from tests.support.repository import REPOSITORY_ROOT
 from tests.unit.reporting.map_playback.support import source_layers
+from tests.unit.reporting.source_chronology.test_charcoal import (
+    project as charcoal_projection,
+)
+from tests.unit.reporting.source_chronology.test_charcoal import (
+    source as charcoal_source,
+)
 
 
 def _animal_chronology_layer() -> dict[str, object]:
@@ -84,6 +90,14 @@ def _ordinary_context_layer() -> dict[str, object]:
             }
         ],
     }
+
+
+def test_native_charcoal_display_context_cannot_enter_evidence_context_points() -> None:
+    charcoal = charcoal_projection(charcoal_source()).point_layers[0]
+    ordinary = _ordinary_context_layer()
+    assert atlas_bundle._extract_context_points(
+        [ordinary, charcoal]
+    ) == atlas_bundle._extract_context_points([ordinary])
 
 
 def test_prepare_layers_publishes_default_disabled_animal_chronology_before_static_assets(

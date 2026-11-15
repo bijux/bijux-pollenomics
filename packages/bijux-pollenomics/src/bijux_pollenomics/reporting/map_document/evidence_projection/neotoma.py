@@ -18,6 +18,9 @@ from bijux_pollenomics.evidence.sources.neotoma import (
 from bijux_pollenomics.reporting.source_chronology import (
     build_source_chronology_atlas_projection,
 )
+from bijux_pollenomics.reporting.source_chronology.charcoal import (
+    build_native_charcoal_atlas_projection,
+)
 
 from .constants import (
     _UNAVAILABLE_CLASSIFICATION,
@@ -435,6 +438,12 @@ def _project_neotoma(
         source_node_result,
         detail_record_ids=governed_sites.keys(),
     )
+    charcoal_projection = build_native_charcoal_atlas_projection(
+        loaded_surfaces,
+        projected_site_ids=governed_sites.keys(),
+        source_snapshot_id=source_snapshot_id,
+        build_id=build_id,
+    )
     country_site_counts = {
         country_code: sum(
             1
@@ -464,12 +473,19 @@ def _project_neotoma(
             "unique_variable_ids; excluded_counts_include_only_ids_absent_from_projected_sites"
         ),
         "source_chronology": source_projection.reconciliation,
+        "native_charcoal": charcoal_projection.reconciliation,
         "source_issues": issue_accounting,
     }
     return (
         records,
         accounting,
-        [dict(layer) for layer in source_projection.point_layers],
+        [
+            dict(layer)
+            for layer in (
+                *source_projection.point_layers,
+                *charcoal_projection.point_layers,
+            )
+        ],
     )
 
 

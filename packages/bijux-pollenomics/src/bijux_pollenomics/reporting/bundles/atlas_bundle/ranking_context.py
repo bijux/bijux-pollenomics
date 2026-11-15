@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from ...source_chronology.charcoal import is_native_charcoal_context
+
 _SOURCE_CHRONOLOGY_LAYER_KEYS = {
     "source_sample_presence": "neotoma-source-sample-pollen-context",
     "source_ecological_code": "neotoma-source-ecological-code",
@@ -29,6 +31,9 @@ def candidate_ranking_context_points(
     excluded_layer_keys: set[str] = set()
     for layer in point_layers:
         layer_key = str(layer.get("key", "")).strip()
+        if is_native_charcoal_context(layer):
+            excluded_layer_keys.add(layer_key)
+            continue
         node_level = str(layer.get("node_level", "")).strip()
         features = layer.get("features")
         identified = (
