@@ -41,10 +41,12 @@ class BaselineInputs:
 
     @property
     def request(self) -> dict[str, Any]:
+        """Return an independent decoded baseline request."""
         return cast(dict[str, Any], json.loads(self.request_bytes))
 
     @property
     def profiles(self) -> tuple[BasinProfile, ...]:
+        """Return static profiles authenticated by retained basin-source bytes."""
         if hashlib.sha256(self.basin_sources).hexdigest() != BASIN_SOURCES_SHA256:
             raise ValueError("Basin source card identity differs")
         return profiles_from_sources(json.loads(self.basin_sources))
