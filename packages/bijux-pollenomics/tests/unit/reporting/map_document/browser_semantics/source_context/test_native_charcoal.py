@@ -15,7 +15,7 @@ from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma import
 from tests.support.neotoma import download_row
 from tests.support.neotoma.relational_shapes import nested, rows
 
-from ...evidence_projection.test_neotoma_chronology_models import materialized
+from ...evidence_projection.neotoma_metadata.test_chronology_models import materialized
 from ..chronology.test_age_depth_diagram import diagram_script
 from ..pollen.test_focused_pollen_drawer import observe
 from ..support import run_node_json

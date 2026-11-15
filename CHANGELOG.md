@@ -2,6 +2,24 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#437](https://github.com/bijux/bijux-pollenomics/pull/437) — Authenticated linked details and native associations
+
+- Qualify observed native contributor/DOI/physical-site associations with exact
+  dataset/core/type ownership, retaining original text and nulls without DOI/geography
+  normalization or scientific admission.
+- Select finite contact/publication/taxon detail targets only from recomputed
+  authenticated facet occurrences, with inherited roles, original source pointers and
+  explicit higher-taxon scope. Preserve literal bounded HTTP/error custody without
+  recursive expansion or native payload-owner qualification.
+- Replay linked proof/target closure, receipt/body identities, budgets, timestamps and
+  file populations; check inherited roles before detail body access and authenticate the
+  actual returned buffer. Keep response timing separate from transaction or frozen-
+  snapshot consistency.
+- Group Neotoma acquisition tests and Atlas source metadata by owned responsibility,
+  updating exact historical import-span correspondence. Authenticate constructed
+  Atlas/optimizer route fixtures before mutation refusals; no retained scientific
+  execution is claimed.
+
 ### [#436](https://github.com/bijux/bijux-pollenomics/pull/436) — Selected native resource readers and scoped facet links
 
 - Qualify explicit captured facet source shapes separately from original HTTP

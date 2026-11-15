@@ -13,7 +13,7 @@ import pytest
 from bijux_pollenomics.reporting.map_document.evidence_projection import neotoma
 from tests.support.neotoma.relational_shapes import nested, rows
 
-from ...evidence_projection.test_neotoma_chronology_models import (
+from ...evidence_projection.neotoma_metadata.test_chronology_models import (
     materialized,
     native_source,
 )

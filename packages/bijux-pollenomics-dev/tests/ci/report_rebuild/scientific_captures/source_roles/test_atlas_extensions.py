@@ -2,15 +2,15 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 import hashlib
+import json
 from pathlib import Path
-from types import SimpleNamespace
-from typing import cast
 
 import pytest
 
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
-from bijux_pollenomics_dev.ci.report_rebuild.retained_source import SourceCapsule
+from bijux_pollenomics_dev.ci.report_rebuild.retained_source import SourceCapsule, index
 from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures import (
     sample_chronology_capture as chronology,
 )
@@ -23,6 +23,82 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.presentation_so
     WORKFLOW,
     atlas_extension_matches,
 )
+
+from ...source_contracts.test_execution_helper_batches import (
+    Consumer,
+    _encoded,
+    _git,
+    _identity,
+    _write,
+)
+
+
+def _buffer(
+    root: Path, monkeypatch: pytest.MonkeyPatch, name: str, old: bytes, new: bytes
+) -> SourceCapsule:
+    """Bind an owned presentation example to an actual inert Git capture."""
+    _git(
+        root,
+        "init",
+        "--quiet",
+        "--template=",
+        "--initial-branch=main",
+        "--object-format=sha1",
+    )
+    _write(root / name, old)
+    _git(root, "add", "--", name)
+    _git(
+        root,
+        "-c",
+        "user.name=Bijux fixture",
+        "-c",
+        "user.email=fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "--no-gpg-sign",
+        "-m",
+        "test(atlas): bind owned presentation extension",
+    )
+    revision = _git(root, "rev-parse", "HEAD").decode().strip()
+    blob = _git(root, "rev-parse", "HEAD:" + name).decode().strip()
+    prefix, logical = "data/atlas/source-view-capture", "source/" + name
+    members = {logical: _identity(old)}
+    capture = _encoded({"members": members})
+    _write(root / prefix / "capture.json", capture)
+    entries = json.dumps([[name, blob]], separators=(",", ":")).encode()
+    descriptor = {
+        "schema_version": "git-retained-source.v1",
+        "capture": {"name": "capture.json", **_identity(capture)},
+        "historical_native_epochs": [revision],
+        "source_revision_correspondence": [
+            {"historical_source_commit": revision, "source_revision": revision}
+        ],
+        "git_groups": [
+            {
+                "historical_source_commit": revision,
+                "source_revision": revision,
+                "member_count": 1,
+                "git_entries_sha256": hashlib.sha256(entries).hexdigest(),
+                "paths": [[logical, name]],
+            }
+        ],
+        "generated_members": [],
+        "rewritten_source_epoch_executed": False,
+    }
+    Consumer(
+        "qualification",
+        root,
+        prefix,
+        members,
+        frozenset(members),
+        {logical: old},
+        descriptor,
+        [],
+    ).repin(monkeypatch)
+    result = index.validated_descriptor(root, prefix, members)
+    assert result.read_source(logical) == old
+    (root / name).write_bytes(new)
+    return result
 
 
 @pytest.fixture
@@ -162,6 +238,7 @@ def test_noninserted_math_headers_comments_imports_and_guards_remain_exact(
 )
 def test_normal_import_consumers_keep_real_file_and_source_binding_guards(
     tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
     own_sources: dict[str, tuple[bytes, bytes]],
     consumer: str,
     name: str,
@@ -169,11 +246,50 @@ def test_normal_import_consumers_keep_real_file_and_source_binding_guards(
 ) -> None:
     old, new = own_sources[name]
     target = tmp_path / name
-    target.parent.mkdir(parents=True)
-    target.write_bytes(new)
     logical = "source/" + name
+    delegated = consumer == "router" and name in {PAYLOAD, WORKFLOW}
+    if delegated:
+        from ..test_optimizer_atlas_source_roles import _world
+
+        rows, capsule, bodies = _world(tmp_path, monkeypatch, own_sources)
+        logical = "executions/optimizer-diagnostics/first-party-inputs/" + name
+        old, new = bodies[logical], target.read_bytes()
+        assert rows[name] == {"path": name, **_identity(old)}
+    else:
+        capsule = _buffer(tmp_path, monkeypatch, name, old, new)
     detached = frozenset({logical})
     digest = hashlib.sha256(old).hexdigest()
+
+    def check() -> None:
+        if consumer == "chronology":
+            chronology._validate_current_source(
+                tmp_path, name, logical, old, digest, detached, source_buffer=capsule
+            )
+        else:
+            facts = current.validated_current_scientific_source(
+                tmp_path,
+                {"path": name, "sha256": digest, "bytes": len(old)},
+                logical,
+                capsule,
+            )
+            assert facts is not None
+            if delegated:
+                assert (
+                    facts["classification"]
+                    == {
+                        PAYLOAD: "atlas_relation_context_extension",
+                        WORKFLOW: "runtime_transport_extension",
+                    }[name]
+                )
+                assert facts["historical_native_equal_current_output_claimed"] is False
+                assert (
+                    facts["historical_browser_equal_current_browser_claimed"] is False
+                )
+            else:
+                assert facts["current_browser_or_native_equivalence_claimed"] is False
+                assert facts["new_provider_api_qualified_by_historical_source"] is False
+
+    check()
     if damage == "captured_hash":
         digest = "0" * 64
     elif damage == "wrong_logical":
@@ -181,6 +297,7 @@ def test_normal_import_consumers_keep_real_file_and_source_binding_guards(
         detached = frozenset({logical})
     elif damage == "not_detached":
         detached = frozenset()
+        capsule.descriptor = replace(capsule.descriptor, detached=detached)
     elif damage == "missing":
         target.unlink()
     elif damage in {"symlink", "hardlink"}:
@@ -191,26 +308,6 @@ def test_normal_import_consumers_keep_real_file_and_source_binding_guards(
             target.symlink_to(other)
         else:
             target.hardlink_to(other)
-
-    def check() -> None:
-        if consumer == "chronology":
-            chronology._validate_current_source(
-                tmp_path, name, logical, old, digest, detached
-            )
-        else:
-            capsule = cast(
-                SourceCapsule,
-                SimpleNamespace(detached=detached, read_source=lambda member: old),
-            )
-            facts = current.validated_current_scientific_source(
-                tmp_path,
-                {"path": name, "sha256": digest, "bytes": len(old)},
-                logical,
-                capsule,
-            )
-            assert facts is not None
-            assert facts["current_browser_or_native_equivalence_claimed"] is False
-            assert facts["new_provider_api_qualified_by_historical_source"] is False
 
     if damage == "none":
         check()

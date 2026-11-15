@@ -34,12 +34,12 @@ from .io import (
     _required_text,
     _safe_relative_path,
 )
-from .neotoma_chronology import (
+from .neotoma_metadata.chronology import (
     chronology_model_tables,
     chronology_quality_tables,
     chronology_tab,
 )
-from .neotoma_source_issues import source_issue_tables
+from .neotoma_metadata.source_issues import source_issue_tables
 from .records import (
     _compact_rows_by_site,
     _features,
