@@ -12,6 +12,7 @@ import pandas as pd
 
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.reconstruction.analytical import lov
+from bijux_pollenomics_lra.reconstruction.composition import close_love_cover
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
 from bijux_pollenomics_lra.reconstruction.regional import REVEALS
 
@@ -174,9 +175,19 @@ def _cover_refusal(values: np.ndarray) -> str | None:
     return None
 
 
-def predict_case(case: FoldCase, bank: DrawBank) -> dict[str, Any]:
+def predict_case(
+    case: FoldCase,
+    bank: DrawBank,
+    *,
+    analytical_cover_policy: str = "source-raw",
+) -> dict[str, Any]:
     """Reuse each draw and saved kernel; retain both signed inversion rings."""
+    if analytical_cover_policy not in ("source-raw", "clip-and-renormalize"):
+        raise ValueError("Unknown analytical_cover_policy")
     identity = allowed_input_identity(case, bank)
+    clipped_policy = analytical_cover_policy == "clip-and-renormalize"
+    if clipped_policy:
+        identity["analytical_cover_policy"] = analytical_cover_policy
     if len(case.local_owners) != 2 or case.selected_ring_index != 1:
         raise ValueError(
             "Exactly two predictors and the fixed final inversion ring are required"
@@ -221,6 +232,7 @@ def predict_case(case: FoldCase, bank: DrawBank) -> dict[str, Any]:
     count = bank.replicates
     regional = np.full((count, 2), np.nan)
     signed = np.full((count, 2, 2, 2), np.nan)
+    selected = np.full((count, 2, 2), np.nan)
     regional_refusals: list[str | None] = [None] * count
     ring_refusals: list[list[list[str | None]]] = [
         [[None, None], [None, None]] for _ in range(count)
@@ -294,8 +306,18 @@ def predict_case(case: FoldCase, bank: DrawBank) -> dict[str, Any]:
                             ring_refusals[i][j][ring] = "local_engine_nonfinite"
                     except errors:
                         ring_refusals[i][j][ring] = "local_engine_refused"
-                local_refusals[i][j] = ring_refusals[i][j][1] or _cover_refusal(
-                    signed[i, j, 1]
+                selected[i, j] = signed[i, j, 1]
+                if clipped_policy and ring_refusals[i][j][1] is None:
+                    try:
+                        selected[i, j] = close_love_cover(
+                            signed[i, j, 1][None, None, :], np.array([True])
+                        )[0, 0]
+                    except ValidationError as exc:
+                        local_refusals[i][j] = exc.reason_code
+                local_refusals[i][j] = (
+                    ring_refusals[i][j][1]
+                    or local_refusals[i][j]
+                    or _cover_refusal(selected[i, j])
                 )
         else:
             local_refusals[i] = ["regional_undefined", "regional_undefined"]
@@ -310,7 +332,7 @@ def predict_case(case: FoldCase, bank: DrawBank) -> dict[str, Any]:
             if reason is None:
                 try:
                     weights = np.asarray(values["weights"])
-                    cover = np.sum(signed[i, :, 1, :] * weights[:, None], axis=0)
+                    cover = np.sum(selected[i] * weights[:, None], axis=0)
                     values["cover"][i] = cover
                     values["pollen"][i] = forward_deposition(
                         cover,
@@ -341,6 +363,14 @@ def predict_case(case: FoldCase, bank: DrawBank) -> dict[str, Any]:
         "axis": ["Betula", "Ulmus"],
         "replicates": count,
         "allowed_inputs": identity,
+        **(
+            {
+                "analytical_cover_policy": analytical_cover_policy,
+                "local_cover": _json_array(selected),
+            }
+            if clipped_policy
+            else {}
+        ),
         "regional_cover": _json_array(regional),
         "regional_refusals": regional_refusals,
         "local_signed_cover": _json_array(signed),

@@ -69,6 +69,9 @@ def _reconstruct(
             seed=supplied["seed"],
             retain_samples=supplied["retain_samples"],
             ppe_error=supplied["ppe_error"],
+            analytical_cover_policy=supplied.get(
+                "analytical_cover_policy", "clip-and-renormalize"
+            ),
         )
         return binding.api.run_love_from_regional_draws(
             local,

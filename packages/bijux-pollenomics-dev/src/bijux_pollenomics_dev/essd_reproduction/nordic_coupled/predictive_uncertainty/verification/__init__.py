@@ -73,8 +73,16 @@ def _profile(packet: Mapping[str, Any]) -> tuple[int, int, float, float]:
         )
     compare(population["active_window_cal_bp"], [2700, 3200])
     checks = protocol["numerical_checks"]
+    policy = protocol.get("analytical_cover_policy", "source-raw")
     require(
-        checks["no_clipping_or_single_predictor_fallback"] is True,
+        policy in ("source-raw", "clip-and-renormalize"),
+        "analytical_cover_policy",
+    )
+    require(
+        checks["no_clipping_or_single_predictor_fallback"] is (policy == "source-raw")
+        and (
+            policy == "source-raw" or checks.get("no_single_predictor_fallback") is True
+        ),
         "no fallback/clip contract",
     )
     require(
@@ -363,7 +371,16 @@ def audit(
     active, cases = _population(input_packet)
     bank = _draws(draw_packet, active, total, seed)
     nominal = _nominal(input_packet, cases, bank)
-    expected_predictions = [case_arrays(case, bank) for case in cases]
+    expected_predictions = [
+        case_arrays(
+            case,
+            bank,
+            analytical_cover_policy=input_packet["protocol"].get(
+                "analytical_cover_policy", "source-raw"
+            ),
+        )
+        for case in cases
+    ]
     require(
         set(prediction_packet)
         == {"schema_version", "cases", "original_dispositions", "nominal_predictions"},

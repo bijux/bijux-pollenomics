@@ -1,0 +1,184 @@
+{
+  "schema_version": "love-nonnegative-cover-comparison.v1",
+  "date": "2026-11-14",
+  "source_commit": "1f25f44fc6dfab882e2bbac9b7e707a6402b7469",
+  "scientific_acceptance": "not_evaluated",
+  "analytical_cover_policy": "clip-and-renormalize",
+  "rule": "For each draw, set negative cover to zero and normalize surviving positive cover to one; multiply by 100 for percentages.",
+  "undefined_rule": "Refuse all-zero, all-negative and supported nonfinite outputs; preserve unsupported-ring missingness.",
+  "question": "Does clipping negative local cover remove the historical numerical-domain failures under otherwise fixed exposed source inputs?",
+  "historical_source_raw": {
+    "source": {
+      "path": "artifacts/physical-core/krageholm-regional-coupled/predictions/batch.json",
+      "bytes": 94144,
+      "sha256": "8038fa2365bf90cd01d1916afbae4a77c9c5a25e9f22aa421384e135ed29900e"
+    },
+    "folds": 18,
+    "method_dispositions": 54,
+    "status_counts": {
+      "predicted": 9,
+      "refused": 45
+    }
+  },
+  "adjusted_nominal": {
+    "scope": "Same three previously exposed target places across six historical windows; 18 held-place folds, not 18 independent sites. Prediction only, without scoring.",
+    "receipt": {
+      "path": "artifacts/science/love-nonnegative-cover/nominal-results.json",
+      "bytes": 4220,
+      "sha256": "43a6217d8de2c106315947f83c69aabe356811eeedaa220ebc8feec64d290a7e"
+    },
+    "prediction_count": 54,
+    "failed_fold_count": 0,
+    "windows": [
+      {
+        "window": "cal-bp-2700-3200",
+        "predictions": 9,
+        "failed_folds": 0,
+        "manifest_sha256": "b8a0d6cb1aacca178d5cc0fa26ec8bbb481cc26f16ba81608f8807865400f4d0"
+      },
+      {
+        "window": "cal-bp-3200-3700",
+        "predictions": 9,
+        "failed_folds": 0,
+        "manifest_sha256": "de3bfe9512a1ebbb4aff13d94c1223161e712c024f2bd79cc49fd9a4ca5fa46e"
+      },
+      {
+        "window": "cal-bp-3700-4200",
+        "predictions": 9,
+        "failed_folds": 0,
+        "manifest_sha256": "2a4eb9c9591bd1f35c1f09a133d9a7740a367737cc99d6d1691cf04c06342e0b"
+      },
+      {
+        "window": "cal-bp-4200-4700",
+        "predictions": 9,
+        "failed_folds": 0,
+        "manifest_sha256": "5ff2b101c1048ad7473d32cadbcae79ffaa17a8c88d7394474db54ecf239d289"
+      },
+      {
+        "window": "cal-bp-4700-5200",
+        "predictions": 9,
+        "failed_folds": 0,
+        "manifest_sha256": "1bcdcebf60a39aaef4fc023ef3593d5d60e727e5e07d544b02c22e6f95f3f749"
+      },
+      {
+        "window": "cal-bp-5200-5700",
+        "predictions": 9,
+        "failed_folds": 0,
+        "manifest_sha256": "dd6207ac776d5ff4aa94d906892a0d473a91aae8a0a76aa3a8d0fe949577bcc1"
+      }
+    ],
+    "elapsed_seconds": 61.36652654199861,
+    "independent_verification": {
+      "path": "artifacts/science/love-nonnegative-cover/verification.json",
+      "bytes": 11960,
+      "sha256": "edb41dc9fb59a060adc34b955137026627dc8930362c8acbba27fdee0a16a3fe"
+    },
+    "independent_checks": {
+      "windows": 6,
+      "held_place_folds": 18,
+      "predictions": 54,
+      "failed_folds": 0,
+      "historical_refused_slots_now_predicted": 45,
+      "native_products": 18,
+      "native_cover_rows": 36,
+      "missing_adjusted_rows": 0,
+      "maximum_scalar_closure_absolute_difference": 1.1102230246251565e-16,
+      "target_exclusion_verified": true,
+      "spatial_averaging_and_forward_pollen_verified": true
+    }
+  },
+  "adjusted_count_ppe_uncertainty": {
+    "scope": "Three originally nominally eligible folds in 2700-3200 cal BP; this bootstrap does not resample the 45 historical nominal refusals.",
+    "protocol": {
+      "path": "artifacts/science/love-nonnegative-uncertainty/protocol.json",
+      "bytes": 5031,
+      "sha256": "5e07e766da630a766ccfd7c22d98819ae3c76f8736825daba5cf6858cd80ea2e"
+    },
+    "producer_result": {
+      "path": "artifacts/science/love-nonnegative-uncertainty/products/result.json",
+      "bytes": 1436,
+      "sha256": "13b4b58719a2fe256de11f00286d12b4152dd4fc37e79b48de8141bb78104733"
+    },
+    "verification": {
+      "path": "artifacts/science/love-nonnegative-uncertainty/verification.json",
+      "bytes": 1328,
+      "sha256": "414abc374908930ad448c7d8778be9a1b9be55ff3af6777f53ad981ad746c2a6"
+    },
+    "numerical_observation": {
+      "status": "passed",
+      "accounting_verified": true,
+      "replicates": 1024,
+      "draw_owners": 4,
+      "original_folds": 18,
+      "method_dispositions": 54,
+      "retained_nominal_refusals": 45,
+      "nominal_predictions_verified": 9,
+      "replicate_method_slots_verified": 9216,
+      "joint_defined_replicates": {
+        "training_mean": 1024,
+        "nearest_site": 1024,
+        "inverse_distance_squared": 1024
+      },
+      "primitive_reuse": "NumPy PCG64/SeedSequence only; independent scalar reconstruction, admission, interpolation, forward, summaries and losses",
+      "scope": "Conditional count/PPE working law on saved finite kernels and static geometry; no field coverage or untouched confirmation"
+    },
+    "source_observation": {
+      "status": "passed",
+      "source_files_verified": 141,
+      "owners_verified": 24,
+      "active_fold_kernels_verified": 3,
+      "nominal_predictions_verified": 9,
+      "source_bytes_read": 2295306,
+      "scope": "Qualified saved inputs and pre-score products; no new native-source census or model execution"
+    },
+    "case_replicates": [
+      {
+        "target_id": "neotoma-54001-39241-cal-bp-2700-3200",
+        "defined_by_method": {
+          "training_mean": 1024,
+          "nearest_site": 1024,
+          "inverse_distance_squared": 1024
+        },
+        "total_replicates": 1024
+      },
+      {
+        "target_id": "neotoma-53995-39238-cal-bp-2700-3200",
+        "defined_by_method": {
+          "training_mean": 1024,
+          "nearest_site": 1024,
+          "inverse_distance_squared": 1024
+        },
+        "total_replicates": 1024
+      },
+      {
+        "target_id": "neotoma-4446-4304-cal-bp-2700-3200",
+        "defined_by_method": {
+          "training_mean": 1024,
+          "nearest_site": 1024,
+          "inverse_distance_squared": 1024
+        },
+        "total_replicates": 1024
+      }
+    ],
+    "reproduction_protocol": {
+      "path": "reports/science/pollen-reconstruction/krageholm-regional-coupled/nonnegative-cover/uncertainty-protocol.json",
+      "bytes": 5031,
+      "sha256": "5e07e766da630a766ccfd7c22d98819ae3c76f8736825daba5cf6858cd80ea2e"
+    }
+  },
+  "preservation": {
+    "originals": "Historical protocols, source data and raw results were not overwritten. Raw signed estimates/outlier diagnostics remain available in adjusted products.",
+    "recovered_inputs": {
+      "path": "artifacts/validation/recovered-love-inputs.json",
+      "bytes": 32107,
+      "sha256": "0a27c451f1c0da021e44b594e27520ebed818b8adde52e1e9e9b95b0f1d2448e"
+    },
+    "failed_launcher": "artifacts/science/love-unguarded-launcher retains the unguarded macOS multiprocessing attempt; only the subsequent guarded run is counted."
+  },
+  "limitations": [
+    "Clipping is a modeling assumption, not evidence that a taxon was truly absent.",
+    "Counts retain a two-taxon denominator, fixed source chronologies, prescribed static basin geometry and conditional parameter transfer.",
+    "No new physical-core admission, independent measured-vegetation accuracy, calibrated field coverage or untouched confirmation.",
+    "No package/site publication or remote workflow execution."
+  ]
+}

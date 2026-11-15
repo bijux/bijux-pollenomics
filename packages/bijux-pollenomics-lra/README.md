@@ -18,6 +18,10 @@ a model for predicting an unobserved site is a separate host experiment.
 Use the host CLI to prepare inputs, execute analysis and register products.
 This engine has no separate collection CLI or host product adapter. Numerical
 results offer `.write(directory)` for their scientific tables and manifests.
+Analytical LOVE uses the declared [nonnegative cover assumption](docs/reference/love-cover.md):
+negative cover becomes zero, then each draw is normalized to a total of one
+(100 percent). Raw equation summaries and outlier diagnostics remain available.
+This assumption permits usable compositions; it does not establish field accuracy.
 `ConvergenceError` preserves optimizer diagnostics while refusing a successful
 result when any optimization run fails to converge. Candidate replay checks
 objectives and wrappers; it does not establish optimizer convergence.

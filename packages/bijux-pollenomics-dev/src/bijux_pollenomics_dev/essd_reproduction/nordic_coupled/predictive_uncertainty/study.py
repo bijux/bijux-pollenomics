@@ -79,6 +79,10 @@ def produce(repository: Path, protocol_path: Path, output: Path) -> dict[str, An
     protocol_raw = protocol_path.read_bytes()
     protocol = json.loads(protocol_raw)
     packet = load_inputs(repository, protocol)
+    policy = protocol.get("analytical_cover_policy", "source-raw")
+    prediction_options = (
+        {"analytical_cover_policy": policy} if policy != "source-raw" else {}
+    )
     inputs = {"protocol": protocol, **_plain(packet)}
     _source_check(repository, inputs)
     code = _loaded_code(repository)
@@ -106,7 +110,7 @@ def produce(repository: Path, protocol_path: Path, output: Path) -> dict[str, An
     predicted = {
         "schema_version": "krageholm-predictive-ensemble.v1",
         "cases": [
-            predict_case(case, bank)
+            predict_case(case, bank, **prediction_options)
             for case in sorted(packet.cases, key=lambda item: item.case_id)
         ],
         "original_dispositions": _plain(packet.dispositions),

@@ -33,7 +33,11 @@ and independent parity baseline.
 - Rings are valid only where `inner > local_diameter / 2`, matching the source's
   strict inequality.
 - Regional and local K arguments differ in the source and remain distinct.
-- Estimates are not clipped or renormalised after regional subtraction.
+- Low-level `lov` and `LOVEr` estimates are not clipped or renormalised after
+  regional subtraction. Maintained analytical workflows default to the explicit
+  [nonnegative cover assumption](love-cover.md), with raw diagnostics retained
+  and a distinct algorithm/compatibility identity. Select
+  `analytical_cover_policy='source-raw'` for literal source replay.
 - The source spelling `OutlierQant` remains in the compatibility return object.
 
 ## Optimised LOVE

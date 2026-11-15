@@ -2,6 +2,25 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#421](https://github.com/bijux/bijux-pollenomics/pull/421) — Nonnegative analytical LOVE cover
+
+- Clip negative analytical LOVE cover to zero and normalize each draw before
+  calculating summaries. Retain raw summaries, optional raw draws and outlier
+  diagnostics with an explicit modeling assumption and distinct method identity.
+- Preserve low-level source equations and explicit historical source replay.
+  Unsupported rings remain missing; nonfinite supported cover and zero surviving
+  positive mass remain refused. The assumption does not establish field accuracy.
+- Carry the policy through draw-fed host requests and saved-table validation;
+  display the bound result identity and cover assumption in reports and maps.
+- Support explicitly declared nonnegative cover in the conditional count/PPE
+  uncertainty workflow before spatial averaging, with independent rational
+  verification and signed diagnostics. Historical protocols retain raw behavior.
+- Reexecute six exposed Krageholm-background windows: all 54 nominal method
+  slots predict, including 45 formerly refused slots. A separate three-fold
+  bootstrap has all 9,216 method-replicate slots defined. Independent numerical
+  and source checks pass; static geometry, restricted taxonomy and scientific
+  admission limits remain explicit.
+
 ### [#417](https://github.com/bijux/bijux-pollenomics/pull/417) — Complete pull-request change history
 
 - Replace mixed release sections and terse merge receipts with one linked entry per

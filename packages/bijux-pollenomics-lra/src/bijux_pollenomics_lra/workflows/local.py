@@ -31,14 +31,22 @@ from bijux_pollenomics_lra.optimization.solver import (
 )
 from bijux_pollenomics_lra.provenance.manifest import build_manifest
 from bijux_pollenomics_lra.reconstruction.analytical import LOVEr
+from bijux_pollenomics_lra.reconstruction.composition import close_love_cover
+from bijux_pollenomics_lra.reconstruction.inputs import _summary_frames
 from bijux_pollenomics_lra.reconstruction.optimized import LOVEoptim
 from bijux_pollenomics_lra.version import COMPATIBILITY_MODE
 
 
-def love_compatibility_mode(config: LoveConfig) -> str:
+def love_compatibility_mode(config: LoveConfig | RegionalDrawLoveConfig) -> str:
     """Name the numerical LOVE equations carried into parent manifests."""
     if (
-        config.method == LoveMethod.OPTIMIZED.value
+        config.method == LoveMethod.ANALYTICAL.value
+        and config.analytical_cover_policy == "clip-and-renormalize"
+    ):
+        return "analytical-love-clip-and-renormalize"
+    if (
+        isinstance(config, LoveConfig)
+        and config.method == LoveMethod.OPTIMIZED.value
         and config.optimized_profile == OptimizedLoveProfile.RING_TAXON_PRESERVING.value
     ):
         return OptimizedLoveProfile.RING_TAXON_PRESERVING.value
@@ -183,7 +191,7 @@ def run_love(
             regional_cover_draws=regional_cover_draws,
             local_ppe_draws=local_ppe_draws,
             local_count_draws=local_count_draws,
-            return_samples=config.retain_samples,
+            return_samples=True,
             draw_source=_draw_source,
         )
         if not bool(analytical_raw["valid_ring"].any()):
@@ -197,9 +205,35 @@ def run_love(
             "q90": analytical_raw["Q90"],
             "sd": analytical_raw["SD"],
         }
+        auxiliary = {
+            "Kreg": analytical_raw["Kreg"],
+            "Kloc": analytical_raw["Kloc"],
+            "valid_ring": analytical_raw["valid_ring"],
+        }
+        raw_samples = analytical_raw["samples"]
+        cover_samples = raw_samples
+        if config.analytical_cover_policy == "clip-and-renormalize":
+            auxiliary.update(
+                {f"raw_cover_{name}": value for name, value in cover.items()}
+            )
+            cover_samples = close_love_cover(
+                raw_samples, analytical_raw["valid_ring"].to_numpy(dtype=bool)
+            )
+            adjusted = _summary_frames(
+                cover_samples,
+                analytical_raw["Mean"].index.to_numpy(dtype=float),
+                taxa,
+                include_sd=True,
+            )
+            cover = {
+                "mean": adjusted["mean"],
+                "q10": adjusted["Q10"],
+                "q90": adjusted["Q90"],
+                "sd": adjusted["SD"],
+            }
         analytical_samples: dict[str, np.ndarray] = (
-            {"cover": analytical_raw["samples"]}
-            if config.retain_samples and "samples" in analytical_raw
+            {"cover": cover_samples, "raw_cover": raw_samples}
+            if config.retain_samples
             else {}
         )
         return LoveResult(
@@ -207,66 +241,69 @@ def run_love(
             cover=cover,
             outlier=analytical_raw["Outlier"],
             outlier_quantile=analytical_raw["OutlierQant"],
-            auxiliary={
-                "Kreg": analytical_raw["Kreg"],
-                "Kloc": analytical_raw["Kloc"],
-                "valid_ring": analytical_raw["valid_ring"],
-            },
+            auxiliary=auxiliary,
             samples=analytical_samples,
-            manifest=build_manifest(
-                "LOVE-analytical",
-                {
-                    **config.as_dict(),
-                    **(
-                        {
-                            "regional_input_kind": "multisite_cover_draws",
-                            "regional_draw_source": _draw_source.as_provenance(),
-                            "local_site_id": _local_site_id,
-                            "local_sample_id": _local_sample_id,
-                            "regional_cohort_overlap": _local_site_id
-                            in _draw_source.regional_site_ids,
-                        }
-                        if _draw_source is not None
-                        else {}
+            manifest=replace(
+                build_manifest(
+                    (
+                        "LOVE-analytical-clip-and-renormalize"
+                        if config.analytical_cover_policy == "clip-and-renormalize"
+                        else "LOVE-analytical"
                     ),
-                    "paired_regional_cover_draws": regional_cover_draws is not None,
-                    "paired_local_ppe_draws": local_ppe_draws is not None,
-                    "paired_local_count_draws": local_count_draws is not None,
-                    "equations": ["Sugita-2007-6", "Sugita-2007-7"],
-                    "source_geometry": "disqover-0.9.14",
-                },
-                {
-                    "local_pollen": local_table,
-                    **(
-                        {"regional_pollen": regional_table}
-                        if regional_table is not None
-                        else {}
-                    ),
-                    "params": params,
-                    "rings": rings,
-                    **(
-                        {"regional_draw_source": _draw_source.as_provenance()}
-                        if _draw_source is not None
-                        else {}
-                    ),
-                    **(
-                        {"regional_cover_draws": regional_cover_draws}
-                        if regional_cover_draws is not None
-                        else {}
-                    ),
-                    **(
-                        {"local_ppe_draws": local_ppe_draws}
-                        if local_ppe_draws is not None
-                        else {}
-                    ),
-                    **(
-                        {"local_count_draws": local_count_draws}
-                        if local_count_draws is not None
-                        else {}
-                    ),
-                },
-                stochastic=config.stochastic,
-                seed=config.seed,
+                    {
+                        **config.as_dict(),
+                        **(
+                            {
+                                "regional_input_kind": "multisite_cover_draws",
+                                "regional_draw_source": _draw_source.as_provenance(),
+                                "local_site_id": _local_site_id,
+                                "local_sample_id": _local_sample_id,
+                                "regional_cohort_overlap": _local_site_id
+                                in _draw_source.regional_site_ids,
+                            }
+                            if _draw_source is not None
+                            else {}
+                        ),
+                        "paired_regional_cover_draws": regional_cover_draws is not None,
+                        "paired_local_ppe_draws": local_ppe_draws is not None,
+                        "paired_local_count_draws": local_count_draws is not None,
+                        "equations": ["Sugita-2007-6", "Sugita-2007-7"],
+                        "source_geometry": "disqover-0.9.14",
+                    },
+                    {
+                        "local_pollen": local_table,
+                        **(
+                            {"regional_pollen": regional_table}
+                            if regional_table is not None
+                            else {}
+                        ),
+                        "params": params,
+                        "rings": rings,
+                        **(
+                            {"regional_draw_source": _draw_source.as_provenance()}
+                            if _draw_source is not None
+                            else {}
+                        ),
+                        **(
+                            {"regional_cover_draws": regional_cover_draws}
+                            if regional_cover_draws is not None
+                            else {}
+                        ),
+                        **(
+                            {"local_ppe_draws": local_ppe_draws}
+                            if local_ppe_draws is not None
+                            else {}
+                        ),
+                        **(
+                            {"local_count_draws": local_count_draws}
+                            if local_count_draws is not None
+                            else {}
+                        ),
+                    },
+                    stochastic=config.stochastic,
+                    seed=config.seed,
+                ),
+                compatibility_mode=love_compatibility_mode(config),
             ),
         )
 

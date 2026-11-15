@@ -1,5 +1,63 @@
 # Fixed Krageholm background with two local training sites
 
+## Nonnegative analytical cover
+
+The explicit `clip-and-renormalize` assumption sets negative LOVE cover to zero
+and closes the surviving cover to one before spatial averaging or uncertainty
+summaries. An all-zero or all-negative result fails because it has no positive
+mass to normalize. Signed equation outputs and outlier diagnostics remain
+available. Clipping does not establish true taxon absence.
+
+The [adjusted comparison](nonnegative-cover/result.json), executed at source
+`1f25f44fc6dfab882e2bbac9b7e707a6402b7469` on 14 November 2026, reuses the
+authenticated original exposed inputs. Each derived experiment explicitly sets
+`request_template.configuration.love.analytical_cover_policy` to
+`clip-and-renormalize` and calls the maintained
+`prepare_experiment_predictions` API. The captured experiment files, counts,
+original protocol and historical results are unchanged. No scores were opened
+for this nominal comparison.
+
+| Estimator | Held-place folds | Predictions | Failed method slots |
+| --- | ---: | ---: | ---: |
+| Historical signed source output | 18 | 9 | 45 |
+| Explicit clipping and normalization | 18 | 54 | 0 |
+
+All six windows now yield nine predictions each. Independent byte/role and
+scalar checks verify target exclusion, the bound assumption, all 36 native
+cover rows in 18 reused native products, spatial averaging and forward pollen.
+Maximum closure difference is `1.11e-16`; no adjusted row is missing. Raw
+negative cover remains visible in 28 native rows, including 12 products at
+the selected ring. These are three places across six windows, not 18 independent
+sites or an accuracy evaluation. The original 45 refusals remain historical
+evidence of the signed estimator.
+
+A separate count/PPE bootstrap applies the assumption to each local draw before
+averaging. It retains its original three nominally eligible folds in
+2700–3200 cal BP; it does not resample all 18 nominal folds. All 1,024 draws
+are now defined for each of those three targets and each of the three methods:
+9,216 defined method-replicate slots, with all 1,024 replicate identities jointly
+defined. The historical signed bootstrap below had 525 jointly defined draws.
+Independent source binding verifies 141 files and 24 owner/windows; the rational
+observer verifies all 9,216 slots, shared draws, summaries and loss accounting.
+Its post-freeze diagnostics concern already exposed outcomes and do not supply
+field accuracy, calibrated coverage or untouched confirmation.
+
+The [uncertainty reproduction protocol](nonnegative-cover/uncertainty-protocol.json)
+has the exact bytes used in the recorded artifact protocol. With the retained
+source files available and unchanged, run the maintained producer and observer
+in an artifact-owned environment, directing products and verification to fresh
+root `artifacts/` paths. The comparison records the executed protocol, result,
+verification and source-input identities. Scripts calling the nominal API must
+use `if __name__ == "__main__"` on spawn platforms.
+
+Fixed chronology, prescribed static basins, the two-taxon denominator,
+regional representativeness and parameter transfer remain conditional. This
+calculation changes no physical-core admission or qualified scientific verdict.
+The original account below records source-raw calculations; its negative-cover
+refusals describe that retained estimator.
+
+## Historical signed-cover calculation
+
 A permanently regional Krageholm source permits nine conditional held-place
 pollen predictions in the **2700–3200 cal BP** window. The other five windows
 retain all **45** failed method dispositions: at least one required local
