@@ -1,0 +1,254 @@
+{
+  "capture_manifest_sha256": "bb58ff294fd3245219a0748f6b4e7d850f42c131f13e8213c2c450a56c0be120",
+  "metadata_scope": "current public reference prefixes only; no dictionary completeness, country assignment or numerical-resource admission",
+  "schema_version": "neotoma-reference-table-source-index.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed current reference prefixes; no complete dictionary or transaction claim",
+  "tables": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "reference-table-variableunits-current-attempt-1.body",
+          "receipt_file": "reference-table-variableunits-current-attempt-1.receipt.json",
+          "receipt_sha256": "b0c6788cc7081afd4802cd757f822b1d24bc3fce2cc333214aec256e25d6d91c",
+          "request_name": "reference-table-variableunits-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "metadata_role": "reference_metadata",
+      "scientific_admission": "not_asserted",
+      "source": {
+        "body_path": "capture/reference-table-variableunits-current-attempt-1.body",
+        "receipt": {
+          "body_complete": true,
+          "body_file": "reference-table-variableunits-current-attempt-1.body",
+          "expected_site_id": null,
+          "final_url": "https://api.neotomadb.org/v2.0/data/dbtables/variableunits?limit=10000&offset=0",
+          "http_status": 200,
+          "parameters": {
+            "limit": "10000",
+            "offset": "0"
+          },
+          "request_headers": [
+            [
+              "Host",
+              "api.neotomadb.org"
+            ],
+            [
+              "Accept",
+              "application/json"
+            ],
+            [
+              "Accept-Encoding",
+              "identity"
+            ],
+            [
+              "User-Agent",
+              "bijux-pollenomics"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "request_method": "GET",
+          "request_target": "/v2.0/data/dbtables/variableunits?limit=10000&offset=0",
+          "requested_url": "https://api.neotomadb.org/v2.0/data/dbtables/variableunits?limit=10000&offset=0",
+          "response_headers": [
+            [
+              "access-control-allow-credentials",
+              "true"
+            ],
+            [
+              "content-length",
+              "34260"
+            ],
+            [
+              "content-type",
+              "application/json; charset=utf-8"
+            ],
+            [
+              "date",
+              "Sun, 15 Nov 2026 04:56:47 GMT"
+            ],
+            [
+              "etag",
+              "W/\"85d4-d0kRnOowRs0ISQjInLG++djIpng\""
+            ],
+            [
+              "vary",
+              "Origin, Accept-Encoding"
+            ],
+            [
+              "x-powered-by",
+              "Express"
+            ],
+            [
+              "x-ratelimit-limit",
+              "5000"
+            ],
+            [
+              "x-ratelimit-remaining",
+              "4999"
+            ],
+            [
+              "x-ratelimit-reset",
+              "1794718668"
+            ],
+            [
+              "x-envoy-upstream-service-time",
+              "9"
+            ],
+            [
+              "server",
+              "envoy"
+            ],
+            [
+              "connection",
+              "close"
+            ]
+          ],
+          "retained_body_bytes": 34260,
+          "retained_body_sha256": "edff2469db4114ab70e3847b00abcb78c54797e9fd1638d8b981d961cdc6089e",
+          "role": "reference_table_variableunits",
+          "terminal_status": "complete_http_200",
+          "tls_mode": "verified_no_insecure_fallback",
+          "utc_end": "2026-11-15T04:56:47.448333+00:00",
+          "utc_start": "2026-11-15T04:56:46.886447+00:00"
+        },
+        "receipt_path": "capture/reference-table-variableunits-current-attempt-1.receipt.json",
+        "receipt_sha256": "b0c6788cc7081afd4802cd757f822b1d24bc3fce2cc333214aec256e25d6d91c"
+      },
+      "summary": {
+        "absence_certified": false,
+        "prefix_limit": 10000,
+        "prefix_offset": 0,
+        "schema_qualified": false,
+        "table_population_complete": false,
+        "units_interpreted": false
+      },
+      "table": "variableunits",
+      "terminal_status": "received_complete_unqualified_reference_table"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "reference-table-geopoliticalunits-current-attempt-1.body",
+          "receipt_file": "reference-table-geopoliticalunits-current-attempt-1.receipt.json",
+          "receipt_sha256": "d2eeda8d7884e2252b0c400614ae34bcb05884f01252fd9c1e1f5d9dd5e026a6",
+          "request_name": "reference-table-geopoliticalunits-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "metadata_role": "reference_metadata",
+      "reason": "Incomplete or bounded reference entity",
+      "scientific_admission": "not_asserted",
+      "source": {
+        "body_path": "capture/reference-table-geopoliticalunits-current-attempt-1.body",
+        "receipt": {
+          "body_complete": false,
+          "body_file": "reference-table-geopoliticalunits-current-attempt-1.body",
+          "expected_site_id": null,
+          "final_url": "https://api.neotomadb.org/v2.0/data/dbtables/geopoliticalunits?limit=10000&offset=0",
+          "http_status": 200,
+          "parameters": {
+            "limit": "10000",
+            "offset": "0"
+          },
+          "request_headers": [
+            [
+              "Host",
+              "api.neotomadb.org"
+            ],
+            [
+              "Accept",
+              "application/json"
+            ],
+            [
+              "Accept-Encoding",
+              "identity"
+            ],
+            [
+              "User-Agent",
+              "bijux-pollenomics"
+            ],
+            [
+              "Connection",
+              "close"
+            ]
+          ],
+          "request_method": "GET",
+          "request_target": "/v2.0/data/dbtables/geopoliticalunits?limit=10000&offset=0",
+          "requested_url": "https://api.neotomadb.org/v2.0/data/dbtables/geopoliticalunits?limit=10000&offset=0",
+          "response_headers": [
+            [
+              "access-control-allow-credentials",
+              "true"
+            ],
+            [
+              "content-length",
+              "2146785"
+            ],
+            [
+              "content-type",
+              "application/json; charset=utf-8"
+            ],
+            [
+              "date",
+              "Sun, 15 Nov 2026 04:56:47 GMT"
+            ],
+            [
+              "etag",
+              "W/\"20c1e1-Noef78fqpIrX0LDQgZkDecros68\""
+            ],
+            [
+              "vary",
+              "Origin, Accept-Encoding"
+            ],
+            [
+              "x-powered-by",
+              "Express"
+            ],
+            [
+              "x-ratelimit-limit",
+              "5000"
+            ],
+            [
+              "x-ratelimit-remaining",
+              "4998"
+            ],
+            [
+              "x-ratelimit-reset",
+              "1794718668"
+            ],
+            [
+              "x-envoy-upstream-service-time",
+              "277"
+            ],
+            [
+              "server",
+              "envoy"
+            ],
+            [
+              "connection",
+              "close"
+            ]
+          ],
+          "retained_body_bytes": 2097152,
+          "retained_body_sha256": "48e1cc73cc7025859e4a2c4d0f3b9f84fc75c31bef51ffb14eba5f35a6c80986",
+          "role": "reference_table_geopoliticalunits",
+          "terminal_status": "refused_http_response",
+          "tls_mode": "verified_no_insecure_fallback",
+          "utc_end": "2026-11-15T04:56:48.877855+00:00",
+          "utc_start": "2026-11-15T04:56:47.449672+00:00"
+        },
+        "receipt_path": "capture/reference-table-geopoliticalunits-current-attempt-1.receipt.json",
+        "receipt_sha256": "d2eeda8d7884e2252b0c400614ae34bcb05884f01252fd9c1e1f5d9dd5e026a6"
+      },
+      "table": "geopoliticalunits",
+      "terminal_status": "refused_incomplete_body"
+    }
+  ]
+}

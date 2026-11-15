@@ -328,7 +328,11 @@ def _taxa(data: Any) -> int:
         _id(row["highertaxonid"], "highertaxonid", nullable=True)
         _id(row["publicationid"], "publicationid", nullable=True)
         for key in ("taxonname", "ecolgroup", "status", "author", "publication"):
-            _text(row[key], f"taxa.{key}", nullable=key in {"author", "publication"})
+            _text(
+                row[key],
+                f"taxa.{key}",
+                nullable=key in {"author", "ecolgroup", "publication"},
+            )
     return len(rows)
 
 

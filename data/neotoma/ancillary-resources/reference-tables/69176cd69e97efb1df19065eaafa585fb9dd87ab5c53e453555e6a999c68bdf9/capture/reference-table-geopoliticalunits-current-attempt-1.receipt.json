@@ -1,0 +1,97 @@
+{
+  "body_complete": false,
+  "body_file": "reference-table-geopoliticalunits-current-attempt-1.body",
+  "expected_site_id": null,
+  "final_url": "https://api.neotomadb.org/v2.0/data/dbtables/geopoliticalunits?limit=10000&offset=0",
+  "http_status": 200,
+  "parameters": {
+    "limit": "10000",
+    "offset": "0"
+  },
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/dbtables/geopoliticalunits?limit=10000&offset=0",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/dbtables/geopoliticalunits?limit=10000&offset=0",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "2146785"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 04:56:47 GMT"
+    ],
+    [
+      "etag",
+      "W/\"20c1e1-Noef78fqpIrX0LDQgZkDecros68\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4998"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794718668"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "277"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 2097152,
+  "retained_body_sha256": "48e1cc73cc7025859e4a2c4d0f3b9f84fc75c31bef51ffb14eba5f35a6c80986",
+  "role": "reference_table_geopoliticalunits",
+  "terminal_status": "refused_http_response",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T04:56:48.877855+00:00",
+  "utc_start": "2026-11-15T04:56:47.449672+00:00"
+}

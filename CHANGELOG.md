@@ -2,6 +2,16 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#450](https://github.com/bijux/bijux-pollenomics/pull/450) — Federated ancillary coverage and retained reference prefixes
+
+- Federate immutable ancillary occurrences against exact current native owners and
+  strongest authenticated parent roles, preserving epochs, pending/protected coverage
+  and separate metadata-only versus explicit source replay scope.
+- Preserve explicit null ecological groups on identified isotope taxa while keeping
+  partial null aggregates, owner mismatches and invalid identity fields refused.
+- Retain original reference-table prefixes in a closed portable archive with selected
+  same-buffer entity readers; preserve incomplete prefixes and unavailable completeness.
+
 ### [#449](https://github.com/bijux/bijux-pollenomics/pull/449) — Ancillary source capsules and verified Atlas downloads
 
 - Retain independently bounded ancillary source capsules with exact capture,
