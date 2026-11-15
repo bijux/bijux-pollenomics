@@ -8,6 +8,9 @@ from dataclasses import dataclass, field
 import json
 from typing import Any
 
+from bijux_pollenomics.collection.sources.neotoma.chronology.quality import (
+    assess_neotoma_chronology_quality,
+)
 from bijux_pollenomics.evidence.sources.neotoma.contract import SURFACE_ID_FIELDS
 
 from ..chronology import chronology_projection
@@ -39,6 +42,7 @@ class SourceAccounting:
     selected_samples: frozenset[str]
     claims: dict[str, list[SourceRow]]
     conflicts_by_subject: dict[str, tuple[str, ...]]
+    chronology_quality: dict[str, Any]
     observations: Counter[str] = field(default_factory=Counter)
     count_candidates: Counter[str] = field(default_factory=Counter)
     value_statuses: dict[str, Counter[str]] = field(
@@ -126,6 +130,27 @@ class SourceAccounting:
         selected = identity in self.selected_samples
         total = self.observations[identity]
         candidates = self.count_candidates[identity]
+        claims = self.claims.get(identity, [])
+        chronology = chronology_projection(row, claims)
+        diagnostics = {
+            claim.payload()["chronology_claim_id"]: self.chronology_quality[
+                "claim_diagnostics"
+            ][claim.payload()["chronology_claim_id"]]
+            for claim in claims
+        }
+        chronology["source_quality"] = {
+            "source_profile": self.chronology_quality["source_profile"]["name"],
+            "flags": self.chronology_quality["sample_flags"][identity],
+            "claim_diagnostics": diagnostics,
+            "profile_ids": sorted(
+                {
+                    diagnostic["profile_id"]
+                    for diagnostic in diagnostics.values()
+                    if diagnostic["profile_id"] is not None
+                }
+            ),
+            "eligibility_changed": False,
+        }
         duplicates = [
             {
                 "variable_id": variable,
@@ -153,7 +178,7 @@ class SourceAccounting:
             "count_sum_scope": "count_candidate_observation_records_not_a_pollen_denominator",
             "pollen_denominator_status": "not_admitted",
             "duplicate_variable_unit_groups": duplicates,
-            "chronology": chronology_projection(row, self.claims.get(identity, [])),
+            "chronology": chronology,
             "lra_admission_status": "refused" if selected else "not_selected",
             "primary_lra_reason": MISSING_LRA_EVIDENCE[0]
             if selected
@@ -195,10 +220,20 @@ def source_accounting(
     conflicts: dict[str, list[str]] = defaultdict(list)
     for identity, row in indexes["conflicts"].items():
         conflicts[row.payload()["subject_id"]].append(identity)
+    quality = assess_neotoma_chronology_quality(
+        samples=[row.payload() for row in indexes["samples"].values()],
+        age_claims=[row.payload() for row in indexes["age_claims"].values()],
+        chronologies=[row.payload() for row in indexes["chronologies"].values()],
+        chronology_controls=[
+            row.payload() for row in indexes["chronology_controls"].values()
+        ],
+        conflicts=[row.payload() for row in indexes["conflicts"].values()],
+    )
     return SourceAccounting(
         evidence,
         indexes,
         frozenset(selected),
         dict(claims),
         {subject: tuple(sorted(ids)) for subject, ids in conflicts.items()},
+        quality,
     )

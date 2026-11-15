@@ -152,6 +152,7 @@ def assess_neotoma_pollen_screen(evidence: NeotomaEvidence) -> NeotomaPollenScre
                 ],
                 "pollen_count_observations": sample_counts["pollen_count_observations"],
                 "owned_comparable_age_claim_ids": owned_comparable,
+                "source_quality": record["chronology"]["source_quality"],
                 "screen_status": "necessary_candidate" if not reasons else "refused",
                 "reason_codes": reasons,
                 "lra_admission_status": "refused",
@@ -252,6 +253,17 @@ def assess_neotoma_pollen_screen(evidence: NeotomaEvidence) -> NeotomaPollenScre
             canonical_bytes(candidate_ids)
         ).hexdigest(),
         "sample_decisions": decisions,
+        "source_chronology_quality": {
+            key: accounting.chronology_quality[key]
+            for key in (
+                "schema_version",
+                "source_profile",
+                "profiles",
+                "source_denominators",
+                "diagnostic_denominators",
+                "claim_diagnostic_semantics",
+            )
+        },
         "screen_status": "prerequisite_only",
         "lra_accepted_samples": 0,
         "executable_request": None,

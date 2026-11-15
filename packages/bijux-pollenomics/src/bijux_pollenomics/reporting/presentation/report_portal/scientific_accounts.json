@@ -6195,18 +6195,18 @@
         "fields": {
           "supported_claim": "The retained account partitions each unique native target-cohort observation by literal unit/family and the existing direct-pollen admission predicate without changing predictions or measures.",
           "unsupported_claim": "Native unit labels do not admit all count rows, convert concentration/influx to counts, approve taxa, establish absence or supply LRA/vegetation evidence.",
-          "actual_verification_performed": "Read the retained 22-stratum literal-unit account and inspected the actual original/current study source correspondence. Historical and current preparation match on seven products, and current rescoring of unchanged historical predictions reproduces 6,172 score rows and all ten publication products. The source-measure consumer itself was not rerun, and no prediction, fit, numerical oracle or source acquisition was repeated.",
-          "remaining_input_or_review": "The historical 59f6 producer attribution is preserved, and its relation to current 7a814 preparation/scoring is now qualified. A fresh source-measure owner execution is not claimed; native unit/classification, chronology uncertainty and scientific admission remain separate.",
+          "actual_verification_performed": "Executed the maintained native-measure account against all 16 pinned inputs. Independent JSON comparison preserves scalar kinds and every original scientific field across 174,970 observations and 22 strata; only historical producer custody and current accounting implementation provenance are added. A second actual execution observes 19 imported source files and reproduces the complete report bytes. No predictor, fit, numerical oracle or vegetation comparison was rerun.",
+          "remaining_input_or_review": "The historical producer is authenticated through a reachable Git byte witness without executing the archived program. Configured reference/replay owner qualification remains separate from these scoped executions; native measure/classification, chronology uncertainty and scientific admission remain open.",
           "cause_category": "Native observation accounting with retained historical producer identity.",
           "consequence": "Unique sample/site counts within unit strata can overlap and cannot be added as independent observations; unlike measures remain unlike.",
-          "precise_next_acceptance_route": "For a fresh source-measure owner receipt, replay the configured consumer against its exact study/source inputs while preserving all 22 strata and first-refusal reasons. No study refit is needed to establish the already qualified source correspondence; any changed measures or biological use still need source-specific review.",
-          "negative_or_refused_result": "58,243of174,970observations fail the predicate, including all2,057concentration and160influx rows; these are refusals rather than inferred missing pollen.",
-          "matched_denominator": "174,970distinct observations in22strata:165,699NISP/count,2,057concentration,160influx,7,054other;116,727pass. Candidate samples remain DK91/FI1,797/NO3,544."
+          "precise_next_acceptance_route": "Complete the configured reference/replay owner receipt against this exact generated report and the declared 19-file source closure. Source-specific review is still required for changed measures, chronology choices and biological use; no study refit is needed to reproduce this accounting.",
+          "negative_or_refused_result": "58,243 of 174,970 observations fail the predicate, including all 2,057 concentration and 160 influx rows; these are refusals rather than inferred missing pollen.",
+          "matched_denominator": "174,970 distinct observations in 22 strata: 165,699 NISP/count, 2,057 concentration, 160 influx and 7,054 other; 116,727 pass. Candidate samples remain DK 91, FI 1,797 and NO 3,544."
         },
         "evidence_pins": [
           {
             "path": "docs/report/regions/nordic/direct-pollen/source-measures/report.json",
-            "sha256": "535c33015411abfbe3222c035c8977becc4f9c6c158068aa93726fdff67b8d50"
+            "sha256": "1e21777344c5adb5cdd03c7d358a9d58a833b716f158f1c79207a81d0b8b6244"
           },
           {
             "path": "docs/report/regions/nordic/direct-pollen/source-correspondence.json",

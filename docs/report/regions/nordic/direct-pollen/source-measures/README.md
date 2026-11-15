@@ -12,7 +12,7 @@ This [source account](report.json) partitions the source observations attached t
 
 The 174,970 distinct native observation IDs form 22 country/unit/decision strata. Of these, 116,727 pass and 58,243 fail the existing study predicate. Country target denominators remain 91 Danish, 1,797 Finnish, and 3,544 Norwegian candidate samples. The report records the first failed predicate condition and unique site, sample, and source-reported-name counts within each stratum. A sample can occur in multiple strata; adding those unique counts across rows would double-count it. Source-reported names are literal labels, not approved taxon identities.
 
-The account pins the published study manifest, the source pollen screen, 14 relational source parts, and the existing study producer bytes. It does not rerun or alter the predictor, promote a refused row, infer pollen absence or vegetation cover, reconcile unlike measures, or resolve chronology, taxonomy, rights, or ecological review outside the fixed cohort.
+The account pins the published study manifest, the source pollen screen and 14 relational source parts. It authenticates the original study producer through a reachable Git byte witness, without importing or executing the archived program, and records the current accounting implementation separately. Actual executions reproduce every original scientific field and all 22 strata. It does not rerun or alter the predictor, promote a refused row, infer pollen absence or vegetation cover, reconcile unlike measures, or resolve chronology, taxonomy, rights, or ecological review outside the fixed cohort.
 
 From the repository root, reproduce the account in an absent artifact location:
 
@@ -35,21 +35,21 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Unsupported claim.** Native unit labels do not admit all count rows, convert concentration/influx to counts, approve taxa, establish absence or supply LRA/vegetation evidence.
 
-**Actual verification performed.** Read the retained 22-stratum literal-unit account and inspected the actual original/current study source correspondence. Historical and current preparation match on seven products, and current rescoring of unchanged historical predictions reproduces 6,172 score rows and all ten publication products. The source-measure consumer itself was not rerun, and no prediction, fit, numerical oracle or source acquisition was repeated.
+**Actual verification performed.** Executed the maintained native-measure account against all 16 pinned inputs. Independent JSON comparison preserves scalar kinds and every original scientific field across 174,970 observations and 22 strata; only historical producer custody and current accounting implementation provenance are added. A second actual execution observes 19 imported source files and reproduces the complete report bytes. No predictor, fit, numerical oracle or vegetation comparison was rerun.
 
-**Remaining input or review.** The historical 59f6 producer attribution is preserved, and its relation to current 7a814 preparation/scoring is now qualified. A fresh source-measure owner execution is not claimed; native unit/classification, chronology uncertainty and scientific admission remain separate.
+**Remaining input or review.** The historical producer is authenticated through a reachable Git byte witness without executing the archived program. Configured reference/replay owner qualification remains separate from these scoped executions; native measure/classification, chronology uncertainty and scientific admission remain open.
 
 **Cause category.** Native observation accounting with retained historical producer identity.
 
 **Consequence.** Unique sample/site counts within unit strata can overlap and cannot be added as independent observations; unlike measures remain unlike.
 
-**Precise next acceptance route.** For a fresh source-measure owner receipt, replay the configured consumer against its exact study/source inputs while preserving all 22 strata and first-refusal reasons. No study refit is needed to establish the already qualified source correspondence; any changed measures or biological use still need source-specific review.
+**Precise next acceptance route.** Complete the configured reference/replay owner receipt against this exact generated report and the declared 19-file source closure. Source-specific review is still required for changed measures, chronology choices and biological use; no study refit is needed to reproduce this accounting.
 
-**Negative or refused result.** 58,243of174,970observations fail the predicate, including all2,057concentration and160influx rows; these are refusals rather than inferred missing pollen.
+**Negative or refused result.** 58,243 of 174,970 observations fail the predicate, including all 2,057 concentration and 160 influx rows; these are refusals rather than inferred missing pollen.
 
-**Matched denominator.** 174,970distinct observations in22strata:165,699NISP/count,2,057concentration,160influx,7,054other;116,727pass. Candidate samples remain DK91/FI1,797/NO3,544.
+**Matched denominator.** 174,970 distinct observations in 22 strata: 165,699 NISP/count, 2,057 concentration, 160 influx and 7,054 other; 116,727 pass. Candidate samples remain DK 91, FI 1,797 and NO 3,544.
 
-- [Retained qualification evidence: docs/report/regions/nordic/direct-pollen/source-measures/report.json](report.json) (SHA-256 `535c33015411abfbe3222c035c8977becc4f9c6c158068aa93726fdff67b8d50`).
+- [Retained qualification evidence: docs/report/regions/nordic/direct-pollen/source-measures/report.json](report.json) (SHA-256 `1e21777344c5adb5cdd03c7d358a9d58a833b716f158f1c79207a81d0b8b6244`).
 
 - [Retained qualification evidence: docs/report/regions/nordic/direct-pollen/source-correspondence.json](../source-correspondence.json) (SHA-256 `6918782578b1ab62808464ca43fae6796bd276d366c23e24e439aed3c8a0bd14`).
 
