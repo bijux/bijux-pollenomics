@@ -12,6 +12,10 @@ import pytest
 from bijux_pollenomics.collection.sources.neotoma.capture.resources import (
     NeotomaResourceLimits,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from ..resources.native_payloads import response, spec
 from .native_payloads import BODY, plan
@@ -98,7 +102,7 @@ def test_body_reader_authenticates_the_buffer_returned_after_replay(
     directory = tmp_path / "capture"
     result = captured(directory)
     body_path = directory / result.facets[0]["attempts"][0]["body_file"]
-    original = Path.open
+    original = capture_opening()
     reads = 0
 
     class ChangedBuffer:
@@ -132,7 +136,7 @@ def test_body_reader_authenticates_the_buffer_returned_after_replay(
                 return ChangedBuffer(stream)
         return stream
 
-    monkeypatch.setattr(Path, "open", changed_second_open)
+    observe_opening(monkeypatch, changed_second_open)
     with pytest.raises(ValueError):
         read_fixture(
             directory,

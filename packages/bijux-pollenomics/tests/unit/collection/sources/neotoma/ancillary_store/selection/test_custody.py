@@ -12,6 +12,10 @@ import pytest
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive.files import (
     encoded_json,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from .native_products import (
     facet_row,
@@ -199,13 +203,13 @@ def test_unselected_source_body_and_index_parts_remain_unopened(
         for part in index["parts"]
         if part["path"] not in allowed_parts
     }
-    original = Path.open
+    original = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         assert path not in unselected, "Unselected federation part opened"
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     body = selected_products["capsule"] / row["forensic_locator"]["body_relative_path"]
     opened = observe_entities(monkeypatch, selected_products, {body})
     read_neotoma_ancillary_facet_entity(

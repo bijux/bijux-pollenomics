@@ -9,6 +9,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 from .native_products import products
 
 
@@ -109,7 +114,7 @@ def test_protected_metadata_is_validated_before_any_predecessor_body_buffer(
 ) -> None:
     inputs = products(tmp_path, native_pi=True)
     source_roots = set(inputs["source_facets"].values())
-    original = Path.open
+    original = capture_opening()
     reads = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -117,7 +122,7 @@ def test_protected_metadata_is_validated_before_any_predecessor_body_buffer(
             reads.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError):
         owner().publish_neotoma_linked_evidence(tmp_path / "evidence", **inputs)
     assert reads == []
@@ -155,7 +160,7 @@ def test_unclaimed_protected_body_is_not_hashed_as_a_source_input(
     )
     foreign = root / "unclaimed.body"
     foreign.write_bytes(b'{"protected":"unreviewed outcome"}')
-    original = Path.open
+    original = capture_opening()
     reads = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -163,7 +168,7 @@ def test_unclaimed_protected_body_is_not_hashed_as_a_source_input(
             reads.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError):
         owner().publish_neotoma_linked_evidence(tmp_path / "evidence", **inputs)
     assert reads == []
@@ -183,7 +188,7 @@ def test_namespace_refuses_unexpected_subtree_before_descent_or_body_open(
     foreign = result.directory / "foreign-tree"
     foreign.mkdir()
     (foreign / "outcome.body").write_bytes(b'{"foreign":"not authorized"}')
-    original_scan, original_open = os.scandir, Path.open
+    original_scan, original_open = os.scandir, capture_opening()
     forbidden = foreign.stat().st_ino
     body_reads = []
 
@@ -198,7 +203,7 @@ def test_namespace_refuses_unexpected_subtree_before_descent_or_body_open(
         return original_open(path, *args, **kwargs)
 
     monkeypatch.setattr(os, "scandir", scan)
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="[Nn]amespace"):
         module._namespace(result.directory, index)
     assert body_reads == []

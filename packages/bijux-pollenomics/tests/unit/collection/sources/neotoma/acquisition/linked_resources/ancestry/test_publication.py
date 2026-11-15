@@ -12,6 +12,10 @@ from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ances
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive.files import (
     encoded_json,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 def test_exclusive_roundtrip_preserves_source_pointers(
@@ -49,7 +53,7 @@ def test_selected_metadata_returns_native_edge_locators_without_body_open(
     document = derive_neotoma_taxon_ancestry(sources)
     root = tmp_path / "ancestry"
     publish_neotoma_taxon_ancestry(root, document=document, sources=sources)
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -57,7 +61,7 @@ def test_selected_metadata_returns_native_edge_locators_without_body_open(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     selected = read_neotoma_taxon_ancestry_target(
         root,
         expected_manifest_sha256=sha256(
@@ -168,7 +172,7 @@ def test_selected_metadata_alias_refuses_before_foreign_part_open(
     foreign = tmp_path / "foreign-part"
     owned.rename(foreign)
     owned.symlink_to(foreign, target_is_directory=alias == "directory")
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -176,7 +180,7 @@ def test_selected_metadata_alias_refuses_before_foreign_part_open(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="alias|symlink"):
         read_neotoma_taxon_ancestry_target(
             root,

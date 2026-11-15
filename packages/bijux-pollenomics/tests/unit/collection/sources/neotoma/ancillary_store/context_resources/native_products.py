@@ -21,6 +21,10 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import (
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive import (
     write_neotoma_source_archive,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from ...acquisition.context_resources.native_products import (
     capture_legacy_context_fixture,
@@ -259,7 +263,7 @@ def observe_context_bodies(
     monkeypatch: pytest.MonkeyPatch, allowed: set[Path]
 ) -> list[Path]:
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.name.startswith("site-") and path.suffix == ".body":
@@ -267,5 +271,5 @@ def observe_context_bodies(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     return opened

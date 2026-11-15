@@ -8,6 +8,10 @@ import pytest
 from bijux_pollenomics.collection.sources.neotoma.capture.resources.models import (
     NeotomaResourceLimits,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from .native_products import selected
 
@@ -16,7 +20,7 @@ def forbid_entities(
     monkeypatch: pytest.MonkeyPatch, products: dict[str, Any]
 ) -> list[Path]:
     opened: list[Path] = []
-    original = Path.open
+    original = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and any(
@@ -27,7 +31,7 @@ def forbid_entities(
             raise AssertionError("Metadata preflight opened a native source entity")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     return opened
 
 

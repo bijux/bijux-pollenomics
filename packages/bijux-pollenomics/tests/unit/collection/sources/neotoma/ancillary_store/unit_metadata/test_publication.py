@@ -7,6 +7,11 @@ from pathlib import Path
 import shutil
 from typing import Any
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 from .native_products import pin
 
 
@@ -97,13 +102,13 @@ def test_combined_external_input_budget_is_checked_before_unit_or_roster_buffer(
         + inputs["original"].stat().st_size
     )
     monkeypatch.setattr(publication, "MAX_BYTES", physical - 1)
-    original_open = Path.open
+    original_open = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         assert path != inputs["original"], "Over-budget external original roster opened"
         return original_open(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     opened = observe_units(monkeypatch, set())
     with pytest.raises(ValueError, match="budget"):
         publication.write_neotoma_unit_metadata_archive(

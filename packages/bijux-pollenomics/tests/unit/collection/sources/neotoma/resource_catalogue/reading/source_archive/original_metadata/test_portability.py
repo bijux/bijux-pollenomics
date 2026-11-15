@@ -17,6 +17,10 @@ from bijux_pollenomics.collection.sources.neotoma.capture.resources import (
     capture_neotoma_resources,
 )
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import archive
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 def test_historical_dataset_replays_without_external_original_metadata(
@@ -123,7 +127,7 @@ def test_selected_empty_entity_authenticates_internal_historical_metadata(
     for index, path in enumerate(sources.values()):
         path.rename(tmp_path / f"detached-capture-{index}")
     pin = sha256((output / "manifest.json").read_bytes()).hexdigest()
-    open_source = Path.open
+    open_source = capture_opening()
     with monkeypatch.context() as guard:
 
         def forbidden(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -133,7 +137,7 @@ def test_selected_empty_entity_authenticates_internal_historical_metadata(
                 )
             return open_source(path, *args, **kwargs)
 
-        guard.setattr(Path, "open", forbidden)
+        observe_opening(guard, forbidden)
         for read in (
             archive.read_neotoma_source_archive_resource,
             archive.read_neotoma_source_archive_entity,
@@ -155,14 +159,14 @@ def test_selected_empty_entity_authenticates_internal_historical_metadata(
     document = json.loads(part.read_bytes())
     document["rows"][0]["source_payload"]["datasetid"] = 999
     part.write_text(json.dumps(document))
-    native_open = Path.open
+    native_open = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.name == "dataset-201-current-attempt-1.body":
             pytest.fail("numerical entity opened before historical witness refusal")
         return native_open(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         archive.read_neotoma_source_archive_entity(
             output, expected_manifest_sha256=pin, dataset_id=201, version="current"

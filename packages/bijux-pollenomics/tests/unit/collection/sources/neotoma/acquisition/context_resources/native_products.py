@@ -11,6 +11,10 @@ from typing import Any
 import pytest
 
 from bijux_pollenomics.collection.sources.neotoma.capture import NeotomaMetadataResponse
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 def pin(path: Path) -> str:
@@ -337,7 +341,7 @@ def rehash_source(arguments: dict[str, Any], mutate: Callable[..., None]) -> Non
 
 def forbid_context_bodies(monkeypatch: pytest.MonkeyPatch) -> list[Path]:
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.name.startswith("site-") and path.suffix == ".body":
@@ -345,5 +349,5 @@ def forbid_context_bodies(monkeypatch: pytest.MonkeyPatch) -> list[Path]:
             raise AssertionError("Context source body opened before refusal")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     return opened

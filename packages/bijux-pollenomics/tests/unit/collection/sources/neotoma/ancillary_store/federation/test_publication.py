@@ -13,6 +13,10 @@ import pytest
 from bijux_pollenomics.collection.sources.neotoma.ancillary_store.capsule import (
     write_neotoma_ancillary_capsule,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 def _inputs(inputs: dict[str, Any], path: Path) -> dict[str, Any]:
@@ -106,7 +110,7 @@ def test_write_and_load_open_no_native_numerical_facet_or_linked_body(
         if json.loads((directory / "descriptor.json").read_bytes())["capture_kind"]
         == "metadata"
     }
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and path.parent not in metadata:
@@ -115,7 +119,7 @@ def test_write_and_load_open_no_native_numerical_facet_or_linked_body(
             )
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     output = tmp_path / "federation"
     write_neotoma_ancillary_federation(output, **inputs)
     loaded = load_neotoma_ancillary_federation(

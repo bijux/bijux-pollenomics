@@ -10,6 +10,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 
 @pytest.mark.parametrize(
     "mutation",
@@ -104,14 +109,14 @@ def test_input_budget_refuses_before_numerical_buffer(
         monkeypatch.setattr(validation, "MAX_BYTES", 1024)
     else:
         monkeypatch.setattr(validation, "MAX_FILES", 3)
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body":
             pytest.fail("Numerical buffer opened before finite input budget")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     output = tmp_path / "capsule"
     with pytest.raises(ValueError):
         write_neotoma_ancillary_capsule(output, **capsule_inputs)
@@ -157,7 +162,7 @@ def test_protected_attempt_cannot_disguise_numerical_entity_as_receipt(
     raw = json.dumps(manifest).encode()
     (source / "capture-manifest.json").write_bytes(raw)
     capsule_inputs["facet_captures"] = {sha256(raw).hexdigest(): source}
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path == blocked:
@@ -166,7 +171,7 @@ def test_protected_attempt_cannot_disguise_numerical_entity_as_receipt(
             )
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         write_neotoma_ancillary_capsule(tmp_path / "capsule", **capsule_inputs)
 
@@ -227,7 +232,7 @@ def test_combined_physical_closure_is_bounded_before_capture_metadata_buffers(
     }
     total = sum(path.stat().st_size for root in roots for path in root.iterdir())
     monkeypatch.setattr(validation, "MAX_BYTES", total - 1)
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.parent in roots:
@@ -236,6 +241,6 @@ def test_combined_physical_closure_is_bounded_before_capture_metadata_buffers(
             )
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         write_neotoma_ancillary_capsule(tmp_path / "capsule", **capsule_inputs)

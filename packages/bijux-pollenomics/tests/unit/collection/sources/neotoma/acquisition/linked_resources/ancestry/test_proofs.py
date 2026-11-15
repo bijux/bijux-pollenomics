@@ -4,6 +4,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 
 def test_complete_seed_inventory_retains_both_parent_steps(
     ancestry_products: dict[str, Any],
@@ -73,7 +78,7 @@ def test_wrong_scoped_evidence_refuses_before_any_detail_body(
             sha256((root / "capture-manifest.json").read_bytes()).hexdigest(): root
         },
     )
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -81,7 +86,7 @@ def test_wrong_scoped_evidence_refuses_before_any_detail_body(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="evidence"):
         derive_neotoma_taxon_ancestry(sources)
     assert opened == []
@@ -186,7 +191,7 @@ def test_omitted_eligible_source_target_refuses_before_detail_body(
             sha256((root / "capture-manifest.json").read_bytes()).hexdigest(): root
         },
     )
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -194,7 +199,7 @@ def test_omitted_eligible_source_target_refuses_before_detail_body(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="complete eligible source target coverage"):
         derive_neotoma_taxon_ancestry(sources)
     assert opened == []

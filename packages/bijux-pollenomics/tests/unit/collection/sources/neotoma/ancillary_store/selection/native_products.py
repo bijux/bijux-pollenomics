@@ -19,6 +19,10 @@ from bijux_pollenomics.collection.sources.neotoma.ancillary_store.federation imp
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive.files import (
     encoded_json,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 def pin(path: Path) -> str:
@@ -87,7 +91,7 @@ def observe_entities(
 ) -> list[Path]:
     paths = entity_paths(products)
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path in paths:
@@ -95,7 +99,7 @@ def observe_entities(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     return opened
 
 

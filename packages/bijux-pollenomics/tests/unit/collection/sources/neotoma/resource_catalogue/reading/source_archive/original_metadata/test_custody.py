@@ -17,6 +17,10 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive imp
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.custody import (
     _original_metadata,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 @pytest.mark.parametrize(
@@ -182,7 +186,7 @@ def test_external_metadata_preflight_refuses_before_any_native_part_read(
     sparse_metadata(root, count, 16 * 1024 * 1024 + (1 if limit == "entity" else 0))
     calls: list[Path | None] = []
     native = _original_metadata
-    read = Path.open
+    read = capture_opening()
 
     def observed_native(selected: Path | None) -> object:
         calls.append(selected)
@@ -194,7 +198,7 @@ def test_external_metadata_preflight_refuses_before_any_native_part_read(
         return read(selected, *args, **kwargs)
 
     monkeypatch.setattr(original_metadata, "_original_metadata", observed_native)
-    monkeypatch.setattr(Path, "open", observed_buffer)
+    observe_opening(monkeypatch, observed_buffer)
     with pytest.raises(ValueError):
         original_metadata.metadata_inventory(root)
     assert calls == []
@@ -207,14 +211,14 @@ def test_archive_preflights_external_metadata_before_initial_catalogue_replay(
 ) -> None:
     catalogue, digest, sources, original = original_catalogue
     sparse_metadata(original, 33, 16 * 1024 * 1024)
-    read = Path.open
+    read = capture_opening()
 
     def observed(selected: Path, *args: Any, **kwargs: Any) -> Any:
         if selected.parent.name == "datasets":
             pytest.fail("archive replay opened over-budget external metadata")
         return read(selected, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         archive.write_neotoma_source_archive(
             tmp_path / "portable",
@@ -232,14 +236,14 @@ def test_metadata_preflight_does_not_reread_dataset_buffers(
 ) -> None:
     _, _, _, original = original_catalogue
     opened: list[Path] = []
-    read = Path.open
+    read = capture_opening()
 
     def observed(selected: Path, *args: Any, **kwargs: Any) -> Any:
         if selected.parent.name == "datasets":
             opened.append(selected)
         return read(selected, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     claim, _ = original_metadata.metadata_inventory(original)
     assert claim["dataset_row_count"] == 2
     assert sorted(opened) == sorted((original / "surfaces/datasets").glob("*.json"))

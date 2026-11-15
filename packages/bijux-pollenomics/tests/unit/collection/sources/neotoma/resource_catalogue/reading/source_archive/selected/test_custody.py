@@ -21,6 +21,10 @@ from bijux_pollenomics.collection.sources.neotoma.capture.resources.protocol imp
     plan_from_json,
 )
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import archive
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from .test_access import forbid_bodies, make_archive, selected_api
 
@@ -128,14 +132,14 @@ def test_selected_archive_uses_internal_reuse_ancestor_only(
     )
     root, pin, _ = make_archive(lambda **_: inputs, publish_catalogue, tmp_path)
     opened: list[str] = []
-    native_open = Path.open
+    native_open = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.name.startswith("dataset-") and path.suffix == ".body":
             opened.append(path.name)
         return native_open(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     result = selected_api("resource")(
         root, expected_manifest_sha256=pin, dataset_id=201, version="current"
     )
@@ -220,14 +224,14 @@ def test_selected_archive_resolves_original_retained_epoch_without_external_path
     provenance.unlink()
     retained_body = output / "captures/retained/dataset-201-current/native.body"
     opened: list[Path] = []
-    native_open = Path.open
+    native_open = capture_opening()
 
     def observed(path: Path, mode: str = "r", *args: Any, **kwargs: Any) -> Any:
         if path == retained_body and mode == "rb":
             opened.append(path)
         return native_open(path, mode, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     kwargs = {"include_native_body": True} if mode == "resource" else {}
     result = selected_api(mode)(
         output,

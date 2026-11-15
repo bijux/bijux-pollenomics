@@ -11,6 +11,10 @@ from typing import Any, cast
 import pytest
 
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import archive
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 def selected_api(mode: str) -> Callable[..., dict[str, Any]]:
@@ -39,14 +43,14 @@ def make_archive(
 
 
 def forbid_bodies(monkeypatch: pytest.MonkeyPatch) -> None:
-    native = Path.open
+    native = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body":
             pytest.fail("body buffer opened before selected archive refusal")
         return native(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
 
 
 @pytest.mark.parametrize("mode", ["resource", "entity"])
@@ -74,7 +78,7 @@ def test_invalid_native_selector_refuses_before_archive_io(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, mode: str, dataset_id: object
 ) -> None:
     read = selected_api(mode)
-    monkeypatch.setattr(Path, "open", lambda *a, **k: pytest.fail("archive opened"))
+    observe_opening(monkeypatch, lambda *a, **k: pytest.fail("archive opened"))
     with pytest.raises(ValueError, match="positive integer"):
         read(
             tmp_path / "absent",
@@ -90,7 +94,7 @@ def test_invalid_version_refuses_before_archive_io(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, mode: str, version: object
 ) -> None:
     read = selected_api(mode)
-    monkeypatch.setattr(Path, "open", lambda *a, **k: pytest.fail("archive opened"))
+    observe_opening(monkeypatch, lambda *a, **k: pytest.fail("archive opened"))
     with pytest.raises(ValueError, match="version"):
         read(
             tmp_path / "absent",
@@ -105,7 +109,7 @@ def test_native_body_flag_is_literal_before_archive_io(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, flag: object
 ) -> None:
     read = selected_api("resource")
-    monkeypatch.setattr(Path, "open", lambda *a, **k: pytest.fail("archive opened"))
+    observe_opening(monkeypatch, lambda *a, **k: pytest.fail("archive opened"))
     with pytest.raises(ValueError, match="literal boolean"):
         read(
             tmp_path / "absent",
@@ -150,14 +154,14 @@ def test_typed_archive_reader_uses_only_selected_numerical_body_after_sources_re
     ):
         path.rename(tmp_path / f"detached-source-{index}")
     opened: list[str] = []
-    native = Path.open
+    native = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.name.startswith("dataset-") and path.suffix == ".body":
             opened.append(path.name)
         return native(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     result = read(
         root,
         expected_manifest_sha256=pin,

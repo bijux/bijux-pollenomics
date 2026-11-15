@@ -20,6 +20,10 @@ from bijux_pollenomics.collection.sources.neotoma.capture.reference_tables impor
 from bijux_pollenomics.collection.sources.neotoma.capture.transport import (
     NeotomaHttpResponse,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 @pytest.mark.parametrize(
@@ -159,14 +163,14 @@ def test_publication_requires_capture_anchor_before_source_entity_access(
     owner = importlib.import_module(
         "bijux_pollenomics.collection.sources.neotoma.ancillary_store.reference_tables"
     )
-    actual_open = Path.open
+    actual_open = capture_opening()
 
     def guarded(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body":
             pytest.fail("missing independent capture anchor reached a source entity")
         return actual_open(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", guarded)
+    observe_opening(monkeypatch, guarded)
     with pytest.raises(ValueError):
         owner.write_neotoma_reference_archive(
             tmp_path / "unanchored-archive",

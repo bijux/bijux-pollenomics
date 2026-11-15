@@ -16,6 +16,10 @@ from bijux_pollenomics.reporting.map_document import source_resources as owner
 from bijux_pollenomics.reporting.map_document.source_resources.ancillary.projection import (
     load_atlas_ancillary_metadata,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from .native_federations import (
     ancillary_sources as ancillary_sources,
@@ -100,7 +104,7 @@ def test_only_outcome_free_native_metadata_bodies_are_opened(
         if member["source_entity"] is True
     }
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def guarded(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body":
@@ -108,7 +112,7 @@ def test_only_outcome_free_native_metadata_bodies_are_opened(
             opened.append(path.name)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", guarded)
+    observe_opening(monkeypatch, guarded)
     view = owner.load_atlas_resource_catalogue(source)
     assert view.ancillary is not None
     assert view.ancillary.entity_body_hashes_verified is False
@@ -161,7 +165,7 @@ def test_scoped_projection_opens_zero_facet_linked_or_numerical_entities(
         if member["source_entity"] is True
     }
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def guarded(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body":
@@ -169,7 +173,7 @@ def test_scoped_projection_opens_zero_facet_linked_or_numerical_entities(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", guarded)
+    observe_opening(monkeypatch, guarded)
     projected = owner.load_atlas_resource_catalogue(source).ancillary
     assert projected is not None and projected.linked_occurrences
     assert projected.entity_body_hashes_verified is False

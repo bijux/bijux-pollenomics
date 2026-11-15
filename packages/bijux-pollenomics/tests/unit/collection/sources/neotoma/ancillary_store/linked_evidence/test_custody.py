@@ -11,6 +11,10 @@ from bijux_pollenomics.collection.sources.neotoma.ancillary_store.capsule import
     load_neotoma_ancillary_capsule,
     write_neotoma_ancillary_capsule,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from .native_products import pin
 
@@ -136,7 +140,7 @@ def test_state_body_hash_drift_refuses_before_linked_entity_access(
     state = next(iter(scoped_inputs["evidence_sources"].values()))
     part = next((state / "proofs").iterdir())
     part.write_bytes(part.read_bytes() + b" ")
-    original = Path.open
+    original = capture_opening()
     entities = directory / "captures" / next(iter(scoped_inputs["linked_captures"]))
     opened = []
 
@@ -145,7 +149,7 @@ def test_state_body_hash_drift_refuses_before_linked_entity_access(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError, match="part|identity|byte|bounded regular file"):
         load_neotoma_ancillary_capsule(
             directory,
@@ -183,7 +187,7 @@ def test_malformed_capsule_schema_refuses_before_external_source_access(
     value["schema_version"] = schema
     del value["linked_evidence"]
     path.write_text(json.dumps(value))
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observed(source: Path, *args: Any, **kwargs: Any) -> Any:
@@ -191,7 +195,7 @@ def test_malformed_capsule_schema_refuses_before_external_source_access(
             opened.append(source)
         return original(source, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError, match="schema|fields"):
         read_neotoma_ancillary_capsule_inventory(
             directory,
@@ -265,7 +269,7 @@ def test_selected_proof_alias_refuses_before_foreign_buffer_open(
         path = foreign / f"{selected}.json"
         raw = path.read_bytes()
         path.write_bytes(raw[:-1] + (b" " if raw[-1:] != b" " else b"\n"))
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observed(source: Path, *args: Any, **kwargs: Any) -> Any:
@@ -273,7 +277,7 @@ def test_selected_proof_alias_refuses_before_foreign_buffer_open(
             opened.append(source)
         return original(source, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         if reader == "target":
             read_neotoma_linked_evidence_target(

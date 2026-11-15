@@ -12,6 +12,10 @@ from bijux_pollenomics.collection.sources.neotoma.ancillary_store.capsule import
     read_neotoma_ancillary_capsule_inventory,
     write_neotoma_ancillary_capsule,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from .native_products import pin
 
@@ -76,13 +80,13 @@ def test_inventory_opens_no_predecessor_or_target_entities(
     write_neotoma_ancillary_capsule(directory, **scoped_inputs)
     numerical = set(scoped_inputs["predecessor_facets"].values())
     numerical.add(directory / "captures" / next(iter(scoped_inputs["linked_captures"])))
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         assert not (path.suffix == ".body" and path.parent in numerical)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     result = read_neotoma_ancillary_capsule_inventory(
         directory,
         expected_manifest_sha256=pin(directory / "manifest.json"),
@@ -111,14 +115,14 @@ def test_streaming_evidence_occurrences_uses_each_part_buffer_once(
     digest, state = next(iter(scoped_inputs["evidence_sources"].items()))
     header = json.loads((state / "evidence-manifest.json").read_bytes())
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.parent == state / "proofs":
             opened.append(path.name)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     rows = list(
         iter_neotoma_linked_evidence_occurrences(state, expected_manifest_sha256=digest)
     )
