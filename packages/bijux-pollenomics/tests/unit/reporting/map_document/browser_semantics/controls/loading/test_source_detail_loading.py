@@ -69,7 +69,16 @@ def test_factory_contains_unchanged_original_body_and_requires_explicit_bindings
         "const result=createSourceRecordDetails(bindings);"
         "console.log(JSON.stringify({keys:Object.keys(result),frozen:Object.isFrozen(result),missing,loads}));"
     )
-    assert actual["keys"] == ["overview", "samples", "classification", "provenance"]
+    assert actual["keys"] == [
+        "overview",
+        "samples",
+        "chronology",
+        "classification",
+        "provenance",
+        "depthProfile",
+        "ageDepthGroup",
+        "charcoalSignal",
+    ]
     assert actual["frozen"] and len(actual["missing"]) == 5
     assert actual["loads"] == 0
 
