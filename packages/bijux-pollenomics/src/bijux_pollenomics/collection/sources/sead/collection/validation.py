@@ -5,9 +5,6 @@ from collections.abc import Callable, Mapping, Sequence
 from bijux_pollenomics.collection.sources.sead.acquisition import (
     client as sead_api_client,
 )
-from bijux_pollenomics.collection.sources.sead.acquisition.fetch import (
-    parse_optional_int,
-)
 
 _SEAD_PRIMARY_KEYS = {
     "tbl_sites": "site_id",
@@ -70,8 +67,10 @@ def validate_sead_rows(table_name: str, rows: Sequence[Mapping[str, object]]) ->
 def required_positive_int(
     row: Mapping[str, object], field: str, table_name: str
 ) -> int:
-    value = parse_optional_int(row.get(field))
-    if value is None or value <= 0:
+    value = row.get(field)
+    if isinstance(value, str) and value.isascii() and value.isdecimal():
+        value = int(value)
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
         raise ValueError(
             f"Invalid required SEAD {table_name}.{field}: {row.get(field)!r}"
         )
