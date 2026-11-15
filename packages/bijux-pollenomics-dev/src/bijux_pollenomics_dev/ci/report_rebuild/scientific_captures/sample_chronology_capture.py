@@ -46,6 +46,10 @@ from .source_roles.import_facades import (
     PUBLIC_IMPORT_FACADE_SOURCES,
     validated_import_facade_source,
 )
+from .source_roles.neotoma_country_json import (
+    NEOTOMA_COUNTRY_JSON_SOURCE,
+    validated_neotoma_country_json_source,
+)
 from .source_roles.propagation_qualification import (
     PROPAGATION_QUALIFICATION_SOURCE,
     validated_propagation_qualification_source,
@@ -404,6 +408,17 @@ def _validate_current_source(
                     and _documented_source_matches(name, captured, current)
                 )
                 or atlas_extension_matches(name, captured, current)
+                or (
+                    source_buffer is not None
+                    and name == NEOTOMA_COUNTRY_JSON_SOURCE
+                    and validated_neotoma_country_json_source(
+                        repository,
+                        {"path": name, "sha256": expected, "bytes": len(captured)},
+                        logical,
+                        source_buffer,
+                    ).get("classification")
+                    == "strict_neotoma_country_json_refusal"
+                )
                 or (
                     source_buffer is not None
                     and name in PUBLIC_IMPORT_FACADE_SOURCES
