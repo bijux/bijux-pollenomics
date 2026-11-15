@@ -19,7 +19,6 @@ from bijux_pollenomics_dev.ci.report_rebuild.scientific_captures.source_roles im
 
 from .test_atlas_runtime_transport_custody import (
     _CONTEXTS,
-    _CURRENT,
     _OLD,
     _WORKFLOW,
     TransportCase,
@@ -122,16 +121,29 @@ def test_outer_workflow_refuses_after_positive_actual_route(
 def test_other_finite_atlas_role_keeps_old_exact_or_named_predicate(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    """Do not send a different existing finite presentation role to the new helper."""
-    case = _outer_case(tmp_path / "repository", monkeypatch, _PAYLOAD)
+    """Payload keeps real relation custody and never borrows the workflow helper."""
+    from .test_atlas_relation_context_custody import (
+        _outer_payload,
+        _outer_payload_case,
+    )
+
+    case = _outer_payload_case(tmp_path / "repository", monkeypatch)
     calls = _observe_runtime_route(monkeypatch)
-    case.target.write_bytes(_OLD)
-    assert _invoke(case) is None
+    current = case.target.read_bytes()
+    old = case.buffer.read_source(case.logical)
+    case.target.write_bytes(old)
+    assert _outer_payload(case) is None
     assert calls == []
-    case.target.write_bytes(_CURRENT)
+    case.target.write_bytes(current)
+    baseline = _outer_payload(case)
+    assert baseline is not None
+    assert baseline["classification"] == "atlas_relation_context_extension"
+    assert baseline["original_sha256"] == hashlib.sha256(old).hexdigest()
+    assert calls == []
+    case.target.write_bytes(current + b"UNDECLARED_PAYLOAD = 9\n")
     with pytest.raises(
         ReportRebuildError,
-        match="Optimizer Atlas source differs beyond named asset or provider additions",
+        match="Atlas relation context differs beyond",
     ):
-        _invoke(case)
+        _outer_payload(case)
     assert calls == []
