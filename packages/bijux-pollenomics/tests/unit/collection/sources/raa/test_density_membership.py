@@ -34,6 +34,7 @@ def _boundary(*geometries: dict[str, object]) -> dict[str, object]:
 def _inventory(*geometries: object) -> dict[str, object]:
     return {
         "type": "FeatureCollection",
+        "numberMatched": len(geometries),
         "features": [
             {
                 "type": "Feature",
