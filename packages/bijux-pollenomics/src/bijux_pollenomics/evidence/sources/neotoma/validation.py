@@ -132,10 +132,11 @@ def validate_neotoma_relational_materialization(
             expected_files.add(relative_path)
             part_path = root.joinpath(*PurePosixPath(relative_path).parts)
             digest = _validated_sha256(part.get("sha256"), relative_path)
-            actual_digest = hashlib.sha256(_read_regular_file(part_path)).hexdigest()
+            part_content = _read_regular_file(part_path)
+            actual_digest = hashlib.sha256(part_content).hexdigest()
             if actual_digest != digest:
                 raise ValueError(f"SHA-256 mismatch for {relative_path}")
-            part_payload = _read_json_object(part_path)
+            part_payload = _decode_json_object(part_content, part_path)
             expect_equal(
                 part_payload.get("schema_version"),
                 PART_SCHEMA_VERSION,
@@ -237,12 +238,13 @@ def validate_neotoma_relational_materialization(
         reconciliation.get("sha256"), reconciliation_path
     )
     reconciliation_file = root / reconciliation_path
-    actual_reconciliation_digest = hashlib.sha256(
-        _read_regular_file(reconciliation_file)
-    ).hexdigest()
+    reconciliation_content = _read_regular_file(reconciliation_file)
+    actual_reconciliation_digest = hashlib.sha256(reconciliation_content).hexdigest()
     if actual_reconciliation_digest != reconciliation_digest:
         raise ValueError("SHA-256 mismatch for reconciliation.json")
-    reconciliation_payload = _read_json_object(reconciliation_file)
+    reconciliation_payload = _decode_json_object(
+        reconciliation_content, reconciliation_file
+    )
     expect_equal(
         reconciliation_payload.get("schema_version"),
         RECONCILIATION_SCHEMA_VERSION,
@@ -333,8 +335,12 @@ def _read_regular_file(path: Path) -> bytes:
 
 
 def _read_json_object(path: Path) -> dict[str, object]:
+    return _decode_json_object(_read_regular_file(path), path)
+
+
+def _decode_json_object(content: bytes, path: Path) -> dict[str, object]:
     try:
-        payload = json.loads(_read_regular_file(path))
+        payload = json.loads(content)
     except (json.JSONDecodeError, UnicodeDecodeError) as error:
         raise ValueError(f"Invalid JSON materialization file: {path}") from error
     if not isinstance(payload, dict):

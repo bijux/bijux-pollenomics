@@ -2,6 +2,23 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#431](https://github.com/bijux/bijux-pollenomics/pull/431) — Authenticated materialization buffers and Atlas chronology scope
+
+- Hash and decode the same retained bytes for Neotoma materialization surfaces and
+  reconciliation metadata, preventing substituted second reads from separating source
+  authentication and semantic validation.
+- Distinguish missing database metadata from declared source nulls during resource
+  classification, preserving refused native bodies and replay outcomes. Expose the
+  shared identifier validator explicitly to typed consumers.
+- Carry source-owned chronology quality profiles, sample flags and claim diagnostics
+  into Atlas with snapshot/build/materialization/site scope and separate
+  model/dataset/age-basis identities. Preserve unavailable legacy metadata and refuse
+  unknown owners.
+- Extend the exact retained context source contract for literal quality projection
+  additions and verify synthetic parent/count substitutions, coordinate contradictions,
+  complete source scope and existing inverse-source refusal controls. No new scientific
+  admission or historical execution is claimed.
+
 ### [#430](https://github.com/bijux/bijux-pollenomics/pull/430) — Frozen native resource qualification and chronology support
 
 - Qualify two explicit native frozen Neotoma wrappers in a separate authenticated ledger

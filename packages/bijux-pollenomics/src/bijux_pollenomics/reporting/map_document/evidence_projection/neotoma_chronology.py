@@ -7,7 +7,11 @@ retain model types, units, control values and nulls without interpretation.
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
+import copy
 
+from bijux_pollenomics.collection.sources.neotoma.chronology.quality import (
+    assess_neotoma_chronology_quality,
+)
 from bijux_pollenomics.collection.sources.neotoma.relational.identifiers import (
     source_reference_matches,
 )
@@ -37,6 +41,113 @@ _CONTROL_FIELDS = (
     "source_issue_ids",
     "source_payload_posture",
 )
+
+
+def chronology_quality_tables(
+    loaded: Mapping[str, tuple[list[Mapping[str, object]], tuple[int, ...]]],
+    site_ids: set[str],
+) -> dict[str, dict[str, object]]:
+    """Encode the shared quality owner; legacy missing metadata stays unavailable."""
+    required = (
+        "samples",
+        "age_claims",
+        "chronologies",
+        "chronology_controls",
+        "conflicts",
+    )
+    if any(surface not in loaded for surface in required):
+        return {
+            site: _unavailable("neotoma_chronology_quality_metadata_unavailable")
+            for site in site_ids
+        }
+    quality = assess_neotoma_chronology_quality(
+        **{surface: loaded[surface][0] for surface in required}
+    )
+    samples = _unique_rows(loaded["samples"][0], "sample_id", "Neotoma quality samples")
+    profiles = quality["profiles"]
+    identity_fields = (
+        "profile_id",
+        "dataset_id",
+        "collection_unit_id",
+        "site_id",
+        "country_code",
+        "chronology_id",
+        "source_age_type",
+        "source_age_unit",
+    )
+    profile_fields = identity_fields + tuple(
+        sorted(
+            {field for profile in profiles for field in profile} - set(identity_fields)
+        )
+    )
+    claim_fields = (
+        "chronology_claim_id",
+        "sample_id",
+        "profile_id",
+        "point_status",
+        "flags",
+    )
+    sample_sites: dict[str, str] = {}
+    samples_by_site: dict[str, list[str]] = {site: [] for site in site_ids}
+    profiles_by_site: dict[str, list[Mapping[str, object]]] = {
+        site: [] for site in site_ids
+    }
+    claims_by_site: dict[str, list[list[object]]] = {site: [] for site in site_ids}
+    for identity, row in samples.items():
+        site = _required_text(row.get("site_id"), "Neotoma quality sample site owner")
+        if site not in samples_by_site:
+            raise ValueError("Neotoma quality sample has an unknown site owner")
+        sample_sites[identity] = site
+        samples_by_site[site].append(identity)
+    for profile in profiles:
+        site = _required_text(
+            profile.get("site_id"), "Neotoma quality profile site owner"
+        )
+        if site not in profiles_by_site:
+            raise ValueError("Neotoma quality profile has an unknown site owner")
+        profiles_by_site[site].append(profile)
+    for identity, row in sorted(quality["claim_diagnostics"].items()):
+        claim_site = sample_sites.get(row["sample_id"])
+        if claim_site is None:
+            raise ValueError("Neotoma quality claim has an unknown source sample owner")
+        claims_by_site[claim_site].append(
+            [identity, *[row.get(field) for field in claim_fields[1:]]]
+        )
+    result: dict[str, dict[str, object]] = {}
+    for site in site_ids:
+        site_samples = samples_by_site[site]
+        site_profiles = profiles_by_site[site]
+        claim_rows = claims_by_site[site]
+        result[site] = {
+            "schema_version": quality["schema_version"],
+            "source_profile": copy.deepcopy(quality["source_profile"]),
+            "profiles": _row_table(
+                profile_fields,
+                [
+                    [profile.get(field) for field in profile_fields]
+                    for profile in site_profiles
+                ],
+            ),
+            "sample_flags": _row_table(
+                ("sample_id", "flags"),
+                [
+                    [identity, quality["sample_flags"][identity]]
+                    for identity in sorted(site_samples)
+                ],
+            ),
+            "claim_diagnostics": _row_table(claim_fields, claim_rows),
+            "site_denominators": {
+                "samples": len(site_samples),
+                "age_claims": len(claim_rows),
+                "profiles": len(site_profiles),
+            },
+            "source_wide_denominators": quality["source_denominators"],
+            "source_wide_diagnostic_denominators": quality["diagnostic_denominators"],
+            "claim_diagnostic_semantics": quality["claim_diagnostic_semantics"],
+            "profile_identity_semantics": "Dataset, collection unit, site, country, source chronology, source age type and age unit within the parent bound source snapshot; no source chronology selected.",
+            "scope": "all_site_source_profiles_not_filtered_to_map_time_window",
+        }
+    return result
 
 
 def chronology_model_tables(
