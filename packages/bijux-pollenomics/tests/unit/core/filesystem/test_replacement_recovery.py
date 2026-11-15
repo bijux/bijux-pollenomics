@@ -10,6 +10,39 @@ from bijux_pollenomics.core.filesystem.anchors import DirectoryAnchor
 from bijux_pollenomics.core.filesystem.regular_inputs import BoundedInputTree
 
 
+def test_failure_receipt_preserves_primary_validation_error(tmp_path: Path) -> None:
+    final, run = tmp_path / "output", tmp_path / "run"
+    run.mkdir()
+    primary = OSError("primary semantic validation failure")
+
+    def validate(root: Path) -> None:
+        raise primary
+
+    def record(status: str, fields: dict[str, Any]) -> None:
+        raise ValueError("secondary receipt namespace failure")
+
+    with (
+        DirectoryAnchor(run) as recovery,
+        OwnedTreeWriter(run / "candidate", max_bytes=100, max_files=2) as writer,
+    ):
+        writer.write_bytes("value", b"candidate")
+        with pytest.raises(OSError) as caught:
+            replacement.publish_owned_replacement(
+                writer,
+                final=final,
+                prior=None,
+                recovery=recovery,
+                validate=validate,
+                record=record,
+            )
+        assert caught.value is primary
+        assert any(
+            "secondary receipt namespace failure" in note for note in primary.__notes__
+        )
+        assert (run / "candidate/value").read_bytes() == b"candidate"
+        assert not final.exists()
+
+
 @pytest.mark.parametrize("existing", [False, True])
 def test_foreign_empty_destination_at_publication_is_never_replaced(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, existing: bool

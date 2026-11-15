@@ -103,7 +103,7 @@ def publish_owned_replacement(
                 parent.check()
                 recovery.check()
                 return result
-            except BaseException:
+            except BaseException as primary_error:
                 parent.check()
                 recovery.check()
                 # A competing final stays at its user path; never move it for cleanup.
@@ -136,16 +136,22 @@ def publish_owned_replacement(
                         restored = True
                 if record is not None:
                     current = _attached(parent, final.name)
-                    record(
-                        "refused",
-                        {
-                            "predecessor_restored": restored,
-                            "retained_predecessor": _attached(recovery, "prior")
-                            == prior_id
-                            if prior is not None
-                            else False,
-                            "foreign_destination_preserved": current is not None
-                            and current not in {candidate_id, prior_id},
-                        },
-                    )
+                    try:
+                        record(
+                            "refused",
+                            {
+                                "predecessor_restored": restored,
+                                "retained_predecessor": _attached(recovery, "prior")
+                                == prior_id
+                                if prior is not None
+                                else False,
+                                "foreign_destination_preserved": current is not None
+                                and current not in {candidate_id, prior_id},
+                            },
+                        )
+                    except Exception as receipt_error:
+                        primary_error.add_note(
+                            f"Refusal receipt failed: {type(receipt_error).__name__}: "
+                            f"{receipt_error}; retained recovery: {recovery.path}"
+                        )
                 raise
