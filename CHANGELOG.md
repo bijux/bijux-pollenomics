@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Retained source accounting and reachable Atlas readers
+### [#428](https://github.com/bijux/bijux-pollenomics/pull/428) — Retained source accounting and reachable Atlas readers
 
 - Bind retained direct-pollen measure accounting to the published study's fixed
   reachable producer witness, keeping original count/age decisions separate from
