@@ -145,7 +145,10 @@ def test_selected_archive_uses_internal_reuse_ancestor_only(
 
 @pytest.mark.parametrize("mode", ["resource", "entity"])
 def test_selected_archive_resolves_original_retained_epoch_without_external_paths(
-    catalogue_sources: Callable[..., dict[str, Any]], tmp_path: Path, mode: str
+    catalogue_sources: Callable[..., dict[str, Any]],
+    tmp_path: Path,
+    mode: str,
+    monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     inputs = catalogue_sources()
     native_root = next(iter(inputs["resource_captures"].values()))
@@ -215,6 +218,16 @@ def test_selected_archive_resolves_original_retained_epoch_without_external_path
     )
     body.unlink()
     provenance.unlink()
+    retained_body = output / "captures/retained/dataset-201-current/native.body"
+    opened: list[Path] = []
+    native_open = Path.open
+
+    def observed(path: Path, mode: str = "r", *args: Any, **kwargs: Any) -> Any:
+        if path == retained_body and mode == "rb":
+            opened.append(path)
+        return native_open(path, mode, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "open", observed)
     kwargs = {"include_native_body": True} if mode == "resource" else {}
     result = selected_api(mode)(
         output,
@@ -226,6 +239,7 @@ def test_selected_archive_resolves_original_retained_epoch_without_external_path
         **kwargs,
     )
     assert result["native_body"] == expected
+    assert opened == [retained_body]
     assert result["source"]["epoch_kind"] == "original_timed_public_response"
 
 

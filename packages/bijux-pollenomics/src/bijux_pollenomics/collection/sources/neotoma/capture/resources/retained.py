@@ -17,6 +17,20 @@ def read_retained_source(
     source: NeotomaRetainedSource,
     maximum_bytes: int,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Return the existing provenance and summary without exposing source bytes."""
+    reference, summary, _ = read_retained_source_entity(
+        resource, version, source, maximum_bytes
+    )
+    return reference, summary
+
+
+def read_retained_source_entity(
+    resource: NeotomaResourceSpec,
+    version: str,
+    source: NeotomaRetainedSource,
+    maximum_bytes: int,
+) -> tuple[dict[str, Any], dict[str, Any], bytes]:
+    """Return the same buffer authenticated and classified for the retained source."""
     provenance_bytes = _read(_safe_root(source.provenance_path), 100000)
     if sha256(provenance_bytes).hexdigest() != source.provenance_sha256:
         raise ValueError("Retained Neotoma provenance identity differs")
@@ -56,4 +70,4 @@ def read_retained_source(
         "retrieved_at": record["retrieved_at"],
         "http_evidence_scope": "original recorded fields only; no new request, headers or TLS history invented",
     }
-    return reference, summary
+    return reference, summary, body
