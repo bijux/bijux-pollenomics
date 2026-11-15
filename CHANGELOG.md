@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Exclusive catalogue custody and archive input bounds
+### [#444](https://github.com/bijux/bijux-pollenomics/pull/444) — Exclusive catalogue custody and archive input bounds
 
 - Write compact and partitioned catalogues through one exclusive owned writer;
   validate finite, closed ordinary namespaces before reading member buffers.
