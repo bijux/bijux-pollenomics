@@ -33,6 +33,7 @@ from ..capture.resources.retained import read_retained_source
 from ..client import positive_native_id
 from .current_profiles import current_profiles_enabled
 from .custody import pinned_object, public_member
+from .metadata import validate_metadata_witness
 from .publication import load_neotoma_resource_catalogue
 from .source_projection import _same
 
@@ -223,6 +224,43 @@ def _selected_body(
     return body
 
 
+def _source_owner(
+    root: Path,
+    catalogue: dict[str, Any],
+    resource: NeotomaResourceSpec,
+    version: str,
+    selected: dict[str, Any],
+    *,
+    allowed_statuses: set[str] | None = None,
+) -> tuple[str, dict[str, Any], NeotomaResourceLimits]:
+    """Authenticate original owner and ancestry before external entity access."""
+    key = resource_key(resource, version)
+    owners = []
+    for digest in catalogue["selected_resource_capture_manifest_sha256"]:
+        manifest = pinned_object(
+            root / "captures" / digest / "capture-manifest.json",
+            digest,
+            16 * 1024 * 1024,
+        )
+        if any(entry.get("resource_key") == key for entry in manifest["resources"]):
+            owners.append(digest)
+    if len(owners) != 1:
+        raise ValueError(
+            "Selected resource native owner capture is missing or ambiguous"
+        )
+    original_entry, _, _ = _capsule(root, catalogue, resource, version, owners[0])
+    if (
+        selected.get("source_terminal_status") != original_entry["terminal_status"]
+        or selected.get("acquisition_status") != original_entry["terminal_status"]
+        or (
+            allowed_statuses is not None
+            and original_entry["terminal_status"] not in allowed_statuses
+        )
+    ):
+        raise ValueError("Selected source terminal qualification is not qualified")
+    return _origin(root, catalogue, resource, version, owners[0])
+
+
 def read_neotoma_catalogue_resource(
     directory: Path,
     *,
@@ -285,37 +323,19 @@ def read_neotoma_catalogue_resource(
         row["metadata"]["source"]["body_sha256"],
         row["metadata"]["source"]["json_pointer"],
     )
-    key = resource_key(resource, version)
     root = _safe_root(directory)
-    owners = []
-    for digest in catalogue["selected_resource_capture_manifest_sha256"]:
-        manifest = pinned_object(
-            root / "captures" / digest / "capture-manifest.json",
-            digest,
-            16 * 1024 * 1024,
+    allowed = (
+        (
+            {"unsupported_dataset_type"}
+            if derived_current
+            else {"parsed_native", "reused_qualified_native"}
         )
-        if any(entry.get("resource_key") == key for entry in manifest["resources"]):
-            owners.append(digest)
-    if len(owners) != 1:
-        raise ValueError(
-            "Selected resource native owner capture is missing or ambiguous"
-        )
-    original_entry, _, _ = _capsule(root, catalogue, resource, version, owners[0])
-    if (
-        selected.get("source_terminal_status") != original_entry["terminal_status"]
-        or selected.get("acquisition_status") != original_entry["terminal_status"]
-        or (
-            version == "current"
-            and original_entry["terminal_status"]
-            not in (
-                {"unsupported_dataset_type"}
-                if derived_current
-                else {"parsed_native", "reused_qualified_native"}
-            )
-        )
-    ):
-        raise ValueError("Selected source terminal qualification is not qualified")
-    digest, entry, limits = _origin(root, catalogue, resource, version, owners[0])
+        if version == "current"
+        else None
+    )
+    digest, entry, limits = _source_owner(
+        root, catalogue, resource, version, selected, allowed_statuses=allowed
+    )
     body = _selected_body(
         root,
         catalogue,
@@ -355,7 +375,7 @@ def read_neotoma_catalogue_resource(
             parser_profile=parsed_current.parser_profile,
             source_units=summary["source_units"],
             qualification_status="parsed_current_source",
-            source_terminal_status=original_entry["terminal_status"],
+            source_terminal_status=selected["source_terminal_status"],
         )
     elif version == "current":
         status, summary = classify_body(resource, version, body)
@@ -382,3 +402,88 @@ def read_neotoma_catalogue_resource(
     if include_native_body:
         result["native_body"] = body
     return result
+
+
+def read_neotoma_catalogue_source_entity(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str,
+    dataset_id: int,
+    version: str,
+    capture_sources: Mapping[str, Path],
+    retained_sources: Mapping[str, NeotomaRetainedSource] | None = None,
+    original_relational_root: Path | None = None,
+) -> dict[str, Any]:
+    """Return an authenticated source entity for download, without schema admission.
+
+    The original acquisition and qualification remain unchanged. Complete,
+    successful HTTP entities can include provider empty/no-record responses or
+    unsupported native shapes. Protected roles are refused before resolution;
+    numerical consumers must use the separate qualified resource reader.
+    """
+    dataset_id = positive_native_id(dataset_id)
+    if not isinstance(version, str) or version not in {"current", "doi_frozen"}:
+        raise ValueError("Selected Neotoma resource version is unsupported")
+    catalogue = load_neotoma_resource_catalogue(
+        directory, expected_manifest_sha256=expected_manifest_sha256
+    )
+    rows = [row for row in catalogue["resources"] if row["dataset_id"] == dataset_id]
+    if len(rows) != 1:
+        raise ValueError("Selected dataset is outside the declared catalogue inventory")
+    row = rows[0]
+    if row["exposure_role"] not in DEVELOPMENT_ROLES:
+        raise ValueError("Selected resource exposure role refuses source entity access")
+    selected = row["versions"][version]
+    source = selected.get("source")
+    if not isinstance(source, dict) or not (
+        source.get("source_kind") == "retained_public_response"
+        or (
+            source.get("source_kind") == "source_http_attempt"
+            and source.get("http_status") == 200
+            and source.get("body_complete") is True
+        )
+    ):
+        raise ValueError("Selected resource has no complete successful source entity")
+    resource = NeotomaResourceSpec(
+        dataset_id,
+        row["site_id"],
+        row["collection_unit_id"],
+        row["dataset_type"],
+        row["database"],
+        row["exposure_role"],
+        row["metadata"]["source"]["body_sha256"],
+        row["metadata"]["source"]["json_pointer"],
+    )
+    root = _safe_root(directory)
+    digest, entry, limits = _source_owner(root, catalogue, resource, version, selected)
+    validate_metadata_witness(
+        root, catalogue, row, capture_sources, original_relational_root
+    )
+    body = _selected_body(
+        root,
+        catalogue,
+        resource,
+        version,
+        digest,
+        entry,
+        limits,
+        selected["source"],
+        capture_sources,
+        retained_sources,
+    )
+    return {
+        "dataset_id": dataset_id,
+        "site_id": resource.site_id,
+        "collection_unit_id": resource.collection_unit_id,
+        "dataset_type": resource.dataset_type,
+        "version": version,
+        "exposure_role": resource.exposure_role,
+        "source": deepcopy(selected["source"]),
+        "rights": deepcopy(row["rights"]),
+        "acquisition_status": selected["acquisition_status"],
+        "qualification_status": selected["qualification_status"],
+        "native_body": body,
+        "use_scope": "source_entity_download_only",
+        "scientific_admission": "not_asserted",
+        "units_interpreted": False,
+    }

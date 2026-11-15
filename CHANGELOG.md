@@ -2,6 +2,22 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#442](https://github.com/bijux/bijux-pollenomics/pull/442) — Portable source capsules and bounded catalogue storage
+
+- Authenticate download-only source entities and complete native attribution while
+  preserving original acquisition/qualification status and refusing protected roles
+  before external source resolution. Keep raw forensic evidence distinct from qualified
+  numerical access.
+- Publish portable exact-byte source capsules with complete original receipts/failure
+  evidence and closed successful-development download indexes, verifying file/body/byte
+  populations and source replay before and after publication.
+- Partition complete catalogue collections into bounded content-addressed parts without
+  splitting native rows or changing logical order, refusing oversized records,
+  incomplete joins and extra parts.
+- Resolve entrance-distance reference labels only after whole-unit role admission,
+  recording both current source epochs and raw tokens without relabelling source
+  evidence, converting measurements or inferring units for other fields.
+
 ### [#441](https://github.com/bijux/bijux-pollenomics/pull/441) — Exact country authority and bounded Atlas metadata
 
 - Reject ambiguous/lossy encoded country geometries through the strict native JSON
