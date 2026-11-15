@@ -1,0 +1,61 @@
+{
+  "capture_manifest_sha256": "2d1fa242655abe4a75cc60950098652986225bbc08bc775df23cde4e4a311d30",
+  "files": {
+    "capture/capture-manifest.json": {
+      "bytes": 4938,
+      "sha256": "2d1fa242655abe4a75cc60950098652986225bbc08bc775df23cde4e4a311d30"
+    },
+    "capture/parent-scope.json": {
+      "bytes": 14379706,
+      "sha256": "51810a8bdd21cd8642cfdeda4dfa656e572a52a471868a7d83efe8a09c197dcc"
+    },
+    "capture/request-plan.json": {
+      "bytes": 1035,
+      "sha256": "760fdfb852577088765bc801e5c9a74b828dd21be8add8cbed0ef87c45340f75"
+    },
+    "capture/site-28869-dataset_depositional_environment-current-attempt-1.body": {
+      "bytes": 112,
+      "sha256": "e61c8ccb2cf29354fd511d3195696bb4c146faaac6832af7a41404e0ceaa99ed"
+    },
+    "capture/site-28869-dataset_depositional_environment-current-attempt-1.receipt.json": {
+      "bytes": 1987,
+      "sha256": "f4ac3c9032d9c7fd1c9cb609a4583b33f8733ae4ab15c0f8fca7620e756523d5"
+    },
+    "capture/site-28872-dataset_depositional_environment-current-attempt-1.body": {
+      "bytes": 195,
+      "sha256": "cf5e568102af4f0020df4dd26e97bac4590b183b07570fab8b83bfa44d515d32"
+    },
+    "capture/site-28872-dataset_depositional_environment-current-attempt-1.receipt.json": {
+      "bytes": 2017,
+      "sha256": "35094fb8f5a58838f0aa405233bd56771407fbd98743d26a2b4dda72c3abb1e9"
+    },
+    "capture/site-3204-dataset_depositional_environment-current-attempt-1.body": {
+      "bytes": 298,
+      "sha256": "b5d50288e7b3989719529ea858a6c7fda8ea4db7580cdc7927ed6b3dc2476818"
+    },
+    "capture/site-3204-dataset_depositional_environment-current-attempt-1.receipt.json": {
+      "bytes": 2038,
+      "sha256": "5787ca1778653df1784eb3cd17ec1a7758378c60776dc94af9b4e3c3b5a7ccf4"
+    },
+    "capture/site-3432-dataset_depositional_environment-current-attempt-1.body": {
+      "bytes": 357,
+      "sha256": "2693cb37e592c45390143d28dc3e9395b064b013915ea8fd940c61cd1978f8ce"
+    },
+    "capture/site-3432-dataset_depositional_environment-current-attempt-1.receipt.json": {
+      "bytes": 2060,
+      "sha256": "532f34ebe22e776b35193ace367be5b57e6cc985e531807d1c68c408a07f00c3"
+    },
+    "index.json": {
+      "bytes": 4682,
+      "sha256": "16821cbe5597a68aed778055600b8fa82e69ec9bcf371c4752b6747eea1d1383"
+    }
+  },
+  "historical_snapshot_replaced": false,
+  "native_body_copies": 0,
+  "original_context_manifest_sha256": "6c237ad7b262afe495434ca98430b80b356f444fdc3506e7897f24936b747d46",
+  "original_native_archive_manifest_sha256": "d34559cf88a41c45deadcb4e3def5a5fdf765d51092063bd29d033615cdaeaff",
+  "related_resource_graph_complete": false,
+  "schema_version": "neotoma-current-context-resource-archive.v1",
+  "scientific_admission": "not_asserted",
+  "source_bytes": 14399425
+}

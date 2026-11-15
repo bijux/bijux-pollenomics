@@ -1,0 +1,115 @@
+{
+  "capture_utc_end": "2026-11-15T18:44:57.711589+00:00",
+  "capture_utc_start": "2026-11-15T18:44:51.058724+00:00",
+  "native_profiles_verified": false,
+  "numerical_payloads_in_index": false,
+  "partitions": {
+    "received_complete_unqualified_context_resource": 4
+  },
+  "request_count": 4,
+  "resources": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-28872-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-28872-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "35094fb8f5a58838f0aa405233bd56771407fbd98743d26a2b4dda72c3abb1e9",
+          "request_name": "site-28872-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 28872,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-28869-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-28869-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "f4ac3c9032d9c7fd1c9cb609a4583b33f8733ae4ab15c0f8fca7620e756523d5",
+          "request_name": "site-28869-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 28869,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-3432-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-3432-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "532f34ebe22e776b35193ace367be5b57e6cc985e531807d1c68c408a07f00c3",
+          "request_name": "site-3432-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 3432,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-3204-dataset_depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-3204-dataset_depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "5787ca1778653df1784eb3cd17ec1a7758378c60776dc94af9b4e3c3b5a7ccf4",
+          "request_name": "site-3204-dataset_depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "dataset_depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 3204,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    }
+  ],
+  "response_bytes": 962,
+  "schema_version": "neotoma-current-context-resource-index.v1",
+  "scientific_admission": "not_asserted"
+}
