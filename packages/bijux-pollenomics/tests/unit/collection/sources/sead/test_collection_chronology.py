@@ -165,6 +165,9 @@ class SeadChronologyTests(unittest.TestCase):
             url: str, params: list[tuple[str, str]] | None = None, **_: object
         ) -> object:
             del params
+            headers = cast(dict[str, str], _["headers"])
+            if int(headers["Range"].split("-", 1)[0]) > 0:
+                return []
             if url.endswith("/tbl_sites"):
                 return [
                     {

@@ -20,6 +20,9 @@ class SeadAcquisitionTests(unittest.TestCase):
         def fake_fetch_json(
             url: str, params: list[tuple[str, str]] | None = None, **_: object
         ) -> object:
+            headers = cast(dict[str, str], _["headers"])
+            if int(headers["Range"].split("-", 1)[0]) > 0:
+                return []
             params = params or []
             order_values = tuple(value for key, value in params if key == "order")
             if order_values:

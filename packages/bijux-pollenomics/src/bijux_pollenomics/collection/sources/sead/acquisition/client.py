@@ -1,12 +1,14 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Iterable
+from collections.abc import Callable, Iterable, Mapping
 from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
+import re
 import time
 from urllib.error import HTTPError, URLError
 
 SEAD_LIMIT = 1000
+SEAD_MAX_PAGES = 1000
 SEAD_FILTER_BATCH_SIZE = 100
 SEAD_POSTGREST_ROOT = "https://browser.sead.se/postgrest"
 SEAD_REQUEST_RETRIES = 5
@@ -32,22 +34,51 @@ def fetch_sead_rows(
         params.extend(filters)
     if order_by:
         params.append(("order", ",".join(order_by)))
-    while True:
-        chunk = fetch_sead_chunk(
-            table_name,
-            fetch_json_fn=fetch_json_fn,
-            params=params,
-            start=start,
-            request_retries=request_retries,
-            request_timeout_seconds=request_timeout_seconds,
-        )
-        if not isinstance(chunk, list) or not chunk:
-            break
-        rows.extend(item for item in chunk if isinstance(item, dict))
-        if len(chunk) < SEAD_LIMIT:
-            break
-        start += SEAD_LIMIT
-    return rows
+    for _ in range(SEAD_MAX_PAGES):
+        try:
+            chunk = fetch_sead_chunk(
+                table_name,
+                fetch_json_fn=fetch_json_fn,
+                params=params,
+                start=start,
+                request_retries=request_retries,
+                request_timeout_seconds=request_timeout_seconds,
+            )
+        except HTTPError as error:
+            if error.code == 416 and _range_exhausted_at(error, start):
+                return rows
+            raise
+        if not isinstance(chunk, list) or any(
+            not isinstance(row, Mapping) for row in chunk
+        ):
+            raise ValueError(
+                f"SEAD page must be an array of JSON objects: {table_name}"
+            )
+        if len(chunk) > SEAD_LIMIT:
+            raise ValueError(f"SEAD page exceeds requested size: {table_name}")
+        if not chunk:
+            return rows
+        rows.extend(dict(row) for row in chunk)
+        start += len(chunk)
+    raise ValueError(f"SEAD pagination exceeded {SEAD_MAX_PAGES} pages: {table_name}")
+
+
+def _range_exhausted_at(error: HTTPError, start: int) -> bool:
+    """Accept a range refusal only when one header proves the exact next offset."""
+    headers: object = error.headers
+    get_all = getattr(headers, "get_all", None)
+    if callable(get_all):
+        declarations = get_all("Content-Range", [])
+    elif isinstance(headers, Mapping):
+        declarations = [
+            value for key, value in headers.items() if key.casefold() == "content-range"
+        ]
+    else:
+        return False
+    if len(declarations) != 1 or not isinstance(declarations[0], str):
+        return False
+    match = re.fullmatch(r"\*/(0|[1-9][0-9]*)", declarations[0])
+    return match is not None and int(match[1]) == start
 
 
 def fetch_sead_rows_by_ids(
