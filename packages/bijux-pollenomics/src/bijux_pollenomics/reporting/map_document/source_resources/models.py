@@ -7,6 +7,8 @@ from pathlib import Path
 import re
 from typing import Any
 
+from .ancillary.models import AtlasAncillaryFederationInput, AtlasAncillaryMetadata
+
 
 def _published_base_url(value: object) -> str:
     if (
@@ -43,6 +45,7 @@ class AtlasResourceCatalogueInput:
     directory: Path
     expected_manifest_sha256: str
     archive: AtlasResourceArchiveInput | None = None
+    ancillary: AtlasAncillaryFederationInput | None = None
 
     def __post_init__(self) -> None:
         if (
@@ -54,6 +57,13 @@ class AtlasResourceCatalogueInput:
             self.archive, AtlasResourceArchiveInput
         ):
             raise ValueError("Atlas resource archive input has the wrong owner")
+        if self.ancillary is not None:
+            if not isinstance(self.ancillary, AtlasAncillaryFederationInput):
+                raise ValueError("Atlas ancillary federation input has the wrong owner")
+            if self.archive is None:
+                raise ValueError(
+                    "Atlas ancillary metadata requires a pinned native archive"
+                )
 
 
 @dataclass(frozen=True)
@@ -66,3 +76,4 @@ class AtlasResourceCatalogue:
     source_descriptors: dict[str, Any]
     provenance: dict[str, Any]
     summary: dict[str, Any]
+    ancillary: AtlasAncillaryMetadata | None = None
