@@ -22,6 +22,24 @@ def load_map_document_template() -> str:
             ),
         )
         .replace(
+            "__SOURCE_RESOURCE_GEOGRAPHY__",
+            package_root.joinpath("assets/source-resources/geography.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__SOURCE_RESOURCE_READER__",
+            package_root.joinpath("assets/source-resources/reader.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
+            "__SOURCE_RESOURCE_DOWNLOADS__",
+            package_root.joinpath("assets/source-resources/downloads.js").read_text(
+                encoding="utf-8"
+            ),
+        )
+        .replace(
             "__SOURCE_RESOURCE_BROWSER_FACTORY__",
             package_root.joinpath(
                 "assets/source-resource-browser-factory.js"

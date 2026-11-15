@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":45312,"lithology":[{"lithologyid":16982,"depth":{"top":0,"bottom":108},"lowerboundary":null,"description":"silty clay"},{"lithologyid":16983,"depth":{"top":108,"bottom":111},"lowerboundary":null,"description":"grey-black sandy silt"}]}],"message":"Retrieved all tables"}

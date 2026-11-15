@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":9184,"lithology":[{"lithologyid":5794,"depth":{"top":0,"bottom":10},"lowerboundary":"Undulating","description":"Moss / leaf litter"},{"lithologyid":5795,"depth":{"top":10,"bottom":25},"lowerboundary":"Sharp","description":"Amorphous humic material with wood/sand"}]}],"message":"Retrieved all tables"}

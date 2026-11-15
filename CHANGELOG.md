@@ -2,6 +2,17 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#449](https://github.com/bijux/bijux-pollenomics/pull/449) — Ancillary source capsules and verified Atlas downloads
+
+- Retain independently bounded ancillary source capsules with exact capture,
+  receipt, attempt and predecessor identities; separate metadata inventories from
+  full body replay and preserve original source assessments and legacy scope limits.
+- Publish the two collected facet/linked-source capsules with pinned native/context
+  foundations and no duplicated native dataset archive bodies.
+- Browse authenticated Atlas source metadata with literal extents and version/role
+  limits; verify bounded same-origin downloads against pinned manifest/index/receipt
+  identities while keeping source browsing separate from scientific selections.
+
 ### [#448](https://github.com/bijux/bijux-pollenomics/pull/448) — Lazy reporting imports and retained source epochs
 
 - Resolve public reporting exports lazily while preserving owner object identities,

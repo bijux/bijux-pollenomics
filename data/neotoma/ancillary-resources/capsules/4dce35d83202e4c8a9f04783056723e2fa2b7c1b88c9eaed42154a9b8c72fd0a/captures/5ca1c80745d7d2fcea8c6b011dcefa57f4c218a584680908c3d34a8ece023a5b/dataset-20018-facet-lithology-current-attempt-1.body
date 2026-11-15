@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":20018,"lithology":[{"lithologyid":8755,"depth":{"top":1297,"bottom":1460},"lowerboundary":null,"description":"gyttja"},{"lithologyid":8756,"depth":{"top":1460,"bottom":1552},"lowerboundary":null,"description":"minerogenic sediment"}]}],"message":"Retrieved all tables"}

@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":20043,"lithology":[{"lithologyid":8785,"depth":{"top":0,"bottom":120},"lowerboundary":null,"description":"Gyttja"},{"lithologyid":8786,"depth":{"top":120,"bottom":125},"lowerboundary":null,"description":"Silt"}]}],"message":"Retrieved all tables"}

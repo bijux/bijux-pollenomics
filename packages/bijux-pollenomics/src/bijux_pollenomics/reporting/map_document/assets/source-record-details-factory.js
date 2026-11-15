@@ -124,6 +124,6 @@ function ageDepthGroupHtml(group, index) {
 }
 
   return Object.freeze({overview: renderSelectedSourceOverview, samples: renderSourceSampleObservations,
-    chronology: renderSourceChronologyContext, classification: renderClassificationContext, provenance: renderSourceProvenanceContext,
+    chronology: renderSourceChronologyContext, classification: renderClassificationContext, provenance: tabs => renderSourceResourceEntry(tabs) + renderSourceProvenanceContext(tabs),
     depthProfile: sourceDepthProfile, ageDepthGroup: ageDepthGroupHtml, charcoalSignal: nativeCharcoalSourceSignal});
 }

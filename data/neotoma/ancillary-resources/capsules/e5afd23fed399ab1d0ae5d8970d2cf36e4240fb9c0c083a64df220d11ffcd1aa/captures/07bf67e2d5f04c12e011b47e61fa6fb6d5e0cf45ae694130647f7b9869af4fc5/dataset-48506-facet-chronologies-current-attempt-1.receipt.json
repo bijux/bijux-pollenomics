@@ -1,0 +1,95 @@
+{
+  "body_complete": true,
+  "body_file": "dataset-48506-facet-chronologies-current-attempt-1.body",
+  "expected_dataset_id": 48506,
+  "expected_site_id": 27202,
+  "final_url": "https://api.neotomadb.org/v2.0/data/datasets/48506/chronologies",
+  "http_status": 200,
+  "parameters": {},
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/datasets/48506/chronologies",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/datasets/48506/chronologies",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "3625"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 10:30:12 GMT"
+    ],
+    [
+      "etag",
+      "W/\"e29-zz2qjfcOkH8HdWdupeGWOZWv2JA\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4934"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794738667"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "10"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 3625,
+  "retained_body_sha256": "3477791fc24eb7e1d741fa8c7ff5d5f5a3e0bcf9c520a4ffed754adef867ebb8",
+  "role": "dataset_facet_chronologies",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T10:30:12.942498+00:00",
+  "utc_start": "2026-11-15T10:30:12.563544+00:00"
+}
