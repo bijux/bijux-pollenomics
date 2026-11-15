@@ -1,0 +1,63 @@
+core,landclim_target,fsp_m_s_source,ppe_sd_source,native_literal_matches
+BOKE,Picea abies,0.056,5.437 (0.097),[]
+BOKE,Abies alba,0.12,6.875 (1.442),[]
+BOKE,Pinus sylvestris,0.031,6.058 (0.237),[]
+BOKE,Phillyrea,0.015,0.512 (0.076),[]
+BOKE,Pistacia,0.03,0.755 (0.201),[]
+BOKE,Quercus evergreen t.,0.035*,11.043 (0.261),[]
+BOKE,Juniperus communis,0.016,2.07 (0.04),[]
+BOKE,Ericaceae**,0.038*,4.265 (0.094),[]
+BOKE,Buxus sempervirens,0.032,1.89 (0.068),[]
+BOKE,Alnus glutinosa,0.021,13.562 (0.293),[]
+BOKE,Betula,0.024,5.106 (0.303),"[{""native_label"": ""Betula"", ""taxon_id"": 29}]"
+BOKE,Carpinus betulus,0.042,4.52 (0.425),[]
+BOKE,Carpinus orientalis,0.042,0.24 (0.07),[]
+BOKE,Castanea sativa,0.01,3.258 (0.059),[]
+BOKE,Corylus avellana,0.025,1.71 (0.1),[]
+BOKE,Fagus sylvatica,0.057,5.863 (0.176),[]
+BOKE,Fraxinus,0.022,1.044 (0.048),"[{""native_label"": ""Fraxinus"", ""taxon_id"": 369}]"
+BOKE,Quercus deciduous t.,0.035,4.537 (0.086),[]
+BOKE,Tilia,0.032,1.21 (0.116),"[{""native_label"": ""Tilia"", ""taxon_id"": 302}]"
+BOKE,Ulmus,0.032,1.27 (0.05),"[{""native_label"": ""Ulmus"", ""taxon_id"": 310}]"
+BOKE,Salix,0.022,1.182 (0.077),"[{""native_label"": ""Salix"", ""taxon_id"": 271}]"
+BOKE,Calluna vulgaris,0.038,1.085 (0.029),[]
+BOKE,Artemisia,0.025,3.937 (0.146),"[{""native_label"": ""Artemisia"", ""taxon_id"": 25}]"
+BOKE,Amaranthaceae/Chenopodiaceae,0.019,4.28 (0.27),[]
+BOKE,Cyperaceae,0.035,0.962 (0.05),"[{""native_label"": ""Cyperaceae"", ""taxon_id"": 74}]"
+BOKE,Filipendula,0.006,3 (0.285),"[{""native_label"": ""Filipendula"", ""taxon_id"": 1428}]"
+BOKE,Poaceae,0.035,1 (0),"[{""native_label"": ""Poaceae"", ""taxon_id"": 417}]"
+BOKE,Plantago lanceolata,0.029,2.33 (0.201),"[{""native_label"": ""Plantago lanceolata"", ""taxon_id"": 220}]"
+BOKE,Rumex acetosa-t,0.018,3.02 (0.278),[]
+BOKE,Cerealia-t,0.06,1.85 (0.380),[]
+BOKE,Secale cereale,0.06,3.99 (0.320),"[{""native_label"": ""Secale cereale"", ""taxon_id"": 3926}]"
+KRAG,Picea abies,0.056,5.437 (0.097),[]
+KRAG,Abies alba,0.12,6.875 (1.442),[]
+KRAG,Pinus sylvestris,0.031,6.058 (0.237),[]
+KRAG,Phillyrea,0.015,0.512 (0.076),[]
+KRAG,Pistacia,0.03,0.755 (0.201),[]
+KRAG,Quercus evergreen t.,0.035*,11.043 (0.261),[]
+KRAG,Juniperus communis,0.016,2.07 (0.04),[]
+KRAG,Ericaceae**,0.038*,4.265 (0.094),[]
+KRAG,Buxus sempervirens,0.032,1.89 (0.068),[]
+KRAG,Alnus glutinosa,0.021,13.562 (0.293),[]
+KRAG,Betula,0.024,5.106 (0.303),"[{""native_label"": ""Betula"", ""taxon_id"": 29}]"
+KRAG,Carpinus betulus,0.042,4.52 (0.425),[]
+KRAG,Carpinus orientalis,0.042,0.24 (0.07),[]
+KRAG,Castanea sativa,0.01,3.258 (0.059),[]
+KRAG,Corylus avellana,0.025,1.71 (0.1),[]
+KRAG,Fagus sylvatica,0.057,5.863 (0.176),[]
+KRAG,Fraxinus,0.022,1.044 (0.048),"[{""native_label"": ""Fraxinus"", ""taxon_id"": 369}]"
+KRAG,Quercus deciduous t.,0.035,4.537 (0.086),[]
+KRAG,Tilia,0.032,1.21 (0.116),"[{""native_label"": ""Tilia"", ""taxon_id"": 302}]"
+KRAG,Ulmus,0.032,1.27 (0.05),"[{""native_label"": ""Ulmus"", ""taxon_id"": 310}]"
+KRAG,Salix,0.022,1.182 (0.077),"[{""native_label"": ""Salix"", ""taxon_id"": 271}]"
+KRAG,Calluna vulgaris,0.038,1.085 (0.029),"[{""native_label"": ""Calluna vulgaris"", ""taxon_id"": 2897}]"
+KRAG,Artemisia,0.025,3.937 (0.146),"[{""native_label"": ""Artemisia"", ""taxon_id"": 25}]"
+KRAG,Amaranthaceae/Chenopodiaceae,0.019,4.28 (0.27),[]
+KRAG,Cyperaceae,0.035,0.962 (0.05),"[{""native_label"": ""Cyperaceae"", ""taxon_id"": 74}]"
+KRAG,Filipendula,0.006,3 (0.285),"[{""native_label"": ""Filipendula"", ""taxon_id"": 1428}]"
+KRAG,Poaceae,0.035,1 (0),"[{""native_label"": ""Poaceae"", ""taxon_id"": 417}]"
+KRAG,Plantago lanceolata,0.029,2.33 (0.201),"[{""native_label"": ""Plantago lanceolata"", ""taxon_id"": 220}]"
+KRAG,Rumex acetosa-t,0.018,3.02 (0.278),[]
+KRAG,Cerealia-t,0.06,1.85 (0.380),[]
+KRAG,Secale cereale,0.06,3.99 (0.320),[]

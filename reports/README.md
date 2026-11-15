@@ -80,3 +80,5 @@ supports.
 The website publishes selected explanations under `docs/public/`. Governed
 numeric tables, private source receipts and reproducibility detail stay with
 their owned report until the report migration updates all consumers together.
+
+[Bökesjön/Krageholm pilot source assessment](science/pollen-reconstruction/bokesjon-pilot/README.md): full taxon/parameter and physical-source evidence, with outstanding scientific admission and validation stated explicitly.
