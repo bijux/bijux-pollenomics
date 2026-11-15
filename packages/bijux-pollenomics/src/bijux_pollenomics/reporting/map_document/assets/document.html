@@ -5646,7 +5646,8 @@ __URL_STATE_CONTROLLER__
         const focused = pollenFocusedSignalData(tabs, signal);
         const key = pollenDepthSelections.get(owner) ?? focused.defaultAnchorKey;
         const requireExplicitAnchor = Boolean(signal?.semantic_role === 'source_chronology_context'
-          && ['source_taxon','source_ecological_code'].includes(signal.node_level));
+          && ['source_taxon','source_ecological_code'].includes(signal.node_level)
+          || signal?.semantic_role === 'native_charcoal_source_context' && !focused.defaultAnchorKey);
         return {owner,signal,focused,key,requireExplicitAnchor};
       }
       function renderPollenObservationDiagram(tabs) {
@@ -5689,7 +5690,7 @@ __URL_STATE_CONTROLLER__
         const sourceDiagram = activeFocusTab === 'chronology' ? renderSourceChronologyDiagram(tabs, focusState?.sourceSignal, COUNTRIES.filter(country => activeCountries.has(country)))
           : activeFocusTab === 'pollen_composition' ? renderPollenObservationDiagram(tabs) : '';
         const sourceOverview = activeFocusTab === 'overview' && tabs.overview?.status !== 'unavailable'
-          && focusState?.sourceSignal?.semantic_role === 'source_chronology_context'
+          && ['source_chronology_context','native_charcoal_source_context'].includes(focusState?.sourceSignal?.semantic_role)
           ? renderSourceDetailContext('overview', tabs, focusState.sourceSignal) : '';
         const sampleObservations = activeFocusTab === 'samples' && tabs.overview?.source_family === 'neotoma'
           ? renderSourceDetailContext('samples', tabs) : '';
