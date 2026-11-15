@@ -1,0 +1,93 @@
+{
+  "capture_manifest_sha256": "f62500e37c16803a223f702a41298719868592ececc40eae804236f43efe6287",
+  "files": {
+    "capture/capture-manifest.json": {
+      "bytes": 8771,
+      "sha256": "f62500e37c16803a223f702a41298719868592ececc40eae804236f43efe6287"
+    },
+    "capture/parent-scope.json": {
+      "bytes": 14379706,
+      "sha256": "51810a8bdd21cd8642cfdeda4dfa656e572a52a471868a7d83efe8a09c197dcc"
+    },
+    "capture/request-plan.json": {
+      "bytes": 1052,
+      "sha256": "62566279b80c8b02661f4e3450ab2338fb5b2ca5c0994d94071b41b8a7be53f5"
+    },
+    "capture/site-28869-depositional_environment-current-attempt-1.body": {
+      "bytes": 1835,
+      "sha256": "fcf9ef45efe97beffce414fe3133d8727b3858178b846cc411a121400755cb8a"
+    },
+    "capture/site-28869-depositional_environment-current-attempt-1.receipt.json": {
+      "bytes": 1874,
+      "sha256": "608456cc9bbe8045d0cea71bcdad6005a534f5cce80879c8855879de4a44e72f"
+    },
+    "capture/site-28869-lake_candidates-current-attempt-1.body": {
+      "bytes": 63,
+      "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc"
+    },
+    "capture/site-28869-lake_candidates-current-attempt-1.receipt.json": {
+      "bytes": 2036,
+      "sha256": "7cf5910d1ed41a430d2d2fa42fa250e34f0bf4bd84fc0c6cea849688e5d8c297"
+    },
+    "capture/site-28872-depositional_environment-current-attempt-1.body": {
+      "bytes": 1835,
+      "sha256": "fcf9ef45efe97beffce414fe3133d8727b3858178b846cc411a121400755cb8a"
+    },
+    "capture/site-28872-depositional_environment-current-attempt-1.receipt.json": {
+      "bytes": 1875,
+      "sha256": "709d5122e86d59882097e9cd1a43204b003501536f5ad1541966a8142faaf088"
+    },
+    "capture/site-28872-lake_candidates-current-attempt-1.body": {
+      "bytes": 988,
+      "sha256": "204811063688a54f5b4659020611936a47d101894ee4ce5e20c582e88f8b6411"
+    },
+    "capture/site-28872-lake_candidates-current-attempt-1.receipt.json": {
+      "bytes": 2039,
+      "sha256": "1abd4c6e6eb38c02b238582aa9b3c7385ab8f843df11b8daa9940f6512c5329c"
+    },
+    "capture/site-3204-depositional_environment-current-attempt-1.body": {
+      "bytes": 1835,
+      "sha256": "fcf9ef45efe97beffce414fe3133d8727b3858178b846cc411a121400755cb8a"
+    },
+    "capture/site-3204-depositional_environment-current-attempt-1.receipt.json": {
+      "bytes": 1868,
+      "sha256": "f90911f1c7930f04ad90997693f0e6887d4a6693697949c6bb26bb0f3a26d3e7"
+    },
+    "capture/site-3204-lake_candidates-current-attempt-1.body": {
+      "bytes": 1063,
+      "sha256": "953bf26a9ab23f537d29c25eaab2e0c6f1abd0d23ad2a4f76030fb4315d3f709"
+    },
+    "capture/site-3204-lake_candidates-current-attempt-1.receipt.json": {
+      "bytes": 2034,
+      "sha256": "5699e1ad1262fad8938beaa5c7281c5da620e9ec911b8a53d5998c95ca3bd16a"
+    },
+    "capture/site-3432-depositional_environment-current-attempt-1.body": {
+      "bytes": 1835,
+      "sha256": "fcf9ef45efe97beffce414fe3133d8727b3858178b846cc411a121400755cb8a"
+    },
+    "capture/site-3432-depositional_environment-current-attempt-1.receipt.json": {
+      "bytes": 1868,
+      "sha256": "c2947b2ee8b7883382a77e5f29b7a722012e05d0c3f848a1015a90c61aee86db"
+    },
+    "capture/site-3432-lake_candidates-current-attempt-1.body": {
+      "bytes": 63,
+      "sha256": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc"
+    },
+    "capture/site-3432-lake_candidates-current-attempt-1.receipt.json": {
+      "bytes": 2029,
+      "sha256": "871e5487f5eafbfadd75f5a2d9805cfe2bee282c5f3bc2a7d3dc5cafc8e32820"
+    },
+    "index.json": {
+      "bytes": 8515,
+      "sha256": "7477f8003a6ada65a88b42512f1bc9006cb0fe0d1f10f9d1e3b43ba8116e7c89"
+    }
+  },
+  "historical_snapshot_replaced": false,
+  "native_body_copies": 0,
+  "original_context_manifest_sha256": "6c237ad7b262afe495434ca98430b80b356f444fdc3506e7897f24936b747d46",
+  "original_native_archive_manifest_sha256": "d34559cf88a41c45deadcb4e3def5a5fdf765d51092063bd29d033615cdaeaff",
+  "related_resource_graph_complete": false,
+  "schema_version": "neotoma-current-context-resource-archive.v1",
+  "scientific_admission": "not_asserted",
+  "source_bytes": 14423184
+}

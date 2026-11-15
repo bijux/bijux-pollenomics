@@ -1,0 +1,217 @@
+{
+  "capture_utc_end": "2026-11-15T16:01:55.670598+00:00",
+  "capture_utc_start": "2026-11-15T16:01:48.418279+00:00",
+  "partitions": {
+    "received_complete_unqualified_context_resource": 8
+  },
+  "plan_sha256": "62566279b80c8b02661f4e3450ab2338fb5b2ca5c0994d94071b41b8a7be53f5",
+  "request_count": 8,
+  "resources": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-28872-depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-28872-depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "709d5122e86d59882097e9cd1a43204b003501536f5ad1541966a8142faaf088",
+          "request_name": "site-28872-depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 28872,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-28869-depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-28869-depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "608456cc9bbe8045d0cea71bcdad6005a534f5cce80879c8855879de4a44e72f",
+          "request_name": "site-28869-depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 28869,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-3432-depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-3432-depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "c2947b2ee8b7883382a77e5f29b7a722012e05d0c3f848a1015a90c61aee86db",
+          "request_name": "site-3432-depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 3432,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-3204-depositional_environment-current-attempt-1.body",
+          "receipt_file": "site-3204-depositional_environment-current-attempt-1.receipt.json",
+          "receipt_sha256": "f90911f1c7930f04ad90997693f0e6887d4a6693697949c6bb26bb0f3a26d3e7",
+          "request_name": "site-3204-depositional_environment-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "depositional_environment",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 3204,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-28872-lake_candidates-current-attempt-1.body",
+          "receipt_file": "site-28872-lake_candidates-current-attempt-1.receipt.json",
+          "receipt_sha256": "1abd4c6e6eb38c02b238582aa9b3c7385ab8f843df11b8daa9940f6512c5329c",
+          "request_name": "site-28872-lake_candidates-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "lake_candidates",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 28872,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-28869-lake_candidates-current-attempt-1.body",
+          "receipt_file": "site-28869-lake_candidates-current-attempt-1.receipt.json",
+          "receipt_sha256": "7cf5910d1ed41a430d2d2fa42fa250e34f0bf4bd84fc0c6cea849688e5d8c297",
+          "request_name": "site-28869-lake_candidates-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "lake_candidates",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 28869,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-3432-lake_candidates-current-attempt-1.body",
+          "receipt_file": "site-3432-lake_candidates-current-attempt-1.receipt.json",
+          "receipt_sha256": "871e5487f5eafbfadd75f5a2d9805cfe2bee282c5f3bc2a7d3dc5cafc8e32820",
+          "request_name": "site-3432-lake_candidates-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "lake_candidates",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 3432,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "site-3204-lake_candidates-current-attempt-1.body",
+          "receipt_file": "site-3204-lake_candidates-current-attempt-1.receipt.json",
+          "receipt_sha256": "5699e1ad1262fad8938beaa5c7281c5da620e9ec911b8a53d5998c95ca3bd16a",
+          "request_name": "site-3204-lake_candidates-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "exposure_role": "development_resource_discovery",
+      "resource_kind": "lake_candidates",
+      "scientific_admission": "not_asserted",
+      "scope_status": "eligible_current_scope",
+      "site_id": 3204,
+      "summary": {
+        "absence_certified": false,
+        "dated_basin_geometry_admitted": false,
+        "native_payload_owner_verified": false,
+        "schema_qualified": false,
+        "scientific_admission": "not_asserted"
+      },
+      "terminal_status": "received_complete_unqualified_context_resource"
+    }
+  ],
+  "response_bytes": 9517,
+  "schema_version": "neotoma-site-context-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed current queries; no transaction or historical coevality claim",
+  "source_scope": "current source context only; no dated basin geometry, absence certification or scientific admission",
+  "status": "closed"
+}

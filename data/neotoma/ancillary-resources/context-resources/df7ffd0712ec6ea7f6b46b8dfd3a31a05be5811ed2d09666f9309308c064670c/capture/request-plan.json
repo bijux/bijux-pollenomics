@@ -1,0 +1,34 @@
+{
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 8,
+    "max_response_bytes": 2097151,
+    "max_total_bytes": 8388607,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 120
+  },
+  "parent_scope_sha256": "51810a8bdd21cd8642cfdeda4dfa656e572a52a471868a7d83efe8a09c197dcc",
+  "plan": {
+    "context_manifest_sha256": "6c237ad7b262afe495434ca98430b80b356f444fdc3506e7897f24936b747d46",
+    "lake_buffer_m": 1000,
+    "lake_precision": 0.0001,
+    "lake_projection": 4326,
+    "native_archive_manifest_sha256": "d34559cf88a41c45deadcb4e3def5a5fdf765d51092063bd29d033615cdaeaff",
+    "resource_kinds": [
+      "depositional_environment",
+      "lake_candidates"
+    ],
+    "site_ids": [
+      28872,
+      28869,
+      3432,
+      3204
+    ]
+  },
+  "policy_sources": [
+    "https://www.neotomadb.org/data/data-use-and-embargo-policy"
+  ],
+  "schema_version": "neotoma-site-context-http-capture.v1",
+  "source_scope": "current source context only; no dated basin geometry, absence certification or scientific admission"
+}
