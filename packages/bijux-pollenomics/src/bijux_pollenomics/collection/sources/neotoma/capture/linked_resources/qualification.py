@@ -1,0 +1,101 @@
+"""Derive native detail qualifications beside immutable source capture ledgers."""
+
+from __future__ import annotations
+
+from collections import Counter
+from collections.abc import Mapping
+from pathlib import Path
+from typing import Any
+
+from ..resources.models import (
+    DEFAULT_RESOURCE_LIMITS,
+    DEVELOPMENT_ROLES,
+    NeotomaResourceLimits,
+)
+from .profiles import (
+    _UnavailableLinkedSource,
+    parse_neotoma_linked_source,
+    summarize_linked_source,
+)
+from .replay import read_neotoma_linked_body, replay_neotoma_linked_resources
+
+
+def qualify_neotoma_linked_capture(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str,
+    source_facets: Mapping[str, Path],
+    limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+) -> dict[str, Any]:
+    """Authenticate exact returned buffers and every root occurrence before parsing."""
+    captured = replay_neotoma_linked_resources(
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        source_facets=source_facets,
+        limits=limits,
+    )
+    rows = []
+    for entry in captured.resources:
+        identity = entry["identity"]
+        row: dict[str, Any] = {
+            "target_key": entry["target_key"],
+            "source_terminal_status": entry["terminal_status"],
+            "source_proofs": identity["source_proofs"],
+            "scientific_admission": "not_asserted",
+        }
+        rows.append(row)
+        if identity["exposure_role"] not in DEVELOPMENT_ROLES:
+            row["qualification_status"] = "not_qualified_exposure_role"
+            continue
+        if entry["terminal_status"] != "received_complete_unqualified_linked_resource":
+            row["qualification_status"] = "not_qualified_source_result"
+            continue
+        body = read_neotoma_linked_body(
+            directory,
+            expected_manifest_sha256=expected_manifest_sha256,
+            target_key=entry["target_key"],
+            source_facets=source_facets,
+            limits=limits,
+        )
+        reference = entry["attempts"][-1]
+        row["source_proofs"] = list(body.source_proofs)
+        row["source"] = {
+            "capture_manifest_sha256": captured.manifest_sha256,
+            "target_key": body.target_key,
+            "content_version": "current",
+            "api_version": "v2.0",
+            "receipt_file": reference["receipt_file"],
+            "receipt_sha256": body.receipt_sha256,
+            "body_file": reference["body_file"],
+            "body_sha256": body.body_sha256,
+        }
+        try:
+            parsed = parse_neotoma_linked_source(
+                identity, body.body, expected_body_sha256=body.body_sha256
+            )
+            row.update(
+                qualification_status="parsed_linked_source",
+                summary=summarize_linked_source(
+                    parsed, source_proofs=list(body.source_proofs)
+                ),
+            )
+        except _UnavailableLinkedSource as error:
+            row.update(
+                qualification_status="unavailable_linked_api_empty",
+                reason=str(error),
+                absence_certified=False,
+            )
+        except ValueError as error:
+            row.update(qualification_status="refused_linked_source", reason=str(error))
+    return {
+        "schema_version": "neotoma-linked-source-qualification.v1",
+        "source_capture_manifest_sha256": captured.manifest_sha256,
+        "source_capture_relabelled": False,
+        "resources": rows,
+        "partitions": dict(
+            sorted(Counter(row["qualification_status"] for row in rows).items())
+        ),
+        "scope": "selected native detail targets; no complete people/publication/taxonomy population claim",
+        "HTTP_requests": 0,
+        "scientific_admission": "not_asserted",
+    }
