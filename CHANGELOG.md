@@ -2,6 +2,23 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#436](https://github.com/bijux/bijux-pollenomics/pull/436) — Selected native resource readers and scoped facet links
+
+- Qualify explicit captured facet source shapes separately from original HTTP
+  assessments, retaining partial owner proof, unsupported envelopes, nulls and explicit
+  empty arrays. Add opt-in contact/DOI/site association routes without claiming
+  unregistered profiles qualified.
+- Preserve direct native link pointers, receipt/body identities and inherited root
+  roles; keep shared targets scoped by root/role, higher-taxon leads optional and
+  expansion nonrecursive. Link discovery does not authorize acquisition.
+- Read one selected qualified development resource through exact
+  catalogue/plan/receipt/descriptor and original retained provenance, authenticating
+  selected reuse/retry ancestry and the returned buffer. Refuse protected roles,
+  versions and unqualified results before external source access.
+- Authenticate six inert optimizer presentation-role fixtures through constructed
+  Git/capture epochs before mutation refusals. Verify synthetic source/reader controls
+  without historical capture replay, scientific admission or source-role reassignment.
+
 ### [#435](https://github.com/bijux/bijux-pollenomics/pull/435) — Source-bound resource catalogues and isolated acquisition imports
 
 - Build exact roster-bound native resource catalogues with separate current/frozen

@@ -9,6 +9,7 @@ from ..resources.models import NeotomaResourceSpec
 
 FACET_SCHEMA = "neotoma-dataset-facet-http-capture.v1"
 DATASET_FACETS = ("chronologies", "lithology", "projects", "publications", "taxa")
+SUPPORTED_DATASET_FACETS = (*DATASET_FACETS, "contacts", "doi", "sites")
 
 
 @dataclass(frozen=True)
