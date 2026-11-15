@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Exact country authority and bounded Atlas metadata
+### [#441](https://github.com/bijux/bijux-pollenomics/pull/441) — Exact country authority and bounded Atlas metadata
 
 - Reject ambiguous/lossy encoded country geometries through the strict native JSON
   decoder, admitting historical correspondence only through two literal inverse spans
