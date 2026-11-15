@@ -276,6 +276,16 @@ def _taxa(data: Any) -> int:
     return len(rows)
 
 
+def _null_taxon_aggregate(data: Any) -> bool:
+    return (
+        isinstance(data, list)
+        and len(data) == 1
+        and isinstance(data[0], dict)
+        and set(data[0]) == _TAXON_FIELDS
+        and all(value is None for value in data[0].values())
+    )
+
+
 def qualify_neotoma_facet_body(
     resource: NeotomaResourceSpec,
     facet: str,
@@ -313,6 +323,7 @@ def qualify_neotoma_facet_body(
         "chronology_selected": False,
         "qualification_scope": "observed wrappers, native owner/link fields and control/layer numbers; source annotations retained",
     }
+    availability: dict[str, Any] = {}
     try:
         if (
             set(source) != {"status", "data", "message"}
@@ -329,8 +340,19 @@ def qualify_neotoma_facet_body(
                     dataset_type="native_payload_matches_request",
                 )
         elif facet == "lithology":
-            count = _lithology(data, resource)
-            owner["dataset"] = "native_payload_matches_request"
+            if data == []:
+                count = 0
+                owner["dataset"] = "authenticated_request_endpoint_only"
+                availability = {
+                    "raw_row_count": 0,
+                    "identified_record_count": 0,
+                    "population_status": "source_api_empty_array",
+                    "population_reason": "Successful endpoint returned no native lithology dataset wrapper",
+                    "absence_certified": False,
+                }
+            else:
+                count = _lithology(data, resource)
+                owner["dataset"] = "native_payload_matches_request"
         elif facet == "publications":
             count = _publications(data, resource)
             if count:
@@ -339,7 +361,17 @@ def qualify_neotoma_facet_body(
                     site="native_payload_matches_request",
                 )
         elif facet == "taxa":
-            count = _taxa(data)
+            if _null_taxon_aggregate(data):
+                count = 0
+                availability = {
+                    "raw_row_count": 1,
+                    "identified_record_count": 0,
+                    "population_status": "source_null_aggregate_placeholder",
+                    "population_reason": "All eight expected native taxon fields are explicitly null; no identified taxon record returned",
+                    "absence_certified": False,
+                }
+            else:
+                count = _taxa(data)
             owner["dataset"] = "authenticated_request_endpoint_only"
         elif facet == "projects":
             projects = _object(data, "projects data")
@@ -368,6 +400,7 @@ def qualify_neotoma_facet_body(
             else "source_explicit_empty_array",
             reason="literal source shape; no scientific interpretation",
         )
+        result.update(availability)
     except ValueError as error:
         result["reason"] = str(error)
         for field in owner:
