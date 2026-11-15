@@ -236,16 +236,16 @@ def test_protected_whole_unit_refuses_before_any_numerical_body(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     settings = fixture(tmp_path, protected=True)
-    original = Path.read_bytes
+    original = Path.open
 
-    def guard(path: Path) -> bytes:
+    def guard(path: Path, *args: Any, **kwargs: Any) -> Any:
         assert path.suffix != ".body" or path.parent not in {
             settings["directory"],
             settings["reference_directory"],
         }, "protected unit or reference body opened"
-        return original(path)
+        return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "read_bytes", guard)
+    monkeypatch.setattr(Path, "open", guard)
     with pytest.raises(ValueError):
         resolve(settings)
 

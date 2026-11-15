@@ -9,6 +9,8 @@ from hashlib import sha256
 import re
 from typing import TYPE_CHECKING, Any
 
+from ...source_resources.archive_reference import validate_archive_reference
+from ...source_resources.geometry import qualify_site_extents
 from ..budgets import ATLAS_CHUNK_MAX_BYTES, ATLAS_STATIC_ASSETS_MAX_FILES
 from ..serialization import (
     canonical_json,
@@ -105,6 +107,16 @@ def _index_entry(kind: str, row: Mapping[str, Any], part_id: str) -> dict[str, A
                 row.get("legacy_numerical_membership")
             ),
         )
+        if any(
+            "extent_geometry" in variant or "extent_status" in variant
+            for variant in row["native_site_variants"]
+        ):
+            result["native_extent_variant_ids"] = [
+                variant["variant_id"]
+                for variant in row["native_site_variants"]
+                if variant.get("extent_status") == "explicit_native_extent"
+                and variant.get("extent_geometry") is not None
+            ]
     return result
 
 
@@ -137,6 +149,14 @@ def _membership(
     for identity, site in sites.items():
         if _ids(site.get("dataset_ids")) != by_site[identity]:
             raise ValueError("Source resource site membership population differs")
+        if any(
+            "extent_geometry" in variant or "extent_status" in variant
+            for variant in site["native_site_variants"]
+        ):
+            qualified = deepcopy(site["native_site_variants"])
+            qualify_site_extents(qualified)
+            if not _same(qualified, site["native_site_variants"]):
+                raise ValueError("Source resource native extent profile differs")
         variant_members: list[str] = []
         for variant in site["native_site_variants"]:
             members = _ids(variant["dataset_ids"])
@@ -232,6 +252,12 @@ def validate_source_resource_payloads(
     if set(contexts) != {"catalogue"}:
         raise ValueError("Source resource catalogue context population differs")
     context = contexts["catalogue"]
+    if "context_part_id" in domain and domain["context_part_id"] != "context:0":
+        raise ValueError("Source resource context part identity differs")
+    if "source_archive" in context["provenance"]:
+        validate_archive_reference(
+            context["provenance"]["source_archive"], catalogue_manifest_sha256=anchor
+        )
     if (
         context["provenance"].get("catalogue_manifest_sha256") != anchor
         or context["provenance"].get("source_family") != "neotoma"

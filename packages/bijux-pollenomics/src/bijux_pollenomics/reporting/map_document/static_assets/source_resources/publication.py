@@ -95,6 +95,7 @@ def build_source_resource_payloads(
         "legacy_site_reference_count": len(catalogue.legacy_site_references),
         "part_count": len(parts),
         "index_part_ids": index_parts,
+        "context_part_id": "context:0",
     }
     result = SourceResourcePayloads(domain=domain, payloads=tuple(parts))
     validate_source_resource_payloads(result, expected_catalogue_manifest_sha256=anchor)

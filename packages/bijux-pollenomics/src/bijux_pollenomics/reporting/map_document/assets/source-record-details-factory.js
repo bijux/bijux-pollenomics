@@ -1,6 +1,6 @@
 // Bind the existing source renderers to their owning table and escaping functions.
 function createSourceRecordDetails(bindings) {
-  const {detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, escapeHtml} = bindings;
+  const {detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, renderDetailObjectEntries, escapeHtml} = bindings;
   if (![detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, escapeHtml].every(value => typeof value === 'function')) {
     throw Error('Source detail renderer bindings are unavailable.');
   }
@@ -124,6 +124,6 @@ function ageDepthGroupHtml(group, index) {
 }
 
   return Object.freeze({overview: renderSelectedSourceOverview, samples: renderSourceSampleObservations,
-    chronology: renderSourceChronologyContext, classification: renderNativeClassificationContext, provenance: renderSourceProvenanceContext,
+    chronology: renderSourceChronologyContext, classification: renderClassificationContext, provenance: renderSourceProvenanceContext,
     depthProfile: sourceDepthProfile, ageDepthGroup: ageDepthGroupHtml, charcoalSignal: nativeCharcoalSourceSignal});
 }

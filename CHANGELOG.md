@@ -2,6 +2,21 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#445](https://github.com/bijux/bijux-pollenomics/pull/445) — Portable selected-source access and literal Atlas context
+
+- Bound native reads to one descriptor-identified buffer and one sentinel byte,
+  rejecting growth/replacement and keeping digest/JSON qualification on that buffer.
+- Read one selected qualified resource or download-only entity from authenticated
+  portable archive metadata and internal resolvers, preserving protected-role gates
+  and explicitly leaving unselected numerical bodies outside the verification scope.
+- Bind Atlas shared download references to exact catalogue/manifest/index metadata
+  without opening native entities; retain explicit local HTTP requirements.
+- Preserve bounded literal native polygon/multipolygon extents and holes without
+  inferring point locations, converting coordinates or admitting partial geometries.
+- Render reviewed classification counts with explicit overlapping categories and
+  interpretation limits through the shared source-detail controller.
+- Preserve every portable source/ancillary archive member byte in Git, including JSON.
+
 ### [#444](https://github.com/bijux/bijux-pollenomics/pull/444) — Exclusive catalogue custody and archive input bounds
 
 - Write compact and partitioned catalogues through one exclusive owned writer;

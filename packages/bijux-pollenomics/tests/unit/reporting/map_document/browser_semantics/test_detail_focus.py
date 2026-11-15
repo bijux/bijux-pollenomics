@@ -3,12 +3,14 @@ from __future__ import annotations
 from copy import deepcopy
 import json
 from pathlib import Path
+import re
 from typing import cast
 from xml.etree import ElementTree as ET
 
 import pytest
 
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
+from bijux_pollenomics.reporting.map_document import render, template
 from bijux_pollenomics.reporting.map_document.render import write_static_map_document
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
@@ -24,10 +26,22 @@ from ...atlas.static_assets.fixtures.scientific_evidence import (
 from .support import run_node_json, template_block
 
 
-def _render_reviewed_context_drawer(payload: dict[str, object]) -> dict[str, object]:
+def _render_reviewed_context_drawer(
+    payload: dict[str, object],
+    *,
+    tools_loaded: bool = True,
+    replacement: dict[str, object] | None = None,
+) -> dict[str, object]:
     """Exercise the actual focused classification tab with only DOM sinks stubbed."""
+    marked = template.MAP_DOCUMENT_TEMPLATE.split("<!-- atlas-runtime:begin -->", 1)[
+        1
+    ].split("<!-- atlas-runtime:end -->", 1)[0]
+    runtime = re.fullmatch(r"\s*<script>(.*)</script>\s*", marked, re.DOTALL)
+    assert runtime is not None
+    _, factory = render._separate_evidence_tools(runtime.group(1))
     source = (
-        template_block("const DETAIL_TAB_DEFINITIONS", "const DEFAULT_COUNTRIES")
+        factory.decode()
+        + template_block("const DETAIL_TAB_DEFINITIONS", "const DEFAULT_COUNTRIES")
         + template_block("function escapeHtml", "function normalizedMediaLinks")
         + template_block("function detailTableShape", "function renderFocusCard")
     )
@@ -35,7 +49,14 @@ def _render_reviewed_context_drawer(payload: dict[str, object]) -> dict[str, obj
         dict[str, object],
         run_node_json(
             source
-            + """
+            + "\nlet toolsReady="
+            + json.dumps(tools_loaded)
+            + ";const replacement="
+            + json.dumps(replacement)
+            + """;
+const tools=BijuxPollenomicsEvidenceTools(escapeHtml,String);
+function currentEvidenceTools(){return toolsReady?tools:null;}
+let evidenceToolsError=null;
 const focusTabs={innerHTML:'',contains(){return false;},querySelectorAll(){return [];}};
 const focusDetail={innerHTML:'',dataset:{},contains(){return false;},setAttribute(key,value){this[key]=value;},querySelectorAll(){return [];}};
 const focusExportButton={},focusCopyLinkButton={},focusExportStatus={};
@@ -49,9 +70,13 @@ const payload="""
             + json.dumps(payload)
             + """;
 const original=JSON.stringify(payload);
-const focusState={kind:'point',detailTabs:{classification:payload}};
+let focusState={kind:'point',detailTabs:{classification:payload}};
 renderFocusDetail();
-console.log(JSON.stringify({html:focusDetail.innerHTML,tabs:focusTabs.innerHTML,labelledBy:focusDetail['aria-labelledby'],status:focusDetail.dataset.detailStatus,payloadUnchanged:original===JSON.stringify(payload)}));
+const initialHtml=focusDetail.innerHTML;
+if(replacement){focusState={kind:'point',detailTabs:{classification:replacement}};toolsReady=true;renderFocusDetail();}
+const observed={html:focusDetail.innerHTML,tabs:focusTabs.innerHTML,labelledBy:focusDetail['aria-labelledby'],status:focusDetail.dataset.detailStatus,payloadUnchanged:original===JSON.stringify(payload)};
+if(replacement)observed.initialHtml=initialHtml;
+console.log(JSON.stringify(observed));
 """
         ),
     )
@@ -161,6 +186,33 @@ def test_malformed_reviewed_context_has_no_apparent_classification_summary(
     observed = _render_reviewed_context_drawer(payload)
     assert "reviewed_classification_context_invalid" in str(observed["html"])
     assert "<table" not in str(observed["html"])
+
+
+def test_reviewed_context_waits_for_optional_factory_without_apparent_counts() -> None:
+    observed = _render_reviewed_context_drawer(
+        _crop_indicator_payload(), tools_loaded=False
+    )
+    assert "Loading reviewed classification context" in str(observed["html"])
+    assert "<table" not in str(observed["html"])
+    assert "Unique observations" not in str(observed["html"])
+
+
+def test_reviewed_context_uses_latest_focus_after_optional_factory_becomes_ready() -> (
+    None
+):
+    latest = _crop_indicator_payload()
+    totals = cast(list[dict[str, object]], latest["crop_indicator_totals"])
+    totals[0]["label"] = "Latest source classification"
+    original_latest = deepcopy(latest)
+    observed = _render_reviewed_context_drawer(
+        _crop_indicator_payload(), tools_loaded=False, replacement=latest
+    )
+    assert "Loading reviewed classification context" in str(observed["initialHtml"])
+    assert "Latest source classification" in str(observed["html"])
+    rendered = ET.fromstring("<section>" + str(observed["html"]) + "</section>")
+    assert rendered.findtext(".//table/tbody/tr/th") == "Latest source classification"
+    assert "Unique observations across these categories: 3." in str(observed["html"])
+    assert latest == original_latest and observed["payloadUnchanged"] is True
 
 
 def build_detail_focus_candidate(directory: Path) -> Path:

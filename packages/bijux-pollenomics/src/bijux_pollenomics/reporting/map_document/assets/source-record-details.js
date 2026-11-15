@@ -180,6 +180,39 @@ function renderSourceSampleObservations(tabs) {
   if (!detailTableShape(table) || ['observation_id','sample_id','source_value','source_unit','source_denominator','denominator_status','detection_status'].some(field => !table.fields.includes(field))) return unavailable('Neotoma sample observation values or measurement metadata are unavailable.');
   return `<section aria-label="Sample source observations"><h3>Sample source observations</h3><p>Original site-wide source observations, linked by native sample and observation IDs. Values, units, denominators and missingness are retained as reported; source null is not zero. No cross-unit sum, inferred percentage or vegetation reconstruction is made. This is the same observation table available in Pollen/composition.</p>${renderDetailTable(table,'samples.observations')}</section>`;
 }
+function renderReviewedClassificationContext(value, valuePath) {
+  const unavailable = '<div class="scientific-status">Unavailable: reviewed_classification_context_invalid</div>';
+  const roleIds = ['direct_crop_confirmed', 'crop_type_qualified', 'anthropogenic_indicator', 'pastoral_indicator', 'ruderal_disturbance_indicator'];
+  const totals = value.crop_indicator_totals;
+  const count = (number) => Number.isSafeInteger(number) && number >= 0;
+  if (value.schema_version !== 'classification-reviewed-context.v1' || value.scope !== 'reviewed_source_context_only'
+    || !Array.isArray(totals) || totals.length !== roleIds.length
+    || !totals.every((row) => row && roleIds.includes(row.role_id)
+      && typeof row.label === 'string' && row.label.trim()
+      && count(row.unique_observation_count) && row.pollen_alone_proves === false
+      && typeof row.unproven_claim === 'string' && row.unproven_claim.trim())
+    || new Set(totals.map((row) => row.role_id)).size !== roleIds.length
+    || !count(value.crop_indicator_union_observation_count)
+    || !count(value.whole_pollen_category_observation_count)) return unavailable;
+  const union = value.crop_indicator_union_observation_count;
+  const memberships = totals.reduce((total, row) => total + row.unique_observation_count, 0);
+  if (union < Math.max(...totals.map((row) => row.unique_observation_count)) || union > memberships || union > value.whole_pollen_category_observation_count) return unavailable;
+  const byRole = new Map(totals.map((row) => [row.role_id, row]));
+  const rows = roleIds.map((role) => {
+    const row = byRole.get(role);
+    return `<tr><th scope="row">${escapeHtml(row.label)}</th><td>${row.unique_observation_count}</td><td>Pollen alone does not prove ${escapeHtml(row.unproven_claim)}.</td></tr>`;
+  }).join('');
+  const summaryKeys = new Set(['crop_indicator_totals', 'crop_indicator_union_observation_count', 'whole_pollen_category_observation_count']);
+  return `<div class="focus-detail-table-wrap"><table class="focus-detail-table"><caption>Reviewed crop and indicator context</caption><thead><tr><th scope="col">Evidence category</th><th scope="col">Unique observations</th><th scope="col">Interpretation limit</th></tr></thead><tbody>${rows}</tbody></table></div><p>Unique observations across these categories: ${union}. Categories overlap; do not add their counts.</p><p>Whole-pollen category observations: ${value.whole_pollen_category_observation_count}. These are category memberships, not pollen abundances or cultivation, grazing or other causal proof. Context review alone does not admit a pollen event or LRA input.</p>${renderDetailObjectEntries(value, valuePath, summaryKeys)}`;
+}
+function renderClassificationContext(value, valuePath) {
+  if (typeof value?.schema_version === 'string' && value.schema_version.startsWith('classification-reviewed-context.')
+    || value?.scope === 'reviewed_source_context_only') {
+    if (typeof renderDetailObjectEntries !== 'function') return '<div class="scientific-status">Unavailable: reviewed_classification_context_renderer_unavailable</div>';
+    return renderReviewedClassificationContext(value, valuePath);
+  }
+  return renderNativeClassificationContext(value);
+}
 function renderNativeClassificationContext(tabs) {
   const family = tabs?.overview?.source_family;
   const table = family === 'neotoma' ? tabs.pollen_composition?.variables

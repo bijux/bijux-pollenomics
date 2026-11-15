@@ -31,7 +31,9 @@ def script() -> str:
         + template_block(
             "function detailTableShape", "const DETAIL_TABLE_INTERNAL_KEYS"
         )
-        + template_block("function renderDetailTable", "function renderDetailValue")
+        + template_block(
+            "const DETAIL_TABLE_INTERNAL_KEYS", "function renderDetailValue"
+        )
         + "\n".join(
             (assets / name).read_text()
             for name in (

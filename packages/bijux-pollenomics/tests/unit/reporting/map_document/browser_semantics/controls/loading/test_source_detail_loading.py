@@ -24,6 +24,9 @@ def observe(action: str) -> dict[str, Any]:
         dict[str, Any],
         run_node_json(
             template_block("function escapeHtml", "function normalizedMediaLinks")
+            + template_block(
+                "const DETAIL_TABLE_INTERNAL_KEYS", "function renderDetailValue"
+            )
             + FACTORY
             + template_block("function stableFeatureRecordId", "function setFocusState")
             + template_block("let sourceDetailRenderers", "function renderFocusDetail")
@@ -48,7 +51,6 @@ function loadEvidenceTools(){loads++;return new Promise(resolve=>pending.push(()
 function detailTableShape(){return false}
 function decodeDetailTableRow(){throw Error('Unexpected decode')}
 function detailTableText(value){return String(value)}
-function renderDetailTable(){return '<p>Original table</p>'}
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 (async()=>{
 """

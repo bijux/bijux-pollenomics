@@ -7,6 +7,9 @@ data/adna/governance/source_library/projects/**/archive_metadata.html.gz linguis
 
 # Retained Neotoma HTTP entities must keep their exact captured bytes.
 data/neotoma/**/*.body -text
+# Portable source archives authenticate every member, including JSON metadata.
+data/neotoma/source-resources/** -text
+data/neotoma/ancillary-resources/** -text
 
 # Shared partials come from synchronized docs infrastructure, not repository-owned HTML work.
 .bijux/shared/bijux-docs/partials/*.html linguist-vendored

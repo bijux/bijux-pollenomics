@@ -36,7 +36,9 @@ def diagram_script() -> str:
         + template_block(
             "function detailTableShape", "const DETAIL_TABLE_INTERNAL_KEYS"
         )
-        + template_block("function renderDetailTable", "function renderDetailValue")
+        + template_block(
+            "const DETAIL_TABLE_INTERNAL_KEYS", "function renderDetailValue"
+        )
         + (Path(template.__file__).parent / "assets/chronology-diagram.js").read_text()
         + (Path(template.__file__).parent / "assets/pollen-diagram.js").read_text()
         + template_block(

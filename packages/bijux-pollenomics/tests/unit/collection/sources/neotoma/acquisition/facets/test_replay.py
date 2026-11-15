@@ -98,25 +98,50 @@ def test_body_reader_authenticates_the_buffer_returned_after_replay(
     directory = tmp_path / "capture"
     result = captured(directory)
     body_path = directory / result.facets[0]["attempts"][0]["body_file"]
-    original = Path.read_bytes
+    original = Path.open
     reads = 0
 
-    def changed_second_read(path: Path) -> bytes:
+    class ChangedBuffer:
+        def __init__(self, stream: Any) -> None:
+            self.stream = stream
+
+        def __enter__(self) -> ChangedBuffer:
+            return self
+
+        def __exit__(self, *_: object) -> None:
+            self.stream.close()
+
+        def fileno(self) -> int:
+            return int(self.stream.fileno())
+
+        def read(self, size: int = -1) -> bytes:
+            with original(body_path, "wb") as target:
+                target.write(b'{"foreign":true}')
+            try:
+                return bytes(self.stream.read(size))
+            finally:
+                with original(body_path, "wb") as target:
+                    target.write(BODY)
+
+    def changed_second_open(path: Path, *args: Any, **kwargs: Any) -> Any:
         nonlocal reads
+        stream = original(path, *args, **kwargs)
         if path == body_path:
             reads += 1
             if reads > 1:
-                return b'{"foreign":true}'
-        return original(path)
+                return ChangedBuffer(stream)
+        return stream
 
-    monkeypatch.setattr(Path, "read_bytes", changed_second_read)
+    monkeypatch.setattr(Path, "open", changed_second_open)
     with pytest.raises(ValueError):
         read_fixture(
             directory,
             expected_manifest_sha256=result.manifest_sha256,
             facet_key=result.facets[0]["facet_key"],
         )
-    assert sha256(original(body_path)).hexdigest() == sha256(BODY).hexdigest()
+    assert reads == 2
+    with original(body_path, "rb") as stream:
+        assert sha256(stream.read()).hexdigest() == sha256(BODY).hexdigest()
 
 
 def test_refusal_label_cannot_launder_changed_body_with_original_receipt(

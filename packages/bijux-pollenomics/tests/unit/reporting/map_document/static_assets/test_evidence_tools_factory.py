@@ -78,3 +78,54 @@ html:tools.pickerHtml(catalog,{pinnedIds:[],visibleIds:[]})}));
     assert "Source depth (unit not supplied)" in observed["ageGroup"]
     assert "claim; sample sample; depth 2 (unit not supplied)" in observed["ageGroup"]
     assert observed["charcoal"]["status"] == "unavailable"
+
+
+def test_optional_classification_renders_reviewed_counts_with_explicit_supplements(
+    tmp_path: Path, request_args: dict[str, Any]
+) -> None:
+    import json
+
+    from ....analysis.classification.test_reviewed_context import (
+        _crop_indicator_payload,
+    )
+
+    html, _ = subject.write_static_map_document(tmp_path / "atlas.html", **request_args)
+    source = subject.static_map_optional_controller_paths(html)[0].read_text()
+    observed = run_node_json(
+        source
+        + "\nconst payload="
+        + json.dumps(_crop_indicator_payload())
+        + """;
+const tools=BijuxPollenomicsEvidenceTools(String,String);
+const bindings={detailTableShape:()=>false,decodeDetailTableRow:()=>null,
+ detailTableText:String,renderDetailTable:()=>'',escapeHtml:String};
+let supplements=[];
+const reader=tools.sourceDetails({...bindings,renderDetailObjectEntries:(value,path,excluded)=>{
+ supplements.push({same:value===payload,path,excluded:[...excluded]});return '<p>Supplied supplement</p>';
+}});
+const html=reader.classification(payload,'classification');
+const legacy=tools.sourceDetails(bindings);
+console.log(JSON.stringify({html,supplements,legacyNative:legacy.classification({}),
+ missingBinding:legacy.classification(payload,'classification'),methods:Object.keys(reader),frozen:Object.isFrozen(reader)}));
+"""
+    )
+    assert "Reviewed crop and indicator context" in observed["html"]
+    assert "Unique observations across these categories: 3." in observed["html"]
+    assert "Supplied supplement" in observed["html"]
+    assert observed["supplements"] == [
+        {
+            "same": True,
+            "path": "classification",
+            "excluded": [
+                "crop_indicator_totals",
+                "crop_indicator_union_observation_count",
+                "whole_pollen_category_observation_count",
+            ],
+        }
+    ]
+    assert "Native classification context is unavailable" in observed["legacyNative"]
+    assert (
+        "reviewed_classification_context_renderer_unavailable"
+        in observed["missingBinding"]
+    )
+    assert len(observed["methods"]) == 8 and observed["frozen"] is True
