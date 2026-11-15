@@ -16,6 +16,7 @@ from ...capture.context_resources.models import (
 )
 from ...capture.context_resources.protocol import (
     digest,
+    native_dataset_ids,
     request_for,
     validate_plan,
     verify_request_metadata,
@@ -61,6 +62,17 @@ class ContextSourceMetadata:
     buffers: dict[str, bytes]
     receipts: dict[str, dict[str, Any]]
     proof: dict[str, Any]
+
+
+def source_request(entry: dict[str, Any], proof: dict[str, Any]) -> Any:
+    """Reconstruct the original query from its authenticated whole-site owners."""
+    kind, site = entry["resource_kind"], entry["site_id"]
+    if kind == "dataset_depositional_environment":
+        parents = [row for row in proof["requested_sites"] if row["site_id"] == site]
+        if len(parents) != 1:
+            raise ValueError("Context original native request parent is ambiguous")
+        return request_for(kind, site, dataset_ids=native_dataset_ids(parents[0]))
+    return request_for(kind, site)
 
 
 def _receipt(
@@ -206,7 +218,7 @@ def source_metadata(directory: Path, expected: str) -> ContextSourceMetadata:
                 raise ValueError(
                     "Context recorded source request/byte budget is contradictory"
                 )
-            request = request_for(entry["resource_kind"], entry["site_id"])
+            request = source_request(entry, proof)
             name = reference["receipt_file"]
             raw = _read(root / name, 1024 * 1024)
             if sha256(raw).hexdigest() != reference["receipt_sha256"]:
