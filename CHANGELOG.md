@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Frozen facet census and portable linked evidence
+### [#452](https://github.com/bijux/bijux-pollenomics/pull/452) — Frozen facet census and portable linked evidence
 
 - Retain the remaining frozen-roster facet census in two bounded capsules while
   preserving original capture assessments, scope restrictions and native/context pins.
