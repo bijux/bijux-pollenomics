@@ -1,0 +1,2030 @@
+{
+  "capture_utc_end": "2026-11-15T16:56:46.512521+00:00",
+  "capture_utc_start": "2026-11-15T16:56:31.054616+00:00",
+  "partitions": {
+    "received_complete_unqualified_linked_resource": 41
+  },
+  "plan_sha256": "bad30cdd1cd4b31d18419a89fba7dc2efb4728da35eb284647a7d4e127960dae",
+  "request_count": 41,
+  "resources": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18361-current-attempt-1.body",
+          "receipt_file": "contact-18361-current-attempt-1.receipt.json",
+          "receipt_sha256": "351054e485ba6e481b5edc4706b193c126cc390efb388cf20a916c9932554328",
+          "request_name": "contact-18361-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18361,
+        "source_proof_reference": {
+          "occurrence_count": 51,
+          "proof_ranges": [
+            {
+              "count": 4,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 625
+            },
+            {
+              "count": 1,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 669
+            },
+            {
+              "count": 1,
+              "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+              "start": 576
+            },
+            {
+              "count": 2,
+              "part_sha256": "245adb83b76de1fceb63afacba82778b462bd494e73dd192000b4ea124555a19",
+              "start": 2181
+            },
+            {
+              "count": 1,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 1894
+            },
+            {
+              "count": 2,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 597
+            },
+            {
+              "count": 3,
+              "part_sha256": "01acd617e878586e1e5d71edb298570a418a6ef146352767067813834d968625",
+              "start": 456
+            },
+            {
+              "count": 2,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 168
+            },
+            {
+              "count": 3,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 241
+            },
+            {
+              "count": 1,
+              "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+              "start": 1272
+            },
+            {
+              "count": 3,
+              "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+              "start": 250
+            },
+            {
+              "count": 3,
+              "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+              "start": 175
+            },
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 825
+            },
+            {
+              "count": 2,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 872
+            },
+            {
+              "count": 2,
+              "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+              "start": 1810
+            },
+            {
+              "count": 2,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 646
+            },
+            {
+              "count": 1,
+              "part_sha256": "a98d1ed811f255ba3ae2fcaebf06649ac66a56d763a1572a3a832077b4378336",
+              "start": 1421
+            },
+            {
+              "count": 3,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1627
+            },
+            {
+              "count": 2,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1684
+            },
+            {
+              "count": 1,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1951
+            },
+            {
+              "count": 4,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1135
+            },
+            {
+              "count": 3,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1180
+            },
+            {
+              "count": 3,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 79
+            },
+            {
+              "count": 1,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 357
+            }
+          ],
+          "target_key": "contact-18361"
+        },
+        "target_key": "contact-18361"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18361",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18392-current-attempt-1.body",
+          "receipt_file": "contact-18392-current-attempt-1.receipt.json",
+          "receipt_sha256": "2b6bbb7b86b5688c6f1b424c5f949b297e48f7547b04038bebe725b35d8ebfda",
+          "request_name": "contact-18392-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18392,
+        "source_proof_reference": {
+          "occurrence_count": 4,
+          "proof_ranges": [
+            {
+              "count": 3,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1482
+            },
+            {
+              "count": 1,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 121
+            }
+          ],
+          "target_key": "contact-18392"
+        },
+        "target_key": "contact-18392"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18392",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18398-current-attempt-1.body",
+          "receipt_file": "contact-18398-current-attempt-1.receipt.json",
+          "receipt_sha256": "bae2d5508022d9e12356e57cb84d4d97217f1c8f2d3b16b060fd2e9cacc12945",
+          "request_name": "contact-18398-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18398,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 2,
+              "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+              "start": 583
+            }
+          ],
+          "target_key": "contact-18398"
+        },
+        "target_key": "contact-18398"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18398",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18417-current-attempt-1.body",
+          "receipt_file": "contact-18417-current-attempt-1.receipt.json",
+          "receipt_sha256": "664fb3171467265fbb1417420ee70d9436f95a0506228e07a3e2b752d79efceb",
+          "request_name": "contact-18417-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18417,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 2,
+              "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+              "start": 585
+            }
+          ],
+          "target_key": "contact-18417"
+        },
+        "target_key": "contact-18417"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18417",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18418-current-attempt-1.body",
+          "receipt_file": "contact-18418-current-attempt-1.receipt.json",
+          "receipt_sha256": "de296ec167772d21f280ad7d7ab037c5feea96bc4d27c281b27b1f70f1165ce1",
+          "request_name": "contact-18418-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18418,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 2,
+              "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+              "start": 587
+            }
+          ],
+          "target_key": "contact-18418"
+        },
+        "target_key": "contact-18418"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18418",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18510-current-attempt-1.body",
+          "receipt_file": "contact-18510-current-attempt-1.receipt.json",
+          "receipt_sha256": "d6efc7d22bd4d83f492468d254e6977283752861f72641c7300daeb519501535",
+          "request_name": "contact-18510-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18510,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1952
+            }
+          ],
+          "target_key": "contact-18510"
+        },
+        "target_key": "contact-18510"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18510",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18563-current-attempt-1.body",
+          "receipt_file": "contact-18563-current-attempt-1.receipt.json",
+          "receipt_sha256": "372b3cb0850b7605a85666948232d1f812e8e892432e2b11ce1a9c05c2590919",
+          "request_name": "contact-18563-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18563,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+              "start": 1812
+            }
+          ],
+          "target_key": "contact-18563"
+        },
+        "target_key": "contact-18563"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18563",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18597-current-attempt-1.body",
+          "receipt_file": "contact-18597-current-attempt-1.receipt.json",
+          "receipt_sha256": "7663435dd93548b8239a786eb4f081702e3f7ff8812c65c0cac4738893695779",
+          "request_name": "contact-18597-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18597,
+        "source_proof_reference": {
+          "occurrence_count": 4,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 599
+            },
+            {
+              "count": 2,
+              "part_sha256": "01acd617e878586e1e5d71edb298570a418a6ef146352767067813834d968625",
+              "start": 459
+            },
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 826
+            }
+          ],
+          "target_key": "contact-18597"
+        },
+        "target_key": "contact-18597"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18597",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18669-current-attempt-1.body",
+          "receipt_file": "contact-18669-current-attempt-1.receipt.json",
+          "receipt_sha256": "7f5dbe8da1004caefa2bfb309fa4690366e1325a5cec0beb63bd5d9fe4c8ae35",
+          "request_name": "contact-18669-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18669,
+        "source_proof_reference": {
+          "occurrence_count": 18,
+          "proof_ranges": [
+            {
+              "count": 3,
+              "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+              "start": 577
+            },
+            {
+              "count": 1,
+              "part_sha256": "245adb83b76de1fceb63afacba82778b462bd494e73dd192000b4ea124555a19",
+              "start": 2183
+            },
+            {
+              "count": 1,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 600
+            },
+            {
+              "count": 1,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 170
+            },
+            {
+              "count": 1,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 244
+            },
+            {
+              "count": 1,
+              "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+              "start": 1273
+            },
+            {
+              "count": 1,
+              "part_sha256": "a98d1ed811f255ba3ae2fcaebf06649ac66a56d763a1572a3a832077b4378336",
+              "start": 1422
+            },
+            {
+              "count": 2,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1953
+            },
+            {
+              "count": 1,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1139
+            },
+            {
+              "count": 1,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1183
+            },
+            {
+              "count": 2,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 82
+            },
+            {
+              "count": 3,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 358
+            }
+          ],
+          "target_key": "contact-18669"
+        },
+        "target_key": "contact-18669"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18669",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18686-current-attempt-1.body",
+          "receipt_file": "contact-18686-current-attempt-1.receipt.json",
+          "receipt_sha256": "b4996ada2d97fedc6111ada378d4e30984e8bd8e85f9473d12734be8af0c892f",
+          "request_name": "contact-18686-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18686,
+        "source_proof_reference": {
+          "occurrence_count": 10,
+          "proof_ranges": [
+            {
+              "count": 2,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 670
+            },
+            {
+              "count": 1,
+              "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+              "start": 580
+            },
+            {
+              "count": 1,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 245
+            },
+            {
+              "count": 1,
+              "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+              "start": 253
+            },
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 874
+            },
+            {
+              "count": 1,
+              "part_sha256": "a98d1ed811f255ba3ae2fcaebf06649ac66a56d763a1572a3a832077b4378336",
+              "start": 1423
+            },
+            {
+              "count": 2,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1630
+            },
+            {
+              "count": 1,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 361
+            }
+          ],
+          "target_key": "contact-18686"
+        },
+        "target_key": "contact-18686"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18686",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18692-current-attempt-1.body",
+          "receipt_file": "contact-18692-current-attempt-1.receipt.json",
+          "receipt_sha256": "5b0b75a91a9c73adc64e586256ee1f8c47e8db1b793453921261b64c37e11049",
+          "request_name": "contact-18692-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18692,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+              "start": 1813
+            },
+            {
+              "count": 1,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1686
+            }
+          ],
+          "target_key": "contact-18692"
+        },
+        "target_key": "contact-18692"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18692",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18724-current-attempt-1.body",
+          "receipt_file": "contact-18724-current-attempt-1.receipt.json",
+          "receipt_sha256": "63bf33f060723da7d1d687b3f3dea336aa423b8aad3937019ef1b2ff494e106f",
+          "request_name": "contact-18724-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18724,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+              "start": 1814
+            },
+            {
+              "count": 1,
+              "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+              "start": 1264
+            }
+          ],
+          "target_key": "contact-18724"
+        },
+        "target_key": "contact-18724"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18724",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18741-current-attempt-1.body",
+          "receipt_file": "contact-18741-current-attempt-1.receipt.json",
+          "receipt_sha256": "e4cd4340fd611bdd773910f7e75ddd43c9bf59dd5829f1cc8d7ef4273ccf5b71",
+          "request_name": "contact-18741-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18741,
+        "source_proof_reference": {
+          "occurrence_count": 10,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "245adb83b76de1fceb63afacba82778b462bd494e73dd192000b4ea124555a19",
+              "start": 2184
+            },
+            {
+              "count": 1,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 171
+            },
+            {
+              "count": 1,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 246
+            },
+            {
+              "count": 1,
+              "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+              "start": 1815
+            },
+            {
+              "count": 3,
+              "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+              "start": 1265
+            },
+            {
+              "count": 1,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 648
+            },
+            {
+              "count": 1,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1140
+            },
+            {
+              "count": 1,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 362
+            }
+          ],
+          "target_key": "contact-18741"
+        },
+        "target_key": "contact-18741"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18741",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-18804-current-attempt-1.body",
+          "receipt_file": "contact-18804-current-attempt-1.receipt.json",
+          "receipt_sha256": "0e63449d34b65fb1de85541a81a5097f6d9ccf7e7f2b03cd7e06e4b5987aba2d",
+          "request_name": "contact-18804-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 18804,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+              "start": 254
+            }
+          ],
+          "target_key": "contact-18804"
+        },
+        "target_key": "contact-18804"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-18804",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-19224-current-attempt-1.body",
+          "receipt_file": "contact-19224-current-attempt-1.receipt.json",
+          "receipt_sha256": "44ad2ee0e8f48241a78e49e3f7874f1923286b040036ce57bcfb32fc5c696b67",
+          "request_name": "contact-19224-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 19224,
+        "source_proof_reference": {
+          "occurrence_count": 4,
+          "proof_ranges": [
+            {
+              "count": 4,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 1813
+            }
+          ],
+          "target_key": "contact-19224"
+        },
+        "target_key": "contact-19224"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-19224",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-19414-current-attempt-1.body",
+          "receipt_file": "contact-19414-current-attempt-1.receipt.json",
+          "receipt_sha256": "53c82ee6b00351c48ff20655bc405bdf78e3db8e0089e336e1c096131dbe6b41",
+          "request_name": "contact-19414-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 19414,
+        "source_proof_reference": {
+          "occurrence_count": 4,
+          "proof_ranges": [
+            {
+              "count": 4,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1485
+            }
+          ],
+          "target_key": "contact-19414"
+        },
+        "target_key": "contact-19414"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-19414",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-19530-current-attempt-1.body",
+          "receipt_file": "contact-19530-current-attempt-1.receipt.json",
+          "receipt_sha256": "418ddf2d8709f830a89515ab33ac1dc84de3f7498453bd4b5d74fe8c47dc4f7b",
+          "request_name": "contact-19530-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 19530,
+        "source_proof_reference": {
+          "occurrence_count": 4,
+          "proof_ranges": [
+            {
+              "count": 3,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1489
+            },
+            {
+              "count": 1,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 122
+            }
+          ],
+          "target_key": "contact-19530"
+        },
+        "target_key": "contact-19530"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-19530",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-19544-current-attempt-1.body",
+          "receipt_file": "contact-19544-current-attempt-1.receipt.json",
+          "receipt_sha256": "4738c5720491a11f08d1fa6152c94cd46c78bdf456304e01cc0c8bf7f5bc4cdf",
+          "request_name": "contact-19544-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 19544,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1492
+            }
+          ],
+          "target_key": "contact-19544"
+        },
+        "target_key": "contact-19544"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-19544",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-19545-current-attempt-1.body",
+          "receipt_file": "contact-19545-current-attempt-1.receipt.json",
+          "receipt_sha256": "c8f3e5acd792826cf4e6f50177bcf92c15b9a294d732766b305da9f4eb79f0a6",
+          "request_name": "contact-19545-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 19545,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1493
+            }
+          ],
+          "target_key": "contact-19545"
+        },
+        "target_key": "contact-19545"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-19545",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-19689-current-attempt-1.body",
+          "receipt_file": "contact-19689-current-attempt-1.receipt.json",
+          "receipt_sha256": "e3214d7e8cfd00c67a4431182bac088d954e7509706d64d43b9749fe646d11d8",
+          "request_name": "contact-19689-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 19689,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 629
+            }
+          ],
+          "target_key": "contact-19689"
+        },
+        "target_key": "contact-19689"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-19689",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-19792-current-attempt-1.body",
+          "receipt_file": "contact-19792-current-attempt-1.receipt.json",
+          "receipt_sha256": "d5984de25ac490a94e189ce31bd3ee5ebc745d6919427d50df3651cd977a0729",
+          "request_name": "contact-19792-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 19792,
+        "source_proof_reference": {
+          "occurrence_count": 4,
+          "proof_ranges": [
+            {
+              "count": 4,
+              "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+              "start": 8
+            }
+          ],
+          "target_key": "contact-19792"
+        },
+        "target_key": "contact-19792"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-19792",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-19794-current-attempt-1.body",
+          "receipt_file": "contact-19794-current-attempt-1.receipt.json",
+          "receipt_sha256": "88e9a92e8f38bde4cbdc7ea003b8850f8a78576aa632be63a9f37381213663c6",
+          "request_name": "contact-19794-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 19794,
+        "source_proof_reference": {
+          "occurrence_count": 3,
+          "proof_ranges": [
+            {
+              "count": 3,
+              "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+              "start": 12
+            }
+          ],
+          "target_key": "contact-19794"
+        },
+        "target_key": "contact-19794"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-19794",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-19795-current-attempt-1.body",
+          "receipt_file": "contact-19795-current-attempt-1.receipt.json",
+          "receipt_sha256": "e3f7ad0dd9e3169f64f042316752b04247adae5b815b9e87586980ec3366b792",
+          "request_name": "contact-19795-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 19795,
+        "source_proof_reference": {
+          "occurrence_count": 8,
+          "proof_ranges": [
+            {
+              "count": 8,
+              "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+              "start": 15
+            }
+          ],
+          "target_key": "contact-19795"
+        },
+        "target_key": "contact-19795"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-19795",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-20147-current-attempt-1.body",
+          "receipt_file": "contact-20147-current-attempt-1.receipt.json",
+          "receipt_sha256": "5fe683bcf7f3873a0034c15158d3429a1f1f158657804f4cc6e3074f90c64b9e",
+          "request_name": "contact-20147-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 20147,
+        "source_proof_reference": {
+          "occurrence_count": 4,
+          "proof_ranges": [
+            {
+              "count": 2,
+              "part_sha256": "df30989bcd916150fe7552fa242d252a85752dbeba48493a44adf1fe2c110e28",
+              "start": 1970
+            },
+            {
+              "count": 2,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1970
+            }
+          ],
+          "target_key": "contact-20147"
+        },
+        "target_key": "contact-20147"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-20147",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-20158-current-attempt-1.body",
+          "receipt_file": "contact-20158-current-attempt-1.receipt.json",
+          "receipt_sha256": "c7abe21668a4b8aaa4b476adc52cbde34c55c9d57310ff830314916d3930d547",
+          "request_name": "contact-20158-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 20158,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+              "start": 1274
+            }
+          ],
+          "target_key": "contact-20158"
+        },
+        "target_key": "contact-20158"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-20158",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-20177-current-attempt-1.body",
+          "receipt_file": "contact-20177-current-attempt-1.receipt.json",
+          "receipt_sha256": "bd23f049dec8b1c92e0491b4c0c325878a7f28a0b42b0631cc5a6f8b74b9af29",
+          "request_name": "contact-20177-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 20177,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "df30989bcd916150fe7552fa242d252a85752dbeba48493a44adf1fe2c110e28",
+              "start": 1972
+            },
+            {
+              "count": 1,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1972
+            }
+          ],
+          "target_key": "contact-20177"
+        },
+        "target_key": "contact-20177"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-20177",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-20198-current-attempt-1.body",
+          "receipt_file": "contact-20198-current-attempt-1.receipt.json",
+          "receipt_sha256": "fbbebac2183caea7678827899f2e8b835a4df3c2eb264f87b56491eec2f90592",
+          "request_name": "contact-20198-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 20198,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 123
+            }
+          ],
+          "target_key": "contact-20198"
+        },
+        "target_key": "contact-20198"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-20198",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-20912-current-attempt-1.body",
+          "receipt_file": "contact-20912-current-attempt-1.receipt.json",
+          "receipt_sha256": "6e3fd6f895528a184f02cb69358e33e20fdab9e0bfb76f78f0c8e83535a6ffa8",
+          "request_name": "contact-20912-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 20912,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+              "start": 1268
+            }
+          ],
+          "target_key": "contact-20912"
+        },
+        "target_key": "contact-20912"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-20912",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-20976-current-attempt-1.body",
+          "receipt_file": "contact-20976-current-attempt-1.receipt.json",
+          "receipt_sha256": "986324df35f06b7ce3d9da33ab0ad6cd4106c4c0d9933d06487f1e2773f15341",
+          "request_name": "contact-20976-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 20976,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 875
+            }
+          ],
+          "target_key": "contact-20976"
+        },
+        "target_key": "contact-20976"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-20976",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-20977-current-attempt-1.body",
+          "receipt_file": "contact-20977-current-attempt-1.receipt.json",
+          "receipt_sha256": "4cf045f24152eaa8734ae23a7fb690622eb01f4dc199d6fb85d8134206b40e6c",
+          "request_name": "contact-20977-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 20977,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 876
+            }
+          ],
+          "target_key": "contact-20977"
+        },
+        "target_key": "contact-20977"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-20977",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-20983-current-attempt-1.body",
+          "receipt_file": "contact-20983-current-attempt-1.receipt.json",
+          "receipt_sha256": "6390d5d95d25d07adf1177c432949d93b877db49ad7f37a858272836a824f258",
+          "request_name": "contact-20983-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 20983,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "01acd617e878586e1e5d71edb298570a418a6ef146352767067813834d968625",
+              "start": 461
+            },
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 827
+            }
+          ],
+          "target_key": "contact-20983"
+        },
+        "target_key": "contact-20983"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-20983",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-20993-current-attempt-1.body",
+          "receipt_file": "contact-20993-current-attempt-1.receipt.json",
+          "receipt_sha256": "76281ebb2f2c3cedd2c8779fabe1a7d3dbd1816f5dc5cdff90a0f6fd0b7a1444",
+          "request_name": "contact-20993-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 20993,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 601
+            },
+            {
+              "count": 1,
+              "part_sha256": "01acd617e878586e1e5d71edb298570a418a6ef146352767067813834d968625",
+              "start": 462
+            }
+          ],
+          "target_key": "contact-20993"
+        },
+        "target_key": "contact-20993"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-20993",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-20994-current-attempt-1.body",
+          "receipt_file": "contact-20994-current-attempt-1.receipt.json",
+          "receipt_sha256": "94d9d11052489b766eeb1edcf082065add2c69ad9d716471a0ba64c710e2fb12",
+          "request_name": "contact-20994-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 20994,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 602
+            },
+            {
+              "count": 1,
+              "part_sha256": "01acd617e878586e1e5d71edb298570a418a6ef146352767067813834d968625",
+              "start": 463
+            }
+          ],
+          "target_key": "contact-20994"
+        },
+        "target_key": "contact-20994"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-20994",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-21005-current-attempt-1.body",
+          "receipt_file": "contact-21005-current-attempt-1.receipt.json",
+          "receipt_sha256": "c9e47ca21dc34524202b578bfe8c9120737bbc49246bcd529aea591827942536",
+          "request_name": "contact-21005-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 21005,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1955
+            }
+          ],
+          "target_key": "contact-21005"
+        },
+        "target_key": "contact-21005"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-21005",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-21529-current-attempt-1.body",
+          "receipt_file": "contact-21529-current-attempt-1.receipt.json",
+          "receipt_sha256": "21872f98c33ac7d4206ffc941c31f3237310262b465c15f0add1f71f1f4f2a4f",
+          "request_name": "contact-21529-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 21529,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 603
+            },
+            {
+              "count": 1,
+              "part_sha256": "01acd617e878586e1e5d71edb298570a418a6ef146352767067813834d968625",
+              "start": 464
+            }
+          ],
+          "target_key": "contact-21529"
+        },
+        "target_key": "contact-21529"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-21529",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-21845-current-attempt-1.body",
+          "receipt_file": "contact-21845-current-attempt-1.receipt.json",
+          "receipt_sha256": "77571dca0cf20365d065017658140d811c2f6dbb0b071bd4792ff3092dad9c80",
+          "request_name": "contact-21845-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 21845,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1956
+            }
+          ],
+          "target_key": "contact-21845"
+        },
+        "target_key": "contact-21845"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-21845",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-21851-current-attempt-1.body",
+          "receipt_file": "contact-21851-current-attempt-1.receipt.json",
+          "receipt_sha256": "b75ea8865bb5c947fa230b39c82cfdbdceb630431bb9e68325622c75e167a34b",
+          "request_name": "contact-21851-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 21851,
+        "source_proof_reference": {
+          "occurrence_count": 23,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 672
+            },
+            {
+              "count": 1,
+              "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+              "start": 581
+            },
+            {
+              "count": 2,
+              "part_sha256": "245adb83b76de1fceb63afacba82778b462bd494e73dd192000b4ea124555a19",
+              "start": 2185
+            },
+            {
+              "count": 2,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 604
+            },
+            {
+              "count": 1,
+              "part_sha256": "01acd617e878586e1e5d71edb298570a418a6ef146352767067813834d968625",
+              "start": 465
+            },
+            {
+              "count": 1,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 172
+            },
+            {
+              "count": 1,
+              "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+              "start": 1275
+            },
+            {
+              "count": 1,
+              "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+              "start": 255
+            },
+            {
+              "count": 3,
+              "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+              "start": 178
+            },
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 828
+            },
+            {
+              "count": 2,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 649
+            },
+            {
+              "count": 3,
+              "part_sha256": "a98d1ed811f255ba3ae2fcaebf06649ac66a56d763a1572a3a832077b4378336",
+              "start": 1424
+            },
+            {
+              "count": 2,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1687
+            },
+            {
+              "count": 2,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1184
+            }
+          ],
+          "target_key": "contact-21851"
+        },
+        "target_key": "contact-21851"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-21851",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-21855-current-attempt-1.body",
+          "receipt_file": "contact-21855-current-attempt-1.receipt.json",
+          "receipt_sha256": "843f6b83f3d54b74b7cb3d3603974590699fb8f285eeec1e8d1d9f6141610bd1",
+          "request_name": "contact-21855-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 21855,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 829
+            }
+          ],
+          "target_key": "contact-21855"
+        },
+        "target_key": "contact-21855"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-21855",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-21871-current-attempt-1.body",
+          "receipt_file": "contact-21871-current-attempt-1.receipt.json",
+          "receipt_sha256": "34d48ee723cab86929371b5fb7939082b24c21ab16739bb8a4ec9095902b2140",
+          "request_name": "contact-21871-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 21871,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 830
+            }
+          ],
+          "target_key": "contact-21871"
+        },
+        "target_key": "contact-21871"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-21871",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-21885-current-attempt-1.body",
+          "receipt_file": "contact-21885-current-attempt-1.receipt.json",
+          "receipt_sha256": "16693a3ae104ce7359403e59bb719cf69688be4312c17797f0f5d004ea90ceda",
+          "request_name": "contact-21885-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 21885,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 831
+            }
+          ],
+          "target_key": "contact-21885"
+        },
+        "target_key": "contact-21885"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-21885",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "contact-21895-current-attempt-1.body",
+          "receipt_file": "contact-21895-current-attempt-1.receipt.json",
+          "receipt_sha256": "d611b8fa0e16cf342c9c6ec61d3c47cef22d3985405af3e941ccf49ab9e53956",
+          "request_name": "contact-21895-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "contact",
+        "metadata_dependency_count": 0,
+        "native_id": 21895,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "01acd617e878586e1e5d71edb298570a418a6ef146352767067813834d968625",
+              "start": 466
+            },
+            {
+              "count": 1,
+              "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+              "start": 832
+            }
+          ],
+          "target_key": "contact-21895"
+        },
+        "target_key": "contact-21895"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "contact-21895",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    }
+  ],
+  "response_bytes": 11354,
+  "schema_version": "neotoma-scoped-linked-resource-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed current linked responses; no transaction or frozen snapshot",
+  "source_evidence": {
+    "manifest_sha256": "76fbc45ac0613ef1b3df21d9f56c3b629c028a361e6b515bc226689bbc5fb42f",
+    "schema_version": "neotoma-linked-source-evidence.v1"
+  },
+  "status": "closed"
+}

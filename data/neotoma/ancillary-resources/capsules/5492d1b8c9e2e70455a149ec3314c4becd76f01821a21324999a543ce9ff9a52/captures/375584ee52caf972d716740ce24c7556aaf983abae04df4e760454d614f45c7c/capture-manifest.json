@@ -1,0 +1,1455 @@
+{
+  "capture_utc_end": "2026-11-15T17:35:28.139020+00:00",
+  "capture_utc_start": "2026-11-15T17:35:23.544234+00:00",
+  "partitions": {
+    "received_complete_unqualified_linked_resource": 12
+  },
+  "plan_sha256": "164a502d5975b1dbb1e3103ad0f8d65239cdfb9a915f307b3ca1b918a3795b9f",
+  "request_count": 12,
+  "resources": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-67527-current-attempt-1.body",
+          "receipt_file": "taxon-67527-current-attempt-1.receipt.json",
+          "receipt_sha256": "3a27097d2f906a9202c9c04282eb509fd919ffc172f9f0cf5a76e2ac4fa06347",
+          "request_name": "taxon-67527-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 67527,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+              "start": 45
+            }
+          ],
+          "target_key": "taxon-67527"
+        },
+        "target_key": "taxon-67527"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-67527",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-67528-current-attempt-1.body",
+          "receipt_file": "taxon-67528-current-attempt-1.receipt.json",
+          "receipt_sha256": "0e16e9e8e7900d816ced37d1d8cc9c9738efa78307196ce8e08f2db73dc4c806",
+          "request_name": "taxon-67528-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 67528,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "ac0fa32c718d199058333f9fefd906920825e74c1f310736749c333cf2ad2466",
+              "start": 411
+            }
+          ],
+          "target_key": "taxon-67528"
+        },
+        "target_key": "taxon-67528"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-67528",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-67530-current-attempt-1.body",
+          "receipt_file": "taxon-67530-current-attempt-1.receipt.json",
+          "receipt_sha256": "c7d3619347f427d6d0f708a4c2b2c51cfc26dfa46b95f5a5f4d551f37c23d8e0",
+          "request_name": "taxon-67530-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 67530,
+        "source_proof_reference": {
+          "occurrence_count": 9,
+          "proof_ranges": [
+            {
+              "count": 2,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 370
+            },
+            {
+              "count": 1,
+              "part_sha256": "38718cd4e4d0ac0a10a2f01af6999b087b06a39e1124050e64b61faae8e09bce",
+              "start": 591
+            },
+            {
+              "count": 1,
+              "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+              "start": 706
+            },
+            {
+              "count": 1,
+              "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+              "start": 46
+            },
+            {
+              "count": 3,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 632
+            },
+            {
+              "count": 1,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 517
+            }
+          ],
+          "target_key": "taxon-67530"
+        },
+        "target_key": "taxon-67530"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-67530",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-67536-current-attempt-1.body",
+          "receipt_file": "taxon-67536-current-attempt-1.receipt.json",
+          "receipt_sha256": "e3413a66f952ab6966ef562ab5aea2696156222d207542ae7efac55c4594653e",
+          "request_name": "taxon-67536-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 67536,
+        "source_proof_reference": {
+          "occurrence_count": 279,
+          "proof_ranges": [
+            {
+              "count": 3,
+              "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+              "start": 766
+            },
+            {
+              "count": 1,
+              "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+              "start": 1411
+            },
+            {
+              "count": 1,
+              "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+              "start": 2053
+            },
+            {
+              "count": 3,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 618
+            },
+            {
+              "count": 6,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1005
+            },
+            {
+              "count": 5,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1452
+            },
+            {
+              "count": 2,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 2002
+            },
+            {
+              "count": 4,
+              "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+              "start": 208
+            },
+            {
+              "count": 6,
+              "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+              "start": 746
+            },
+            {
+              "count": 6,
+              "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+              "start": 1080
+            },
+            {
+              "count": 4,
+              "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+              "start": 1702
+            },
+            {
+              "count": 4,
+              "part_sha256": "8677e3092101d7eced1582c13a63bac913a6e49d815d6a40a74e47372f220d84",
+              "start": 51
+            },
+            {
+              "count": 3,
+              "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+              "start": 130
+            },
+            {
+              "count": 3,
+              "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+              "start": 1389
+            },
+            {
+              "count": 3,
+              "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+              "start": 71
+            },
+            {
+              "count": 3,
+              "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+              "start": 1095
+            },
+            {
+              "count": 5,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 372
+            },
+            {
+              "count": 10,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 1443
+            },
+            {
+              "count": 2,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 1870
+            },
+            {
+              "count": 4,
+              "part_sha256": "4f8655f2b820876fc984213041aa06c9f63525dcafff2a8ba241834b71431e9f",
+              "start": 686
+            },
+            {
+              "count": 2,
+              "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+              "start": 1798
+            },
+            {
+              "count": 5,
+              "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+              "start": 800
+            },
+            {
+              "count": 6,
+              "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+              "start": 1943
+            },
+            {
+              "count": 6,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 1065
+            },
+            {
+              "count": 2,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 1453
+            },
+            {
+              "count": 1,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 2059
+            },
+            {
+              "count": 5,
+              "part_sha256": "38718cd4e4d0ac0a10a2f01af6999b087b06a39e1124050e64b61faae8e09bce",
+              "start": 592
+            },
+            {
+              "count": 2,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 163
+            },
+            {
+              "count": 8,
+              "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+              "start": 328
+            },
+            {
+              "count": 5,
+              "part_sha256": "ac0fa32c718d199058333f9fefd906920825e74c1f310736749c333cf2ad2466",
+              "start": 412
+            },
+            {
+              "count": 3,
+              "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+              "start": 707
+            },
+            {
+              "count": 4,
+              "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+              "start": 1418
+            },
+            {
+              "count": 8,
+              "part_sha256": "adf8c3a5dc4d21bf5aad5b4287e5f0e09ad98ec95ec0d8692d6e0f666e3c3beb",
+              "start": 2114
+            },
+            {
+              "count": 5,
+              "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+              "start": 2212
+            },
+            {
+              "count": 3,
+              "part_sha256": "3a8bd8c30a2569f4f1e7603e07960a386f5df5ba352f4a4378ffe8e0a026ce21",
+              "start": 1471
+            },
+            {
+              "count": 4,
+              "part_sha256": "5f2e7b311f9eea273953919b53c17d7ad1e8733b4cb8dae36e99d1b1ed45aa8f",
+              "start": 1097
+            },
+            {
+              "count": 2,
+              "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+              "start": 47
+            },
+            {
+              "count": 4,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 168
+            },
+            {
+              "count": 5,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 635
+            },
+            {
+              "count": 5,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 1105
+            },
+            {
+              "count": 8,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 272
+            },
+            {
+              "count": 6,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 721
+            },
+            {
+              "count": 3,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 1070
+            },
+            {
+              "count": 2,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 1450
+            },
+            {
+              "count": 5,
+              "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+              "start": 886
+            },
+            {
+              "count": 4,
+              "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+              "start": 1303
+            },
+            {
+              "count": 2,
+              "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+              "start": 738
+            },
+            {
+              "count": 12,
+              "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+              "start": 1486
+            },
+            {
+              "count": 4,
+              "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+              "start": 1920
+            },
+            {
+              "count": 7,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 518
+            },
+            {
+              "count": 5,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 812
+            },
+            {
+              "count": 4,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 1768
+            },
+            {
+              "count": 1,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1218
+            },
+            {
+              "count": 1,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1624
+            },
+            {
+              "count": 5,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 89
+            },
+            {
+              "count": 1,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 567
+            },
+            {
+              "count": 12,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 1040
+            },
+            {
+              "count": 1,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1727
+            },
+            {
+              "count": 5,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1960
+            },
+            {
+              "count": 7,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 343
+            },
+            {
+              "count": 4,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 766
+            },
+            {
+              "count": 2,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 1143
+            },
+            {
+              "count": 3,
+              "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+              "start": 586
+            },
+            {
+              "count": 3,
+              "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+              "start": 2121
+            },
+            {
+              "count": 9,
+              "part_sha256": "344dd0cc3663698a5bda375eab4007c546f57e0442fa1d8617f031fd958523ee",
+              "start": 463
+            }
+          ],
+          "target_key": "taxon-67536"
+        },
+        "target_key": "taxon-67536"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-67536",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-67537-current-attempt-1.body",
+          "receipt_file": "taxon-67537-current-attempt-1.receipt.json",
+          "receipt_sha256": "671454388ce6b4c5db54d85a0519c49430e9d9c707f1c063d14773b18299c48f",
+          "request_name": "taxon-67537-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 67537,
+        "source_proof_reference": {
+          "occurrence_count": 22,
+          "proof_ranges": [
+            {
+              "count": 6,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 1453
+            },
+            {
+              "count": 2,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 1071
+            },
+            {
+              "count": 1,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 165
+            },
+            {
+              "count": 6,
+              "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+              "start": 1498
+            },
+            {
+              "count": 6,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 1052
+            },
+            {
+              "count": 1,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1728
+            }
+          ],
+          "target_key": "taxon-67537"
+        },
+        "target_key": "taxon-67537"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-67537",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-67541-current-attempt-1.body",
+          "receipt_file": "taxon-67541-current-attempt-1.receipt.json",
+          "receipt_sha256": "a862d40ac889526b685278c04367386e87c5129093b9191e85303a8e09dc1901",
+          "request_name": "taxon-67541-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 67541,
+        "source_proof_reference": {
+          "occurrence_count": 91,
+          "proof_ranges": [
+            {
+              "count": 4,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1011
+            },
+            {
+              "count": 2,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1457
+            },
+            {
+              "count": 1,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 2004
+            },
+            {
+              "count": 4,
+              "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+              "start": 212
+            },
+            {
+              "count": 3,
+              "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+              "start": 752
+            },
+            {
+              "count": 4,
+              "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+              "start": 1086
+            },
+            {
+              "count": 1,
+              "part_sha256": "8677e3092101d7eced1582c13a63bac913a6e49d815d6a40a74e47372f220d84",
+              "start": 55
+            },
+            {
+              "count": 3,
+              "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+              "start": 133
+            },
+            {
+              "count": 1,
+              "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+              "start": 1098
+            },
+            {
+              "count": 1,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 377
+            },
+            {
+              "count": 1,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 1872
+            },
+            {
+              "count": 4,
+              "part_sha256": "4f8655f2b820876fc984213041aa06c9f63525dcafff2a8ba241834b71431e9f",
+              "start": 690
+            },
+            {
+              "count": 2,
+              "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+              "start": 1800
+            },
+            {
+              "count": 3,
+              "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+              "start": 805
+            },
+            {
+              "count": 1,
+              "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+              "start": 1949
+            },
+            {
+              "count": 1,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 2060
+            },
+            {
+              "count": 3,
+              "part_sha256": "38718cd4e4d0ac0a10a2f01af6999b087b06a39e1124050e64b61faae8e09bce",
+              "start": 597
+            },
+            {
+              "count": 2,
+              "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+              "start": 336
+            },
+            {
+              "count": 3,
+              "part_sha256": "ac0fa32c718d199058333f9fefd906920825e74c1f310736749c333cf2ad2466",
+              "start": 417
+            },
+            {
+              "count": 2,
+              "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+              "start": 1422
+            },
+            {
+              "count": 1,
+              "part_sha256": "adf8c3a5dc4d21bf5aad5b4287e5f0e09ad98ec95ec0d8692d6e0f666e3c3beb",
+              "start": 2122
+            },
+            {
+              "count": 1,
+              "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+              "start": 2217
+            },
+            {
+              "count": 2,
+              "part_sha256": "3a8bd8c30a2569f4f1e7603e07960a386f5df5ba352f4a4378ffe8e0a026ce21",
+              "start": 1474
+            },
+            {
+              "count": 1,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 172
+            },
+            {
+              "count": 1,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 640
+            },
+            {
+              "count": 2,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 1110
+            },
+            {
+              "count": 2,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 280
+            },
+            {
+              "count": 3,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 727
+            },
+            {
+              "count": 3,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 1073
+            },
+            {
+              "count": 1,
+              "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+              "start": 891
+            },
+            {
+              "count": 1,
+              "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+              "start": 1307
+            },
+            {
+              "count": 1,
+              "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+              "start": 740
+            },
+            {
+              "count": 1,
+              "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+              "start": 1924
+            },
+            {
+              "count": 1,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 525
+            },
+            {
+              "count": 3,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 817
+            },
+            {
+              "count": 3,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 1772
+            },
+            {
+              "count": 1,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1219
+            },
+            {
+              "count": 3,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 94
+            },
+            {
+              "count": 2,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1965
+            },
+            {
+              "count": 4,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 350
+            },
+            {
+              "count": 1,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 770
+            },
+            {
+              "count": 1,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 1145
+            },
+            {
+              "count": 2,
+              "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+              "start": 589
+            },
+            {
+              "count": 4,
+              "part_sha256": "344dd0cc3663698a5bda375eab4007c546f57e0442fa1d8617f031fd958523ee",
+              "start": 472
+            }
+          ],
+          "target_key": "taxon-67541"
+        },
+        "target_key": "taxon-67541"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-67541",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-67542-current-attempt-1.body",
+          "receipt_file": "taxon-67542-current-attempt-1.receipt.json",
+          "receipt_sha256": "ca0e933fc28208f3f53f53ae4a12af0153f80c62dba5efd88e71503b3ebe5067",
+          "request_name": "taxon-67542-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 67542,
+        "source_proof_reference": {
+          "occurrence_count": 109,
+          "proof_ranges": [
+            {
+              "count": 3,
+              "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+              "start": 769
+            },
+            {
+              "count": 1,
+              "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+              "start": 1412
+            },
+            {
+              "count": 3,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 621
+            },
+            {
+              "count": 1,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1015
+            },
+            {
+              "count": 3,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1459
+            },
+            {
+              "count": 3,
+              "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+              "start": 755
+            },
+            {
+              "count": 2,
+              "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+              "start": 1090
+            },
+            {
+              "count": 3,
+              "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+              "start": 1706
+            },
+            {
+              "count": 2,
+              "part_sha256": "8677e3092101d7eced1582c13a63bac913a6e49d815d6a40a74e47372f220d84",
+              "start": 56
+            },
+            {
+              "count": 2,
+              "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+              "start": 1392
+            },
+            {
+              "count": 2,
+              "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+              "start": 74
+            },
+            {
+              "count": 1,
+              "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+              "start": 1099
+            },
+            {
+              "count": 4,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 378
+            },
+            {
+              "count": 1,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 1873
+            },
+            {
+              "count": 4,
+              "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+              "start": 1950
+            },
+            {
+              "count": 1,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 1073
+            },
+            {
+              "count": 2,
+              "part_sha256": "38718cd4e4d0ac0a10a2f01af6999b087b06a39e1124050e64b61faae8e09bce",
+              "start": 600
+            },
+            {
+              "count": 3,
+              "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+              "start": 338
+            },
+            {
+              "count": 1,
+              "part_sha256": "ac0fa32c718d199058333f9fefd906920825e74c1f310736749c333cf2ad2466",
+              "start": 420
+            },
+            {
+              "count": 3,
+              "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+              "start": 710
+            },
+            {
+              "count": 2,
+              "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+              "start": 1424
+            },
+            {
+              "count": 3,
+              "part_sha256": "adf8c3a5dc4d21bf5aad5b4287e5f0e09ad98ec95ec0d8692d6e0f666e3c3beb",
+              "start": 2123
+            },
+            {
+              "count": 4,
+              "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+              "start": 2218
+            },
+            {
+              "count": 3,
+              "part_sha256": "5f2e7b311f9eea273953919b53c17d7ad1e8733b4cb8dae36e99d1b1ed45aa8f",
+              "start": 1101
+            },
+            {
+              "count": 2,
+              "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+              "start": 49
+            },
+            {
+              "count": 2,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 173
+            },
+            {
+              "count": 4,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 641
+            },
+            {
+              "count": 3,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 1112
+            },
+            {
+              "count": 3,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 282
+            },
+            {
+              "count": 3,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 730
+            },
+            {
+              "count": 1,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 1452
+            },
+            {
+              "count": 3,
+              "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+              "start": 892
+            },
+            {
+              "count": 3,
+              "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+              "start": 1308
+            },
+            {
+              "count": 1,
+              "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+              "start": 741
+            },
+            {
+              "count": 3,
+              "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+              "start": 1925
+            },
+            {
+              "count": 6,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 526
+            },
+            {
+              "count": 1,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 820
+            },
+            {
+              "count": 1,
+              "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+              "start": 1625
+            },
+            {
+              "count": 2,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 97
+            },
+            {
+              "count": 1,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 568
+            },
+            {
+              "count": 3,
+              "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+              "start": 1967
+            },
+            {
+              "count": 3,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 354
+            },
+            {
+              "count": 2,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 771
+            },
+            {
+              "count": 1,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 1146
+            },
+            {
+              "count": 3,
+              "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+              "start": 2124
+            },
+            {
+              "count": 1,
+              "part_sha256": "344dd0cc3663698a5bda375eab4007c546f57e0442fa1d8617f031fd958523ee",
+              "start": 476
+            }
+          ],
+          "target_key": "taxon-67542"
+        },
+        "target_key": "taxon-67542"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-67542",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-68347-current-attempt-1.body",
+          "receipt_file": "taxon-68347-current-attempt-1.receipt.json",
+          "receipt_sha256": "e7c087b68fe81afa8076641041372579b45a3bf662fde3f7a92bb4220b01c553",
+          "request_name": "taxon-68347-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 68347,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 115
+            }
+          ],
+          "target_key": "taxon-68347"
+        },
+        "target_key": "taxon-68347"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-68347",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-68349-current-attempt-1.body",
+          "receipt_file": "taxon-68349-current-attempt-1.receipt.json",
+          "receipt_sha256": "68b15fe391d199f737d6368f274b812bbfc7554592265f9958977059dac006b1",
+          "request_name": "taxon-68349-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 68349,
+        "source_proof_reference": {
+          "occurrence_count": 2,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 273
+            },
+            {
+              "count": 1,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 116
+            }
+          ],
+          "target_key": "taxon-68349"
+        },
+        "target_key": "taxon-68349"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-68349",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-68387-current-attempt-1.body",
+          "receipt_file": "taxon-68387-current-attempt-1.receipt.json",
+          "receipt_sha256": "a02874f90cebaf1a8f32d7d471aa8edab35d7eb204a23106d4e523662a2887af",
+          "request_name": "taxon-68387-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 68387,
+        "source_proof_reference": {
+          "occurrence_count": 1,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "4f8655f2b820876fc984213041aa06c9f63525dcafff2a8ba241834b71431e9f",
+              "start": 455
+            }
+          ],
+          "target_key": "taxon-68387"
+        },
+        "target_key": "taxon-68387"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-68387",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-68519-current-attempt-1.body",
+          "receipt_file": "taxon-68519-current-attempt-1.receipt.json",
+          "receipt_sha256": "6b3f77c489b0a099b0eb8ebe2ede708a3aa2478422f989dc55f6497d5c71d4ba",
+          "request_name": "taxon-68519-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 68519,
+        "source_proof_reference": {
+          "occurrence_count": 53,
+          "proof_ranges": [
+            {
+              "count": 1,
+              "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+              "start": 2054
+            },
+            {
+              "count": 1,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 1016
+            },
+            {
+              "count": 1,
+              "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+              "start": 2005
+            },
+            {
+              "count": 1,
+              "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+              "start": 1709
+            },
+            {
+              "count": 1,
+              "part_sha256": "8677e3092101d7eced1582c13a63bac913a6e49d815d6a40a74e47372f220d84",
+              "start": 58
+            },
+            {
+              "count": 1,
+              "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+              "start": 1394
+            },
+            {
+              "count": 1,
+              "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+              "start": 76
+            },
+            {
+              "count": 1,
+              "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+              "start": 1100
+            },
+            {
+              "count": 4,
+              "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+              "start": 1459
+            },
+            {
+              "count": 1,
+              "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+              "start": 1954
+            },
+            {
+              "count": 3,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 1074
+            },
+            {
+              "count": 2,
+              "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+              "start": 1455
+            },
+            {
+              "count": 1,
+              "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+              "start": 166
+            },
+            {
+              "count": 3,
+              "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+              "start": 341
+            },
+            {
+              "count": 4,
+              "part_sha256": "adf8c3a5dc4d21bf5aad5b4287e5f0e09ad98ec95ec0d8692d6e0f666e3c3beb",
+              "start": 2126
+            },
+            {
+              "count": 1,
+              "part_sha256": "5f2e7b311f9eea273953919b53c17d7ad1e8733b4cb8dae36e99d1b1ed45aa8f",
+              "start": 1104
+            },
+            {
+              "count": 1,
+              "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+              "start": 175
+            },
+            {
+              "count": 3,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 285
+            },
+            {
+              "count": 1,
+              "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+              "start": 1453
+            },
+            {
+              "count": 1,
+              "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+              "start": 895
+            },
+            {
+              "count": 6,
+              "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+              "start": 1504
+            },
+            {
+              "count": 1,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 821
+            },
+            {
+              "count": 1,
+              "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+              "start": 1775
+            },
+            {
+              "count": 6,
+              "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+              "start": 1058
+            },
+            {
+              "count": 1,
+              "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+              "start": 773
+            },
+            {
+              "count": 1,
+              "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+              "start": 591
+            },
+            {
+              "count": 4,
+              "part_sha256": "344dd0cc3663698a5bda375eab4007c546f57e0442fa1d8617f031fd958523ee",
+              "start": 477
+            }
+          ],
+          "target_key": "taxon-68519"
+        },
+        "target_key": "taxon-68519"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-68519",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "taxon-68520-current-attempt-1.body",
+          "receipt_file": "taxon-68520-current-attempt-1.receipt.json",
+          "receipt_sha256": "b940ad5cba91f1dca2a265cc5dc0fa386aa17c023d3cfb17094630136518ef5d",
+          "request_name": "taxon-68520-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "identity": {
+        "exposure_role": "development_resource_discovery",
+        "kind": "taxon",
+        "metadata_dependency_count": 0,
+        "native_id": 68520,
+        "source_proof_reference": {
+          "occurrence_count": 4,
+          "proof_ranges": [
+            {
+              "count": 2,
+              "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+              "start": 808
+            },
+            {
+              "count": 1,
+              "part_sha256": "ac0fa32c718d199058333f9fefd906920825e74c1f310736749c333cf2ad2466",
+              "start": 421
+            },
+            {
+              "count": 1,
+              "part_sha256": "3a8bd8c30a2569f4f1e7603e07960a386f5df5ba352f4a4378ffe8e0a026ce21",
+              "start": 1476
+            }
+          ],
+          "target_key": "taxon-68520"
+        },
+        "target_key": "taxon-68520"
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_native_detail",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "target_key": "taxon-68520",
+      "terminal_status": "received_complete_unqualified_linked_resource"
+    }
+  ],
+  "response_bytes": 4087,
+  "schema_version": "neotoma-scoped-linked-resource-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed current linked responses; no transaction or frozen snapshot",
+  "source_evidence": {
+    "manifest_sha256": "76fbc45ac0613ef1b3df21d9f56c3b629c028a361e6b515bc226689bbc5fb42f",
+    "schema_version": "neotoma-linked-source-evidence.v1"
+  },
+  "status": "closed"
+}
