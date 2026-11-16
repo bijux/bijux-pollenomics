@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from hashlib import sha256
 from pathlib import Path
 from typing import Any
@@ -17,7 +18,7 @@ from ....resource_catalogue.archive.files import _digest, encoded_json
 from ....resource_catalogue.source_projection import _same
 from ...receipts import _safe_root
 from . import storage
-from .layers import derive_neotoma_taxon_ancestry
+from .layers import _derive_taxon_ancestry, derive_neotoma_taxon_ancestry
 from .models import (
     HARD_PART_BYTES,
     MAX_BYTES,
@@ -59,9 +60,29 @@ def load_neotoma_taxon_ancestry(
     root: Path, *, expected_manifest_sha256: str, sources: NeotomaTaxonAncestrySources
 ) -> dict[str, Any]:
     """Explicitly replay complete declared sources; no current-schema fallback."""
+    return _load_taxon_ancestry(
+        root, expected_manifest_sha256=expected_manifest_sha256, sources=sources
+    )
+
+
+def _load_taxon_ancestry(
+    root: Path,
+    *,
+    expected_manifest_sha256: str,
+    sources: NeotomaTaxonAncestrySources,
+    _before_body_read: Callable[[], None] | None = None,
+) -> dict[str, Any]:
+    """Preserve independent outer current-epoch duties inside recorded replay."""
     document = _readback(root, expected_manifest_sha256)
     limits = NeotomaTaxonAncestryLimits(**document["limits"])
-    if not _same(document, derive_neotoma_taxon_ancestry(sources, limits=limits)):
+    expected = (
+        derive_neotoma_taxon_ancestry(sources, limits=limits)
+        if _before_body_read is None
+        else _derive_taxon_ancestry(
+            sources, limits=limits, _before_body_read=_before_body_read
+        )
+    )
+    if not _same(document, expected):
         raise ValueError("Taxon ancestry full source projection differs")
     return document
 

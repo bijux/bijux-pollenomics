@@ -10,6 +10,7 @@ from typing import Any
 from bijux_pollenomics.core.filesystem import BoundedInputTree
 
 from .....ancillary_store.context import load_neotoma_ancillary_context
+from .....ancillary_store.context.seals import _CurrentContextSeals
 from .....resource_catalogue.archive.files import _digest
 from ....receipts import _object, _safe_root, _validate_transport_failure
 from ....resources.models import DEVELOPMENT_ROLES
@@ -59,6 +60,7 @@ class ChainOperation:
         self.trees: dict[Path, BoundedInputTree] = {}
         self.budget = AncestrySourceBudget()
         self.epochs: dict[tuple[str, str], dict[str, Any]] = {}
+        self.permission_guards: list[_CurrentContextSeals] = []
         self.capture_pins: set[str] = set()
         self.history: dict[int, str] = {}
         self.controls: dict[
@@ -117,6 +119,17 @@ class ChainOperation:
             raise ValueError("Ancestry historical source epoch resolver is missing")
         self.seal(contexts[context_pin], bound=512 * 1024 * 1024)
         self.seal(natives[native_pin], bound=512 * 1024 * 1024)
+        guard = self.stack.enter_context(
+            _CurrentContextSeals(
+                context_directory=contexts[context_pin],
+                expected_context_sha256=context_pin,
+                native_archive_directory=natives[native_pin],
+                expected_native_archive_sha256=native_pin,
+                _max_bytes=MAX_SOURCE_BYTES,
+                _max_files=self.budget.max_files,
+            )
+        )
+        self.permission_guards.append(guard)
         context = load_neotoma_ancillary_context(
             contexts[context_pin],
             expected_manifest_sha256=context_pin,
@@ -221,10 +234,11 @@ class ChainOperation:
                 "Ancestry protected incoming root forbids baseline body access"
             )
         if native_replay:
-            verified = baseline_publication.load_neotoma_taxon_ancestry(
+            verified = baseline_publication._load_taxon_ancestry(
                 sources.baseline_projection_directory,
                 expected_manifest_sha256=sources.expected_baseline_projection_sha256,
                 sources=original,
+                _before_body_read=self.check_permissions,
             )
             if recorded != verified:
                 raise ValueError("Ancestry baseline changed during source replay")
@@ -444,6 +458,11 @@ class ChainOperation:
             projected["results"] = dict(state["results"])
             prior = pin
         return state, projected
+
+    def check_permissions(self) -> None:
+        """Keep every authenticated epoch live without rescanning unrelated sources."""
+        for guard in self.permission_guards:
+            guard.check()
 
     def validate(self) -> None:
         """Recheck every consumed physical source namespace without native rereads."""
