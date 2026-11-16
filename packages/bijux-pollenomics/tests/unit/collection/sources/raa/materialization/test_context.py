@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from copy import deepcopy
-import json
 from pathlib import Path
 import sqlite3
 from typing import cast
@@ -15,21 +14,33 @@ from bijux_pollenomics.collection.sources.raa.authority import (
     assess_raa_density_authority,
 )
 from bijux_pollenomics.collection.sources.raa.materialization.context import (
+    RIGHTS_SCOPE,
+    RIGHTS_URL,
+    RIGHTS_VERSION,
+    SOURCE_PATH,
+    SOURCE_URL,
     open_raa_source_context,
 )
 
 from .support import A, blob, identity
 
-ROOT = Path(__file__).resolve().parents[8]
-
 
 def descriptor(path: Path) -> dict[str, object]:
-    raw = json.loads(
-        (ROOT / "data/raa/raw/national_geopackage_source.json").read_bytes()
-    )
+    """Bind synthetic capture metadata to the generated local database only."""
     digest, size = identity(path)
-    raw.update(sha256=digest, byte_count=size)
-    return cast(dict[str, object], raw)
+    return {
+        "private_source_root_relative_path": SOURCE_PATH,
+        "download_url": SOURCE_URL,
+        "rights_authority_url": RIGHTS_URL,
+        "rights_authority_version": RIGHTS_VERSION,
+        "rights_status": RIGHTS_SCOPE,
+        "scientific_admission": False,
+        "canonical_adoption": False,
+        "sha256": digest,
+        "byte_count": size,
+        "captured_at_utc": "2000-01-01T00:00:00Z",
+        "http_last_modified": "Sat, 01 Jan 2000 00:00:00 GMT",
+    }
 
 
 def valid_crs(path: Path) -> None:
