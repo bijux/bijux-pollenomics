@@ -8,6 +8,10 @@ import pytest
 from bijux_pollenomics.collection.sources.neotoma.ancillary_store.selection import (
     read_neotoma_ancillary_linked_entity,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from ..selection.native_products import rewrite_index_row
 from .native_products import selected
@@ -34,7 +38,7 @@ def test_forged_scoped_occurrence_refuses_before_pointed_entity_access(
         products, "linked_occurrences", occurrence["occurrence_id"], mutate
     )
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and any(
@@ -44,7 +48,7 @@ def test_forged_scoped_occurrence_refuses_before_pointed_entity_access(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError):
         read_neotoma_ancillary_linked_entity(
             products["directory"],
@@ -85,7 +89,7 @@ def test_legacy_contact_rechecks_protected_pi_outside_all_recorded_roots(
 
     rewrite_index_row(products, "observations", row["observation_id"], weaken)
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and any(
@@ -95,7 +99,7 @@ def test_legacy_contact_rechecks_protected_pi_outside_all_recorded_roots(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError, match="protected current metadata"):
         read_neotoma_ancillary_linked_entity(
             products["directory"],
@@ -217,7 +221,7 @@ def test_authenticated_scoped_metadata_cannot_replace_pointed_native_value(
     )
     products["capsule"] = capsule
     row, occurrence = selected(products)
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -228,7 +232,7 @@ def test_authenticated_scoped_metadata_cannot_replace_pointed_native_value(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="native field target differs"):
         read_neotoma_ancillary_linked_entity(
             products["directory"],
@@ -272,7 +276,7 @@ def test_malformed_state_metadata_refuses_without_resolving_unselected_parts(
         and value["facet"] == "taxa"
         and value["root_identity"]["dataset_id"] == 201
     )
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observed(source: Path, *args: Any, **kwargs: Any) -> Any:
@@ -281,7 +285,7 @@ def test_malformed_state_metadata_refuses_without_resolving_unselected_parts(
             opened.append(source)
         return original(source, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError, match="evidence|state|descriptor"):
         read_neotoma_ancillary_facet_entity(
             products["directory"],

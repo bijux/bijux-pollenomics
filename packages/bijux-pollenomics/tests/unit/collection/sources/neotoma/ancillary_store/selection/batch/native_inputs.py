@@ -9,6 +9,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 from ...linked_evidence.native_products import (
     scoped_inputs as scoped_inputs,
 )
@@ -27,7 +32,7 @@ def api() -> Any:
 
 def observe(monkeypatch: pytest.MonkeyPatch, products: dict[str, Any]) -> Counter[Path]:
     roots = [products[key] for key in ("capsule", "facet_capsule") if key in products]
-    original = Path.open
+    original = capture_opening()
     counts: Counter[Path] = Counter()
 
     def opened(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -37,7 +42,7 @@ def observe(monkeypatch: pytest.MonkeyPatch, products: dict[str, Any]) -> Counte
         counts[path] += 1
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", opened)
+    observe_opening(monkeypatch, opened)
     return counts
 
 

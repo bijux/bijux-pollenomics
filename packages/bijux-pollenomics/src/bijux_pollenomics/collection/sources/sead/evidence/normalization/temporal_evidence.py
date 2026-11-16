@@ -4,6 +4,11 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    optional_sead_identifier,
+    required_sead_identifier,
+)
+
 from ......core.bp_time import (
     build_bp_interval_label,
     mean_bp_year_from_interval,
@@ -16,7 +21,7 @@ from .....spatial import classify_country
 from ...acquisition.fetch import parse_optional_int
 from .chronology_policy import sead_claim_age_policy
 from .models import TemporalRowGroup
-from .values import parse_int_or_default, parse_optional_float
+from .values import parse_optional_float
 
 TEMPORAL_ROW_SPECS = (
     ("dating_range_rows", "dating_range", "analysis_dating_range_id"),
@@ -42,6 +47,7 @@ def normalize_sead_temporal_evidence(
     """Publish linked SEAD chronology as record-level time-filterable points."""
     records: list[ContextPointRecord] = []
     for site_row in rows:
+        optional_sead_identifier(site_row.get("site_id"))
         latitude = parse_optional_float(site_row.get("latitude_dd"))
         longitude = parse_optional_float(site_row.get("longitude_dd"))
         if latitude is None or longitude is None:
@@ -71,7 +77,7 @@ def normalize_sead_temporal_evidence(
                 str(value) for value in group["uncertainty_notes"]
             )
             source_record_ids = tuple(
-                int(value) for value in group["source_record_ids"]
+                required_sead_identifier(value) for value in group["source_record_ids"]
             )
             kind_label = TEMPORAL_KIND_LABELS[kind]
             time_label = build_bp_interval_label(interval[0], interval[1])
@@ -133,7 +139,7 @@ def normalize_sead_temporal_evidence(
                 popup_rows.append(
                     ("Site-linked bibliography records", str(bibliography_count))
                 )
-            first_record_id = source_record_ids[0] if source_record_ids else 0
+            first_record_id = source_record_ids[0]
             records.append(
                 ContextPointRecord(
                     source="SEAD",
@@ -182,10 +188,14 @@ def group_site_temporal_rows(site_row: Mapping[str, object]) -> list[TemporalRow
         for value in values:
             if not isinstance(value, dict):
                 continue
+            analysis_entity_id = optional_sead_identifier(
+                value.get("analysis_entity_id")
+            )
+            source_record_id = optional_sead_identifier(value.get(id_key))
             age_policy = sead_claim_age_policy(kind, value)
             if age_policy["comparability_status"] != "comparable":
                 continue
-            if parse_optional_int(value.get("analysis_entity_id")) is None:
+            if analysis_entity_id is None or source_record_id is None:
                 continue
             interval = normalize_bp_interval(
                 parse_optional_int(value.get("time_start_bp")),
@@ -196,7 +206,6 @@ def group_site_temporal_rows(site_row: Mapping[str, object]) -> list[TemporalRow
             label = temporal_row_label(kind, value)
             uncertainty_notes = tuple(temporal_row_uncertainty_notes(value))
             key = (kind, interval[0], interval[1], label, uncertainty_notes)
-            source_record_id = parse_int_or_default(value.get(id_key))
             groups.setdefault(key, []).append(source_record_id)
     return [
         {

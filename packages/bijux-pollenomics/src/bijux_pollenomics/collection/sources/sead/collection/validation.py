@@ -1,9 +1,14 @@
+"""Exact source identities and bounded page validation for SEAD collection."""
+
 from __future__ import annotations
 
 from collections.abc import Callable, Mapping, Sequence
 
 from bijux_pollenomics.collection.sources.sead.acquisition import (
     client as sead_api_client,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    required_sead_identifier,
 )
 
 _SEAD_PRIMARY_KEYS = {
@@ -45,6 +50,7 @@ _SEAD_REQUIRED_FOREIGN_KEYS = {
 
 
 def primary_key_for_table(table_name: str) -> str:
+    """Return the owned native primary key for a supported source table."""
     try:
         return _SEAD_PRIMARY_KEYS[table_name]
     except KeyError as exc:
@@ -52,6 +58,7 @@ def primary_key_for_table(table_name: str) -> str:
 
 
 def validate_sead_rows(table_name: str, rows: Sequence[Mapping[str, object]]) -> None:
+    """Require exact positive keys and unique identities for one source table."""
     primary_key = primary_key_for_table(table_name)
     identifiers: set[int] = set()
     required_fields = (primary_key, *_SEAD_REQUIRED_FOREIGN_KEYS.get(table_name, ()))
@@ -67,23 +74,27 @@ def validate_sead_rows(table_name: str, rows: Sequence[Mapping[str, object]]) ->
 def required_positive_int(
     row: Mapping[str, object], field: str, table_name: str
 ) -> int:
-    value = row.get(field)
-    if isinstance(value, str) and value.isascii() and value.isdecimal():
-        value = int(value)
-    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+    """Read an exact native key with table-specific validation errors."""
+    try:
+        return required_sead_identifier(row.get(field))
+    except ValueError as error:
         raise ValueError(
             f"Invalid required SEAD {table_name}.{field}: {row.get(field)!r}"
-        )
-    return value
+        ) from error
 
 
 def strict_input_identifier(value: object) -> int:
-    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+    """Require positive native integers at the production query boundary."""
+    if isinstance(value, bool) or not isinstance(value, int):
         raise ValueError(f"Invalid SEAD filter identifier: {value!r}")
-    return value
+    try:
+        return required_sead_identifier(value)
+    except ValueError as error:
+        raise ValueError(f"Invalid SEAD filter identifier: {value!r}") from error
 
 
 def sead_range_start(headers: object) -> int:
+    """Read a nonnegative range start from explicit request headers."""
     if not isinstance(headers, Mapping):
         raise ValueError("SEAD request is missing range headers")
     range_text = headers.get("Range")
@@ -106,6 +117,7 @@ class StrictSeadPageFetcher:
     """Reject malformed or repeated rows before relation traversal joins them."""
 
     def __init__(self, delegate: Callable[..., object], *, max_pages: int) -> None:
+        """Retain the request bound and capture-local source identity inventory."""
         self._delegate = delegate
         self._max_pages = max_pages
         self._seen_ids: dict[str, set[int]] = {}
@@ -119,6 +131,7 @@ class StrictSeadPageFetcher:
         insecure: bool = False,
         timeout: float | None = None,
     ) -> object:
+        """Validate one provider page before relation traversal can consume it."""
         table_name = url.rstrip("/").rsplit("/", 1)[-1]
         primary_key_for_table(table_name)
         range_start = sead_range_start(headers)

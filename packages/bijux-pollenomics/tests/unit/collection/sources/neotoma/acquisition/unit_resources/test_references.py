@@ -16,6 +16,10 @@ from bijux_pollenomics.collection.sources.neotoma.capture.reference_tables impor
 from bijux_pollenomics.collection.sources.neotoma.capture.unit_resources import (
     capture_neotoma_unit_resources,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from ..resources.native_payloads import response
 from .test_capture import limits, prepared
@@ -236,7 +240,7 @@ def test_protected_whole_unit_refuses_before_any_numerical_body(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     settings = fixture(tmp_path, protected=True)
-    original = Path.open
+    original = capture_opening()
 
     def guard(path: Path, *args: Any, **kwargs: Any) -> Any:
         assert path.suffix != ".body" or path.parent not in {
@@ -245,7 +249,7 @@ def test_protected_whole_unit_refuses_before_any_numerical_body(
         }, "protected unit or reference body opened"
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", guard)
+    observe_opening(monkeypatch, guard)
     with pytest.raises(ValueError):
         resolve(settings)
 

@@ -8,6 +8,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 from .native_products import observe_units
 
 
@@ -286,14 +291,14 @@ def test_rehashed_foreign_unit_key_cannot_open_a_sibling_receipt(
 
     rewrite_source(inputs, mutate)
     opened = []
-    original_open = Path.open
+    original_open = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.absolute().resolve() == foreign:
             opened.append(path)
         return original_open(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError):
         write_neotoma_unit_metadata_archive(tmp_path / "archive", **inputs["writer"])
     assert opened == []

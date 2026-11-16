@@ -5,6 +5,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 
 def test_selected_later_native_pointer_and_original_body(
     association_products: dict[str, Any], tmp_path: Path
@@ -55,14 +60,14 @@ def test_selected_source_opens_exactly_one_witness_and_old_detail(
         output, document=document, evidence=p["evidence"], inputs=p["inputs"]
     )
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and p["capsule"] in path.parents:
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     read_neotoma_linked_association_source(
         output,
         expected_manifest_sha256=pin(output / "manifest.json"),
@@ -102,7 +107,7 @@ def test_foreign_occurrence_refuses_before_any_entity(
         output, document=document, evidence=p["evidence"], inputs=p["inputs"]
     )
     locator = {**document["targets"][0]["later_example_locator"], "row_offset": 99999}
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -110,7 +115,7 @@ def test_foreign_occurrence_refuses_before_any_entity(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="occurrence locator"):
         read_neotoma_linked_association_source(
             output,
@@ -147,7 +152,7 @@ def test_lower_caller_byte_budget_refuses_before_source_body(
     inputs = replace(
         p["inputs"], limits=replace(p["inputs"].limits, max_response_bytes=1)
     )
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -155,7 +160,7 @@ def test_lower_caller_byte_budget_refuses_before_source_body(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="budget"):
         read_neotoma_linked_association_source(
             output,
@@ -185,7 +190,7 @@ def test_metadata_access_preserves_unverified_pointer_flags(
     publish_neotoma_linked_associations(
         output, document=document, evidence=p["evidence"], inputs=p["inputs"]
     )
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -193,7 +198,7 @@ def test_metadata_access_preserves_unverified_pointer_flags(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     row = read_neotoma_linked_association(
         output,
         expected_manifest_sha256=pin(output / "manifest.json"),
@@ -244,14 +249,14 @@ def test_later_current_protected_pi_blocks_legacy_contact(
         output, document=document, evidence=p["evidence"], inputs=p["inputs"]
     )
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and p["capsule"] in path.parents:
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="protected"):
         read_neotoma_linked_association_source(
             output,
@@ -283,7 +288,7 @@ def test_bodyless_state_claim_cannot_verify_native_pointer(
         output, document=document, evidence=evidence, inputs=p["inputs"]
     )
     assert document["targets"][0]["native_field_value_verified"] is False
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -291,7 +296,7 @@ def test_bodyless_state_claim_cannot_verify_native_pointer(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="native field target"):
         read_neotoma_linked_association_source(
             output,
@@ -324,7 +329,7 @@ def test_unsuccessful_retained_response_refuses_before_witness(
         output, document=document, evidence=p["evidence"], inputs=p["inputs"]
     )
     assert document["targets"][0]["retained_entity"]["http_status"] == 503
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -332,7 +337,7 @@ def test_unsuccessful_retained_response_refuses_before_witness(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="complete and successful"):
         read_neotoma_linked_association_source(
             output,

@@ -10,6 +10,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 from ..resources.native_payloads import response
 from .test_capture import owner, plan
 
@@ -108,13 +113,13 @@ def test_unknown_country_read_refuses_before_any_body_buffer(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     root, result = captured(tmp_path)
-    original = Path.open
+    original = capture_opening()
 
     def guard(path: Path, *args: Any, **kwargs: Any) -> Any:
         assert path.suffix != ".body", "Unselected source body opened"
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", guard)
+    observe_opening(monkeypatch, guard)
     with pytest.raises(ValueError):
         owner().read_neotoma_country_authority_body(
             root, expected_manifest_sha256=result.manifest_sha256, country="samples"

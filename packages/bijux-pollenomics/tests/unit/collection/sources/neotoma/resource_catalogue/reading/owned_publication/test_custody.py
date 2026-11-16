@@ -17,6 +17,10 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import (
     storage,
 )
 from bijux_pollenomics.core.owned_tree import build_staging_output_dir
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 @pytest.mark.parametrize("partitioned", [False, True])
@@ -139,14 +143,14 @@ def test_catalogue_loader_preflights_total_namespace_before_member_buffers(
         else len(members) - 1,
         raising=False,
     )
-    read = Path.open
+    read = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path != manifest and path.is_relative_to(root):
             pytest.fail("over-budget compact member buffer opened")
         return read(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         api.load_neotoma_resource_catalogue(root, expected_manifest_sha256=digest)
 

@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    optional_sead_identifier,
+    required_sead_identifier,
+)
 from bijux_pollenomics.core.bp_time import normalize_bp_interval
 from bijux_pollenomics.core.text import clean_optional_text
 
@@ -14,7 +18,7 @@ from .temporal import (
     _relative_interval_from_range,
     sead_dating_interval,
 )
-from .values import parse_optional_int, parse_required_int
+from .values import parse_optional_int
 
 
 def _build_relative_period_row(
@@ -43,12 +47,16 @@ def _build_relative_period_row(
     return {
         **relation_identity,
         "site_id": site_id,
-        "relative_date_id": parse_required_int(relative_date.get("relative_date_id")),
-        "relative_age_id": parse_optional_int(relative_date.get("relative_age_id")),
-        "dating_uncertainty_id": parse_optional_int(
+        "relative_date_id": required_sead_identifier(
+            relative_date.get("relative_date_id")
+        ),
+        "relative_age_id": optional_sead_identifier(
+            relative_date.get("relative_age_id")
+        ),
+        "dating_uncertainty_id": optional_sead_identifier(
             relative_date.get("dating_uncertainty_id")
         ),
-        "method_id": parse_optional_int(relative_date.get("method_id")),
+        "method_id": optional_sead_identifier(relative_date.get("method_id")),
         "relative_age_label": label,
         "relative_age_description": description,
         "relative_age_abbreviation": str(relative_age.get("abbreviation", "")).strip(),
@@ -77,12 +85,14 @@ def _build_dating_range_row(
     )
     return {
         **relation_identity,
-        "analysis_dating_range_id": parse_required_int(
+        "analysis_dating_range_id": required_sead_identifier(
             dating_range.get("analysis_dating_range_id")
         ),
-        "analysis_value_id": parse_required_int(dating_range.get("analysis_value_id")),
-        "age_type_id": parse_optional_int(dating_range.get("age_type_id")),
-        "dating_uncertainty_id": parse_optional_int(
+        "analysis_value_id": required_sead_identifier(
+            dating_range.get("analysis_value_id")
+        ),
+        "age_type_id": optional_sead_identifier(dating_range.get("age_type_id")),
+        "dating_uncertainty_id": optional_sead_identifier(
             dating_range.get("dating_uncertainty_id")
         ),
         "age_type": age_type,
@@ -120,11 +130,13 @@ def _build_analysis_entity_age_row(
 ) -> dict[str, object]:
     return {
         **relation_identity,
-        "analysis_entity_age_id": parse_required_int(
+        "analysis_entity_age_id": required_sead_identifier(
             entity_age.get("analysis_entity_age_id")
         ),
-        "analysis_entity_id": parse_required_int(entity_age.get("analysis_entity_id")),
-        "chronology_id": parse_optional_int(entity_age.get("chronology_id")),
+        "analysis_entity_id": required_sead_identifier(
+            entity_age.get("analysis_entity_id")
+        ),
+        "chronology_id": optional_sead_identifier(entity_age.get("chronology_id")),
         "dating_specifier": clean_optional_text(entity_age.get("dating_specifier")),
         "age": parse_optional_int(entity_age.get("age")),
         "age_older": parse_optional_int(entity_age.get("age_older")),
@@ -155,17 +167,19 @@ def _build_geochronology_row(
 ) -> dict[str, object]:
     return {
         **relation_identity,
-        "geochron_id": parse_required_int(geochronology_row.get("geochron_id")),
-        "analysis_entity_id": parse_required_int(
+        "geochron_id": required_sead_identifier(geochronology_row.get("geochron_id")),
+        "analysis_entity_id": required_sead_identifier(
             geochronology_row.get("analysis_entity_id")
         ),
-        "dating_lab_id": parse_optional_int(geochronology_row.get("dating_lab_id")),
+        "dating_lab_id": optional_sead_identifier(
+            geochronology_row.get("dating_lab_id")
+        ),
         "lab_number": clean_optional_text(geochronology_row.get("lab_number")),
         "age": parse_optional_int(geochronology_row.get("age")),
         "error_older": parse_optional_int(geochronology_row.get("error_older")),
         "error_younger": parse_optional_int(geochronology_row.get("error_younger")),
         "notes": clean_optional_text(geochronology_row.get("notes")),
-        "dating_uncertainty_id": parse_optional_int(
+        "dating_uncertainty_id": optional_sead_identifier(
             geochronology_row.get("dating_uncertainty_id")
         ),
         "uncertainty_label": clean_optional_text(uncertainty.get("label")),
@@ -199,18 +213,22 @@ def _build_dendro_date_row(
 ) -> dict[str, object]:
     return {
         **relation_identity,
-        "dendro_date_id": parse_required_int(dendro_date.get("dendro_date_id")),
-        "analysis_entity_id": parse_required_int(dendro_date.get("analysis_entity_id")),
+        "dendro_date_id": required_sead_identifier(dendro_date.get("dendro_date_id")),
+        "analysis_entity_id": required_sead_identifier(
+            dendro_date.get("analysis_entity_id")
+        ),
         "age_type": age_type,
-        "age_type_id": parse_optional_int(dendro_date.get("age_type_id")),
-        "dating_uncertainty_id": parse_optional_int(
+        "age_type_id": optional_sead_identifier(dendro_date.get("age_type_id")),
+        "dating_uncertainty_id": optional_sead_identifier(
             dendro_date.get("dating_uncertainty_id")
         ),
         "age_older": parse_optional_int(dendro_date.get("age_older")),
         "age_younger": parse_optional_int(dendro_date.get("age_younger")),
         "age_range": clean_optional_text(dendro_date.get("age_range")),
-        "dendro_lookup_id": parse_optional_int(dendro_date.get("dendro_lookup_id")),
-        "season_id": parse_optional_int(dendro_date.get("season_id")),
+        "dendro_lookup_id": optional_sead_identifier(
+            dendro_date.get("dendro_lookup_id")
+        ),
+        "season_id": optional_sead_identifier(dendro_date.get("season_id")),
         "uncertainty_label": clean_optional_text(uncertainty.get("label")),
         "uncertainty_description": clean_optional_text(uncertainty.get("description")),
         "time_start_bp": interval[0] if interval is not None else None,
@@ -269,9 +287,9 @@ def _deduplicate_bibliography_rows(
     unique_rows: dict[tuple[int, str, int], dict[str, object]] = {}
     for row in rows:
         key = (
-            parse_required_int(row.get("biblio_id")),
+            required_sead_identifier(row.get("biblio_id")),
             clean_optional_text(row.get("source_kind")),
-            parse_required_int(row.get("source_record_id")),
+            required_sead_identifier(row.get("source_record_id")),
         )
         unique_rows.setdefault(key, row)
     return list(unique_rows.values())

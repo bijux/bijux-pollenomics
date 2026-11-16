@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#460](https://github.com/bijux/bijux-pollenomics/pull/460) — Descriptor custody and exact collection evidence joins
+
+- Read bounded Neotoma source buffers through nonblocking no-follow descriptors
+  with inode identity checks and observation of the actual secure opener.
+- Preserve exact SEAD native keys through site/sample/dataset/citation relations
+  and chronology evidence without float-rounding adjacent large identities.
+- Describe retained dataset environment coverage separately from scientific
+  admission or a fresh replay of previously published response bodies.
+
 ### [#459](https://github.com/bijux/bijux-pollenomics/pull/459) — Owned source publication and physical collection identities
 
 - Validate bounded LandClim source transactions before replacing selected assets,

@@ -9,12 +9,17 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 
 def test_inventory_opens_no_entity_and_selected_read_opens_one_buffer_once(
     reference_archive: dict[str, Any], monkeypatch: pytest.MonkeyPatch
 ) -> None:
     archive = reference_archive
-    actual_open = Path.open
+    actual_open = capture_opening()
     opened: list[str] = []
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -24,7 +29,7 @@ def test_inventory_opens_no_entity_and_selected_read_opens_one_buffer_once(
             assert "variableunits" in path.name
         return actual_open(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     inventory = archive["owner"].read_neotoma_reference_archive_inventory(
         archive["directory"], expected_manifest_sha256=archive["sha256"]
     )
@@ -76,7 +81,7 @@ def test_unavailable_table_refuses_before_body_and_forensic_entity_keeps_posture
     reference_archive: dict[str, Any], monkeypatch: pytest.MonkeyPatch
 ) -> None:
     archive = reference_archive
-    actual_open = Path.open
+    actual_open = capture_opening()
     opened: list[str] = []
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -84,7 +89,7 @@ def test_unavailable_table_refuses_before_body_and_forensic_entity_keeps_posture
             opened.append(path.name)
         return actual_open(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         archive["owner"].read_neotoma_reference_archive_table(
             archive["directory"],
@@ -116,7 +121,7 @@ def test_arbitrary_selector_refuses_without_reading_source(
     def forbidden(*_: Any, **__: Any) -> Any:
         pytest.fail("invalid reference selector opened a file")
 
-    monkeypatch.setattr(Path, "open", forbidden)
+    observe_opening(monkeypatch, forbidden)
     with pytest.raises(ValueError):
         archive["owner"].read_neotoma_reference_archive_table(
             archive["directory"],
@@ -177,14 +182,14 @@ def test_rehashed_false_receipt_metadata_refuses_before_any_entity_access(
 ) -> None:
     archive = reference_archive
     anchor = rebind_receipt(archive, field, value)
-    actual_open = Path.open
+    actual_open = capture_opening()
 
     def guarded(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body":
             pytest.fail("false receipt metadata reached a source entity")
         return actual_open(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", guarded)
+    observe_opening(monkeypatch, guarded)
     with pytest.raises(ValueError):
         archive["owner"].read_neotoma_reference_archive_inventory(
             archive["directory"], expected_manifest_sha256=anchor

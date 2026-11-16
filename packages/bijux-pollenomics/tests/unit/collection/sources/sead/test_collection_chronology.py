@@ -196,7 +196,7 @@ class SeadChronologyTests(unittest.TestCase):
                     {
                         "analysis_entity_id": 30,
                         "physical_sample_id": 20,
-                        "dataset_id": 0,
+                        "dataset_id": None,
                     }
                 ]
             if url.endswith(

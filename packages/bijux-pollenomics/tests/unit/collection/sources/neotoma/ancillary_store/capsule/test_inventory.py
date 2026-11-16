@@ -9,6 +9,17 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
+
+def _context_resolvers(inputs: dict[str, Any]) -> dict[str, Any]:
+    return {
+        key: inputs[key] for key in ("context_directory", "native_archive_directory")
+    }
+
 
 def test_inventory_is_body_free_and_preserves_exact_source_occurrences(
     capsule_inputs: dict[str, Any],
@@ -24,10 +35,7 @@ def test_inventory_is_body_free_and_preserves_exact_source_occurrences(
     output = tmp_path / "capsule"
     write_neotoma_ancillary_capsule(output, **capsule_inputs)
     pin = sha256((output / "manifest.json").read_bytes()).hexdigest()
-    kwargs = {
-        key: capsule_inputs[key]
-        for key in ("context_directory", "native_archive_directory")
-    }
+    kwargs = _context_resolvers(capsule_inputs)
     full = load_neotoma_ancillary_capsule(
         output, expected_manifest_sha256=pin, **kwargs
     )
@@ -36,14 +44,14 @@ def test_inventory_is_body_free_and_preserves_exact_source_occurrences(
         *capsule_inputs["facet_captures"].values(),
         *capsule_inputs["linked_captures"].values(),
     }
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and any(path.is_relative_to(root) for root in roots):
             pytest.fail("Metadata inventory opened a facet/linked entity body")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     metadata = read_neotoma_ancillary_capsule_inventory(
         output, expected_manifest_sha256=pin, **kwargs
     )
@@ -70,10 +78,7 @@ def test_same_length_body_change_is_explicitly_unverified_until_full_replay(
     body = next((output / "captures").glob("*/*.body"))
     before = body.read_bytes()
     body.write_bytes(b"x" * len(before))
-    kwargs = {
-        key: capsule_inputs[key]
-        for key in ("context_directory", "native_archive_directory")
-    }
+    kwargs = _context_resolvers(capsule_inputs)
     assert (
         read_neotoma_ancillary_capsule_inventory(
             output, expected_manifest_sha256=pin, **kwargs
@@ -124,24 +129,21 @@ def test_inventory_refuses_nonbody_or_closed_namespace_changes_before_body_acces
         }[mutation]
         path = next((output / "captures").glob(pattern))
         path.write_bytes(b"x" * path.stat().st_size)
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.is_relative_to(output) and path.suffix == ".body":
             pytest.fail("Inventory read an entity before nonbody refusal")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         read_neotoma_ancillary_capsule_inventory(
             output,
             expected_manifest_sha256=sha256(
                 (output / "manifest.json").read_bytes()
             ).hexdigest(),
-            **{
-                key: capsule_inputs[key]
-                for key in ("context_directory", "native_archive_directory")
-            },
+            **_context_resolvers(capsule_inputs),
         )
 
 
@@ -162,7 +164,7 @@ def test_linked_inventory_checks_only_predecessor_metadata(
     write_neotoma_ancillary_capsule(
         output, predecessor_facets=predecessors, **capsule_inputs
     )
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and (
@@ -171,17 +173,14 @@ def test_linked_inventory_checks_only_predecessor_metadata(
             pytest.fail("Linked inventory opened predecessor or linked body")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     loaded = read_neotoma_ancillary_capsule_inventory(
         output,
         expected_manifest_sha256=sha256(
             (output / "manifest.json").read_bytes()
         ).hexdigest(),
         predecessor_facets=predecessors,
-        **{
-            key: capsule_inputs[key]
-            for key in ("context_directory", "native_archive_directory")
-        },
+        **_context_resolvers(capsule_inputs),
     )
     assert len(loaded.index["observations"]) == 1
     assert loaded.manifest["predecessor_facets"] == [source]
@@ -275,22 +274,19 @@ def test_rehashed_source_metadata_cannot_fabricate_counts_or_parent_proofs(
         document["plan_sha256"] = sha256(control_path.read_bytes()).hexdigest()
     path.write_text(json.dumps(document))
     pin = _rebind_metadata(output, digest, request_count=mutation == "source_count")
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.is_relative_to(output) and path.suffix == ".body":
             pytest.fail("Metadata forgery probe opened a numerical entity")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         read_neotoma_ancillary_capsule_inventory(
             output,
             expected_manifest_sha256=pin,
-            **{
-                key: capsule_inputs[key]
-                for key in ("context_directory", "native_archive_directory")
-            },
+            **_context_resolvers(capsule_inputs),
         )
 
 
@@ -341,22 +337,19 @@ def test_rehashed_linked_occurrences_must_match_predecessor_metadata(
     ] = document["resources"][0]["identity"]
     index_path.write_text(json.dumps(index))
     pin = _rebind_metadata(output, digest)
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.is_relative_to(output) and path.suffix == ".body":
             pytest.fail("Linked occurrence metadata check opened an entity body")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         read_neotoma_ancillary_capsule_inventory(
             output,
             expected_manifest_sha256=pin,
-            **{
-                key: capsule_inputs[key]
-                for key in ("context_directory", "native_archive_directory")
-            },
+            **_context_resolvers(capsule_inputs),
         )
 
 
@@ -418,22 +411,19 @@ def test_rehashed_receipt_metadata_keeps_route_tls_timing_and_scalar_identity(
     row["attempts"][-1]["receipt_sha256"] = attempt["receipt_sha256"]
     index_path.write_text(json.dumps(index))
     pin = _rebind_metadata(output, digest)
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.is_relative_to(output) and path.suffix == ".body":
             pytest.fail("Contradictory receipt metadata opened an entity body")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         read_neotoma_ancillary_capsule_inventory(
             output,
             expected_manifest_sha256=pin,
-            **{
-                key: capsule_inputs[key]
-                for key in ("context_directory", "native_archive_directory")
-            },
+            **_context_resolvers(capsule_inputs),
         )
 
 

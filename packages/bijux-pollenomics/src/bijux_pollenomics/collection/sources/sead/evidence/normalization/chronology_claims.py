@@ -4,8 +4,11 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    optional_sead_identifier,
+)
+
 from ......core.text import clean_optional_text
-from ...acquisition.fetch import parse_optional_int
 from .chronology_policy import sead_claim_age_policy, source_interval_orientation
 from .models import SeadChronologyClaim, SeadRelationStep
 from .values import parse_optional_float
@@ -47,7 +50,10 @@ def normalize_sead_chronology_claims(
         raise ValueError("SEAD chronology claims require a build ID")
 
     claims: list[SeadChronologyClaim] = []
+    seen_native_records: set[tuple[str, int]] = set()
+    seen_claim_ids: set[str] = set()
     for site_row in rows:
+        optional_sead_identifier(site_row.get("site_id"))
         site_id = clean_optional_text(site_row.get("site_id"))
         site_uuid = clean_optional_text(site_row.get("site_uuid"))
         for row_key, kind, id_key, source_table in CHRONOLOGY_CLAIM_SPECS:
@@ -57,9 +63,14 @@ def normalize_sead_chronology_claims(
             for row_index, source_row in enumerate(source_rows):
                 if not isinstance(source_row, dict):
                     continue
+                native_record_key = optional_sead_identifier(source_row.get(id_key))
                 source_record_id = clean_optional_text(source_row.get(id_key))
-                stable_source_record_id = source_record_id or f"missing-{row_index}"
-                analysis_entity_id = parse_optional_int(
+                stable_source_record_id = (
+                    str(native_record_key)
+                    if native_record_key is not None
+                    else f"missing-{row_index}"
+                )
+                analysis_entity_id = optional_sead_identifier(
                     source_row.get("analysis_entity_id")
                 )
                 subject_type, subject_id = sead_claim_subject(
@@ -85,11 +96,22 @@ def normalize_sead_chronology_claims(
                     chronology_eligibility = "refused"
 
                 claim_site_key = site_uuid or f"site-{site_id or 'missing'}"
+                claim_id = f"sead:{claim_site_key}:{kind}:{stable_source_record_id}"
+                if native_record_key is not None:
+                    native_identity = (source_table, native_record_key)
+                    if native_identity in seen_native_records:
+                        raise ValueError(
+                            f"SEAD chronology source identity is duplicated: {native_identity}"
+                        )
+                    seen_native_records.add(native_identity)
+                if claim_id in seen_claim_ids:
+                    raise ValueError(
+                        f"SEAD chronology claim identity is duplicated: {claim_id}"
+                    )
+                seen_claim_ids.add(claim_id)
                 claims.append(
                     {
-                        "chronology_claim_id": (
-                            f"sead:{claim_site_key}:{kind}:{stable_source_record_id}"
-                        ),
+                        "chronology_claim_id": claim_id,
                         "source_family": "sead",
                         "source_table": source_table,
                         "source_record_id": stable_source_record_id,
@@ -112,17 +134,19 @@ def normalize_sead_chronology_claims(
                         or None,
                         "subject_type": subject_type,
                         "subject_id": subject_id,
-                        "sample_group_id": parse_optional_int(
+                        "sample_group_id": optional_sead_identifier(
                             source_row.get("sample_group_id")
                         ),
-                        "physical_sample_id": parse_optional_int(
+                        "physical_sample_id": optional_sead_identifier(
                             source_row.get("physical_sample_id")
                         ),
                         "analysis_entity_id": analysis_entity_id,
-                        "analysis_value_id": parse_optional_int(
+                        "analysis_value_id": optional_sead_identifier(
                             source_row.get("analysis_value_id")
                         ),
-                        "dataset_id": parse_optional_int(source_row.get("dataset_id")),
+                        "dataset_id": optional_sead_identifier(
+                            source_row.get("dataset_id")
+                        ),
                         "claim_type": kind,
                         "source_age_type": age_policy["source_age_type"],
                         "source_age_value": dict(source_row),
@@ -175,7 +199,9 @@ def sead_claim_subject(
     if analysis_entity_id is not None:
         return ("analysis_entity", str(analysis_entity_id))
     if kind == "dating_range":
-        analysis_value_id = parse_optional_int(source_row.get("analysis_value_id"))
+        analysis_value_id = optional_sead_identifier(
+            source_row.get("analysis_value_id")
+        )
         if analysis_value_id is not None:
             return ("analysis_value", str(analysis_value_id))
     return ("source_chronology_record", source_record_id)
@@ -195,25 +221,25 @@ def sead_source_relation_path(
         {
             "table": "tbl_sample_groups",
             "key": "sample_group_id",
-            "value": parse_optional_int(source_row.get("sample_group_id")),
+            "value": optional_sead_identifier(source_row.get("sample_group_id")),
         },
         {
             "table": "tbl_physical_samples",
             "key": "physical_sample_id",
-            "value": parse_optional_int(source_row.get("physical_sample_id")),
+            "value": optional_sead_identifier(source_row.get("physical_sample_id")),
         },
         {
             "table": "tbl_analysis_entities",
             "key": "analysis_entity_id",
-            "value": parse_optional_int(source_row.get("analysis_entity_id")),
+            "value": optional_sead_identifier(source_row.get("analysis_entity_id")),
         },
         {
             "table": "tbl_datasets",
             "key": "dataset_id",
-            "value": parse_optional_int(source_row.get("dataset_id")),
+            "value": optional_sead_identifier(source_row.get("dataset_id")),
         },
     ]
-    analysis_value_id = parse_optional_int(source_row.get("analysis_value_id"))
+    analysis_value_id = optional_sead_identifier(source_row.get("analysis_value_id"))
     if analysis_value_id is not None:
         path.append(
             {

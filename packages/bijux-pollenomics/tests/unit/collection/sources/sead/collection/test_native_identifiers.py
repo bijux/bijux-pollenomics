@@ -74,3 +74,15 @@ def test_production_fetch_refuses_fractional_native_keys(
 
     with pytest.raises(ValueError, match="Invalid required SEAD tbl_sites.site_id"):
         collection.fetch_sead_rows("tbl_sites", select="site_id")
+
+
+def test_exact_source_identity_boundary_does_not_change_chronology_or_count_parsing() -> (
+    None
+):
+    from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.values import (
+        parse_optional_int,
+        parse_required_int,
+    )
+
+    assert parse_optional_int(1.4) == 1
+    assert parse_required_int(0) == 0

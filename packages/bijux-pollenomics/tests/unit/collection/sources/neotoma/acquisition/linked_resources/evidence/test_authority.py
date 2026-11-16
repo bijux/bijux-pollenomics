@@ -10,6 +10,11 @@ from typing import Any, cast
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 from .native_products import products
 
 
@@ -68,7 +73,7 @@ def test_invalid_protected_native_pi_refuses_before_facet_body_access(
     native_pi: Any,
 ) -> None:
     inputs = products(tmp_path, native_pi=native_pi)
-    original = Path.open
+    original = capture_opening()
     numerical = set(inputs["source_facets"].values())
     opened = []
 
@@ -80,7 +85,7 @@ def test_invalid_protected_native_pi_refuses_before_facet_body_access(
             )
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="native|positive|identifier"):
         authenticate(inputs)
     assert opened == []

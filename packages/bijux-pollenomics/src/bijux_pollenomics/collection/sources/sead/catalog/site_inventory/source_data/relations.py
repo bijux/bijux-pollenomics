@@ -4,12 +4,18 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from ..values import parse_optional_int, parse_required_int
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    optional_sead_identifier,
+    required_sead_identifier,
+)
+
 from .source_tables import SeadInventorySourceRows
 
 
 @dataclass(frozen=True, slots=True)
 class SeadRelationIndex:
+    """Keep the native key chains connecting observations to sites."""
+
     site_by_sample_group: dict[int, int]
     site_by_physical_sample: dict[int, int]
     sample_group_by_physical_sample: dict[int, int]
@@ -24,21 +30,24 @@ class SeadRelationIndex:
 
 
 def build_relation_index(source: SeadInventorySourceRows) -> SeadRelationIndex:
+    """Build exact ownership indexes without rounding native relationship keys."""
     site_by_sample_group = {
-        parse_required_int(row["sample_group_id"]): parse_required_int(row["site_id"])
+        required_sead_identifier(row["sample_group_id"]): required_sead_identifier(
+            row["site_id"]
+        )
         for row in source.sample_groups
         if row.get("sample_group_id") is not None and row.get("site_id") is not None
     }
     site_by_physical_sample = {
-        parse_required_int(row["physical_sample_id"]): site_by_sample_group.get(
-            parse_required_int(row["sample_group_id"]), 0
+        required_sead_identifier(row["physical_sample_id"]): site_by_sample_group.get(
+            required_sead_identifier(row["sample_group_id"]), 0
         )
         for row in source.physical_samples
         if row.get("physical_sample_id") is not None
         and row.get("sample_group_id") is not None
     }
     sample_group_by_physical_sample = {
-        parse_required_int(row["physical_sample_id"]): parse_required_int(
+        required_sead_identifier(row["physical_sample_id"]): required_sead_identifier(
             row["sample_group_id"]
         )
         for row in source.physical_samples
@@ -46,7 +55,7 @@ def build_relation_index(source: SeadInventorySourceRows) -> SeadRelationIndex:
         and row.get("sample_group_id") is not None
     }
     physical_sample_by_analysis_entity = {
-        parse_required_int(row["analysis_entity_id"]): parse_required_int(
+        required_sead_identifier(row["analysis_entity_id"]): required_sead_identifier(
             row["physical_sample_id"]
         )
         for row in source.analysis_entities
@@ -54,7 +63,7 @@ def build_relation_index(source: SeadInventorySourceRows) -> SeadRelationIndex:
         and row.get("physical_sample_id") is not None
     }
     dataset_by_analysis_entity = {
-        parse_required_int(row["analysis_entity_id"]): parse_optional_int(
+        required_sead_identifier(row["analysis_entity_id"]): optional_sead_identifier(
             row.get("dataset_id")
         )
         for row in source.analysis_entities
@@ -62,13 +71,14 @@ def build_relation_index(source: SeadInventorySourceRows) -> SeadRelationIndex:
     }
     admitted_analysis_entities = set(physical_sample_by_analysis_entity)
     analysis_entity_by_analysis_value = {
-        parse_required_int(row["analysis_value_id"]): parse_required_int(
+        required_sead_identifier(row["analysis_value_id"]): required_sead_identifier(
             row["analysis_entity_id"]
         )
         for row in source.analysis_values
         if row.get("analysis_value_id") is not None
         and row.get("analysis_entity_id") is not None
-        and parse_required_int(row["analysis_entity_id"]) in admitted_analysis_entities
+        and required_sead_identifier(row["analysis_entity_id"])
+        in admitted_analysis_entities
     }
 
     sample_groups_by_site: dict[int, set[int]] = {}
@@ -82,9 +92,9 @@ def build_relation_index(source: SeadInventorySourceRows) -> SeadRelationIndex:
     analysis_entities_by_site: dict[int, set[int]] = {}
     datasets_by_site: dict[int, set[int]] = {}
     for entity in source.analysis_entities:
-        physical_sample_id = parse_required_int(entity.get("physical_sample_id"))
-        analysis_entity_id = parse_required_int(entity.get("analysis_entity_id"))
-        dataset_id = parse_required_int(entity.get("dataset_id"))
+        physical_sample_id = required_sead_identifier(entity.get("physical_sample_id"))
+        analysis_entity_id = required_sead_identifier(entity.get("analysis_entity_id"))
+        dataset_id = optional_sead_identifier(entity.get("dataset_id"))
         site_id = site_by_physical_sample.get(physical_sample_id, 0)
         if not site_id:
             continue

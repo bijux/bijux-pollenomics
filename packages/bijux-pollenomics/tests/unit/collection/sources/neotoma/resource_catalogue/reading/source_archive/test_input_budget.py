@@ -14,17 +14,21 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import arch
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive import (
     publication,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 def forbid_bodies(monkeypatch: pytest.MonkeyPatch) -> None:
-    native = Path.open
+    native = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body":
             pytest.fail("native body buffer opened before archive input preflight")
         return native(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
 
 
 @pytest.mark.parametrize(

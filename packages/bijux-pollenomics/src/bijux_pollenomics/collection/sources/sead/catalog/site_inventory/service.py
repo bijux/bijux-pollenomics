@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from collections.abc import Callable, Mapping, Sequence
 
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    required_sead_identifier,
+)
+
 from .bibliography_projection import project_site_bibliography
 from .chronology_projection import project_site_chronology
 from .site_projection import apply_site_inventory_projection
@@ -15,7 +19,6 @@ from .source_data.table_readers import (
     MappingSeadTableReader,
     SeadTableReader,
 )
-from .values import parse_optional_int
 
 _REQUIRED_ACQUISITION_TABLES = frozenset(
     {
@@ -61,6 +64,7 @@ def populate_sead_site_inventory_fields(
     *,
     fetch_json_fn: Callable[..., object],
 ) -> dict[str, int | str]:
+    """Enrich native site identities through bounded provider table queries."""
     return populate_sead_site_inventory_from_reader(
         rows, reader=ApiSeadTableReader(fetch_json_fn)
     )
@@ -69,11 +73,7 @@ def populate_sead_site_inventory_fields(
 def populate_sead_site_inventory_from_reader(
     rows: list[dict[str, object]], *, reader: SeadTableReader
 ) -> dict[str, int | str]:
-    site_ids = [
-        site_id
-        for row in rows
-        if (site_id := parse_optional_int(row.get("site_id"))) is not None
-    ]
+    site_ids = [required_sead_identifier(row.get("site_id")) for row in rows]
     source = load_inventory_source_rows(site_ids, reader=reader)
     relations = build_relation_index(source)
     lookups = build_lookup_index(source)

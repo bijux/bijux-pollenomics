@@ -4,6 +4,11 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 
 def test_later_occurrence_preserves_original_capture(
     association_products: dict[str, Any],
@@ -51,14 +56,14 @@ def test_projection_opens_no_native_entity_buffers(
 
     p = association_products
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and p["capsule"] in path.parents:
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     result = build_neotoma_linked_associations(p["evidence"], inputs=p["inputs"])
     assert result["summary"]["later_associations"] == 1
     assert opened == []

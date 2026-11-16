@@ -8,6 +8,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 from .native_products import rebuild_context, source_response
 
 
@@ -135,7 +140,7 @@ def test_scope_metadata_never_opens_native_numerical_bodies(
         inputs.pop("context_manifest_sha256"),
         inputs.pop("native_archive_manifest_sha256"),
     )
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -144,7 +149,7 @@ def test_scope_metadata_never_opens_native_numerical_bodies(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     scope = prepare_scope(plan, **inputs)
     assert opened
     assert scope["site_count"] == 3

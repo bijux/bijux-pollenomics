@@ -10,6 +10,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 from .native_products import products
 
 
@@ -44,7 +49,7 @@ def test_replay_declared_global_budget_refuses_before_any_part_open(
     module = owner()
     result = module.publish_neotoma_linked_evidence(tmp_path / "evidence", **inputs)
     monkeypatch.setattr(module, "MAX_EVIDENCE_BYTES", 1)
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -52,7 +57,7 @@ def test_replay_declared_global_budget_refuses_before_any_part_open(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="budget"):
         module.load_neotoma_linked_evidence(
             result.directory, expected_manifest_sha256=result.manifest_sha256, **inputs

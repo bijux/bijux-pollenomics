@@ -23,6 +23,10 @@ from bijux_pollenomics.reporting.map_document import source_resources as owner
 from bijux_pollenomics.reporting.map_document.static_assets.source_resources import (
     build_source_resource_payloads,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from .native_archives import (
     reference_archive as reference_archive,
@@ -107,7 +111,7 @@ def test_supporting_inventory_is_exact_detached_metadata_with_no_entity_reads(
         for member in descriptor["files"]
         if member["source_entity"] is True
     }
-    original_open = Path.open
+    original_open = capture_opening()
     opened: list[Path] = []
 
     def guarded(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -116,7 +120,7 @@ def test_supporting_inventory_is_exact_detached_metadata_with_no_entity_reads(
             opened.append(path)
         return original_open(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", guarded)
+    observe_opening(monkeypatch, guarded)
     projected = owner.load_atlas_resource_catalogue(source).ancillary
     assert isinstance(projected, owner.AtlasAncillarySupportingMetadata)
     assert len(projected.supporting_archives) == 1

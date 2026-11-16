@@ -8,7 +8,7 @@ import json
 import os
 from pathlib import Path
 import stat
-from typing import TYPE_CHECKING, Any
+from typing import IO, TYPE_CHECKING, Any
 from urllib.parse import urlsplit
 
 from ..client import decode_neotoma_json_object
@@ -218,6 +218,23 @@ def _utc(value: object) -> datetime:
     return result
 
 
+def _open_source(path: Path) -> IO[bytes]:
+    """Open without following a replaced link or waiting for a replaced FIFO."""
+    if not all(hasattr(os, name) for name in ("O_NOFOLLOW", "O_NONBLOCK")):
+        raise ValueError("Neotoma nonblocking regular source opens are unavailable")
+    try:
+        descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    except OSError as error:
+        raise ValueError(
+            f"Neotoma capture input is not a bounded regular file: {path}"
+        ) from error
+    try:
+        return os.fdopen(descriptor, "rb")
+    except BaseException:
+        os.close(descriptor)
+        raise
+
+
 def _read(path: Path, bound: int) -> bytes:
     if type(bound) is not int or bound < 0:
         raise ValueError(
@@ -231,11 +248,12 @@ def _read(path: Path, bound: int) -> bytes:
         ) from error
     if not stat.S_ISREG(node.st_mode) or node.st_size > bound:
         raise ValueError(f"Neotoma capture input is not a bounded regular file: {path}")
-    with path.open("rb") as stream:
+    with _open_source(path) as stream:
         opened = os.fstat(stream.fileno())
-        if not stat.S_ISREG(opened.st_mode) or (opened.st_dev, opened.st_ino) != (
-            node.st_dev,
-            node.st_ino,
+        if (
+            not stat.S_ISREG(opened.st_mode)
+            or opened.st_size > bound
+            or (opened.st_dev, opened.st_ino) != (node.st_dev, node.st_ino)
         ):
             raise ValueError("Neotoma capture input identity changed while opening")
         content = stream.read(bound + 1)

@@ -11,6 +11,10 @@ from bijux_pollenomics.reporting.map_document.source_resources import (
     load_atlas_resource_catalogue,
     models,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 def test_reference_reads_only_manifest_and_index_without_native_entities(
@@ -24,7 +28,7 @@ def test_reference_reads_only_manifest_and_index_without_native_entities(
             archive, archive_pin, "/data/neotoma/source-resources/"
         ),
     )
-    read = Path.open
+    read = capture_opening()
     opened = []
     read_limits = {}
     expected_limits = {
@@ -64,7 +68,7 @@ def test_reference_reads_only_manifest_and_index_without_native_entities(
             else stream
         )
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     projected = load_atlas_resource_catalogue(source)
     reference = projected.provenance["source_archive"]
     assert reference["manifest_sha256"] == archive_pin

@@ -10,6 +10,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 from .native_products import products
 
 
@@ -34,7 +39,7 @@ def test_selected_target_opens_only_its_proof_parts(
     }
     all_parts = {row["sha256"] for row in index["parts"]}
     assert target_parts < all_parts
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -43,7 +48,7 @@ def test_selected_target_opens_only_its_proof_parts(
             assert path.stem in target_parts
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     selected = module.read_neotoma_linked_evidence_target(
         result.directory,
         expected_manifest_sha256=result.manifest_sha256,
@@ -290,7 +295,7 @@ def test_new_capture_refuses_scope_bypass_before_outcome_access_or_output(
         "bijux_pollenomics.collection.sources.neotoma.capture.linked_resources"
     )
     numerical = set(inputs["source_facets"].values())
-    original = Path.open
+    original = capture_opening()
     reads = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -298,7 +303,7 @@ def test_new_capture_refuses_scope_bypass_before_outcome_access_or_output(
             reads.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError):
         api.capture_neotoma_linked_resources(
             tmp_path / "linked",

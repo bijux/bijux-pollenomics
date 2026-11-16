@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    required_sead_identifier,
+)
+
 from .bibliography_projection import SeadBibliographyProjection
 from .chronology_projection import SeadChronologyProjection
 from .source_data.lookups import SeadLookupIndex
@@ -13,11 +17,12 @@ from .temporal import (
     _uncertainty_labels,
     merge_sead_intervals,
 )
-from .values import parse_required_int
 
 
 @dataclass(frozen=True, slots=True)
 class SeadSiteCoverage:
+    """Identify sites with numeric or contextual interval support."""
+
     numeric_interval_site_ids: set[int]
     contextual_interval_site_ids: set[int]
 
@@ -30,8 +35,9 @@ def apply_site_inventory_projection(
     chronology: SeadChronologyProjection,
     bibliography: SeadBibliographyProjection,
 ) -> SeadSiteCoverage:
+    """Apply source-owned counts, references and chronology to exact site keys."""
     for row in rows:
-        site_id = parse_required_int(row.get("site_id"))
+        site_id = required_sead_identifier(row.get("site_id"))
         dataset_names = [
             name
             for name in sorted(

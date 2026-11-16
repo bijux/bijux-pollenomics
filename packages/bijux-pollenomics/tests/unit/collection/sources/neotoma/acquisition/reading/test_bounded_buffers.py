@@ -11,6 +11,10 @@ from typing import Any, cast
 import pytest
 
 from bijux_pollenomics.collection.sources.neotoma.capture.receipts import _object, _read
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 class ObservedBuffer:
@@ -49,7 +53,7 @@ def observe(
     before: Callable[[], None] | None = None,
     after: Callable[[], None] | None = None,
 ) -> list[tuple[int, int]]:
-    opening = Path.open
+    opening = capture_opening()
     reads: list[tuple[int, int]] = []
 
     def opened(candidate: Path, *args: Any, **kwargs: Any) -> Any:
@@ -60,7 +64,7 @@ def observe(
             return ObservedBuffer(stream, reads, before, after)
         return stream
 
-    monkeypatch.setattr(Path, "open", opened)
+    observe_opening(monkeypatch, opened)
     return reads
 
 
@@ -102,7 +106,7 @@ def test_invalid_native_byte_bound_refuses_before_open(
     def never(*_: Any, **__: Any) -> Any:
         pytest.fail("Invalid native byte bound opened source input")
 
-    monkeypatch.setattr(Path, "open", never)
+    observe_opening(monkeypatch, never)
     with pytest.raises(ValueError, match="bound"):
         _read(path, bound)
 
@@ -137,7 +141,7 @@ def test_opened_inode_replacement_refuses_before_any_buffer_read(
     path.write_bytes(b"owned")
     other = tmp_path / "foreign.body"
     other.write_bytes(b"other")
-    opening = Path.open
+    opening = capture_opening()
     reads: list[tuple[int, int]] = []
 
     def switched(candidate: Path, *args: Any, **kwargs: Any) -> Any:
@@ -147,7 +151,7 @@ def test_opened_inode_replacement_refuses_before_any_buffer_read(
             return ObservedBuffer(opening(path, *args, **kwargs), reads)
         return opening(candidate, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", switched)
+    observe_opening(monkeypatch, switched)
     with pytest.raises(ValueError, match="identity|changed"):
         _read(path, 5)
     assert reads == []

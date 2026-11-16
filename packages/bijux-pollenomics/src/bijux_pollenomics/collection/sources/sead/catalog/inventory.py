@@ -1,10 +1,12 @@
+"""Build source-keyed SEAD site inventories from declared discovery queries."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
 
-from bijux_pollenomics.collection.sources.sead.catalog.site_inventory import (
-    parse_optional_int,
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    required_sead_identifier,
 )
 
 __all__ = ["SeadSiteFetchResult", "build_sead_site_inventory"]
@@ -12,6 +14,8 @@ __all__ = ["SeadSiteFetchResult", "build_sead_site_inventory"]
 
 @dataclass(frozen=True)
 class SeadSiteFetchResult:
+    """Retain discovered site rows and their linked-source inventory account."""
+
     rows: list[dict[str, object]]
     inventory_summary: dict[str, int | str]
 
@@ -37,12 +41,12 @@ def build_sead_site_inventory(
         ),
         order_by=("site_id",),
     )
-    deduplicated: dict[str, dict[str, object]] = {}
+    deduplicated: dict[int, dict[str, object]] = {}
     for row in rows:
-        deduplicated[str(row.get("site_id", ""))] = row
+        deduplicated[required_sead_identifier(row.get("site_id"))] = row
     deduplicated_rows = sorted(
         deduplicated.values(),
-        key=lambda item: parse_optional_int(item.get("site_id")) or 0,
+        key=lambda item: required_sead_identifier(item.get("site_id")),
     )
     inventory_summary = populate_inventory_fields_fn(deduplicated_rows)
     return SeadSiteFetchResult(

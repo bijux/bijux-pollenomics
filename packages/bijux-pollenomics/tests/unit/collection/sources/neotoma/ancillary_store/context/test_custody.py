@@ -9,6 +9,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 
 @pytest.mark.parametrize(
     "mutation", ["extra", "empty_directory", "symlink", "hardlink", "evidence"]
@@ -151,14 +156,14 @@ def test_context_finite_budgets_refuse_before_legacy_buffer(
     )
 
     legacy = next(iter(context_inputs["legacy_rosters"].values()))
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path == legacy:
             pytest.fail("Over-budget legacy input buffer opened")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     monkeypatch.setattr(
         publication,
         "MAX_BYTES" if budget == "bytes" else "MAX_FILES",
@@ -183,14 +188,14 @@ def test_loader_hashes_and_validates_each_copied_evidence_buffer_once(
     output = tmp_path / "context"
     manifest = write_neotoma_ancillary_context(output, **context_inputs)
     files = {output / name: 0 for name in manifest["files"]}
-    original = Path.open
+    original = capture_opening()
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path in files:
             files[path] += 1
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     load_neotoma_ancillary_context(
         output,
         expected_manifest_sha256=sha256(

@@ -10,6 +10,10 @@ from bijux_pollenomics.collection.sources.neotoma.ancillary_store.selection impo
     read_neotoma_ancillary_linked,
     read_neotoma_ancillary_linked_entity,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from .native_products import selected
 
@@ -45,7 +49,7 @@ def test_scoped_typed_detail_and_selected_native_pointer_open_once(
     body = products["capsule"] / row["forensic_locator"]["body_relative_path"]
     expected = body.read_bytes()
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and (
@@ -56,7 +60,7 @@ def test_scoped_typed_detail_and_selected_native_pointer_open_once(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     result = read_neotoma_ancillary_linked(
         products["directory"],
         **products["kwargs"],
@@ -87,7 +91,7 @@ def test_facet_selection_needs_no_unrelated_state_resolver_or_proof_parts(
         and value["root_identity"]["dataset_id"] == 201
     )
     body = products["facet_capsule"] / row["forensic_locator"]["body_relative_path"]
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -97,7 +101,7 @@ def test_facet_selection_needs_no_unrelated_state_resolver_or_proof_parts(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     value = read_neotoma_ancillary_facet_entity(
         products["directory"],
         **products["kwargs"],
@@ -115,7 +119,7 @@ def test_scoped_linked_selection_refuses_missing_state_without_entity_access(
 ) -> None:
     products = scoped_selection_products
     row, occurrence = selected(products)
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -126,7 +130,7 @@ def test_scoped_linked_selection_refuses_missing_state_without_entity_access(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     with pytest.raises(ValueError, match="evidence|resolver"):
         read_neotoma_ancillary_linked_entity(
             products["directory"],
@@ -164,7 +168,7 @@ def test_scoped_request_and_remaining_budget_refuses_before_any_entity(
         if budget == "entity"
         else {"max_total_bytes": sum(sizes) - 1}
     )
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -175,7 +179,7 @@ def test_scoped_request_and_remaining_budget_refuses_before_any_entity(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     options = {**products["kwargs"], "limits": NeotomaResourceLimits(**changes)}
     with pytest.raises(ValueError, match="budget"):
         read_neotoma_ancillary_linked_entity(
@@ -260,7 +264,7 @@ def test_facet_owned_by_scoped_capsule_needs_no_global_evidence_resolver(
         and value["root_identity"]["dataset_id"] == 201
     )
     body = joint / row["forensic_locator"]["body_relative_path"]
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -270,7 +274,7 @@ def test_facet_owned_by_scoped_capsule_needs_no_global_evidence_resolver(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     read_neotoma_ancillary_facet_entity(
         products["directory"],
         **products["kwargs"],
@@ -306,7 +310,7 @@ def test_scoped_requested_identity_refuses_before_any_entity(
         "native_id": 11,
         **changes,
     }
-    original = Path.open
+    original = capture_opening()
     opened = []
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -317,7 +321,7 @@ def test_scoped_requested_identity_refuses_before_any_entity(
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     with pytest.raises(ValueError):
         read_neotoma_ancillary_linked_entity(products["directory"], **options)
     assert opened == []
@@ -329,7 +333,7 @@ def test_original_scope_uses_one_authenticated_buffer_and_no_cross_call_cache(
 ) -> None:
     products = scoped_selection_products
     row, occurrence = selected(products)
-    original = Path.open
+    original = capture_opening()
     scope_opens = []
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -340,7 +344,7 @@ def test_original_scope_uses_one_authenticated_buffer_and_no_cross_call_cache(
             scope_opens.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     options = {
         **products["kwargs"],
         "evidence_sources": products["evidence_sources"],

@@ -4,7 +4,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from ..values import parse_optional_int, parse_required_int
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    optional_sead_identifier,
+    required_sead_identifier,
+)
+
 from .table_readers import SeadTableReader
 
 Row = dict[str, object]
@@ -12,6 +16,8 @@ Row = dict[str, object]
 
 @dataclass(frozen=True, slots=True)
 class SeadInventorySourceRows:
+    """Retain projected native rows separately from derived relation indexes."""
+
     sample_groups: list[Row]
     physical_samples: list[Row]
     analysis_entities: list[Row]
@@ -35,6 +41,7 @@ class SeadInventorySourceRows:
 def load_inventory_source_rows(
     site_ids: list[int], *, reader: SeadTableReader
 ) -> SeadInventorySourceRows:
+    """Retrieve the linked rows required by the declared site identity set."""
     sample_groups = reader.rows_by_ids(
         "tbl_sample_groups",
         select="sample_group_id,site_id,sample_group_name",
@@ -43,7 +50,9 @@ def load_inventory_source_rows(
         order_by=("site_id", "sample_group_id"),
     )
     sample_group_by_id = {
-        parse_required_int(row["sample_group_id"]): parse_required_int(row["site_id"])
+        required_sead_identifier(row["sample_group_id"]): required_sead_identifier(
+            row["site_id"]
+        )
         for row in sample_groups
         if row.get("sample_group_id") is not None and row.get("site_id") is not None
     }
@@ -59,8 +68,8 @@ def load_inventory_source_rows(
         else []
     )
     site_id_by_physical_sample_id = {
-        parse_required_int(row["physical_sample_id"]): sample_group_by_id.get(
-            parse_required_int(row["sample_group_id"]), 0
+        required_sead_identifier(row["physical_sample_id"]): sample_group_by_id.get(
+            required_sead_identifier(row["sample_group_id"]), 0
         )
         for row in physical_samples
         if row.get("physical_sample_id") is not None
@@ -78,7 +87,7 @@ def load_inventory_source_rows(
         else []
     )
     analysis_entity_ids = [
-        parse_required_int(row["analysis_entity_id"])
+        required_sead_identifier(row["analysis_entity_id"])
         for row in analysis_entities
         if row.get("analysis_entity_id") is not None
     ]
@@ -97,7 +106,8 @@ def load_inventory_source_rows(
             if analysis_entity_id_set
             else []
         )
-        if parse_required_int(row.get("analysis_entity_id")) in analysis_entity_id_set
+        if required_sead_identifier(row.get("analysis_entity_id"))
+        in analysis_entity_id_set
     ]
     geochronology_rows = [
         row
@@ -113,7 +123,8 @@ def load_inventory_source_rows(
             if analysis_entity_id_set
             else []
         )
-        if parse_required_int(row.get("analysis_entity_id")) in analysis_entity_id_set
+        if required_sead_identifier(row.get("analysis_entity_id"))
+        in analysis_entity_id_set
     ]
     dendro_dates = [
         row
@@ -130,7 +141,8 @@ def load_inventory_source_rows(
             if analysis_entity_id_set
             else []
         )
-        if parse_required_int(row.get("analysis_entity_id")) in analysis_entity_id_set
+        if required_sead_identifier(row.get("analysis_entity_id"))
+        in analysis_entity_id_set
     ]
     all_dating_ranges = reader.all_rows(
         "tbl_analysis_dating_ranges",
@@ -144,7 +156,7 @@ def load_inventory_source_rows(
     dating_analysis_value_ids = {
         analysis_value_id
         for row in all_dating_ranges
-        if (analysis_value_id := parse_optional_int(row.get("analysis_value_id")))
+        if (analysis_value_id := optional_sead_identifier(row.get("analysis_value_id")))
         is not None
     }
     analysis_values = (
@@ -159,22 +171,23 @@ def load_inventory_source_rows(
         else []
     )
     analysis_entity_id_by_analysis_value_id = {
-        parse_required_int(row["analysis_value_id"]): parse_required_int(
+        required_sead_identifier(row["analysis_value_id"]): required_sead_identifier(
             row["analysis_entity_id"]
         )
         for row in analysis_values
         if row.get("analysis_value_id") is not None
         and row.get("analysis_entity_id") is not None
-        and parse_required_int(row["analysis_entity_id"]) in analysis_entity_id_set
+        and required_sead_identifier(row["analysis_entity_id"])
+        in analysis_entity_id_set
     }
     dating_ranges = [
         row
         for row in all_dating_ranges
-        if parse_required_int(row.get("analysis_value_id"))
+        if required_sead_identifier(row.get("analysis_value_id"))
         in analysis_entity_id_by_analysis_value_id
     ]
     age_type_ids = [
-        parse_required_int(row["age_type_id"])
+        required_sead_identifier(row["age_type_id"])
         for row in (*dating_ranges, *dendro_dates)
         if row.get("age_type_id") is not None
     ]
@@ -203,11 +216,12 @@ def load_inventory_source_rows(
             if analysis_entity_id_set
             else []
         )
-        if parse_required_int(row.get("analysis_entity_id")) in analysis_entity_id_set
+        if required_sead_identifier(row.get("analysis_entity_id"))
+        in analysis_entity_id_set
     ]
     dating_uncertainty_ids = sorted(
         {
-            parse_required_int(row["dating_uncertainty_id"])
+            required_sead_identifier(row["dating_uncertainty_id"])
             for row in (*dating_ranges, *geochronology_rows, *dendro_dates)
             if row.get("dating_uncertainty_id") is not None
         }
@@ -215,7 +229,7 @@ def load_inventory_source_rows(
     dating_uncertainty_ids.extend(
         sorted(
             {
-                parse_required_int(row["dating_uncertainty_id"])
+                required_sead_identifier(row["dating_uncertainty_id"])
                 for row in relative_dates
                 if row.get("dating_uncertainty_id") is not None
             }
@@ -233,7 +247,7 @@ def load_inventory_source_rows(
         else []
     )
     relative_age_ids = [
-        parse_required_int(row["relative_age_id"])
+        required_sead_identifier(row["relative_age_id"])
         for row in relative_dates
         if row.get("relative_age_id") is not None
     ]
@@ -252,7 +266,7 @@ def load_inventory_source_rows(
         else []
     )
     method_ids = [
-        parse_required_int(row["method_id"])
+        required_sead_identifier(row["method_id"])
         for row in relative_dates
         if row.get("method_id") is not None
     ]
@@ -268,7 +282,7 @@ def load_inventory_source_rows(
         else []
     )
     dataset_ids = [
-        parse_required_int(row["dataset_id"])
+        required_sead_identifier(row["dataset_id"])
         for row in analysis_entities
         if row.get("dataset_id") is not None
     ]
@@ -318,7 +332,7 @@ def load_inventory_source_rows(
     )
     biblio_ids = sorted(
         {
-            parse_required_int(row["biblio_id"])
+            required_sead_identifier(row["biblio_id"])
             for row in (
                 *datasets,
                 *site_references,

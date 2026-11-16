@@ -26,6 +26,10 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import (
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive import (
     write_neotoma_source_archive,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 from ...acquisition.facets.parent_scope.native_sources import source_inputs
 from ...acquisition.resources.native_payloads import spec
@@ -228,7 +232,7 @@ def unit_products(tmp_path: Path) -> Callable[..., dict[str, Any]]:
 
 def observe_units(monkeypatch: pytest.MonkeyPatch, allowed: set[Path]) -> list[Path]:
     opened = []
-    original = Path.open
+    original = capture_opening()
 
     def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
         if path.suffix == ".body" and path.name.startswith("speleothem-unit-"):
@@ -236,7 +240,7 @@ def observe_units(monkeypatch: pytest.MonkeyPatch, allowed: set[Path]) -> list[P
             opened.append(path)
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observe)
+    observe_opening(monkeypatch, observe)
     return opened
 
 

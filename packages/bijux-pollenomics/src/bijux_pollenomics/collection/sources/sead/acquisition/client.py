@@ -1,3 +1,5 @@
+"""Bounded SEAD queries with exact source keys and explicit EOF evidence."""
+
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable, Mapping
@@ -6,6 +8,8 @@ from email.utils import parsedate_to_datetime
 import re
 import time
 from urllib.error import HTTPError, URLError
+
+from .identifiers import required_sead_identifier
 
 SEAD_LIMIT = 1000
 SEAD_MAX_PAGES = 1000
@@ -78,7 +82,7 @@ def _range_exhausted_at(error: HTTPError, start: int) -> bool:
     if len(declarations) != 1 or not isinstance(declarations[0], str):
         return False
     match = re.fullmatch(r"\*/(0|[1-9][0-9]*)", declarations[0])
-    return match is not None and int(match[1]) == start
+    return match is not None and match[1] == str(start)
 
 
 def fetch_sead_rows_by_ids(
@@ -93,7 +97,7 @@ def fetch_sead_rows_by_ids(
     request_timeout_seconds: float = SEAD_REQUEST_TIMEOUT_SECONDS,
 ) -> list[dict[str, object]]:
     """Fetch SEAD rows in manageable `in.(...)` batches."""
-    unique_ids = sorted({int(value) for value in ids})
+    unique_ids = sorted({required_sead_identifier(value) for value in ids})
     rows: list[dict[str, object]] = []
     for start in range(0, len(unique_ids), SEAD_FILTER_BATCH_SIZE):
         batch = unique_ids[start : start + SEAD_FILTER_BATCH_SIZE]
@@ -172,7 +176,7 @@ def sead_retry_delay(exc: Exception, attempt: int) -> float | None:
 
 def build_sead_in_filter(values: list[int]) -> str:
     """Render a PostgREST `in.(...)` filter from integer identifiers."""
-    return f"in.({','.join(str(value) for value in values)})"
+    return f"in.({','.join(str(required_sead_identifier(value)) for value in values)})"
 
 
 __all__ = [

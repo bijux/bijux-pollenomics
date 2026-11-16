@@ -9,6 +9,11 @@ from typing import Any
 
 import pytest
 
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
+
 
 def test_context_preserves_original_buffers_and_scope_identity(
     context_inputs: dict[str, Any], tmp_path: Path
@@ -58,7 +63,7 @@ def test_context_does_not_read_native_numerical_entities(
         write_neotoma_ancillary_context,
     )
 
-    original = Path.open
+    original = capture_opening()
     native = context_inputs["native_archive_directory"]
 
     def observed(path: Path, *args: Any, **kwargs: Any) -> Any:
@@ -66,7 +71,7 @@ def test_context_does_not_read_native_numerical_entities(
             raise AssertionError(f"Unselected native entity opened: {path}")
         return original(path, *args, **kwargs)
 
-    monkeypatch.setattr(Path, "open", observed)
+    observe_opening(monkeypatch, observed)
     output = tmp_path / "context"
     write_neotoma_ancillary_context(output, **context_inputs)
     load_neotoma_ancillary_context(

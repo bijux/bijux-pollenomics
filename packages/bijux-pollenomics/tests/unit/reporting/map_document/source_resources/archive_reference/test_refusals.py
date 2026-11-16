@@ -15,6 +15,10 @@ from bijux_pollenomics.reporting.map_document.source_resources import (
     AtlasResourceCatalogueInput,
     load_atlas_resource_catalogue,
 )
+from tests.unit.collection.sources.neotoma.reading_observation import (
+    capture_opening,
+    observe_opening,
+)
 
 
 def reseal(root: Path, manifest: dict[str, object]) -> str:
@@ -143,7 +147,7 @@ def test_declared_index_size_mismatch_refuses_before_buffering_index(
     manifest["files"]["downloads/index.json"]["bytes"] = 1
     manifest["source_bytes"] -= old_size - 1
     pin = reseal(archive, manifest)
-    actual_open = Path.open
+    actual_open = capture_opening()
     buffered = []
     index_opened = []
 
@@ -175,7 +179,7 @@ def test_declared_index_size_mismatch_refuses_before_buffering_index(
             else stream
         )
 
-    monkeypatch.setattr(Path, "open", observed_open)
+    observe_opening(monkeypatch, observed_open)
     with pytest.raises(ValueError):
         load_atlas_resource_catalogue(
             AtlasResourceCatalogueInput(

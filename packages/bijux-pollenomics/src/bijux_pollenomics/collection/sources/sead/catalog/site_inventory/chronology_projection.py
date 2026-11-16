@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
+    optional_sead_identifier,
+    required_sead_identifier,
+)
 from bijux_pollenomics.core.bp_time import normalize_bp_interval
 
 from .chronology_records import (
@@ -17,7 +21,7 @@ from .chronology_records import (
     _dendro_date_interval,
     _geochronology_interval,
 )
-from .source_data.lookups import SeadLookupIndex
+from .source_data.lookups import SeadLookupIndex, lookup_optional_reference
 from .source_data.relations import SeadRelationIndex
 from .source_data.source_tables import SeadInventorySourceRows
 from .temporal import (
@@ -25,13 +29,15 @@ from .temporal import (
     sead_dating_interval,
     sead_interval_is_canonical,
 )
-from .values import parse_optional_int, parse_required_int
+from .values import parse_optional_int
 
 Row = dict[str, object]
 
 
 @dataclass(frozen=True, slots=True)
 class SeadChronologyProjection:
+    """Retain site-owned chronology rows and separately derived intervals."""
+
     relative_date_ids_by_site: dict[int, set[int]]
     site_ids_by_relative_age_id: dict[int, set[int]]
     dating_range_counts_by_site: dict[int, int]
@@ -49,6 +55,7 @@ def project_site_chronology(
     relations: SeadRelationIndex,
     lookups: SeadLookupIndex,
 ) -> SeadChronologyProjection:
+    """Attach chronology records through exact native source relationships."""
     relative_date_ids_by_site: dict[int, set[int]] = {}
     site_ids_by_relative_age_id: dict[int, set[int]] = {}
     dating_range_counts_by_site: dict[int, int] = {}
@@ -60,7 +67,9 @@ def project_site_chronology(
     geochronology_rows_by_site: dict[int, list[Row]] = {}
     dendro_date_rows_by_site: dict[int, list[Row]] = {}
     for entity_age in source.analysis_entity_ages:
-        analysis_entity_id = parse_required_int(entity_age.get("analysis_entity_id"))
+        analysis_entity_id = required_sead_identifier(
+            entity_age.get("analysis_entity_id")
+        )
         site_id = relations.site_by_analysis_entity.get(analysis_entity_id, 0)
         interval = _analysis_entity_age_interval(entity_age)
         if not site_id:
@@ -80,7 +89,7 @@ def project_site_chronology(
         if interval is not None and sead_interval_is_canonical(interval):
             numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for geochronology_row in source.geochronology_rows:
-        analysis_entity_id = parse_required_int(
+        analysis_entity_id = required_sead_identifier(
             geochronology_row.get("analysis_entity_id")
         )
         site_id = relations.site_by_analysis_entity.get(analysis_entity_id, 0)
@@ -91,8 +100,9 @@ def project_site_chronology(
             _build_geochronology_row(
                 geochronology_row,
                 interval=interval,
-                uncertainty=lookups.uncertainty_by_id.get(
-                    parse_required_int(geochronology_row.get("dating_uncertainty_id")),
+                uncertainty=lookup_optional_reference(
+                    lookups.uncertainty_by_id,
+                    geochronology_row.get("dating_uncertainty_id"),
                     {},
                 ),
                 relation_identity=_analysis_entity_relation_identity(
@@ -106,13 +116,15 @@ def project_site_chronology(
         if interval is not None and sead_interval_is_canonical(interval):
             numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for dendro_date in source.dendro_dates:
-        analysis_entity_id = parse_required_int(dendro_date.get("analysis_entity_id"))
-        site_id = relations.site_by_analysis_entity.get(analysis_entity_id, 0)
-        age_type = lookups.age_type_by_id.get(
-            parse_required_int(dendro_date.get("age_type_id")), ""
+        analysis_entity_id = required_sead_identifier(
+            dendro_date.get("analysis_entity_id")
         )
-        uncertainty = lookups.uncertainty_by_id.get(
-            parse_required_int(dendro_date.get("dating_uncertainty_id")), {}
+        site_id = relations.site_by_analysis_entity.get(analysis_entity_id, 0)
+        age_type = lookup_optional_reference(
+            lookups.age_type_by_id, dendro_date.get("age_type_id"), ""
+        )
+        uncertainty = lookup_optional_reference(
+            lookups.uncertainty_by_id, dendro_date.get("dating_uncertainty_id"), {}
         )
         interval = _dendro_date_interval(dendro_date, age_type=age_type)
         if not site_id:
@@ -138,12 +150,18 @@ def project_site_chronology(
         ):
             numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for relative_date in source.relative_dates:
-        analysis_entity_id = parse_required_int(relative_date.get("analysis_entity_id"))
-        relative_date_id = parse_required_int(relative_date.get("relative_date_id"))
+        analysis_entity_id = required_sead_identifier(
+            relative_date.get("analysis_entity_id")
+        )
+        relative_date_id = required_sead_identifier(
+            relative_date.get("relative_date_id")
+        )
         site_id = relations.site_by_analysis_entity.get(analysis_entity_id, 0)
         if site_id and relative_date_id:
             relative_date_ids_by_site.setdefault(site_id, set()).add(relative_date_id)
-            relative_age_id = parse_required_int(relative_date.get("relative_age_id"))
+            relative_age_id = optional_sead_identifier(
+                relative_date.get("relative_age_id")
+            )
             if relative_age_id:
                 site_ids_by_relative_age_id.setdefault(relative_age_id, set()).add(
                     site_id
@@ -152,16 +170,17 @@ def project_site_chronology(
                 _build_relative_period_row(
                     relative_date,
                     site_id=site_id,
-                    relative_age=lookups.relative_age_by_id.get(
-                        parse_required_int(relative_date.get("relative_age_id")),
+                    relative_age=lookup_optional_reference(
+                        lookups.relative_age_by_id,
+                        relative_date.get("relative_age_id"),
                         {},
                     ),
-                    method=lookups.method_by_id.get(
-                        parse_required_int(relative_date.get("method_id")),
-                        {},
+                    method=lookup_optional_reference(
+                        lookups.method_by_id, relative_date.get("method_id"), {}
                     ),
-                    uncertainty=lookups.uncertainty_by_id.get(
-                        parse_required_int(relative_date.get("dating_uncertainty_id")),
+                    uncertainty=lookup_optional_reference(
+                        lookups.uncertainty_by_id,
+                        relative_date.get("dating_uncertainty_id"),
                         {},
                     ),
                     relation_identity=_analysis_entity_relation_identity(
@@ -173,13 +192,15 @@ def project_site_chronology(
                 )
             )
     for dating_range in source.dating_ranges:
-        analysis_value_id = parse_required_int(dating_range.get("analysis_value_id"))
+        analysis_value_id = required_sead_identifier(
+            dating_range.get("analysis_value_id")
+        )
         analysis_entity_id = relations.analysis_entity_by_analysis_value.get(
             analysis_value_id, 0
         )
         site_id = relations.site_by_analysis_entity.get(analysis_entity_id, 0)
-        age_type = lookups.age_type_by_id.get(
-            parse_required_int(dating_range.get("age_type_id")), ""
+        age_type = lookup_optional_reference(
+            lookups.age_type_by_id, dating_range.get("age_type_id"), ""
         )
         interval = sead_dating_interval(dating_range, age_type=age_type)
         if not site_id or interval is None:
@@ -192,11 +213,14 @@ def project_site_chronology(
                 _build_dating_range_row(
                     dating_range,
                     age_type=age_type,
-                    age_type_description=lookups.age_type_description_by_id.get(
-                        parse_required_int(dating_range.get("age_type_id")), ""
+                    age_type_description=lookup_optional_reference(
+                        lookups.age_type_description_by_id,
+                        dating_range.get("age_type_id"),
+                        "",
                     ),
-                    uncertainty=lookups.uncertainty_by_id.get(
-                        parse_required_int(dating_range.get("dating_uncertainty_id")),
+                    uncertainty=lookup_optional_reference(
+                        lookups.uncertainty_by_id,
+                        dating_range.get("dating_uncertainty_id"),
                         {},
                     ),
                     relation_identity=_analysis_entity_relation_identity(
@@ -219,7 +243,7 @@ def project_site_chronology(
                 parse_optional_int(row.get("time_start_bp")),
                 parse_optional_int(row.get("time_end_bp")),
             )
-            site_id = parse_required_int(row.get("site_id"))
+            site_id = required_sead_identifier(row.get("site_id"))
             if (
                 site_id
                 and interval is not None
