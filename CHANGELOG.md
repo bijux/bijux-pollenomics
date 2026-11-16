@@ -2,6 +2,13 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#465](https://github.com/bijux/bijux-pollenomics/pull/465) — Authenticated regional draw receipt buffers
+
+- Hash and semantically validate the same operation-local regional draw receipt
+  bytes, preventing authenticated-source replacement from changing parsed meaning.
+- Bound the selected control receipt at 1 MiB and require ordinary-file custody
+  while retaining separate streaming behavior for other evidence roles.
+
 ### [#464](https://github.com/bijux/bijux-pollenomics/pull/464) — Grid custody, destination recovery and contributor resources
 
 - Bind declared HYDE interchange grids to one bounded ordinary source descriptor
