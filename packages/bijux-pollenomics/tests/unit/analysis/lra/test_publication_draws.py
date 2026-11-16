@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 from shutil import copytree
 from types import SimpleNamespace
+from typing import Any
 
 import numpy as np
 import pytest
@@ -180,11 +181,11 @@ def test_unselected_member_mutation_after_first_inventory_is_refused(
     selected_bin = publication_draws._selected_bin
 
     def mutate_after_inventory(
-        source_root: Path, manifest: dict[str, object], selected_bin_id: str
+        availability: list[list[str]], manifest: dict[str, object], selected_bin_id: str
     ) -> object:
         unselected = root / "site-0" / "cover.csv"
         unselected.write_text(unselected.read_text() + "changed\n")
-        return selected_bin(source_root, manifest, selected_bin_id)
+        return selected_bin(availability, manifest, selected_bin_id)
 
     monkeypatch.setattr(publication_draws, "_selected_bin", mutate_after_inventory)
     monkeypatch.setattr(
@@ -195,4 +196,158 @@ def test_unselected_member_mutation_after_first_inventory_is_refused(
     with pytest.raises(LRARefusal, match="Bundle member differs"):
         publication_draws.read_multisite_regional_draw_source(
             root, bin_id="recent", expected_checksums_sha256=pin
+        )
+
+
+def test_parser_path_replacement_cannot_return_B_with_A_source_digest(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    import csv
+    import io
+
+    root, expected = _bundle(tmp_path)
+    member = root / "regional-cover-draws/bin-0.csv"
+    original = member.read_bytes()
+    rows = list(csv.reader(io.StringIO(original.decode())))
+    rows[1][1:] = ["1", "0", "0"]
+    changed = io.StringIO()
+    csv.writer(changed, lineterminator="\n").writerows(rows)
+    replacement = changed.getvalue().encode()
+    actual_open = io.open
+    events: list[str] = []
+
+    class RestoredParser:
+        def __init__(self, stream: Any) -> None:
+            self.stream = stream
+
+        def __enter__(self):  # type: ignore[no-untyped-def]
+            return self.stream.__enter__()
+
+        def __exit__(self, *args):  # type: ignore[no-untyped-def]
+            result = self.stream.__exit__(*args)
+            member.write_bytes(original)
+            events.append("restored_A_after_actual_parser_close")
+            return result
+
+    def parser_open(path, *args, **kwargs):  # type: ignore[no-untyped-def]
+        mode = kwargs.get("mode", args[0] if args else "r")
+        if not isinstance(path, int) and Path(path) == member and mode == "r":
+            member.write_bytes(replacement)
+            events.append("B_before_actual_parser_open")
+            return RestoredParser(actual_open(path, *args, **kwargs))
+        return actual_open(path, *args, **kwargs)
+
+    monkeypatch.setattr(io, "open", parser_open)
+    try:
+        source = publication_draws.read_multisite_regional_draw_source(
+            root, bin_id="recent", expected_checksums_sha256=_pin(root)
+        )
+    except LRARefusal:
+        assert events
+    else:
+        np.testing.assert_allclose(source.values, expected, rtol=0, atol=2e-16)
+        assert source.draw_member_sha256 == sha256(original).hexdigest()
+    assert member.read_bytes() == original
+
+
+@pytest.mark.parametrize(
+    "member_name",
+    [
+        "checksums.json",
+        "run-manifest.json",
+        "availability.csv",
+        "regional-cover-draws/index.json",
+        "regional-cover-draws/bin-0.csv",
+    ],
+)
+@pytest.mark.parametrize("change", ["growth", "early_eof", "replacement"])
+def test_selected_buffer_refuses_actual_descriptor_source_changes(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, member_name: str, change: str
+) -> None:
+    import os
+
+    from bijux_pollenomics.core.filesystem import BoundedInputTree
+
+    root, _ = _bundle(tmp_path)
+    pin = _pin(root)
+    member = root / member_name
+    size = member.stat().st_size
+    original_tree_read, original_read = BoundedInputTree._read, os.read
+    events: list[str] = []
+    reads: list[int] = []
+    descriptors: set[int] = set()
+
+    def selected_read(tree, name, *, retain, max_bytes=None):  # type: ignore[no-untyped-def]
+        if tree.root == root and name == member_name and retain:
+
+            def mutate_before_read(descriptor: int, bound: int) -> bytes:
+                descriptors.add(descriptor)
+                if not events:
+                    if change == "replacement":
+                        member.rename(member.with_name("retained-original"))
+                        member.write_bytes(b"B" * size)
+                    else:
+                        os.truncate(
+                            member,
+                            size + 1024 * 1024 if change == "growth" else size - 1,
+                        )
+                    events.append(change)
+                block = original_read(descriptor, bound)
+                reads.append(len(block))
+                return block
+
+            with monkeypatch.context() as mutation:
+                mutation.setattr(os, "read", mutate_before_read)
+                return original_tree_read(
+                    tree, name, retain=retain, max_bytes=max_bytes
+                )
+        return original_tree_read(tree, name, retain=retain, max_bytes=max_bytes)
+
+    monkeypatch.setattr(BoundedInputTree, "_read", selected_read)
+    with pytest.raises(LRARefusal):
+        publication_draws.read_multisite_regional_draw_source(
+            root, bin_id="recent", expected_checksums_sha256=pin
+        )
+    assert events == [change] and sum(reads) <= size + 1
+    assert descriptors
+    for descriptor in descriptors:
+        with pytest.raises(OSError):
+            os.fstat(descriptor)
+
+
+def test_draw_array_above_control_receipt_size_remains_source_bounded(
+    tmp_path: Path,
+) -> None:
+    import csv
+    from io import StringIO
+
+    root, expected = _bundle(tmp_path)
+    member = root / "regional-cover-draws/bin-0.csv"
+    rows = list(csv.reader(StringIO(member.read_text())))
+    for row in rows[1:]:
+        row[1:] = [" " * 400 + value for value in row[1:]]
+    content = StringIO()
+    csv.writer(content, lineterminator="\n").writerows(rows)
+    member.write_text(content.getvalue())
+    assert member.stat().st_size > 1024 * 1024
+    pin = _repin_member(root, "regional-cover-draws/bin-0.csv")
+    source = publication_draws.read_multisite_regional_draw_source(
+        root, bin_id="recent", expected_checksums_sha256=pin
+    )
+    np.testing.assert_allclose(source.values, expected, rtol=0, atol=2e-16)
+
+
+@pytest.mark.parametrize("size", [True, 1.0, -1, "1"])
+def test_source_byte_profile_requires_native_nonnegative_sizes(
+    tmp_path: Path,
+    size: object,
+) -> None:
+    root, _ = _bundle(tmp_path)
+    path = root / "checksums.json"
+    checksums = json.loads(path.read_bytes())
+    checksums["availability.csv"]["bytes"] = size
+    path.write_text(json.dumps(checksums))
+    with pytest.raises(LRARefusal, match="Malformed bundle checksum"):
+        publication_draws.read_multisite_regional_draw_source(
+            root, bin_id="recent", expected_checksums_sha256=_pin(root)
         )

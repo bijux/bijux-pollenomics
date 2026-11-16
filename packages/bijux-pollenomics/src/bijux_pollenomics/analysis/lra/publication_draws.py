@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterator
+from contextlib import ExitStack, contextmanager
 import csv
 import hashlib
 from io import StringIO
@@ -9,9 +11,9 @@ import json
 import math
 from pathlib import Path
 import re
-import stat
 from typing import Any
 
+from ...core.filesystem import BoundedInputTree
 from .engine.discovery import (
     MULTISITE_DRAW_LOVE_CAPABILITY,
     load_engine,
@@ -19,14 +21,6 @@ from .engine.discovery import (
 from .engine.errors import LRARefusal
 
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
-
-
-def _hash(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as stream:
-        for block in iter(lambda: stream.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
 
 
 def _pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
@@ -38,8 +32,8 @@ def _pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
     return result
 
 
-def _json(path: Path) -> Any:
-    value = json.loads(path.read_bytes(), object_pairs_hook=_pairs)
+def _json(content: bytes) -> Any:
+    value = json.loads(content, object_pairs_hook=_pairs)
     json.dumps(value, allow_nan=False)
     return value
 
@@ -55,58 +49,100 @@ def _names(value: Any) -> tuple[str, ...]:
     return tuple(value)
 
 
-def _inventory(root: Path, expected_sha256: str) -> dict[str, dict[str, Any]]:
-    if not _SHA256.fullmatch(expected_sha256):
+@contextmanager
+def _source_inputs(
+    root: Path, expected_sha256: str
+) -> Iterator[tuple[BoundedInputTree, dict[str, dict[str, Any]]]]:
+    """Hold one checksum epoch and a source-declared finite ordinary namespace."""
+    if not isinstance(expected_sha256, str) or not _SHA256.fullmatch(expected_sha256):
         raise ValueError("Expected checksum-manifest SHA-256 is required")
-    if root.is_symlink() or not root.is_dir():
-        raise ValueError("Multi-site bundle must be a real directory")
     checksum_path = root / "checksums.json"
-    if _hash(checksum_path) != expected_sha256:
-        raise ValueError("Checksum manifest differs from the pinned digest")
-    checksums = _json(checksum_path)
-    if not isinstance(checksums, dict) or not checksums:
-        raise ValueError("Checksum manifest must list bundle members")
-    paths = list(root.rglob("*"))
-    if any(
-        not (stat.S_ISREG(path.lstat().st_mode) or stat.S_ISDIR(path.lstat().st_mode))
-        for path in paths
-    ):
-        raise ValueError("Multi-site bundle contains a nonregular member")
-    actual = {
-        path.relative_to(root).as_posix()
-        for path in paths
-        if stat.S_ISREG(path.lstat().st_mode) and path != checksum_path
-    }
-    if actual != set(checksums):
+    with ExitStack() as stack:
+        checksum_seal = stack.enter_context(
+            BoundedInputTree(
+                root,
+                max_bytes=max(1, checksum_path.lstat().st_size),
+                max_files=1,
+                selected="checksums.json",
+            )
+        )
+        raw = checksum_seal.read(checksum_path)
+        if hashlib.sha256(raw).hexdigest() != expected_sha256:
+            raise ValueError("Checksum manifest differs from the pinned digest")
+        checksums = _json(raw)
+        if not isinstance(checksums, dict) or not checksums:
+            raise ValueError("Checksum manifest must list bundle members")
+        total = len(raw)
+        for name, record in checksums.items():
+            if (
+                not isinstance(name, str)
+                or not isinstance(record, dict)
+                or set(record) != {"bytes", "sha256"}
+                or type(record["bytes"]) is not int
+                or record["bytes"] < 0
+                or not isinstance(record["sha256"], str)
+                or not _SHA256.fullmatch(record["sha256"])
+            ):
+                raise ValueError("Malformed bundle checksum entry")
+            total += record["bytes"]
+        inputs = stack.enter_context(
+            BoundedInputTree(
+                root,
+                max_bytes=max(1, total),
+                max_files=len(checksums) + 1,
+            )
+        )
+        if (
+            inputs.anchor.identity != checksum_seal.anchor.identity
+            or inputs.files.get("checksums.json")
+            != checksum_seal.files["checksums.json"]
+        ):
+            raise ValueError("Checksum manifest changed during source inventory")
+        yield inputs, checksums
+        inputs.check()
+        checksum_seal.check()
+
+
+def _inventory(
+    inputs: BoundedInputTree,
+    checksums: dict[str, dict[str, Any]],
+    expected_sha256: str,
+) -> None:
+    if set(inputs.files) != {"checksums.json", *checksums}:
         raise ValueError("Bundle members differ from checksum inventory")
     for name, record in checksums.items():
-        if (
-            not isinstance(name, str)
-            or not isinstance(record, dict)
-            or set(record) != {"bytes", "sha256"}
-            or type(record["bytes"]) is not int
-            or record["bytes"] < 0
-            or not isinstance(record["sha256"], str)
-            or not _SHA256.fullmatch(record["sha256"])
-        ):
-            raise ValueError("Malformed bundle checksum entry")
-        path = root / name
-        if path.stat().st_size != record["bytes"] or _hash(path) != record["sha256"]:
+        if inputs.files[name][4] != record["bytes"]:
             raise ValueError(f"Bundle member differs from checksum: {name}")
-    if _hash(checksum_path) != expected_sha256:
+    try:
+        inputs.validate()
+    except ValueError as error:
+        raise ValueError(
+            "Bundle member differs from checksum or source seal"
+        ) from error
+    if inputs.digests["checksums.json"] != expected_sha256:
         raise ValueError("Checksum manifest changed during verification")
-    return checksums
+    for name, record in checksums.items():
+        if inputs.digests[name] != record["sha256"]:
+            raise ValueError(f"Bundle member differs from checksum: {name}")
 
 
-def _csv(path: Path) -> list[list[str]]:
-    rows = list(csv.reader(StringIO(path.read_text(encoding="utf-8"))))
+def _member(
+    inputs: BoundedInputTree, checksums: dict[str, dict[str, Any]], name: str
+) -> bytes:
+    if name not in checksums:
+        raise ValueError(f"Selected source member is undeclared: {name}")
+    return inputs.read(inputs.root / name, max_bytes=checksums[name]["bytes"])
+
+
+def _csv(content: bytes) -> list[list[str]]:
+    rows = list(csv.reader(StringIO(content.decode("utf-8"))))
     if not rows or any(not row for row in rows):
         raise ValueError("Published CSV is empty or malformed")
     return rows
 
 
 def _selected_bin(
-    root: Path, manifest: dict[str, Any], bin_id: str
+    availability: list[list[str]], manifest: dict[str, Any], bin_id: str
 ) -> tuple[
     tuple[str, ...],
     tuple[str, ...],
@@ -147,7 +183,6 @@ def _selected_bin(
         for left, right in zip(parsed_bounds, parsed_bounds[1:], strict=False)
     ):
         raise ValueError("Published BP bins overlap")
-    availability = _csv(root / "availability.csv")
     if availability[0] != ["bin_id", *sites] or len(availability) != len(bins) + 1:
         raise ValueError("Availability axes differ from the scientific manifest")
     expected_index = []
@@ -193,64 +228,59 @@ def read_multisite_regional_draw_source(
     """
     root = Path(directory).absolute()
     try:
-        inventory = _inventory(root, expected_checksums_sha256)
-        parent = root / "run-manifest.json"
-        parent_sha256 = _hash(parent)
-        manifest = _json(parent)
-        if not isinstance(manifest, dict):
-            raise ValueError("Scientific manifest must be an object")
-        sites, eligible, taxa, all_bounds, position, expected_index = _selected_bin(
-            root, manifest, bin_id
-        )
-        index = _json(root / "regional-cover-draws" / "index.json")
-        if index != expected_index:
-            raise ValueError("Regional draw index differs from source axes")
-        item = next(item for item in index if item["bin_id"] == bin_id)
-        member = root / "regional-cover-draws" / item["path"]
-        member_sha256 = _hash(member)
-        rows = _csv(member)
-        if rows[0] != ["draw_index", *taxa] or len(rows) != 1001:
-            raise ValueError("Regional draw CSV axes or count differ")
-        values = []
-        for number, row in enumerate(rows[1:]):
-            if row[0] != str(number) or len(row) != len(taxa) + 1:
-                raise ValueError("Regional draw IDs or width differ")
-            values.append([float(value) for value in row[1:]])
-        for path in (
-            parent,
-            root / "availability.csv",
-            root / "regional-cover-draws" / "index.json",
-            member,
-        ):
-            if _hash(path) != inventory[path.relative_to(root).as_posix()]["sha256"]:
-                raise ValueError("Selected source members changed during verification")
-        if _hash(root / "checksums.json") != expected_checksums_sha256:
-            raise ValueError("Checksum manifest changed during verification")
-        binding = load_engine(required_capability=MULTISITE_DRAW_LOVE_CAPABILITY)
-        import numpy as np
+        with _source_inputs(root, expected_checksums_sha256) as (inputs, inventory):
+            _inventory(inputs, inventory, expected_checksums_sha256)
+            parent_bytes = _member(inputs, inventory, "run-manifest.json")
+            parent_sha256 = hashlib.sha256(parent_bytes).hexdigest()
+            manifest = _json(parent_bytes)
+            if not isinstance(manifest, dict):
+                raise ValueError("Scientific manifest must be an object")
+            sites, eligible, taxa, all_bounds, position, expected_index = _selected_bin(
+                _csv(_member(inputs, inventory, "availability.csv")), manifest, bin_id
+            )
+            index = _json(_member(inputs, inventory, "regional-cover-draws/index.json"))
+            if index != expected_index:
+                raise ValueError("Regional draw index differs from source axes")
+            item = next(item for item in index if item["bin_id"] == bin_id)
+            member_name = "regional-cover-draws/" + item["path"]
+            member_bytes = _member(inputs, inventory, member_name)
+            member_sha256 = hashlib.sha256(member_bytes).hexdigest()
+            rows = _csv(member_bytes)
+            if rows[0] != ["draw_index", *taxa] or len(rows) != 1001:
+                raise ValueError("Regional draw CSV axes or count differ")
+            values = []
+            for number, row in enumerate(rows[1:]):
+                if row[0] != str(number) or len(row) != len(taxa) + 1:
+                    raise ValueError("Regional draw IDs or width differ")
+                values.append([float(value) for value in row[1:]])
+            binding = load_engine(required_capability=MULTISITE_DRAW_LOVE_CAPABILITY)
+            import numpy as np
 
-        if manifest["inputs"].get("bin_bounds_bp") != (
-            binding.api.publication_bin_bounds_sha256(all_bounds)
-        ):
-            raise ValueError("Published BP bounds differ from source-bound identity")
-        bounds = all_bounds[position]
-        source = binding.api.RegionalCoverDrawSource.from_verified_member(
-            values=np.asarray(values, dtype=np.float64),
-            taxon_ids=taxa,
-            bin_id=bin_id,
-            younger_bp=bounds[0],
-            older_bp=bounds[1],
-            draw_ids=tuple(range(1000)),
-            regional_site_ids=sites,
-            eligible_site_ids=eligible,
-            parent_manifest_sha256=parent_sha256,
-            draw_member_sha256=member_sha256,
-        )
-        _inventory(root, expected_checksums_sha256)
-        return source
+            if manifest["inputs"].get("bin_bounds_bp") != (
+                binding.api.publication_bin_bounds_sha256(all_bounds)
+            ):
+                raise ValueError(
+                    "Published BP bounds differ from source-bound identity"
+                )
+            bounds = all_bounds[position]
+            source = binding.api.RegionalCoverDrawSource.from_verified_member(
+                values=np.asarray(values, dtype=np.float64),
+                taxon_ids=taxa,
+                bin_id=bin_id,
+                younger_bp=bounds[0],
+                older_bp=bounds[1],
+                draw_ids=tuple(range(1000)),
+                regional_site_ids=sites,
+                eligible_site_ids=eligible,
+                parent_manifest_sha256=parent_sha256,
+                draw_member_sha256=member_sha256,
+            )
+            _inventory(inputs, inventory, expected_checksums_sha256)
+            return source
     except (
         OSError,
         ValueError,
+        csv.Error,
         TypeError,
         KeyError,
         IndexError,
