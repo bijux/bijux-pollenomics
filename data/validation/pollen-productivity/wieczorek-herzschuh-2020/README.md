@@ -29,6 +29,12 @@ The CSV preserves original numeric strings, including binary64 decimal spellings
 original taxon spellings, worksheet names and per-field cell references. It does
 not silently harmonise differences in source spelling between the two versions.
 
+The separately attributed [LegacyVegetation 2025 tables](../legacyvegetation-2025/README.md)
+provide additional original and synthesized parameter references. They preserve
+their own uncertainty labels, duplicate rows and unresolved source discrepancies;
+they do not replace this deposited compilation or form independent estimates
+where the contributing studies overlap.
+
 ## Parameter use
 
 Use these rows to compare published parameter sources and identify applicable
