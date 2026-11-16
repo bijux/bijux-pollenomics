@@ -383,5 +383,14 @@ def transact(
                     "LandClim recovery failed: "
                     f"{type(recovery_error).__name__}: {recovery_error}"
                 )
-            error.add_note(f"LandClim recovery state retained at {run.path}")
+            try:
+                run.check()
+            except Exception:
+                error.add_note(
+                    f"LandClim recovery originally allocated at {run.path}; "
+                    f"expected directory identity {run.links[-1][2]}; "
+                    "current location unverified"
+                )
+            else:
+                error.add_note(f"LandClim recovery state retained at {run.path}")
             raise
