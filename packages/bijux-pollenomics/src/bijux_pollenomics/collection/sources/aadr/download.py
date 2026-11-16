@@ -1,9 +1,13 @@
+"""Acquire and publish complete release-owned annotation metadata."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
 import hashlib
+import json
 from pathlib import Path
 
+from ....core.filesystem import BoundedInputTree, OwnedTreeWriter
 from ....core.http import BINARY_MAX_BYTES
 from .constants import (
     AADR_DATAVERSE_PERSISTENT_ID,
@@ -11,6 +15,13 @@ from .constants import (
     REQUEST_HEADERS,
 )
 from .models import AadrAnnoDownloadReport, AadrAnnoFile, AadrReleaseResolution
+from .publication import (
+    MANIFEST_MAX_BYTES,
+    ManifestOutput,
+    json_document,
+    publish_release,
+    release_namespace,
+)
 from .resolution import resolve_aadr_release, validate_release_version
 
 # Release metadata cannot raise the operational ceiling for in-memory acquisition.
@@ -40,29 +51,80 @@ def download_aadr_anno_files(
                 f"AADR anno operational byte ceiling exceeded for {anno_file.filename}: "
                 f"{anno_file.filesize} > {AADR_ANNO_MAX_BYTES}"
             )
-    version_dir.mkdir(parents=True, exist_ok=True)
-    downloaded_files: list[Path] = []
-    for anno_file in resolution.anno_files:
-        dataset_dir = version_dir / anno_file.dataset_name
-        dataset_dir.mkdir(parents=True, exist_ok=True)
-        destination = dataset_dir / anno_file.filename
-        payload = fetch_binary_fn(
-            AADR_DOWNLOAD_URL_TEMPLATE.format(file_id=anno_file.file_id),
-            headers=REQUEST_HEADERS,
-            insecure=False,
-            max_bytes=anno_file.filesize or BINARY_MAX_BYTES,
-        )
-        validate_downloaded_anno_payload(anno_file, payload)
-        destination.write_bytes(payload)
-        downloaded_files.append(destination)
-
+    downloaded_files = [
+        version_dir / file.dataset_name / file.filename
+        for file in resolution.anno_files
+    ]
     manifest_path = version_dir / "release_manifest.json"
-    write_release_manifest(
+    manifest = _release_manifest_payload(
         manifest_path,
         version=version,
         resolution=resolution,
         downloaded_files=downloaded_files,
-        write_json_fn=write_json_fn,
+    )
+    names = {path.relative_to(version_dir).as_posix() for path in downloaded_files}
+
+    if (
+        len(
+            json.dumps(manifest, indent=2, ensure_ascii=False, allow_nan=False).encode(
+                "utf-8"
+            )
+        )
+        > MANIFEST_MAX_BYTES
+    ):
+        raise ValueError("AADR release manifest exceeds its operational byte ceiling")
+
+    def build(writer: OwnedTreeWriter, control: ManifestOutput) -> None:
+        for anno_file in resolution.anno_files:
+            payload = fetch_binary_fn(
+                AADR_DOWNLOAD_URL_TEMPLATE.format(file_id=anno_file.file_id),
+                headers=REQUEST_HEADERS,
+                insecure=False,
+                max_bytes=anno_file.filesize or BINARY_MAX_BYTES,
+            )
+            validate_downloaded_anno_payload(anno_file, payload)
+            if len(payload) > (anno_file.filesize or BINARY_MAX_BYTES):
+                raise ValueError(
+                    "Downloaded AADR payload exceeds its operational bound"
+                )
+            writer.write_bytes(
+                anno_file.dataset_name + "/" + anno_file.filename, payload
+            )
+        raw = control.capture(write_json_fn, manifest)
+        writer.write_bytes("release_manifest.json", raw)
+
+    def validate(root: Path) -> None:
+        release_namespace(root, names, AADR_ANNO_MAX_BYTES)
+        with BoundedInputTree(
+            root,
+            max_bytes=AADR_ANNO_MAX_BYTES * len(names) + MANIFEST_MAX_BYTES,
+            max_files=len(names) + 1,
+            member_limits={"release_manifest.json": MANIFEST_MAX_BYTES},
+        ) as tree:
+            for anno_file in resolution.anno_files:
+                raw = tree.read(
+                    root / anno_file.dataset_name / anno_file.filename,
+                    max_bytes=anno_file.filesize or BINARY_MAX_BYTES,
+                )
+                validate_downloaded_anno_payload(anno_file, raw)
+            actual = json_document(
+                tree.read(root / "release_manifest.json", max_bytes=MANIFEST_MAX_BYTES)
+            )
+            if json.dumps(actual, sort_keys=True, allow_nan=False) != json.dumps(
+                manifest, sort_keys=True, allow_nan=False
+            ):
+                raise ValueError(
+                    "AADR release manifest differs from selected source metadata"
+                )
+            tree.validate()
+
+    publish_release(
+        output_root,
+        version,
+        names=names,
+        max_asset_bytes=AADR_ANNO_MAX_BYTES,
+        build=build,
+        validate=validate,
     )
 
     return AadrAnnoDownloadReport(
@@ -96,32 +158,47 @@ def write_release_manifest(
     write_json_fn: Callable[[Path, object], None],
 ) -> None:
     """Persist the upstream Dataverse release metadata for one downloaded AADR version."""
-    dataset_version = resolution.dataset_version
     write_json_fn(
         path,
-        {
-            "source": "AADR",
-            "persistent_id": AADR_DATAVERSE_PERSISTENT_ID,
-            "requested_version": version,
-            "dataverse_version_number": dataset_version.get("versionNumber"),
-            "dataverse_version_minor_number": dataset_version.get("versionMinorNumber"),
-            "release_time": dataset_version.get("releaseTime"),
-            "last_update_time": dataset_version.get("lastUpdateTime"),
-            "downloaded_files": [
-                str(file.relative_to(path.parent)) for file in downloaded_files
-            ],
-            "anno_files": [
-                {
-                    "dataset_name": file.dataset_name,
-                    "filename": file.filename,
-                    "file_id": file.file_id,
-                    "md5": file.md5,
-                    "filesize": file.filesize,
-                }
-                for file in resolution.anno_files
-            ],
-        },
+        _release_manifest_payload(
+            path,
+            version=version,
+            resolution=resolution,
+            downloaded_files=downloaded_files,
+        ),
     )
+
+
+def _release_manifest_payload(
+    path: Path,
+    *,
+    version: str,
+    resolution: AadrReleaseResolution,
+    downloaded_files: list[Path],
+) -> dict[str, object]:
+    dataset_version = resolution.dataset_version
+    return {
+        "source": "AADR",
+        "persistent_id": AADR_DATAVERSE_PERSISTENT_ID,
+        "requested_version": version,
+        "dataverse_version_number": dataset_version.get("versionNumber"),
+        "dataverse_version_minor_number": dataset_version.get("versionMinorNumber"),
+        "release_time": dataset_version.get("releaseTime"),
+        "last_update_time": dataset_version.get("lastUpdateTime"),
+        "downloaded_files": [
+            str(file.relative_to(path.parent)) for file in downloaded_files
+        ],
+        "anno_files": [
+            {
+                "dataset_name": file.dataset_name,
+                "filename": file.filename,
+                "file_id": file.file_id,
+                "md5": file.md5,
+                "filesize": file.filesize,
+            }
+            for file in resolution.anno_files
+        ],
+    }
 
 
 __all__ = [

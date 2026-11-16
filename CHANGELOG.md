@@ -2,6 +2,34 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#469](https://github.com/bijux/bijux-pollenomics/pull/469) — Owned annotation release publication and primary recovery errors
+
+- Preflight finite release metadata and validate complete AADR releases before
+  owned attachment, refusing foreign namespaces and preserving prior releases
+  on acquisition failure.
+- Keep candidates, predecessors and receipts outside the entire collection root;
+  bind manifest callbacks to a bounded held descriptor and document its contract.
+- Preserve native primary publication errors when ordinary recovery operations or
+  receipt writes fail, with honest allocation-identity notes for displaced recovery.
+
+### [#468](https://github.com/bijux/bijux-pollenomics/pull/468) — Source-verified Neotoma taxon ancestry metadata
+
+- Publish a content-addressed ancestry capsule retaining literal source edges,
+  seed roles and known taxon/publication metadata without scientific admission.
+- Record the unacquired frontier explicitly and preserve source capture entry
+  counts independently of received entities or future request authorization.
+- Document selected metadata reader limits and the retained resolver store required
+  for complete source replay; the finite frontier producer remains open.
+
+### [#467](https://github.com/bijux/bijux-pollenomics/pull/467) — Authenticated published draw source buffers
+
+- Parse scientific source controls and selected draw values from captured buffers
+  authenticated under one externally pinned ordinary-source checksum epoch.
+- Preserve exact namespace, declared sizes, full streamed inventory checks and
+  source-bound chronology while refusing source mutation and parser substitution.
+- Keep numerical draw sizes source-declared, including members above 1 MiB,
+  independently of the smaller receipt profile.
+
 ### [#466](https://github.com/bijux/bijux-pollenomics/pull/466) — Finite numeric GeoJSON positions
 
 - Refuse boolean, non-finite and float-overflowing coordinate values before they
