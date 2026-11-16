@@ -17,6 +17,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
 from .metadata import assess_metadata
 from .source_reading import read_dataset
 from .taxa import audit_native_window, audit_workbook_window, parameter_coverage
+from .taxa.legacyvegetation import DIRECTORY, SOURCE_SHA256, read_reference
 
 PROTOCOL = "reports/science/pollen-reconstruction/bokesjon-pilot/protocol.json"
 SOURCE_DIRECTORY = "data/neotoma/raw/bokesjon-core-sources"
@@ -102,10 +103,28 @@ def run(
     *,
     workbook: Path | None = None,
     author_lookup: Path | None = None,
+    include_legacyvegetation_2025: bool = False,
 ) -> Path:
     """Read committed inputs once, retain all dispositions and guard consumed bytes."""
     repository = repository.resolve(strict=True)
     output = require_absent_artifact_output(repository, output)
+    if type(include_legacyvegetation_2025) is not bool:
+        raise ValueError("An explicit boolean 2025 reference opt-in is required")
+    legacy = (
+        read_reference(repository / DIRECTORY, expected_source_sha256=SOURCE_SHA256)
+        if include_legacyvegetation_2025
+        else None
+    )
+
+    def reference_changed() -> bool:
+        return (
+            legacy is not None
+            and read_reference(
+                repository / DIRECTORY, expected_source_sha256=SOURCE_SHA256
+            )["source_pins"]
+            != legacy["source_pins"]
+        )
+
     protocol = _json(repository / PROTOCOL)
     validate_protocol(protocol)
     inputs = [repository / row["path"] for row in protocol["inputs"]]
@@ -217,11 +236,13 @@ def run(
             _csv(inputs[3]),
             workbook_audit=book if name == "BOKE" else None,
             author_lookup_rows=lookup,
+            legacyvegetation_2025=legacy,
         )
         for name, value in native.items()
     }
     if (
-        before != [_pin(p) for p in guards]
+        reference_changed()
+        or before != [_pin(p) for p in guards]
         or subprocess.check_output([*git, "rev-parse", "HEAD"], text=True).strip()
         != head
     ):
@@ -245,10 +266,23 @@ def run(
             "scientific_admission": False,
             "independent_measured_pairs": 0,
             "engine_calls": 0,
+            **(
+                {
+                    "legacyvegetation_2025_reference": {
+                        "source_pins": legacy["source_pins"],
+                        "source_packet": str(DIRECTORY),
+                        "scientific_admission": False,
+                        "model_axes_selected": [],
+                    }
+                }
+                if legacy is not None
+                else {}
+            ),
         },
     )
     if (
-        before != [_pin(p) for p in guards]
+        reference_changed()
+        or before != [_pin(p) for p in guards]
         or subprocess.check_output([*git, "rev-parse", "HEAD"], text=True).strip()
         != head
     ):

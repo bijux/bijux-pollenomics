@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Sequence
+from copy import deepcopy
 from math import isfinite
 import re
 from typing import Any
@@ -57,6 +58,7 @@ def parameter_coverage(
     *,
     workbook_audit: dict[str, Any] | None = None,
     author_lookup_rows: Sequence[dict[str, str]] | None = None,
+    legacyvegetation_2025: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Return exact matches and every target without applying taxonomic aliases."""
     targets = [row["Plant taxa/Pollen-morphological types"] for row in landclim_rows]
@@ -131,7 +133,7 @@ def parameter_coverage(
         }
         for label, row in zip(targets, lc, strict=True)
     ]
-    return {
+    result: dict[str, Any] = {
         "schema_version": "bokesjon-pilot-parameter-label-coverage.v1",
         "native_taxa": native,
         "landclim_target_count": len(target_rows),
@@ -144,3 +146,28 @@ def parameter_coverage(
         "normalization": "A Poaceae reference RPP of1 with missing SE supports only its stated nominal reference value; no SD/SE0 is invented. LandClim SD labels and2020compiled-mean SE labels remain distinct.",
         "cereal_compatibility": "LandClim separates Cerealia-t excluding rye and Secale, whereas2020Cerealia is harmonised jointly. No automatic merge, split, generic grass substitution or full terrestrial denominator follows from label coverage.",
     }
+
+    if legacyvegetation_2025 is not None:
+        if (
+            legacyvegetation_2025.get("schema_version")
+            != "legacyvegetation-2025-parameter-coverage.v1"
+            or legacyvegetation_2025.get("scientific_admission") is not False
+            or legacyvegetation_2025.get("model_axes_selected") != []
+        ):
+            raise ValueError(
+                "A non-admitting 2025 reference coverage adapter is required"
+            )
+        reference = deepcopy(legacyvegetation_2025)
+        result["legacyvegetation_2025_reference"] = reference
+        for row in native:
+            label = row["native_label"]
+            row["legacyvegetation_2025"] = {
+                "synthesized_exact_label_candidates": [
+                    r for r in reference["synthesized_rows"] if r["taxon"] == label
+                ],
+                "original_same_label_candidates": [
+                    r for r in reference["original_rows"] if r["taxon"] == label
+                ],
+                "selection_rule": "Literal labels only; every region/source-row identity retained, with no taxonomic or parameter admission.",
+            }
+    return result

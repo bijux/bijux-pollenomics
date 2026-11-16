@@ -19,16 +19,88 @@ PPE standard error is finite/nonnegative; the current DISQOVER parameter domain
 requires fallspeed in [0.01, 0.15] m/s. The host supplies PPE reference, units and
 scientific-domain decisions. No taxon grouping or surrogate inference occurs here.
 
-Analytical LOVE can opt into `fall_speed_profile="landclimii-2016-gpm-neutral-analytical-v1"`
-with `distance_weighting="gpm neutral"`. This named author profile accepts finite
-fallspeed in [0.006, 0.15] m/s so that the LandClim II Filipendula value of 0.006
-is preserved. It requires supplied, taxon-aligned `regional_cover_draws` containing
-closed fractions; absence or invalid draws is a refusal. It also refuses rings
-whose regional or local GPM deposition factors are nonfinite or nonpositive.
-This profile applies only to analytical LOVE with externally supplied regional
-cover draws. The generic DISQOVER wrapper, REVEALS and optimized LOVE retain the
-[0.01, 0.15] m/s domain; the named profile does not certify a broader wrapper or
-LSM profile.
+## Expanded LandClim GPM admission
+
+The explicit `fall_speed_profile="landclimii-2016-gpm-neutral-analytical-v1"`
+accepts finite fall speeds in **[0.006, 0.15] m/s**, preserving the nominal
+Filipendula value of 0.006 without rounding or clamping. Its existing identifier
+is retained for both supported operations:
+
+- Regional **REVEALS**, for lake or peatland basins, with
+  `distance_weighting="gpm neutral"`.
+- **Analytical LOVE**, with the same distance weighting and supplied,
+  taxon-aligned `regional_cover_draws` containing closed fractions. Missing or
+  invalid draws are refused.
+
+This is an explicit Python admission extension. The default profile remains
+[0.01, 0.15] m/s; optimized LOVE and LSM do not gain the expanded range.
+Both supported operations require finite, strictly positive deposition factors;
+the range alone does not guarantee valid basin, ring or cutoff geometry. Source
+GPM diameter/radius conventions are preserved. In particular, the lake LOESS
+curve has a finite fitted distance domain: cutoffs above 1,000,000 m produce
+undefined source factors and the maintained facade refuses them. The source
+peatland path omits its outer-tail term above that cutoff; these are distinct
+source behaviors, not extrapolation guarantees.
+
+### Numerical reference and provenance
+
+The exact retained [DISQOVER 0.9.14 archive](../../vendor/disqover_0.9.14.tar.gz)
+(SHA-256 `ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c`)
+contains a `checkREVEALS` wrapper gate that refuses speeds below 0.01 m/s.
+Its GPM and B1 helpers can separately evaluate 0.006 m/s. Expanded-domain
+REVEALS therefore records compatibility mode
+`landclimii-gpm-neutral-expanded-regional-v1` and a `fall_speed_contract`
+parameter dictionary:
+
+| Field | Meaning |
+| --- | --- |
+| `operation` | `regional-reveals` |
+| `domain_m_s` | Admitted finite interval `[0.006, 0.15]`, in m/s |
+| `distance_weighting` | Required `gpm neutral` model |
+| `source_wrapper_domain_m_s` | Original wrapper interval `[0.01, 0.15]`, in m/s |
+| `reference_scope` | `disqover-0.9.14-gpm-kernel-and-b1` |
+| `wrapper_admission` | `expanded-python-domain`, distinct from original wrapper admission |
+
+The reference package/version/archive fields identify equation and kernel
+ancestry; they do not certify original-wrapper acceptance of the expanded input.
+The default regional manifest keeps its existing compatibility identity.
+
+The [generated R control](../../tests/reference/regional_profiles/landclim_gpm_neutral.R)
+and [retained expectations](../../tests/reference/regional_profiles/landclim_gpm_neutral.json)
+identify the exact two upstream source programs, generator hash and native R
+4.6.2 runtime. No package dataset or observed pollen counts are used. The control
+compares 72 deposition cases: 60 finite results and 12 undefined lake factors.
+It also evaluates 48 deterministic two-taxon B1 cases (96 cover cells) and
+confirms that the unchanged original wrapper refuses 0.006 m/s. Speeds are
+0.006, 0.01, 0.024 and 0.15 m/s; basin diameters are 10, 100 and 2,000 m;
+cutoffs are 100,000, 1,000,000 and 1,000,001 m for deposition, with only the
+first two used for finite cover comparisons. Fixed prospective tolerances are
+`1e-10` relative plus `1e-12` absolute for factors, and `1e-12` percentage points
+for source-rounded cover.
+
+To rerun the generated control from the repository root, verify the archive
+hash above, extract only the two named source programs and choose fresh output
+paths under `artifacts/`:
+
+```sh
+mkdir -p artifacts/landclim-gpm-reference/code artifacts/landclim-gpm-reference/output
+tar -xzf packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz \
+  -C artifacts/landclim-gpm-reference/code --strip-components=2 \
+  disqover/R/REVEALS.R disqover/R/dispersal_models.R
+R_DEFAULT_PACKAGES=stats,utils Rscript --vanilla \
+  packages/bijux-pollenomics-lra/tests/reference/regional_profiles/landclim_gpm_neutral.R \
+  artifacts/landclim-gpm-reference/code artifacts/landclim-gpm-reference/output
+```
+
+The retained expectations record both source-program hashes. The generator
+sources those programs directly and supplies fixed PPE/count callbacks;
+installation of DISQOVER or loading its example datasets is unnecessary.
+
+These are selected kernel/B1 numerical comparisons, not verification of every
+geometry, stochastic R-stream identity, analytical LOVE at every ring,
+historical LandClim software identity or ecological applicability. The named
+analytical LOVE contract still requires authenticated external regional draws
+and valid positive deposition geometry.
 
 Ring distances (`inner`, `outer`, `mean`) and basin diameters are metres.
 Optimized LOVE additionally requires `terrestrial` area and geometric `ring` area

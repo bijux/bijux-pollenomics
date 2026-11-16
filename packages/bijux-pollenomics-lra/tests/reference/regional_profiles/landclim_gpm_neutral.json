@@ -1,0 +1,1393 @@
+{
+  "schema_version": "landclim-gpm-neutral-reference.v1",
+  "source_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+  "source_programs": {
+    "disqover/R/REVEALS.R": "414afb319b989a711fff35b408eb5fcbc2b5cd4f5ebb03ed0d3bc6431ea9c077",
+    "disqover/R/dispersal_models.R": "d9454fc6e4e9118e3a9e5fff6c7c0e26f7fe62621a58dc43005dd9f546863c85"
+  },
+  "generator_sha256": "d53b42ed9a67b43a4aa578380460020cc185f72df5705e2ec1dbf45570d62083",
+  "r_runtime": [
+    "R version 4.6.2 (2026-10-29)",
+    "aarch64-apple-darwin23"
+  ],
+  "reference_scope": "unchanged source GPM and B1 helpers; original wrapper still refuses0.006",
+  "source_wrapper_refusal": "fallspeed(s) too low (<0.01 m/s), please check",
+  "kernel_tolerance": {
+    "rtol": 1e-10,
+    "atol": 1e-12
+  },
+  "cover_atol_percentage_points": 1e-12,
+  "generated_inputs_only": true,
+  "deposition": [
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.287986074283217
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.368425464576523
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.369158038734722
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.00663268549886837
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.389107473223941
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.471655782967275
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.414294455526419
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.00663281414855848
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.818215900313951
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.715780492329426
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.448199801023206
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.00663281480045114
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.235027501947726
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.292889430978244
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.263907590886696
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.00124492251289622
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.33614890088845
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.396119749368996
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.309044007678392
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.00124505116258633
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.765257327978459
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.640244458731147
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.342949353175179
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.00124505181447898
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.147460160993165
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.175504606609068
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.1318814008534
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 5.95435405208869e-05
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.248581559933889
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.278734924999821
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.177017817645097
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 5.9672190210998e-05
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.677689987023898
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.522859634361971
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.210923163141884
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 5.96728421036546e-05
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.304097887936853
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.392085575688118
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.405504830282607
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.0142760825884244
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.405219263372188
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.495315868219006
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.450641232596009
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.014276211237767
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.261383905073872
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.330268411692379
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.314968206363502
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.0034811317572327
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.362505280509207
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.433498704223267
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.360104608676904
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.00348126040657535
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.183172417907301
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.22269365667792
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.18234759306008
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.000384370128719341
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": 0.284293793342636
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": 0.325923949208808
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": 0.227483995373482
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": 0.000384498778061989
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.006,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.01,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.024,
+      "deposition_factor": null
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000001,
+      "fall_speed_m_s": 0.15,
+      "deposition_factor": null
+    }
+  ],
+  "cover": [
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        61.573,
+        38.427
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        96.246,
+        3.754
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        2.798,
+        97.202
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        31.536,
+        68.464
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        57.098,
+        42.902
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        95.515,
+        4.485
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        2.086,
+        97.914
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        25.425,
+        74.575
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        58.396,
+        41.604
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        95.737,
+        4.263
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        0.658,
+        99.342
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        9.579,
+        90.421
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        53.471,
+        46.529
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        94.842,
+        5.158
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        0.461,
+        99.539
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        6.897,
+        93.103
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        52.784,
+        47.216
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        94.705,
+        5.295
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        0.05,
+        99.95
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        0.801,
+        99.199
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        47.094,
+        52.906
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        93.439,
+        6.561
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        0.03,
+        99.97
+      ]
+    },
+    {
+      "basin": "peatland",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        0.478,
+        99.522
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        62.502,
+        37.498
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        96.386,
+        3.614
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        5.543,
+        94.457
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        48.425,
+        51.575
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        58.161,
+        41.839
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        95.697,
+        4.303
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        4.218,
+        95.782
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 10,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        41.336,
+        58.664
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        60.1,
+        39.9
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        96.016,
+        3.984
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        1.637,
+        98.363
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        21.034,
+        78.966
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        55.391,
+        44.609
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        95.208,
+        4.792
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        1.186,
+        98.814
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 100,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        16.112,
+        83.888
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        55.444,
+        44.556
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        95.218,
+        4.782
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        0.262,
+        99.738
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 100000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        4.028,
+        95.972
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        50.005,
+        49.995
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.024,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        94.119,
+        5.881
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        20,
+        80
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        0.169,
+        99.831
+      ]
+    },
+    {
+      "basin": "lake",
+      "diameter_m": 2000,
+      "cutoff_m": 1000000,
+      "other_fall_speed_m_s": 0.15,
+      "counts": [
+        80,
+        20
+      ],
+      "ppe": [
+        1.0,
+        5.0
+      ],
+      "mean_percent": [
+        2.634,
+        97.366
+      ]
+    }
+  ]
+}

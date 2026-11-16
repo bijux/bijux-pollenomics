@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
+
 import pandas as pd
 
 from bijux_pollenomics_lra.models.configuration import (
@@ -9,6 +11,11 @@ from bijux_pollenomics_lra.models.configuration import (
 )
 from bijux_pollenomics_lra.models.results import (
     RevealsResult,
+)
+from bijux_pollenomics_lra.models.validation import (
+    DEFAULT_FALL_SPEED_PROFILE,
+    LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+    fall_speed_bounds,
 )
 from bijux_pollenomics_lra.provenance.manifest import build_manifest
 from bijux_pollenomics_lra.reconstruction.regional import _reconstruct_frame
@@ -60,4 +67,28 @@ def run_reveals(
         stochastic=config.stochastic,
         seed=config.seed,
     )
+    if config.fall_speed_profile == LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE:
+        manifest = replace(
+            manifest,
+            compatibility_mode="landclimii-gpm-neutral-expanded-regional-v1",
+            parameters={
+                **manifest.parameters,
+                "fall_speed_contract": {
+                    "operation": "regional-reveals",
+                    "domain_m_s": list(
+                        fall_speed_bounds(
+                            config.fall_speed_profile, config.distance_weighting
+                        )
+                    ),
+                    "distance_weighting": config.distance_weighting,
+                    "source_wrapper_domain_m_s": list(
+                        fall_speed_bounds(
+                            DEFAULT_FALL_SPEED_PROFILE, config.distance_weighting
+                        )
+                    ),
+                    "reference_scope": "disqover-0.9.14-gpm-kernel-and-b1",
+                    "wrapper_admission": "expanded-python-domain",
+                },
+            },
+        )
     return RevealsResult(table, deposition, manifest, samples)
