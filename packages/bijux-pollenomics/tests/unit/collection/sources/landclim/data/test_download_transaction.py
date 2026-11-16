@@ -131,13 +131,13 @@ def test_candidate_replacement_during_fetch_never_writes_foreign_tree(
     foreign = None
     current = None
 
-    def intercepted(destination: Path, producer: object) -> object:
+    def intercepted(destination: Path, producer: object, **kwargs: object) -> object:
         def wrap(candidate: Path) -> object:
             nonlocal current
             current = candidate
             return producer(candidate)
 
-        return real(destination, wrap)
+        return real(destination, wrap, **kwargs)
 
     def fetch(url: str) -> bytes:
         nonlocal foreign
