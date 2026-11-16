@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#475](https://github.com/bijux/bijux-pollenomics/pull/475) — Authenticated admission buffers and native database attachments
+
+- Derive SEAD evidence from authenticated table, receipt, country and chronology
+  buffers while retaining declared byte counts and source hashes.
+- Bind RAÄ native reads to admitted physical database attachments and preserve
+  cursor custody, native method restrictions and primary cleanup errors.
+- Derive test context descriptors from their generated databases without reading
+  retained national-source metadata or claiming actual-database qualification.
+
 ### [#474](https://github.com/bijux/bijux-pollenomics/pull/474) — Owned source evidence and country reference metadata
 
 - Authenticate filtered SEAD row owners while preserving projected fields, and
