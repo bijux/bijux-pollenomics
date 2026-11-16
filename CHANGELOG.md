@@ -6,6 +6,7 @@ Repository changes are recorded by pull request, newest merge first.
 
 - Bind boundary decoding to authenticated bounded bytes and retain owned Neotoma
   source replacement, predecessors and recovery receipts.
+- Validate Neotoma archive ID and part declarations before consuming lazy source rows.
 - Bind RAÄ density admission to native membership and reviewed source inputs;
   complete the maintained Atlas consumer before claiming delivery readiness.
 - Bound binary HTTP/AADR annotation ingress with verified TLS and literal native

@@ -7,7 +7,7 @@ import re
 
 from ....core.files import write_json
 from ....core.filesystem import OwnedTreeWriter, read_regular_file
-from .client import validate_neotoma_download_coverage
+from .client import positive_native_id, validate_neotoma_download_coverage
 from .publication.replacement import (
     MANIFEST_MAX_BYTES,
     SOURCE_MAX_BYTES,
@@ -15,6 +15,11 @@ from .publication.replacement import (
 )
 
 __all__ = ["build_neotoma_download_archive_parts", "write_neotoma_download_archive"]
+
+
+def _validate_rows_per_part(value: int) -> None:
+    if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+        raise ValueError("rows_per_part must be a positive integer")
 
 
 def build_neotoma_download_archive_parts(
@@ -26,8 +31,7 @@ def build_neotoma_download_archive_parts(
     ],
 ) -> list[dict[str, object]]:
     """Split large Neotoma download payloads into stable part files."""
-    if rows_per_part < 1:
-        raise ValueError("rows_per_part must be at least 1")
+    _validate_rows_per_part(rows_per_part)
 
     rows = [dict(row) for row in download_rows]
     part_count = (len(rows) + rows_per_part - 1) // rows_per_part
@@ -67,9 +71,14 @@ def write_neotoma_download_archive(
 ) -> Path:
     """Stage reconciled downloads before replacing the owned archive together."""
     archive_dir = Path(raw_dir) / neotoma_download_archive_dirname
+    _validate_rows_per_part(rows_per_part)
+    requested_ids = sorted(
+        {positive_native_id(dataset_id) for dataset_id in requested_dataset_ids}
+    )
+    returned_ids = sorted(
+        {positive_native_id(dataset_id) for dataset_id in downloaded_dataset_ids}
+    )
     rows = [dict(row) for row in download_rows]
-    requested_ids = sorted({int(dataset_id) for dataset_id in requested_dataset_ids})
-    returned_ids = sorted({int(dataset_id) for dataset_id in downloaded_dataset_ids})
     validate_neotoma_download_coverage(
         requested_ids,
         rows,
