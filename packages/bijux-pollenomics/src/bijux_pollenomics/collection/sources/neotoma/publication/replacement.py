@@ -10,6 +10,7 @@ from pathlib import Path
 import secrets
 from typing import Any, TypeVar
 
+from bijux_pollenomics.core.errors.cleanup import add_cleanup_note
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.core.filesystem.anchors import DirectoryAnchor
 from bijux_pollenomics.core.filesystem.regular_inputs import BoundedInputTree
@@ -134,12 +135,18 @@ def replace_neotoma_tree(
         except BaseException as error:
             try:
                 record("refused-build", {"prior_preserved": prior is not None})
-            except (OSError, ValueError) as receipt_error:
-                error.add_note(
-                    "Neotoma refusal receipt could not be written: "
-                    + type(receipt_error).__name__
-                )
-            error.add_note(f"Neotoma recovery state retained at {recovery_path}")
+            except Exception as receipt_error:
+
+                def receipt_note(failure: Exception = receipt_error) -> str:
+                    return (
+                        "Neotoma refusal receipt could not be written: "
+                        + type(failure).__name__
+                    )
+
+                add_cleanup_note(error, receipt_note)
+            add_cleanup_note(
+                error, lambda: f"Neotoma recovery state retained at {recovery_path}"
+            )
             raise
         try:
             return publish_owned_replacement(
@@ -151,5 +158,7 @@ def replace_neotoma_tree(
                 record=record,
             )
         except BaseException as error:
-            error.add_note(f"Neotoma recovery state retained at {recovery_path}")
+            add_cleanup_note(
+                error, lambda: f"Neotoma recovery state retained at {recovery_path}"
+            )
             raise

@@ -112,21 +112,8 @@ def verify_scoped_metadata_sources(
     evidence_sources: Mapping[str, Path] | None,
 ) -> str:
     """Authenticate all selected references without expanding them into the index."""
-    from .sources import read_scoped_target, scoped_metadata
+    from .metadata import _verify_scoped_metadata_selection
 
-    evidence, _, current = scoped_metadata(control, context, evidence_sources)
-    if not _same(document.get("source_evidence"), control["source_evidence"]):
-        raise ValueError("Scoped linked capture evidence reference differs")
-    entries = document["resources"]
-    if len(entries) != len(control["targets"]):
-        raise ValueError("Scoped linked target population differs")
-    for entry, target in zip(entries, control["targets"], strict=True):
-        selected = read_scoped_target(
-            evidence, target, current, attempted=bool(entry["attempts"])
-        )
-        if (
-            not control["plan"]["include_higher_taxa"]
-            and not selected["target"]["has_direct_proof"]
-        ):
-            raise ValueError("Scoped linked target is outside direct selection")
-    return evidence.manifest_sha256
+    return _verify_scoped_metadata_selection(
+        document, control, context, evidence_sources
+    )

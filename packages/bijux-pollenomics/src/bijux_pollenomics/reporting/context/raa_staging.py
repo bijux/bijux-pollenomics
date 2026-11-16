@@ -15,6 +15,7 @@ from types import MappingProxyType
 from ...collection.contracts.artifacts import RAA_DENSITY_GEOJSON, RAA_LAYER_METADATA
 from ...collection.sources.raa.density_membership import semantic_payload_sha256
 from ...collection.sources.raa.inventory import decode_source_object
+from ...core.errors.cleanup import add_cleanup_note
 from ...core.filesystem import (
     BoundedInputTree,
     DirectoryAnchor,
@@ -298,8 +299,12 @@ def stage_raa_publication(
                     ),
                 )
             except Exception as receipt_error:  # noqa: BLE001 - Preserve the primary failure.
-                error.add_note(
-                    f"RAÄ terminal receipt failed: {type(receipt_error).__name__}"
-                )
-            error.add_note(f"RAÄ retained operation receipt: {receipt_path}")
+
+                def receipt_note(failure: Exception = receipt_error) -> str:
+                    return f"RAÄ terminal receipt failed: {type(failure).__name__}"
+
+                add_cleanup_note(error, receipt_note)
+            add_cleanup_note(
+                error, lambda: f"RAÄ retained operation receipt: {receipt_path}"
+            )
             raise
