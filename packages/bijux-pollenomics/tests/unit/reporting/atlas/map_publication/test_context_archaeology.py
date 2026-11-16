@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from bijux_pollenomics.reporting.context import (
     RAA_ATLAS_INPUT_STATUS_FILENAME,
@@ -92,7 +92,8 @@ class ContextArchaeologyPublicationTests(MapPublicationTestCase):
                 staged_names,
                 {
                     "nordic_environmental_sites.geojson",
-                    RAA_ATLAS_INPUT_STATUS_FILENAME,
+                    f"context/raa/{RAA_ATLAS_INPUT_STATUS_FILENAME}",
+                    "context/raa/publication_manifest.json",
                     "sweden_archaeology_site_discovery.geojson",
                     "sweden_archaeology_site_discovery.json",
                     "sweden_archaeology_site_discovery.csv",

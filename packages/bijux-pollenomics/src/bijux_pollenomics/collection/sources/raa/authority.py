@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
-from dataclasses import dataclass
 import json
 import math
+from collections.abc import Mapping
+from dataclasses import dataclass
 from pathlib import Path
 
 from ....core.geospatial.geojson import as_mapping
@@ -18,6 +18,7 @@ from ..boundaries.collection import (
 )
 from ..boundaries.store import load_country_boundaries
 from .authority_inputs import (
+    INPUT_PATHS,
     REVIEW_INPUT_ROLES,
     RaaAuthorityInputError,
     RaaAuthorityInputs,
@@ -31,7 +32,13 @@ from .inventory import (
 )
 from .outputs import count_raa_features
 
-__all__ = ["RaaDensityAuthorityDecision", "assess_raa_density_authority"]
+__all__ = [
+    "RaaAuthoritySnapshot",
+    "RaaDensityAuthorityDecision",
+    "RaaSnapshotReceipt",
+    "assess_raa_density_authority",
+    "capture_raa_authority_snapshot",
+]
 
 
 @dataclass(frozen=True)
@@ -53,15 +60,74 @@ def _refused(reasons: tuple[str, ...]) -> RaaDensityAuthorityDecision:
 
 def assess_raa_density_authority(context_root: Path) -> RaaDensityAuthorityDecision:
     """Reconcile sealed native IDs, cell placement and an externally supplied review."""
+    return capture_raa_authority_snapshot(context_root).decision
+
+
+@dataclass(frozen=True)
+class RaaSnapshotReceipt:
+    """One immutable receipt for bytes observed inside the authority operation."""
+
+    role: str
+    path: str
+    sha256: str
+    byte_count: int
+
+    def payload(self) -> dict[str, object]:
+        """Project receipt metadata without exposing mutable internal state."""
+        return {"path": self.path, "sha256": self.sha256, "byte_count": self.byte_count}
+
+
+@dataclass(frozen=True)
+class RaaAuthoritySnapshot:
+    """A captured input epoch, never a promise of future filesystem immutability."""
+
+    decision: RaaDensityAuthorityDecision
+    metadata_bytes: bytes | None
+    density_bytes: bytes | None
+    input_receipts: tuple[RaaSnapshotReceipt, ...]
+
+    def __post_init__(self) -> None:
+        """Keep the exported normalized epoch immutable and within its read profile."""
+        for raw in (self.metadata_bytes, self.density_bytes):
+            if raw is not None and (type(raw) is not bytes or len(raw) > 1024 * 1024):
+                raise ValueError(
+                    "RAÄ normalized snapshot requires bounded immutable bytes"
+                )
+        if type(self.input_receipts) is not tuple:
+            raise ValueError("RAÄ snapshot receipts must be immutable")
+
+
+def capture_raa_authority_snapshot(context_root: Path) -> RaaAuthoritySnapshot:
+    """Release public normalized buffers only after final validation of all inputs."""
     try:
         with RaaAuthorityInputs(context_root) as inputs:
+            metadata_bytes = inputs.read("normalized_metadata")
+            density_bytes = inputs.read("normalized_density")
             decision = _assess_inputs(inputs)
+            receipts = []
+            for role in INPUT_PATHS:
+                receipt = inputs.receipt(role)
+                path, digest, size = (
+                    receipt["path"],
+                    receipt["sha256"],
+                    receipt["byte_count"],
+                )
+                if (
+                    not isinstance(path, str)
+                    or not isinstance(digest, str)
+                    or type(size) is not int
+                ):
+                    raise ValueError("Invalid captured receipt")
+                receipts.append(RaaSnapshotReceipt(role, path, digest, size))
             inputs.validate()
-            return decision
+            return RaaAuthoritySnapshot(
+                decision, metadata_bytes, density_bytes, tuple(receipts)
+            )
     except RaaAuthorityInputError as error:
-        return _refused(error.reason_codes)
+        decision = _refused(error.reason_codes)
     except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError, TypeError):
-        return _refused(("invalid_authority_artifact",))
+        decision = _refused(("invalid_authority_artifact",))
+    return RaaAuthoritySnapshot(decision, None, None, ())
 
 
 def _assess_inputs(inputs: RaaAuthorityInputs) -> RaaDensityAuthorityDecision:

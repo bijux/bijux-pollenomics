@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
+from hashlib import sha256
+from pathlib import Path
 from unittest.mock import patch
 
 from bijux_pollenomics.reporting.context import (
@@ -10,11 +11,9 @@ from bijux_pollenomics.reporting.context import (
     build_context_layers,
     build_raa_atlas_input_status,
 )
-from bijux_pollenomics.reporting.context.raa import (
-    RAA_V018_DENSITY_SHA256,
-    RAA_V018_METADATA_SHA256,
-)
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
+
+from tests.support.context_data.raa import inventory, write_authority_fixture
 
 from .support import MapPublicationTestCase
 
@@ -123,16 +122,24 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
                 },
             )
 
-            def retained_hash(path: Path) -> str:
-                if path.name == "sweden_archaeology_layer.json":
-                    return RAA_V018_METADATA_SHA256
-                if path.name == "sweden_archaeology_density.geojson":
-                    return RAA_V018_DENSITY_SHA256
-                raise AssertionError(path)
-
-            with patch(
-                "bijux_pollenomics.reporting.context.raa._file_sha256",
-                side_effect=retained_hash,
+            # Synthetic fixed-pair identity tests the historical display branch only.
+            metadata_digest = sha256(
+                (root / "raa/normalized/sweden_archaeology_layer.json").read_bytes()
+            ).hexdigest()
+            density_digest = sha256(
+                (
+                    root / "raa/normalized/sweden_archaeology_density.geojson"
+                ).read_bytes()
+            ).hexdigest()
+            with (
+                patch(
+                    "bijux_pollenomics.reporting.context.raa.RAA_V018_METADATA_SHA256",
+                    metadata_digest,
+                ),
+                patch(
+                    "bijux_pollenomics.reporting.context.raa.RAA_V018_DENSITY_SHA256",
+                    density_digest,
+                ),
             ):
                 _, polygon_layers, extra_artifacts = build_context_layers(
                     samples=(),
@@ -143,7 +150,9 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
                 )
 
             status = json.loads(
-                (output / RAA_ATLAS_INPUT_STATUS_FILENAME).read_text(encoding="utf-8")
+                (output / "context/raa" / RAA_ATLAS_INPUT_STATUS_FILENAME).read_text(
+                    encoding="utf-8"
+                )
             )
             staged_names = {name for _, name in extra_artifacts}
 
@@ -192,6 +201,12 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
                 "missing_raw_inventory",
                 "missing_raw_summary",
                 "missing_scientific_review",
+                "missing_density_membership",
+                "missing_boundary_manifest",
+                "missing_sweden_boundary",
+                "missing_norway_boundary",
+                "missing_denmark_boundary",
+                "missing_finland_boundary",
             ],
         )
         self.assertEqual(status["geometry_publication"]["status"], "retained_context")
@@ -230,9 +245,9 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
             },
         )
         self.assertEqual(len(status["inputs"]["normalized_density"]["sha256"]), 64)
-        self.assertIn("sweden_archaeology_layer.json", staged_names)
-        self.assertIn(RAA_ATLAS_INPUT_STATUS_FILENAME, staged_names)
-        self.assertIn("sweden_archaeology_density.geojson", staged_names)
+        self.assertIn("context/raa/sweden_archaeology_layer.json", staged_names)
+        self.assertIn(f"context/raa/{RAA_ATLAS_INPUT_STATUS_FILENAME}", staged_names)
+        self.assertIn("context/raa/sweden_archaeology_density.geojson", staged_names)
 
     def test_substituted_retained_raa_pair_is_withheld(self) -> None:
         plan = build_published_geography_plan(("Sweden",))
@@ -269,7 +284,9 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
                 geography_scope=nordic_scope,
             )
             status = json.loads(
-                (output / RAA_ATLAS_INPUT_STATUS_FILENAME).read_text(encoding="utf-8")
+                (output / "context/raa" / RAA_ATLAS_INPUT_STATUS_FILENAME).read_text(
+                    encoding="utf-8"
+                )
             )
 
         self.assertNotIn("raa-archaeology", {layer["key"] for layer in polygon_layers})
@@ -282,7 +299,7 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
             status["geometry_publication"]["warning_codes"],
         )
         self.assertNotIn(
-            "sweden_archaeology_density.geojson",
+            "context/raa/sweden_archaeology_density.geojson",
             {name for _, name in extra_artifacts},
         )
 
@@ -305,7 +322,9 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
                 geography_scope=nordic_scope,
             )
             status = json.loads(
-                (output / RAA_ATLAS_INPUT_STATUS_FILENAME).read_text(encoding="utf-8")
+                (output / "context/raa" / RAA_ATLAS_INPUT_STATUS_FILENAME).read_text(
+                    encoding="utf-8"
+                )
             )
             staged_names = {name for _, name in extra_artifacts}
 
@@ -321,7 +340,7 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
             status["country_source_coverage"]["Sweden"]["lifecycle_status"],
             "admitted",
         )
-        self.assertIn("sweden_archaeology_density.geojson", staged_names)
+        self.assertIn("context/raa/sweden_archaeology_density.geojson", staged_names)
 
     def test_absent_raa_inputs_have_refused_status(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -345,68 +364,6 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
         path.write_text(json.dumps(value), encoding="utf-8")
 
     def _write_reconciled_raa_fixture(self, root: Path) -> None:
-        raw_feature = {
-            "type": "Feature",
-            "geometry": {"type": "Point", "coordinates": [18.0, 57.0]},
-            "properties": {
-                "lamningsnummer": "A",
-                "antikvariskbedomningtyp_namn": "Fornlämning",
-            },
-        }
-        self._write_json(
-            root / "raa/raw/publicerade_lamningar_centrumpunkt.geojson",
-            {
-                "type": "FeatureCollection",
-                "features": [raw_feature],
-                "numberMatched": 1,
-            },
-        )
-        self._write_json(
-            root / "raa/raw/publicerade_lamningar_centrumpunkt_summary.json",
-            {
-                "archived_feature_count": 1,
-                "heritage_site_count": 1,
-                "number_matched": 1,
-                "identified_feature_count": 1,
-                "heritage_or_possible_site_count": 1,
-            },
-        )
-        self._write_json(
-            root / "raa/normalized/sweden_archaeology_layer.json",
-            {
-                "counts": {
-                    "all_published_sites": 1,
-                    "fornlamning": 1,
-                    "fornlamning_or_possible": 1,
-                },
-                "density_feature_count": 1,
-            },
-        )
-        self._write_json(
-            root / "raa/normalized/sweden_archaeology_density.geojson",
-            {
-                "type": "FeatureCollection",
-                "features": [
-                    {
-                        "type": "Feature",
-                        "geometry": {
-                            "type": "Polygon",
-                            "coordinates": [
-                                [
-                                    [17.0, 57.0],
-                                    [18.0, 57.0],
-                                    [18.0, 58.0],
-                                    [17.0, 58.0],
-                                    [17.0, 57.0],
-                                ]
-                            ],
-                        },
-                        "properties": {"country": "Sweden", "count": 1},
-                    }
-                ],
-            },
-        )
-        self._write_json(
-            root / "raa/review/spatiotemporal_review.json",
-            {"release_status": "accepted", "reviewer_id": "qualified-reviewer"},
+        write_authority_fixture(
+            root, source=inventory(["Fornlämning"]), reviewer_id="qualified-reviewer"
         )
