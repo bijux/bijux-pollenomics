@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#482](https://github.com/bijux/bijux-pollenomics/pull/482) — Compatible paired regional extents
+
+- Refuse nondefault paired cutoffs for fixed-extent LOVE modes before numerical
+  work, retaining coupled optimized ring support and standalone REVEALS.
+- Record effective background and deposition support in local and parent
+  manifests before computing child scientific identities.
+- Preserve equations and default controls with generated mode-matrix,
+  host/facade and independent numerical-reference coverage.
+
 ### [#481](https://github.com/bijux/bijux-pollenomics/pull/481) — Literal source variable provenance
 
 - Distinguish taxon-derived variable keys from source-reported VariableID,
