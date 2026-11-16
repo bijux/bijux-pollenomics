@@ -2,6 +2,13 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#463](https://github.com/bijux/bijux-pollenomics/pull/463) — Native archive row order and identity indexes
+
+- Compare Neotoma part/aggregate identity indexes without reordering retained
+  source rows or changing part packing during publication and replacement.
+- Preserve exact large native identities and retain duplicate/foreign membership
+  refusals with the existing archive unchanged.
+
 ### [#462](https://github.com/bijux/bijux-pollenomics/pull/462) — Owned source publication and native collection admission
 
 - Bind boundary decoding to authenticated bounded bytes and retain owned Neotoma
