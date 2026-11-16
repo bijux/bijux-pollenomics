@@ -8,6 +8,7 @@ import os
 from pathlib import Path
 from typing import Any, TypeVar
 
+from ..errors.cleanup import add_cleanup_note
 from .anchors import DirectoryAnchor, identity
 from .owned_writes import OwnedTreeWriter
 from .owned_writes import _rename_directory as _rename_directory
@@ -155,18 +156,26 @@ def publish_owned_replacement(
                                 },
                             )
                         except Exception as receipt_error:
-                            primary_error.add_note(
-                                f"Refusal receipt failed: {type(receipt_error).__name__}: "
-                                f"{receipt_error}; recovery originally allocated at "
-                                f"{recovery.path}; expected directory identity "
-                                f"{recovery.identity}; current attachment must be verified"
-                            )
+
+                            def refusal_note(error: Exception = receipt_error) -> str:
+                                return (
+                                    f"Refusal receipt failed: {type(error).__name__}: "
+                                    f"{error}; recovery originally allocated at "
+                                    f"{recovery.path}; expected directory identity "
+                                    f"{recovery.identity}; current attachment must be verified"
+                                )
+
+                            add_cleanup_note(primary_error, refusal_note)
                 except Exception as recovery_error:
-                    primary_error.add_note(
-                        "Replacement recovery failed: "
-                        f"{type(recovery_error).__name__}: {recovery_error}; "
-                        f"recovery originally allocated at {recovery.path}; "
-                        f"expected directory identity {recovery.identity}; "
-                        "current attachment must be verified"
-                    )
+
+                    def recovery_note(error: Exception = recovery_error) -> str:
+                        return (
+                            "Replacement recovery failed: "
+                            f"{type(error).__name__}: {error}; "
+                            f"recovery originally allocated at {recovery.path}; "
+                            f"expected directory identity {recovery.identity}; "
+                            "current attachment must be verified"
+                        )
+
+                    add_cleanup_note(primary_error, recovery_note)
                 raise
