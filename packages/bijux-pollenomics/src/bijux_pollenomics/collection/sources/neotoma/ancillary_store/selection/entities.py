@@ -11,6 +11,7 @@ from ...capture.resources.models import (
     DEFAULT_RESOURCE_LIMITS,
     NeotomaResourceLimits,
 )
+from ..context.seals import context_seals
 from ..linked_evidence.selection import _POINTERS as _POINTERS
 from ..linked_evidence.selection import read_linked, read_linked_entity
 from .access import (
@@ -44,22 +45,24 @@ def _facet(
     directory: Path, *, observation_id: str, dataset_id: int, facet: str, **kwargs: Any
 ) -> tuple[dict[str, Any], Any]:
     """Share metadata preflight, then read the exact same authenticated entity buffer."""
-    prepared = prepare_facet_access(
-        directory,
-        observation_id=observation_id,
-        dataset_id=dataset_id,
-        facet=facet,
-        **kwargs,
-    )
-    body, receipt = _body(
-        prepared.metadata,
-        prepared.capture,
-        prepared.entry,
-        prepared.request,
-        prepared.row,
-        response=prepared.response,
-    )
-    return _result(prepared.row, body, receipt, linked=False), prepared.resource
+    with context_seals(kwargs) as guard:
+        prepared = prepare_facet_access(
+            directory,
+            observation_id=observation_id,
+            dataset_id=dataset_id,
+            facet=facet,
+            **kwargs,
+        )
+        body, receipt = _body(
+            prepared.metadata,
+            prepared.capture,
+            prepared.entry,
+            prepared.request,
+            prepared.row,
+            response=prepared.response,
+            _before_body_read=guard.check,
+        )
+        return _result(prepared.row, body, receipt, linked=False), prepared.resource
 
 
 def read_neotoma_ancillary_facet_entity(
@@ -119,24 +122,25 @@ def read_neotoma_ancillary_facet(
         "capsule_sources": capsule_sources,
         "limits": limits,
     }
-    result, resource = _facet(
-        directory,
-        observation_id=observation_id,
-        dataset_id=dataset_id,
-        facet=facet,
-        **kwargs,
-    )
-    if result["terminal_status"] != "received_complete_unqualified_facet":
-        raise ValueError("Typed facet source is not a complete successful entity")
-    qualified = qualify_neotoma_facet_body(
-        resource,
-        facet,
-        result["body"],
-        expected_body_sha256=result["body_sha256"],
-    )
-    if qualified["qualification_status"] != "qualified_source_schema":
-        raise ValueError("Selected facet native source schema is unqualified")
-    return {**result, "source_qualification": qualified}
+    with context_seals(kwargs):
+        result, resource = _facet(
+            directory,
+            observation_id=observation_id,
+            dataset_id=dataset_id,
+            facet=facet,
+            **kwargs,
+        )
+        if result["terminal_status"] != "received_complete_unqualified_facet":
+            raise ValueError("Typed facet source is not a complete successful entity")
+        qualified = qualify_neotoma_facet_body(
+            resource,
+            facet,
+            result["body"],
+            expected_body_sha256=result["body_sha256"],
+        )
+        if qualified["qualification_status"] != "qualified_source_schema":
+            raise ValueError("Selected facet native source schema is unqualified")
+        return {**result, "source_qualification": qualified}
 
 
 def read_neotoma_ancillary_linked_entity(

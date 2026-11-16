@@ -11,6 +11,7 @@ from ...capture.facets.profiles import qualify_neotoma_facet_body
 from ...capture.linked_resources.profiles import parse_neotoma_linked_source
 from ...capture.resources.models import DEFAULT_RESOURCE_LIMITS, NeotomaResourceLimits
 from ...client import positive_native_id
+from ..context.seals import context_seals
 from ..selection.access import (
     _body,
     _facet_resource,
@@ -56,58 +57,68 @@ def read_linked_entity(
         "limits": limits,
         "evidence_sources": evidence_sources,
     }
-    prepared = prepare_linked_access(
-        directory,
-        observation_id=observation_id,
-        occurrence_id=occurrence_id,
-        kind=kind,
-        native_id=native_id,
-        **kwargs,
-    )
-    metadata, row = prepared.metadata, prepared.row
-    capture, entry, native = prepared.capture, prepared.entry, prepared.native_id
-    scoped = prepared.scoped
-    proof, locator = prepared.proof, prepared.locator
-    request, response = prepared.request, prepared.response
-    predecessor, source_entry = prepared.predecessor, prepared.source_entry
-    source_body, _ = _body(
-        metadata,
-        predecessor,
-        source_entry,
-        prepared.source_request,
-        response=prepared.source_response,
-    )
-    qualified = qualify_neotoma_facet_body(
-        _facet_resource(predecessor, source_entry),
-        source_entry["facet"],
-        source_body,
-        expected_body_sha256=proof["source_body_sha256"],
-    )
-    pointer = proof["json_pointer"]
-    pattern = _POINTERS.get(proof["relation"])
-    if (
-        qualified["qualification_status"] != "qualified_source_schema"
-        or pattern is None
-        or re.fullmatch(pattern, pointer) is None
-    ):
-        raise ValueError(
-            "Selected linked native pointer or source schema is unqualified"
+    with context_seals(kwargs) as guard:
+        prepared = prepare_linked_access(
+            directory,
+            observation_id=observation_id,
+            occurrence_id=occurrence_id,
+            kind=kind,
+            native_id=native_id,
+            **kwargs,
         )
-    value: Any = qualified["source_payload"]
-    try:
-        for token in pointer.split("/")[1:]:
-            value = value[int(token)] if isinstance(value, list) else value[token]
-    except (KeyError, IndexError, TypeError, ValueError) as error:
-        raise ValueError("Selected linked native pointer is absent") from error
-    if positive_native_id(value) != native:
-        raise ValueError("Selected linked native field target differs")
-    body, receipt = _body(metadata, capture, entry, request, row, response)
-    return {
-        **_result(row, body, receipt, linked=True),
-        "occurrence_id": occurrence_id,
-        "source_proof": proof,
-        **({"evidence_locator": locator} if scoped else {}),
-    }
+        metadata, row = prepared.metadata, prepared.row
+        capture, entry, native = prepared.capture, prepared.entry, prepared.native_id
+        scoped = prepared.scoped
+        proof, locator = prepared.proof, prepared.locator
+        request, response = prepared.request, prepared.response
+        predecessor, source_entry = prepared.predecessor, prepared.source_entry
+        source_body, _ = _body(
+            metadata,
+            predecessor,
+            source_entry,
+            prepared.source_request,
+            response=prepared.source_response,
+            _before_body_read=guard.check,
+        )
+        qualified = qualify_neotoma_facet_body(
+            _facet_resource(predecessor, source_entry),
+            source_entry["facet"],
+            source_body,
+            expected_body_sha256=proof["source_body_sha256"],
+        )
+        pointer = proof["json_pointer"]
+        pattern = _POINTERS.get(proof["relation"])
+        if (
+            qualified["qualification_status"] != "qualified_source_schema"
+            or pattern is None
+            or re.fullmatch(pattern, pointer) is None
+        ):
+            raise ValueError(
+                "Selected linked native pointer or source schema is unqualified"
+            )
+        value: Any = qualified["source_payload"]
+        try:
+            for token in pointer.split("/")[1:]:
+                value = value[int(token)] if isinstance(value, list) else value[token]
+        except (KeyError, IndexError, TypeError, ValueError) as error:
+            raise ValueError("Selected linked native pointer is absent") from error
+        if positive_native_id(value) != native:
+            raise ValueError("Selected linked native field target differs")
+        body, receipt = _body(
+            metadata,
+            capture,
+            entry,
+            request,
+            row,
+            response,
+            _before_body_read=guard.check,
+        )
+        return {
+            **_result(row, body, receipt, linked=True),
+            "occurrence_id": occurrence_id,
+            "source_proof": proof,
+            **({"evidence_locator": locator} if scoped else {}),
+        }
 
 
 def read_linked(
@@ -137,22 +148,23 @@ def read_linked(
         "limits": limits,
         "evidence_sources": evidence_sources,
     }
-    result = read_linked_entity(
-        directory,
-        observation_id=observation_id,
-        occurrence_id=occurrence_id,
-        kind=kind,
-        native_id=native_id,
-        **kwargs,
-    )
-    if result["terminal_status"] != "received_complete_unqualified_linked_resource":
-        raise ValueError("Typed linked source is not a complete successful entity")
-    identity = result["source_identity"]
-    parsed = parse_neotoma_linked_source(
-        identity, result["body"], expected_body_sha256=result["body_sha256"]
-    )
-    return {
-        **result,
-        "source_payload": parsed.payload,
-        "source_records": parsed.records,
-    }
+    with context_seals(kwargs):
+        result = read_linked_entity(
+            directory,
+            observation_id=observation_id,
+            occurrence_id=occurrence_id,
+            kind=kind,
+            native_id=native_id,
+            **kwargs,
+        )
+        if result["terminal_status"] != "received_complete_unqualified_linked_resource":
+            raise ValueError("Typed linked source is not a complete successful entity")
+        identity = result["source_identity"]
+        parsed = parse_neotoma_linked_source(
+            identity, result["body"], expected_body_sha256=result["body_sha256"]
+        )
+        return {
+            **result,
+            "source_payload": parsed.payload,
+            "source_records": parsed.records,
+        }
