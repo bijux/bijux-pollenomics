@@ -2,6 +2,14 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#457](https://github.com/bijux/bijux-pollenomics/pull/457) — Guarded taxon ancestry and selected source custody
+
+- Preserve literal source-led taxon parent edges, cycle components and fixed-point
+  root obligations under independent source anchors and finite frontier bounds.
+- Seal linked-association member identities through owned publication/readback.
+- Honor explicit valid caller context budgets within protocol ceilings while
+  preserving smaller caller/recorded selected-request limits.
+
 ### [#456](https://github.com/bijux/bijux-pollenomics/pull/456) — Qualified environment sources and bounded Atlas metadata
 
 - Retain matched dataset environment sources and preserve exact native owners,
