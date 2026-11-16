@@ -82,10 +82,6 @@ def _safe_evidence_relative_path(value: object) -> str:
     return value
 
 
-def _read_object(path: Path) -> dict[str, object]:
-    return _decode_object(path.read_bytes(), path.as_posix())
-
-
 def _decode_object(payload: bytes, label: str) -> dict[str, object]:
     try:
         document = json.loads(payload)

@@ -1,10 +1,14 @@
+"""Decode evidence inputs from the exact buffers retained by admission validation."""
+
 from __future__ import annotations
 
 from collections.abc import Mapping
 import hashlib
-from pathlib import Path
 from typing import cast
 
+from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
+    SeadMaterializedAdmissionSnapshot,
+)
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_FULL_EVIDENCE_SOURCE_TABLES,
 )
@@ -12,27 +16,16 @@ from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
 from .serialization import (
     _decode_object,
     _positive_int,
-    _read_object,
-    _reject_symlink_ancestors,
     _required_text,
     _verify_record,
 )
 
 
-def _load_full_admission(
-    acquisition_root: Path,
-    *,
-    validated_admission: Mapping[str, object],
-) -> tuple[Path, dict[str, list[dict[str, object]]], dict[str, str]]:
-    root = Path(acquisition_root)
-    if not root.is_absolute() or root == Path(root.anchor):
-        raise ValueError("SEAD evidence acquisition must be a safe absolute path")
-    _reject_symlink_ancestors(root)
-    if root.is_symlink() or not root.is_dir():
-        raise ValueError("SEAD evidence acquisition must be a regular directory")
-    admission = _read_object(root / "admission.json")
-    if admission != validated_admission:
-        raise ValueError("SEAD evidence admission changed after independent validation")
+def _load_admitted_tables(
+    snapshot: SeadMaterializedAdmissionSnapshot,
+) -> tuple[dict[str, list[dict[str, object]]], dict[str, str]]:
+    """Keep full-table parsing on authenticated buffers, without reopening paths."""
+    admission = snapshot.admission
     scope = admission.get("declared_scope")
     if not isinstance(scope, Mapping):
         raise TypeError("SEAD evidence admission declared_scope is missing")
@@ -61,7 +54,9 @@ def _load_full_admission(
         record = records.get(name)
         if record is None:
             raise ValueError(f"SEAD full-evidence payload is missing: {table}")
-        content = (root / name).read_bytes()
+        content = snapshot.copied_files.get(name)
+        if content is None:
+            raise ValueError(f"SEAD admitted payload is missing: {table}")
         _verify_record(content, record, name)
         payload = _decode_object(content, name)
         if payload.get("table") != table:
@@ -71,11 +66,15 @@ def _load_full_admission(
             raise TypeError(f"SEAD evidence rows are invalid: {table}")
         tables[table] = cast(list[dict[str, object]], rows)
         digests[table] = hashlib.sha256(content).hexdigest()
-    return root, tables, digests
+    return tables, digests
 
 
-def _country_by_site(root: Path) -> dict[int, str]:
-    document = _read_object(root / "country-decisions.json")
+def _country_by_site(snapshot: SeadMaterializedAdmissionSnapshot) -> dict[int, str]:
+    """Use the same country-decision bytes as the admitted relation tables."""
+    content = snapshot.copied_files.get("country-decisions.json")
+    if content is None:
+        raise ValueError("SEAD admitted country decisions are missing")
+    document = _decode_object(content, "country-decisions.json")
     rows = document.get("decisions")
     if not isinstance(rows, list):
         raise TypeError("SEAD country decisions are missing")

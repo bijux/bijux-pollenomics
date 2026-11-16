@@ -1,3 +1,5 @@
+"""Derive SEAD evidence surfaces from one authenticated admission snapshot."""
+
 from __future__ import annotations
 
 from collections import Counter, defaultdict
@@ -7,17 +9,17 @@ from typing import cast
 
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     SeadAdmissionExpectedIdentity,
-    validate_materialized_sead_full_evidence_admission,
+    read_materialized_sead_full_evidence_admission,
 )
 from bijux_pollenomics.collection.sources.sead.evidence.claims import (
-    build_sead_chronology_claim_bundle,
+    build_sead_chronology_claim_bundle_from_snapshot,
 )
 from bijux_pollenomics.collection.sources.sead.evidence.source_keys import (
     build_sead_source_key_ledger,
     validate_sead_source_key_ledger,
 )
 
-from .admission import _country_by_site, _load_full_admission
+from .admission import _country_by_site, _load_admitted_tables
 from .constants import (
     _ABUNDANCE_COMPONENTS,
     _ANALYSIS_VALUE_COMPONENTS,
@@ -57,26 +59,26 @@ def build_sead_source_native_evidence_bundle(
     expected_identity: SeadAdmissionExpectedIdentity,
 ) -> dict[str, dict[str, object]]:
     """Build complete observation, relation, chronology, and refusal surfaces."""
-    admission = validate_materialized_sead_full_evidence_admission(
+    snapshot = read_materialized_sead_full_evidence_admission(
         acquisition_root, expected_identity=expected_identity
     )
-    root, tables, table_sha256 = _load_full_admission(
-        acquisition_root, validated_admission=admission
-    )
+    admission = snapshot.admission
+    tables, table_sha256 = _load_admitted_tables(snapshot)
     source_key_ledger = build_sead_source_key_ledger(
-        root,
+        acquisition_root,
         admission=admission,
         tables=tables,
         table_sha256=table_sha256,
+        source_files=snapshot.copied_files,
     )
     validate_sead_source_key_ledger(source_key_ledger)
     manifest_sha256 = _required_sha256(admission, "acquisition_manifest_sha256")
     build_id = _required_text(admission, "build_id")
     run_id = _required_text(admission, "run_id")
-    claim_bundle = build_sead_chronology_claim_bundle(root)
+    claim_bundle = build_sead_chronology_claim_bundle_from_snapshot(snapshot)
     claim_bundle["propagation_reason_code"] = "source_classification_not_accepted"
 
-    country_by_site = _country_by_site(root)
+    country_by_site = _country_by_site(snapshot)
     relation_rows, entity_relations = _entity_relations(
         tables, country_by_site=country_by_site
     )
