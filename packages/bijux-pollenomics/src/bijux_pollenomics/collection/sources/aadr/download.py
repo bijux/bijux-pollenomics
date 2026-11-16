@@ -11,7 +11,7 @@ from .constants import (
     REQUEST_HEADERS,
 )
 from .models import AadrAnnoDownloadReport, AadrAnnoFile, AadrReleaseResolution
-from .resolution import resolve_aadr_release
+from .resolution import resolve_aadr_release, validate_release_version
 
 # Release metadata cannot raise the operational ceiling for in-memory acquisition.
 AADR_ANNO_MAX_BYTES = 256 * 1024 * 1024
@@ -27,8 +27,7 @@ def download_aadr_anno_files(
 ) -> AadrAnnoDownloadReport:
     """Download public .anno files after preflighting the operational byte ceiling."""
     output_root = Path(output_root)
-    version_dir = output_root / version
-    version_dir.mkdir(parents=True, exist_ok=True)
+    version_dir = output_root / validate_release_version(version)
 
     resolution = resolve_aadr_release(
         version=version, metadata=fetch_release_history_metadata_fn()
@@ -41,6 +40,7 @@ def download_aadr_anno_files(
                 f"AADR anno operational byte ceiling exceeded for {anno_file.filename}: "
                 f"{anno_file.filesize} > {AADR_ANNO_MAX_BYTES}"
             )
+    version_dir.mkdir(parents=True, exist_ok=True)
     downloaded_files: list[Path] = []
     for anno_file in resolution.anno_files:
         dataset_dir = version_dir / anno_file.dataset_name
