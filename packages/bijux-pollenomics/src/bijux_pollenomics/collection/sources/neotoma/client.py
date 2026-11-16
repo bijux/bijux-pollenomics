@@ -1,3 +1,5 @@
+"""Preserve native Neotoma identities through bounded JSON collection."""
+
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable
@@ -10,7 +12,7 @@ import time
 from typing import Any
 from urllib.error import HTTPError, URLError
 
-from ....core.http import fetch_text
+from ....core.http import TEXT_MAX_BYTES, fetch_text
 
 __all__ = [
     "build_neotoma_bbox_geojson",
@@ -75,11 +77,18 @@ def fetch_neotoma_json(
     headers: dict[str, str] | None = None,
     insecure: bool = False,
     timeout: float | None = None,
+    *,
+    max_bytes: int = TEXT_MAX_BYTES,
 ) -> dict[str, Any]:
     """Apply native JSON fidelity to the existing HTTP transport and TLS policy."""
     return decode_neotoma_json_object(
         fetch_text(
-            url, params=params, headers=headers, insecure=insecure, timeout=timeout
+            url,
+            params=params,
+            headers=headers,
+            insecure=insecure,
+            timeout=timeout,
+            max_bytes=max_bytes,
         )
     )
 
