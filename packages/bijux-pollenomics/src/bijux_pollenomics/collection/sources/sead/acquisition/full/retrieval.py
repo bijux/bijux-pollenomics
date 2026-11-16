@@ -8,6 +8,7 @@ from urllib.error import HTTPError, URLError
 
 from bijux_pollenomics.collection.sources.sead.acquisition.client import (
     SEAD_POSTGREST_ROOT,
+    _range_exhausted_at,
     sead_retry_delay,
     sead_retryable_error,
 )
@@ -96,10 +97,11 @@ def acquire_sead_table(
             "attempt_count": attempt_count,
         }
 
+    start = 0
     for page_number in range(1, max_pages + 1):
-        start = (page_number - 1) * page_size
         range_text = f"{start}-{start + page_size - 1}"
         payload: object | None = None
+        eof: dict[str, object] | None = None
         for attempt in range(1, request_retries + 1):
             attempt_count += 1
             try:
@@ -111,6 +113,22 @@ def acquire_sead_table(
                 )
                 break
             except (TimeoutError, URLError, HTTPError) as exc:
+                if (
+                    isinstance(exc, HTTPError)
+                    and exc.code == 416
+                    and _range_exhausted_at(exc, start)
+                ):
+                    payload = []
+                    eof = {
+                        "kind": "unsatisfied_range",
+                        "response_status": exc.code,
+                        "content_range": next(
+                            value
+                            for key, value in exc.headers.items()
+                            if key.casefold() == "content-range"
+                        ),
+                    }
+                    break
                 retryable = sead_retryable_error(exc)
                 delay = sead_retry_delay(exc, attempt) if retryable else None
                 failures.append(
@@ -160,13 +178,19 @@ def acquire_sead_table(
                 **result_arguments(), reason="page_size_contract_violation"
             )
         rows.extend(page_rows)
-        pages.append(
-            {"page": page_number, "range": range_text, "row_count": len(page_rows)}
-        )
-        if len(page_rows) < page_size:
+        page: dict[str, object] = {
+            "page": page_number,
+            "range": range_text,
+            "row_count": len(page_rows),
+        }
+        if not page_rows:
+            page["eof"] = eof or {"kind": "empty_json_array"}
+        pages.append(page)
+        if not page_rows:
             return build_result(
                 **result_arguments(), status="complete", failure_reason=None
             )
+        start += len(page_rows)
 
     failures.append(
         {

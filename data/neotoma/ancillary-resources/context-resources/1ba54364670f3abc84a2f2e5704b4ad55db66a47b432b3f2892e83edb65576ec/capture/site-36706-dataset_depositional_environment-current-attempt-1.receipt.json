@@ -1,0 +1,98 @@
+{
+  "body_complete": true,
+  "body_file": "site-36706-dataset_depositional_environment-current-attempt-1.body",
+  "expected_site_id": 36706,
+  "final_url": "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=66429%2C66430%2C66431%2C66432%2C66433%2C66434%2C66435%2C66436%2C66437%2C66438%2C66655&limit=11&offset=0",
+  "http_status": 200,
+  "parameters": {
+    "datasetid": "66429,66430,66431,66432,66433,66434,66435,66436,66437,66438,66655",
+    "limit": "11",
+    "offset": "0"
+  },
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/apps/depenvt?datasetid=66429%2C66430%2C66431%2C66432%2C66433%2C66434%2C66435%2C66436%2C66437%2C66438%2C66655&limit=11&offset=0",
+  "requested_url": "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=66429%2C66430%2C66431%2C66432%2C66433%2C66434%2C66435%2C66436%2C66437%2C66438%2C66655&limit=11&offset=0",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "953"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 20:57:41 GMT"
+    ],
+    [
+      "etag",
+      "W/\"3b9-Ywoi/t2Z9A6muu7FJrCaKyeQkcE\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4912"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794776273"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "4"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 953,
+  "retained_body_sha256": "614afacd48d10238426c2c9e2978bbd1f50d2eaef40cec6b559a28118268981f",
+  "role": "dataset_depositional_environment",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T20:57:41.666597+00:00",
+  "utc_start": "2026-11-15T20:57:41.135646+00:00"
+}

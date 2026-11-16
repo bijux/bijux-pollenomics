@@ -1,0 +1,98 @@
+{
+  "body_complete": true,
+  "body_file": "site-26931-dataset_depositional_environment-current-attempt-1.body",
+  "expected_site_id": 26931,
+  "final_url": "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=47331%2C47332%2C47333%2C47334%2C47335%2C47336%2C47337%2C47338%2C47339%2C47340%2C47341%2C47342%2C47343%2C47344%2C47345%2C47346%2C47347%2C47348%2C47349%2C47350%2C47351%2C47352%2C47353%2C47354%2C47355%2C47356%2C47357%2C47358%2C47359%2C47360%2C47361%2C47362%2C47363%2C47364%2C47365%2C47366%2C47367%2C47368%2C47369%2C47370&limit=40&offset=0",
+  "http_status": 200,
+  "parameters": {
+    "datasetid": "47331,47332,47333,47334,47335,47336,47337,47338,47339,47340,47341,47342,47343,47344,47345,47346,47347,47348,47349,47350,47351,47352,47353,47354,47355,47356,47357,47358,47359,47360,47361,47362,47363,47364,47365,47366,47367,47368,47369,47370",
+    "limit": "40",
+    "offset": "0"
+  },
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/apps/depenvt?datasetid=47331%2C47332%2C47333%2C47334%2C47335%2C47336%2C47337%2C47338%2C47339%2C47340%2C47341%2C47342%2C47343%2C47344%2C47345%2C47346%2C47347%2C47348%2C47349%2C47350%2C47351%2C47352%2C47353%2C47354%2C47355%2C47356%2C47357%2C47358%2C47359%2C47360%2C47361%2C47362%2C47363%2C47364%2C47365%2C47366%2C47367%2C47368%2C47369%2C47370&limit=40&offset=0",
+  "requested_url": "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=47331%2C47332%2C47333%2C47334%2C47335%2C47336%2C47337%2C47338%2C47339%2C47340%2C47341%2C47342%2C47343%2C47344%2C47345%2C47346%2C47347%2C47348%2C47349%2C47350%2C47351%2C47352%2C47353%2C47354%2C47355%2C47356%2C47357%2C47358%2C47359%2C47360%2C47361%2C47362%2C47363%2C47364%2C47365%2C47366%2C47367%2C47368%2C47369%2C47370&limit=40&offset=0",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "3109"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 20:49:25 GMT"
+    ],
+    [
+      "etag",
+      "W/\"c25-IGIluCj5GL2LWSN76zXQpB3RFxY\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4976"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794775812"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "4"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 3109,
+  "retained_body_sha256": "6e086b50e093ceb7495498d01e90795e28aeaca76e92bf822e7d84254c90f122",
+  "role": "dataset_depositional_environment",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T20:49:25.224988+00:00",
+  "utc_start": "2026-11-15T20:49:24.684054+00:00"
+}

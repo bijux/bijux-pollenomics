@@ -36,7 +36,11 @@ def test_production_fetch_rejects_invalid_required_identifiers(
     monkeypatch.setattr(
         production_sead,
         "fetch_json",
-        lambda *_args, **_kwargs: [{"site_id": site_id}],
+        lambda *_args, **kwargs: (
+            [{"site_id": site_id}]
+            if kwargs["headers"]["Range"].startswith("0-")
+            else []
+        ),
     )
 
     with pytest.raises(ValueError, match="Invalid required SEAD tbl_sites.site_id"):
@@ -49,7 +53,11 @@ def test_production_fetch_rejects_duplicate_identifiers(
     monkeypatch.setattr(
         production_sead,
         "fetch_json",
-        lambda *_args, **_kwargs: [{"site_id": 1}, {"site_id": 1}],
+        lambda *_args, **kwargs: (
+            [{"site_id": 1}, {"site_id": 1}]
+            if kwargs["headers"]["Range"].startswith("0-")
+            else []
+        ),
     )
 
     with pytest.raises(ValueError, match="Duplicate SEAD tbl_sites.site_id"):
@@ -62,7 +70,11 @@ def test_batched_production_fetch_rejects_duplicates_across_batches(
     monkeypatch.setattr(
         production_sead,
         "fetch_json",
-        lambda *_args, **_kwargs: [{"sample_group_id": 10, "site_id": 1}],
+        lambda *_args, **kwargs: (
+            [{"sample_group_id": 10, "site_id": 1}]
+            if kwargs["headers"]["Range"].startswith("0-")
+            else []
+        ),
     )
 
     with pytest.raises(ValueError, match="Duplicate SEAD tbl_sample_groups"):

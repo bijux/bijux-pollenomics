@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from dataclasses import fields, replace
 from pathlib import Path
+from typing import Any
 
 from .....config import NORDIC_BBOX
 from .....core.files import write_json
@@ -22,6 +24,7 @@ from ....exports.context_points import (
 from ...boundaries.store import load_repository_country_boundaries
 from ..catalog import LandClimRawAssets, build_landclim_bibliography
 from ..grid import build_landclim_grid_geojson
+from ..raw_assets import transact
 from ..review import write_landclim_review_outputs
 from ..sites import build_landclim_site_records
 from ..time_windows import build_landclim_temporal_grid_geojson
@@ -46,35 +49,47 @@ def collect_landclim_data(
 ) -> LandClimDataReport:
     """Download and normalize LandClim PANGAEA datasets under data/landclim."""
     output_root = Path(output_root)
-    raw_dir = output_root / "raw"
-    normalized_dir = output_root / "normalized"
-    raw_dir.mkdir(parents=True, exist_ok=True)
-    normalized_dir.mkdir(parents=True, exist_ok=True)
 
-    raw_assets = raw_asset_collector(raw_dir)
-    raw_manifest_path = raw_dir / "landclim_sources.json"
+    def produce(candidate: Path) -> LandClimDataReport:
+        output_root = candidate
+        raw_dir = output_root / "raw"
+        normalized_dir = output_root / "normalized"
+        raw_dir.mkdir(parents=True, exist_ok=True)
+        normalized_dir.mkdir(parents=True, exist_ok=True)
 
-    def publish_receipt() -> None:
-        write_json(
-            raw_manifest_path,
-            raw_receipt_builder(
-                raw_assets.paths,
-                raw_assets.asset_urls,
-                generated_on=generated_on(),
-            ),
+        raw_assets = raw_asset_collector(raw_dir)
+        raw_manifest_path = raw_dir / "landclim_sources.json"
+
+        def publish_receipt() -> None:
+            write_json(
+                raw_manifest_path,
+                raw_receipt_builder(
+                    raw_assets.paths,
+                    raw_assets.asset_urls,
+                    generated_on=generated_on(),
+                ),
+            )
+            raw_receipt_validator(raw_dir)
+
+        return _publish_surfaces(
+            output_root,
+            raw_assets.paths,
+            country_boundaries=country_boundaries,
+            bbox=bbox,
+            raw_manifest_path=raw_manifest_path,
+            repository_paths=False,
+            generated_on=generated_on,
+            before_publication=publish_receipt,
         )
-        raw_receipt_validator(raw_dir)
 
-    return _publish_surfaces(
-        output_root,
-        raw_assets.paths,
-        country_boundaries=country_boundaries,
-        bbox=bbox,
-        raw_manifest_path=raw_manifest_path,
-        repository_paths=False,
-        generated_on=generated_on,
-        before_publication=publish_receipt,
-    )
+    report = transact(output_root, produce)
+    prior_root = report.output_dir
+    paths: dict[str, Any] = {
+        field.name: output_root / value.relative_to(prior_root)
+        for field in fields(report)
+        if isinstance(value := getattr(report, field.name), Path)
+    }
+    return replace(report, **paths)
 
 
 def materialize_landclim_repository_surfaces(

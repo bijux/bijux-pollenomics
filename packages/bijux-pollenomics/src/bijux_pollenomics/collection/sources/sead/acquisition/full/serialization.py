@@ -9,6 +9,7 @@ from typing import Any
 from .model import (
     ACQUISITION_RECEIPT_SCHEMA_VERSION,
     ACQUISITION_TOOL_VERSION,
+    SOURCE_EOF_PAGINATION_PROFILE,
     TABLE_PAYLOAD_SCHEMA_VERSION,
     SeadAcquisitionError,
     SeadTableAcquisition,
@@ -51,6 +52,7 @@ def build_result(
         "started_at": started_at,
         "completed_at": completed_at,
         "pagination": {
+            "profile": SOURCE_EOF_PAGINATION_PROFILE,
             "page_size": page_size,
             "max_pages": max_pages,
             "pages": pages,

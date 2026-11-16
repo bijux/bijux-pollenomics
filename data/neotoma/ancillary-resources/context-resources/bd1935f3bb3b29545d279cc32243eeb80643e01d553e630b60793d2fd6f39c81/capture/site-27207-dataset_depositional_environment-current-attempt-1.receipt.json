@@ -1,0 +1,98 @@
+{
+  "body_complete": true,
+  "body_file": "site-27207-dataset_depositional_environment-current-attempt-1.body",
+  "expected_site_id": 27207,
+  "final_url": "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=48565%2C48566%2C48567%2C48568%2C48569%2C48570%2C48571%2C48572%2C48573%2C48574%2C48575%2C48576%2C48577%2C48578%2C48579&limit=15&offset=0",
+  "http_status": 200,
+  "parameters": {
+    "datasetid": "48565,48566,48567,48568,48569,48570,48571,48572,48573,48574,48575,48576,48577,48578,48579",
+    "limit": "15",
+    "offset": "0"
+  },
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/apps/depenvt?datasetid=48565%2C48566%2C48567%2C48568%2C48569%2C48570%2C48571%2C48572%2C48573%2C48574%2C48575%2C48576%2C48577%2C48578%2C48579&limit=15&offset=0",
+  "requested_url": "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=48565%2C48566%2C48567%2C48568%2C48569%2C48570%2C48571%2C48572%2C48573%2C48574%2C48575%2C48576%2C48577%2C48578%2C48579&limit=15&offset=0",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "1184"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 20:49:34 GMT"
+    ],
+    [
+      "etag",
+      "W/\"4a0-s+OVPYlETXrLnVQC+tPODo7DzMw\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4960"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794775812"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "5"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 1184,
+  "retained_body_sha256": "9c55c8aa8a4f707e996cf74d4382699d2800d07c00cdbb3b659cfef1f6d1147b",
+  "role": "dataset_depositional_environment",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T20:49:34.432566+00:00",
+  "utc_start": "2026-11-15T20:49:33.871520+00:00"
+}

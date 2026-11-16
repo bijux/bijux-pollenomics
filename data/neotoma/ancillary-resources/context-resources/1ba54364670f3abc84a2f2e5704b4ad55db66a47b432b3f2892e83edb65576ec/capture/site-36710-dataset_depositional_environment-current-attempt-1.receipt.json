@@ -1,0 +1,98 @@
+{
+  "body_complete": true,
+  "body_file": "site-36710-dataset_depositional_environment-current-attempt-1.body",
+  "expected_site_id": 36710,
+  "final_url": "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=66444%2C66445%2C66446%2C66447%2C66448%2C66449%2C66497&limit=7&offset=0",
+  "http_status": 200,
+  "parameters": {
+    "datasetid": "66444,66445,66446,66447,66448,66449,66497",
+    "limit": "7",
+    "offset": "0"
+  },
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/apps/depenvt?datasetid=66444%2C66445%2C66446%2C66447%2C66448%2C66449%2C66497&limit=7&offset=0",
+  "requested_url": "https://api.neotomadb.org/v2.0/apps/depenvt?datasetid=66444%2C66445%2C66446%2C66447%2C66448%2C66449%2C66497&limit=7&offset=0",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "617"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 20:57:43 GMT"
+    ],
+    [
+      "etag",
+      "W/\"269-0gNnijfR7krnZYe6IsBNfHCSgjU\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4908"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794776273"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "5"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 617,
+  "retained_body_sha256": "b3e9ff5a805d9d76ab65674d833fb1afb0249a9aee048c93c1d038dc1514f47f",
+  "role": "dataset_depositional_environment",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T20:57:43.873766+00:00",
+  "utc_start": "2026-11-15T20:57:43.321132+00:00"
+}

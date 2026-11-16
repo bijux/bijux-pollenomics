@@ -18,7 +18,13 @@ from .support import _acquire
 def test_materialization_is_atomic_hashed_and_refuses_nonidentical_overwrite(
     tmp_path: Path,
 ) -> None:
-    result = _acquire(lambda _url, **_kwargs: [{"site_id": 1, "site_name": "A"}])
+    result = _acquire(
+        lambda _url, **kwargs: (
+            [{"site_id": 1, "site_name": "A"}]
+            if kwargs["headers"]["Range"].startswith("0-")
+            else []
+        )
+    )
     countries = reconcile_sead_countries(result.rows, country_by_site_id={"1": "SE"})
     output_root = tmp_path / "sead-run"
     manifest_path = materialize_sead_acquisition(
@@ -60,7 +66,11 @@ def test_materialization_is_atomic_hashed_and_refuses_nonidentical_overwrite(
 def test_materialization_never_claims_complete_with_missing_table_or_failed_join(
     tmp_path: Path,
 ) -> None:
-    result = _acquire(lambda _url, **_kwargs: [{"site_id": 1}])
+    result = _acquire(
+        lambda _url, **kwargs: (
+            [{"site_id": 1}] if kwargs["headers"]["Range"].startswith("0-") else []
+        )
+    )
     countries = reconcile_sead_countries(result.rows, country_by_site_id={})
     failed_join = reconcile_sead_join(
         edge="sites_to_sample_groups",
@@ -84,7 +94,11 @@ def test_materialization_never_claims_complete_with_missing_table_or_failed_join
 
 
 def test_materialization_refuses_unsafe_table_paths(tmp_path: Path) -> None:
-    result = _acquire(lambda _url, **_kwargs: [{"site_id": 1}])
+    result = _acquire(
+        lambda _url, **kwargs: (
+            [{"site_id": 1}] if kwargs["headers"]["Range"].startswith("0-") else []
+        )
+    )
     unsafe = type(result)(table="../escape", rows=result.rows, receipt=result.receipt)
     countries = reconcile_sead_countries(result.rows, country_by_site_id={})
 
