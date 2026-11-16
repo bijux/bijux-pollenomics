@@ -50,3 +50,26 @@ not consume them. Analytical LOVE refuses optimizer candidates. Supplied arrays
 are hashed in run provenance; seeds control NumPy streams and do not reproduce R
 streams. Direct translated helper functions are private implementation/testing
 surfaces and do not broaden these facade contracts.
+
+## Paired regional extent
+
+`LRAConfig` requires `reveals.region_cutoff_m=100000` for analytical LOVE,
+whether regional draws are coupled or independently recomputed. Historical
+analytical `Kreg` integrates to 100 km even when regional cover is supplied.
+Uncoupled optimized LOVE also requires this cutoff because its internal
+REVEALS estimate uses 100 km. Incompatible paired configurations are refused
+before either numerical stage runs; the equations and source geometry are
+unchanged. Standalone REVEALS retains its configurable cutoff.
+
+Coupled optimized LOVE accepts other REVEALS cutoffs: it consumes the supplied
+regional draws and derives deposition from the explicitly supplied ring
+geometry and terrestrial fractions. Its regional background estimation domain
+and ring deposition domain have different roles and need not be identical.
+This support does not establish that regional vegetation is representative of
+the local site's background; that scientific assumption still needs admission.
+
+Paired and local child manifests record `effective_regional_extent`: the
+REVEALS cutoff, LOVE background source and cutoff, and either the historical
+analytical deposition cutoff or the optimized ring boundaries and local ring
+count. The latter identifies the changing local/regional ring partition for
+each evaluated local extent; it does not invent a common fixed ring cutoff.
