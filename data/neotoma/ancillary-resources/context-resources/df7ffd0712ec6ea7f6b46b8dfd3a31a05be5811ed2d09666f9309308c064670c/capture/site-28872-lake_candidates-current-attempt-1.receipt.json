@@ -1,0 +1,99 @@
+{
+  "body_complete": true,
+  "body_file": "site-28872-lake_candidates-current-attempt-1.body",
+  "expected_site_id": 28872,
+  "final_url": "https://api.neotomadb.org/v2.0/data/spatial/lakes?siteid=28872&buffer=1000&prec=0.0001&proj=4326",
+  "http_status": 200,
+  "parameters": {
+    "buffer": "1000",
+    "prec": "0.0001",
+    "proj": "4326",
+    "siteid": "28872"
+  },
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/spatial/lakes?siteid=28872&buffer=1000&prec=0.0001&proj=4326",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/spatial/lakes?siteid=28872&buffer=1000&prec=0.0001&proj=4326",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "988"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 16:01:54 GMT"
+    ],
+    [
+      "etag",
+      "W/\"3dc-u9IMUIV9rSTcJJC/fTqwc+947YA\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4995"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794758573"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "44"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 988,
+  "retained_body_sha256": "204811063688a54f5b4659020611936a47d101894ee4ce5e20c582e88f8b6411",
+  "role": "lake_candidates",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T16:01:54.518294+00:00",
+  "utc_start": "2026-11-15T16:01:54.104948+00:00"
+}

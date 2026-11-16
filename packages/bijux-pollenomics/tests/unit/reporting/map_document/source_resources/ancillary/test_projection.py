@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from dataclasses import asdict, replace
+import json
+from pathlib import Path
 from typing import Any
 
 from bijux_pollenomics.reporting.map_document import source_resources as owner
@@ -60,3 +63,28 @@ def test_original_and_current_scope_are_not_conflated(
     assert extra.provenance["scientific_admission"] == "not_asserted"
     assert extra.provenance["original_preget_scope_reconstructed"] is False
     assert extra.provenance["related_resource_graph_complete"] is False
+
+
+def test_v1_none_and_unused_evidence_resolvers_preserve_exact_metadata_bytes(
+    ancillary_sources: dict[str, Any], tmp_path: Path
+) -> None:
+    source = source_input(ancillary_sources)
+    baseline = owner.load_atlas_resource_catalogue(source)
+    assert baseline.ancillary is not None
+    assert (
+        baseline.ancillary.source_manifest["schema_version"]
+        == "neotoma-ancillary-source-federation.v1"
+    )
+    encoded = json.dumps(asdict(baseline), sort_keys=True, separators=(",", ":"))
+    dependency = source.ancillary
+    assert dependency is not None and dependency.evidence_sources is None
+    for resolver in (None, {}, {"7" * 64: tmp_path / "unused-evidence"}):
+        current = owner.load_atlas_resource_catalogue(
+            replace(source, ancillary=replace(dependency, evidence_sources=resolver))
+        )
+        assert (
+            json.dumps(asdict(current), sort_keys=True, separators=(",", ":"))
+            == encoded
+        )
+        assert current.ancillary is not None
+        assert "linked_evidence" not in current.ancillary.source_manifest

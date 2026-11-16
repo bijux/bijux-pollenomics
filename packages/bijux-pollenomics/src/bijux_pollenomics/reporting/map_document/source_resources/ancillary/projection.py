@@ -68,6 +68,7 @@ def load_atlas_ancillary_metadata(
         context_directory=dependency.context_directory,
         native_archive_directory=native.directory,
         capsule_sources=dependency.capsule_sources,
+        evidence_sources=dependency.evidence_sources,
     )
     resources = {row["dataset_id"]: row for row in catalogue["resources"]}
     facets = view.manifest["declared_facets"]

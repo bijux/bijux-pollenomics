@@ -20,6 +20,12 @@ from bijux_pollenomics.reporting.map_document import source_resources as owner
 from .....collection.sources.neotoma.ancillary_store.capsule.native_captures import (
     capsule_inputs as capsule_inputs,
 )
+from .....collection.sources.neotoma.ancillary_store.linked_evidence.native_products import (
+    scoped_inputs as scoped_inputs,
+)
+from .....collection.sources.neotoma.ancillary_store.linked_evidence.native_products import (
+    scoped_selection_products as scoped_selection_products,
+)
 
 
 def pin(path: Path) -> str:
@@ -76,5 +82,32 @@ def source_input(inputs: dict[str, Any]) -> owner.AtlasResourceCatalogueInput:
             inputs["context_directory"],
             inputs["expected_context_sha256"],
             inputs["capsule_sources"],
+            **(
+                {"evidence_sources": inputs["evidence_sources"]}
+                if "evidence_sources" in inputs
+                else {}
+            ),
         ),
     )
+
+
+@pytest.fixture
+def scoped_ancillary_sources(
+    scoped_selection_products: dict[str, Any],
+) -> dict[str, Any]:
+    products = scoped_selection_products
+    return {
+        "directory": products["directory"],
+        "view": products["view"],
+        "evidence_sources": products["evidence_sources"],
+        **{
+            key: products["kwargs"][key]
+            for key in (
+                "expected_manifest_sha256",
+                "context_directory",
+                "expected_context_sha256",
+                "native_archive_directory",
+                "capsule_sources",
+            )
+        },
+    }

@@ -7,12 +7,10 @@ from pathlib import Path
 from typing import Any
 
 from ...capture.facets.profiles import qualify_neotoma_facet_body
-from ...capture.facets.protocol import request_for as facet_request
 from ...capture.resources.models import (
     DEFAULT_RESOURCE_LIMITS,
     NeotomaResourceLimits,
 )
-from ...client import positive_native_id
 from ..linked_evidence.selection import _POINTERS as _POINTERS
 from ..linked_evidence.selection import read_linked, read_linked_entity
 from .access import (
@@ -39,35 +37,29 @@ from .access import (
 from .access import (
     _source as _source,
 )
+from .preflight import prepare_facet_access
 
 
 def _facet(
     directory: Path, *, observation_id: str, dataset_id: int, facet: str, **kwargs: Any
 ) -> tuple[dict[str, Any], Any]:
-    """Guard once and retain the native resource alongside the authenticated bytes."""
-    dataset = positive_native_id(dataset_id)
-    metadata, scope = _prepare(directory, kwargs)
-    row = _observation(metadata, observation_id, "facet")
-    if (
-        row.get("facet") != facet
-        or row.get("root_identity", {}).get("dataset_id") != dataset
-    ):
-        raise ValueError("Selected facet identity differs")
-    capture, entry = _source(metadata, row, "facet")
-    resource = _facet_resource(capture, entry)
-    parents = scope.guard([entry["root_identity"]])
-    role = parents[dataset]["effective_scope_role"]
-    _role_row(row, role)
-    metadata.slot(row, parents[dataset])
-    scope.original(metadata, capture, entry)
-    body, receipt = _body(
-        metadata,
-        capture,
-        entry,
-        facet_request(resource, facet, len(entry["attempts"])),
-        row,
+    """Share metadata preflight, then read the exact same authenticated entity buffer."""
+    prepared = prepare_facet_access(
+        directory,
+        observation_id=observation_id,
+        dataset_id=dataset_id,
+        facet=facet,
+        **kwargs,
     )
-    return _result(row, body, receipt, linked=False), resource
+    body, receipt = _body(
+        prepared.metadata,
+        prepared.capture,
+        prepared.entry,
+        prepared.request,
+        prepared.row,
+        response=prepared.response,
+    )
+    return _result(prepared.row, body, receipt, linked=False), prepared.resource
 
 
 def read_neotoma_ancillary_facet_entity(

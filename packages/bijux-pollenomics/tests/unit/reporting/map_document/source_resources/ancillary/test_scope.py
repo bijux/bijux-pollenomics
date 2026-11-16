@@ -24,6 +24,15 @@ from .native_federations import (
     capsule_inputs as capsule_inputs,
 )
 from .native_federations import (
+    scoped_ancillary_sources as scoped_ancillary_sources,
+)
+from .native_federations import (
+    scoped_inputs as scoped_inputs,
+)
+from .native_federations import (
+    scoped_selection_products as scoped_selection_products,
+)
+from .native_federations import (
     source_input,
 )
 
@@ -107,3 +116,62 @@ def test_only_outcome_free_native_metadata_bodies_are_opened(
     assert opened, (
         "Current owner scope must authenticate native metadata, not trust role text"
     )
+
+
+@pytest.mark.parametrize(
+    "resolver", ["missing", "unknown_anchor", "wrong_directory", "redirected"]
+)
+def test_scoped_evidence_requires_its_explicit_exact_physical_anchor(
+    scoped_ancillary_sources: dict[str, Any], tmp_path: Path, resolver: str
+) -> None:
+    source = source_input(scoped_ancillary_sources)
+    assert owner.load_atlas_resource_catalogue(source).ancillary is not None
+    dependency = source.ancillary
+    assert dependency is not None and dependency.evidence_sources is not None
+    digest, directory = next(iter(dependency.evidence_sources.items()))
+    evidence: dict[str, Path] | None = None
+    if resolver == "unknown_anchor":
+        evidence = {"0" * 64: directory}
+    elif resolver == "wrong_directory":
+        evidence = {digest: next(iter(dependency.capsule_sources.values()))}
+    elif resolver == "redirected":
+        alias = tmp_path / "redirected-evidence"
+        alias.symlink_to(directory, target_is_directory=True)
+        evidence = {digest: alias}
+    source = replace(source, ancillary=replace(dependency, evidence_sources=evidence))
+    with pytest.raises(
+        ValueError, match="evidence|identity|source|anchor|redirect|symlink"
+    ):
+        owner.load_atlas_resource_catalogue(source)
+
+
+def test_scoped_projection_opens_zero_facet_linked_or_numerical_entities(
+    scoped_ancillary_sources: dict[str, Any], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    source = source_input(scoped_ancillary_sources)
+    raw = load_neotoma_resource_catalogue(
+        source.directory, expected_manifest_sha256=source.expected_manifest_sha256
+    )
+    native = scoped_ancillary_sources["native_archive_directory"]
+    allowed = {
+        native / "captures" / digest / member["name"]
+        for digest, descriptor in raw["capture_descriptors"].items()
+        if descriptor["capture_kind"] == "metadata"
+        for member in descriptor["files"]
+        if member["source_entity"] is True
+    }
+    opened = []
+    original = Path.open
+
+    def guarded(path: Path, *args: Any, **kwargs: Any) -> Any:
+        if path.suffix == ".body":
+            assert path in allowed, path
+            opened.append(path)
+        return original(path, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "open", guarded)
+    projected = owner.load_atlas_resource_catalogue(source).ancillary
+    assert projected is not None and projected.linked_occurrences
+    assert projected.entity_body_hashes_verified is False
+    assert projected.source_assessments_replayed is False
+    assert opened

@@ -2,6 +2,14 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#453](https://github.com/bijux/bijux-pollenomics/pull/453) — Portable site context and shared selected preflight
+
+- Retain independently pinned site-context responses with original/current native
+  owner guards, forensic selected access and explicit typed qualification limits.
+- Share body-free facet/linked preflight and require explicit immutable Atlas
+  evidence resolvers without promoting metadata to source-field verification.
+- Keep selected access entrypoints independently importable in fresh interpreters.
+
 ### [#451](https://github.com/bijux/bijux-pollenomics/pull/451) — Portable ancillary source custody and bounded Atlas access
 
 - Retain the frozen native facet census, portable unit metadata and linked-source
