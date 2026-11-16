@@ -181,3 +181,9 @@ maintainer helper does not become a parallel source of scientific meaning.
 - [Repository maintenance](../../docs/internal/maintain/index.md)
 - [Quality gates](../../docs/internal/pollenomics-dev/quality-gates.md)
 - [Documentation integrity](../../docs/internal/pollenomics-dev/documentation-integrity.md)
+
+## Parameter reference coverage
+
+The [LegacyVegetation 2025 coverage guide](docs/parameter-references/legacyvegetation.md)
+connects attributed parameter metadata to the optional BOKE coverage consumer,
+with literal row identity, uncertainty labels and unresolved physical units.

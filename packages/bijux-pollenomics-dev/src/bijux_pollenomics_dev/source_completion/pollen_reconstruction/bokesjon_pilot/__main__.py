@@ -13,6 +13,11 @@ def main() -> None:
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--workbook", type=Path)
     parser.add_argument("--author-lookup", type=Path)
+    parser.add_argument(
+        "--legacyvegetation-2025",
+        action="store_true",
+        help="Include pinned 2025 parameter metadata as unadmitted reference candidates",
+    )
     args = parser.parse_args()
     print(
         run(
@@ -20,6 +25,7 @@ def main() -> None:
             args.output,
             workbook=args.workbook,
             author_lookup=args.author_lookup,
+            include_legacyvegetation_2025=args.legacyvegetation_2025,
         )
     )
 
