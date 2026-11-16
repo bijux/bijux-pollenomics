@@ -3,10 +3,8 @@
 from __future__ import annotations
 
 from collections.abc import Callable, Mapping, Sequence
+from dataclasses import dataclass
 
-from bijux_pollenomics.collection.sources.sead.acquisition import (
-    client as sead_api_client,
-)
 from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
     required_sead_identifier,
 )
@@ -113,6 +111,61 @@ def sead_range_start(headers: object) -> int:
     return start
 
 
+def _query_identity(
+    url: str, params: object
+) -> tuple[str, tuple[tuple[str, str], ...]]:
+    if params is None:
+        return url, ()
+    entries: Sequence[object]
+    if isinstance(params, Mapping):
+        entries = list(params.items())
+    elif isinstance(params, Sequence) and not isinstance(params, (str, bytes)):
+        entries = params
+    else:
+        raise ValueError("SEAD query parameters must be ordered key/value pairs")
+    pairs: list[tuple[str, str]] = []
+    for entry in entries:
+        if (
+            not isinstance(entry, (tuple, list))
+            or len(entry) != 2
+            or not all(isinstance(value, str) for value in entry)
+        ):
+            raise ValueError("SEAD query parameters must contain string pairs")
+        pairs.append((entry[0], entry[1]))
+    return url, tuple(pairs)
+
+
+@dataclass
+class _QueryPages:
+    next_start: int = 0
+    reserved_pages: int = 0
+    successful_pages: int = 0
+    attempts: int = 0
+    pending_range: str | None = None
+    completed: bool = False
+
+    def reserve(self, start: int, range_text: str, max_pages: int) -> None:
+        if self.completed:
+            raise ValueError("SEAD query is completed; repeated range refused")
+        if start != self.next_start:
+            raise ValueError("SEAD page offset is not contiguous with received rows")
+        if self.pending_range is not None:
+            if range_text != self.pending_range:
+                raise ValueError("SEAD retry must retain the exact pending range")
+        else:
+            if self.reserved_pages >= max_pages:
+                raise ValueError(f"SEAD pagination exceeded {max_pages} pages")
+            self.reserved_pages += 1
+            self.pending_range = range_text
+        self.attempts += 1
+
+    def accept(self, received_rows: int) -> None:
+        self.next_start += received_rows
+        self.successful_pages += 1
+        self.pending_range = None
+        self.completed = received_rows == 0
+
+
 class StrictSeadPageFetcher:
     """Reject malformed or repeated rows before relation traversal joins them."""
 
@@ -121,6 +174,7 @@ class StrictSeadPageFetcher:
         self._delegate = delegate
         self._max_pages = max_pages
         self._seen_ids: dict[str, set[int]] = {}
+        self._queries: dict[tuple[str, tuple[tuple[str, str], ...]], _QueryPages] = {}
 
     def __call__(
         self,
@@ -135,10 +189,11 @@ class StrictSeadPageFetcher:
         table_name = url.rstrip("/").rsplit("/", 1)[-1]
         primary_key_for_table(table_name)
         range_start = sead_range_start(headers)
-        if range_start >= sead_api_client.SEAD_LIMIT * self._max_pages:
-            raise ValueError(
-                f"SEAD pagination exceeded {self._max_pages} pages: {table_name}"
-            )
+        assert isinstance(headers, Mapping)
+        range_text = headers["Range"]
+        assert isinstance(range_text, str)
+        query = self._queries.setdefault(_query_identity(url, params), _QueryPages())
+        query.reserve(range_start, range_text, self._max_pages)
         payload = self._delegate(
             url,
             params=params,
@@ -161,4 +216,5 @@ class StrictSeadPageFetcher:
                     f"Duplicate SEAD {table_name}.{primary_key}: {identifier}"
                 )
             seen.add(identifier)
+        query.accept(len(rows))
         return rows

@@ -14,8 +14,8 @@ from ....core.text import clean_optional_text
 from ...spatial import (
     build_grid_cell_geometry,
     geometry_to_representative_point,
-    point_in_geometry,
 )
+from .density_membership import DensityMembership, build_raa_density_membership
 from .inventory import (
     declared_population,
     native_feature_ids,
@@ -52,10 +52,11 @@ def fetch_raa_archaeology_metadata(
         feature_inventory,
         heritage_statuses={"Fornlämning", "Möjlig fornlämning"},
     )
-    density_geojson = build_raa_density_geojson(
+    membership = build_raa_density_membership(
         feature_inventory=feature_inventory,
         sweden_boundary=country_boundaries["Sweden"],
     )
+    density_geojson = _density_from_membership(membership)
 
     layer_metadata = {
         "source": "Riksantikvarieämbetet",
@@ -85,6 +86,7 @@ def fetch_raa_archaeology_metadata(
         "domain_payload": domain_payload,
         "layer_metadata": layer_metadata,
         "density_geojson": density_geojson,
+        "density_membership": membership,
     }
 
 
@@ -116,34 +118,24 @@ def build_raa_density_geojson(
     sweden_boundary: Mapping[str, object],
 ) -> dict[str, object]:
     """Build a Swedish archaeology density grid from archived RAÄ point features."""
-    sweden_features = feature_list(sweden_boundary)
-    if not sweden_features:
-        raise ValueError("Sweden boundary payload must contain features")
-    geometries = []
-    for feature in sweden_features:
-        geometry = as_mapping(feature.get("geometry"))
-        if geometry is None:
-            raise ValueError("Sweden boundary feature must contain an object geometry")
-        geometries.append(geometry)
-    cell_size = 1.0
-    cell_counts: dict[tuple[int, int], int] = {}
-    for longitude, latitude in _heritage_representative_points(feature_inventory):
-        if any(
-            point_in_geometry(longitude, latitude, geometry) for geometry in geometries
-        ):
-            cell_key = (math.floor(longitude), math.floor(latitude))
-            cell_counts[cell_key] = cell_counts.get(cell_key, 0) + 1
+    return _density_from_membership(
+        build_raa_density_membership(
+            feature_inventory=feature_inventory, sweden_boundary=sweden_boundary
+        )
+    )
+
+
+def _density_from_membership(membership: DensityMembership) -> dict[str, object]:
     features = []
-    for (longitude, latitude), count in sorted(
-        cell_counts.items(), key=lambda item: (item[0][1], item[0][0])
-    ):
+    for cell in membership["cells"]:
+        longitude, latitude, count = cell["longitude"], cell["latitude"], cell["count"]
         features.append(
             {
                 "type": "Feature",
                 "geometry": build_grid_cell_geometry(
                     min_longitude=float(longitude),
                     min_latitude=float(latitude),
-                    cell_size=cell_size,
+                    cell_size=membership["grid_cell_size_degrees"],
                 ),
                 "properties": {
                     "layer_key": "raa-archaeology",

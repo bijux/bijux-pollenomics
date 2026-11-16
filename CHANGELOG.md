@@ -2,6 +2,14 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#461](https://github.com/bijux/bijux-pollenomics/pull/461) — Bounded source membership and contributor attribution
+
+- Enforce per-query SEAD page budgets across filtered source ID batches.
+- Preserve RAÄ native included/excluded/unusable membership with conserved counts.
+- Provide bounded filesystem input anchors and owned replacement primitives with
+  closed writer seals and recovery-preserving failure behavior.
+- Retain the published LandClim contributor workbook and explicit source receipt.
+
 ### [#460](https://github.com/bijux/bijux-pollenomics/pull/460) — Descriptor custody and exact collection evidence joins
 
 - Read bounded Neotoma source buffers through nonblocking no-follow descriptors

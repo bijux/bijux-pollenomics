@@ -353,3 +353,27 @@ def test_replaced_canonical_leaf_cannot_return_write_success(
             writer.write_bytes("record.bin", b"source")
     assert (tmp_path / "stage/record.bin").read_bytes() == b"FOREIG"
     assert (tmp_path / "owned-leaf").read_bytes() == b"source"
+
+
+def test_descriptor_relative_attachment_supports_distinct_parents(
+    tmp_path: Path,
+) -> None:
+    from bijux_pollenomics.core.filesystem.owned_writes import _rename_directory
+
+    source, target = tmp_path / "source", tmp_path / "target"
+    (source / "child").mkdir(parents=True)
+    target.mkdir()
+    flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
+    left, right = os.open(source, flags), os.open(target, flags)
+    try:
+        _rename_directory(left, "child", "attached", destination_descriptor=right)
+        assert (target / "attached").is_dir()
+        (source / "child").mkdir()
+        inode = (target / "attached").stat().st_ino
+        with pytest.raises(FileExistsError):
+            _rename_directory(left, "child", "attached", destination_descriptor=right)
+        assert (target / "attached").stat().st_ino == inode
+        assert (source / "child").is_dir()
+    finally:
+        os.close(left)
+        os.close(right)

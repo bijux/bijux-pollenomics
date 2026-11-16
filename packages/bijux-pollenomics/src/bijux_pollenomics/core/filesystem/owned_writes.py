@@ -11,12 +11,23 @@ import stat
 import sys
 from types import TracebackType
 
+from .namespaces import validate_regular_namespace
 
-def _rename_directory(descriptor: int, source: str, target: str) -> None:
+
+def _rename_directory(
+    descriptor: int,
+    source: str,
+    target: str,
+    *,
+    destination_descriptor: int | None = None,
+) -> None:
     """Attach an owned private directory without replacing a competing entry."""
     if any(len(OwnedTreeWriter._parts(name)) != 1 for name in (source, target)):
         raise ValueError("Exclusive attachment requires literal child components")
-    if not stat.S_ISDIR(os.fstat(descriptor).st_mode):
+    destination = (
+        descriptor if destination_descriptor is None else destination_descriptor
+    )
+    if any(not stat.S_ISDIR(os.fstat(fd).st_mode) for fd in (descriptor, destination)):
         raise ValueError("Exclusive attachment requires an open parent directory")
     library = ctypes.CDLL(None, use_errno=True)
     if sys.platform == "darwin" and hasattr(library, "renameatx_np"):
@@ -33,7 +44,7 @@ def _rename_directory(descriptor: int, source: str, target: str) -> None:
         ctypes.c_uint,
     ]
     rename.restype = ctypes.c_int
-    if rename(descriptor, os.fsencode(source), descriptor, os.fsencode(target), flags):
+    if rename(descriptor, os.fsencode(source), destination, os.fsencode(target), flags):
         error = ctypes.get_errno()
         if error in {errno.EEXIST, errno.ENOTEMPTY}:
             raise FileExistsError(error, os.strerror(error), target)
@@ -53,6 +64,7 @@ class OwnedTreeWriter:
     """
 
     def __init__(self, root: Path, *, max_bytes: int, max_files: int) -> None:
+        """Create an absent root for explicitly bounded exclusive writes."""
         if any(
             type(value) is not int or value <= 0 for value in (max_bytes, max_files)
         ):
@@ -190,6 +202,19 @@ class OwnedTreeWriter:
         node = root.stat(follow_symlinks=False)
         if (node.st_dev, node.st_ino) != self._identity:
             raise ValueError("Owned publication root attachment changed")
+
+    def validate_closed_attachment(self, root: Path) -> None:
+        """Require every attached file and directory to belong to this writer.
+
+        This stronger opt-in seal refuses foreign additions before replacement
+        recovery can move a whole tree. Existing attachment-only callers retain
+        their established contract.
+        """
+        self.validate_publication_attachment(root)
+        validate_regular_namespace(
+            root, set(self._files), max_files=self._max_files, max_bytes=self._max_bytes
+        )
+        self.validate_publication_attachment(root)
 
     @staticmethod
     def _parts(relative: str) -> tuple[str, ...]:
@@ -339,6 +364,7 @@ class OwnedTreeWriter:
             os.close(descriptor)
 
     def __enter__(self) -> OwnedTreeWriter:
+        """Return the live writer and its held ownership descriptor."""
         return self
 
     def __exit__(
@@ -347,4 +373,5 @@ class OwnedTreeWriter:
         value: BaseException | None,
         traceback: TracebackType | None,
     ) -> None:
+        """Close descriptors while retaining authored and competing entries."""
         self.close()

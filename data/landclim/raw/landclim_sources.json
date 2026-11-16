@@ -1,8 +1,8 @@
 {
   "schema_version": "landclim-raw-receipt.v1",
-  "generated_on": "2026-03-31",
+  "generated_on": "2026-11-15",
   "source": "LandClim",
-  "asset_count": 7,
+  "asset_count": 8,
   "datasets": [
     {
       "dataset_id": "900966",
@@ -29,6 +29,7 @@
       "source_url": "https://doi.org/10.1594/PANGAEA.937075",
       "label": "Fyfe et al. 2021 LandClim II REVEALS grids",
       "files": [
+        "landclim_ii_contributors.xlsx",
         "landclim_ii_grid_cell_quality.xlsx",
         "landclim_ii_reveals_results.zip",
         "landclim_ii_site_metadata.xlsx",
@@ -52,6 +53,14 @@
       "source_url": "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimIPFTs.xlsx",
       "size_bytes": 352510,
       "sha256": "49146055ab0244bb77967304f39161392dbec0b70e7f8ec6f35776b73b4daee8"
+    },
+    {
+      "filename": "landclim_ii_contributors.xlsx",
+      "dataset_id": "937075",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+      "source_url": "https://download.pangaea.de/dataset/937075/files/LandClimII_contributors.xlsx",
+      "size_bytes": 23990,
+      "sha256": "9d53af3013032307eace31f7bc90e35c73fd7fa975500f18841f52b636a8f320"
     },
     {
       "filename": "landclim_ii_grid_cell_quality.xlsx",

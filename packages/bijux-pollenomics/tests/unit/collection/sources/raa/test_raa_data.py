@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -16,6 +17,9 @@ from bijux_pollenomics.collection.sources.raa.collection import (
     fetch_raa_feature_inventory,
     fetch_raa_feature_page,
 )
+from bijux_pollenomics.collection.sources.raa.density_membership import (
+    build_raa_density_membership,
+)
 
 GeoJsonFeature = dict[str, object]
 GeoJsonCollection = dict[str, list[GeoJsonFeature] | str]
@@ -25,6 +29,7 @@ class RaaDataTests(unittest.TestCase):
     def test_count_and_density_are_derived_from_archived_features(self) -> None:
         feature_inventory = {
             "type": "FeatureCollection",
+            "numberMatched": 3,
             "features": [
                 {
                     "type": "Feature",
@@ -196,6 +201,24 @@ class RaaDataTests(unittest.TestCase):
             ],
             "numberMatched": 1,
         }
+        boundary = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [
+                            [[17, 56], [20, 56], [20, 59], [17, 59], [17, 56]]
+                        ],
+                    },
+                    "properties": {},
+                }
+            ],
+        }
+        ledger = build_raa_density_membership(
+            feature_inventory=feature_inventory, sweden_boundary=boundary
+        )
         metadata = {
             "capabilities_xml": "<wfs />",
             "schema_xml": "<schema />",
@@ -206,7 +229,10 @@ class RaaDataTests(unittest.TestCase):
                     "fornlamning": 1,
                 }
             },
-            "density_geojson": {"type": "FeatureCollection", "features": []},
+            "density_geojson": build_raa_density_geojson(
+                feature_inventory=feature_inventory, sweden_boundary=boundary
+            ),
+            "density_membership": ledger,
         }
 
         with tempfile.TemporaryDirectory() as tmp:
@@ -222,7 +248,7 @@ class RaaDataTests(unittest.TestCase):
                 ) as fetch_metadata,
             ):
                 report = collect_raa_data(
-                    output_root, country_boundaries={"Sweden": {"features": []}}
+                    output_root, country_boundaries={"Sweden": boundary}
                 )
 
             raw_payload = json.loads(report.raw_points_path.read_text(encoding="utf-8"))
@@ -233,8 +259,26 @@ class RaaDataTests(unittest.TestCase):
                     / "publicerade_lamningar_centrumpunkt_summary.json"
                 ).read_text(encoding="utf-8")
             )
+            membership = json.loads(
+                (
+                    output_root
+                    / "derived"
+                    / "sweden_archaeology_density_membership.json"
+                ).read_text()
+            )
+            assert membership["raw_inventory_identity"] == {
+                "path": "raw/publicerade_lamningar_centrumpunkt.geojson",
+                "sha256": hashlib.sha256(
+                    report.raw_points_path.read_bytes()
+                ).hexdigest(),
+                "byte_count": report.raw_points_path.stat().st_size,
+            }
+            assert [record["native_id"] for record in membership["records"]] == ["A"]
+            assert membership["counts"]["included"] == 1
+            assert ledger["raw_inventory_identity"] is None
 
         self.assertEqual(raw_payload["numberMatched"], 1)
+        self.assertEqual(raw_payload, feature_inventory)
         self.assertEqual(
             raw_payload["features"][0]["properties"]["lamningsnummer"], "A"
         )
@@ -321,3 +365,83 @@ def test_wfs_text_is_validated_before_claims_are_collapsed(text: str) -> None:
         pytest.raises(ValueError),
     ):
         fetch_raa_feature_page(start_index=0)
+
+
+@pytest.mark.parametrize("mutation", ["substitution", "growth", "late_substitution"])
+def test_collector_refuses_raw_write_substitution_growth_and_later_drift(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, mutation: str
+) -> None:
+    from bijux_pollenomics.collection.sources.raa import collection
+    from bijux_pollenomics.core import files
+    from bijux_pollenomics.core.filesystem import OwnedTreeWriter
+
+    inventory = {
+        "type": "FeatureCollection",
+        "numberMatched": 1,
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": None,
+                "properties": {
+                    "lamningsnummer": "A",
+                    "antikvariskbedomningtyp_namn": "Fornlämning",
+                },
+            }
+        ],
+    }
+    boundary = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [[[17, 56], [20, 56], [20, 59], [17, 59], [17, 56]]],
+                },
+                "properties": {},
+            }
+        ],
+    }
+    metadata = {
+        "capabilities_xml": "<wfs />",
+        "schema_xml": "<schema />",
+        "domain_payload": {},
+        "layer_metadata": {"counts": {"all_published_sites": 1, "fornlamning": 1}},
+        "density_geojson": build_raa_density_geojson(
+            feature_inventory=inventory, sweden_boundary=boundary
+        ),
+        "density_membership": build_raa_density_membership(
+            feature_inventory=inventory, sweden_boundary=boundary
+        ),
+    }
+    original_write_text = files.write_text
+    raw_path = tmp_path / "raw" / "publicerade_lamningar_centrumpunkt.geojson"
+    observed: list[Path] = []
+
+    def changing_write(
+        path: Path, content: str, *, writer: OwnedTreeWriter | None = None
+    ) -> None:
+        if path == raw_path:
+            observed.append(path)
+            if mutation == "substitution":
+                assert content.count('"A"') == 1
+                content = content.replace('"A"', '"B"')
+            elif mutation == "growth":
+                content += " " * 1000
+        original_write_text(path, content, writer=writer)
+        if (
+            mutation == "late_substitution"
+            and path.name == "arkreg_v1_0_wfs_capabilities.xml"
+        ):
+            raw = raw_path.read_text()
+            original_write_text(raw_path, raw.replace('"A"', '"B"'))
+
+    monkeypatch.setattr(files, "write_text", changing_write)
+    monkeypatch.setattr(collection, "write_text", changing_write)
+    monkeypatch.setattr(collection, "fetch_raa_feature_inventory", lambda: inventory)
+    monkeypatch.setattr(
+        collection, "fetch_raa_archaeology_metadata", lambda **_kwargs: metadata
+    )
+    with pytest.raises(ValueError):
+        collect_raa_data(tmp_path, {"Sweden": boundary})
+    assert observed == [raw_path]
