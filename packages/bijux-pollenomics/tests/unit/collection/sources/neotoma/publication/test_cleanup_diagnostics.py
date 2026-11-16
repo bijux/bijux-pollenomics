@@ -10,14 +10,16 @@ from bijux_pollenomics.collection.sources.neotoma.publication import replacement
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 
 
-@pytest.mark.parametrize("site", ["receipt", "build", "publication"])
+@pytest.mark.parametrize("site", ["receipt", "runtime_receipt", "build", "publication"])
 @pytest.mark.parametrize("diagnostics", ["ordinary", "notes", "annotation"])
 def test_replacement_diagnostic_preserves_primary(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, site: str, diagnostics: str
 ) -> None:
     """Failed build, receipt and publication paths retain their actual owner."""
     prefix = (
-        "Neotoma refusal receipt" if site == "receipt" else "Neotoma recovery state"
+        "Neotoma refusal receipt"
+        if site in {"receipt", "runtime_receipt"}
+        else "Neotoma recovery state"
     )
 
     class Primary(OSError):
@@ -32,8 +34,9 @@ def test_replacement_diagnostic_preserves_primary(
     real_write = OwnedTreeWriter.write_bytes
 
     def write(writer: OwnedTreeWriter, name: str, raw: bytes) -> None:
-        if site == "receipt" and name == "refused-build.json":
-            raise OSError("generated receipt failure")
+        if site in {"receipt", "runtime_receipt"} and name == "refused-build.json":
+            error = RuntimeError if site == "runtime_receipt" else OSError
+            raise error("generated receipt failure")
         real_write(writer, name, raw)
 
     monkeypatch.setattr(OwnedTreeWriter, "write_bytes", write)
@@ -65,5 +68,5 @@ def test_replacement_diagnostic_preserves_primary(
         assert any(note.startswith(prefix) for note in primary.__notes__)
     elif diagnostics == "notes":
         assert vars(primary)["__notes__"] == ()
-    elif site == "receipt":
+    elif site in {"receipt", "runtime_receipt"}:
         assert any("recovery state retained" in note for note in primary.__notes__)
