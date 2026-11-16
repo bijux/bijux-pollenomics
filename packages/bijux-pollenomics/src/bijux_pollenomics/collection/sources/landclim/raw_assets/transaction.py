@@ -15,7 +15,7 @@ import stat
 import sys
 from typing import TypeVar
 
-from .....core.repository import RepositoryRootNotFoundError, find_repository_root
+from .....core.filesystem import recovery_storage
 
 T = TypeVar("T")
 DIRECTORY = os.O_RDONLY | getattr(os, "O_DIRECTORY", 0) | getattr(os, "O_NOFOLLOW", 0)
@@ -208,10 +208,15 @@ def _receipt(run: _Directory, status: str, **fields: object) -> None:
         stream.write("\n")
 
 
-def transact(destination: Path, producer: Callable[[Path], T]) -> T:
+def transact(
+    destination: Path,
+    producer: Callable[[Path], T],
+    *,
+    publication_root: Path | None = None,
+) -> T:
     """Build, seal and replace a tree; never remove an unverified namespace.
 
-    Predecessors and failed candidates remain in repository artifacts for recovery.
+    Predecessors and failed candidates remain outside the complete publication root.
     Namespace seals detect substitutions at producer and publication boundaries;
     this is not an OS conditional-rename primitive against hostile schedulers.
     """
@@ -220,21 +225,24 @@ def transact(destination: Path, producer: Callable[[Path], T]) -> T:
     destination = Path(destination).absolute()
     if ".." in destination.parts:
         raise ValueError("LandClim transaction destination is unsafe")
-    try:
-        workspace = find_repository_root(__file__)
-    except RepositoryRootNotFoundError:
-        workspace = Path.cwd()
-    artifacts = workspace / "artifacts" / "landclim-collection"
-    if destination == artifacts or destination in artifacts.parents:
-        raise ValueError("LandClim destination overlaps transaction storage")
+    scope = (
+        destination if publication_root is None else Path(publication_root).absolute()
+    )
+    if ".." in scope.parts or not destination.is_relative_to(scope):
+        raise ValueError("LandClim publication root must contain its destination")
+    storage_path = recovery_storage.resolve_publication_workspace_parent(
+        scope, namespace="landclim-collection"
+    )
+    if storage_path.is_relative_to(scope):
+        raise ValueError("LandClim publication root overlaps recovery storage")
     with ExitStack() as stack:
         parent = _Directory(destination.parent, stack, create=True)
-        storage = _Directory(artifacts, stack, create=True)
+        storage = _Directory(storage_path, stack, create=True)
         if os.fstat(parent.fd).st_dev != os.fstat(storage.fd).st_dev:
             raise ValueError("LandClim transaction requires one filesystem")
         token = "capture-" + secrets.token_hex(12)
         os.mkdir(token, dir_fd=storage.fd)
-        run = _Directory(artifacts / token, stack)
+        run = _Directory(storage_path / token, stack)
         os.mkdir("candidate", dir_fd=run.fd)
         candidate = _Directory(run.path / "candidate", stack)
         original = None
@@ -307,58 +315,82 @@ def transact(destination: Path, producer: Callable[[Path], T]) -> T:
                 retained_predecessor=moved_prior,
             )
             return value
-        except BaseException:
-            # Retain all artifacts. A foreign replacement is never recursively removed.
-            parent.check()
-            run.check()
-            current_is_candidate = _exists(parent.fd, destination.name) and _identity(
-                os.stat(destination.name, dir_fd=parent.fd, follow_symlinks=False)
-            ) == _identity(os.fstat(candidate.fd))
-            if moved_candidate and current_is_candidate:
-                with suppress(ValueError, FileExistsError):
-                    _rename_no_replace(
-                        destination.name,
-                        "refused-publication",
-                        src_dir_fd=parent.fd,
-                        dst_dir_fd=run.fd,
-                        expected_source=_identity(os.fstat(candidate.fd)),
-                    )
-            prior_restored = False
-            if moved_prior and not _exists(parent.fd, destination.name):
-                if (
-                    original is None
-                    or _identity(os.stat("prior", dir_fd=run.fd, follow_symlinks=False))
-                    != _identity(os.fstat(original.fd))
-                    or _tree(original.fd) != before
-                ):
-                    raise ValueError(
-                        "LandClim predecessor requires manual recovery"
-                    ) from None
-                try:
-                    _rename_no_replace(
-                        "prior",
-                        destination.name,
-                        src_dir_fd=run.fd,
-                        dst_dir_fd=parent.fd,
-                        expected_source=_identity(os.fstat(original.fd)),
-                    )
-                except FileExistsError:
-                    pass
-                else:
-                    prior_restored = True
-            _receipt(
-                run,
-                "refused",
-                destination=str(destination),
-                predecessor_restored=prior_restored,
-                manual_predecessor_recovery=moved_prior and not prior_restored,
-                foreign_destination_preserved=_exists(parent.fd, destination.name)
-                and _identity(
+        except BaseException as error:
+            try:
+                # Retain all artifacts. A foreign replacement is never recursively removed.
+                parent.check()
+                run.check()
+                current_is_candidate = _exists(
+                    parent.fd, destination.name
+                ) and _identity(
                     os.stat(destination.name, dir_fd=parent.fd, follow_symlinks=False)
+                ) == _identity(os.fstat(candidate.fd))
+                if moved_candidate and current_is_candidate:
+                    with suppress(ValueError, FileExistsError):
+                        _rename_no_replace(
+                            destination.name,
+                            "refused-publication",
+                            src_dir_fd=parent.fd,
+                            dst_dir_fd=run.fd,
+                            expected_source=_identity(os.fstat(candidate.fd)),
+                        )
+                prior_restored = False
+                if moved_prior and not _exists(parent.fd, destination.name):
+                    if (
+                        original is None
+                        or _identity(
+                            os.stat("prior", dir_fd=run.fd, follow_symlinks=False)
+                        )
+                        != _identity(os.fstat(original.fd))
+                        or _tree(original.fd) != before
+                    ):
+                        raise ValueError(
+                            "LandClim predecessor requires manual recovery"
+                        ) from None
+                    try:
+                        _rename_no_replace(
+                            "prior",
+                            destination.name,
+                            src_dir_fd=run.fd,
+                            dst_dir_fd=parent.fd,
+                            expected_source=_identity(os.fstat(original.fd)),
+                        )
+                    except FileExistsError:
+                        pass
+                    else:
+                        prior_restored = True
+                _receipt(
+                    run,
+                    "refused",
+                    destination=str(destination),
+                    predecessor_restored=prior_restored,
+                    manual_predecessor_recovery=moved_prior and not prior_restored,
+                    foreign_destination_preserved=_exists(parent.fd, destination.name)
+                    and _identity(
+                        os.stat(
+                            destination.name, dir_fd=parent.fd, follow_symlinks=False
+                        )
+                    )
+                    not in {
+                        _identity(os.fstat(candidate.fd)),
+                        _identity(os.fstat(original.fd))
+                        if original is not None
+                        else None,
+                    },
                 )
-                not in {
-                    _identity(os.fstat(candidate.fd)),
-                    _identity(os.fstat(original.fd)) if original is not None else None,
-                },
-            )
+            except Exception as recovery_error:
+                error.add_note(
+                    "LandClim recovery failed: "
+                    f"{type(recovery_error).__name__}: {recovery_error}"
+                )
+            try:
+                run.check()
+            except Exception:
+                error.add_note(
+                    f"LandClim recovery originally allocated at {run.path}; "
+                    f"expected directory identity {run.links[-1][2]}; "
+                    "current location unverified"
+                )
+            else:
+                error.add_note(f"LandClim recovery state retained at {run.path}")
             raise
