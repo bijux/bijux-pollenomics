@@ -99,3 +99,16 @@ validation cohort.
 The separate original BOKE occurrence check retains its existing
 `BIJUX_POLLENOMICS_NEOTOMA_BOKE_OCCURRENCE_CHECK` opt-in. Neither opt-in is needed
 for generated archive, relational publication or evidence-session controls.
+
+## Ancestry Source Qualification
+
+The [recorded taxonomy source qualification](../../../../reports/science/source-cohorts/neotoma-taxonomy-source-qualification.json)
+binds one offline maintained derivation to an exact source revision and its
+complete input closure: 236 roots, 34,310 files and 2,735 previously received
+entities. The result matches the existing twelve-file ancestry baseline.
+No new source request or governed data write occurred.
+
+This qualifies replay of the retained source projection. It does not publish
+its complete portable dependency capsule or establish scientific admission.
+The selected-target reader returns recorded metadata; it does not independently
+revalidate current permissions or authorize native-body access or collection.

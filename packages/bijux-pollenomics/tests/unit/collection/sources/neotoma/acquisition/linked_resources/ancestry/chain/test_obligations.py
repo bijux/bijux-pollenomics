@@ -389,3 +389,53 @@ def test_real_input_tree_sizes_enforce_aggregate_before_body(
     ):
         budget.include(second.files)
     assert sum(budget.members.values()) > MAX_SOURCE_BYTES
+
+
+@pytest.mark.parametrize("stage", ["before_entity", "after_receipt"])
+def test_current_permission_drift_refuses_before_new_entity_body(
+    chain_products: dict[str, Any], tmp_path: Path, monkeypatch: Any, stage: str
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ancestry.chain import (
+        derive_neotoma_taxon_ancestry_chain,
+    )
+    from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ancestry.chain.authority import (
+        ChainOperation,
+    )
+
+    from .native_products import observe_native_body_opens
+
+    sources, capture = capture_parent(chain_products, tmp_path / "detail")
+    permission = sources.current_context_directory / "manifest.json"
+    original_entity, original_read = ChainOperation.entity, ChainOperation.read
+    in_entity = False
+    mutated = False
+
+    def revoke() -> None:
+        nonlocal mutated
+        permission.write_bytes(permission.read_bytes())
+        mutated = True
+
+    def entity(operation: Any, *args: Any, **kwargs: Any) -> Any:
+        nonlocal in_entity
+        in_entity = True
+        if stage == "before_entity":
+            revoke()
+        return original_entity(operation, *args, **kwargs)
+
+    def read(operation: Any, root: Path, name: str, bound: int) -> bytes:
+        raw = original_read(operation, root, name, bound)
+        if in_entity and stage == "after_receipt" and name.endswith(".receipt.json"):
+            revoke()
+        return raw
+
+    opened = observe_native_body_opens(monkeypatch, "taxon-15-current-attempt-1.body")
+    monkeypatch.setattr(ChainOperation, "entity", entity)
+    monkeypatch.setattr(ChainOperation, "read", read)
+    with pytest.raises(ValueError, match="changed"):
+        derive_neotoma_taxon_ancestry_chain(
+            sources=sources,
+            parent_chain_sha256=None,
+            new_capture_manifest_sha256s=(capture,),
+        )
+    assert mutated
+    assert opened == []
