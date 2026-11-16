@@ -48,7 +48,7 @@ class CommonFetchTests(unittest.TestCase):
     def test_fetch_text_uses_unverified_context_only_when_requested(self) -> None:
         def fake_urlopen(request, context=None, timeout=None):  # type: ignore[no-untyped-def]
             self.assertIsNotNone(context)
-            self.assertIsNone(timeout)
+            self.assertEqual(timeout, 30.0)
             return _FakeResponse(b"payload")
 
         with patch("bijux_pollenomics.core.http.urlopen", side_effect=fake_urlopen):

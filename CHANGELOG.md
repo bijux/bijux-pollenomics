@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#473](https://github.com/bijux/bijux-pollenomics/pull/473) — Physical source correspondence and bounded transport
+
+- Bind LandClim quality labels to physical source cells and require inferred
+  Marquer cells to contain every contributing point within geographic bounds.
+- Authenticate HYDE compact-window ownership and archive identity before deriving
+  source-axis geometry, retaining native units and scientific release denials.
+- Bound text and JSON responses before decoding, keep socket timeouts finite and
+  preserve primary failures while closing responses under existing retry rules.
+
 ### [#472](https://github.com/bijux/bijux-pollenomics/pull/472) — Live Neotoma permissions and explicit ancestry frontier capture
 
 - Keep finite current-context metadata seals live across native source handoffs
