@@ -109,6 +109,24 @@ extra's broad version range alone does not guarantee that capability. These
 checks do not admit an empirical common regional background, source chronology
 or scientific accuracy.
 
+### Evidence files
+
+Evidence paths are relative to `--input-root` and must identify ordinary files
+through literal directory paths. Directory or file symlinks, hardlinks and special
+files refuse validation. Large evidence files are hashed in bounded chunks against
+their observed size and descriptor identity; unrelated sibling files are excluded.
+Growth, truncation or substitution during that read refuses validation.
+
+For a regional-draw LOVE request, the evidence selected by
+`regional_draw_source.receipt_evidence_id` has a 1 MiB control-receipt limit.
+Its SHA-256 and strict JSON fields are checked against the same captured bytes.
+Those bytes remain authoritative for that validation operation if the path later
+changes; a subsequent operation authenticates the file again. The receipt limit
+applies to this control document, while large raw evidence retains streamed reads.
+These custody checks establish input consistency alongside the existing taxon,
+time-support and regional-cohort checks. Scientific source admission remains a
+separate decision.
+
 The request records sample/site identities separately from exact numeric pairing
 coordinates. All source age intervals remain typed BP support. An explicit
 `declared_bin_stationarity` decision identifies common time bins containing the
