@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#467](https://github.com/bijux/bijux-pollenomics/pull/467) — Authenticated published draw source buffers
+
+- Parse scientific source controls and selected draw values from captured buffers
+  authenticated under one externally pinned ordinary-source checksum epoch.
+- Preserve exact namespace, declared sizes, full streamed inventory checks and
+  source-bound chronology while refusing source mutation and parser substitution.
+- Keep numerical draw sizes source-declared, including members above 1 MiB,
+  independently of the smaller receipt profile.
+
 ### [#466](https://github.com/bijux/bijux-pollenomics/pull/466) — Finite numeric GeoJSON positions
 
 - Refuse boolean, non-finite and float-overflowing coordinate values before they
