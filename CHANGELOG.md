@@ -2,6 +2,13 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#474](https://github.com/bijux/bijux-pollenomics/pull/474) — Requested source membership through pagination
+
+- Authenticate every filtered SEAD row against its requested native owner before
+  another page is consumed, retaining exact source identifiers and key checks.
+- Request omitted ownership fields internally and strip only those additions
+  after verification so callers receive the same projected fields.
+
 ### [#473](https://github.com/bijux/bijux-pollenomics/pull/473) — Physical source correspondence and bounded transport
 
 - Bind LandClim quality labels to physical source cells and require inferred
