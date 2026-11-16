@@ -1,30 +1,29 @@
+"""Stage context artifacts and build their publication layers."""
+
 from __future__ import annotations
 
-from collections.abc import Callable
 import json
-from pathlib import Path
 import shutil
+from collections.abc import Callable
+from pathlib import Path
 
 from ...collection.contracts.artifacts import (
     ATLAS_POINT_ARTIFACTS,
     BOUNDARY_COLLECTION,
     LANDCLIM_GRID_GEOJSON,
     LANDCLIM_TEMPORAL_GRID_GEOJSON,
-    RAA_DENSITY_GEOJSON,
-    RAA_LAYER_METADATA,
     SEAD_ARCHAEOLOGY_DISCOVERY_CSV,
     SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON,
     SEAD_ARCHAEOLOGY_DISCOVERY_JSON,
     SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN,
 )
-from ...core.files import write_json
+from ...collection.sources.raa.inventory import decode_source_object
 from ...core.geospatial.geojson import as_mapping
 from ..map_publication import map_allows_context_layer
 from .raa import (
-    RAA_ATLAS_INPUT_STATUS_FILENAME,
-    RAA_ATLAS_INPUT_STATUS_LABEL,
-    build_raa_atlas_input_status,
+    capture_raa_atlas_input_snapshot,
 )
+from .raa_staging import stage_raa_publication
 
 __all__ = ["stage_context_point_layers", "stage_context_polygon_layers"]
 
@@ -132,94 +131,84 @@ def stage_context_polygon_layers(
         )
         extra_artifacts.append((landclim_grid_contract.label, destination_path.name))
 
-    archaeology_path = RAA_LAYER_METADATA.path_under(context_root)
-    if archaeology_path.exists() and map_allows_context_layer(
-        scope_key=scope_key,
-        layer_key="raa-layer-metadata",
-    ):
-        destination_path = stage_context_artifact(
-            source_path=archaeology_path, output_dir=output_dir
-        )
-        extra_artifacts.append((RAA_LAYER_METADATA.label, destination_path.name))
-
-    archaeology_density_path = RAA_DENSITY_GEOJSON.path_under(context_root)
     raa_allowed = map_allows_context_layer(
-        scope_key=scope_key,
-        layer_key="raa-archaeology",
+        scope_key=scope_key, layer_key="raa-archaeology"
     )
-    raa_status = build_raa_atlas_input_status(context_root) if raa_allowed else None
     if raa_allowed:
-        raa_status_path = output_dir / RAA_ATLAS_INPUT_STATUS_FILENAME
-        write_json(raa_status_path, raa_status)
-        extra_artifacts.append((RAA_ATLAS_INPUT_STATUS_LABEL, raa_status_path.name))
-    geometry_publication = (
-        raa_status.get("geometry_publication") if isinstance(raa_status, dict) else None
-    )
-    publish_context = bool(
-        isinstance(geometry_publication, dict)
-        and geometry_publication.get("default_enabled") is True
-        and archaeology_density_path.is_file()
-    )
-    if publish_context:
-        if not isinstance(geometry_publication, dict):
-            raise ValueError("RAÄ context publication requires geometry posture")
-        destination_path = stage_context_artifact(
-            source_path=archaeology_density_path, output_dir=output_dir
-        )
-        layer = build_density_polygon_layer_fn(load_context_geojson(destination_path))
-        if raa_status is None:
-            raise ValueError("RAÄ context publication requires an input status")
-        admitted = raa_status["atlas_input_status"] == "admitted"
-        accounting = raa_status["density_count_accounting"]
-        if not isinstance(accounting, dict):
-            raise ValueError("RAÄ context publication requires density accounting")
-        density_sum = accounting["density_cell_count_sum"]
-        metadata_count = accounting["metadata_fornlamning_count"]
-        display_warning_codes = geometry_publication.get("warning_codes")
-        authority_reason_codes = raa_status.get("reason_codes")
-        if not isinstance(display_warning_codes, list) or any(
-            not isinstance(code, str) for code in display_warning_codes
-        ):
-            raise ValueError("RAÄ context publication requires warning codes")
-        if not isinstance(authority_reason_codes, list) or any(
-            not isinstance(code, str) for code in authority_reason_codes
-        ):
-            raise ValueError("RAÄ context publication requires authority reasons")
-        layer.update(
-            {
-                "authority_status": raa_status["atlas_input_status"],
-                "source_authority_admitted": admitted,
-                "authority_reason_codes": list(authority_reason_codes),
-                "display_warning_codes": list(display_warning_codes),
-                "retained_surface_status": (
-                    "current_authority" if admitted else "retained_historical_context"
-                ),
-                "density_count_accounting": dict(accounting),
-                "density_value_label": (
-                    "Governed source records"
-                    if admitted
-                    else "Retained cell count (unreconciled)"
-                ),
-                "density_count_label": (
-                    "Governed Swedish RAÄ source records in one-degree cells."
-                    if admitted
-                    else "Retained Swedish one-degree cell values: "
-                    f"{density_sum:,} summed cell counts versus "
-                    f"{metadata_count:,} metadata Fornlämning; display only, "
-                    "source authority refused."
-                ),
-                "description": (
-                    layer["description"]
-                    if admitted
-                    else "Retained RAÄ archaeology density from the v0.1.8 "
-                    "surface, displayed as degraded historical context while "
-                    "raw-inventory reconciliation, count reconciliation and "
-                    "qualified review remain unavailable."
-                ),
-            }
-        )
-        polygon_layers.append(layer)
-        extra_artifacts.append((RAA_DENSITY_GEOJSON.label, destination_path.name))
+        snapshot = capture_raa_atlas_input_snapshot(context_root)
+        raa_status = snapshot.status()
+        geometry_publication = raa_status.get("geometry_publication")
+        with stage_raa_publication(
+            snapshot=snapshot, output_dir=output_dir
+        ) as publication:
+            if (
+                isinstance(geometry_publication, dict)
+                and geometry_publication.get("default_enabled") is True
+            ):
+                if snapshot.density_bytes is None:
+                    raise ValueError(
+                        "RAÄ publication requires a captured density buffer"
+                    )
+                geojson = decode_source_object(snapshot.density_bytes.decode("utf-8"))
+                layer = build_density_polygon_layer_fn(geojson)
+                admitted = raa_status["atlas_input_status"] == "admitted"
+                accounting = raa_status["density_count_accounting"]
+                if not isinstance(accounting, dict):
+                    raise ValueError(
+                        "RAÄ context publication requires density accounting"
+                    )
+                density_sum = accounting["density_cell_count_sum"]
+                metadata_count = accounting["metadata_fornlamning_count"]
+                display_warning_codes = geometry_publication.get("warning_codes")
+                authority_reason_codes = raa_status.get("reason_codes")
+                if not isinstance(display_warning_codes, list) or any(
+                    not isinstance(code, str) for code in display_warning_codes
+                ):
+                    raise ValueError("RAÄ context publication requires warning codes")
+                if not isinstance(authority_reason_codes, list) or any(
+                    not isinstance(code, str) for code in authority_reason_codes
+                ):
+                    raise ValueError(
+                        "RAÄ context publication requires authority reasons"
+                    )
+                layer.update(
+                    {
+                        "authority_status": raa_status["atlas_input_status"],
+                        "source_authority_admitted": admitted,
+                        "authority_reason_codes": list(authority_reason_codes),
+                        "display_warning_codes": list(display_warning_codes),
+                        "retained_surface_status": (
+                            "current_authority"
+                            if admitted
+                            else "retained_historical_context"
+                        ),
+                        "density_count_accounting": dict(accounting),
+                        "density_value_label": (
+                            "Governed source records"
+                            if admitted
+                            else "Retained cell count (unreconciled)"
+                        ),
+                        "density_count_label": (
+                            "Governed Swedish RAÄ source records in one-degree cells."
+                            if admitted
+                            else "Retained Swedish one-degree cell values: "
+                            f"{density_sum:,} summed cell counts versus "
+                            f"{metadata_count:,} metadata Fornlämning; display only, "
+                            "source authority refused."
+                        ),
+                        "description": (
+                            layer["description"]
+                            if admitted
+                            else "Retained RAÄ archaeology density from the v0.1.8 "
+                            "surface, displayed as degraded historical context while "
+                            "raw-inventory reconciliation, count reconciliation and "
+                            "qualified review remain unavailable."
+                        ),
+                    }
+                )
+                polygon_layers.append(layer)
+            publication.validate()
+            extra_artifacts.extend(publication.artifacts())
 
     return polygon_layers, extra_artifacts
 
