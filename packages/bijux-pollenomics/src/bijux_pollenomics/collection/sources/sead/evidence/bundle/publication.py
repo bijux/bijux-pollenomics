@@ -1,3 +1,5 @@
+"""Publish and recover deterministic SEAD evidence within known file bounds."""
+
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
@@ -42,6 +44,12 @@ def write_sead_source_native_evidence_bundle(
     if parent.is_symlink() or not parent.is_dir():
         raise ValueError("SEAD evidence output parent must be a regular directory")
     output = parent / output_directory.name
+    physical_source = Path(acquisition_root).resolve(strict=False)
+    physical_output = output.resolve(strict=False)
+    if physical_source.is_relative_to(
+        physical_output
+    ) or physical_output.is_relative_to(physical_source):
+        raise ValueError("SEAD evidence output overlaps acquisition source")
     payloads = build_sead_source_native_evidence_bundle(
         acquisition_root, expected_identity=expected_identity
     )
@@ -109,7 +117,7 @@ def write_sead_source_native_evidence_bundle(
     if output.exists() or output.is_symlink():
         if output.is_symlink() or not output.is_dir():
             raise FileExistsError(f"Unsafe existing SEAD evidence bundle: {output}")
-        if _directory_bytes(output) == materialized:
+        if _directory_bytes(output, expected_files=materialized) == materialized:
             return tuple(output / name for name in sorted(materialized))
         raise FileExistsError(f"Non-identical SEAD evidence bundle exists: {output}")
     staging = parent / f".{output.name}.staging-{os.getpid()}"
@@ -121,7 +129,7 @@ def write_sead_source_native_evidence_bundle(
             destination = staging.joinpath(*Path(name).parts)
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(content)
-        if _directory_bytes(staging) != materialized:
+        if _directory_bytes(staging, expected_files=materialized) != materialized:
             raise ValueError("Staged SEAD evidence bundle bytes changed")
         from .validation import validate_sead_source_native_evidence_materialization
 

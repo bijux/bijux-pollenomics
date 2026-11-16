@@ -1,3 +1,5 @@
+"""Reconcile declared SEAD evidence documents without expanding their authority."""
+
 from __future__ import annotations
 
 from collections.abc import Mapping
@@ -14,13 +16,12 @@ from .constants import (
     _DIMENSION_RELATION_TABLES,
     _MAX_GOVERNED_FILE_BYTES,
     _OBSERVATION_TABLES,
-    EVIDENCE_MANIFEST_SCHEMA_VERSION,
     MULTIPART_SCHEMA_VERSION,
 )
+from .reading import open_evidence_files
 from .serialization import (
     _canonical_bytes,
     _decode_object,
-    _directory_bytes,
     _logical_row_count,
     _reject_symlink_ancestors,
     _required_prefixed_sha256,
@@ -41,34 +42,16 @@ def validate_sead_source_native_evidence_materialization(
     _reject_symlink_ancestors(root)
     if root.is_symlink() or not root.is_dir():
         raise ValueError("SEAD evidence materialization must be a regular directory")
-    manifest_path = root / "evidence_materialization_manifest.json"
-    manifest_bytes = manifest_path.read_bytes()
-    manifest = _decode_object(manifest_bytes, manifest_path.as_posix())
-    if manifest_bytes != _canonical_bytes(manifest):
-        raise ValueError("SEAD evidence manifest is not canonical")
-    if manifest.get("schema_version") != EVIDENCE_MANIFEST_SCHEMA_VERSION:
-        raise ValueError("SEAD evidence manifest schema version changed")
-    records_value = manifest.get("files")
-    if not isinstance(records_value, list):
-        raise TypeError("SEAD evidence manifest files must be a list")
-    records: dict[str, Mapping[str, object]] = {}
-    contents: dict[str, bytes] = {}
-    for record in records_value:
-        if not isinstance(record, Mapping):
-            raise TypeError("SEAD evidence file record must be an object")
-        relative_path = _safe_evidence_relative_path(record.get("path"))
-        if relative_path in records:
-            raise ValueError(f"Duplicate SEAD evidence path: {relative_path}")
-        content_path = root.joinpath(*Path(relative_path).parts)
-        if content_path.is_symlink() or not content_path.is_file():
-            raise ValueError(f"SEAD evidence file is not regular: {relative_path}")
-        content = content_path.read_bytes()
-        _verify_record(content, record, relative_path)
-        if len(content) > _MAX_GOVERNED_FILE_BYTES:
-            raise ValueError(f"SEAD evidence file exceeds size limit: {relative_path}")
-        records[relative_path] = record
-        contents[relative_path] = content
-    actual_paths = set(_directory_bytes(root))
+    with open_evidence_files(root, max_member_bytes=_MAX_GOVERNED_FILE_BYTES) as loaded:
+        return _validate_evidence_contents(*loaded)
+
+
+def _validate_evidence_contents(
+    manifest: dict[str, object],
+    records: dict[str, Mapping[str, object]],
+    contents: dict[str, bytes],
+) -> dict[str, object]:
+    """Reconcile the existing logical documents from bounded literal source bytes."""
     logical_document_names = {
         "chronology_claims.json",
         "source_native_observations.json",
@@ -78,9 +61,6 @@ def validate_sead_source_native_evidence_materialization(
     }
     if not logical_document_names <= set(records):
         raise ValueError("SEAD evidence materialization lacks a logical document")
-    expected_paths = set(records) | {"evidence_materialization_manifest.json"}
-    if actual_paths != expected_paths:
-        raise ValueError("SEAD evidence manifest does not cover the exact file set")
     expected_file_set_sha256 = _stable_id(
         "sead-evidence-files",
         *(
