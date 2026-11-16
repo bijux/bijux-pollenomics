@@ -16,7 +16,6 @@ from ..selection.access import (
     _facet_resource,
     _result,
 )
-from .preflight import prepare_linked_access
 
 _POINTERS = {
     "chronology_preparer": r"/data/(0|[1-9][0-9]*)/chronology/preparedby/contactid",
@@ -45,6 +44,8 @@ def read_linked_entity(
     evidence_sources: Mapping[str, Path] | None = None,
 ) -> dict[str, Any]:
     """Verify all recorded root restrictions, then only the named native occurrence."""
+    from .preflight import prepare_linked_access
+
     kwargs: dict[str, Any] = {
         "expected_manifest_sha256": expected_manifest_sha256,
         "expected_context_sha256": expected_context_sha256,
