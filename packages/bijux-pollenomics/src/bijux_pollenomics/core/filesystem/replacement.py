@@ -104,54 +104,69 @@ def publish_owned_replacement(
                 recovery.check()
                 return result
             except BaseException as primary_error:
-                parent.check()
-                recovery.check()
-                # A competing final stays at its user path; never move it for cleanup.
-                if _attached(parent, final.name) == candidate_id:
-                    with suppress(ValueError, FileExistsError):
-                        writer.validate_closed_attachment(final)
-                        _move(
-                            parent,
-                            final.name,
-                            recovery,
-                            "refused-publication",
-                            candidate_id,
-                        )
-                restored = False
-                if (
-                    prior is not None
-                    and _attached(recovery, "prior") == prior_id
-                    and _attached(parent, final.name) is None
-                ):
-                    prior.rebind(recovery.path / "prior")
-                    prior.validate()
-                    try:
-                        _move(
-                            recovery, "prior", parent, final.name, prior.anchor.identity
-                        )
-                    except FileExistsError:
-                        pass
-                    else:
-                        prior.rebind(final)
-                        restored = True
-                if record is not None:
-                    current = _attached(parent, final.name)
-                    try:
-                        record(
-                            "refused",
-                            {
-                                "predecessor_restored": restored,
-                                "retained_predecessor": _attached(recovery, "prior")
-                                == prior_id
-                                if prior is not None
-                                else False,
-                                "foreign_destination_preserved": current is not None
-                                and current not in {candidate_id, prior_id},
-                            },
-                        )
-                    except Exception as receipt_error:
-                        primary_error.add_note(
-                            f"Refusal receipt failed: {type(receipt_error).__name__}: "
-                            f"{receipt_error}; retained recovery: {recovery.path}"
-                        )
+                try:
+                    parent.check()
+                    recovery.check()
+                    # A competing final stays at its user path; never move it for cleanup.
+                    if _attached(parent, final.name) == candidate_id:
+                        with suppress(ValueError, FileExistsError):
+                            writer.validate_closed_attachment(final)
+                            _move(
+                                parent,
+                                final.name,
+                                recovery,
+                                "refused-publication",
+                                candidate_id,
+                            )
+                    restored = False
+                    if (
+                        prior is not None
+                        and _attached(recovery, "prior") == prior_id
+                        and _attached(parent, final.name) is None
+                    ):
+                        prior.rebind(recovery.path / "prior")
+                        prior.validate()
+                        try:
+                            _move(
+                                recovery,
+                                "prior",
+                                parent,
+                                final.name,
+                                prior.anchor.identity,
+                            )
+                        except FileExistsError:
+                            pass
+                        else:
+                            prior.rebind(final)
+                            restored = True
+                    if record is not None:
+                        current = _attached(parent, final.name)
+                        try:
+                            record(
+                                "refused",
+                                {
+                                    "predecessor_restored": restored,
+                                    "retained_predecessor": _attached(recovery, "prior")
+                                    == prior_id
+                                    if prior is not None
+                                    else False,
+                                    "foreign_destination_preserved": current is not None
+                                    and current not in {candidate_id, prior_id},
+                                },
+                            )
+                        except Exception as receipt_error:
+                            primary_error.add_note(
+                                f"Refusal receipt failed: {type(receipt_error).__name__}: "
+                                f"{receipt_error}; recovery originally allocated at "
+                                f"{recovery.path}; expected directory identity "
+                                f"{recovery.identity}; current attachment must be verified"
+                            )
+                except Exception as recovery_error:
+                    primary_error.add_note(
+                        "Replacement recovery failed: "
+                        f"{type(recovery_error).__name__}: {recovery_error}; "
+                        f"recovery originally allocated at {recovery.path}; "
+                        f"expected directory identity {recovery.identity}; "
+                        "current attachment must be verified"
+                    )
                 raise
