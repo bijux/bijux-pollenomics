@@ -4,8 +4,9 @@ Repository changes are recorded by pull request, newest merge first.
 
 ### [#469](https://github.com/bijux/bijux-pollenomics/pull/469) — Owned annotation release publication and primary recovery errors
 
-- Stage and validate complete AADR annotation releases before owned attachment,
-  refusing foreign namespaces and preserving prior releases on acquisition failure.
+- Preflight finite release metadata and validate complete AADR releases before
+  owned attachment, refusing foreign namespaces and preserving prior releases
+  on acquisition failure.
 - Keep candidates, predecessors and receipts outside the entire collection root;
   bind manifest callbacks to a bounded held descriptor and document its contract.
 - Preserve native primary publication errors when ordinary recovery operations or

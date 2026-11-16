@@ -65,7 +65,11 @@ def download_aadr_anno_files(
     names = {path.relative_to(version_dir).as_posix() for path in downloaded_files}
 
     if (
-        len(json.dumps(manifest, indent=2, ensure_ascii=False).encode("utf-8"))
+        len(
+            json.dumps(manifest, indent=2, ensure_ascii=False, allow_nan=False).encode(
+                "utf-8"
+            )
+        )
         > MANIFEST_MAX_BYTES
     ):
         raise ValueError("AADR release manifest exceeds its operational byte ceiling")

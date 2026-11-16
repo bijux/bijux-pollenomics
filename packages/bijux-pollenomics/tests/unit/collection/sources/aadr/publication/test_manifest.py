@@ -80,3 +80,46 @@ def test_bad_callback_output_preserves_prior_release(tmp_path: Path, kind: str) 
     with pytest.raises(ValueError):
         publish(output, (b"new-one", b"new-two"), write=write)
     assert len(calls) == 1 and snapshot(output) == before
+
+
+@pytest.mark.parametrize(
+    "field", ["versionNumber", "versionMinorNumber", "releaseTime", "lastUpdateTime"]
+)
+@pytest.mark.parametrize("value", [float("nan"), float("inf"), float("-inf")])
+def test_nonfinite_release_metadata_refuses_before_acquisition(
+    tmp_path: Path, field: str, value: float
+) -> None:
+    """Every manifest control value is finite before assets or callbacks run."""
+    from bijux_pollenomics.collection.sources.aadr.download import (
+        download_aadr_anno_files,
+    )
+
+    from .support import metadata
+
+    output = tmp_path / "collection"
+    publish(output, (b"old-one", b"old-two"))
+    before = snapshot(output)
+    values = (b"new-one", b"new-two")
+    source: Any = metadata(values)
+    source["data"][0][field] = value
+    binary_calls: list[str] = []
+    callback_calls: list[Path] = []
+
+    def fetch(url: str, **kwargs: Any) -> bytes:
+        binary_calls.append(url)
+        return values[int(url.rsplit("/", 1)[1]) - 1]
+
+    def write(path: Path, payload: object) -> None:
+        callback_calls.append(path)
+        write_json(path, payload)
+
+    with pytest.raises(ValueError):
+        download_aadr_anno_files(
+            output,
+            "v66",
+            fetch_binary_fn=fetch,
+            fetch_release_history_metadata_fn=lambda: source,
+            write_json_fn=write,
+        )
+    assert binary_calls == [] and callback_calls == []
+    assert snapshot(output) == before
