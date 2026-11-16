@@ -12,6 +12,7 @@ from typing import Any, NoReturn, cast
 
 from jsonschema import Draft202012Validator
 
+from ....core.filesystem import read_regular_file
 from ..engine.errors import LRARefusal
 from .schema import REQUEST_SCHEMA
 
@@ -48,23 +49,47 @@ def _finite_json(value: object) -> None:
             _finite_json(child)
 
 
-def _evidence(payload: dict[str, Any], root: Path) -> dict[str, str]:
+@dataclass
+class _ReceiptEvidenceBuffer:
+    """One operation's selected receipt bytes, retained only after hash verification."""
+
+    evidence_id: str
+    content: bytes | None = None
+
+
+def _evidence(
+    payload: dict[str, Any],
+    root: Path,
+    *,
+    capture: _ReceiptEvidenceBuffer | None = None,
+) -> dict[str, str]:
+    """Verify evidence, retaining at most one bounded receipt for semantic use."""
     roles = {}
     for item in payload["evidence"]:
         identity = item["evidence_id"]
         if identity in roles:
             _refuse("duplicate_evidence_id", identity)
         relative = Path(item["path"])
-        source = (root / relative).resolve()
+        literal = root / relative
+        source = literal.resolve()
         if relative.is_absolute() or not source.is_relative_to(root):
             _refuse("evidence_path_outside_root", item["path"])
         try:
-            with source.open("rb") as stream:
-                digest = hashlib.file_digest(stream, "sha256").hexdigest()
-        except OSError as exc:
+            if capture is not None and identity == capture.evidence_id:
+                # This three-field control receipt shares the established 1 MiB
+                # receipt ceiling; native evidence remains streamed separately.
+                content = read_regular_file(literal, max_bytes=1024 * 1024)
+                digest = hashlib.sha256(content).hexdigest()
+            else:
+                content = None
+                with source.open("rb") as stream:
+                    digest = hashlib.file_digest(stream, "sha256").hexdigest()
+        except (OSError, ValueError) as exc:
             raise LRARefusal("evidence_unavailable", f"{identity}: {exc}") from exc
         if digest != item["sha256"]:
             _refuse("evidence_digest_mismatch", identity)
+        if capture is not None and identity == capture.evidence_id:
+            capture.content = content
         roles[identity] = item["role"]
     needed = {
         "raw_snapshot",

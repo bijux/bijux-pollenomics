@@ -26,6 +26,7 @@ from .validation import (
     ValidatedRequest,
     _evidence,
     _finite_json,
+    _ReceiptEvidenceBuffer,
     _refuse,
     _temporal_and_denominators,
 )
@@ -210,7 +211,7 @@ def _invalid_receipt_constant(value: str) -> Any:
 
 
 def _draw_source_receipt(
-    payload: dict[str, Any], input_root: Path, roles: dict[str, str]
+    payload: dict[str, Any], roles: dict[str, str], content: bytes | None
 ) -> None:
     declaration = payload["regional_draw_source"]
     evidence_id = declaration["receipt_evidence_id"]
@@ -219,11 +220,14 @@ def _draw_source_receipt(
             "invalid_regional_draw_source_receipt",
             "The declared receipt evidence must have the draw_source_receipt role",
         )
-    item = next(row for row in payload["evidence"] if row["evidence_id"] == evidence_id)
-    path = (input_root.resolve() / Path(item["path"])).resolve()
+    if content is None:
+        _refuse(
+            "invalid_regional_draw_source_receipt",
+            "The declared receipt has no authenticated byte buffer",
+        )
     try:
         receipt = json.loads(
-            path.read_bytes(),
+            content,
             object_pairs_hook=_receipt_pairs,
             parse_constant=_invalid_receipt_constant,
         )
@@ -339,8 +343,11 @@ def validate_regional_draw_love_request(
             "unreported_uncertainty_omission",
             "The current engine does not propagate every declared uncertainty source",
         )
-    roles = _evidence(copy, input_root.resolve())
-    _draw_source_receipt(copy, input_root, roles)
+    receipt = _ReceiptEvidenceBuffer(
+        copy["regional_draw_source"]["receipt_evidence_id"]
+    )
+    roles = _evidence(copy, input_root.resolve(), capture=receipt)
+    _draw_source_receipt(copy, roles, receipt.content)
     local = copy["local"]
     sample = local["samples"][0]
     if local["basin"]["site_type"] != "lake":
