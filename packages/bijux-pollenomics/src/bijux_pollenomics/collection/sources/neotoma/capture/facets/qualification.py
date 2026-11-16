@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from pathlib import Path
 from typing import Any
 
@@ -17,6 +17,7 @@ from .profiles import PROFILE_SCHEMA, qualify_neotoma_facet_body
 from .replay import (
     _control,
     _read_authenticated_facet_body,
+    _replay_facet_capture,
     replay_neotoma_facet_capture,
 )
 
@@ -29,11 +30,37 @@ def qualify_neotoma_facet_capture(
     scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> dict[str, Any]:
     """Leave original HTTP assessments intact, including blocked or incomplete roots."""
-    capture = replay_neotoma_facet_capture(
+    return _qualify_facet_capture(
         directory,
         expected_manifest_sha256=expected_manifest_sha256,
         limits=limits,
         scope_inputs=scope_inputs,
+    )
+
+
+def _qualify_facet_capture(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str,
+    limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
+    _before_body_read: Callable[[], None] | None = None,
+) -> dict[str, Any]:
+    """Add operation refusals without changing native qualification or capture history."""
+    replay = (
+        replay_neotoma_facet_capture
+        if _before_body_read is None
+        else _replay_facet_capture
+    )
+    options: dict[str, Any] = (
+        {} if _before_body_read is None else {"_before_body_read": _before_body_read}
+    )
+    capture = replay(
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        limits=limits,
+        scope_inputs=scope_inputs,
+        **options,
     )
     manifest, _, _, _ = _control(directory, expected_manifest_sha256)
     verification = (
@@ -65,8 +92,15 @@ def qualify_neotoma_facet_capture(
                 **entry["root_identity"], versions=("current",)
             )
             body = _read_authenticated_facet_body(
-                directory, resource, entry["facet"], entry, limits
+                directory,
+                resource,
+                entry["facet"],
+                entry,
+                limits,
+                _before_body_read=_before_body_read,
             )
+            if _before_body_read is not None:
+                _before_body_read()
             derived.update(
                 qualify_neotoma_facet_body(
                     resource,

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from hashlib import sha256
 from pathlib import Path
 from typing import Any
@@ -117,6 +117,23 @@ def replay_neotoma_facet_capture(
     scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> NeotomaFacetCapture:
     """Recompute each status from authenticated attempts, without any network access."""
+    return _replay_facet_capture(
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        limits=limits,
+        scope_inputs=scope_inputs,
+    )
+
+
+def _replay_facet_capture(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str | None = None,
+    limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
+    _before_body_read: Callable[[], None] | None = None,
+) -> NeotomaFacetCapture:
+    """Keep outer operation refusals adjacent to each authenticated native read."""
     root = _safe_root(directory)
     manifest, plan, recorded, digest = _control(root, expected_manifest_sha256)
     validate_plan(plan, limits)
@@ -225,7 +242,11 @@ def replay_neotoma_facet_capture(
                 ):
                     raise ValueError("Neotoma facet body reference fields differ")
                 bound = min(maximum_body, maximum_total - total)
+                if _before_body_read is not None:
+                    _before_body_read()
                 body = _read(root / name, bound + 1)
+                if _before_body_read is not None:
+                    _before_body_read()
                 assessed = assess_http(record, request, body, bound)
                 total += len(body)
                 files.add(name)
@@ -305,6 +326,8 @@ def _read_authenticated_facet_body(
     facet: str,
     entry: dict[str, Any],
     limits: NeotomaResourceLimits,
+    *,
+    _before_body_read: Callable[[], None] | None = None,
 ) -> NeotomaFacetBody:
     """Recheck the same returned receipt/body buffer after its enclosing replay."""
     facet_key = entry["facet_key"]
@@ -312,7 +335,11 @@ def _read_authenticated_facet_body(
     receipt = _read(root / reference["receipt_file"], 1024 * 1024)
     if sha256(receipt).hexdigest() != reference["receipt_sha256"]:
         raise ValueError("Neotoma facet receipt changed during body access")
+    if _before_body_read is not None:
+        _before_body_read()
     body = _read(root / reference["body_file"], limits.max_response_bytes)
+    if _before_body_read is not None:
+        _before_body_read()
     record = _object(receipt)
     _validate_receipt(
         record,

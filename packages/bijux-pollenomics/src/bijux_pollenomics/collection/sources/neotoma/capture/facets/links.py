@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from pathlib import Path
 from typing import Any
 
 from ..resources.models import DEFAULT_RESOURCE_LIMITS, NeotomaResourceLimits
 from .models import NeotomaFacetScopeInputs
-from .qualification import qualify_neotoma_facet_capture
+from .qualification import _qualify_facet_capture, qualify_neotoma_facet_capture
 
 
 def discover_neotoma_facet_links(
@@ -20,13 +20,41 @@ def discover_neotoma_facet_links(
     scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
 ) -> dict[str, Any]:
     """Collect direct references only; targets are proposals, never authorization to GET."""
+    return _discover_facet_links(
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        include_higher_taxa=include_higher_taxa,
+        limits=limits,
+        scope_inputs=scope_inputs,
+    )
+
+
+def _discover_facet_links(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str,
+    include_higher_taxa: bool = False,
+    limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
+    _before_body_read: Callable[[], None] | None = None,
+) -> dict[str, Any]:
+    """Preserve source link semantics inside an outer live-source operation."""
     if type(include_higher_taxa) is not bool:
         raise ValueError("higher taxon lead selection must be a boolean")
-    qualified = qualify_neotoma_facet_capture(
+    qualify = (
+        qualify_neotoma_facet_capture
+        if _before_body_read is None
+        else _qualify_facet_capture
+    )
+    options: dict[str, Any] = (
+        {} if _before_body_read is None else {"_before_body_read": _before_body_read}
+    )
+    qualified = qualify(
         directory,
         expected_manifest_sha256=expected_manifest_sha256,
         limits=limits,
         scope_inputs=scope_inputs,
+        **options,
     )
     links: list[dict[str, Any]] = []
     higher: list[dict[str, Any]] = []
