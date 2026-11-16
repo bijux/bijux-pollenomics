@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#472](https://github.com/bijux/bijux-pollenomics/pull/472) — Current source permissions across Neotoma consumers
+
+- Keep finite current-context metadata seals live across native source handoffs
+  and every authenticated ancestry epoch, refusing drift before further reads.
+- Preserve complete evidence validation while applying private permission checks
+  through nested baseline replay, portable capsules and selected-entity access.
+- Retain generated-only drift coverage without extending historical qualification
+  to newer source programs or admitting retained scientific inputs.
+
 ### [#471](https://github.com/bijux/bijux-pollenomics/pull/471) — Live chain permissions and recorded taxonomy source qualification
 
 - Recheck current permission seals around each chain source-body read, refusing
