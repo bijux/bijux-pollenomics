@@ -1,0 +1,334 @@
+{
+  "capture_utc_end": "2026-11-15T03:41:01.293249+00:00",
+  "capture_utc_start": "2026-11-15T03:40:58.164640+00:00",
+  "partitions": {
+    "received_complete_unqualified_unit_resource": 8
+  },
+  "request_count": 8,
+  "response_bytes": 4628,
+  "schema_version": "neotoma-unit-metadata-source-index.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed current unit responses; no transaction or frozen snapshot",
+  "units": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_bytes": 576,
+          "body_complete": true,
+          "body_file": "speleothem-unit-50135-current-attempt-1.body",
+          "body_sha256": "31bcfbfe1bff58ce381f0d1f36fe49da3a50de057327afae11101414072426be",
+          "http_status": 200,
+          "receipt_file": "speleothem-unit-50135-current-attempt-1.receipt.json",
+          "receipt_sha256": "54437a4519743419a31a057ea31df7a9d16ca8fd008b7042817e5ac5ab8a582f",
+          "request_name": "speleothem-unit-50135-current-attempt-1",
+          "utc_end": "2026-11-15T03:40:58.603780+00:00",
+          "utc_start": "2026-11-15T03:40:58.165775+00:00"
+        }
+      ],
+      "content_version": "current",
+      "scientific_admission": "not_asserted",
+      "scope": {
+        "collection_unit_id": 50135,
+        "current_access": "requires_selected_source_guard",
+        "current_native_dataset_ids": [
+          67853,
+          67854
+        ],
+        "current_owner_matches_original": true,
+        "current_role": "development_resource_discovery",
+        "current_scope_verification": "authenticated_native_whole_unit_site_and_facet_parent_obligations",
+        "original_native_dataset_ids": [
+          67853,
+          67854
+        ],
+        "original_role": "development_resource_discovery",
+        "scientific_admission": "not_asserted",
+        "site_id": 37264
+      },
+      "source_entry_pointer": "/units/0",
+      "terminal_status": "received_complete_unqualified_unit_resource",
+      "unit_key": "speleothem-unit-50135"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_bytes": 595,
+          "body_complete": true,
+          "body_file": "speleothem-unit-50346-current-attempt-1.body",
+          "body_sha256": "65dd769ca48d0d6c6b9f32740a7f3b095f9804f504802f4c7500c09c64d5e914",
+          "http_status": 200,
+          "receipt_file": "speleothem-unit-50346-current-attempt-1.receipt.json",
+          "receipt_sha256": "f876d1385ec2340771f17d1d46c0bfd6fce665173fd71cfa074efaa704c795dd",
+          "request_name": "speleothem-unit-50346-current-attempt-1",
+          "utc_end": "2026-11-15T03:40:58.987372+00:00",
+          "utc_start": "2026-11-15T03:40:58.604294+00:00"
+        }
+      ],
+      "content_version": "current",
+      "scientific_admission": "not_asserted",
+      "scope": {
+        "collection_unit_id": 50346,
+        "current_access": "requires_selected_source_guard",
+        "current_native_dataset_ids": [
+          68269,
+          68270
+        ],
+        "current_owner_matches_original": true,
+        "current_role": "development_resource_discovery",
+        "current_scope_verification": "authenticated_native_whole_unit_site_and_facet_parent_obligations",
+        "original_native_dataset_ids": [
+          68269,
+          68270
+        ],
+        "original_role": "development_resource_discovery",
+        "scientific_admission": "not_asserted",
+        "site_id": 37353
+      },
+      "source_entry_pointer": "/units/1",
+      "terminal_status": "received_complete_unqualified_unit_resource",
+      "unit_key": "speleothem-unit-50346"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_bytes": 575,
+          "body_complete": true,
+          "body_file": "speleothem-unit-50362-current-attempt-1.body",
+          "body_sha256": "353788f3a13f8ab5c987e643c5fced59c5983aac8a5a41c375d59a6724c942e8",
+          "http_status": 200,
+          "receipt_file": "speleothem-unit-50362-current-attempt-1.receipt.json",
+          "receipt_sha256": "1da4ecc8bee3d1684169a9c43533842b55a2c37b287b36da1cd64dbabfd9b173",
+          "request_name": "speleothem-unit-50362-current-attempt-1",
+          "utc_end": "2026-11-15T03:40:59.372883+00:00",
+          "utc_start": "2026-11-15T03:40:58.987831+00:00"
+        }
+      ],
+      "content_version": "current",
+      "scientific_admission": "not_asserted",
+      "scope": {
+        "collection_unit_id": 50362,
+        "current_access": "requires_selected_source_guard",
+        "current_native_dataset_ids": [
+          68301,
+          68302
+        ],
+        "current_owner_matches_original": true,
+        "current_role": "development_resource_discovery",
+        "current_scope_verification": "authenticated_native_whole_unit_site_and_facet_parent_obligations",
+        "original_native_dataset_ids": [
+          68301,
+          68302
+        ],
+        "original_role": "development_resource_discovery",
+        "scientific_admission": "not_asserted",
+        "site_id": 37357
+      },
+      "source_entry_pointer": "/units/2",
+      "terminal_status": "received_complete_unqualified_unit_resource",
+      "unit_key": "speleothem-unit-50362"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_bytes": 561,
+          "body_complete": true,
+          "body_file": "speleothem-unit-50377-current-attempt-1.body",
+          "body_sha256": "7bf59b02419fc5522b6cbbe4daae92a9c7d996d4f42e07c7e3dd711940f31014",
+          "http_status": 200,
+          "receipt_file": "speleothem-unit-50377-current-attempt-1.receipt.json",
+          "receipt_sha256": "2faf211cad35b9996bdca4c23a0507794a888fa25b8add418dfff7052d040923",
+          "request_name": "speleothem-unit-50377-current-attempt-1",
+          "utc_end": "2026-11-15T03:40:59.757312+00:00",
+          "utc_start": "2026-11-15T03:40:59.373315+00:00"
+        }
+      ],
+      "content_version": "current",
+      "scientific_admission": "not_asserted",
+      "scope": {
+        "collection_unit_id": 50377,
+        "current_access": "requires_selected_source_guard",
+        "current_native_dataset_ids": [
+          68333,
+          68334
+        ],
+        "current_owner_matches_original": true,
+        "current_role": "development_resource_discovery",
+        "current_scope_verification": "authenticated_native_whole_unit_site_and_facet_parent_obligations",
+        "original_native_dataset_ids": [
+          68333,
+          68334
+        ],
+        "original_role": "development_resource_discovery",
+        "scientific_admission": "not_asserted",
+        "site_id": 37359
+      },
+      "source_entry_pointer": "/units/3",
+      "terminal_status": "received_complete_unqualified_unit_resource",
+      "unit_key": "speleothem-unit-50377"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_bytes": 586,
+          "body_complete": true,
+          "body_file": "speleothem-unit-50682-current-attempt-1.body",
+          "body_sha256": "127c9b854639e8a2bf01bac0ea0b6be453d874070c5a10aa0f9b1b2927e4bfea",
+          "http_status": 200,
+          "receipt_file": "speleothem-unit-50682-current-attempt-1.receipt.json",
+          "receipt_sha256": "ebea5af379b91f8644c9492655053ba3777e7bc88c94a906fc33fa304a1513ae",
+          "request_name": "speleothem-unit-50682-current-attempt-1",
+          "utc_end": "2026-11-15T03:41:00.140863+00:00",
+          "utc_start": "2026-11-15T03:40:59.757816+00:00"
+        }
+      ],
+      "content_version": "current",
+      "scientific_admission": "not_asserted",
+      "scope": {
+        "collection_unit_id": 50682,
+        "current_access": "requires_selected_source_guard",
+        "current_native_dataset_ids": [
+          68908,
+          68909
+        ],
+        "current_owner_matches_original": true,
+        "current_role": "development_resource_discovery",
+        "current_scope_verification": "authenticated_native_whole_unit_site_and_facet_parent_obligations",
+        "original_native_dataset_ids": [
+          68908,
+          68909
+        ],
+        "original_role": "development_resource_discovery",
+        "scientific_admission": "not_asserted",
+        "site_id": 37264
+      },
+      "source_entry_pointer": "/units/4",
+      "terminal_status": "received_complete_unqualified_unit_resource",
+      "unit_key": "speleothem-unit-50682"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_bytes": 575,
+          "body_complete": true,
+          "body_file": "speleothem-unit-50686-current-attempt-1.body",
+          "body_sha256": "a4c2103777b2a40ba05c56abf6dda983e68c4439e59419399bae8d9b90546026",
+          "http_status": 200,
+          "receipt_file": "speleothem-unit-50686-current-attempt-1.receipt.json",
+          "receipt_sha256": "7644bd2aff5001efe0d4f1d40314eba723cf869d0f50d976a2add5c6be86ced7",
+          "request_name": "speleothem-unit-50686-current-attempt-1",
+          "utc_end": "2026-11-15T03:41:00.525376+00:00",
+          "utc_start": "2026-11-15T03:41:00.141301+00:00"
+        }
+      ],
+      "content_version": "current",
+      "scientific_admission": "not_asserted",
+      "scope": {
+        "collection_unit_id": 50686,
+        "current_access": "requires_selected_source_guard",
+        "current_native_dataset_ids": [
+          68916,
+          68917
+        ],
+        "current_owner_matches_original": true,
+        "current_role": "development_resource_discovery",
+        "current_scope_verification": "authenticated_native_whole_unit_site_and_facet_parent_obligations",
+        "original_native_dataset_ids": [
+          68916,
+          68917
+        ],
+        "original_role": "development_resource_discovery",
+        "scientific_admission": "not_asserted",
+        "site_id": 37475
+      },
+      "source_entry_pointer": "/units/5",
+      "terminal_status": "received_complete_unqualified_unit_resource",
+      "unit_key": "speleothem-unit-50686"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_bytes": 594,
+          "body_complete": true,
+          "body_file": "speleothem-unit-50779-current-attempt-1.body",
+          "body_sha256": "87c8c81991ba56c95186d3004973ece903e3637d98c80aa47d410172bfadfff0",
+          "http_status": 200,
+          "receipt_file": "speleothem-unit-50779-current-attempt-1.receipt.json",
+          "receipt_sha256": "274c6619f7f3fab567677f25eec1d23cc58e7ffaf0d66cc73470b2f5e29ae65c",
+          "request_name": "speleothem-unit-50779-current-attempt-1",
+          "utc_end": "2026-11-15T03:41:00.913188+00:00",
+          "utc_start": "2026-11-15T03:41:00.525952+00:00"
+        }
+      ],
+      "content_version": "current",
+      "scientific_admission": "not_asserted",
+      "scope": {
+        "collection_unit_id": 50779,
+        "current_access": "requires_selected_source_guard",
+        "current_native_dataset_ids": [
+          69082,
+          69083
+        ],
+        "current_owner_matches_original": true,
+        "current_role": "development_resource_discovery",
+        "current_scope_verification": "authenticated_native_whole_unit_site_and_facet_parent_obligations",
+        "original_native_dataset_ids": [
+          69082,
+          69083
+        ],
+        "original_role": "development_resource_discovery",
+        "scientific_admission": "not_asserted",
+        "site_id": 37353
+      },
+      "source_entry_pointer": "/units/6",
+      "terminal_status": "received_complete_unqualified_unit_resource",
+      "unit_key": "speleothem-unit-50779"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_bytes": 566,
+          "body_complete": true,
+          "body_file": "speleothem-unit-50918-current-attempt-1.body",
+          "body_sha256": "ffb29a92908ed43759400de39130830d0169f5b47722bb02cbceafd59f89e03a",
+          "http_status": 200,
+          "receipt_file": "speleothem-unit-50918-current-attempt-1.receipt.json",
+          "receipt_sha256": "6939dd2436e1a262df67869a1a0a844b2cff201798d6323d09a5f76b708f351f",
+          "request_name": "speleothem-unit-50918-current-attempt-1",
+          "utc_end": "2026-11-15T03:41:01.292809+00:00",
+          "utc_start": "2026-11-15T03:41:00.913680+00:00"
+        }
+      ],
+      "content_version": "current",
+      "scientific_admission": "not_asserted",
+      "scope": {
+        "collection_unit_id": 50918,
+        "current_access": "requires_selected_source_guard",
+        "current_native_dataset_ids": [
+          69358,
+          69359
+        ],
+        "current_owner_matches_original": true,
+        "current_role": "development_resource_discovery",
+        "current_scope_verification": "authenticated_native_whole_unit_site_and_facet_parent_obligations",
+        "original_native_dataset_ids": [
+          69358,
+          69359
+        ],
+        "original_role": "development_resource_discovery",
+        "scientific_admission": "not_asserted",
+        "site_id": 37359
+      },
+      "source_entry_pointer": "/units/7",
+      "terminal_status": "received_complete_unqualified_unit_resource",
+      "unit_key": "speleothem-unit-50918"
+    }
+  ]
+}

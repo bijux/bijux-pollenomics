@@ -12,7 +12,7 @@ from bijux_pollenomics.reporting.map_document.static_assets.serialization import
     chunk_script_bytes,
 )
 
-from ..support import run_node_json, template_block
+from ..support import index_transport_helpers, run_node_json, template_block
 
 
 def writer_asset(name: str, *, encoding: str = "json") -> dict[str, Any]:
@@ -61,7 +61,8 @@ def writer_asset(name: str, *, encoding: str = "json") -> dict[str, Any]:
 
 SETUP = r"""
 const assert=require('node:assert/strict'), cryptoNode=require('node:crypto');
-const STATIC_ATLAS_BOOTSTRAP={schema_version:'atlas-static-bootstrap.v2',build_id:'atlas-'+'a'.repeat(64),scope_slug:'fixture',version:'fixture',budgets:{chunk_max_bytes:4194304}};
+const STATIC_ATLAS_INLINE=false;
+const STATIC_ATLAS_BOOTSTRAP={schema_version:'atlas-static-bootstrap.v2',build_id:'atlas-'+'a'.repeat(64),scope_slug:'fixture',version:'fixture',assets:[],budgets:{chunk_max_bytes:4194304}};
 const STATIC_ATLAS_SCHEMAS={nodes:['atlas-node-chunk.v1']};
 const STATIC_ATLAS_RAW_CHUNKS=[],STATIC_ATLAS_CHUNKS={nodes:[],details:[]};
 const staticAtlasLoadedAssets=new Set(),staticAtlasInFlightAssets=new Map();
@@ -174,6 +175,12 @@ def test_selection_owned_requests_cancel_without_poisoning_shared_cache() -> Non
         "async function ensureStaticAtlasSelectionLoaded", "const countryColors"
     )
     result = run_node_json(
-        "const fixtures=" + json.dumps(fixtures) + ";\n" + SETUP + runtime + CASES
+        "const fixtures="
+        + json.dumps(fixtures)
+        + ";\n"
+        + SETUP
+        + runtime
+        + index_transport_helpers(common=False, include_search=False)
+        + CASES
     )
     assert len(result["passed"]) == 15

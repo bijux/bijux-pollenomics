@@ -15,18 +15,24 @@ from ...capture.facets.protocol import plan_from_json as facet_plan
 from ...capture.facets.protocol import request_for as facet_request
 from ...capture.facets.replay import _control as facet_control
 from ...capture.facets.scope import authenticate_parent_scope
-from ...capture.linked_resources.models import LINKED_SCHEMA
+from ...capture.linked_resources.models import (
+    EVIDENCE_SCHEMA,
+    LINKED_SCHEMA,
+    SCOPED_LINKED_SCHEMA,
+)
 from ...capture.linked_resources.protocol import request_for as linked_request
 from ...capture.linked_resources.replay import _control as linked_control
-from ...capture.parent_scope import _roster
 from ...capture.receipts import _object, _read, _safe_root, _utc
 from ...capture.resources.models import DEVELOPMENT_ROLES
 from ...client import positive_native_id
 from ...resource_catalogue.archive.files import _digest, encoded_json
 from ...resource_catalogue.source_projection import _same
-from ..context.validation import NeotomaAncillaryContext, load_neotoma_ancillary_context
+from ..context.legacy import _legacy_roots as _legacy_roots
+from ..context.validation import load_neotoma_ancillary_context
+from ..linked_evidence.occurrences import verify_scoped_metadata_sources
 from .models import (
     CAPSULE_SCHEMA,
+    SCOPED_CAPSULE_SCHEMA,
     CapsuleMetadata,
     NeotomaAncillaryCapsuleInventory,
     compact_index,
@@ -98,7 +104,7 @@ def _capture(
     if (
         not isinstance(schema, str)
         or (kind == "facet" and schema not in {FACET_SCHEMA, SCOPED_FACET_SCHEMA})
-        or (kind == "linked" and schema != LINKED_SCHEMA)
+        or (kind == "linked" and schema not in {LINKED_SCHEMA, SCOPED_LINKED_SCHEMA})
         or kind not in {"facet", "linked"}
     ):
         raise ValueError("Ancillary capsule capture kind or native schema differs")
@@ -223,45 +229,6 @@ def _capture(
     )
 
 
-def _legacy_roots(control: dict[str, Any], context: NeotomaAncillaryContext) -> None:
-    plan = control["plan"]
-    digest = plan["roster_sha256"]
-    if digest not in context.legacy_rosters:
-        raise ValueError("Ancillary legacy capture lacks its original roster identity")
-    roster = _roster(context.legacy_rosters[digest], digest)
-    rows = {row["dataset_id"]: row for row in roster["resources"]}
-    for resource in plan["resources"]:
-        row = rows.get(resource["dataset_id"])
-        if row is None:
-            raise ValueError("Ancillary legacy dataset is absent from original roster")
-        locator = row.get("metadata_locator")
-        if (
-            not isinstance(locator, dict)
-            or not _digest(locator.get("response_sha256"))
-            or not isinstance(locator.get("json_pointer"), str)
-        ):
-            raise ValueError("Ancillary legacy original source locator is malformed")
-        expected = {
-            key: row[key]
-            for key in (
-                "dataset_id",
-                "site_id",
-                "collection_unit_id",
-                "dataset_type",
-                "database",
-            )
-        }
-        expected.update(
-            exposure_role=row["exposure_roles"]["current"],
-            metadata_sha256=locator["response_sha256"],
-            metadata_pointer=locator["json_pointer"],
-        )
-        if not _same({key: resource.get(key) for key in expected}, expected):
-            raise ValueError(
-                "Ancillary legacy native owner/role/source locator differs"
-            )
-
-
 def prepare_capsule_metadata(
     *,
     context_directory: Path,
@@ -270,6 +237,7 @@ def prepare_capsule_metadata(
     facet_captures: Mapping[str, Path],
     linked_captures: Mapping[str, Path] | None = None,
     predecessor_facets: Mapping[str, Path] | None = None,
+    evidence_sources: Mapping[str, Path] | None = None,
     max_bytes: int = MAX_BYTES,
     max_files: int = MAX_FILES,
 ) -> CapsuleMetadata:
@@ -318,7 +286,14 @@ def prepare_capsule_metadata(
                 )
     all_descriptors = dict(captures)
     required = set()
+    evidence_references = {}
     for digest in linked_captures:
+        if documents[digest]["schema_version"] == SCOPED_LINKED_SCHEMA:
+            pin = verify_scoped_metadata_sources(
+                documents[digest], controls[digest], context, evidence_sources
+            )
+            evidence_references[pin] = {"schema_version": EVIDENCE_SCHEMA}
+            continue
         references = controls[digest]["plan"].get("source_facet_manifest_sha256s")
         if not isinstance(references, list) or not all(
             _digest(value) for value in references
@@ -363,7 +338,9 @@ def prepare_capsule_metadata(
         }
     )
     manifest = {
-        "schema_version": CAPSULE_SCHEMA,
+        "schema_version": SCOPED_CAPSULE_SCHEMA
+        if evidence_references
+        else CAPSULE_SCHEMA,
         "context_manifest_sha256": expected_context_sha256,
         "native_archive_manifest_sha256": context.manifest["native_archive"][
             "manifest_sha256"
@@ -376,6 +353,8 @@ def prepare_capsule_metadata(
         "native_body_copies": 0,
         "historical_snapshot_replaced": False,
     }
+    if evidence_references:
+        manifest["linked_evidence"] = evidence_references
     if (
         count + len(buffers) + 1 > max_files
         or total + sum(map(len, buffers.values())) + len(encoded_json(manifest))
@@ -418,7 +397,14 @@ def prepare_capsule_metadata(
     for digest, descriptor in all_descriptors.items():
         verify_metadata_population(descriptor, documents[digest], controls[digest])
     verify_linked_metadata_sources(
-        documents, controls, all_descriptors, linked_captures
+        documents,
+        controls,
+        all_descriptors,
+        {
+            pin: root
+            for pin, root in linked_captures.items()
+            if documents[pin]["schema_version"] == LINKED_SCHEMA
+        },
     )
     return CapsuleMetadata(
         manifest,
@@ -440,6 +426,7 @@ def read_neotoma_ancillary_capsule_inventory(
     context_directory: Path,
     native_archive_directory: Path,
     predecessor_facets: Mapping[str, Path] | None = None,
+    evidence_sources: Mapping[str, Path] | None = None,
 ) -> NeotomaAncillaryCapsuleInventory:
     """Authenticate metadata and declarations; numerical entity hashes stay unverified."""
     root = _safe_root(directory)
@@ -447,8 +434,15 @@ def read_neotoma_ancillary_capsule_inventory(
         root / "manifest.json", expected_manifest_sha256, MAX_METADATA_BYTES
     )
     if (
-        set(manifest) != _FIELDS
-        or manifest.get("schema_version") != CAPSULE_SCHEMA
+        set(manifest)
+        != _FIELDS
+        | (
+            {"linked_evidence"}
+            if manifest.get("schema_version") == SCOPED_CAPSULE_SCHEMA
+            else set()
+        )
+        or not isinstance(manifest.get("schema_version"), str)
+        or manifest.get("schema_version") not in {CAPSULE_SCHEMA, SCOPED_CAPSULE_SCHEMA}
         or not isinstance(manifest.get("files"), dict)
         or not isinstance(manifest.get("captures"), dict)
         or not _digest(manifest.get("context_manifest_sha256"))
@@ -501,6 +495,7 @@ def read_neotoma_ancillary_capsule_inventory(
         facet_captures=facets,
         linked_captures=linked,
         predecessor_facets=predecessor_facets,
+        evidence_sources=evidence_sources,
     )
     if not _same(prepared.manifest, manifest):
         raise ValueError("Ancillary capsule source identity or compact claims differ")
@@ -516,5 +511,12 @@ def read_neotoma_ancillary_capsule_inventory(
         ):
             raise ValueError("Ancillary capsule member buffer or source index differs")
     return NeotomaAncillaryCapsuleInventory(
-        root, manifest, prepared.index, facets, linked
+        root,
+        manifest,
+        prepared.index,
+        facets,
+        linked,
+        integrity_scope="capsule_metadata_selected_evidence_parts_and_current_root_metadata"
+        if manifest["schema_version"] == SCOPED_CAPSULE_SCHEMA
+        else "capsule_metadata_and_source_declarations",
     )

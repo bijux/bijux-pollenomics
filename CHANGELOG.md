@@ -2,16 +2,18 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### [#451](https://github.com/bijux/bijux-pollenomics/pull/451) — Selected ancillary guards and portable unit metadata
+### [#451](https://github.com/bijux/bijux-pollenomics/pull/451) — Portable ancillary source custody and bounded Atlas access
 
-- Guard exact selected facet/linked occurrences with fresh current owner/parent
-  obligations before source bodies, verifying the selected native pointer while
-  leaving unselected body/occurrence and historical execution scope explicit.
-- Require complete frozen facet evidence for new linked captures, with bounded
-  partitioned occurrence proofs, strongest inherited roles and metadata restrictions.
-- Retain portable unit metadata with original/current whole-unit identity and site/
-  parent restrictions, same-buffer selected readers and capture-prefix budgets.
-- Keep source-reader search and controls visible within narrow-screen scroll bounds.
+- Retain the frozen native facet census, portable unit metadata and linked-source
+  evidence with independent anchors, original assessments and explicit source limits.
+- Authenticate exact selected native pointers and original/current owner, site and
+  proof-root duties before body access; preserve unknown association/primary fields.
+- Bind shared evidence and metadata projection without inventing historical pre-request
+  scope, body verification, observation selection or scientific admission.
+- Route literal source facets within existing interaction budgets and keep entirely
+  absent optional resources valid at startup while refusing partial declarations.
+- Carry the existing index-planner extraction with the startup repair, keeping the
+  constructed runtime below its unchanged cap and charging optional controller bytes.
 
 ### [#450](https://github.com/bijux/bijux-pollenomics/pull/450) — Federated ancillary coverage and retained reference prefixes
 

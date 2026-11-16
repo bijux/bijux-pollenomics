@@ -4,6 +4,7 @@ import base64
 from collections.abc import Mapping, Sequence
 import hashlib
 import json
+from typing import Any
 
 from ..temporal_admission import feature_interval, read_calendar_profile
 from .asset_inventory import normalize_asset_inventory
@@ -23,6 +24,8 @@ from .models import StaticAtlasAssets
 from .nodes import node_asset_selection
 from .search import validate_search_membership
 from .serialization import decode_chunk_script
+from .source_facets.routing import SCHEMA as SOURCE_FACET_ROUTING_SCHEMA
+from .source_facets.routing import validate_source_facet_routes
 from .source_resources import SourceResourcePayloads, validate_source_resource_payloads
 
 
@@ -204,6 +207,22 @@ def _validate_static_payloads(
         for row in asset_rows
         if row.get("domain") == "nodes"
     }
+    layer_metadata: list[Mapping[str, Any]] = []
+    for row in asset_rows:
+        if row.get("domain") != "provenance":
+            continue
+        layers = payloads[str(row["asset_key"])].get("layers")
+        if not isinstance(layers, list) or any(
+            not isinstance(item, Mapping) for item in layers
+        ):
+            raise ValueError("Source facet layer metadata is invalid")
+        layer_metadata.extend(layers)
+    route_schema = compatibility.get("source_facet_routing_schema")
+    if route_schema is not None and route_schema != SOURCE_FACET_ROUTING_SCHEMA:
+        raise ValueError("Source facet routing schema is unsupported")
+    validate_source_facet_routes(
+        layer_metadata, node_payloads, required=route_schema is not None
+    )
     detail_record_assets: dict[str, str] = {}
     detail_record_order: list[str] = []
     index_rows: list[Mapping[str, object]] = []

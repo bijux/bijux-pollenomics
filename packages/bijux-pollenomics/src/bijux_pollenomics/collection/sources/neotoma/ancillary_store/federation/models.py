@@ -14,6 +14,7 @@ from ...resource_catalogue.archive.files import encoded_json
 from ...resource_catalogue.source_projection import _same
 
 SCHEMA = "neotoma-ancillary-source-federation.v1"
+SCOPED_SCHEMA = "neotoma-scoped-ancillary-source-federation.v1"
 INDEX_SCHEMA = "neotoma-ancillary-federation-index.v1"
 FACETS = (
     "chronologies",
@@ -75,11 +76,41 @@ def _observation_id(row: dict[str, Any]) -> str:
     return f"{row['source_capture_manifest_sha256']}:{row['source_entry_pointer']}"
 
 
+def scoped_occurrence(
+    proof: dict[str, Any],
+    locator: dict[str, Any],
+    observation: str,
+    roots: dict[int, dict[str, Any]],
+    roles: dict[int, str],
+    scope: str,
+) -> dict[str, Any]:
+    """Project a rooted source pointer reference without copying its full proof."""
+    return {
+        "occurrence_id": observation
+        + ":evidence:"
+        + locator["evidence_manifest_sha256"]
+        + ":"
+        + locator["part_sha256"]
+        + ":"
+        + str(locator["row_offset"]),
+        "observation_id": observation,
+        "linked_capture_manifest_sha256": observation.split(":", 1)[0],
+        "evidence_locator": locator,
+        "root_dataset_id": proof["root_dataset_id"],
+        "current_owner_join": _match(proof["root_identity"], roots),
+        "current_use_role": roles.get(proof["root_dataset_id"]),
+        "capture_parent_scope_verification": scope,
+        "native_field_value_verified": False,
+    }
+
+
 def assemble_view(
     roster: dict[str, Any],
     roles: dict[int, str],
     indexes: dict[str, dict[str, Any]],
     attempts: dict[tuple[str, str], list[dict[str, Any]]],
+    scoped_occurrences: dict[tuple[str, str], list[dict[str, Any]]] | None = None,
+    protected_contacts: dict[str, Any] | None = None,
 ) -> tuple[
     list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]
 ]:
@@ -129,44 +160,68 @@ def assemble_view(
                 if match == "exact_current_owner":
                     by_slot[row["facet_key"]].append(row)
             else:
-                proofs = source["identity"]["source_proofs"]
-                row["identity"] = {
-                    key: value
-                    for key, value in source["identity"].items()
-                    if key != "source_proofs"
-                }
-                joins, inherited = [], []
-                for position, proof in enumerate(proofs):
-                    original = facets[
-                        proof["source_capture_manifest_sha256"],
-                        proof["source_facet_key"],
-                    ]
-                    match = _match(proof["root_identity"], roots)
-                    role = roles.get(proof["root_dataset_id"])
-                    joins.append(match)
-                    if role is not None:
-                        inherited.append(role)
-                    occurrences.append(
-                        {
-                            "occurrence_id": f"{identity}:proof:{position}",
-                            "observation_id": identity,
-                            "linked_capture_manifest_sha256": capture,
-                            "source_proof_pointer": source["source_entry_pointer"]
-                            + f"/identity/source_proofs/{position}",
-                            "source_proof": proof,
-                            "current_owner_join": match,
-                            "current_use_role": role,
-                            "capture_parent_scope_verification": original[
-                                "parent_scope_verification"
-                            ],
-                            "native_field_value_verified": False,
-                        }
+                if "source_proof_reference" in source["identity"]:
+                    projected = (scoped_occurrences or {}).get(
+                        (capture, row["target_key"])
                     )
+                    if not projected:
+                        raise ValueError(
+                            "Scoped federation occurrence resolver is missing"
+                        )
+                    occurrences.extend(projected)
+                    joins = [value["current_owner_join"] for value in projected]
+                    inherited = [
+                        value["current_use_role"]
+                        for value in projected
+                        if value["current_use_role"] is not None
+                    ]
+                    row["source_evidence"] = captures[capture]["source_evidence"]
+                else:
+                    proofs = source["identity"]["source_proofs"]
+                    row["identity"] = {
+                        key: value
+                        for key, value in source["identity"].items()
+                        if key != "source_proofs"
+                    }
+                    joins, inherited = [], []
+                    for position, proof in enumerate(proofs):
+                        original = facets[
+                            proof["source_capture_manifest_sha256"],
+                            proof["source_facet_key"],
+                        ]
+                        match = _match(proof["root_identity"], roots)
+                        role = roles.get(proof["root_dataset_id"])
+                        joins.append(match)
+                        if role is not None:
+                            inherited.append(role)
+                        occurrences.append(
+                            {
+                                "occurrence_id": f"{identity}:proof:{position}",
+                                "observation_id": identity,
+                                "linked_capture_manifest_sha256": capture,
+                                "source_proof_pointer": source["source_entry_pointer"]
+                                + f"/identity/source_proofs/{position}",
+                                "source_proof": proof,
+                                "current_owner_join": match,
+                                "current_use_role": role,
+                                "capture_parent_scope_verification": original[
+                                    "parent_scope_verification"
+                                ],
+                                "native_field_value_verified": False,
+                            }
+                        )
                 match = (
                     "exact_current_owner"
                     if all(value == "exact_current_owner" for value in joins)
                     else "linked_source_owner_differs_from_current_context"
                 )
+                dependency = (
+                    (protected_contacts or {}).get(str(source["identity"]["native_id"]))
+                    if source["identity"]["kind"] == "contact"
+                    else None
+                )
+                if dependency is not None:
+                    inherited.append(dependency["exposure_role"])
                 role = (
                     max(inherited, key=lambda value: _RANK[value])
                     if inherited

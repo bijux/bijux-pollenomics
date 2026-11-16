@@ -248,3 +248,74 @@ def test_steward_identity_and_numeric_author_order_are_not_contact_aliases() -> 
     source["data"][0]["publication"]["datasets"][0]["primary"] = 1
     with pytest.raises(ValueError):
         parse("publication", source)
+
+
+def test_publication_null_aggregate_is_unavailable_relationship_metadata() -> None:
+    source = payload("publication")
+    placeholder = {"siteid": None, "datasetid": None, "primary": None}
+    source["data"][0]["publication"]["datasets"] = [placeholder]
+    parsed = parse("publication", source)
+    assert parsed.payload == source
+    assert parsed.records[0]["datasets"] == [placeholder]
+    proof = {
+        "relation": "dataset_publication",
+        "root_dataset_id": 19913,
+        "root_identity": {"site_id": 13338},
+        "source_facet_key": "native",
+        "json_pointer": "/data/0/publication/publicationid",
+    }
+    summary = owner().summarize_linked_source(parsed, source_proofs=[proof])
+    assert summary["dataset_relation_checks"][0]["status"] == (
+        "source_dataset_associations_unavailable"
+    )
+    assert (
+        summary["dataset_association_population"] == "source_null_aggregate_placeholder"
+    )
+    assert summary["native_records"][0]["datasets"] == [placeholder]
+    assert summary["scientific_admission"] == "not_asserted"
+
+
+def test_publication_null_primary_remains_unknown_with_identified_association() -> None:
+    source = payload("publication")
+    source["data"][0]["publication"]["datasets"][0]["primary"] = None
+    parsed = parse("publication", source)
+    proof = {
+        "relation": "dataset_publication",
+        "root_dataset_id": 19913,
+        "root_identity": {"site_id": 13338},
+        "source_facet_key": "native",
+        "json_pointer": "/data/0/publication/publicationid",
+    }
+    summary = owner().summarize_linked_source(parsed, source_proofs=[proof])
+    assert parsed.records[0]["datasets"][0]["primary"] is None
+    assert summary["dataset_relation_checks"][0]["status"] == (
+        "confirmed_by_current_detail_body"
+    )
+    assert (
+        summary["dataset_relation_checks"][0]["primary_assertion_status"] == "unknown"
+    )
+
+
+@pytest.mark.parametrize(
+    "rows",
+    [
+        [{"datasetid": None, "siteid": 13338, "primary": None}],
+        [{"datasetid": 19913, "siteid": None, "primary": None}],
+        [{"datasetid": None, "siteid": None, "primary": False}],
+        [{"datasetid": None, "siteid": None, "primary": None}] * 2,
+        [
+            {"datasetid": 19913, "siteid": 13338, "primary": True},
+            {"datasetid": None, "siteid": None, "primary": None},
+        ],
+        [{"datasetid": 19913, "siteid": 13338, "primary": "unknown"}],
+        [{"datasetid": True, "siteid": 13338, "primary": None}],
+        [{"datasetid": 19913.0, "siteid": 13338, "primary": None}],
+    ],
+)
+def test_publication_unknown_primary_does_not_relax_identity_or_population(
+    rows: list[dict[str, Any]],
+) -> None:
+    source = payload("publication")
+    source["data"][0]["publication"]["datasets"] = rows
+    with pytest.raises(ValueError):
+        parse("publication", source)

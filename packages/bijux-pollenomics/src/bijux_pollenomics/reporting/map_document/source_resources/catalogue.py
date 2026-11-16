@@ -12,6 +12,7 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue import (
     load_neotoma_resource_catalogue,
 )
 
+from .ancillary.projection import load_atlas_ancillary_metadata
 from .archive_reference import load_archive_reference
 from .geometry import native_point, qualify_site_extents
 from .models import AtlasResourceCatalogue, AtlasResourceCatalogueInput
@@ -184,4 +185,5 @@ def load_atlas_resource_catalogue(
         source_descriptors=deepcopy(raw["capture_descriptors"]),
         provenance=provenance,
         summary=deepcopy(raw["summary"]),
+        ancillary=load_atlas_ancillary_metadata(source, catalogue=raw),
     )

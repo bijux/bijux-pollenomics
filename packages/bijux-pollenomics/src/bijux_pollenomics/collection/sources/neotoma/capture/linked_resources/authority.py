@@ -186,14 +186,10 @@ def _capture_namespace(root: Path, manifest: dict[str, Any]) -> None:
         raise ValueError("Linked capture namespace is incomplete")
 
 
-def authenticate_linked_source_scope(
-    *,
-    expected_roster_sha256: str,
-    scope: NeotomaFacetScopeInputs,
-    source_facets: Mapping[str, Path],
-    legacy_rosters: Mapping[str, Path] | None = None,
+def authenticate_linked_root_metadata(
+    *, expected_roster_sha256: str, scope: NeotomaFacetScopeInputs
 ) -> dict[str, Any]:
-    """Require every frozen facet slot before a caller can select shared targets."""
+    """Authenticate current roots and protected PI metadata, never facet bodies or GETs."""
     try:
         _digest(expected_roster_sha256)
         if not isinstance(scope, NeotomaFacetScopeInputs):
@@ -234,6 +230,43 @@ def authenticate_linked_source_scope(
             for resource in resources
             for facet in SUPPORTED_DATASET_FACETS
         }
+        return {
+            "roster": roster,
+            "resources": resources,
+            "proof": proof,
+            "protected": protected,
+            "roles": roles,
+            "roots": roots,
+            "expected": expected,
+        }
+    except (KeyError, TypeError, AttributeError, IndexError) as error:
+        raise ValueError("Malformed linked root metadata") from error
+
+
+def authenticate_linked_source_scope(
+    *,
+    expected_roster_sha256: str,
+    scope: NeotomaFacetScopeInputs,
+    source_facets: Mapping[str, Path],
+    legacy_rosters: Mapping[str, Path] | None = None,
+) -> dict[str, Any]:
+    """Require every frozen facet slot before a caller can select shared targets."""
+    try:
+        metadata = authenticate_linked_root_metadata(
+            expected_roster_sha256=expected_roster_sha256, scope=scope
+        )
+        roster, resources, proof, protected, roles, roots, expected = (
+            metadata[key]
+            for key in (
+                "roster",
+                "resources",
+                "proof",
+                "protected",
+                "roles",
+                "roots",
+                "expected",
+            )
+        )
         seen: set[str] = set()
         captures = {}
         original_rows: dict[str, dict[int, Any]] = {}

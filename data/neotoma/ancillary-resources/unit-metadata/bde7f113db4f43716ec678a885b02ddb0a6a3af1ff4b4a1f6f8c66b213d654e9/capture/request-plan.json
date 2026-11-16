@@ -1,0 +1,1206 @@
+{
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 8,
+    "max_response_bytes": 2097151,
+    "max_total_bytes": 8388607,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 120
+  },
+  "plan": {
+    "collection_unit_ids": [
+      50135,
+      50346,
+      50362,
+      50377,
+      50682,
+      50686,
+      50779,
+      50918
+    ],
+    "metadata_capture_manifest_sha256s": [
+      "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8"
+    ],
+    "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4"
+  },
+  "policy_sources": [
+    "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+    "https://epdweblog.org/epd_data_home/epd_policy/"
+  ],
+  "schema_version": "neotoma-unit-resource-http-capture.v1",
+  "units": [
+    {
+      "collection_unit_id": 50135,
+      "exposure_role": "development_resource_discovery",
+      "native_dataset_ids": [
+        67853,
+        67854
+      ],
+      "native_unit_metadata": {
+        "altitude": 570,
+        "collectionunit": "102-K11",
+        "collectionunitid": 50135,
+        "datasets": [
+          {
+            "agerange": [],
+            "database": null,
+            "datasetid": 67854,
+            "datasetnotes": null,
+            "datasetpi": [],
+            "datasettype": "geochronologic",
+            "doi": [],
+            "recdatecreated": "2026-01-09T00:47:18"
+          },
+          {
+            "agerange": [
+              {
+                "ageold": 3791.88,
+                "ageyoung": -55,
+                "units": "Calibrated radiocarbon years BP"
+              }
+            ],
+            "database": "SISAL",
+            "datasetid": 67853,
+            "datasetnotes": "None",
+            "datasetpi": [
+              {
+                "contactid": 20198,
+                "contactname": "Lechleitner, Franziska",
+                "familyname": "Lechleitner",
+                "firstname": "Franziska",
+                "initials": null
+              }
+            ],
+            "datasettype": "speleothem",
+            "doi": [
+              "10.21233/kgy0-ft26"
+            ],
+            "recdatecreated": "2026-01-09T00:47:18"
+          }
+        ],
+        "geography": "{\"type\":\"Point\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"EPSG:4326\"}},\"coordinates\":[14.16,64.89]}",
+        "handle": "K11",
+        "sitedescription": null,
+        "siteid": 37264,
+        "sitename": "Korallgrottan Cave",
+        "sitenotes": "Vegetation: Herbs, grass and moss with sparse forest with Betula and Picea. Elevation is an average of a range provided in the publications: 540-600 m asl.\\\\\\\\ Entity K11 (entity_id = 202) is missing depth information. K1 (entity_id=450): Detrital Th correction not made in original publication and therefore initial Th data is not existent",
+        "unittype": null
+      },
+      "native_unit_source": {
+        "body_file": "inventory-limit-10000-offset-0.body",
+        "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+        "json_pointer": "/data/1828/site",
+        "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+        "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b"
+      },
+      "resource_kind": "speleothem",
+      "roster_obligations": [
+        {
+          "collection_unit_id": 50135,
+          "database": "SISAL",
+          "dataset_id": 67853,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1828/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1079",
+          "site_id": 37264
+        },
+        {
+          "collection_unit_id": 50135,
+          "database": null,
+          "dataset_id": 67854,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1828/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1080",
+          "site_id": 37264
+        },
+        {
+          "collection_unit_id": 50682,
+          "database": "SISAL",
+          "dataset_id": 68908,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1829/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1087",
+          "site_id": 37264
+        },
+        {
+          "collection_unit_id": 50682,
+          "database": null,
+          "dataset_id": 68909,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1829/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1088",
+          "site_id": 37264
+        }
+      ],
+      "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4",
+      "scientific_admission": "not_asserted",
+      "site_id": 37264,
+      "unit_key": "speleothem-unit-50135"
+    },
+    {
+      "collection_unit_id": 50346,
+      "exposure_role": "development_resource_discovery",
+      "native_dataset_ids": [
+        68269,
+        68270
+      ],
+      "native_unit_metadata": {
+        "altitude": 165,
+        "collectionunit": "26-OKS82",
+        "collectionunitid": 50346,
+        "datasets": [
+          {
+            "agerange": [],
+            "database": null,
+            "datasetid": 68270,
+            "datasetnotes": null,
+            "datasetpi": [],
+            "datasettype": "geochronologic",
+            "doi": [],
+            "recdatecreated": "2026-01-10T10:37:11"
+          },
+          {
+            "agerange": [
+              {
+                "ageold": 10762.05,
+                "ageyoung": 5006,
+                "units": "Calibrated radiocarbon years BP"
+              }
+            ],
+            "database": "SISAL",
+            "datasetid": 68269,
+            "datasetnotes": "None",
+            "datasetpi": [
+              {
+                "contactid": 20147,
+                "contactname": "Baker, Andy",
+                "familyname": "Baker",
+                "firstname": "Andy",
+                "initials": null
+              }
+            ],
+            "datasettype": "speleothem",
+            "doi": [
+              "10.21233/2mmb-8c87"
+            ],
+            "recdatecreated": "2026-01-10T10:37:11"
+          }
+        ],
+        "geography": "{\"type\":\"Point\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"EPSG:4326\"}},\"coordinates\":[15,67]}",
+        "handle": "Oks82",
+        "sitedescription": null,
+        "siteid": 37353,
+        "sitename": "Okshola Cave",
+        "sitenotes": "Geology: Foliated marble and mica-shist. Vegetation: Birch and spruce forest, heather and peat moss. \\\\\\\\ Published depths for FM3 (entity_id = 95) and Oks82 (entity_id = 96) have been converted to distance from top. Offset in the age model for Oks82 (entity_id = 96) consistent with publication.",
+        "unittype": null
+      },
+      "native_unit_source": {
+        "body_file": "inventory-limit-10000-offset-0.body",
+        "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+        "json_pointer": "/data/1830/site",
+        "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+        "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b"
+      },
+      "resource_kind": "speleothem",
+      "roster_obligations": [
+        {
+          "collection_unit_id": 50346,
+          "database": "SISAL",
+          "dataset_id": 68269,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1830/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1081",
+          "site_id": 37353
+        },
+        {
+          "collection_unit_id": 50346,
+          "database": null,
+          "dataset_id": 68270,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1830/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1082",
+          "site_id": 37353
+        },
+        {
+          "collection_unit_id": 50779,
+          "database": "SISAL",
+          "dataset_id": 69082,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1831/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1091",
+          "site_id": 37353
+        },
+        {
+          "collection_unit_id": 50779,
+          "database": null,
+          "dataset_id": 69083,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1831/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1092",
+          "site_id": 37353
+        }
+      ],
+      "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4",
+      "scientific_admission": "not_asserted",
+      "site_id": 37353,
+      "unit_key": "speleothem-unit-50346"
+    },
+    {
+      "collection_unit_id": 50362,
+      "exposure_role": "development_resource_discovery",
+      "native_dataset_ids": [
+        68301,
+        68302
+      ],
+      "native_unit_metadata": {
+        "altitude": 730,
+        "collectionunit": "46-L4",
+        "collectionunitid": 50362,
+        "datasets": [
+          {
+            "agerange": [],
+            "database": null,
+            "datasetid": 68302,
+            "datasetnotes": null,
+            "datasetpi": [],
+            "datasettype": "geochronologic",
+            "doi": [],
+            "recdatecreated": "2026-01-10T12:32:53"
+          },
+          {
+            "agerange": [
+              {
+                "ageold": 9840.824058,
+                "ageyoung": 7138.7206904,
+                "units": "Calibrated radiocarbon years BP"
+              }
+            ],
+            "database": "SISAL",
+            "datasetid": 68301,
+            "datasetnotes": "None",
+            "datasetpi": [
+              {
+                "contactid": 20177,
+                "contactname": "Labuhn, Inga",
+                "familyname": "Labuhn",
+                "firstname": "Inga",
+                "initials": null
+              }
+            ],
+            "datasettype": "speleothem",
+            "doi": [
+              "10.21233/12ap-sm16"
+            ],
+            "recdatecreated": "2026-01-10T12:32:53"
+          }
+        ],
+        "geography": "{\"type\":\"Point\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"EPSG:4326\"}},\"coordinates\":[14.68,66.06]}",
+        "handle": "L4",
+        "sitedescription": null,
+        "siteid": 37357,
+        "sitename": "Labyrintgrottan Cave",
+        "sitenotes": "None",
+        "unittype": null
+      },
+      "native_unit_source": {
+        "body_file": "inventory-limit-10000-offset-0.body",
+        "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+        "json_pointer": "/data/1832/site",
+        "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+        "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b"
+      },
+      "resource_kind": "speleothem",
+      "roster_obligations": [
+        {
+          "collection_unit_id": 50362,
+          "database": "SISAL",
+          "dataset_id": 68301,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1832/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1083",
+          "site_id": 37357
+        },
+        {
+          "collection_unit_id": 50362,
+          "database": null,
+          "dataset_id": 68302,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1832/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1084",
+          "site_id": 37357
+        }
+      ],
+      "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4",
+      "scientific_admission": "not_asserted",
+      "site_id": 37357,
+      "unit_key": "speleothem-unit-50362"
+    },
+    {
+      "collection_unit_id": 50377,
+      "exposure_role": "development_resource_discovery",
+      "native_dataset_ids": [
+        68333,
+        68334
+      ],
+      "native_unit_metadata": {
+        "altitude": 280,
+        "collectionunit": "57-SG95",
+        "collectionunitid": 50377,
+        "datasets": [
+          {
+            "agerange": [
+              {
+                "ageold": 5638.089299,
+                "ageyoung": -70.48735238,
+                "units": "Calibrated radiocarbon years BP"
+              }
+            ],
+            "database": "SISAL",
+            "datasetid": 68333,
+            "datasetnotes": "None",
+            "datasetpi": [
+              {
+                "contactid": 20147,
+                "contactname": "Baker, Andy",
+                "familyname": "Baker",
+                "firstname": "Andy",
+                "initials": null
+              }
+            ],
+            "datasettype": "speleothem",
+            "doi": [
+              "10.21233/qccd-5507"
+            ],
+            "recdatecreated": "2026-01-10T13:56:40"
+          },
+          {
+            "agerange": [],
+            "database": null,
+            "datasetid": 68334,
+            "datasetnotes": null,
+            "datasetpi": [],
+            "datasettype": "geochronologic",
+            "doi": [],
+            "recdatecreated": "2026-01-10T13:56:40"
+          }
+        ],
+        "geography": "{\"type\":\"Point\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"EPSG:4326\"}},\"coordinates\":[14,66]}",
+        "handle": "SG95",
+        "sitedescription": null,
+        "siteid": 37359,
+        "sitename": "Soylegrotta Cave",
+        "sitenotes": "Geology: Steeply dipping band of calcite marble, between rocks of ferruginious mica schist. Vegetation: Blanket bog with sparse stunted tree growth.\\\\\\\\ Entity SG93 (entity_id = 435): Modern_reference assumed to be BP(1950). All depths have been shifted by 5mm not to have negative values.",
+        "unittype": null
+      },
+      "native_unit_source": {
+        "body_file": "inventory-limit-10000-offset-0.body",
+        "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+        "json_pointer": "/data/1833/site",
+        "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+        "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b"
+      },
+      "resource_kind": "speleothem",
+      "roster_obligations": [
+        {
+          "collection_unit_id": 50377,
+          "database": "SISAL",
+          "dataset_id": 68333,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1833/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1085",
+          "site_id": 37359
+        },
+        {
+          "collection_unit_id": 50377,
+          "database": null,
+          "dataset_id": 68334,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1833/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1086",
+          "site_id": 37359
+        },
+        {
+          "collection_unit_id": 50918,
+          "database": "SISAL",
+          "dataset_id": 69358,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1834/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1093",
+          "site_id": 37359
+        },
+        {
+          "collection_unit_id": 50918,
+          "database": null,
+          "dataset_id": 69359,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1834/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1094",
+          "site_id": 37359
+        }
+      ],
+      "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4",
+      "scientific_admission": "not_asserted",
+      "site_id": 37359,
+      "unit_key": "speleothem-unit-50377"
+    },
+    {
+      "collection_unit_id": 50682,
+      "exposure_role": "development_resource_discovery",
+      "native_dataset_ids": [
+        68908,
+        68909
+      ],
+      "native_unit_metadata": {
+        "altitude": 570,
+        "collectionunit": "102-K1",
+        "collectionunitid": 50682,
+        "datasets": [
+          {
+            "agerange": [
+              {
+                "ageold": 9840.5157236,
+                "ageyoung": 377.0433890000004,
+                "units": "Calibrated radiocarbon years BP"
+              }
+            ],
+            "database": "SISAL",
+            "datasetid": 68908,
+            "datasetnotes": "None",
+            "datasetpi": [
+              {
+                "contactid": 20177,
+                "contactname": "Labuhn, Inga",
+                "familyname": "Labuhn",
+                "firstname": "Inga",
+                "initials": null
+              }
+            ],
+            "datasettype": "speleothem",
+            "doi": [
+              "10.21233/c0c8-n416"
+            ],
+            "recdatecreated": "2026-01-12T23:25:42"
+          },
+          {
+            "agerange": [],
+            "database": null,
+            "datasetid": 68909,
+            "datasetnotes": null,
+            "datasetpi": [],
+            "datasettype": "geochronologic",
+            "doi": [],
+            "recdatecreated": "2026-01-12T23:25:42"
+          }
+        ],
+        "geography": "{\"type\":\"Point\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"EPSG:4326\"}},\"coordinates\":[14.16,64.89]}",
+        "handle": "K1-450",
+        "sitedescription": null,
+        "siteid": 37264,
+        "sitename": "Korallgrottan Cave",
+        "sitenotes": "Vegetation: Herbs, grass and moss with sparse forest with Betula and Picea. Elevation is an average of a range provided in the publications: 540-600 m asl.\\\\\\\\ Entity K11 (entity_id = 202) is missing depth information. K1 (entity_id=450): Detrital Th correction not made in original publication and therefore initial Th data is not existent",
+        "unittype": null
+      },
+      "native_unit_source": {
+        "body_file": "inventory-limit-10000-offset-0.body",
+        "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+        "json_pointer": "/data/1829/site",
+        "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+        "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b"
+      },
+      "resource_kind": "speleothem",
+      "roster_obligations": [
+        {
+          "collection_unit_id": 50135,
+          "database": "SISAL",
+          "dataset_id": 67853,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1828/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1079",
+          "site_id": 37264
+        },
+        {
+          "collection_unit_id": 50135,
+          "database": null,
+          "dataset_id": 67854,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1828/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1080",
+          "site_id": 37264
+        },
+        {
+          "collection_unit_id": 50682,
+          "database": "SISAL",
+          "dataset_id": 68908,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1829/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1087",
+          "site_id": 37264
+        },
+        {
+          "collection_unit_id": 50682,
+          "database": null,
+          "dataset_id": 68909,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1829/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1088",
+          "site_id": 37264
+        }
+      ],
+      "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4",
+      "scientific_admission": "not_asserted",
+      "site_id": 37264,
+      "unit_key": "speleothem-unit-50682"
+    },
+    {
+      "collection_unit_id": 50686,
+      "exposure_role": "development_resource_discovery",
+      "native_dataset_ids": [
+        68916,
+        68917
+      ],
+      "native_unit_metadata": {
+        "altitude": 400,
+        "collectionunit": "47-L03",
+        "collectionunitid": 50686,
+        "datasets": [
+          {
+            "agerange": [
+              {
+                "ageold": 3920.52,
+                "ageyoung": 4.121140975,
+                "units": "Calibrated radiocarbon years BP"
+              }
+            ],
+            "database": "SISAL",
+            "datasetid": 68916,
+            "datasetnotes": "None",
+            "datasetpi": [
+              {
+                "contactid": 20147,
+                "contactname": "Baker, Andy",
+                "familyname": "Baker",
+                "firstname": "Andy",
+                "initials": null
+              }
+            ],
+            "datasettype": "speleothem",
+            "doi": [
+              "10.21233/0edj-yp21"
+            ],
+            "recdatecreated": "2026-01-12T23:34:35"
+          },
+          {
+            "agerange": [],
+            "database": null,
+            "datasetid": 68917,
+            "datasetnotes": null,
+            "datasetpi": [],
+            "datasettype": "geochronologic",
+            "doi": [],
+            "recdatecreated": "2026-01-12T23:34:35"
+          }
+        ],
+        "geography": "{\"type\":\"Point\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"EPSG:4326\"}},\"coordinates\":[14.1822,66.4381]}",
+        "handle": "L03-123",
+        "sitedescription": null,
+        "siteid": 37475,
+        "sitename": "Larshullet Cave",
+        "sitenotes": "None",
+        "unittype": null
+      },
+      "native_unit_source": {
+        "body_file": "inventory-limit-10000-offset-0.body",
+        "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+        "json_pointer": "/data/1836/site",
+        "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+        "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b"
+      },
+      "resource_kind": "speleothem",
+      "roster_obligations": [
+        {
+          "collection_unit_id": 50686,
+          "database": "SISAL",
+          "dataset_id": 68916,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1836/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1089",
+          "site_id": 37475
+        },
+        {
+          "collection_unit_id": 50686,
+          "database": null,
+          "dataset_id": 68917,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1836/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1090",
+          "site_id": 37475
+        }
+      ],
+      "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4",
+      "scientific_admission": "not_asserted",
+      "site_id": 37475,
+      "unit_key": "speleothem-unit-50686"
+    },
+    {
+      "collection_unit_id": 50779,
+      "exposure_role": "development_resource_discovery",
+      "native_dataset_ids": [
+        69082,
+        69083
+      ],
+      "native_unit_metadata": {
+        "altitude": 165,
+        "collectionunit": "26-FM3",
+        "collectionunitid": 50779,
+        "datasets": [
+          {
+            "agerange": [
+              {
+                "ageold": 7515.2,
+                "ageyoung": -47,
+                "units": "Calibrated radiocarbon years BP"
+              }
+            ],
+            "database": "SISAL",
+            "datasetid": 69082,
+            "datasetnotes": "None",
+            "datasetpi": [
+              {
+                "contactid": 20147,
+                "contactname": "Baker, Andy",
+                "familyname": "Baker",
+                "firstname": "Andy",
+                "initials": null
+              }
+            ],
+            "datasettype": "speleothem",
+            "doi": [
+              "10.21233/938w-zq30"
+            ],
+            "recdatecreated": "2026-01-16T00:43:50"
+          },
+          {
+            "agerange": [],
+            "database": null,
+            "datasetid": 69083,
+            "datasetnotes": null,
+            "datasetpi": [],
+            "datasettype": "geochronologic",
+            "doi": [],
+            "recdatecreated": "2026-01-16T00:43:50"
+          }
+        ],
+        "geography": "{\"type\":\"Point\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"EPSG:4326\"}},\"coordinates\":[15,67]}",
+        "handle": "FM3-95",
+        "sitedescription": null,
+        "siteid": 37353,
+        "sitename": "Okshola Cave",
+        "sitenotes": "Geology: Foliated marble and mica-shist. Vegetation: Birch and spruce forest, heather and peat moss. \\\\\\\\ Published depths for FM3 (entity_id = 95) and Oks82 (entity_id = 96) have been converted to distance from top. Offset in the age model for Oks82 (entity_id = 96) consistent with publication.",
+        "unittype": null
+      },
+      "native_unit_source": {
+        "body_file": "inventory-limit-10000-offset-0.body",
+        "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+        "json_pointer": "/data/1831/site",
+        "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+        "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b"
+      },
+      "resource_kind": "speleothem",
+      "roster_obligations": [
+        {
+          "collection_unit_id": 50346,
+          "database": "SISAL",
+          "dataset_id": 68269,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1830/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1081",
+          "site_id": 37353
+        },
+        {
+          "collection_unit_id": 50346,
+          "database": null,
+          "dataset_id": 68270,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1830/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1082",
+          "site_id": 37353
+        },
+        {
+          "collection_unit_id": 50779,
+          "database": "SISAL",
+          "dataset_id": 69082,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1831/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1091",
+          "site_id": 37353
+        },
+        {
+          "collection_unit_id": 50779,
+          "database": null,
+          "dataset_id": 69083,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1831/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1092",
+          "site_id": 37353
+        }
+      ],
+      "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4",
+      "scientific_admission": "not_asserted",
+      "site_id": 37353,
+      "unit_key": "speleothem-unit-50779"
+    },
+    {
+      "collection_unit_id": 50918,
+      "exposure_role": "development_resource_discovery",
+      "native_dataset_ids": [
+        69358,
+        69359
+      ],
+      "native_unit_metadata": {
+        "altitude": 280,
+        "collectionunit": "57-SG93",
+        "collectionunitid": 50918,
+        "datasets": [
+          {
+            "agerange": [
+              {
+                "ageold": 758.15,
+                "ageyoung": 5.996648372,
+                "units": "Calibrated radiocarbon years BP"
+              }
+            ],
+            "database": "SISAL",
+            "datasetid": 69358,
+            "datasetnotes": "None",
+            "datasetpi": [
+              {
+                "contactid": 20158,
+                "contactname": "Lauritzen, Stein-Erik",
+                "familyname": "Lauritzen",
+                "firstname": "Stein-Erik",
+                "initials": null
+              }
+            ],
+            "datasettype": "speleothem",
+            "doi": [
+              "10.21233/x5kt-9982"
+            ],
+            "recdatecreated": "2026-01-21T21:37:09"
+          },
+          {
+            "agerange": [],
+            "database": null,
+            "datasetid": 69359,
+            "datasetnotes": null,
+            "datasetpi": [],
+            "datasettype": "geochronologic",
+            "doi": [],
+            "recdatecreated": "2026-01-21T21:37:09"
+          }
+        ],
+        "geography": "{\"type\":\"Point\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"EPSG:4326\"}},\"coordinates\":[14,66]}",
+        "handle": "SG93",
+        "sitedescription": null,
+        "siteid": 37359,
+        "sitename": "Soylegrotta Cave",
+        "sitenotes": "Geology: Steeply dipping band of calcite marble, between rocks of ferruginious mica schist. Vegetation: Blanket bog with sparse stunted tree growth.\\\\\\\\ Entity SG93 (entity_id = 435): Modern_reference assumed to be BP(1950). All depths have been shifted by 5mm not to have negative values.",
+        "unittype": null
+      },
+      "native_unit_source": {
+        "body_file": "inventory-limit-10000-offset-0.body",
+        "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+        "json_pointer": "/data/1834/site",
+        "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+        "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b"
+      },
+      "resource_kind": "speleothem",
+      "roster_obligations": [
+        {
+          "collection_unit_id": 50377,
+          "database": "SISAL",
+          "dataset_id": 68333,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1833/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1085",
+          "site_id": 37359
+        },
+        {
+          "collection_unit_id": 50377,
+          "database": null,
+          "dataset_id": 68334,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1833/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1086",
+          "site_id": 37359
+        },
+        {
+          "collection_unit_id": 50918,
+          "database": "SISAL",
+          "dataset_id": 69358,
+          "dataset_type": "speleothem",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1834/site/datasets/0",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1093",
+          "site_id": 37359
+        },
+        {
+          "collection_unit_id": 50918,
+          "database": null,
+          "dataset_id": 69359,
+          "dataset_type": "geochronologic",
+          "exposure_roles": {
+            "current": "development_resource_discovery",
+            "doi_frozen": "development_resource_discovery"
+          },
+          "metadata_locator": {
+            "body_file": "inventory-limit-10000-offset-0.body",
+            "body_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+            "capture_manifest_sha256": "aadef9754cb21d146dcceee405497b1c0e0835b3250bb8c4875f8f93f95d7bf8",
+            "json_pointer": "/data/1834/site/datasets/1",
+            "receipt_file": "inventory-limit-10000-offset-0.receipt.json",
+            "receipt_sha256": "a60b720134567676b961a7d6b4ee38ab0af8cc79a9480f7dac64693dc8391d4b",
+            "response_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2"
+          },
+          "roster_row_pointer": "/resources/1094",
+          "site_id": 37359
+        }
+      ],
+      "roster_sha256": "3cdeeea1de94e1c0bae90ae0c6ae8cc7c5f514b9f17b98ec1b0ce0c9cbb21fe4",
+      "scientific_admission": "not_asserted",
+      "site_id": 37359,
+      "unit_key": "speleothem-unit-50918"
+    }
+  ]
+}

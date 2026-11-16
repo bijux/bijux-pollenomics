@@ -30,6 +30,7 @@ def write_neotoma_ancillary_federation(
     expected_context_sha256: str,
     native_archive_directory: Path,
     capsule_sources: Mapping[str, Path],
+    evidence_sources: Mapping[str, Path] | None = None,
 ) -> dict[str, Any]:
     """Publish deterministic metadata; full source replay is an explicit separate API."""
     final = _safe_root(directory)
@@ -40,6 +41,7 @@ def write_neotoma_ancillary_federation(
         expected_context_sha256=expected_context_sha256,
         native_archive_directory=native_archive_directory,
         capsule_sources=capsule_sources,
+        evidence_sources=evidence_sources,
     )
     raw = encoded_json(prepared.manifest)
     digest = sha256(raw).hexdigest()
@@ -53,6 +55,7 @@ def write_neotoma_ancillary_federation(
         "context_directory": context_directory,
         "native_archive_directory": native_archive_directory,
         "capsule_sources": capsule_sources,
+        "evidence_sources": evidence_sources,
     }
     load_neotoma_ancillary_federation(staging, **kwargs)
     publish_new_output_tree(final_output_root=final, staging_output_root=staging)

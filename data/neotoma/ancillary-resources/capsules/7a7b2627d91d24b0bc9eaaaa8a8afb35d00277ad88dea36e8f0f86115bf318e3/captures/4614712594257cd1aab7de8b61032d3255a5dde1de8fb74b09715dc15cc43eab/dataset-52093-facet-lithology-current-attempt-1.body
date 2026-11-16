@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":52093,"lithology":[{"lithologyid":25539,"depth":{"top":0,"bottom":380},"lowerboundary":null,"description":"varved clay gyttja"},{"lithologyid":25540,"depth":{"top":380,"bottom":500},"lowerboundary":null,"description":"laminated clay gyttja"}]}],"message":"Retrieved all tables"}

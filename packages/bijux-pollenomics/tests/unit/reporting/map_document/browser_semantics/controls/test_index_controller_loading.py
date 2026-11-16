@@ -59,6 +59,7 @@ const first=loadIndexTransport(),second=loadIndexTransport();
             "acceptPart",
             "consume",
             "mergeShards",
+            "planNodeAssets",
             "searchGrams",
             "validatePayload",
         ],
@@ -77,12 +78,22 @@ def test_search_and_detail_charge_all_parts_and_helper_before_requests() -> None
         "async function ensureStaticAtlasIndexesLoaded",
         "async function detailTabsForRecordId",
     )
+    factory = (
+        files("bijux_pollenomics.reporting.map_document")
+        .joinpath("assets/index-transport.js")
+        .read_text()
+    )
     observed = run_node_json(
-        inventory
+        factory
+        + template_block(
+            "function staticAtlasLayerForRow",
+            "function animalSourceChronologyCountryFilterBypassed",
+        )
+        + inventory
         + selection
         + detail
         + r"""
-const STATIC_ATLAS_INLINE=false;
+const STATIC_ATLAS_INLINE=false, ALL_LAYERS=[];
 const rows=[{domain:'indexes',asset_key:'indexes:4',sequence:4,byte_count:100},
  {domain:'indexes',asset_key:'indexes:5',sequence:5,byte_count:200}];
 const STATIC_ATLAS_BOOTSTRAP={assets:rows,compatibility:{search_index_abi:'atlas-substring-postings.v1',index_schema:'atlas-static-indexes.v3',index_transport_schema:'atlas-static-index-part.v1'},budgets:{interaction_max_requests:3,interaction_max_bytes:350}};
@@ -97,7 +108,8 @@ function staticAtlasViewportNeeded(){return true}
 let requests=[];
 async function loadIndexTransport(){requests.push('helper');staticAtlasIndexTransport={};}
 async function loadStaticAtlasAsset(row){requests.push(row.asset_key);staticAtlasLoadedAssets.add(row.asset_key);if(staticAtlasLoadedAssets.size===rows.length)STATIC_ATLAS_CHUNKS.indexes={detail_record_asset_keys:{}};}
-function selected(){try{return requiredStaticAtlasNodeAssets().map(row=>row.asset_key)}catch(error){return error.message}}
+const planner=BijuxPollenomicsIndexTransport.create({bootstrap:STATIC_ATLAS_BOOTSTRAP,failure:staticAtlasFailure,nonnegativeInteger:staticAtlasNonnegativeInteger});
+function selected(){const old=staticAtlasIndexTransport;staticAtlasIndexTransport=planner;try{return requiredStaticAtlasNodeAssets({request_count:1,byte_count:50}).map(row=>row.asset_key)}catch(error){return error.message}finally{staticAtlasIndexTransport=old}}
 (async()=>{
  const exact=selected();
  STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests=2;
@@ -176,3 +188,78 @@ async function probe(maxRequests,maxBytes,indexesCached=false,recordCached=false
         "requests": ["details:6"],
     }
     assert observed["cachedRecord"] == {"tabs": {"available": True}, "requests": []}
+
+
+def test_lazy_planner_preflights_code_and_parts_and_restores_only_latest_selection() -> (
+    None
+):
+    factory = (
+        files("bijux_pollenomics.reporting.map_document")
+        .joinpath("assets/index-transport.js")
+        .read_text()
+    )
+    loading = template_block(
+        "function indexTransportDescriptor", "function validateStaticAtlasEdgeAssets"
+    )
+    planning = template_block(
+        "function requiredStaticAtlasNodeAssets", "function refreshStaticAtlasLayers"
+    )
+    selection = template_block(
+        "async function ensureStaticAtlasSelectionLoaded", "const countryColors"
+    )
+    ownership = (
+        files("bijux_pollenomics.reporting.map_document")
+        .joinpath("assets/selection-loading.js")
+        .read_text()
+        .split("async function fetchStaticAtlasNodeAsset")[0]
+    )
+    observed = run_node_json(
+        factory
+        + r"""
+const assert=require('node:assert/strict');
+async function probe(maxRequests,failOnce=false){
+ const STATIC_ATLAS_INLINE=false,STATIC_ATLAS_BOOTSTRAP={
+ assets:[{asset_key:'nodes:a',domain:'nodes',layer_key:'point',layer_kind:'point',byte_count:100},
+ {asset_key:'nodes:b',domain:'nodes',layer_key:'point',layer_kind:'point',byte_count:100},
+ {asset_key:'indexes:1',domain:'indexes',byte_count:100},{asset_key:'indexes:2',domain:'indexes',byte_count:200}],
+ compatibility:{search_index_abi:'atlas-substring-postings.v1',index_schema:'atlas-static-indexes.v3',index_transport_schema:'atlas-static-index-part.v1'},
+ budgets:{interaction_max_requests:maxRequests,interaction_max_bytes:450},
+ runtime:{optional_controllers:{index_transport:{path:'atlas.atlas-index-transport.'+'a'.repeat(16)+'.js',byte_count:50,integrity:'sha256-'+'A'.repeat(43)+'='}}}};
+ let staticAtlasIndexTransport=null,staticAtlasIndexTransportRequest=null,active='nodes:a';
+ const staticAtlasLoadedAssets=new Set(),staticAtlasInFlightAssets=new Map(),scripts=[],requested=[],layer={key:'point'};
+ const document={createElement(){return {events:{},addEventListener(name,callback){this.events[name]=callback}}},head:{appendChild(script){scripts.push(script)}}},window={location:{protocol:'https:'}};
+ function staticAtlasFailure(message){throw Error(message)}
+ function staticAtlasNonnegativeInteger(value){if(!Number.isSafeInteger(value)||value<0)throw Error('integer');return value}
+ function staticAtlasTemporalIdentity(){}async function staticAtlasBoundedGunzip(){}async function staticAtlasSha256(){}
+ function requiredStaticAtlasEdgeNodeKeys(){return new Set()}
+ function staticAtlasNodeSelectionNeeded(row){return row.asset_key===active}
+ function staticAtlasViewportNeeded(){return true}function staticAtlasLayerForRow(){return layer}
+ async function loadStaticAtlasAsset(row){requested.push(row.asset_key);staticAtlasLoadedAssets.add(row.asset_key)}
+ function validateLoadedStaticAtlasEdgeAssets(){}function refreshStaticAtlasLayers(){}
+"""
+        + loading
+        + planning
+        + ownership
+        + selection
+        + r"""
+ if(maxRequests<3){let error;try{await ensureStaticAtlasSelectionLoaded()}catch(value){error=value.message}return {error,scripts:scripts.length,requested}}
+ const old=ensureStaticAtlasSelectionLoaded(),cancelled=assert.rejects(old,{name:'AbortError'});
+ await Promise.resolve();active='nodes:b';const current=ensureStaticAtlasSelectionLoaded();await cancelled;
+ assert.equal(scripts.length,1);scripts[0].events[failOnce?'error':'load']();
+ if(failOnce){await assert.rejects(current,/could not be loaded/);const retry=ensureStaticAtlasSelectionLoaded();await Promise.resolve();assert.equal(scripts.length,2);scripts[1].events.load();await retry}else await current;
+ return {scripts:scripts.length,requested};
+}
+(async()=>{console.log(JSON.stringify({refused:await probe(2),latest:await probe(4),retry:await probe(4,true)}))})();
+"""
+    )
+    assert observed["refused"]["scripts"] == 0
+    assert observed["refused"]["requested"] == []
+    assert "interaction budget" in observed["refused"]["error"]
+    assert observed["latest"] == {
+        "scripts": 1,
+        "requested": ["nodes:b", "indexes:1", "indexes:2"],
+    }
+    assert observed["retry"] == {
+        "scripts": 2,
+        "requested": ["nodes:b", "indexes:1", "indexes:2"],
+    }

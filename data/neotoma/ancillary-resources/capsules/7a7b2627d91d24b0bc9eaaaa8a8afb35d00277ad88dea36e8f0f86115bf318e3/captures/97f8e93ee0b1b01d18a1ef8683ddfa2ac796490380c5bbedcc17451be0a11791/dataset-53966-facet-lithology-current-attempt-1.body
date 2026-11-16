@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":53966,"lithology":[{"lithologyid":28265,"depth":{"top":1060,"bottom":1070},"lowerboundary":null,"description":"coarse inorganics"},{"lithologyid":28264,"depth":{"top":830,"bottom":1060},"lowerboundary":null,"description":"Gyttja"}]}],"message":"Retrieved all tables"}
