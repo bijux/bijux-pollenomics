@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#471](https://github.com/bijux/bijux-pollenomics/pull/471) — Live chain permissions and recorded taxonomy source qualification
+
+- Recheck current permission seals around each chain source-body read, refusing
+  drift before further native fields are consumed.
+- Record the exact historical taxonomy qualification epoch and selected source
+  pins without extending that evidence to newer consumers or unfinished acquisition.
+- Add only the selected qualification packet to the source lock, retaining all
+  prior entries without reopening unclassified scientific inputs.
+
 ### [#470](https://github.com/bijux/bijux-pollenomics/pull/470) — Source-owned evidence sessions and inventory projections
 
 - Bind linked-evidence reuse to live ancestry operations, exact resolvers and
