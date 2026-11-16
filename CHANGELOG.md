@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#485](https://github.com/bijux/bijux-pollenomics/pull/485) — Explicit parameter reference contracts
+
+- Identify expanded GPM regional fall-speed admission separately from the source
+  wrapper while retaining existing equations, profile identifiers and bounds.
+- Expose optional 2025 parameter reference candidates with exact source rows,
+  regional identities, literal missingness and distinct SE/SD labels.
+- Bind the three reference metadata files before candidate projection, keeping
+  unqualified fall speeds, model axes and scientific admission explicit.
+
 ### [#484](https://github.com/bijux/bijux-pollenomics/pull/484) — Grouped conditional panel moments
 
 - Connect retained ABBO joint moments to three literal five-taxon panel groups,
