@@ -3,10 +3,8 @@
 from __future__ import annotations
 
 from hashlib import sha256
-import os
 from pathlib import Path
 import re
-import stat
 from typing import Any
 
 from bijux_pollenomics.collection.sources.neotoma.capture.receipts import _object
@@ -20,6 +18,7 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive.ind
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.source_projection import (
     _same,
 )
+from bijux_pollenomics.core.filesystem import BoundedInputTree, DirectoryAnchor
 
 from .models import AtlasResourceArchiveInput, _published_base_url
 
@@ -30,46 +29,16 @@ def _pinned(
     root: Path, member: str, digest: str, *, expected_size: int | None = None
 ) -> tuple[dict[str, Any], int]:
     path = root / member
-    if any(parent.is_symlink() for parent in (path, *path.parents)):
-        raise ValueError("Atlas source archive metadata path is redirected")
-    before = path.stat(follow_symlinks=False)
-    if (
-        not stat.S_ISREG(before.st_mode)
-        or before.st_nlink != 1
-        or before.st_size > MAX_MANIFEST_BYTES
-    ):
-        raise ValueError(
-            "Atlas source archive metadata is not a bounded unaliased file"
-        )
-    if expected_size is not None and before.st_size != expected_size:
-        raise ValueError("Atlas source archive metadata declared byte count differs")
-    identity = (
-        before.st_dev,
-        before.st_ino,
-        before.st_size,
-        before.st_mtime_ns,
-        before.st_ctime_ns,
-    )
-    with path.open("rb") as stream:
-        opened = os.fstat(stream.fileno())
-        if (opened.st_dev, opened.st_ino) != identity[:2]:
-            raise ValueError("Atlas source archive metadata changed while opening")
-        content = stream.read(before.st_size + 1)
-    after = path.stat(follow_symlinks=False)
-    if (
-        len(content) != before.st_size
-        or (
-            after.st_dev,
-            after.st_ino,
-            after.st_size,
-            after.st_mtime_ns,
-            after.st_ctime_ns,
-        )
-        != identity
-        or not stat.S_ISREG(after.st_mode)
-        or after.st_nlink != 1
-        or sha256(content).hexdigest() != digest
-    ):
+    with BoundedInputTree(
+        path.parent, max_bytes=MAX_MANIFEST_BYTES, max_files=1, selected=path.name
+    ) as inputs:
+        size = inputs.files[path.name][4]
+        if expected_size is not None and size != expected_size:
+            raise ValueError(
+                "Atlas source archive metadata declared byte count differs"
+            )
+        content = inputs.read(path, max_bytes=size)
+    if sha256(content).hexdigest() != digest:
         raise ValueError("Atlas source archive metadata identity differs")
     return _object(content), len(content)
 
@@ -120,50 +89,62 @@ def load_archive_reference(
     root = source.directory.absolute()
     if root.resolve(strict=True) != root or not root.is_dir():
         raise ValueError("Atlas source archive root must be physical")
-    manifest, _ = _pinned(root, "manifest.json", source.expected_manifest_sha256)
-    validate_manifest(manifest)
-    if manifest["catalogue_manifest_sha256"] != catalogue_manifest_sha256:
-        raise ValueError("Atlas source archive catalogue identity differs")
-    member = manifest["files"].get("downloads/index.json")
-    if not isinstance(member, dict):
-        raise ValueError("Atlas source archive download index is undeclared")
-    index, size = _pinned(
-        root, "downloads/index.json", member["sha256"], expected_size=member["bytes"]
-    )
-    if size != member["bytes"] or not _same(
-        index, build_download_index(catalogue, catalogue_manifest_sha256)
-    ):
-        raise ValueError("Atlas source archive download index differs from catalogue")
-    for row in index["resources"]:
-        if "download_path" in row:
-            file = manifest["files"].get(row["download_path"])
-            declared_size = row["source"].get("body_bytes")
-            if (
-                file is None
-                or file["sha256"] != row["source"]["body_sha256"]
-                or (
-                    "body_bytes" in row["source"]
-                    and (
-                        type(declared_size) is not int or declared_size != file["bytes"]
+    with DirectoryAnchor(root) as anchor:
+        manifest, _ = _pinned(root, "manifest.json", source.expected_manifest_sha256)
+        anchor.check()
+        validate_manifest(manifest)
+        if manifest["catalogue_manifest_sha256"] != catalogue_manifest_sha256:
+            raise ValueError("Atlas source archive catalogue identity differs")
+        member = manifest["files"].get("downloads/index.json")
+        if not isinstance(member, dict):
+            raise ValueError("Atlas source archive download index is undeclared")
+        index, size = _pinned(
+            root,
+            "downloads/index.json",
+            member["sha256"],
+            expected_size=member["bytes"],
+        )
+        anchor.check()
+        if size != member["bytes"] or not _same(
+            index, build_download_index(catalogue, catalogue_manifest_sha256)
+        ):
+            raise ValueError(
+                "Atlas source archive download index differs from catalogue"
+            )
+        for row in index["resources"]:
+            if "download_path" in row:
+                file = manifest["files"].get(row["download_path"])
+                declared_size = row["source"].get("body_bytes")
+                if (
+                    file is None
+                    or file["sha256"] != row["source"]["body_sha256"]
+                    or (
+                        "body_bytes" in row["source"]
+                        and (
+                            type(declared_size) is not int
+                            or declared_size != file["bytes"]
+                        )
                     )
-                )
-            ):
-                raise ValueError("Atlas source archive download body identity differs")
-    reference = {
-        "schema_version": _SCHEMA,
-        "catalogue_manifest_sha256": catalogue_manifest_sha256,
-        "manifest_sha256": source.expected_manifest_sha256,
-        "published_base_url": source.published_base_url,
-        "index": {
-            "path": "downloads/index.json",
-            "bytes": size,
-            "sha256": member["sha256"],
-        },
-        "validation_scope": "manifest_and_download_index_only",
-        "file_protocol_downloads": "unavailable_requires_local_http",
-        "scientific_admission": "not_asserted",
-    }
-    validate_archive_reference(
-        reference, catalogue_manifest_sha256=catalogue_manifest_sha256
-    )
-    return reference
+                ):
+                    raise ValueError(
+                        "Atlas source archive download body identity differs"
+                    )
+        reference = {
+            "schema_version": _SCHEMA,
+            "catalogue_manifest_sha256": catalogue_manifest_sha256,
+            "manifest_sha256": source.expected_manifest_sha256,
+            "published_base_url": source.published_base_url,
+            "index": {
+                "path": "downloads/index.json",
+                "bytes": size,
+                "sha256": member["sha256"],
+            },
+            "validation_scope": "manifest_and_download_index_only",
+            "file_protocol_downloads": "unavailable_requires_local_http",
+            "scientific_admission": "not_asserted",
+        }
+        validate_archive_reference(
+            reference, catalogue_manifest_sha256=catalogue_manifest_sha256
+        )
+        anchor.check()
+        return reference

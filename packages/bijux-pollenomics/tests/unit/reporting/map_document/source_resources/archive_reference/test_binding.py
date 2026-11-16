@@ -2,18 +2,17 @@
 
 from __future__ import annotations
 
+import fcntl
+import os
 from pathlib import Path
-from typing import IO, Any
+import stat
+from typing import Any
 
 import pytest
 
 from bijux_pollenomics.reporting.map_document.source_resources import (
     load_atlas_resource_catalogue,
     models,
-)
-from tests.unit.collection.sources.neotoma.reading_observation import (
-    capture_opening,
-    observe_opening,
 )
 
 
@@ -28,47 +27,63 @@ def test_reference_reads_only_manifest_and_index_without_native_entities(
             archive, archive_pin, "/data/neotoma/source-resources/"
         ),
     )
-    read = capture_opening()
-    opened = []
-    read_limits = {}
-    expected_limits = {
-        member: (archive / member).stat().st_size + 1
+    original_open, original_read, original_close = os.open, os.read, os.close
+    original_scandir = os.scandir
+    opened: list[str] = []
+    descriptors: dict[int, str] = {}
+    read_limits: dict[str, list[int]] = {}
+    byte_counts: dict[str, int] = {}
+    sizes = {
+        member: (archive / member).stat().st_size
         for member in ("manifest.json", "downloads/index.json")
     }
 
-    class ObservedMetadata:
-        def __init__(self, stream: IO[bytes], member: str) -> None:
-            self.stream, self.member = stream, member
-
-        def __enter__(self) -> ObservedMetadata:
-            self.stream.__enter__()
-            return self
-
-        def __exit__(self, *args: Any) -> Any:
-            return self.stream.__exit__(*args)
-
-        def fileno(self) -> int:
-            return self.stream.fileno()
-
-        def read(self, size: int = -1) -> bytes:
-            read_limits[self.member] = size
-            return self.stream.read(size)
-
-    def observe(path: Path, *args: Any, **kwargs: Any) -> Any:
-        if path.is_relative_to(archive):
-            opened.append(path.relative_to(archive).as_posix())
-            assert (
-                path.name == "manifest.json" or path == archive / "downloads/index.json"
+    def descriptor_path(descriptor: int) -> Path:
+        try:
+            return Path(
+                os.fsdecode(fcntl.fcntl(descriptor, 50, bytes(1024)).split(b"\0", 1)[0])
             )
-        assert path.suffix != ".body"
-        stream = read(path, *args, **kwargs)
-        return (
-            ObservedMetadata(stream, path.relative_to(archive).as_posix())
-            if path.is_relative_to(archive)
-            else stream
-        )
+        except OSError:
+            return Path(os.readlink(f"/proc/self/fd/{descriptor}"))
 
-    observe_opening(monkeypatch, observe)
+    def observe(value: Any, flags: int, *args: Any, **kwargs: Any) -> int:
+        descriptor = original_open(value, flags, *args, **kwargs)
+        path = descriptor_path(descriptor)
+        if path.is_relative_to(archive) and stat.S_ISREG(os.fstat(descriptor).st_mode):
+            member = path.relative_to(archive).as_posix()
+            assert member in sizes, "Metadata-only reference opened a sibling entity"
+            opened.append(member)
+            descriptors[descriptor] = member
+        return descriptor
+
+    def read(descriptor: int, size: int) -> bytes:
+        member = descriptors.get(descriptor)
+        if member is not None:
+            remaining = sizes[member] - byte_counts.get(member, 0)
+            assert 0 < size <= min(1024 * 1024, remaining + 1)
+            read_limits.setdefault(member, []).append(size)
+        content = original_read(descriptor, size)
+        if member is not None:
+            byte_counts[member] = byte_counts.get(member, 0) + len(content)
+            assert byte_counts[member] <= sizes[member]
+        return content
+
+    def close(descriptor: int) -> None:
+        descriptors.pop(descriptor, None)
+        original_close(descriptor)
+
+    def scandir(value: Any) -> Any:
+        path = descriptor_path(value) if isinstance(value, int) else Path(value)
+        assert not path.is_relative_to(archive), (
+            "Selected metadata reader inventoried sibling entities"
+        )
+        return original_scandir(value)
+
+    monkeypatch.setattr(os, "open", observe)
+    monkeypatch.setattr(os, "read", read)
+    monkeypatch.setattr(os, "close", close)
+    monkeypatch.setattr(os, "scandir", scandir)
+    monkeypatch.setattr(os, "supports_dir_fd", os.supports_dir_fd | {observe})
     projected = load_atlas_resource_catalogue(source)
     reference = projected.provenance["source_archive"]
     assert reference["manifest_sha256"] == archive_pin
@@ -79,7 +94,13 @@ def test_reference_reads_only_manifest_and_index_without_native_entities(
     assert reference["file_protocol_downloads"] == "unavailable_requires_local_http"
     assert reference["scientific_admission"] == "not_asserted"
     assert sorted(opened) == ["downloads/index.json", "manifest.json"]
-    assert read_limits == expected_limits
+    assert set(read_limits) == set(sizes)
+    assert byte_counts == sizes
+    assert all(
+        limits[0] == min(1024 * 1024, sizes[member] + 1) and limits[-1] == 1
+        for member, limits in read_limits.items()
+    )
+    assert not descriptors
     assert "resources" not in reference and "files" not in reference
 
 
