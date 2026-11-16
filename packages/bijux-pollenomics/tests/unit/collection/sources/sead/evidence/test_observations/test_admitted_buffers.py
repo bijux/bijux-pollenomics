@@ -13,6 +13,7 @@ from bijux_pollenomics.collection.sources.sead.acquisition import (
     admission as admission_api,
 )
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
+    SeadMaterializedAdmissionSnapshot,
     materialize_sead_full_evidence_admission,
     service,
 )
@@ -22,6 +23,36 @@ from bijux_pollenomics.collection.sources.sead.evidence.source_keys.derivation i
 )
 
 from .support import _acquire, _full_admission_inputs, _FullEvidencePostgrestFixture
+
+
+class _DifferentDecodedBytes(bytes):
+    def decode(self, *args: Any, **kwargs: Any) -> str:
+        return "{}"
+
+
+@pytest.mark.parametrize(
+    "content",
+    [bytearray(b"{}\n"), memoryview(b"{}\n"), _DifferentDecodedBytes(b"{}\n")],
+)
+def test_snapshot_rejects_buffers_with_mutable_or_overridden_decoding(
+    content: Any,
+) -> None:
+    with pytest.raises(TypeError):
+        SeadMaterializedAdmissionSnapshot(
+            admission={}, copied_files={"record.json": content}
+        )
+
+
+def test_snapshot_owns_its_file_map_without_copying_immutable_buffers() -> None:
+    content = b"{}\n"
+    source_files = {"record.json": content}
+    snapshot = SeadMaterializedAdmissionSnapshot(
+        admission={}, copied_files=source_files
+    )
+    source_files["record.json"] = b"[]\n"
+    assert snapshot.copied_files["record.json"] is content
+    with pytest.raises(TypeError):
+        snapshot.copied_files["record.json"] = b"[]\n"  # type: ignore[index]
 
 
 @pytest.mark.parametrize(
