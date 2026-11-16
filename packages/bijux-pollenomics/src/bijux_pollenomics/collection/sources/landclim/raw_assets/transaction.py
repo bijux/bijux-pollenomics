@@ -15,6 +15,8 @@ import stat
 import sys
 from typing import TypeVar
 
+from bijux_pollenomics.core.errors.cleanup import add_cleanup_note
+
 from .....core.filesystem import recovery_storage
 
 T = TypeVar("T")
@@ -379,18 +381,26 @@ def transact(
                     },
                 )
             except Exception as recovery_error:
-                error.add_note(
-                    "LandClim recovery failed: "
-                    f"{type(recovery_error).__name__}: {recovery_error}"
-                )
+
+                def recovery_note(failure: Exception = recovery_error) -> str:
+                    return (
+                        f"LandClim recovery failed: {type(failure).__name__}: {failure}"
+                    )
+
+                add_cleanup_note(error, recovery_note)
             try:
                 run.check()
             except Exception:
-                error.add_note(
-                    f"LandClim recovery originally allocated at {run.path}; "
-                    f"expected directory identity {run.links[-1][2]}; "
-                    "current location unverified"
+                add_cleanup_note(
+                    error,
+                    lambda: (
+                        f"LandClim recovery originally allocated at {run.path}; "
+                        f"expected directory identity {run.links[-1][2]}; "
+                        "current location unverified"
+                    ),
                 )
             else:
-                error.add_note(f"LandClim recovery state retained at {run.path}")
+                add_cleanup_note(
+                    error, lambda: f"LandClim recovery state retained at {run.path}"
+                )
             raise
