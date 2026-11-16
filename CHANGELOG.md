@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#459](https://github.com/bijux/bijux-pollenomics/pull/459) — Owned source publication and physical collection identities
+
+- Validate bounded LandClim source transactions before replacing selected assets,
+  preserving prior complete and foreign files on failure.
+- Bind native LandClim means/errors to physical source cells instead of merging
+  distinct geometry through repeated grid labels.
+- Require contiguous SEAD receipt pagination and explicit terminal EOF evidence.
+- Retain four independently anchored Neotoma dataset-environment source archives.
+
 ### [#458](https://github.com/bijux/bijux-pollenomics/pull/458) — Exact collection identities and bounded preflight
 
 - Share operation-scoped bounded Neotoma metadata preflight without opening
