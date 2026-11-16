@@ -6,6 +6,8 @@ from typing import Any
 
 import pytest
 
+from bijux_pollenomics.collection.sources.neotoma.publication import ownership
+
 
 def test_writer_refuses_fabricated_later_count(
     association_products: dict[str, Any], tmp_path: Path
@@ -122,14 +124,14 @@ def test_postpublication_swap_is_retained_and_refused(
     p = association_products
     document = build_neotoma_linked_associations(p["evidence"], inputs=p["inputs"])
     output = tmp_path / "published"
-    publish = vars(publication)["publish_new_output_tree"]
+    publish = vars(ownership)["publish_new_output_tree"]
 
     def corrupt(**kwargs: Any) -> None:
         publish(**kwargs)
         (output / "manifest.json").write_bytes(b"{}")
 
-    monkeypatch.setattr(publication, "publish_new_output_tree", corrupt)
-    with pytest.raises(ValueError, match="digest"):
+    monkeypatch.setattr(ownership, "publish_new_output_tree", corrupt)
+    with pytest.raises(ValueError, match="digest|identity"):
         publication.publish_neotoma_linked_associations(
             output, document=document, evidence=p["evidence"], inputs=p["inputs"]
         )
@@ -155,7 +157,7 @@ def test_equal_byte_root_replacement_preserves_and_refuses_foreign_tree(
     final = tmp_path / "published"
     retained = tmp_path / "retained-owned-tree"
     load = publication.load_neotoma_linked_associations
-    publish = vars(publication)["publish_new_output_tree"]
+    publish = vars(ownership)["publish_new_output_tree"]
     published = []
     replaced = []
 
@@ -182,7 +184,7 @@ def test_equal_byte_root_replacement_preserves_and_refuses_foreign_tree(
             replace_root(final)
 
     monkeypatch.setattr(publication, "load_neotoma_linked_associations", observe_load)
-    monkeypatch.setattr(publication, "publish_new_output_tree", observe_publish)
+    monkeypatch.setattr(ownership, "publish_new_output_tree", observe_publish)
     with pytest.raises(ValueError, match="identity|inode"):
         publication.publish_neotoma_linked_associations(
             final, document=document, evidence=p["evidence"], inputs=p["inputs"]
@@ -203,3 +205,45 @@ def test_equal_byte_root_replacement_preserves_and_refuses_foreign_tree(
         if path.is_file()
     }
     assert owned_bytes == foreign_bytes
+
+
+@pytest.mark.parametrize("mutation", ["child", "leaf"])
+def test_final_association_part_remains_the_authored_member(
+    association_products: dict[str, Any],
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+) -> None:
+    import shutil
+
+    from bijux_pollenomics.collection.sources.neotoma.ancillary_store.linked_evidence.associations import (
+        build_neotoma_linked_associations,
+        publication,
+    )
+
+    p = association_products
+    document = build_neotoma_linked_associations(p["evidence"], inputs=p["inputs"])
+    final, saved = tmp_path / "published", tmp_path / "owned-parts"
+    load = publication.load_neotoma_linked_associations
+    changed = []
+
+    def substitute(root: Path, **kwargs: Any) -> Any:
+        result = load(root, **kwargs)
+        if root == final:
+            if mutation == "child":
+                (root / "targets").rename(saved)
+                shutil.copytree(saved, root / "targets")
+            part = next((root / "targets").glob("*.json"))
+            raw = part.read_bytes()
+            part.write_bytes(bytes([raw[0] ^ 1]) + raw[1:])
+            changed.append(True)
+        return result
+
+    monkeypatch.setattr(publication, "load_neotoma_linked_associations", substitute)
+    with pytest.raises(ValueError, match="identity"):
+        publication.publish_neotoma_linked_associations(
+            final, document=document, evidence=p["evidence"], inputs=p["inputs"]
+        )
+    assert changed == [True] and final.is_dir()
+    if mutation == "child":
+        assert saved.is_dir()

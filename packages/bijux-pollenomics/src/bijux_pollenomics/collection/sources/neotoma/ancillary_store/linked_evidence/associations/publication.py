@@ -12,11 +12,11 @@ from bijux_pollenomics.core.filesystem import (
 )
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
 from ....capture.linked_resources.models import NeotomaLinkedEvidence
 from ....capture.receipts import _object, _safe_root
+from ....publication.ownership import publish_owned_source_tree
 from ....resource_catalogue.archive.files import _digest, encoded_json
 from ....resource_catalogue.source_projection import _same
 from ...selection.metadata import pinned
@@ -209,16 +209,12 @@ def publish_neotoma_linked_associations(
         for name, content in buffers.items():
             writer.write_bytes(name, content)
         writer.write_bytes("manifest.json", raw)
-        load_neotoma_linked_associations(staging, **kwargs)
-        # Validate the saved path identity against the still-open ownership anchor.
-        owned = staging.stat(follow_symlinks=False)
-        writer.validate_attachment()
-        publish_new_output_tree(final_output_root=final, staging_output_root=staging)
-        published = final.stat(follow_symlinks=False)
-        if (owned.st_dev, owned.st_ino) != (published.st_dev, published.st_ino):
-            raise ValueError("Published associations are not the owned staging inode")
-        load_neotoma_linked_associations(final, **kwargs)
-        published = final.stat(follow_symlinks=False)
-        if (owned.st_dev, owned.st_ino) != (published.st_dev, published.st_ino):
-            raise ValueError("Published association inode changed during readback")
+        publish_owned_source_tree(
+            writer,
+            staging=staging,
+            final=final,
+            validate=lambda location: load_neotoma_linked_associations(
+                location, **kwargs
+            ),
+        )
     return manifest

@@ -11,7 +11,7 @@ from ...capture.context_resources.models import (
     DEFAULT_CONTEXT_LIMITS,
     SUPPORTED_RESOURCE_KINDS,
 )
-from ...capture.context_resources.protocol import assess_http
+from ...capture.context_resources.protocol import assess_http, validate_plan
 from ...capture.receipts import _object
 from ...capture.resources.models import NeotomaResourceLimits
 from ...capture.resources.replay import _same_json
@@ -30,11 +30,11 @@ def response_bound(
     selected: dict[str, Any],
     limits: NeotomaResourceLimits,
 ) -> int:
+    validate_plan(inventory.source.plan, limits)
     effective: dict[str, int] = {
         key: min(
             getattr(inventory.source.limits, key),
             getattr(limits, key),
-            getattr(DEFAULT_CONTEXT_LIMITS, key),
         )
         for key in (
             "max_requests",
