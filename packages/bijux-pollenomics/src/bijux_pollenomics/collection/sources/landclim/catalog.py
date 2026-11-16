@@ -136,6 +136,23 @@ def build_landclim_bibliography() -> dict[str, object]:
                 for reference in LANDCLIM_BIBLIOGRAPHY
                 if dataset_id in reference["dataset_ids"]
             ],
+            "attribution_resources": (
+                [
+                    {
+                        "resource_key": "landclim-ii-contributors",
+                        "role": "dataset_contributor_attribution",
+                        "source_filename": "LandClimII_contributors.xlsx",
+                        "local_filename": LANDCLIM_LOCAL_FILENAME_BY_SOURCE_NAME[
+                            "LandClimII_contributors.xlsx"
+                        ],
+                        "source_url": build_landclim_ii_file_url(
+                            "LandClimII_contributors.xlsx"
+                        ),
+                    }
+                ]
+                if dataset_id == "937075"
+                else []
+            ),
         }
         for dataset_id, metadata in LANDCLIM_DATASET_METADATA.items()
     ]
