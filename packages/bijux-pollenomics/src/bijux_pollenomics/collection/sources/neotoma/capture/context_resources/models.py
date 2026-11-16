@@ -9,6 +9,11 @@ from ..resources.models import NeotomaResourceLimits
 
 CONTEXT_SCHEMA = "neotoma-site-context-http-capture.v1"
 RESOURCE_KINDS = ("depositional_environment", "lake_candidates")
+SUPPORTED_RESOURCE_KINDS = (
+    "depositional_environment",
+    "dataset_depositional_environment",
+    "lake_candidates",
+)
 SOURCE_SCOPE = "current source context only; no dated basin geometry, absence certification or scientific admission"
 SNAPSHOT_CONSISTENCY = (
     "individually timed current queries; no transaction or historical coevality claim"

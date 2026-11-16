@@ -152,7 +152,7 @@ def observe(packet: dict[str, Any], action: str) -> dict[str, Any]:
         )
         + template_block(
             "function staticAtlasNodeSelectionNeeded",
-            "function requiredStaticAtlasEdgeNodeKeys",
+            "function requiredStaticAtlasNodeAssets",
         )
         + template_block("function finiteTimeValue", "function valueIsAvailable")
         + template_block("function finiteCoordinateValue", "function coordinateLabel")

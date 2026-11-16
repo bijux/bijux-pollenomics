@@ -92,17 +92,25 @@ def test_search_and_detail_charge_all_parts_and_helper_before_requests() -> None
         + inventory
         + selection
         + detail
+        + template_block(
+            "function validateStaticAtlasEdgeAssets",
+            "function validateStaticAtlasPayload",
+        )
+        + template_block("function finiteCoordinateValue", "function coordinateLabel")
+        + template_block(
+            "function atlasEdgeIntersectsViewport", "function renderEdgeLayers"
+        )
         + r"""
 const STATIC_ATLAS_INLINE=false, ALL_LAYERS=[];
 const rows=[{domain:'indexes',asset_key:'indexes:4',sequence:4,byte_count:100},
  {domain:'indexes',asset_key:'indexes:5',sequence:5,byte_count:200}];
 const STATIC_ATLAS_BOOTSTRAP={assets:rows,compatibility:{search_index_abi:'atlas-substring-postings.v1',index_schema:'atlas-static-indexes.v3',index_transport_schema:'atlas-static-index-part.v1'},budgets:{interaction_max_requests:3,interaction_max_bytes:350}};
 let staticAtlasIndexTransport=null;
-const staticAtlasLoadedAssets=new Set(),STATIC_ATLAS_CHUNKS={};
+const staticAtlasLoadedAssets=new Set(),STATIC_ATLAS_CHUNKS={edges:{schema_version:"atlas-edges-chunk.v1"}};
 function staticAtlasFailure(message){throw Error(message)}
 function staticAtlasNonnegativeInteger(value){if(!Number.isSafeInteger(value)||value<0)throw Error('integer');return value}
 function indexTransportDescriptor(){return {byte_count:50}}
-function requiredStaticAtlasEdgeNodeKeys(){return new Set()}
+function visibleGovernedEdges(){return []}const map={_loaded:false};
 function staticAtlasNodeSelectionNeeded(){return true}
 function staticAtlasViewportNeeded(){return true}
 let requests=[];
@@ -215,6 +223,14 @@ def test_lazy_planner_preflights_code_and_parts_and_restores_only_latest_selecti
     )
     observed = run_node_json(
         factory
+        + template_block(
+            "function validateStaticAtlasEdgeAssets",
+            "function validateStaticAtlasPayload",
+        )
+        + template_block("function finiteCoordinateValue", "function coordinateLabel")
+        + template_block(
+            "function atlasEdgeIntersectsViewport", "function renderEdgeLayers"
+        )
         + r"""
 const assert=require('node:assert/strict');
 async function probe(maxRequests,failOnce=false){
@@ -231,7 +247,7 @@ async function probe(maxRequests,failOnce=false){
  function staticAtlasFailure(message){throw Error(message)}
  function staticAtlasNonnegativeInteger(value){if(!Number.isSafeInteger(value)||value<0)throw Error('integer');return value}
  function staticAtlasTemporalIdentity(){}async function staticAtlasBoundedGunzip(){}async function staticAtlasSha256(){}
- function requiredStaticAtlasEdgeNodeKeys(){return new Set()}
+ function visibleGovernedEdges(){return []}const map={_loaded:false},STATIC_ATLAS_CHUNKS={edges:{schema_version:"atlas-edges-chunk.v1"}};
  function staticAtlasNodeSelectionNeeded(row){return row.asset_key===active}
  function staticAtlasViewportNeeded(){return true}function staticAtlasLayerForRow(){return layer}
  async function loadStaticAtlasAsset(row){requested.push(row.asset_key);staticAtlasLoadedAssets.add(row.asset_key)}

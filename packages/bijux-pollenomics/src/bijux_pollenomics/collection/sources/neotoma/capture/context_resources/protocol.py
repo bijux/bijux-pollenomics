@@ -15,7 +15,7 @@ from ..resources.models import NeotomaResourceLimits
 from ..resources.replay import _same_json
 from .models import (
     DEFAULT_CONTEXT_LIMITS,
-    RESOURCE_KINDS,
+    SUPPORTED_RESOURCE_KINDS,
     NeotomaContextResourcePlan,
 )
 
@@ -40,9 +40,11 @@ def validate_plan(
         or len(set(plan.site_ids)) != len(plan.site_ids)
         or not isinstance(plan.resource_kinds, tuple)
         or not plan.resource_kinds
-        or any(kind not in RESOURCE_KINDS for kind in plan.resource_kinds)
+        or any(kind not in SUPPORTED_RESOURCE_KINDS for kind in plan.resource_kinds)
         or len(set(plan.resource_kinds)) != len(plan.resource_kinds)
-        or tuple(kind for kind in RESOURCE_KINDS if kind in plan.resource_kinds)
+        or tuple(
+            kind for kind in SUPPORTED_RESOURCE_KINDS if kind in plan.resource_kinds
+        )
         != plan.resource_kinds
         or type(plan.lake_buffer_m) is not int
         or plan.lake_buffer_m != 1000
@@ -89,11 +91,57 @@ class _DepositionalEnvironmentRequest(_Request):
         )
 
 
-def request_for(kind: str, site_id: int) -> _Request:
+def request_name(kind: str, site_id: int) -> str:
     positive_native_id(site_id)
-    if kind not in RESOURCE_KINDS:
+    if kind not in SUPPORTED_RESOURCE_KINDS:
         raise ValueError("Unsupported context resource kind")
-    name = f"site-{site_id}-{kind}-current-attempt-1"
+    return f"site-{site_id}-{kind}-current-attempt-1"
+
+
+def native_dataset_ids(parent: dict[str, Any]) -> tuple[int, ...]:
+    """A query may narrow requested IDs only after authenticating the whole site."""
+    values = tuple(
+        positive_native_id(row["datasetid"])
+        for unit in parent["current_native_units"]
+        for row in unit["datasets"]
+    )
+    if not values or len(values) != len(set(values)):
+        raise ValueError(
+            "Dataset environment query has an empty or ambiguous native span"
+        )
+    return tuple(sorted(values))
+
+
+def request_for(
+    kind: str, site_id: int, *, dataset_ids: tuple[int, ...] | None = None
+) -> _Request:
+    name = request_name(kind, site_id)
+    if kind == "dataset_depositional_environment":
+        if (
+            not isinstance(dataset_ids, tuple)
+            or not dataset_ids
+            or len(dataset_ids) > 10000
+        ):
+            raise ValueError(
+                "Dataset environment query requires a bounded native dataset tuple"
+            )
+        for identity in dataset_ids:
+            positive_native_id(identity)
+        if dataset_ids != tuple(sorted(set(dataset_ids))):
+            raise ValueError("Dataset environment query IDs must be unique and ordered")
+        return _DepositionalEnvironmentRequest(
+            name,
+            kind,
+            "/depenvt",
+            {
+                "datasetid": ",".join(str(value) for value in dataset_ids),
+                "limit": str(len(dataset_ids)),
+                "offset": "0",
+            },
+            site_id,
+        )
+    if dataset_ids is not None:
+        raise ValueError("This context route does not accept dataset query IDs")
     if kind == "depositional_environment":
         return _DepositionalEnvironmentRequest(
             name, kind, "/depenvt", {"siteid": str(site_id)}, site_id
@@ -105,6 +153,18 @@ def request_for(kind: str, site_id: int) -> _Request:
         {"siteid": str(site_id), "buffer": "1000", "prec": "0.0001", "proj": "4326"},
         site_id,
     )
+
+
+def validate_new_capture_plan(plan: NeotomaContextResourcePlan) -> None:
+    """The published implementation and observed bodies do not support siteid filtering.
+
+    Keep the old factory/parser for literal historical replay. New acquisitions
+    require an explicit dataset filter or an independent modern lake query.
+    """
+    if "depositional_environment" in plan.resource_kinds:
+        raise ValueError(
+            "New deposition capture refuses the known ignored siteid filter; select dataset_depositional_environment explicitly"
+        )
 
 
 def plan_from_json(

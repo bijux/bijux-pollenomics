@@ -447,7 +447,28 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
       }
       return result;
     }
-    function planNodeAssets({endpointKeys, nodeNeeded, viewportNeeded, layerForRow, isLoaded, indexes, overhead, sourceSelection}) {
+    function requiredStaticAtlasEdgeNodeKeys({STATIC_ATLAS_INLINE, STATIC_ATLAS_CHUNKS,
+      validateStaticAtlasEdgeAssets, visibleGovernedEdges, staticAtlasNodeSelectionNeeded,
+      map, featureCoordinatePair, atlasEdgeIntersectsViewport}) {
+      if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.edges.schema_version === 'atlas-edges-chunk.v1') return new Set();
+      const edges = STATIC_ATLAS_CHUNKS.edges, nodeRows = validateStaticAtlasEdgeAssets(edges);
+      const result = new Set();
+      for (const edge of visibleGovernedEdges()) {
+        const source = edges.endpoint_node_geometry[edge.source_record_id].filter(hint => staticAtlasNodeSelectionNeeded(nodeRows.get(hint.asset_key)));
+        const target = edges.endpoint_node_geometry[edge.target_record_id].filter(hint => staticAtlasNodeSelectionNeeded(nodeRows.get(hint.asset_key)));
+        const intersects = !map._loaded || source.some(left => {
+          const a = featureCoordinatePair(left);
+          return a && target.some(right => {
+            const b = featureCoordinatePair(right);
+            return b && atlasEdgeIntersectsViewport(map, [[a.latitude, a.longitude], [b.latitude, b.longitude]]);
+          });
+        });
+        if (intersects) [...source, ...target].forEach(hint => result.add(hint.asset_key));
+      }
+      return result;
+    }
+    function planNodeAssets({endpointKeys, edgeSelection, nodeNeeded, viewportNeeded, layerForRow, isLoaded, indexes, overhead, sourceSelection}) {
+      if (edgeSelection !== undefined) endpointKeys = requiredStaticAtlasEdgeNodeKeys(edgeSelection);
       const routes = new Map();
       const required = STATIC_ATLAS_BOOTSTRAP.assets.filter(row => {
         if (row.domain !== 'nodes' || isLoaded(row.asset_key) || !nodeNeeded(row)) return false;

@@ -1,6 +1,13 @@
 """Authenticate and adapt native resource metadata without numerical admission."""
 
-from .ancillary.models import AtlasAncillaryFederationInput, AtlasAncillaryMetadata
+from .ancillary.models import (
+    AtlasAncillaryArchivesInput,
+    AtlasAncillaryFederationInput,
+    AtlasAncillaryMetadata,
+    AtlasAncillarySupportingMetadata,
+    AtlasContextArchiveInput,
+    AtlasSourceArchiveInput,
+)
 from .catalogue import load_atlas_resource_catalogue
 from .models import (
     AtlasResourceArchiveInput,
@@ -9,6 +16,10 @@ from .models import (
 )
 
 __all__ = [
+    "AtlasAncillaryArchivesInput",
+    "AtlasAncillarySupportingMetadata",
+    "AtlasContextArchiveInput",
+    "AtlasSourceArchiveInput",
     "AtlasAncillaryFederationInput",
     "AtlasAncillaryMetadata",
     "AtlasResourceArchiveInput",

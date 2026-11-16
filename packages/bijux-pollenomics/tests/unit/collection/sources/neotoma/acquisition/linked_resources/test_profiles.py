@@ -319,3 +319,37 @@ def test_publication_unknown_primary_does_not_relax_identity_or_population(
     source["data"][0]["publication"]["datasets"] = rows
     with pytest.raises(ValueError):
         parse("publication", source)
+
+
+def test_legacy_publication_type_zero_is_a_literal_dictionary_code() -> None:
+    source = payload("publication")
+    record = source["data"][0]["publication"]
+    record.update(pubtypeid=0, pubtype="Legacy")
+    parsed = parse("publication", source)
+    assert parsed.payload == source
+    assert type(parsed.records[0]["pubtypeid"]) is int
+    assert parsed.records[0]["pubtypeid"] == 0
+    assert parsed.records[0]["publicationid"] == 9435
+
+
+@pytest.mark.parametrize("code", [False, True, -1, 0.0, "0"])
+def test_publication_type_code_excludes_non_native_integer_values(code: Any) -> None:
+    source = payload("publication")
+    source["data"][0]["publication"]["pubtypeid"] = code
+    with pytest.raises(ValueError):
+        parse("publication", source)
+
+
+@pytest.mark.parametrize("field", ["publicationid", "datasetid", "siteid"])
+def test_zero_dictionary_code_does_not_relax_publication_or_parent_identity(
+    field: str,
+) -> None:
+    source = payload("publication")
+    record = source["data"][0]["publication"]
+    record.update(pubtypeid=0, pubtype="Legacy")
+    if field == "publicationid":
+        record[field] = 0
+    else:
+        record["datasets"][0][field] = 0
+    with pytest.raises(ValueError):
+        parse("publication", source)

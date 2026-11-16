@@ -4862,27 +4862,11 @@ __URL_STATE_CONTROLLER__
           && staticAtlasCountryNeeded(row, layer) && staticAtlasTimeNeeded(row, layer)
           && staticAtlasSignalNeeded(row, layer));
       }
-      function requiredStaticAtlasEdgeNodeKeys() {
-        if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.edges.schema_version === 'atlas-edges-chunk.v1') return new Set();
-        const edges = STATIC_ATLAS_CHUNKS.edges, nodeRows = validateStaticAtlasEdgeAssets(edges);
-        const result = new Set();
-        for (const edge of visibleGovernedEdges()) {
-          const source = edges.endpoint_node_geometry[edge.source_record_id].filter(hint => staticAtlasNodeSelectionNeeded(nodeRows.get(hint.asset_key)));
-          const target = edges.endpoint_node_geometry[edge.target_record_id].filter(hint => staticAtlasNodeSelectionNeeded(nodeRows.get(hint.asset_key)));
-          const intersects = !map._loaded || source.some(left => {
-            const a = featureCoordinatePair(left);
-            return a && target.some(right => {
-              const b = featureCoordinatePair(right);
-              return b && atlasEdgeIntersectsViewport(map, [[a.latitude, a.longitude], [b.latitude, b.longitude]]);
-            });
-          });
-          if (intersects) [...source, ...target].forEach(hint => result.add(hint.asset_key));
-        }
-        return result;
-      }
       function requiredStaticAtlasNodeAssets(overhead) {
         if (STATIC_ATLAS_INLINE) return [];
-        return staticAtlasIndexTransport.planNodeAssets({endpointKeys: requiredStaticAtlasEdgeNodeKeys(),
+        return staticAtlasIndexTransport.planNodeAssets({edgeSelection: {STATIC_ATLAS_INLINE, STATIC_ATLAS_CHUNKS,
+            validateStaticAtlasEdgeAssets, visibleGovernedEdges, staticAtlasNodeSelectionNeeded,
+            map, featureCoordinatePair, atlasEdgeIntersectsViewport},
           nodeNeeded: staticAtlasNodeSelectionNeeded, viewportNeeded: staticAtlasViewportNeeded,
           layerForRow: staticAtlasLayerForRow, isLoaded: key => staticAtlasLoadedAssets.has(key),
           indexes: staticAtlasIndexRows, overhead: overhead || staticAtlasIndexOverhead(staticAtlasIndexRows()),

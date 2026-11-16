@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#454](https://github.com/bijux/bijux-pollenomics/pull/454) — Native context filters and supporting Atlas archives
+
+- Require explicit authenticated native dataset filters for new environment
+  captures while retaining literal historical site-filter replay.
+- Preserve nonnegative native publication type codes, including legacy zero.
+- Retain separately anchored supporting archive inventories without asserting
+  source-body verification, scientific admission or synchronized capture epochs.
+- Own edge endpoint planning in the charged optional index controller.
+
 ### [#453](https://github.com/bijux/bijux-pollenomics/pull/453) — Portable site context and shared selected preflight
 
 - Retain independently pinned site-context responses with original/current native
