@@ -62,7 +62,8 @@ function renderNativeCharcoalObservation(tabs, feature, data) {
   if (data.status !== 'matched') return `<section data-native-charcoal-details="unavailable">${heading}<p>${escapeHtml(data.reason)} Original source observations remain in the source table.</p></section>`;
   const row = data.observation;
   const fields = [['Source observation ID',row.observation_id],['Native sample ID',row.sample_id],
-    ['Native variable ID',row.variable_id],['Native source taxon ID',row.source_taxon_id],
+    ['Taxon-derived variable key',row.variable_id],['Native source taxon ID',row.source_taxon_id],
+    ['Source-reported variable provenance',Object.hasOwn(row,'source_variable_provenance') ? row.source_variable_provenance : 'not available in this compact document'],
     ['Literal source ecological code',row.source_ecological_group],['Native reported value',row.source_value],
     ['Source measurement unit',row.source_unit],['Denominator',row.source_denominator],
     ['Denominator status',row.denominator_status],['Detection status',row.detection_status],

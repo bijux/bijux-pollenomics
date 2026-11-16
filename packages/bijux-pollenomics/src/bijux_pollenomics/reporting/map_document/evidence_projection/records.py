@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from collections.abc import Mapping, MutableMapping, Sequence
+from collections.abc import Iterable, Mapping, MutableMapping, Sequence
 from typing import cast
 
 from .io import _identifier_text, _mapping, _required_text
@@ -42,7 +42,7 @@ def _unique_rows(
 
 
 def _compact_rows_by_site(
-    rows: Sequence[Mapping[str, object]],
+    rows: Iterable[Mapping[str, object]],
     *,
     fields: Sequence[str],
     label: str,
