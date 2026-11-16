@@ -112,6 +112,13 @@ reads additionally require the precise occurrence identity. The source witness
 must actually contain that native target at the recorded JSON pointer. A
 rehashed index or plausible label cannot supply the missing relationship.
 
+Capsule publication and selected facet/linked consumers keep their independently
+pinned context and catalogue dependencies stable through preparation, body
+access, parsing and return. Changed permission metadata refuses the operation;
+an earlier successful check cannot authorize a later read after that change.
+The same lifetime rule applies while ancestry replays an older baseline under
+a separately authenticated current context.
+
 Every recorded root owner is checked before deduplication. Current known
 protected principal-investigator dependencies restrict contact access, including
 dependencies outside an older capture's recorded roots. A shared contact does
@@ -179,8 +186,73 @@ layers against a permanently frozen seed baseline, historical/current owner and
 PI duties, and baseline-relative depth limits. Newly discovered parents remain
 additional nodes rather than becoming new seeds. Its selected metadata reader
 also retains explicit limits on current-role and native-body authority. The
-maintained finite HTTP producer and actual collection of the 195 leads remain
-open.
+finite HTTP producer is available as `ancestry.chain.acquisition`; actual
+collection of the 195 leads remains open.
+
+## Collect An Explicit Ancestry Frontier
+
+`capture_neotoma_taxon_ancestry_frontier` accepts one explicit tuple of unique
+frontier target keys and independently pinned `NeotomaTaxonAncestryChainSources`.
+The resolver binds the frozen baseline, original evidence and captures, current
+context and native archive, and any preceding chain layers and source epochs.
+Supply these dependencies explicitly; a selected metadata reader's recorded
+pointer does not authorize collection.
+
+```python
+from pathlib import Path
+
+from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ancestry.chain.acquisition import (
+    capture_neotoma_taxon_ancestry_frontier,
+)
+
+captured = capture_neotoma_taxon_ancestry_frontier(
+    Path("artifacts/neotoma/frontier-capture"),
+    sources=sources,
+    parent_chain_sha256=parent_pin,
+    target_keys=selected_frontier_keys,
+)
+```
+
+Here `sources`, `parent_pin` and `selected_frontier_keys` come from the explicitly
+reviewed source selection. Use `None` for `parent_pin` only when extending the
+frozen baseline directly. Every selected target must have a permitted native
+child witness and satisfy all known incoming roots' historical and current
+owner and PI duties. Protected, foreign, already attempted and out-of-bound
+targets refuse before native baseline replay or HTTP requests. The producer
+does not recursively collect newly discovered pointers or rebase their depth.
+
+| Per-invocation limit | Ceiling |
+| --- | ---: |
+| explicit target keys / attempts per target | 16 / 1 |
+| complete response entity | 2 MiB |
+| aggregate response reservation | 16 × (2 MiB + one incomplete-response sentinel byte) |
+| owned output tree | 64 MiB |
+| individual control document | 1 MiB |
+| transport timeout | 60 seconds |
+| cooperative operation budget | 900 seconds |
+
+Smaller request and response budgets must still reserve every selected response.
+The operation budget is checked between stages; it is not a hard interrupt for
+filesystem operations or an arbitrary supplied transport callback. These limits
+do not increase the cumulative chain limits or grant provider quota. Before a
+run, account for provider limits and reserve capacity for other collection work.
+
+The official [API reference](https://api.neotomadb.org/api-docs/) describes native
+taxon and publication detail routes. The producer retains source HTTP failures,
+empty responses and refused source formats without retrying them or claiming
+source absence. A closed capture is checked through a fresh chain consumer
+before and after publication. Its destination must be a new canonical literal
+path outside every consumed source tree. Existing and competing entries are
+preserved; failed owned candidates remain available for investigation.
+
+Preserve source identifiers, literal parent/citation fields, receipts and reuse
+attribution. Neotoma's [data-use policy](https://www.neotomadb.org/data/data-use-and-embargo-policy)
+requires credit to Neotoma, the constituent database, original investigators
+and primary publications, with the relevant site/dataset citation information.
+The [taxonomy manual](https://open.neotomadb.org/manual/taxonomy-related-tables-1.html)
+also includes physical parameters and biometric measures in its taxon table.
+A source ancestry link does not establish a biological rank, forest/open-land
+class, applicable PPE or an admitted LRA input.
 
 Publication detail can report a singleton all-null dataset-association
 placeholder. Preserve it as unavailable association metadata. An identified

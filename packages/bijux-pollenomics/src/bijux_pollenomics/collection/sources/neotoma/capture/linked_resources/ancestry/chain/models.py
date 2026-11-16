@@ -73,7 +73,7 @@ def capture_control(
     parent: str | None,
     baseline_pin: str,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
-    """Decode only the strict closed wire owned jointly with the future producer."""
+    """Decode only the strict closed wire shared with the frontier producer."""
     manifest = _object(manifest_raw)
     if (
         sha256(manifest_raw).hexdigest() != pin
