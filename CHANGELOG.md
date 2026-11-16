@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#487](https://github.com/bijux/bijux-pollenomics/pull/487) — Owned report callback publication
+
+- Construct callback reports in exclusive operation-owned roots and retain prior
+  and refused trees in external recovery without deleting foreign entries.
+- Seal completed ordinary namespaces and validate partition paths before
+  attachment and during final readback, including nested callback operations.
+- Preserve public-parent creation modes under umask while retaining private
+  recovery and documenting the separate whole-report resource contract.
+
 ### [#486](https://github.com/bijux/bijux-pollenomics/pull/486) — Real measurement admission
 
 - Refuse complex measurements before real conversion across array and scalar
