@@ -56,15 +56,16 @@ def test_acquisition_keeps_facade_monkeypatch_seams(tmp_path: Path) -> None:
             return_value={"landclim_i_land_cover_types.xlsx": "https://example.test"},
         ) as resolver,
         patch.object(collection, "fetch_binary", return_value=b"") as fetcher,
-        pytest.raises(
-            ValueError,
-            match=(
-                "^LandClim raw asset download was empty for "
-                "landclim_i_land_cover_types\\.xlsx$"
-            ),
-        ),
+        pytest.raises(ValueError) as refused,
     ):
         collection.download_landclim_raw_assets(tmp_path)
 
     resolver.assert_called_once_with()
     fetcher.assert_called_once_with("https://example.test")
+    assert str(refused.value) == (
+        "LandClim raw asset download was empty for landclim_i_land_cover_types.xlsx"
+    )
+    assert any(
+        "LandClim recovery state retained at " in note
+        for note in refused.value.__notes__
+    )

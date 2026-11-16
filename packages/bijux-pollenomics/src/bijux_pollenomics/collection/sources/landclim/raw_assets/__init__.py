@@ -49,7 +49,7 @@ def download_assets(
                 )
                 directory.check()
 
-    transact(raw_dir, produce)
+    transact(raw_dir, produce, publication_root=Path(raw_dir).parent)
     return {filename: Path(raw_dir) / filename for filename in urls}
 
 
