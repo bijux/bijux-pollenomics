@@ -9,6 +9,7 @@ from scipy.special import logsumexp
 
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
+    _reject_complex_values,
     _reject_masked_values,
     finite_number,
     integer,
@@ -59,8 +60,7 @@ def _require_numeric_measurements(value: object, name: str) -> None:
         raise ValidationError(f"{name} must contain numerical measurements") from exc
     if any(isinstance(item, (bool, np.bool_)) for item in original.flat):
         raise ValidationError(f"{name} cannot contain Boolean measurements")
-    if any(isinstance(item, (complex, np.complexfloating)) for item in original.flat):
-        raise ValidationError(f"{name} cannot contain complex measurements")
+    _reject_complex_values(original, name)
 
 
 def _input_matrix(value: object, name: str, *, nonnegative: bool = False) -> np.ndarray:

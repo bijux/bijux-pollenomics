@@ -41,7 +41,7 @@ def validate_fall_speeds(
 
 
 def _reject_masked_values(value: Any, name: str) -> None:
-    """An unresolved mask cannot become an observed backing value during coercion."""
+    """Reject unresolved masks before coercion invents observed backing values."""
     pending = [value]
     visited: set[int] = set()
     while pending:
@@ -85,6 +85,7 @@ def integer(value: Any, name: str, minimum: int = 1) -> int:
     value = scalar(value, name)
     if isinstance(value, (bool, np.bool_)):
         raise ValidationError(f"{name} must be an integer >= {minimum}")
+    _reject_complex_values(value, name)
     try:
         numeric = float(value)
     except (TypeError, ValueError, OverflowError) as exc:
@@ -106,6 +107,7 @@ def finite_number(
     value = scalar(value, name)
     if isinstance(value, (bool, np.bool_)):
         raise ValidationError(f"{name} must be a finite number, excluding booleans")
+    _reject_complex_values(value, name)
     try:
         numeric = float(value)
     except (TypeError, ValueError, OverflowError) as exc:
@@ -122,8 +124,33 @@ def finite_number(
     return numeric
 
 
+def _reject_complex_values(value: Any, name: str) -> None:
+    """Require real measurements before NumPy can discard imaginary components."""
+    pending = [value]
+    visited: set[int] = set()
+    while pending:
+        item = pending.pop()
+        if isinstance(item, (complex, np.complexfloating)):
+            raise ValidationError(f"{name} cannot contain complex measurements")
+        children: Iterable[Any]
+        if isinstance(item, np.ndarray):
+            if item.dtype.kind == "c":
+                raise ValidationError(f"{name} cannot contain complex measurements")
+            if item.dtype.kind != "O":
+                continue
+            children = item.flat
+        elif isinstance(item, (list, tuple)):
+            children = iter(item)
+        else:
+            continue
+        identity = id(item)
+        if identity not in visited:
+            visited.add(identity)
+            pending.extend(children)
+
+
 def _float_array(value: Any, name: str) -> np.ndarray:
-    """Refuse masked or boolean values before coercion; retain native numeric arrays."""
+    """Refuse masked, boolean or complex values before real float conversion."""
     _reject_masked_values(value, name)
     try:
         raw = np.asarray(value)
@@ -141,6 +168,7 @@ def _float_array(value: Any, name: str) -> np.ndarray:
             isinstance(item, (bool, np.bool_)) for item in original.flat
         ):
             raise ValidationError(f"{name} must contain numbers, excluding booleans")
+        _reject_complex_values(raw, name)
         return np.asarray(raw, dtype=float)
     except (TypeError, ValueError, OverflowError) as error:
         if isinstance(error, ValidationError):
