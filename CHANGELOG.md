@@ -2,6 +2,26 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#472](https://github.com/bijux/bijux-pollenomics/pull/472) — Live Neotoma permissions and explicit ancestry frontier capture
+
+- Keep finite current-context metadata seals live across native source handoffs
+  and every authenticated ancestry epoch, refusing drift before further reads.
+- Preserve complete evidence validation while applying private permission checks
+  through nested baseline replay, portable capsules and selected-entity access.
+- Capture only explicit, finite ancestry frontier targets with permitted native
+  witnesses, owned outputs and source-authenticated follow-up chain derivation.
+- Retain generated-only drift coverage without extending historical qualification
+  to newer source programs or admitting retained scientific inputs.
+
+### [#471](https://github.com/bijux/bijux-pollenomics/pull/471) — Live chain permissions and recorded taxonomy source qualification
+
+- Recheck current permission seals around each chain source-body read, refusing
+  drift before further native fields are consumed.
+- Record the exact historical taxonomy qualification epoch and selected source
+  pins without extending that evidence to newer consumers or unfinished acquisition.
+- Add only the selected qualification packet to the source lock, retaining all
+  prior entries without reopening unclassified scientific inputs.
+
 ### [#470](https://github.com/bijux/bijux-pollenomics/pull/470) — Source-owned evidence sessions and inventory projections
 
 - Bind linked-evidence reuse to live ancestry operations, exact resolvers and
