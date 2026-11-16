@@ -1,0 +1,106 @@
+{
+  "schema_version": "abborrtjarnen-grouped-moments-qualification.v1",
+  "status": "qualified_conditional_projection_of_existing_published_result",
+  "source_result_sha256": "af6d870767b5c393b6488242e4b966f7bbfa7a79e021ee8d70b0aaeda46981ac",
+  "producer_commit": "475e565d932f9e3d04695f6cbd386b65a461f311",
+  "producer_code_sha256": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/abborrtjarnen_age_ppe/grouped/__init__.py": "d11315a23ac4fcfdc99c480725e1ed93ab10469822806481913e6e9e0561cd0e",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/abborrtjarnen_age_ppe/grouped/publication.py": "a27e077e28580959bf65afbfad13c04ba0b29f96abec2ecf3d3c8932779b1dfa",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/abborrtjarnen_age_ppe/grouped/projection.py": "83b18f36851d356ff64d54be5ba61dfefea5a539d7904d631b1cf6cdfa9feea5",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/abborrtjarnen_age_ppe/grouped/__main__.py": "63728969b45808c5372d1524323f74d6eabc4805c2fe4a81d66b7ba4aa1c317b"
+  },
+  "source_profile": "neotoma_explicit_five_taxon",
+  "conditioning_event": "all_four_windows_defined_with_complete_five_taxon_members",
+  "requested_saved_age_states": 32000,
+  "complete_saved_age_states": 29332,
+  "undefined_saved_age_states": 2668,
+  "unconditional_moments": "refused_undefined_mass",
+  "source_count_law": "pooled-window fixed-total multinomial conditional on saved age membership",
+  "parameter_law": "original shared diagonal PPE covariance; unchanged age/PPE and conditional count/PPE independence assumptions",
+  "cover_policy": "positive REVEALS inverse closure; no additional LOVE clipping",
+  "groups": "Betula+Pinus sylvestris; Juniperus communis; Cyperaceae+Poaceae on the same five-taxon panel",
+  "measured_vegetation_accuracy": "not_evaluated",
+  "historical_core_admission": "unchanged",
+  "new_model_fits": 0,
+  "new_age_or_ppe_draws": 0,
+  "native_counts_or_age_matrix_reads": 0,
+  "numerical_projection": "Gc and GΣG^T; covariance multiplied by10000 for percent-squared units; older-minus-younger contrasts retain cross-window covariance",
+  "independent_verification": {
+    "arithmetic": "Decimal60 direct source-cell summation; no producer projection helper",
+    "means": 12,
+    "covariance_cells": 864,
+    "contrasts": 18,
+    "contrast_component_variances": 108,
+    "absolute_tolerance": 2e-12,
+    "maximum_absolute_gap": 1.4e-14,
+    "maximum_shared_crosswindow_covariance_term_percentage_points_squared": 0.9450645921390594,
+    "causal_contract_controls": "10PASS: conflicting populations/identities, nonclosed covariance, missing CSV qualifications, foreign candidate substitution and member tampering",
+    "receipt_sha256": "ebd662619c1b340ba9205a46215c55497d581f60eb6d2e88973cd42556535b8a",
+    "serialization_replay": "10PASS0.40s after canonical LF CSV and plain-language status rendering; covariance/source/ownership semantics unchanged",
+    "output_parent_review": {
+      "result": "26PASS0.91s including unchanged foreign-parent namespace regression",
+      "receipt_sha256": "3975779c9a8aff03b34abe8e2893efcbe9809346e154dafd46cabc1777f673cc",
+      "failed_original_preserved": true
+    }
+  },
+  "maintained_generated_regressions": {
+    "tests": 22,
+    "result": "22PASS0.41s; includes descriptor-owned output-parent creation",
+    "all_five_static_checks": "PASS",
+    "scope": "generated inputs; no native-source or installed-wheel claim"
+  },
+  "actual_execution": {
+    "entrypoint": "python -m bijux_pollenomics_dev.source_completion.pollen_reconstruction.abborrtjarnen_age_ppe.grouped",
+    "result": "1PASS0.52s; maintained CLI actual publication after descriptor-parent repair",
+    "input_bytes": 113333,
+    "output_bytes": 183773,
+    "output_files": 6,
+    "network_attempts": 0,
+    "output_manifest_sha256": "fbe94288b2a1119d4918125f152a0287f56f5acf3de4894baf6c1d1da256d720",
+    "producer_commit": "475e565d932f9e3d04695f6cbd386b65a461f311",
+    "execution_receipt_sha256": "a04063723f7913625bb38ebab8c67cdceeb613106b98ab1f2b41fe6d9e149bff",
+    "guard_receipt_sha256": "0cc0d9299d5e9b47ef0d8a4f4a716cb28354988f3a01c817c803093697218c54",
+    "prior_canonical_exports_byte_identical": true
+  },
+  "browser_inspection": {
+    "browser": "Firefox",
+    "mode": "headless isolated test profile",
+    "network": "denied by operating system sandbox",
+    "actual_result_screenshot_visually_inspected": true,
+    "units_population_and_tables": "visible and legible; static downloads have matching source digest and qualifications",
+    "scope": "Exact canonical-LF static report; no full Atlas interaction or human accessibility acceptance"
+  },
+  "files": {
+    "index.html": {
+      "sha256": "b46ce156f82d1ed9ec262542ef84ce6c2efc5e24d185d7a8804a74471a0b3d36",
+      "bytes": 5634
+    },
+    "report.json": {
+      "sha256": "34ffe7287d7240f233900c2d22502f6cfb8d1a1fc597fbc7719bb2716c4a356a",
+      "bytes": 45802
+    },
+    "components.csv": {
+      "sha256": "7f00b06dd3aa7f65927046ec4bd281997d069fbdc4d79a4739de8817a5faaddb",
+      "bytes": 7484
+    },
+    "source-result.json": {
+      "sha256": "af6d870767b5c393b6488242e4b966f7bbfa7a79e021ee8d70b0aaeda46981ac",
+      "bytes": 113333
+    },
+    "manifest.json": {
+      "sha256": "fbe94288b2a1119d4918125f152a0287f56f5acf3de4894baf6c1d1da256d720",
+      "bytes": 664
+    },
+    "contrasts.csv": {
+      "sha256": "51e1a219b22c60aa307f60b354fa2967d1510a765b1ba72697fd7dcbb60c1332",
+      "bytes": 10856
+    }
+  },
+  "limits": [
+    "Conditional literal-panel shares, not full forest/open cover or measured accuracy.",
+    "Original saved-state dependence, source applicability and first-order delta assumptions remain unchanged.",
+    "Source-compatible mixture and conditional SD do not imply calibrated confidence intervals.",
+    "No fresh installed-package or historical-reference-R qualification is inferred from this projection."
+  ],
+  "qualification_utc_date": "2026-11-16"
+}
