@@ -1,0 +1,67 @@
+{
+  "name": "synthesized-rpp.xlsx",
+  "url": "https://essd.copernicus.org/articles/17/2007/2025/essd-17-2007-2025-t05.xlsx",
+  "role": "Table B1 synthesis, SD and fall speed per publisher caption",
+  "request_method": "GET",
+  "request_headers": {
+    "User-Agent": "bijux-pollenomics reference-source-intake",
+    "Accept": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  "utc_start": "2026-11-16T21:06:44.616243+00:00",
+  "attempts": 1,
+  "http_status": 200,
+  "final_url": "https://essd.copernicus.org/articles/17/2007/2025/essd-17-2007-2025-t05.xlsx",
+  "response_headers": [
+    [
+      "Date",
+      "Mon, 16 Nov 2026 21:06:44 GMT"
+    ],
+    [
+      "Server",
+      "Apache/2.4.52 (Ubuntu)"
+    ],
+    [
+      "Strict-Transport-Security",
+      "max-age=31536000; includeSubDomains; preload"
+    ],
+    [
+      "Last-Modified",
+      "Mon, 12 May 2025 05:32:32 GMT"
+    ],
+    [
+      "ETag",
+      "\"46f3-634e9a48825f7\""
+    ],
+    [
+      "Accept-Ranges",
+      "bytes"
+    ],
+    [
+      "Content-Length",
+      "18163"
+    ],
+    [
+      "Cache-Control",
+      "max-age=2592000"
+    ],
+    [
+      "Expires",
+      "Wed, 16 Dec 2026 21:06:44 GMT"
+    ],
+    [
+      "Connection",
+      "close"
+    ],
+    [
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    ]
+  ],
+  "status": "captured_published_parameter_workbook",
+  "bytes": 18163,
+  "sha256": "536b96157be25a6390f954f294402315715552529a02bd769a8a812c0627061d",
+  "xlsx_members": 13,
+  "scientific_admission": "not_asserted",
+  "utc_end": "2026-11-16T21:06:44.821357+00:00",
+  "wall_seconds": 0.20512125000000003
+}

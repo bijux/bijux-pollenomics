@@ -1,0 +1,196 @@
+{
+  "schema_version": "pollen-productivity-reference.v1",
+  "role": "Published parameter reference with literal source values; not an admitted local parameter configuration",
+  "paper": {
+    "authors": [
+      "Laura Schild",
+      "Peter Ewald",
+      "Chenzhi Li",
+      "Raphaël Hébert",
+      "Thomas Laepple",
+      "Ulrike Herzschuh"
+    ],
+    "year": 2025,
+    "title": "LegacyVegetation: Northern Hemisphere reconstruction of past plant cover and total tree cover from pollen archives of the last 14 kyr",
+    "doi": "10.5194/essd-17-2007-2025",
+    "url": "https://essd.copernicus.org/articles/17/2007/2025/",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "attribution": "Schild et al. (2025), Tables A1 and B1; retain paper DOI and table URLs when reusing these attributed extractions."
+  },
+  "source_originals": [
+    {
+      "path": "originals/original-rpp.xlsx",
+      "sha256": "60285e4a3ae2acc6cde73b2d23413083043652d2e6e4db8058e027fc7cc54349",
+      "bytes": 19462,
+      "url": "https://essd.copernicus.org/articles/17/2007/2025/essd-17-2007-2025-t04.xlsx",
+      "final_url": "https://essd.copernicus.org/articles/17/2007/2025/essd-17-2007-2025-t04.xlsx",
+      "http_status": 200,
+      "utc_start": "2026-11-16T21:06:44.087129+00:00",
+      "utc_end": "2026-11-16T21:06:44.616042+00:00",
+      "transport_receipt": "originals/original-rpp.xlsx.receipt.json",
+      "transport_receipt_sha256": "703a9754bebd7408d471fd0159d76cf59b44842ec4bb284d8cbfca158e57916c",
+      "role": "Table A1 original RPP values, SE per publisher caption"
+    },
+    {
+      "path": "originals/synthesized-rpp.xlsx",
+      "sha256": "536b96157be25a6390f954f294402315715552529a02bd769a8a812c0627061d",
+      "bytes": 18163,
+      "url": "https://essd.copernicus.org/articles/17/2007/2025/essd-17-2007-2025-t05.xlsx",
+      "final_url": "https://essd.copernicus.org/articles/17/2007/2025/essd-17-2007-2025-t05.xlsx",
+      "http_status": 200,
+      "utc_start": "2026-11-16T21:06:44.616243+00:00",
+      "utc_end": "2026-11-16T21:06:44.821357+00:00",
+      "transport_receipt": "originals/synthesized-rpp.xlsx.receipt.json",
+      "transport_receipt_sha256": "fe12f646129afe11b450bffa4e5da82a828e5fdc16a3d32ab2622521ffe41fdc",
+      "role": "Table B1 synthesis, SD and fall speed per publisher caption"
+    }
+  ],
+  "reference_tables": [
+    {
+      "path": "original-study-estimates.csv",
+      "sha256": "606358bb5299308d8aa4d4f9d7c32ce8ad8df2a78cb9c45ef03d913968897dac",
+      "bytes": 52841,
+      "rows": 369
+    },
+    {
+      "path": "synthesized-estimates.csv",
+      "sha256": "4e53420c72c9bf4951c09077aba3bc3b5f54a197b103c45581df925081034ae5",
+      "bytes": 61844,
+      "rows": 524
+    }
+  ],
+  "extraction": {
+    "sheet": "Worksheet 1",
+    "original_header_row": 1,
+    "original_data_rows": [
+      2,
+      370
+    ],
+    "synthesis_region_header_row": 1,
+    "synthesis_field_header_row": 2,
+    "synthesis_data_rows": [
+      3,
+      133
+    ],
+    "synthesis_region_columns": {
+      "Asia": [
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "Europe": [
+        "G",
+        "H",
+        "I",
+        "J"
+      ],
+      "North America": [
+        "K",
+        "L",
+        "M",
+        "N"
+      ],
+      "Northern Hemisphere": [
+        "O",
+        "P",
+        "Q",
+        "R"
+      ]
+    },
+    "cell_values": "Literal decoded OOXML strings; no numeric conversion, rounding, blank/dash substitution, taxon aliasing or duplicate-label collapse. Per-field original cell references retained.",
+    "unused_sheet": "Worksheet is empty in each source workbook; no records discarded.",
+    "formula_cells": 0,
+    "reader": "bijux_pollenomics.collection.intake.workbooks.read_xlsx_sheet_rows",
+    "reader_source_sha256": "536e629f2fb079fcf9db56adf96f700dca9553a552c67376a3321e5c4d7a8050"
+  },
+  "coverage_by_region": [
+    {
+      "region": "Asia",
+      "worksheet_rows": 131,
+      "reported_rpp_rows": 93,
+      "reported_sd_rows": 93,
+      "reported_fall_speed_rows": 105
+    },
+    {
+      "region": "Europe",
+      "worksheet_rows": 131,
+      "reported_rpp_rows": 61,
+      "reported_sd_rows": 61,
+      "reported_fall_speed_rows": 68
+    },
+    {
+      "region": "North America",
+      "worksheet_rows": 131,
+      "reported_rpp_rows": 42,
+      "reported_sd_rows": 42,
+      "reported_fall_speed_rows": 59
+    },
+    {
+      "region": "Northern Hemisphere",
+      "worksheet_rows": 131,
+      "reported_rpp_rows": 104,
+      "reported_sd_rows": 104,
+      "reported_fall_speed_rows": 129
+    }
+  ],
+  "original_estimates_by_continent": {
+    "Asia": 174,
+    "Europe": 157,
+    "North America": 38
+  },
+  "statistical_semantics": {
+    "original_uncertainty": "Table A1 labels original estimates SE.",
+    "synthesis_uncertainty": "Table B1 labels synthesis uncertainty SD. These are literal source labels; no SE-to-SD conversion or between-study interpretation has been performed.",
+    "rpp_units": "Relative pollen productivity, with Poaceae reference normalization described by the paper.",
+    "fall_speed_units": "The captured workbook labels the field vg and does not state its unit. No unit conversion was performed; verify the model/unit convention before any parameter admission.",
+    "n_estimates": "Literal published n; not asserted independent study/site/sample counts.",
+    "missing_values": "Empty cells and en dash remain distinct source strings. Neither is zero.",
+    "cross_taxon_covariance": "Not supplied by these tables.",
+    "dependency": "Overlaps the 2020 compilation; these are not independent parameter realizations."
+  },
+  "source_discrepancies": [
+    {
+      "issue": "Duplicate source label",
+      "taxon": "Sapindales",
+      "taxonomic_level": "order",
+      "worksheet_rows": [
+        123,
+        127
+      ],
+      "disposition": "Both source rows retained for all four regions; no automatic unique-taxon profile."
+    },
+    {
+      "issue": "Article text and workbook coverage differ",
+      "article_section": "2.2 Parameters and model settings",
+      "article_reported_rpp_values": {
+        "Asia": 59,
+        "Europe": 69
+      },
+      "workbook_nonmissing_rpp_rows": {
+        "Asia": 93,
+        "Europe": 61
+      },
+      "disposition": "Count definitions are unresolved. Workbook counts describe these exact bytes, not a correction to the article."
+    },
+    {
+      "issue": "Ulmus geographic coverage",
+      "Europe": "RPP/SD/n are en dash, fall speed is 0.032.",
+      "Northern Hemisphere": "RPP 2.025, SD 0.312, n 3, fall speed 0.022.",
+      "disposition": "Hemispheric values do not silently fill missing European productivity."
+    }
+  ],
+  "use_scope": {
+    "automatic_parameter_replacement": false,
+    "current_results_recomputed": false,
+    "scientific_admission": "not_asserted",
+    "site_applicability": "Requires source-study, taxonomic level, reference taxon, basin and regional applicability decisions.",
+    "validation_role": "Parameter reference only; reconstructed vegetation from the associated study is not independent measured ancient vegetation.",
+    "negative_love_policy": "Does not apply to missing parameter cells or source identifiers.",
+    "article_metadata_exposure": "Publisher abstract and parameter prose were read, including published aggregate reconstruction accuracy statements. No linked site-level vegetation output, pollen record or measured-reference dataset was opened; this is not an untouched confirmation cohort."
+  },
+  "provider_requests": 2,
+  "redirects": 0,
+  "capture_plan_sha256": "d5febe35e8551557931536926fb3d25369e4dceb996e10678bafe45e2c377b56"
+}
