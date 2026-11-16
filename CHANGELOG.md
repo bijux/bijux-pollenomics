@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#473](https://github.com/bijux/bijux-pollenomics/pull/473) — Physical source evidence and bounded text transport
+
+- Bind LandClim quality labels to the physical cells represented by source rows,
+  refusing mismatched references before aggregate or temporal derivation.
+- Bound text and JSON response reads before decoding, preserve finite timeouts
+  and close failed responses without masking native primary exceptions.
+- Retain existing raw units and retry semantics while exercising generated source
+  and native response controls without reading retained scientific inputs.
+
 ### [#472](https://github.com/bijux/bijux-pollenomics/pull/472) — Live Neotoma permissions and explicit ancestry frontier capture
 
 - Keep finite current-context metadata seals live across native source handoffs
