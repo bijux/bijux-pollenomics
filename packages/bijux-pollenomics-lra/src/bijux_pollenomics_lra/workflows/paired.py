@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 
 from bijux_pollenomics_lra.models.configuration import (
+    LoveMethod,
     LRAConfig,
 )
 from bijux_pollenomics_lra.models.errors import ValidationError
@@ -70,6 +71,36 @@ def run_lra(
         replay_candidates=replay_candidates,
         regional_cover_draws=regional_draws,
     )
+    extent = {
+        "reveals_cutoff_m": reveals_config.region_cutoff_m,
+        "love_background_cutoff_m": (
+            reveals_config.region_cutoff_m if config.couple_regional_draws else 100_000
+        ),
+        "love_background_source": (
+            "paired-reveals-draws"
+            if config.couple_regional_draws
+            else "internal-reveals"
+        ),
+        "love_deposition_support": (
+            {"kind": "historical-analytical", "cutoff_m": 100_000}
+            if love_config.method == LoveMethod.ANALYTICAL.value
+            else {
+                "kind": "supplied-rings",
+                "local_ring_count": love_config.max_ring,
+                "rings": [
+                    {"inner_m": float(inner), "outer_m": float(outer)}
+                    for inner, outer in rings[["inner", "outer"]].to_numpy(dtype=float)
+                ],
+            }
+        ),
+    }
+    local_result.manifest = replace(
+        local_result.manifest,
+        parameters={
+            **local_result.manifest.parameters,
+            "effective_regional_extent": extent,
+        },
+    )
     if not reveals_config.retain_samples:
         regional_result.samples = None
     manifest = replace(
@@ -79,6 +110,7 @@ def run_lra(
                 **config.as_dict(),
                 "stage_order": ["REVEALS", f"LOVE-{love_config.method}"],
                 "regional_draw_handoff": config.couple_regional_draws,
+                "effective_regional_extent": extent,
                 "regional_child_manifest_sha256": sha256_object(
                     regional_result.manifest.scientific_identity()
                 ),

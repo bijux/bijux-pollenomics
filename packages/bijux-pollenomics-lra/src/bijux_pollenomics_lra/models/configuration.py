@@ -84,6 +84,7 @@ class RevealsConfig:
     fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE
 
     def __post_init__(self) -> None:
+        """Validate regional sampling and integration support."""
         basin_type = _enum_value(self.basin_type, BasinType, "basin_type")
         method = _enum_value(
             self.distance_weighting, DistanceWeighting, "distance_weighting"
@@ -150,6 +151,7 @@ class LoveConfig:
     analytical_cover_policy: str = "clip-and-renormalize"
 
     def __post_init__(self) -> None:
+        """Validate the selected local reconstruction profile."""
         method = _enum_value(self.method, LoveMethod, "method")
         _cover_policy(self.analytical_cover_policy)
         optimized_profile = _enum_value(
@@ -276,6 +278,7 @@ class RegionalDrawLoveConfig:
     fall_speed_profile = LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
 
     def __post_init__(self) -> None:
+        """Validate analytical reconstruction from admitted regional draws."""
         _cover_policy(self.analytical_cover_policy)
         local_diameter = finite_number(
             self.local_basin_diameter_m,
@@ -325,6 +328,7 @@ class LRAConfig:
     couple_regional_draws: bool = True
 
     def __post_init__(self) -> None:
+        """Validate compatibility before either paired numerical stage runs."""
         if self.seed is not None:
             integer(self.seed, "seed", minimum=0)
         if not isinstance(self.couple_regional_draws, (bool, np.bool_)):
@@ -343,8 +347,21 @@ class LRAConfig:
             raise ValidationError(
                 "REVEALS and LOVE distance-weighting methods must agree"
             )
+        # Analytical Kreg always integrates to the historical 100 km limit.
+        # Uncoupled LOVE also estimates its own regional cover at that limit;
+        # coupled optimized LOVE instead uses supplied draws and explicit rings.
+        if (
+            self.love.method == LoveMethod.ANALYTICAL.value
+            or not self.couple_regional_draws
+        ) and self.reveals.region_cutoff_m != 100_000:
+            raise ValidationError(
+                "This paired LOVE configuration requires REVEALS "
+                "region_cutoff_m=100000 to match its historical regional extent",
+                reason_code="incompatible_regional_extent",
+            )
 
     def as_dict(self) -> dict[str, object]:
+        """Return the declared paired configuration for provenance."""
         return {
             "reveals": self.reveals.as_dict(),
             "love": self.love.as_dict(),
@@ -364,6 +381,7 @@ class ForwardConfig:
     preparation_profile: str = "disqover-0.9.14-corrected-matrix-homogeneous-v1"
 
     def __post_init__(self) -> None:
+        """Validate the declared forward ring geometry and cover profile."""
         if isinstance(self.local_ring_count, (bool, np.bool_)) or not isinstance(
             self.local_ring_count, (int, np.integer)
         ):
