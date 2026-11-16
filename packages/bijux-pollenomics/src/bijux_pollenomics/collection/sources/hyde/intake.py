@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 from typing import Any
 
+from ....core.filesystem import read_regular_file
 from ..quarantine import IntakeRefusal
 from .grid import GridSpec, finite_number
 from .models import DeclaredGridLayer, VariableSpec
@@ -48,10 +49,12 @@ def load_declared_grid(
         raise IntakeRefusal("hyde_intake_limit_invalid", repr(maximum_bytes))
     if path.is_symlink() or not path.is_file():
         raise IntakeRefusal("hyde_local_asset_missing_or_symlink", str(path))
-    with path.open("rb") as handle:
-        content = handle.read(maximum_bytes + 1)
-    if len(content) > maximum_bytes:
-        raise IntakeRefusal("hyde_interchange_size_limit", str(len(content)))
+    if path.stat().st_size > maximum_bytes:
+        raise IntakeRefusal("hyde_interchange_size_limit", str(path))
+    try:
+        content = read_regular_file(path, max_bytes=maximum_bytes)
+    except (OSError, ValueError) as exc:
+        raise IntakeRefusal("hyde_local_asset_changed_or_aliased", str(path)) from exc
     actual = hashlib.sha256(content).hexdigest()
     if actual != expected_sha256:
         raise IntakeRefusal("hyde_interchange_digest_mismatch", str(path))
