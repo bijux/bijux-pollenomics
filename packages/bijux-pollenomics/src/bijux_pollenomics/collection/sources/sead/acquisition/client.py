@@ -97,21 +97,55 @@ def fetch_sead_rows_by_ids(
     request_timeout_seconds: float = SEAD_REQUEST_TIMEOUT_SECONDS,
 ) -> list[dict[str, object]]:
     """Fetch SEAD rows in manageable `in.(...)` batches."""
+    identifier = r"[A-Za-z_][A-Za-z0-9_]*"
+    if re.fullmatch(identifier, filter_field) is None or (
+        select != "*"
+        and re.fullmatch(rf"{identifier}(?:,{identifier})*", select) is None
+    ):
+        raise ValueError("SEAD filtered projection requires literal source fields")
+    added_owner = select != "*" and filter_field not in select.split(",")
+    verified_select = f"{select},{filter_field}" if added_owner else select
     unique_ids = sorted({required_sead_identifier(value) for value in ids})
     rows: list[dict[str, object]] = []
     for start in range(0, len(unique_ids), SEAD_FILTER_BATCH_SIZE):
         batch = unique_ids[start : start + SEAD_FILTER_BATCH_SIZE]
-        rows.extend(
-            fetch_sead_rows(
-                table_name,
-                fetch_json_fn=fetch_json_fn,
-                select=select,
-                filters=((filter_field, build_sead_in_filter(batch)),),
-                order_by=order_by,
-                request_retries=request_retries,
-                request_timeout_seconds=request_timeout_seconds,
-            )
+
+        def selected_page(
+            url: str, *, allowed: frozenset[int] = frozenset(batch), **kwargs: object
+        ) -> object:
+            payload = fetch_json_fn(url, **kwargs)
+            if isinstance(payload, list):
+                for row in payload:
+                    if isinstance(row, Mapping):
+                        owner = required_sead_identifier(row.get(filter_field))
+                        if owner not in allowed:
+                            raise ValueError(
+                                f"SEAD source ignored identity filter for {table_name}: "
+                                f"{filter_field}={owner}"
+                            )
+                if added_owner:
+                    return [
+                        {
+                            key: value
+                            for key, value in row.items()
+                            if key != filter_field
+                        }
+                        if isinstance(row, Mapping)
+                        else row
+                        for row in payload
+                    ]
+            return payload
+
+        selected_rows = fetch_sead_rows(
+            table_name,
+            fetch_json_fn=selected_page,
+            select=verified_select,
+            filters=((filter_field, build_sead_in_filter(batch)),),
+            order_by=order_by,
+            request_retries=request_retries,
+            request_timeout_seconds=request_timeout_seconds,
         )
+        rows.extend(selected_rows)
     return rows
 
 

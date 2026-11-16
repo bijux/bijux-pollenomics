@@ -1,9 +1,16 @@
+"""Canonical SEAD evidence bytes and finite known-output comparisons."""
+
 from __future__ import annotations
 
 from collections.abc import Mapping
 import hashlib
 import json
 from pathlib import Path
+
+from bijux_pollenomics.core.filesystem import (
+    BoundedInputTree,
+    validate_regular_namespace,
+)
 
 
 def _copied_file_sha256(admission: Mapping[str, object], path: str) -> str:
@@ -27,14 +34,33 @@ def _verify_record(content: bytes, record: Mapping[str, object], label: str) -> 
         raise ValueError(f"SEAD admitted digest changed: {label}")
 
 
-def _directory_bytes(root: Path) -> dict[str, bytes]:
-    files: dict[str, bytes] = {}
-    for path in root.rglob("*"):
-        if path.is_symlink():
-            raise ValueError(f"Symlinks are forbidden in SEAD evidence: {path}")
-        if path.is_file():
-            files[path.relative_to(root).as_posix()] = path.read_bytes()
-    return files
+def _directory_bytes(
+    root: Path, *, expected_files: Mapping[str, bytes]
+) -> dict[str, bytes]:
+    """Compare only the finite known output namespace during staging and recovery."""
+    limits = {name: len(content) for name, content in expected_files.items()}
+    if not limits:
+        raise ValueError("SEAD output comparison requires a declared file set")
+    try:
+        total = max(1, sum(limits.values()))
+        sizes = validate_regular_namespace(
+            root, set(limits), max_files=len(limits), max_bytes=total
+        )
+        if sizes != limits:
+            return {}
+        with BoundedInputTree(
+            root, max_bytes=total, max_files=len(limits), member_limits=limits
+        ) as tree:
+            if set(tree.files) != set(limits):
+                return {}
+            observed = {}
+            for name, size in limits.items():
+                tree.check()
+                observed[name] = tree.read(root / name, max_bytes=size)
+            tree.check()
+            return observed
+    except (OSError, ValueError):
+        return {}
 
 
 def _reject_symlink_ancestors(path: Path) -> None:

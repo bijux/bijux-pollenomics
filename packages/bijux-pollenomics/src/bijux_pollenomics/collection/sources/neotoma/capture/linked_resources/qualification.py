@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from pathlib import Path
 from typing import Any
 
@@ -34,15 +34,73 @@ def qualify_neotoma_linked_capture(
     legacy_rosters: Mapping[str, Path] | None = None,
 ) -> dict[str, Any]:
     """Authenticate exact returned buffers and every root occurrence before parsing."""
-    captured = replay_owner.replay_neotoma_linked_resources(
+    return _qualify_linked_capture(
         directory,
         expected_manifest_sha256=expected_manifest_sha256,
         source_facets=source_facets,
-        scope_inputs=scope_inputs,
         limits=limits,
+        scope_inputs=scope_inputs,
         evidence=evidence,
         legacy_rosters=legacy_rosters,
     )
+
+
+def _qualify_linked_capture(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str,
+    source_facets: Mapping[str, Path],
+    limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
+    evidence: NeotomaLinkedEvidence | None = None,
+    legacy_rosters: Mapping[str, Path] | None = None,
+    _session: Any = None,
+    _operation: object | None = None,
+    _before_body_read: Callable[[], None] | None = None,
+) -> dict[str, Any]:
+    """Qualify unchanged native outcomes inside one explicitly owned source operation."""
+    scoped_operation = _session is not None or _before_body_read is not None
+    replay = (
+        replay_owner._replay_linked_resources
+        if scoped_operation
+        else replay_owner.replay_neotoma_linked_resources
+    )
+    options: dict[str, Any] = {
+        "expected_manifest_sha256": expected_manifest_sha256,
+        "source_facets": source_facets,
+        "scope_inputs": scope_inputs,
+        "limits": limits,
+        "evidence": evidence,
+        "legacy_rosters": legacy_rosters,
+    }
+    extra: dict[str, Any] = (
+        {}
+        if not scoped_operation
+        else {
+            "_session": _session,
+            "_operation": _operation,
+            "_before_body_read": _before_body_read,
+        }
+    )
+
+    def check_body() -> None:
+        if _before_body_read is not None:
+            _before_body_read()
+        if _session is not None:
+            from .evidence_parts.session import _check_session
+
+            _check_session(
+                _session,
+                operation=_operation,
+                evidence=evidence,
+                source_facets=source_facets,
+                scope_inputs=scope_inputs,
+                legacy_rosters=legacy_rosters,
+                capture_directory=directory,
+                capture_manifest_sha256=expected_manifest_sha256,
+            )
+
+    captured = replay(directory, **options, **extra)
     manifest, _, _, _, _ = _control(directory, expected_manifest_sha256)
     scoped = manifest["schema_version"] == SCOPED_LINKED_SCHEMA
     rows = []
@@ -65,7 +123,12 @@ def qualify_neotoma_linked_capture(
         if entry["terminal_status"] != "received_complete_unqualified_linked_resource":
             row["qualification_status"] = "not_qualified_source_result"
             continue
-        body = _read_linked_entry_body(directory, entry, limits, evidence=evidence)
+        body_options: dict[str, Any] = (
+            {} if not scoped_operation else {"_before_body_read": check_body}
+        )
+        body = _read_linked_entry_body(
+            directory, entry, limits, evidence=evidence, **body_options
+        )
         if not scoped:
             row["source_proofs"] = list(body.source_proofs)
         reference = entry["attempts"][-1]
@@ -97,15 +160,7 @@ def qualify_neotoma_linked_capture(
             )
         except ValueError as error:
             row.update(qualification_status="refused_linked_source", reason=str(error))
-    replay_owner.replay_neotoma_linked_resources(
-        directory,
-        expected_manifest_sha256=expected_manifest_sha256,
-        source_facets=source_facets,
-        scope_inputs=scope_inputs,
-        limits=limits,
-        evidence=evidence,
-        legacy_rosters=legacy_rosters,
-    )
+    replay(directory, **options, **extra)
     return {
         "schema_version": "neotoma-scoped-linked-source-qualification.v1"
         if scoped

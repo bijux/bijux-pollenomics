@@ -1,0 +1,98 @@
+{
+  "body_complete": true,
+  "body_file": "country-authority-Finland-current-attempt-1.body",
+  "expected_site_id": null,
+  "final_url": "https://api.neotomadb.org/v2.0/data/geopoliticalunits?gpname=Finland&rank=1&lower=false",
+  "http_status": 200,
+  "parameters": {
+    "gpname": "Finland",
+    "lower": "false",
+    "rank": "1"
+  },
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/geopoliticalunits?gpname=Finland&rank=1&lower=false",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/geopoliticalunits?gpname=Finland&rank=1&lower=false",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "234"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 05:16:56 GMT"
+    ],
+    [
+      "etag",
+      "W/\"ea-mKJkA2AdGFii1dNnDw8jQ2rwvzI\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4998"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794719877"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "3"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 234,
+  "retained_body_sha256": "d4b33895ad384b294d080261191cc613334c11fe5945e35e1cc37471844a8727",
+  "role": "country_authority_Finland",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T05:16:56.732767+00:00",
+  "utc_start": "2026-11-15T05:16:56.353758+00:00"
+}

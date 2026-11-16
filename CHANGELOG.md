@@ -2,6 +2,17 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#474](https://github.com/bijux/bijux-pollenomics/pull/474) — Owned source evidence and country reference metadata
+
+- Authenticate filtered SEAD row owners while preserving projected fields, and
+  authorize bounded multipart evidence before opening native parts.
+- Reuse complete Neotoma evidence within exact owned operation lifetimes,
+  retaining current permission checks and independent publisher passes.
+- Retain ten unchanged country-reference capture members with separate current
+  qualification, reader documentation and explicit refused-attempt attribution.
+- Preserve all prior source-lock entries while adding the selected metadata;
+  no new provider request, country assignment or scientific admission is claimed.
+
 ### [#473](https://github.com/bijux/bijux-pollenomics/pull/473) — Physical source correspondence and bounded transport
 
 - Bind LandClim quality labels to physical source cells and require inferred

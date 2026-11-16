@@ -1,0 +1,109 @@
+{
+  "capture_utc_end": "2026-11-15T05:16:57.501778+00:00",
+  "capture_utc_start": "2026-11-15T05:16:55.623460+00:00",
+  "countries": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "country-authority-Denmark-current-attempt-1.body",
+          "receipt_file": "country-authority-Denmark-current-attempt-1.receipt.json",
+          "receipt_sha256": "b5470d6fda687cb421e7d1b3640b797090ee5704b7508b9e8d74c7f04c0e3ec8",
+          "request_name": "country-authority-Denmark-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "country": "Denmark",
+      "metadata_role": "reference_metadata",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "dictionary_complete": false,
+        "geometry_interpreted": false,
+        "lower_units_included": false,
+        "schema_qualified": false
+      },
+      "terminal_status": "received_complete_unqualified_country_metadata"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "country-authority-Finland-current-attempt-1.body",
+          "receipt_file": "country-authority-Finland-current-attempt-1.receipt.json",
+          "receipt_sha256": "98f8bc528b8bbd841b980b9f2fbcc5a226d512351a8fd43075a36bdb1a1cb2b4",
+          "request_name": "country-authority-Finland-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "country": "Finland",
+      "metadata_role": "reference_metadata",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "dictionary_complete": false,
+        "geometry_interpreted": false,
+        "lower_units_included": false,
+        "schema_qualified": false
+      },
+      "terminal_status": "received_complete_unqualified_country_metadata"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "country-authority-Norway-current-attempt-1.body",
+          "receipt_file": "country-authority-Norway-current-attempt-1.receipt.json",
+          "receipt_sha256": "dd82fd11aaf016f2d0d4f8804431624d94932fa76ec869e4ab6402a80256e875",
+          "request_name": "country-authority-Norway-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "country": "Norway",
+      "metadata_role": "reference_metadata",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "dictionary_complete": false,
+        "geometry_interpreted": false,
+        "lower_units_included": false,
+        "schema_qualified": false
+      },
+      "terminal_status": "received_complete_unqualified_country_metadata"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "country-authority-Sweden-current-attempt-1.body",
+          "receipt_file": "country-authority-Sweden-current-attempt-1.receipt.json",
+          "receipt_sha256": "50f68002f9bf89a3414eaa534b70f153fc78889377a3d930cc58dd142f1483a7",
+          "request_name": "country-authority-Sweden-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "country": "Sweden",
+      "metadata_role": "reference_metadata",
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "dictionary_complete": false,
+        "geometry_interpreted": false,
+        "lower_units_included": false,
+        "schema_qualified": false
+      },
+      "terminal_status": "received_complete_unqualified_country_metadata"
+    }
+  ],
+  "metadata_scope": "current exact-name rank1 country records only; no territorial hierarchy, dictionary completeness, country assignment or numerical-resource admission",
+  "partitions": {
+    "received_complete_unqualified_country_metadata": 4
+  },
+  "plan_sha256": "d9f1b9e5bd58a53979f0ce1ba4aa20d25c6ac82f796c5585bcaa7af189e9bb9b",
+  "request_count": 4,
+  "response_bytes": 934,
+  "schema_version": "neotoma-country-authority-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed current country queries; no complete dictionary or transaction claim",
+  "status": "closed"
+}

@@ -365,20 +365,23 @@ def _materialize_validated_admission(
 ) -> SeadAcquisitionAdmission:
     admission = validated.admission
     run_id = _required_text(admission.get("run_id"), "admission run_id")
-    parent = _validated_output_parent(output_root)
-    final_root = parent / run_id
     _reject_output_overlap(
-        final_root,
+        Path(output_root) / run_id,
         source_root=validated.source_root,
         decisions_path=validated.decisions_path,
     )
+    parent = _validated_output_parent(output_root)
+    final_root = parent / run_id
     expected_files = dict(validated.copied_files)
     expected_files["admission.json"] = _canonical_bytes(admission)
 
     if final_root.exists() or final_root.is_symlink():
         if final_root.is_symlink() or not final_root.is_dir():
             raise FileExistsError(f"Unsafe existing SEAD admission: {final_root}")
-        if _directory_bytes(final_root) == expected_files:
+        if (
+            _directory_bytes(final_root, expected_files=expected_files)
+            == expected_files
+        ):
             return SeadAcquisitionAdmission(
                 run_id=run_id,
                 output_root=final_root,
@@ -397,7 +400,7 @@ def _materialize_validated_admission(
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(content)
         _expect_equal(
-            _directory_bytes(staging_root),
+            _directory_bytes(staging_root, expected_files=expected_files),
             expected_files,
             "staged SEAD admission bytes",
         )
