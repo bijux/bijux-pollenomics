@@ -2,12 +2,22 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from contextlib import contextmanager
+import os
 from pathlib import Path
 import sqlite3
+import stat
 
-from .contracts import GEOMETRY_TYPES, SOURCE_COLUMNS, inspect_database_identity
+from bijux_pollenomics.core.filesystem import BoundedInputTree
+
+from .contracts import (
+    GEOMETRY_TYPES,
+    SOURCE_COLUMNS,
+    check_standalone_database,
+    inspect_database_identity,
+)
+from .custody import SourceConnection
 
 
 def _authorize(
@@ -49,30 +59,103 @@ def _authorize(
 def read_only_database(
     path: Path, *, expected_sha256: str, expected_byte_count: int
 ) -> Iterator[sqlite3.Connection]:
-    """Read admitted base tables only; close and verify original bytes on exit."""
-    identity = inspect_database_identity(
-        path, expected_sha256=expected_sha256, expected_byte_count=expected_byte_count
-    )
-    connection = sqlite3.connect(
-        identity.path.as_uri() + "?mode=ro&immutable=1", uri=True
-    )
-    try:
-        connection.row_factory = sqlite3.Row
-        # Builds without SQLite loadable-extension support omit this method.
-        # SQL extension loading is also refused by the authorizer below.
-        if hasattr(connection, "enable_load_extension"):
-            connection.enable_load_extension(False)
-        connection.execute("PRAGMA query_only=ON")
-        connection.execute("PRAGMA trusted_schema=OFF")
-        if tuple(connection.execute("PRAGMA query_only").fetchone()) != (1,) or tuple(
-            connection.execute("PRAGMA trusted_schema").fetchone()
-        ) != (0,):
-            raise ValueError("RAÄ SQLite read-only guards are unavailable")
-        connection.set_authorizer(_authorize)
-        yield connection
-    finally:
-        connection.close()
-        identity.verify_unchanged()
+    """Read admitted rows; refuse native scripts, transfers and detached handles."""
+    source = Path(path).absolute()
+    with BoundedInputTree(
+        source.parent, max_bytes=expected_byte_count, max_files=1, selected=source.name
+    ) as tree:
+
+        def check_source() -> None:
+            try:
+                tree.check()
+                check_standalone_database(source)
+            except (ValueError, OSError) as error:
+                try:
+                    current = os.stat(
+                        source.name, dir_fd=tree.anchor.fd, follow_symlinks=False
+                    )
+                except OSError:
+                    current = None
+                if (
+                    current is not None
+                    and stat.S_ISREG(current.st_mode)
+                    and current.st_size != expected_byte_count
+                ):
+                    raise ValueError(
+                        "RAÄ source database type or byte count mismatch"
+                    ) from error
+                raise ValueError("RAÄ source custody mismatch") from error
+
+        identity = inspect_database_identity(
+            source,
+            expected_sha256=expected_sha256,
+            expected_byte_count=expected_byte_count,
+        )
+        check_source()
+        tree.digests[source.name] = identity.sha256
+        descriptor = os.open(
+            source.name,
+            os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK,
+            dir_fd=tree.anchor.fd,
+        )
+        connection: SourceConnection | None = None
+        primary: BaseException | None = None
+        try:
+            opened = os.fstat(descriptor)
+            if (
+                opened.st_dev,
+                opened.st_ino,
+                opened.st_size,
+                opened.st_mtime_ns,
+                opened.st_ctime_ns,
+            ) != identity.stat_identity:
+                raise ValueError("RAÄ admitted source descriptor identity changed")
+            check_source()
+            connection = sqlite3.connect(
+                f"file:/dev/fd/{descriptor}?mode=ro&immutable=1",
+                uri=True,
+                factory=SourceConnection,
+                cached_statements=0,
+            )
+            connection.bind_source(check_source)
+            connection.row_factory = sqlite3.Row
+            if hasattr(connection, "enable_load_extension"):
+                connection.enable_load_extension(False)
+            connection.execute("PRAGMA query_only=ON")
+            connection.execute("PRAGMA trusted_schema=OFF")
+            if tuple(connection.execute("PRAGMA query_only").fetchone()) != (
+                1,
+            ) or tuple(connection.execute("PRAGMA trusted_schema").fetchone()) != (0,):
+                raise ValueError("RAÄ SQLite read-only guards are unavailable")
+            connection._seal_authorizer(_authorize)
+            yield connection
+        except BaseException as error:
+            primary = error
+            raise
+        finally:
+
+            def validate_source() -> None:
+                check_source()
+                tree.validate()
+
+            cleanup: BaseException | None = None
+            actions: tuple[Callable[[], None], ...] = (
+                lambda: connection.close() if connection is not None else None,
+                validate_source,
+                lambda: os.close(descriptor),
+            )
+            for action in actions:
+                try:
+                    action()
+                except BaseException as error:
+                    if cleanup is None:
+                        cleanup = error
+                    elif primary is not None:
+                        primary.add_note(f"RAÄ source cleanup failed: {error}")
+            if cleanup is not None:
+                if primary is None:
+                    raise cleanup
+                primary.add_note(f"RAÄ source cleanup failed: {cleanup}")
 
 
 def quote_identifier(value: str) -> str:
