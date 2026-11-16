@@ -36,6 +36,7 @@ class AsciiWindowSelection:
     native_labels: tuple[tuple[str, str], ...] = ()
 
     def __post_init__(self) -> None:
+        """Reject unsafe paths, empty rectangles and unsupported native labels."""
         relative_path(self.archive_path)
         integer(self.member_index, "member_index")
         text(self.expected_member_name, "expected_member_name")
@@ -66,6 +67,8 @@ class AsciiWindowSelection:
 
 @dataclass(frozen=True)
 class AsciiWindowLimits:
+    """Finite source streaming, archive expansion and retained-window budgets."""
+
     chunk_bytes: int = 1024 * 1024
     maximum_header_bytes: int = 8192
     maximum_token_bytes: int = 128
@@ -76,6 +79,7 @@ class AsciiWindowLimits:
     maximum_expansion_ratio: int = 1000
 
     def __post_init__(self) -> None:
+        """Reject zero, non-native and ceiling-increasing limits."""
         caps = {
             "chunk_bytes": 1024 * 1024,
             "maximum_header_bytes": 8192,
@@ -101,6 +105,7 @@ class NativeAsciiHeader:
     columns: int
 
     def value(self, name: str) -> str:
+        """Return the preserved token for a lowercase header keyword."""
         return next(
             value for keyword, value in self.tokens if keyword.casefold() == name
         )
@@ -118,3 +123,4 @@ class NativeAsciiWindow:
     header: NativeAsciiHeader
     source_tokens: tuple[str, ...]
     missing_mask: tuple[bool, ...]
+    archive_sha256: str | None = None
