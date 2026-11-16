@@ -10,6 +10,7 @@ from pathlib import Path
 import secrets
 from typing import Any
 
+from ....core.errors.cleanup import add_cleanup_note
 from ....core.filesystem import BoundedInputTree, DirectoryAnchor, OwnedTreeWriter
 from ....core.filesystem.namespaces import validate_regular_namespace
 from ....core.filesystem.recovery_storage import resolve_publication_workspace_parent
@@ -171,12 +172,15 @@ def _retention_note(error: BaseException, run: DirectoryAnchor) -> None:
     try:
         run.check()
     except (OSError, ValueError):
-        error.add_note(
-            f"AADR recovery originally allocated at {run.path}; expected directory "
-            f"identity {run.identity}; current location unverified"
+        add_cleanup_note(
+            error,
+            lambda: (
+                f"AADR recovery originally allocated at {run.path}; expected directory "
+                f"identity {run.identity}; current location unverified"
+            ),
         )
     else:
-        error.add_note(f"AADR recovery state retained at {run.path}")
+        add_cleanup_note(error, lambda: f"AADR recovery state retained at {run.path}")
 
 
 def publish_release(
@@ -279,8 +283,10 @@ def publish_release(
             try:
                 record("failed-operation", {"error_type": type(primary).__name__})
             except Exception as receipt_error:
-                primary.add_note(
-                    "AADR refusal receipt failed: " + type(receipt_error).__name__
-                )
+
+                def receipt_note(failure: Exception = receipt_error) -> str:
+                    return "AADR refusal receipt failed: " + type(failure).__name__
+
+                add_cleanup_note(primary, receipt_note)
             _retention_note(primary, run)
             raise

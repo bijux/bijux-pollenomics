@@ -9,6 +9,7 @@ from pathlib import Path
 import time
 from typing import Any
 
+from bijux_pollenomics.core.errors.cleanup import add_cleanup_note
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.core.owned_tree import build_staging_output_dir
 
@@ -268,8 +269,12 @@ def capture_neotoma_taxon_ancestry_frontier(
                         writer,
                     )
                 except Exception as receipt_error:
-                    error.add_note(
-                        "Frontier refusal receipt failed: "
-                        f"{type(receipt_error).__name__}: {receipt_error}"
-                    )
+
+                    def receipt_note(failure: Exception = receipt_error) -> str:
+                        return (
+                            "Frontier refusal receipt failed: "
+                            f"{type(failure).__name__}: {failure}"
+                        )
+
+                    add_cleanup_note(error, receipt_note)
                 raise
