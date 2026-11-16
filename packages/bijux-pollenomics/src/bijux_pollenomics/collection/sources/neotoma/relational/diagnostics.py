@@ -19,6 +19,7 @@ def register_record(
     conflict_kind: str,
     occurrence_counts: Counter[str] | None = None,
 ) -> None:
+    """Register a native record while conserving canonical conflict variants."""
     if occurrence_counts is not None:
         occurrence_counts[id_field] += 1
     record_id = str(record[id_field])
@@ -28,7 +29,7 @@ def register_record(
         return
     if existing == record:
         return
-    variants = _merge_conflict_variants(
+    variants = merge_conflict_variants(
         conflicts,
         conflict_kind=conflict_kind,
         subject_id=record_id,
@@ -37,13 +38,14 @@ def register_record(
     table[record_id] = variants[0]
 
 
-def _merge_conflict_variants(
+def merge_conflict_variants(
     conflicts: list[dict[str, object]],
     *,
     conflict_kind: str,
     subject_id: str,
     records: tuple[dict[str, object], dict[str, object]],
 ) -> list[dict[str, object]]:
+    """Retain native variants with one canonical serialization representative."""
     conflict_index: int | None = None
     variants = list(records)
     for index, conflict in enumerate(conflicts):
@@ -94,6 +96,7 @@ def _canonical_record_key(record: Mapping[str, object]) -> str:
 def conflict_record(
     conflict_kind: str, subject_id: str, detail: Mapping[str, object]
 ) -> dict[str, object]:
+    """Bind a diagnostic identity to its exact native detail."""
     body = {
         "conflict_kind": conflict_kind,
         "subject_id": subject_id,
@@ -108,6 +111,7 @@ def add_conflict(
     subject_id: str,
     detail: Mapping[str, object],
 ) -> None:
+    """Retain one copy of an identical conflict diagnostic."""
     conflict = conflict_record(conflict_kind, subject_id, detail)
     if any(
         existing.get("conflict_id") == conflict["conflict_id"] for existing in conflicts
@@ -126,6 +130,7 @@ def add_orphan(
     excluded_source_row_counts: Mapping[str, int] | None = None,
     source_field_present: bool | None = None,
 ) -> None:
+    """Retain each refused native occurrence with an explicit stable identity."""
     body: dict[str, object] = {
         "entity_type": entity_type,
         "parent_id": parent_id,

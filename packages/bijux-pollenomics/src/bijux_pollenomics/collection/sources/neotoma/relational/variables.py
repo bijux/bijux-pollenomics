@@ -1,4 +1,9 @@
-"""Source-native Neotoma variable identities and unit families."""
+"""Source-native Neotoma variable identities and unit families.
+
+Conflicting identity variants share one diagnostic and a canonical JSON minimum
+lookup representative. This serialization choice does not resolve taxonomy;
+every observation retains its literal name, taxon ID, semantics and payload.
+"""
 
 from __future__ import annotations
 
@@ -6,7 +11,7 @@ from collections.abc import Mapping
 import copy
 
 from .....core.text import clean_optional_text
-from .diagnostics import conflict_record
+from .diagnostics import merge_conflict_variants
 from .identifiers import digest, optional_source_id
 
 
@@ -41,6 +46,11 @@ def register_variable(
     build_id: str,
     conflicts: list[dict[str, object]],
 ) -> None:
+    """Register identity variants without changing native observation semantics."""
+    identity = {
+        "source_taxon_id": copy.deepcopy(datum.get("taxonid")),
+        "source_reported_name": copy.deepcopy(datum.get("variablename")),
+    }
     semantics = {
         "source_taxon_group": copy.deepcopy(datum.get("taxongroup")),
         "source_ecological_group": copy.deepcopy(datum.get("ecologicalgroup")),
@@ -52,29 +62,24 @@ def register_variable(
     if record is None:
         variables[variable_id] = {
             "variable_id": variable_id,
-            "source_taxon_id": copy.deepcopy(datum.get("taxonid")),
-            "source_reported_name": copy.deepcopy(datum.get("variablename")),
+            **identity,
             "source_semantics_by_digest": {digest(semantics): semantics},
             "source_units": {unit} if unit else set(),
             "source_snapshot_id": source_snapshot_id,
             "build_id": build_id,
         }
         return
-    if record.get("source_taxon_id") != datum.get("taxonid") or record.get(
-        "source_reported_name"
-    ) != datum.get("variablename"):
-        conflicts.append(
-            conflict_record(
-                "variable_identity_conflict",
-                variable_id,
-                {
-                    "existing_taxon_id": record.get("source_taxon_id"),
-                    "incoming_taxon_id": datum.get("taxonid"),
-                    "existing_name": record.get("source_reported_name"),
-                    "incoming_name": datum.get("variablename"),
-                },
-            )
+    existing_identity = {field: record.get(field) for field in identity}
+    if digest(existing_identity) != digest(identity):
+        variants = merge_conflict_variants(
+            conflicts,
+            conflict_kind="variable_identity_conflict",
+            subject_id=variable_id,
+            records=(existing_identity, identity),
         )
+        # This is a serialization representative, never a synonymy decision.
+        # Observation rows retain their own literal identity and source payload.
+        record.update(variants[0])
     semantics_by_digest = record["source_semantics_by_digest"]
     if isinstance(semantics_by_digest, dict):
         semantics_by_digest.setdefault(digest(semantics), semantics)
@@ -84,6 +89,7 @@ def register_variable(
 
 
 def finalize_variables(variables: list[dict[str, object]]) -> None:
+    """Serialize accumulated native semantics and exact unit labels."""
     for variable in variables:
         semantics = variable.pop("source_semantics_by_digest", {})
         if isinstance(semantics, dict):
@@ -94,6 +100,7 @@ def finalize_variables(variables: list[dict[str, object]]) -> None:
 
 
 def variable_id(datum: Mapping[str, object]) -> str:
+    """Use the native taxon key or an explicit unidentified-name key."""
     taxon_id = optional_source_id(datum.get("taxonid"))
     name = clean_optional_text(datum.get("variablename"))
     if taxon_id is not None:
@@ -102,6 +109,7 @@ def variable_id(datum: Mapping[str, object]) -> str:
 
 
 def unit_family(unit: str) -> str:
+    """Classify a literal unit label without converting its values."""
     return {
         "NISP": "count",
         "NISP digitized": "count",

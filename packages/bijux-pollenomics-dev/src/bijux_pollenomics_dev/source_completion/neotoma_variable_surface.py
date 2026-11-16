@@ -114,10 +114,14 @@ def reconcile(
         if conflict.get("conflict_kind") == "variable_identity_conflict"
     ]
     ledger_by_subject: dict[str, set[str]] = {}
+    canonical_by_subject: dict[str, list[Mapping[str, object]]] = {}
     for conflict in ledger:
         detail = _child(conflict.get("detail"), "variable conflict detail")
         subject = conflict.get("subject_id")
         if isinstance(subject, str):
+            if detail.get("resolution") == "canonical_minimum":
+                canonical_by_subject.setdefault(subject, []).append(detail)
+                continue
             ledger_by_subject.setdefault(subject, set()).add(
                 digest(
                     {
@@ -141,10 +145,32 @@ def reconcile(
         actual = relational.get(key)
         if actual is None:
             continue
+        canonical_details = canonical_by_subject.get(key, [])
+        expected_variants = sorted(
+            [
+                {
+                    "source_taxon_id": identity["taxon_id"],
+                    "source_reported_name": identity["name"],
+                }
+                for identity in expected["identities"].values()
+            ],
+            key=lambda variant: json.dumps(
+                variant,
+                ensure_ascii=False,
+                allow_nan=False,
+                separators=(",", ":"),
+                sort_keys=True,
+            ),
+        )
+        representative = expected_variants[0] if canonical_details else expected
         reasons: list[str] = []
-        if actual.get("source_taxon_id") != expected["source_taxon_id"]:
+        if digest(actual.get("source_taxon_id")) != digest(
+            representative["source_taxon_id"]
+        ):
             reasons.append("source_taxon_id")
-        if actual.get("source_reported_name") != expected["source_reported_name"]:
+        if digest(actual.get("source_reported_name")) != digest(
+            representative["source_reported_name"]
+        ):
             reasons.append("source_reported_name")
         actual_semantics = actual.get("source_semantics")
         if (
@@ -157,6 +183,30 @@ def reconcile(
             reasons.append("source_units")
         if reasons:
             mismatches.append({"variable_id": key, "fields": reasons})
+        if canonical_details:
+            variants = _rows(
+                canonical_details[0].get("variants"), "variable conflict variants"
+            )
+            recorded = {digest(variant) for variant in variants}
+            for variant in expected_variants:
+                if digest(variant) not in recorded:
+                    missing_conflict_rows.append(
+                        {
+                            "variable_id": key,
+                            "incoming_identity": {
+                                "taxon_id": variant["source_taxon_id"],
+                                "name": variant["source_reported_name"],
+                            },
+                        }
+                    )
+            if (
+                len(canonical_details) != 1
+                or len(expected_variants) < 2
+                or digest(variants) != digest(expected_variants)
+                or ledger_by_subject.get(key)
+            ):
+                unexpected_conflict_rows.append(key)
+            continue
         expected_signatures: set[str] = set()
         for identity in expected["identities"].values():
             if (
@@ -191,7 +241,9 @@ def reconcile(
     unidentified_ids = sorted(
         key for key, record in native.items() if record["source_taxon_id"] is None
     )
-    orphan_ledger_ids = sorted(set(ledger_by_subject) - native_ids)
+    orphan_ledger_ids = sorted(
+        (set(ledger_by_subject) | set(canonical_by_subject)) - native_ids
+    )
     missing_ids = sorted(native_ids - relational_ids)
     unexpected_ids = sorted(relational_ids - native_ids)
     return {
