@@ -212,29 +212,16 @@ def load_neotoma_linked_evidence(
     legacy_rosters: Mapping[str, Path] | None = None,
 ) -> dict[str, Any]:
     """Guard all original bytes and namespaces, without repeating semantic discovery."""
-    root = _safe_root(directory)
-    index = _index(root, expected_manifest_sha256)
-    if index["authority"]["roster_sha256"] != expected_roster_sha256:
-        raise ValueError("Linked evidence frozen roster identity differs")
-    inputs: dict[str, Any] = {
-        "expected_roster_sha256": expected_roster_sha256,
-        "scope": scope,
-        "source_facets": source_facets,
-        "legacy_rosters": legacy_rosters,
-    }
-    if not _same_json(
-        source_pins(source_bindings(**inputs)), index["source_input_pins"]
-    ):
-        raise ValueError("Linked evidence source pins or namespace differ")
-    _namespace(root, index)
-    for descriptor in index["parts"]:
-        _part(root, descriptor)
-    _namespace(root, index)
-    if not _same_json(
-        source_pins(source_bindings(**inputs)), index["source_input_pins"]
-    ):
-        raise ValueError("Linked evidence source pins changed during readback")
-    return index
+    from .evidence_parts.validation import _load_linked_evidence
+
+    return _load_linked_evidence(
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        expected_roster_sha256=expected_roster_sha256,
+        scope=scope,
+        source_facets=source_facets,
+        legacy_rosters=legacy_rosters,
+    )
 
 
 def _proof_owner(

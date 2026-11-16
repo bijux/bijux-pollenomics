@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from hashlib import sha256
 from pathlib import Path
 from typing import Any
@@ -37,6 +37,7 @@ from .models import (
 )
 from .protocol import (
     _prepare_scoped_targets,
+    _prepare_targets,
     plan_from_json,
     prepare_scoped_targets,
     prepare_targets,
@@ -128,9 +129,20 @@ def _targets_for_control(
     legacy_rosters: Mapping[str, Path] | None,
     _session: Any = None,
     _operation: object | None = None,
+    _before_body_read: Callable[[], None] | None = None,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     if manifest["schema_version"] == LINKED_SCHEMA:
-        return prepare_targets(plan, source_facets, limits, scope_inputs=scope_inputs)
+        if _before_body_read is None:
+            return prepare_targets(
+                plan, source_facets, limits, scope_inputs=scope_inputs
+            )
+        return _prepare_targets(
+            plan,
+            source_facets,
+            limits,
+            scope_inputs=scope_inputs,
+            _before_body_read=_before_body_read,
+        )
     if not isinstance(evidence, NeotomaLinkedEvidence):
         raise ValueError(
             "Scoped linked replay requires an externally anchored evidence resolver"
@@ -145,10 +157,16 @@ def _targets_for_control(
         raise ValueError(
             "Scoped linked evidence reference differs from external anchor"
         )
-    prepare = prepare_scoped_targets if _session is None else _prepare_scoped_targets
+    prepare = (
+        prepare_scoped_targets
+        if _session is None and _before_body_read is None
+        else _prepare_scoped_targets
+    )
     session_options = (
         {} if _session is None else {"_session": _session, "_operation": _operation}
     )
+    if _before_body_read is not None:
+        session_options["_before_body_read"] = _before_body_read
     targets, policies, _ = prepare(
         plan,
         source_facets,
@@ -194,6 +212,7 @@ def _replay_linked_resources(
     legacy_rosters: Mapping[str, Path] | None = None,
     _session: Any = None,
     _operation: object | None = None,
+    _before_body_read: Callable[[], None] | None = None,
 ) -> NeotomaLinkedResourceCapture:
     """Original facet identities and every occurrence are recomputed, never trusted."""
     from .evidence_parts.session import _check_session
@@ -222,12 +241,21 @@ def _replay_linked_resources(
         legacy_rosters=legacy_rosters,
         _session=_session,
         _operation=_operation,
+        _before_body_read=_before_body_read,
     )
     if manifest["schema_version"] == SCOPED_LINKED_SCHEMA:
         assert evidence is not None
         validate_scoped_limits(evidence, recorded)
-    else:
+    elif _before_body_read is None:
         prepare_targets(plan, source_facets, recorded, scope_inputs=scope_inputs)
+    else:
+        _prepare_targets(
+            plan,
+            source_facets,
+            recorded,
+            scope_inputs=scope_inputs,
+            _before_body_read=_before_body_read,
+        )
     if not _same_json(control["targets"], targets) or not _same_json(
         control["policy_sources"], policies
     ):
@@ -323,6 +351,8 @@ def _replay_linked_resources(
                 bound = min(maximum_body, maximum_total - total)
                 if _session is not None:
                     _check_session(_session, **session_inputs)
+                if _before_body_read is not None:
+                    _before_body_read()
                 body = _read(root / name, bound + 1)
                 assessed = assess_http(record, request, body, bound)
                 total += len(body)
