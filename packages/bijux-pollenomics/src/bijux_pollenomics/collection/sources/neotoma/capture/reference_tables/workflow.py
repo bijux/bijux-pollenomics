@@ -13,9 +13,9 @@ from typing import Any
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
+from ...publication.ownership import publish_owned_source_tree
 from ..receipts import (
     _retain_http_response,
     _retain_transport_failure,
@@ -121,7 +121,7 @@ def capture_neotoma_reference_tables(
                 entry["attempts"].append(reference)
                 entry.update(assessed)
                 rows.append(entry)
-            _write_json(
+            manifest_digest = _write_json(
                 staging / "capture-manifest.json",
                 {
                     "schema_version": REFERENCE_SCHEMA,
@@ -139,13 +139,13 @@ def capture_neotoma_reference_tables(
                 },
                 writer=writer,
             )
-            verified = replay_neotoma_reference_tables(staging, limits=limits)
-            writer.validate_attachment()
-            publish_new_output_tree(
-                final_output_root=final, staging_output_root=staging
-            )
-            return replay_neotoma_reference_tables(
-                final, expected_manifest_sha256=verified.manifest_sha256, limits=limits
+            return publish_owned_source_tree(
+                writer,
+                staging=staging,
+                final=final,
+                validate=lambda location: replay_neotoma_reference_tables(
+                    location, expected_manifest_sha256=manifest_digest, limits=limits
+                ),
             )
         except Exception as error:
             if staging.exists():

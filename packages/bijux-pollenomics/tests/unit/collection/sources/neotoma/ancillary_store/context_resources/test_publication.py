@@ -5,6 +5,7 @@ from typing import Any
 
 import pytest
 
+from bijux_pollenomics.collection.sources.neotoma.publication import ownership
 from bijux_pollenomics.core.owned_tree import publish_new_output_tree
 
 from .native_products import pin
@@ -43,7 +44,6 @@ def test_late_stage_change_cannot_return_publication_success(
     site_context_products: Any, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     from bijux_pollenomics.collection.sources.neotoma.ancillary_store.context_resources import (
-        publication,
         write_neotoma_context_resource_archive,
     )
 
@@ -59,7 +59,7 @@ def test_late_stage_change_cannot_return_publication_success(
         target.write_bytes(b'{"foreign_stage":true}')
         actual(**kwargs)
 
-    monkeypatch.setattr(publication, "publish_new_output_tree", changed)
+    monkeypatch.setattr(ownership, "publish_new_output_tree", changed)
     with pytest.raises(ValueError):
         write_neotoma_context_resource_archive(output, **inputs["writer"])
     assert (

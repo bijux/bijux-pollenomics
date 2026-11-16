@@ -10,12 +10,12 @@ from typing import Any
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
 from ...capture.receipts import _read, _safe_root
 from ...capture.resources.models import DEFAULT_RESOURCE_LIMITS, NeotomaResourceLimits
 from ...capture.unit_resources.replay import replay_neotoma_unit_resources
+from ...publication.ownership import publish_owned_source_tree
 from ...resource_catalogue.archive.files import encoded_json
 from .metadata import (
     _SCOPE,
@@ -175,15 +175,27 @@ def write_neotoma_unit_metadata_archive(
             )
             writer.write_bytes(name, body)
         writer.write_bytes("manifest.json", content)
-    load_neotoma_unit_metadata_archive(staging, **options)
-    if {path.name for path in capture.iterdir()} != {
-        name.removeprefix("capture/") for name in source.files
-    }:
-        raise ValueError("Original unit capture namespace changed during publication")
-    for name, member in source.files.items():
-        pinned(capture / name.removeprefix("capture/"), member, 32 * 1024 * 1024 + 1)
-    if _read(original, MAX_METADATA) != raw:
-        raise ValueError("Original unit roster changed during publication")
-    publish_new_output_tree(final_output_root=final, staging_output_root=staging)
-    load_neotoma_unit_metadata_archive(final, **options)
+
+        def validate(location: Path) -> dict[str, Any]:
+            result = load_neotoma_unit_metadata_archive(location, **options)
+            if location == staging:
+                if {path.name for path in capture.iterdir()} != {
+                    name.removeprefix("capture/") for name in source.files
+                }:
+                    raise ValueError(
+                        "Original unit capture namespace changed during publication"
+                    )
+                for name, member in source.files.items():
+                    pinned(
+                        capture / name.removeprefix("capture/"),
+                        member,
+                        32 * 1024 * 1024 + 1,
+                    )
+                if _read(original, MAX_METADATA) != raw:
+                    raise ValueError("Original unit roster changed during publication")
+            return result
+
+        publish_owned_source_tree(
+            writer, staging=staging, final=final, validate=validate
+        )
     return manifest

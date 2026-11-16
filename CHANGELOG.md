@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#455](https://github.com/bijux/bijux-pollenomics/pull/455) — Source publication ownership and later linked associations
+
+- Retain later literal source associations with independent evidence anchors
+  without rewriting earlier global response identities or source epochs.
+- Guard exact selected association witnesses and all original/current root duties
+  before returning the authenticated native detail buffer.
+- Keep owned writers anchored through staged validation, publication and final
+  readback across capture and archive families; preserve substituted/failed trees.
+
 ### [#454](https://github.com/bijux/bijux-pollenomics/pull/454) — Native context filters and supporting Atlas archives
 
 - Require explicit authenticated native dataset filters for new environment

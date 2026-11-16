@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from importlib import import_module
 from pathlib import Path
+import shutil
 from typing import Any
 
 import pytest
@@ -87,7 +88,9 @@ def test_ancillary_success_requires_actual_published_readback(
 ) -> None:
     capture, kwargs, workflow = arguments(family, tmp_path)
     output = tmp_path / "capture"
-    publish = workflow.publish_new_output_tree
+    from bijux_pollenomics.collection.sources.neotoma.publication import ownership
+
+    publish = vars(ownership)["publish_new_output_tree"]
 
     def corrupt_after_publish(**publication: Any) -> None:
         publish(**publication)
@@ -98,7 +101,7 @@ def test_ancillary_success_requires_actual_published_readback(
         )
         target.write_bytes(target.read_bytes() + b"\n")
 
-    monkeypatch.setattr(workflow, "publish_new_output_tree", corrupt_after_publish)
+    monkeypatch.setattr(ownership, "publish_new_output_tree", corrupt_after_publish)
     with pytest.raises(ValueError, match="identity|byte limit|digest"):
         capture(
             output,
@@ -166,3 +169,33 @@ def test_every_ancillary_write_uses_one_explicit_owned_writer(
         assert "parent-scope.json" in members
     if terminal == "refusal":
         assert "refusal.json" in members
+
+
+@pytest.mark.parametrize("family", ["facets", "linked_resources"])
+def test_equal_byte_published_capture_replacement_is_refused(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, family: str
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.publication import ownership
+
+    capture, kwargs, _ = arguments(family, tmp_path)
+    output, saved = tmp_path / "capture", tmp_path / "owned-capture"
+    if family == "native":
+        from ..resources.native_payloads import body
+
+        raw = body(kwargs["plan"].resources[0])
+    else:
+        raw = b'{"status":"success","data":[]}'
+    publish = vars(ownership)["publish_new_output_tree"]
+
+    def swapped(**publication: Any) -> None:
+        publish(**publication)
+        output.rename(saved)
+        shutil.copytree(saved, output)
+
+    monkeypatch.setattr(ownership, "publish_new_output_tree", swapped)
+    with pytest.raises(ValueError, match="identity|inode"):
+        capture(output, fetch=lambda url, **_: response(url, raw), **kwargs)
+    assert (saved / "capture-manifest.json").read_bytes() == (
+        output / "capture-manifest.json"
+    ).read_bytes()
+    assert saved.stat().st_ino != output.stat().st_ino

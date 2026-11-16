@@ -14,10 +14,10 @@ from bijux_pollenomics.core.filesystem import (
 )
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
 from ...client import positive_native_id
+from ...publication.ownership import publish_owned_source_tree
 from ..facets.links import discover_neotoma_facet_links
 from ..facets.models import NeotomaFacetScopeInputs
 from ..receipts import _object, _read, _safe_root, _write_json
@@ -500,15 +500,13 @@ def publish_neotoma_linked_evidence(
                 raise ValueError("Linked evidence manifest exceeds finite byte budget")
             writer.write_bytes("evidence-manifest.json", raw)
             manifest_sha = sha256(raw).hexdigest()
-            load_neotoma_linked_evidence(
-                staging, expected_manifest_sha256=manifest_sha, **inputs
-            )
-            writer.validate_attachment()
-            publish_new_output_tree(
-                final_output_root=final, staging_output_root=staging
-            )
-            load_neotoma_linked_evidence(
-                final, expected_manifest_sha256=manifest_sha, **inputs
+            publish_owned_source_tree(
+                writer,
+                staging=staging,
+                final=final,
+                validate=lambda location: load_neotoma_linked_evidence(
+                    location, expected_manifest_sha256=manifest_sha, **inputs
+                ),
             )
             return NeotomaLinkedEvidence(final, manifest_sha)
         except Exception as error:

@@ -15,9 +15,9 @@ from typing import Any
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
+from ...publication.ownership import publish_owned_source_tree
 from ..receipts import (
     _retain_http_response,
     _retain_transport_failure,
@@ -159,7 +159,7 @@ def capture_neotoma_context_resources(
                         entry["attempts"].append(reference)
                         entry.update(assessed)
                     rows.append(entry)
-            _write_json(
+            manifest_digest = _write_json(
                 staging / "capture-manifest.json",
                 {
                     "schema_version": CONTEXT_SCHEMA,
@@ -177,26 +177,19 @@ def capture_neotoma_context_resources(
                 },
                 writer=writer,
             )
-            verified = replay_neotoma_context_resources(
-                staging,
-                expected_context_sha256=plan.context_manifest_sha256,
-                expected_native_archive_sha256=plan.native_archive_manifest_sha256,
-                context_directory=context_directory,
-                native_archive_directory=native_archive_directory,
-                limits=limits,
-            )
-            writer.validate_attachment()
-            publish_new_output_tree(
-                final_output_root=final, staging_output_root=staging
-            )
-            return replay_neotoma_context_resources(
-                final,
-                expected_manifest_sha256=verified.manifest_sha256,
-                expected_context_sha256=plan.context_manifest_sha256,
-                expected_native_archive_sha256=plan.native_archive_manifest_sha256,
-                context_directory=context_directory,
-                native_archive_directory=native_archive_directory,
-                limits=limits,
+            return publish_owned_source_tree(
+                writer,
+                staging=staging,
+                final=final,
+                validate=lambda location: replay_neotoma_context_resources(
+                    location,
+                    expected_manifest_sha256=manifest_digest,
+                    expected_context_sha256=plan.context_manifest_sha256,
+                    expected_native_archive_sha256=plan.native_archive_manifest_sha256,
+                    context_directory=context_directory,
+                    native_archive_directory=native_archive_directory,
+                    limits=limits,
+                ),
             )
         except Exception as error:
             if staging.exists():

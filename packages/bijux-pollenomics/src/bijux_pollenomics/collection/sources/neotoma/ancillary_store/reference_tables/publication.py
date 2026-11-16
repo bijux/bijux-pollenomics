@@ -9,12 +9,12 @@ from typing import Any
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
 from ...capture.receipts import _read, _safe_root
 from ...capture.reference_tables import replay_neotoma_reference_tables
 from ...capture.reference_tables.models import METADATA_SCOPE
+from ...publication.ownership import publish_owned_source_tree
 from ...resource_catalogue.archive.files import _digest, encoded_json
 from .metadata import (
     MAX_BYTES,
@@ -85,13 +85,25 @@ def write_neotoma_reference_archive(
         for name, body in buffers.items():
             writer.write_bytes(name, body)
         writer.write_bytes("manifest.json", raw)
-    load_neotoma_reference_archive(staging, expected_manifest_sha256=digest)
-    for path in source.iterdir():
-        name = "capture/" + path.name
-        if name not in buffers or _read(path, MAX_BYTES) != buffers[name]:
-            raise ValueError("Reference source changed during publication")
-    if {"capture/" + p.name for p in source.iterdir()} != set(buffers) - {"index.json"}:
-        raise ValueError("Reference source namespace changed during publication")
-    publish_new_output_tree(final_output_root=final, staging_output_root=staging)
-    load_neotoma_reference_archive(final, expected_manifest_sha256=digest)
+
+        def validate(location: Path) -> dict[str, Any]:
+            result = load_neotoma_reference_archive(
+                location, expected_manifest_sha256=digest
+            )
+            if location == staging:
+                for path in source.iterdir():
+                    name = "capture/" + path.name
+                    if name not in buffers or _read(path, MAX_BYTES) != buffers[name]:
+                        raise ValueError("Reference source changed during publication")
+                if {"capture/" + p.name for p in source.iterdir()} != set(buffers) - {
+                    "index.json"
+                }:
+                    raise ValueError(
+                        "Reference source namespace changed during publication"
+                    )
+            return result
+
+        publish_owned_source_tree(
+            writer, staging=staging, final=final, validate=validate
+        )
     return manifest

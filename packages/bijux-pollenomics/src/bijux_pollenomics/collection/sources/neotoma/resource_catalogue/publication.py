@@ -15,13 +15,13 @@ from bijux_pollenomics.core.filesystem import (
 )
 from bijux_pollenomics.core.owned_tree import (
     build_staging_output_dir,
-    publish_new_output_tree,
 )
 
 from ..capture import replay_neotoma_metadata_capture
 from ..capture.country_authority import replay_neotoma_country_authority
 from ..capture.receipts import _object, _read, _safe_root, _write_json
 from ..capture.resources import NeotomaRetainedSource, replay_neotoma_resource_capture
+from ..publication.ownership import publish_owned_source_tree
 from .coverage import verify_catalogue_source_projection
 from .custody import (
     METADATA_REPLAY_LIMITS,
@@ -181,23 +181,19 @@ def write_neotoma_resource_catalogue(
         manifest_digest = _write_json(
             staging / "manifest.json", manifest, writer=writer
         )
-    load_neotoma_resource_catalogue(
-        staging,
-        expected_manifest_sha256=manifest_digest,
-        original_relational_root=original_relational_root,
-        capture_sources=capture_sources,
-        retained_sources=retained_sources,
-        require_source_bodies=True,
-    )
-    publish_new_output_tree(final_output_root=final, staging_output_root=staging)
-    load_neotoma_resource_catalogue(
-        final,
-        expected_manifest_sha256=manifest_digest,
-        original_relational_root=original_relational_root,
-        capture_sources=capture_sources,
-        retained_sources=retained_sources,
-        require_source_bodies=True,
-    )
+        publish_owned_source_tree(
+            writer,
+            staging=staging,
+            final=final,
+            validate=lambda location: load_neotoma_resource_catalogue(
+                location,
+                expected_manifest_sha256=manifest_digest,
+                original_relational_root=original_relational_root,
+                capture_sources=capture_sources,
+                retained_sources=retained_sources,
+                require_source_bodies=True,
+            ),
+        )
     return manifest
 
 
