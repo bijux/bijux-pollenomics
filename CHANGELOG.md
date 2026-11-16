@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#483](https://github.com/bijux/bijux-pollenomics/pull/483) — Canonical native variable conflicts
+
+- Reuse canonical identity variants for deterministic variable lookup labels and
+  unique conflict diagnostics while retaining every native observation.
+- Preserve accumulated source units, measurement semantics and payloads without
+  treating the lookup representative as a taxonomic synonym decision.
+- Reconcile exact canonical ledgers alongside historical first-arrival formats,
+  with permutation, repeated-conflict and materialization coverage.
+
 ### [#482](https://github.com/bijux/bijux-pollenomics/pull/482) — Compatible paired regional extents
 
 - Refuse nondefault paired cutoffs for fixed-extent LOVE modes before numerical
