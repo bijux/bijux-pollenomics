@@ -5,8 +5,12 @@ pairing coordinate** and remaining columns are unique pollen taxon names. It is
 not a string sample ID and does not by itself imply BP, CE, depth or chronology.
 The host retains raw sample/source identities and admits a governed coordinate
 axis before calling this engine. Counts are finite, nonnegative and have positive
-row totals. Percentages, concentration and influx are not accepted as count units
-by the host admission profile.
+row totals. Numerical measurement arrays and physical configuration scalars must
+be real-valued. Native complex dtypes and object-held complex scalars, including
+nested zero-dimensional object arrays, are refused before float conversion.
+This includes values with a zero imaginary component; an imaginary component is
+never silently discarded. Percentages, concentration and influx are not accepted
+as count units by the host admission profile.
 
 Local and regional LOVE require one row each with identical taxon names/order.
 Series require unique finite numeric coordinates and exact counterpart matching;
