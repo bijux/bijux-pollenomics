@@ -306,3 +306,104 @@ def test_each_fixed_binding_has_exactly_one_owner(
         subject._runtime_resources(
             request_args["static_assets"], 100, document, (200, 300)
         )
+
+
+@pytest.mark.parametrize(
+    ("binding", "accepted"),
+    [
+        ("none", True),
+        ("domain_only", False),
+        ("assets_only", False),
+        ("schema_only", False),
+        ("schema_domain", False),
+        ("schema_assets", False),
+        ("invalid_schema", False),
+        ("null_schema", False),
+    ],
+)
+def test_optional_resource_declaration_requires_exact_presence(
+    tmp_path: Path, binding: str, accepted: bool
+) -> None:
+    assets = write_static_atlas_assets(
+        tmp_path,
+        slug="nordic",
+        version="v66",
+        point_layers=build_point_layers(),
+        polygon_layers=build_polygon_layers(),
+    )
+    constants = template_block(
+        "const STATIC_ATLAS_ASSET_TABLE_FIELDS", "const STATIC_ATLAS_BOOTSTRAP"
+    )
+    helpers = template_block(
+        "const STATIC_ATLAS_SCHEMAS", "async function staticAtlasSha256"
+    ).replace("__VERSION_JSON__", '"v66"')
+    helpers += template_block(
+        "function evidenceToolsDescriptor", "function loadEvidenceTools"
+    )
+    helpers += template_block(
+        "function indexTransportDescriptor", "function validateStaticAtlasEdgeAssets"
+    )
+    observed = run_node_json(
+        constants
+        + "\nconst STATIC_ATLAS_BOOTSTRAP=normalizeStaticAtlasBootstrap("
+        + json.dumps(assets.manifest)
+        + ");\n"
+        + helpers
+        + "\nconst binding="
+        + json.dumps(binding)
+        + r""";
+const document={querySelectorAll(){return [{tagName:'SCRIPT',type:'application/json',textContent:'{}'}]}};
+if(['domain_only','schema_domain','invalid_schema'].includes(binding))STATIC_ATLAS_BOOTSTRAP.domains.resources={schema_version:'atlas-source-resources.v1'};
+if(['assets_only','schema_assets','invalid_schema'].includes(binding)){
+ const row={...STATIC_ATLAS_BOOTSTRAP.assets.find(row=>row.domain==='nodes'),domain:'resources',initial_load:false};
+ row.sequence=STATIC_ATLAS_BOOTSTRAP.assets.length;row.asset_key='resources:'+row.sequence;row.path='nordic.resource.'+row.sequence+'.js';STATIC_ATLAS_BOOTSTRAP.assets.push(row);
+}
+if(['schema_only','schema_domain','schema_assets','invalid_schema'].includes(binding))STATIC_ATLAS_BOOTSTRAP.compatibility.resource_schema='atlas-source-resource-chunk.v1';
+if(binding==='invalid_schema')STATIC_ATLAS_BOOTSTRAP.compatibility.resource_schema='unsupported';
+if(binding==='null_schema')STATIC_ATLAS_BOOTSTRAP.compatibility.resource_schema=null;
+let error=null;try{validateStaticAtlasBootstrap()}catch(value){error=value.message}
+console.log(JSON.stringify({accepted:error===null,error}));
+"""
+    )
+    assert observed["accepted"] is accepted
+    if not accepted:
+        assert "resources compatibility declaration" in observed["error"]
+
+
+def test_compressed_domain_policy_retains_legacy_json_and_exact_resource_rules() -> (
+    None
+):
+    rules = template_block(
+        "const payloadEncoding = row.payload_encoding || 'json';",
+        "const recordCount = staticAtlasNonnegativeInteger",
+    )
+    observed = run_node_json(
+        r"""
+const STATIC_ATLAS_BOOTSTRAP={compatibility:{},budgets:{chunk_max_bytes:4194304}};
+function staticAtlasFailure(message){throw Error(message)}
+function accepts(row){try{
+"""
+        + rules
+        + r"""
+return true}catch(error){return false}}
+const gzip=domain=>({domain,payload_encoding:'gzip_base64',decoded_byte_count:10,initial_load:false});
+console.log(JSON.stringify({
+ known:['provenance','nodes','details','resources'].map(domain=>accepts(gzip(domain))),
+ unsupported:accepts(gzip('unowned-domain')),edgeGzip:accepts(gzip('edges')),
+ legacy:['nodes','details','provenance','edges','sequences','indexes'].map(domain=>accepts({domain,payload_encoding:'json'})),
+ resourceJson:accepts({domain:'resources',payload_encoding:'json',initial_load:false}),
+ eagerResource:accepts({...gzip('resources'),initial_load:true}),
+ missingSize:accepts({domain:'nodes',payload_encoding:'gzip_base64'}),
+ oversized:accepts({...gzip('resources'),decoded_byte_count:4194305})}));
+"""
+    )
+    assert observed == {
+        "known": [True] * 4,
+        "unsupported": False,
+        "edgeGzip": False,
+        "legacy": [True] * 6,
+        "resourceJson": False,
+        "eagerResource": False,
+        "missingSize": False,
+        "oversized": False,
+    }

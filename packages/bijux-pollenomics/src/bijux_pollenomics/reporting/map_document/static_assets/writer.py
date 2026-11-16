@@ -47,6 +47,8 @@ from .serialization import (
     validate_decoded_payload_size,
     write_immutable,
 )
+from .source_facets.routing import SCHEMA as SOURCE_FACET_ROUTING_SCHEMA
+from .source_facets.routing import bind_source_facet_routes
 from .source_resources import build_source_resource_payloads
 from .validation import validate_static_atlas_assets
 
@@ -109,6 +111,7 @@ def write_static_atlas_assets(
     endpoint_nodes = {
         f"nodes:{index}": payload for index, payload in enumerate(node_payloads, 1)
     }
+    has_source_facet_routes = bind_source_facet_routes(layer_metadata, endpoint_nodes)
     endpoint_assets = edge_endpoint_assets(evidence.edge_records, endpoint_nodes)
     endpoint_geometry = edge_endpoint_geometry(evidence.edge_records, endpoint_nodes)
     detail_partitions = partition_features(
@@ -352,6 +355,11 @@ def write_static_atlas_assets(
             "file_pre_execution_sri": False,
         },
         "compatibility": {
+            **(
+                {"source_facet_routing_schema": SOURCE_FACET_ROUTING_SCHEMA}
+                if has_source_facet_routes
+                else {}
+            ),
             **(
                 {"resource_schema": "atlas-source-resource-chunk.v1"}
                 if resource_transport is not None

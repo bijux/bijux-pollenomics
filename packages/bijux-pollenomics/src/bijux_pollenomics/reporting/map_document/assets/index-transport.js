@@ -406,6 +406,68 @@ globalThis.BijuxPollenomicsIndexTransport = Object.freeze({
       const decoded = LOGICAL_SCHEMAS.includes(payload.schema_version) ? await staticAtlasMergeIndexShards(row, payload) : payload;
       return validateReferences(decoded, rows, false);
     }
-    return Object.freeze({searchGrams, validatePayload, mergeShards: staticAtlasMergeIndexShards, acceptPart, consume});
+    function sourceFacetAssets(layer, selection) {
+      if (layer.semantic_role !== 'source_chronology_context' || !['source_taxon', 'source_ecological_code'].includes(layer.node_level)) return null;
+      const schema = STATIC_ATLAS_BOOTSTRAP.compatibility?.source_facet_routing_schema, routing = layer.static_source_facets;
+      if (schema === undefined && routing === undefined) return null;
+      if (schema !== 'atlas-source-facet-routing.v1' || !routing || Object.keys(routing).sort().join('|') !== 'facets|node_level|schema_version'
+        || routing.schema_version !== schema || routing.node_level !== layer.node_level || !routing.facets || typeof routing.facets !== 'object' || Array.isArray(routing.facets)) staticAtlasFailure('source facet routing declaration differs');
+      const taxonKey = value => {
+        if (!(typeof value === 'number' || typeof value === 'string' && /^\d+$/.test(value)) || !Number.isSafeInteger(Number(value)) || Number(value) < 0) staticAtlasFailure('source facet taxon identity is invalid');
+        return String(Number(value));
+      };
+      const taxon = layer.node_level === 'source_taxon', declarations = layer.facet_metadata?.[taxon ? 'source_taxa' : 'source_ecological_codes'];
+      if (!Array.isArray(declarations)) staticAtlasFailure('source facet native declaration is absent');
+      const facets = new Map(), nodes = new Map(STATIC_ATLAS_BOOTSTRAP.assets.filter(row => row.domain === 'nodes').map(row => [row.asset_key, row]));
+      for (const facet of declarations) {
+        const key = taxon ? taxonKey(facet.source_taxon_id) : facet.value, route = routing.facets[key];
+        if (typeof key !== 'string' || !key.trim() || facets.has(key) || !Object.hasOwn(routing.facets, key) || !route
+          || Object.keys(route).sort().join('|') !== 'asset_keys|record_count' || !Array.isArray(route.asset_keys)
+          || staticAtlasNonnegativeInteger(route.record_count, 'source facet route count') !== facet.node_count
+          || Boolean(route.record_count) !== Boolean(route.asset_keys.length)) staticAtlasFailure('source facet routing membership is incomplete');
+        for (const [index, asset] of route.asset_keys.entries()) {
+          const row = nodes.get(asset);
+          if (typeof asset !== 'string' || !row || row.layer_key !== layer.key || row.layer_kind !== 'point' || index && route.asset_keys[index - 1] >= asset) staticAtlasFailure('source facet routing asset is foreign or repeated');
+        }
+        facets.set(key, {facet, assets: route.asset_keys});
+      }
+      if (Object.keys(routing.facets).length !== facets.size) staticAtlasFailure('source facet routing population differs');
+      let selected = null;
+      if (!taxon && selection.code !== 'all') selected = [selection.code];
+      if (taxon && selection.taxon !== 'all') {
+        const match = declarations.find(facet => facet.value === selection.taxon);
+        if (!match) staticAtlasFailure('selected source facet is undeclared');
+        selected = [taxonKey(match.source_taxon_id)];
+      } else if (taxon && selection.preset) selected = selection.preset.member_taxon_ids.map(taxonKey);
+      if (selected === null) return null;
+      const result = new Set();
+      for (const key of selected) {
+        if (!facets.has(key)) staticAtlasFailure('selected source facet routing is missing');
+        facets.get(key).assets.forEach(asset => result.add(asset));
+      }
+      return result;
+    }
+    function planNodeAssets({endpointKeys, nodeNeeded, viewportNeeded, layerForRow, isLoaded, indexes, overhead, sourceSelection}) {
+      const routes = new Map();
+      const required = STATIC_ATLAS_BOOTSTRAP.assets.filter(row => {
+        if (row.domain !== 'nodes' || isLoaded(row.asset_key) || !nodeNeeded(row)) return false;
+        const layer = layerForRow(row);
+        if (!routes.has(layer.key)) routes.set(layer.key, sourceFacetAssets(layer, layer.semantic_role === 'source_chronology_context' ? sourceSelection(layer) : null));
+        const selected = routes.get(layer.key);
+        return endpointKeys.has(row.asset_key) || ((selected === null || selected.has(row.asset_key)) && viewportNeeded(row));
+      });
+      if (Object.hasOwn(STATIC_ATLAS_BOOTSTRAP.compatibility || {}, 'search_index_abi')) {
+        if (STATIC_ATLAS_BOOTSTRAP.compatibility.search_index_abi !== 'atlas-substring-postings.v1') staticAtlasFailure('unsupported search ABI');
+        const rows = indexes();
+        if (!rows.length) staticAtlasFailure('published search index is missing');
+        required.push(...rows.filter(row => !isLoaded(row.asset_key)));
+      }
+      const requests = required.length + overhead.request_count;
+      if (requests > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_requests, 'interaction request budget')) staticAtlasFailure(`selection requires ${requests} requests, above the interaction budget`);
+      const bytes = overhead.byte_count + required.reduce((total, row) => total + staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`), 0);
+      if (bytes > staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget')) staticAtlasFailure(`selection requires ${bytes} bytes, above the interaction budget`);
+      return required;
+    }
+    return Object.freeze({searchGrams, validatePayload, mergeShards: staticAtlasMergeIndexShards, acceptPart, consume, planNodeAssets});
   }
 });

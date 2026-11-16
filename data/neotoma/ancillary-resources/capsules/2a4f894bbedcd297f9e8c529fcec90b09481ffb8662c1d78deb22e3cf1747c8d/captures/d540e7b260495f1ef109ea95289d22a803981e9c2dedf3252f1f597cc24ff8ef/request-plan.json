@@ -1,0 +1,114 @@
+{
+  "historical_snapshot_replaced": false,
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 48,
+    "max_response_bytes": 8388607,
+    "max_total_bytes": 67108863,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 300
+  },
+  "parent_scope": {
+    "file": "parent-scope.json",
+    "sha256": "2bb16618b898500ed9c6e63b903a475e7025c61a0d6ae23a43c0a0e5b6b46ec3"
+  },
+  "plan": {
+    "facets": [
+      "chronologies",
+      "lithology",
+      "projects",
+      "publications",
+      "taxa",
+      "contacts",
+      "doi",
+      "sites"
+    ],
+    "resources": [
+      {
+        "collection_unit_id": 32495,
+        "database": "European Pollen Database",
+        "dataset_id": 56843,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "926eed31454d6826ce269add579bdaffb07dea5ab056c47b957a41253c25a472",
+        "site_id": 26215,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 32493,
+        "database": "European Pollen Database",
+        "dataset_id": 56844,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "5f4791cef79b8d082873241bfb631ce1c15de5370ee4ad2fee7a33f9b0a5d257",
+        "site_id": 26213,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 32492,
+        "database": "European Pollen Database",
+        "dataset_id": 56845,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "18bd5082a206c4a1eae4256761885ec03aa5a42959442ba2103943abdff5c32c",
+        "site_id": 26212,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 32498,
+        "database": "European Pollen Database",
+        "dataset_id": 56846,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "bd2dedc854c2c94313c25f2c2299d9f3c58542b69336137de90399ab39cda4a6",
+        "site_id": 26218,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 41525,
+        "database": "European Pollen Database",
+        "dataset_id": 57601,
+        "dataset_type": "geochronologic",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/0",
+        "metadata_sha256": "90cae330edf9cb8f573d2b838d796d3db9b11bc5b1c56a4fa95ea276895dd1d2",
+        "site_id": 30418,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 41525,
+        "database": "European Pollen Database",
+        "dataset_id": 57602,
+        "dataset_type": "pollen",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/1",
+        "metadata_sha256": "90cae330edf9cb8f573d2b838d796d3db9b11bc5b1c56a4fa95ea276895dd1d2",
+        "site_id": 30418,
+        "versions": [
+          "current"
+        ]
+      }
+    ],
+    "roster_sha256": "0af2a76f408b3abc7d59eabc94dc3998060244e1a4202d28c51bc99be56f9f32"
+  },
+  "policy_sources": [
+    "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+    "https://epdweblog.org/epd_data_home/epd_policy/"
+  ],
+  "schema_version": "neotoma-dataset-facet-scoped-http-capture.v1"
+}

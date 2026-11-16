@@ -1,0 +1,95 @@
+{
+  "body_complete": true,
+  "body_file": "dataset-52999-facet-lithology-current-attempt-1.body",
+  "expected_dataset_id": 52999,
+  "expected_site_id": 28411,
+  "final_url": "https://api.neotomadb.org/v2.0/data/datasets/52999/lithology",
+  "http_status": 200,
+  "parameters": {},
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/datasets/52999/lithology",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/datasets/52999/lithology",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "1502"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 11:47:38 GMT"
+    ],
+    [
+      "etag",
+      "W/\"5de-6Pu2aHh+cRTM2HjyGWRQ5sy2W4A\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4675"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794743271"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "3"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 1502,
+  "retained_body_sha256": "aa4214c89352f970a8df9a83e8d1bac5af022a4892a65000e170bcf09014341e",
+  "role": "dataset_facet_lithology",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T11:47:38.370083+00:00",
+  "utc_start": "2026-11-15T11:47:37.993637+00:00"
+}

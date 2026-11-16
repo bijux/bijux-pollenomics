@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from importlib.resources import files
 import json
 from pathlib import Path
 import shutil
@@ -14,13 +15,13 @@ from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory impo
 )
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
-from ...map_document.browser_semantics.source_context.test_source_resources import (
+from ...map_document.browser_semantics.source_context.source_resources.native_transport import (
     atlas_catalogue as atlas_catalogue,
 )
-from ...map_document.browser_semantics.source_context.test_source_resources import (
+from ...map_document.browser_semantics.source_context.source_resources.native_transport import (
     catalogue_sources as catalogue_sources,
 )
-from ...map_document.browser_semantics.source_context.test_source_resources import (
+from ...map_document.browser_semantics.source_context.source_resources.native_transport import (
     resource_script as resource_script,
 )
 from ...map_document.browser_semantics.support import run_node_json
@@ -339,8 +340,14 @@ def test_resource_envelopes_use_common_async_consumer(
         begin = MAP_DOCUMENT_TEMPLATE.index(start)
         return MAP_DOCUMENT_TEMPLATE[begin : MAP_DOCUMENT_TEMPLATE.index(end, begin)]
 
+    url_controller = (
+        files("bijux_pollenomics.reporting.map_document")
+        .joinpath("assets/url-state.js")
+        .read_text()
+    )
     observed = run_node_json(
         factory
+        + url_controller
         + "\nconst document={getElementById:()=>({textContent:"
         + json.dumps(json.dumps(compact))
         + "})};\n"
@@ -360,13 +367,21 @@ def test_resource_envelopes_use_common_async_consumer(
         + json.dumps(envelopes)
         + ";\n"
         + """
+const mapAccess=[],urlActions=[];
+const map=new Proxy({},{get(_target,key){mapAccess.push(String(key));throw Error('Data-only metadata touched the scientific map')}});
+const L=new Proxy({},{get(_target,key){mapAccess.push(String(key));throw Error('Data-only metadata touched Leaflet')}});
+let currentURL='https://atlas.example/nordic/';
+const atlasURLState=createAtlasURLStateController({readURL:()=>currentURL,publishURL:value=>{urlActions.push(value);currentURL=value},replayURL(){throw Error('Data-only metadata replayed navigation')}});
+const activeCountries=new Set(['Sweden']);
 async function loadEvidenceTools(){return BijuxPollenomicsEvidenceTools(String,String);}
 async function loadStaticAtlasAsset(row){await consumeStaticAtlasAsset(row,null,envelopes[row.asset_key]);}
 (async()=>{const reader=await loadSourceResourceBrowser(),all=await reader.search(''),native=await reader.resource('201');
-console.log(JSON.stringify({ids:all.map(row=>row.record_id),resource:native.dataset_id,loaded:[...staticAtlasLoadedAssets],stored:STATIC_ATLAS_CHUNKS.resources.length}));})().catch(error=>{console.error(error);process.exit(1)});
+console.log(JSON.stringify({ids:all.map(row=>row.record_id),resource:native.dataset_id,loaded:[...staticAtlasLoadedAssets],stored:STATIC_ATLAS_CHUNKS.resources.length,mapAccess,urlActions}));})().catch(error=>{console.error(error);process.exit(1)});
 """
     )
     assert observed["ids"] == ["201", "202", "203", "204"]
     assert observed["resource"] == "201"
     assert len(observed["loaded"]) == 2
     assert observed["stored"] == 2
+    assert observed["mapAccess"] == []
+    assert observed["urlActions"] == []

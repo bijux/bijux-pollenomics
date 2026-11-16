@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from collections import defaultdict
 from collections.abc import Mapping
-from dataclasses import fields
+from dataclasses import asdict, fields
+import json
 from pathlib import Path
 import re
 from typing import Any
@@ -15,9 +16,21 @@ from ..facets.models import NeotomaFacetScopeInputs
 from ..facets.replay import _control as facet_control
 from ..models import _Request
 from ..receipts import _safe_root
-from ..resources.models import NeotomaResourceLimits, NeotomaResourcePlan
+from ..resources.models import (
+    NeotomaResourceLimits,
+    NeotomaResourcePlan,
+    NeotomaResourceSpec,
+)
 from ..resources.protocol import validate_plan as validate_resource_plan
-from .models import LINKED_KINDS, NeotomaLinkedResourcePlan, NeotomaLinkedTarget
+from .evidence import _index, load_neotoma_linked_evidence
+from .models import (
+    EVIDENCE_SCHEMA,
+    LINKED_KINDS,
+    SCOPED_LINKED_SCHEMA,
+    NeotomaLinkedEvidence,
+    NeotomaLinkedResourcePlan,
+    NeotomaLinkedTarget,
+)
 
 _HASH = re.compile(r"[0-9a-f]{64}\Z")
 _RANK = {
@@ -29,18 +42,9 @@ _RANK = {
 _ROUTES = {"contact": "contacts", "publication": "publications", "taxon": "taxa"}
 
 
-def prepare_targets(
-    plan: NeotomaLinkedResourcePlan,
-    source_facets: Mapping[str, Path],
-    limits: NeotomaResourceLimits,
-    *,
-    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
-) -> tuple[list[dict[str, Any]], list[str]]:
-    """Authenticate endpoint roots before discovering links; no source body shortcut.
-
-    Original facet replay has its own bounded source limits. A linked transport
-    budget of three requests must not be applied to its five predecessor requests.
-    """
+def _selected(
+    plan: NeotomaLinkedResourcePlan, source_facets: Mapping[str, Path]
+) -> set[tuple[str, int]]:
     if (
         not isinstance(plan, NeotomaLinkedResourcePlan)
         or not isinstance(plan.source_facet_manifest_sha256s, tuple)
@@ -51,6 +55,7 @@ def prepare_targets(
         )
         or len(set(plan.source_facet_manifest_sha256s))
         != len(plan.source_facet_manifest_sha256s)
+        or not isinstance(source_facets, Mapping)
         or set(source_facets) != set(plan.source_facet_manifest_sha256s)
         or type(plan.include_higher_taxa) is not bool
         or not isinstance(plan.targets, tuple)
@@ -69,6 +74,22 @@ def prepare_targets(
         if key in selected:
             raise ValueError("Neotoma linked target selection is duplicated")
         selected.add(key)
+    return selected
+
+
+def prepare_targets(
+    plan: NeotomaLinkedResourcePlan,
+    source_facets: Mapping[str, Path],
+    limits: NeotomaResourceLimits,
+    *,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    """Authenticate endpoint roots before discovering links; no source body shortcut.
+
+    Original facet replay has its own bounded source limits. A linked transport
+    budget of three requests must not be applied to its five predecessor requests.
+    """
+    selected = _selected(plan, source_facets)
     proofs: dict[tuple[str, int], list[dict[str, Any]]] = defaultdict(list)
     policies: list[str] = []
     for digest in sorted(plan.source_facet_manifest_sha256s):
@@ -148,3 +169,157 @@ def plan_from_json(
         ), NeotomaResourceLimits(**control["limits"])
     except (KeyError, TypeError, AttributeError) as error:
         raise ValueError("Neotoma linked plan is malformed") from error
+
+
+MAX_PLAN_BYTES = 16 * 1024 * 1024
+MAX_MANIFEST_BYTES = 16 * 1024 * 1024
+
+
+def encoded_control(value: Any) -> bytes:
+    return (
+        json.dumps(value, sort_keys=True, ensure_ascii=False, allow_nan=False, indent=2)
+        + "\n"
+    ).encode()
+
+
+def scoped_control(
+    plan: NeotomaLinkedResourcePlan,
+    limits: NeotomaResourceLimits,
+    targets: list[dict[str, Any]],
+    policies: list[str],
+    reference: dict[str, str],
+) -> dict[str, Any]:
+    control = {
+        "schema_version": SCOPED_LINKED_SCHEMA,
+        "plan": asdict(plan),
+        "limits": asdict(limits),
+        "targets": targets,
+        "policy_sources": policies,
+        "source_evidence": reference,
+    }
+    attempts = min(limits.max_attempts, limits.max_requests)
+    if (
+        len(targets) * 65536 > MAX_MANIFEST_BYTES
+        or len(targets) * attempts > MAX_MANIFEST_BYTES // 256
+    ):
+        raise ValueError(
+            "Linked prospective metadata allocation exceeds its finite budget"
+        )
+    entries = [
+        {
+            "target_key": target["target_key"],
+            "identity": target,
+            "content_version": "current",
+            "api_version": "v2.0",
+            "scientific_admission": "not_asserted",
+            "terminal_status": "transport_failure",
+            "reason": "x" * 65536,
+            "attempts": [
+                {
+                    "receipt_file": target["target_key"]
+                    + "-current-attempt-1.receipt.json",
+                    "receipt_sha256": "0" * 64,
+                    "body_file": target["target_key"] + "-current-attempt-1.body",
+                }
+                for _ in range(attempts)
+            ],
+        }
+        for target in targets
+    ]
+    prospective = {
+        "schema_version": SCOPED_LINKED_SCHEMA,
+        "source_evidence": reference,
+        "capture_utc_start": "0" * 40,
+        "capture_utc_end": "0" * 40,
+        "plan_sha256": "0" * 64,
+        "resources": entries,
+        "request_count": limits.max_requests,
+        "response_bytes": limits.max_total_bytes,
+        "partitions": {"transport_failure": len(targets)},
+        "scientific_admission": "not_asserted",
+        "status": "closed",
+        "snapshot_consistency": "Individually timed current linked responses",
+    }
+    if (
+        len(encoded_control(control)) > MAX_PLAN_BYTES
+        or len(encoded_control(prospective)) > MAX_MANIFEST_BYTES
+    ):
+        raise ValueError(
+            "Linked plan and prospective manifest exceed separate finite metadata budgets"
+        )
+    return control
+
+
+def validate_scoped_limits(
+    evidence: NeotomaLinkedEvidence, limits: NeotomaResourceLimits
+) -> None:
+    header = _index(_safe_root(evidence.directory), evidence.manifest_sha256)
+    roster_sha = header["authority"]["roster_sha256"]
+    resources = tuple(
+        NeotomaResourceSpec(**row, versions=("current",))
+        for row in header["authority"]["root_identities"].values()
+    )
+    validate_resource_plan(NeotomaResourcePlan(resources, roster_sha), limits)
+
+
+def prepare_scoped_targets(
+    plan: NeotomaLinkedResourcePlan,
+    source_facets: Mapping[str, Path],
+    limits: NeotomaResourceLimits,
+    *,
+    evidence: NeotomaLinkedEvidence,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None,
+    legacy_rosters: Mapping[str, Path] | None = None,
+) -> tuple[list[dict[str, Any]], list[str], dict[str, str]]:
+    """Require an externally anchored complete source publication before new GETs."""
+    selected = _selected(plan, source_facets)
+    if not isinstance(evidence, NeotomaLinkedEvidence):
+        raise ValueError("Complete authenticated linked source evidence is required")
+    header = _index(_safe_root(evidence.directory), evidence.manifest_sha256)
+    roster_sha = header["authority"]["roster_sha256"]
+    if not isinstance(scope_inputs, Mapping) or set(scope_inputs) != {roster_sha}:
+        raise ValueError("Complete linked evidence scope resolvers are required")
+    if set(source_facets) != set(header["authority"]["source_captures"]):
+        raise ValueError("Linked evidence complete source namespace differs")
+    validate_scoped_limits(evidence, limits)
+    index = load_neotoma_linked_evidence(
+        evidence.directory,
+        expected_manifest_sha256=evidence.manifest_sha256,
+        expected_roster_sha256=roster_sha,
+        scope=scope_inputs[roster_sha],
+        source_facets=source_facets,
+        legacy_rosters=legacy_rosters,
+    )
+    targets = []
+    for kind, native_id in sorted(selected):
+        key = f"{kind}-{native_id}"
+        target = index["targets"].get(key)
+        if (
+            target is None
+            or not plan.include_higher_taxa
+            and not target["has_direct_proof"]
+        ):
+            raise ValueError(
+                "Linked target lacks an approved direct or explicit higher-taxon source proof"
+            )
+        targets.append(
+            {
+                "target_key": key,
+                "kind": kind,
+                "native_id": native_id,
+                "exposure_role": target["exposure_role"],
+                "source_proof_reference": {
+                    "target_key": key,
+                    "occurrence_count": target["occurrence_count"],
+                    "proof_ranges": target["proof_ranges"],
+                },
+                "metadata_dependency_count": len(target["metadata_dependencies"]),
+            }
+        )
+    policies = index["authority"]["policy_sources"]
+    reference = {
+        "schema_version": EVIDENCE_SCHEMA,
+        "manifest_sha256": evidence.manifest_sha256,
+    }
+    scoped_control(plan, limits, targets, policies, reference)
+    return targets, policies, reference

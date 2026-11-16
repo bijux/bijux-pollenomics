@@ -1,0 +1,114 @@
+{
+  "historical_snapshot_replaced": false,
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 48,
+    "max_response_bytes": 8388607,
+    "max_total_bytes": 67108863,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 300
+  },
+  "parent_scope": {
+    "file": "parent-scope.json",
+    "sha256": "00f3feca8241db7ac7349f98cc303a284ab6a0aa8ada9f1e65fe958b403b2a4b"
+  },
+  "plan": {
+    "facets": [
+      "chronologies",
+      "lithology",
+      "projects",
+      "publications",
+      "taxa",
+      "contacts",
+      "doi",
+      "sites"
+    ],
+    "resources": [
+      {
+        "collection_unit_id": 51693,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70235,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1933/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38209,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 51769,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70311,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1948/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38284,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 51785,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70327,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1954/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38300,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 51789,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70331,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1955/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38304,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 51797,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70339,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1957/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38312,
+        "versions": [
+          "current"
+        ]
+      },
+      {
+        "collection_unit_id": 51817,
+        "database": "Nonmarine Ostracod Distribution in Europe Database",
+        "dataset_id": 70359,
+        "dataset_type": "ostracode surface sample",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/1959/site/datasets/0",
+        "metadata_sha256": "a0ee8e905788507525b6863e76376b77dc58e0097b92deec05964d80ffacb9c2",
+        "site_id": 38331,
+        "versions": [
+          "current"
+        ]
+      }
+    ],
+    "roster_sha256": "0af2a76f408b3abc7d59eabc94dc3998060244e1a4202d28c51bc99be56f9f32"
+  },
+  "policy_sources": [
+    "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+    "https://epdweblog.org/epd_data_home/epd_policy/"
+  ],
+  "schema_version": "neotoma-dataset-facet-scoped-http-capture.v1"
+}

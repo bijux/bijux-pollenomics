@@ -9,26 +9,30 @@ from typing import Any
 
 from bijux_pollenomics.core.filesystem import validate_regular_namespace
 
-from ...capture.facets.models import NeotomaFacetPlan
-from ...capture.facets.scope import prepare_facet_parent_scope
+from ...capture.linked_resources import (
+    authenticate_linked_root_metadata,
+    iter_neotoma_linked_evidence_occurrences,
+    read_neotoma_linked_evidence_metadata,
+)
 from ...capture.parent_scope import _roster
 from ...capture.receipts import _object, _read, _safe_root
-from ...capture.resources.models import NeotomaResourceSpec
 from ...resource_catalogue.archive.files import _digest, _member, encoded_json
 from ...resource_catalogue.source_projection import _same
 from ..capsule import (
     load_neotoma_ancillary_capsule,
     read_neotoma_ancillary_capsule_inventory,
 )
-from ..capsule.models import CAPSULE_SCHEMA
+from ..capsule.models import CAPSULE_SCHEMA, SCOPED_CAPSULE_SCHEMA
 from ..context import load_neotoma_ancillary_context
 from .models import (
     FACETS,
     SCHEMA,
+    SCOPED_SCHEMA,
     FederationMetadata,
     NeotomaAncillaryFederation,
     assemble_view,
     metadata_buffers,
+    scoped_occurrence,
 )
 
 MAX_BYTES = 512 * 1024 * 1024
@@ -81,7 +85,9 @@ def _capsules(
             root / "manifest.json", digest, min(MAX_METADATA_BYTES, MAX_BYTES - total)
         )
         if (
-            manifest.get("schema_version") != CAPSULE_SCHEMA
+            not isinstance(manifest.get("schema_version"), str)
+            or manifest.get("schema_version")
+            not in {CAPSULE_SCHEMA, SCOPED_CAPSULE_SCHEMA}
             or manifest.get("context_manifest_sha256") != context
             or not isinstance(manifest.get("captures"), dict)
             or not isinstance(manifest.get("files"), dict)
@@ -128,11 +134,69 @@ def _capsules(
         ):
             raise ValueError("Federation predecessor facet owner is unavailable")
         predecessors[digest] = {pin: owners[pin][0] for pin in required}
+        if manifest["schema_version"] == SCOPED_CAPSULE_SCHEMA:
+            predecessors[digest].update(
+                {pin: value[0] for pin, value in owners.items() if value[1] == "facet"}
+            )
     return (
         roots,
         predecessors,
         {pin: sorted(document["captures"]) for pin, document in documents.items()},
     )
+
+
+def _scoped_rows(
+    indexes: dict[str, Any],
+    roster: dict[str, Any],
+    roles: dict[int, str],
+    evidence_sources: Mapping[str, Path] | None,
+) -> tuple[dict[Any, Any], dict[str, Any]]:
+    selected: dict[str, dict[Any, list[Any]]] = {}
+    references: dict[str, Any] = {}
+    result: dict[Any, Any] = {}
+    for index in indexes.values():
+        captures = {
+            row["source_capture_manifest_sha256"]: row for row in index["captures"]
+        }
+        for row in index["observations"]:
+            if (
+                row["kind"] != "linked"
+                or "source_proof_reference" not in row["identity"]
+            ):
+                continue
+            capture = row["source_capture_manifest_sha256"]
+            reference = captures[capture]["source_evidence"]
+            pin = reference["manifest_sha256"]
+            references[pin] = {"schema_version": reference["schema_version"]}
+            key = (row["identity"]["kind"], row["identity"]["native_id"])
+            selected.setdefault(pin, {}).setdefault(key, []).append(row)
+    roots = {row["dataset_id"]: row for row in roster["resources"]}
+    for pin, targets in selected.items():
+        if not isinstance(evidence_sources, Mapping) or pin not in evidence_sources:
+            raise ValueError("Scoped federation evidence resolver is missing")
+        root = evidence_sources[pin]
+        header = read_neotoma_linked_evidence_metadata(
+            root, expected_manifest_sha256=pin
+        )
+        for proof, locator in iter_neotoma_linked_evidence_occurrences(
+            root, expected_manifest_sha256=pin
+        ):
+            for row in targets.get((proof["target_kind"], proof["native_id"]), []):
+                capture = row["source_capture_manifest_sha256"]
+                attestation = header["authority"]["source_captures"][
+                    proof["source_capture_manifest_sha256"]
+                ]["parent_scope_verification"]
+                result.setdefault((capture, row["target_key"]), []).append(
+                    scoped_occurrence(
+                        proof,
+                        locator,
+                        f"{capture}:{row['source_entry_pointer']}",
+                        roots,
+                        roles,
+                        attestation,
+                    )
+                )
+    return result, references
 
 
 def prepare_federation(
@@ -141,6 +205,7 @@ def prepare_federation(
     expected_context_sha256: str,
     native_archive_directory: Path,
     capsule_sources: Mapping[str, Path],
+    evidence_sources: Mapping[str, Path] | None = None,
 ) -> FederationMetadata:
     """Read outcome-free parent metadata and capsule declarations, never entities."""
     context = load_neotoma_ancillary_context(
@@ -150,24 +215,10 @@ def prepare_federation(
     )
     roster_pin, scope = next(iter(context.current_scope_inputs.items()))
     roster = _roster(scope.roster_path, roster_pin)
-    resources = tuple(
-        NeotomaResourceSpec(
-            row["dataset_id"],
-            row["site_id"],
-            row["collection_unit_id"],
-            row["dataset_type"],
-            row["database"],
-            row["exposure_roles"]["current"],
-            row["metadata_locator"]["response_sha256"],
-            row["metadata_locator"]["json_pointer"],
-            ("current",),
-        )
-        for row in roster["resources"]
+    current = authenticate_linked_root_metadata(
+        expected_roster_sha256=roster_pin, scope=scope
     )
-    proof = prepare_facet_parent_scope(
-        NeotomaFacetPlan(resources, roster_pin, ("taxa",)), scope
-    )
-    roles = {row["dataset_id"]: row["effective_scope_role"] for row in proof["parents"]}
+    proof, roles = current["proof"], current["roles"]
     role_bytes = encoded_json(proof)
     role_pin = sha256(role_bytes).hexdigest()
     roots, predecessors, capture_ids = _capsules(
@@ -181,6 +232,7 @@ def prepare_federation(
             context_directory=context_directory,
             native_archive_directory=native_archive_directory,
             predecessor_facets=predecessors[digest],
+            evidence_sources=evidence_sources,
         )
         indexes[digest] = inventory.index
         for row in inventory.index["observations"]:
@@ -209,13 +261,14 @@ def prepare_federation(
                     }
                 )
             attempts[capture, row["source_entry_pointer"]] = enriched
+    scoped, references = _scoped_rows(indexes, roster, roles, evidence_sources)
     slots, observations, occurrences, summary = assemble_view(
-        roster, roles, indexes, attempts
+        roster, roles, indexes, attempts, scoped, current["protected"]
     )
     buffers = metadata_buffers(slots, observations, occurrences, summary)
     buffers["scope/current-parent-proof.json"] = role_bytes
     manifest = {
-        "schema_version": SCHEMA,
+        "schema_version": SCOPED_SCHEMA if references else SCHEMA,
         "context_manifest_sha256": expected_context_sha256,
         "native_archive_manifest_sha256": context.manifest["native_archive"][
             "manifest_sha256"
@@ -246,6 +299,8 @@ def prepare_federation(
         "related_resource_scope": "captured_occurrences_and_current_native_parent_obligations",
         "related_resource_graph_complete": False,
     }
+    if references:
+        manifest["linked_evidence"] = references
     if (
         len(buffers) + 1 > MAX_FILES
         or manifest["source_bytes"] + len(encoded_json(manifest)) > MAX_BYTES
@@ -265,14 +320,22 @@ def _load(
     context_directory: Path,
     native_archive_directory: Path,
     capsule_sources: Mapping[str, Path],
+    evidence_sources: Mapping[str, Path] | None = None,
 ) -> FederationMetadata:
     root = _safe_root(directory)
     raw, manifest = _pinned(
         root / "manifest.json", expected_manifest_sha256, MAX_METADATA_BYTES
     )
     if (
-        set(manifest) != _FIELDS
-        or manifest.get("schema_version") != SCHEMA
+        set(manifest)
+        != _FIELDS
+        | (
+            {"linked_evidence"}
+            if manifest.get("schema_version") == SCOPED_SCHEMA
+            else set()
+        )
+        or not isinstance(manifest.get("schema_version"), str)
+        or manifest.get("schema_version") not in {SCHEMA, SCOPED_SCHEMA}
         or not isinstance(manifest.get("files"), dict)
         or not isinstance(manifest.get("capsule_manifest_sha256s"), list)
         or not _digest(manifest.get("context_manifest_sha256"))
@@ -319,6 +382,7 @@ def _load(
         expected_context_sha256=manifest["context_manifest_sha256"],
         native_archive_directory=native_archive_directory,
         capsule_sources={pin: capsule_sources[pin] for pin in required},
+        evidence_sources=evidence_sources,
     )
     if not _same(prepared.manifest, manifest):
         raise ValueError("Federation source joins or coverage claims differ")
@@ -339,6 +403,7 @@ def load_neotoma_ancillary_federation(
     context_directory: Path,
     native_archive_directory: Path,
     capsule_sources: Mapping[str, Path],
+    evidence_sources: Mapping[str, Path] | None = None,
 ) -> NeotomaAncillaryFederation:
     """Authenticate the declared metadata view; source entity buffers remain unopened."""
     return _load(
@@ -347,6 +412,7 @@ def load_neotoma_ancillary_federation(
         context_directory=context_directory,
         native_archive_directory=native_archive_directory,
         capsule_sources=capsule_sources,
+        evidence_sources=evidence_sources,
     ).view
 
 
@@ -357,6 +423,7 @@ def validate_neotoma_ancillary_federation_sources(
     context_directory: Path,
     native_archive_directory: Path,
     capsule_sources: Mapping[str, Path],
+    evidence_sources: Mapping[str, Path] | None = None,
 ) -> dict[str, Any]:
     """Explicitly replay every declared capsule; no native numerical archive sweep."""
     prepared = _load(
@@ -365,6 +432,7 @@ def validate_neotoma_ancillary_federation_sources(
         context_directory=context_directory,
         native_archive_directory=native_archive_directory,
         capsule_sources=capsule_sources,
+        evidence_sources=evidence_sources,
     )
     for digest, root in prepared.capsule_sources.items():
         load_neotoma_ancillary_capsule(
@@ -373,6 +441,7 @@ def validate_neotoma_ancillary_federation_sources(
             context_directory=context_directory,
             native_archive_directory=native_archive_directory,
             predecessor_facets=prepared.predecessors[digest],
+            evidence_sources=evidence_sources,
         )
     return {
         "schema_version": "neotoma-ancillary-federation-source-verification.v1",

@@ -34,11 +34,13 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
   dialog.hidden = true;
   const card = element('div',undefined,{class:'focus-detail'});
   const heading = element('div', undefined, {class:'help-dialog-head'});
-  const title = element('h2','Neotoma source resources');
-  const close = element('button','Close metadata',{type:'button',class:'toolbar-button'});
+  const title = element('h2','Neotoma sources');
+  const close = element('button','Close',{type:'button',class:'toolbar-button focus-close','aria-label':'Close Neotoma source resource metadata'});
   heading.append(title,close);
   const status = element('p','Loading source metadata…',{role:'status','aria-live':'polite','data-resource-status':''});
-  const qualification = element('p','Metadata only. Current and DOI-frozen versions keep their own epochs, rights and qualification. A frozen version does not establish original-paper identity. These resources do not expand the published scientific population or establish independent evidence.');
+  const qualification = element('p','Metadata only; no scientific admission or independent validation.');
+  const scope = element('details',undefined,{'data-resource-scope':''});
+  scope.append(element('summary','Source scope and epochs'),element('p','Current and DOI-frozen versions keep their own epochs, rights and qualification. A frozen version does not establish original-paper identity. These resources do not expand the published scientific population or establish independent evidence.'));
   const controls = element('div',undefined,{class:'focus-detail'}), list = element('div',undefined,{'data-resource-list':''});
   const detail = element('section',undefined,{'aria-label':'Selected source resource','data-resource-detail':''});
   const navigation = element('div',undefined,{class:'map-actions'});
@@ -46,7 +48,7 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
   const next = element('button','Next metadata page',{type:'button',class:'toolbar-button'});
   const pageLabel = element('span');
   navigation.append(previous,pageLabel,next);
-  card.append(heading,qualification,status,controls,list,navigation,detail);dialog.append(card);document.body.append(dialog);
+  card.append(heading,qualification,controls,list,navigation,detail);dialog.append(card);document.body.append(dialog);
   let initializing = false;
   let generation = 0, detailGeneration = 0, page = 0, selectedSite = null, returnFocus = null;
   let downloadIntent = null, inventory = null, context = null, rows = [], overlay = null;
@@ -59,6 +61,7 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
     wrapper.append(node);controls.append(wrapper);return node;
   }
   const search = input('Search source metadata','search');
+  controls.append(scope,status);
   const country = input('Metadata country','select',[['','All countries'],['DK','Denmark'],['FI','Finland'],['NO','Norway'],['SE','Sweden'],['UNASSIGNED','Unassigned / review']]);
   const type = input('Native dataset type','select',[['','All native types']]);
   const role = input('Exposure role','select',[['','All exposure roles']]);
@@ -194,7 +197,9 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
       }
       previous.disabled=page===0;next.disabled=(page+1)*25>=rows.length;
       pageLabel.textContent=`Page ${page+1} of ${Math.max(1,Math.ceil(rows.length/25))}`;
-      status.textContent=`${rows.length} matching metadata resources at ${new Set(rows.map(row=>row.site_id)).size} native sites. ${domain.record_count} resources in the catalogue; ${domain.site_count} metadata sites. Scientific population unchanged.`;
+      const siteCount=new Set(rows.map(row=>row.site_id)).size;
+      const catalogueScope=rows.length===domain.record_count && siteCount===domain.site_count ? '' : ` Catalogue: ${domain.record_count} resources at ${domain.site_count} metadata sites.`;
+      status.textContent=`${rows.length} matching metadata resources at ${siteCount} native sites.${catalogueScope}`;
       status.dataset.state='available';
       if(write)publish();
       await updateOverlay();
@@ -244,7 +249,7 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
       initializing=false;
       await refresh({write:selection.write!==false});
       if(selection.dataset && token+1===generation)await selectDataset(selection.dataset,{write:selection.write!==false});
-      search.focus();
+      dialog.scrollTop=0;search.focus({preventScroll:true});
     }catch(error){if(token===generation){initializing=false;message(error);}}
   }
   return Object.freeze({open,hide,countriesChanged:()=>updateOverlay().catch(message)});

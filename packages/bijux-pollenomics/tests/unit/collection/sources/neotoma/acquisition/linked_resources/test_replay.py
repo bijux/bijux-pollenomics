@@ -11,13 +11,14 @@ import pytest
 
 from ..facets.parent_scope.native_sources import linked_scope_resolvers
 from ..resources.native_payloads import response
-from .test_capture import limits, owner, plan, source
+from .evidence.native_products import capture_legacy_linked_fixture
+from .test_capture import evidence_for, limits, owner, plan, source
 
 
 def captured(tmp_path: Path) -> tuple[Path, Any, dict[str, Path]]:
     digest, sources = source(tmp_path / "facets")
     root = tmp_path / "linked"
-    result = owner().capture_neotoma_linked_resources(
+    result = capture_legacy_linked_fixture(
         root,
         plan=plan(digest),
         source_facets=sources,
@@ -248,6 +249,7 @@ def test_success_attests_actual_published_tree(
             tmp_path / "linked",
             plan=plan(digest),
             source_facets=sources,
+            evidence=evidence_for(sources),
             limits=limits(),
             fetch=lambda url, **k: response(url, b"{}"),
             scope_inputs=linked_scope_resolvers(sources),

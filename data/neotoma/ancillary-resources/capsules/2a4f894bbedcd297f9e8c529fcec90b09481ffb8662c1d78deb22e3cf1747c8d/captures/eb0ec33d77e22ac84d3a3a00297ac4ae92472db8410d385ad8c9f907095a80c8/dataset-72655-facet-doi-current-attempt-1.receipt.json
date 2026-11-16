@@ -1,0 +1,95 @@
+{
+  "body_complete": true,
+  "body_file": "dataset-72655-facet-doi-current-attempt-1.body",
+  "expected_dataset_id": 72655,
+  "expected_site_id": 40512,
+  "final_url": "https://api.neotomadb.org/v2.0/data/datasets/72655/doi",
+  "http_status": 200,
+  "parameters": {},
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/datasets/72655/doi",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/datasets/72655/doi",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "110"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 12:23:28 GMT"
+    ],
+    [
+      "etag",
+      "W/\"6e-l0vU6iGUmO7jy1AzWJSPWUJ6S1Y\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4621"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794745412"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "3"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 110,
+  "retained_body_sha256": "3bac00fb619350f62888214c082aef248888fbf3e0767cdd23d02e46b361e47b",
+  "role": "dataset_facet_doi",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T12:23:28.168701+00:00",
+  "utc_start": "2026-11-15T12:23:27.802307+00:00"
+}

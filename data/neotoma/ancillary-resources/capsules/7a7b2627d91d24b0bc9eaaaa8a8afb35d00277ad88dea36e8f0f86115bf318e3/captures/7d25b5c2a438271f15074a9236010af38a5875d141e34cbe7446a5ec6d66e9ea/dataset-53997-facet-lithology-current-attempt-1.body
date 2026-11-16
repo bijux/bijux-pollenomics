@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":53997,"lithology":[{"lithologyid":28308,"depth":{"top":60,"bottom":700},"lowerboundary":null,"description":"gyttja"},{"lithologyid":28309,"depth":{"top":55,"bottom":60},"lowerboundary":null,"description":"peat"}]}],"message":"Retrieved all tables"}

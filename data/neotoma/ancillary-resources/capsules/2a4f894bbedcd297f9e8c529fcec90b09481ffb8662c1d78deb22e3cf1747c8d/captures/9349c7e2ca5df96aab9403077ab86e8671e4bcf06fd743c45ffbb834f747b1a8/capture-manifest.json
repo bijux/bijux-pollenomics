@@ -1,0 +1,1648 @@
+{
+  "capture_utc_end": "2026-11-15T12:01:21.374184+00:00",
+  "capture_utc_start": "2026-11-15T12:01:02.195109+00:00",
+  "facets": [
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56837-facet-chronologies-current-attempt-1.body",
+          "receipt_file": "dataset-56837-facet-chronologies-current-attempt-1.receipt.json",
+          "receipt_sha256": "be9c75d29dcfbb5a984b68da0d710632125a0a5e436916e83cca1a6a95956bfb",
+          "request_name": "dataset-56837-facet-chronologies-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "chronologies",
+      "facet_key": "dataset-56837-facet-chronologies-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32499,
+        "database": "European Pollen Database",
+        "dataset_id": 56837,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "3ecf9b761b6db8776f3a93088f659d6fb56d6d003bc50c1c01c9e41818242459",
+        "site_id": 26219
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56837-facet-lithology-current-attempt-1.body",
+          "receipt_file": "dataset-56837-facet-lithology-current-attempt-1.receipt.json",
+          "receipt_sha256": "7bd8132827ecbe4f616a2d7de4017fce74e7da2ad08331febd6925f65a3a6733",
+          "request_name": "dataset-56837-facet-lithology-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "lithology",
+      "facet_key": "dataset-56837-facet-lithology-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32499,
+        "database": "European Pollen Database",
+        "dataset_id": 56837,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "3ecf9b761b6db8776f3a93088f659d6fb56d6d003bc50c1c01c9e41818242459",
+        "site_id": 26219
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56837-facet-projects-current-attempt-1.body",
+          "receipt_file": "dataset-56837-facet-projects-current-attempt-1.receipt.json",
+          "receipt_sha256": "49b6727f61b595409895cd79646327e730f15094eb7ac70deaf9e9a7494cd153",
+          "request_name": "dataset-56837-facet-projects-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "projects",
+      "facet_key": "dataset-56837-facet-projects-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32499,
+        "database": "European Pollen Database",
+        "dataset_id": 56837,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "3ecf9b761b6db8776f3a93088f659d6fb56d6d003bc50c1c01c9e41818242459",
+        "site_id": 26219
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56837-facet-publications-current-attempt-1.body",
+          "receipt_file": "dataset-56837-facet-publications-current-attempt-1.receipt.json",
+          "receipt_sha256": "bb5201a5f1adb05b5709199503b95be910028b4fc9c5d6c21c2d368b43bc40b0",
+          "request_name": "dataset-56837-facet-publications-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "publications",
+      "facet_key": "dataset-56837-facet-publications-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32499,
+        "database": "European Pollen Database",
+        "dataset_id": 56837,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "3ecf9b761b6db8776f3a93088f659d6fb56d6d003bc50c1c01c9e41818242459",
+        "site_id": 26219
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56837-facet-taxa-current-attempt-1.body",
+          "receipt_file": "dataset-56837-facet-taxa-current-attempt-1.receipt.json",
+          "receipt_sha256": "d0f9c34aaad9c94df8448fd545c36cc2aa1b758213d740e7bb5fb7b48edb98ac",
+          "request_name": "dataset-56837-facet-taxa-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "taxa",
+      "facet_key": "dataset-56837-facet-taxa-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32499,
+        "database": "European Pollen Database",
+        "dataset_id": 56837,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "3ecf9b761b6db8776f3a93088f659d6fb56d6d003bc50c1c01c9e41818242459",
+        "site_id": 26219
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56837-facet-contacts-current-attempt-1.body",
+          "receipt_file": "dataset-56837-facet-contacts-current-attempt-1.receipt.json",
+          "receipt_sha256": "a6c4ea57029e3557f9422bcbe3c0fff947e20dd5912be20c2758a02b831f9175",
+          "request_name": "dataset-56837-facet-contacts-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "contacts",
+      "facet_key": "dataset-56837-facet-contacts-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32499,
+        "database": "European Pollen Database",
+        "dataset_id": 56837,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "3ecf9b761b6db8776f3a93088f659d6fb56d6d003bc50c1c01c9e41818242459",
+        "site_id": 26219
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56837-facet-doi-current-attempt-1.body",
+          "receipt_file": "dataset-56837-facet-doi-current-attempt-1.receipt.json",
+          "receipt_sha256": "aafc0b0ede09d07751310f35f0c222a45c7045aaa202b1732b8db15b78258e69",
+          "request_name": "dataset-56837-facet-doi-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "doi",
+      "facet_key": "dataset-56837-facet-doi-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32499,
+        "database": "European Pollen Database",
+        "dataset_id": 56837,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "3ecf9b761b6db8776f3a93088f659d6fb56d6d003bc50c1c01c9e41818242459",
+        "site_id": 26219
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56837-facet-sites-current-attempt-1.body",
+          "receipt_file": "dataset-56837-facet-sites-current-attempt-1.receipt.json",
+          "receipt_sha256": "63c12e82be0fb6047daceb672a43198ef7f0394f7653240ec51fa99eda61cca0",
+          "request_name": "dataset-56837-facet-sites-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "sites",
+      "facet_key": "dataset-56837-facet-sites-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32499,
+        "database": "European Pollen Database",
+        "dataset_id": 56837,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "3ecf9b761b6db8776f3a93088f659d6fb56d6d003bc50c1c01c9e41818242459",
+        "site_id": 26219
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56838-facet-chronologies-current-attempt-1.body",
+          "receipt_file": "dataset-56838-facet-chronologies-current-attempt-1.receipt.json",
+          "receipt_sha256": "23413347ddde9a364448fae12c974bf8db09fddbe41b6322f7fcd60e0d866702",
+          "request_name": "dataset-56838-facet-chronologies-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "chronologies",
+      "facet_key": "dataset-56838-facet-chronologies-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32494,
+        "database": "European Pollen Database",
+        "dataset_id": 56838,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "8094cfd8dba42b51a79b4d6222fc65aebaf17b8ad277be5302fc0e32a177832a",
+        "site_id": 26214
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56838-facet-lithology-current-attempt-1.body",
+          "receipt_file": "dataset-56838-facet-lithology-current-attempt-1.receipt.json",
+          "receipt_sha256": "137055822adf0de159e888e1286386ead9caaaf002cc8ae8ad93586d548e552c",
+          "request_name": "dataset-56838-facet-lithology-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "lithology",
+      "facet_key": "dataset-56838-facet-lithology-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32494,
+        "database": "European Pollen Database",
+        "dataset_id": 56838,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "8094cfd8dba42b51a79b4d6222fc65aebaf17b8ad277be5302fc0e32a177832a",
+        "site_id": 26214
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56838-facet-projects-current-attempt-1.body",
+          "receipt_file": "dataset-56838-facet-projects-current-attempt-1.receipt.json",
+          "receipt_sha256": "d5f8d6af252017ceb7352879e4e9972187f3f4eaffd7c413ee7665b09b1d4913",
+          "request_name": "dataset-56838-facet-projects-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "projects",
+      "facet_key": "dataset-56838-facet-projects-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32494,
+        "database": "European Pollen Database",
+        "dataset_id": 56838,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "8094cfd8dba42b51a79b4d6222fc65aebaf17b8ad277be5302fc0e32a177832a",
+        "site_id": 26214
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56838-facet-publications-current-attempt-1.body",
+          "receipt_file": "dataset-56838-facet-publications-current-attempt-1.receipt.json",
+          "receipt_sha256": "36d96dfafe9830303ea8c15da3cd954a3a7bc29a679cc77b304e14947ac4c413",
+          "request_name": "dataset-56838-facet-publications-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "publications",
+      "facet_key": "dataset-56838-facet-publications-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32494,
+        "database": "European Pollen Database",
+        "dataset_id": 56838,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "8094cfd8dba42b51a79b4d6222fc65aebaf17b8ad277be5302fc0e32a177832a",
+        "site_id": 26214
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56838-facet-taxa-current-attempt-1.body",
+          "receipt_file": "dataset-56838-facet-taxa-current-attempt-1.receipt.json",
+          "receipt_sha256": "658faaebeee872431b30cc59473d0d3a57fac81c31a6c201c7e9b8beff3c19e4",
+          "request_name": "dataset-56838-facet-taxa-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "taxa",
+      "facet_key": "dataset-56838-facet-taxa-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32494,
+        "database": "European Pollen Database",
+        "dataset_id": 56838,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "8094cfd8dba42b51a79b4d6222fc65aebaf17b8ad277be5302fc0e32a177832a",
+        "site_id": 26214
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56838-facet-contacts-current-attempt-1.body",
+          "receipt_file": "dataset-56838-facet-contacts-current-attempt-1.receipt.json",
+          "receipt_sha256": "b81582a9b155a9ffcc324778bb36467f1f388680350cc2cffb0dc77f7c3ae414",
+          "request_name": "dataset-56838-facet-contacts-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "contacts",
+      "facet_key": "dataset-56838-facet-contacts-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32494,
+        "database": "European Pollen Database",
+        "dataset_id": 56838,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "8094cfd8dba42b51a79b4d6222fc65aebaf17b8ad277be5302fc0e32a177832a",
+        "site_id": 26214
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56838-facet-doi-current-attempt-1.body",
+          "receipt_file": "dataset-56838-facet-doi-current-attempt-1.receipt.json",
+          "receipt_sha256": "722a9641e1d42970656ff8800fb3aa44a78cef3424a8ffb36c4f6c1e156b1ba2",
+          "request_name": "dataset-56838-facet-doi-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "doi",
+      "facet_key": "dataset-56838-facet-doi-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32494,
+        "database": "European Pollen Database",
+        "dataset_id": 56838,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "8094cfd8dba42b51a79b4d6222fc65aebaf17b8ad277be5302fc0e32a177832a",
+        "site_id": 26214
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56838-facet-sites-current-attempt-1.body",
+          "receipt_file": "dataset-56838-facet-sites-current-attempt-1.receipt.json",
+          "receipt_sha256": "c06e712fb292dc26b13aead90c2902c6fe19350fba7fa16f746d221c7ecb4037",
+          "request_name": "dataset-56838-facet-sites-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "sites",
+      "facet_key": "dataset-56838-facet-sites-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32494,
+        "database": "European Pollen Database",
+        "dataset_id": 56838,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "8094cfd8dba42b51a79b4d6222fc65aebaf17b8ad277be5302fc0e32a177832a",
+        "site_id": 26214
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56839-facet-chronologies-current-attempt-1.body",
+          "receipt_file": "dataset-56839-facet-chronologies-current-attempt-1.receipt.json",
+          "receipt_sha256": "23bdb1fcf2343b5282be5cb5e86af1fd8e896fe3045285f58b887ee430868bc1",
+          "request_name": "dataset-56839-facet-chronologies-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "chronologies",
+      "facet_key": "dataset-56839-facet-chronologies-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32500,
+        "database": "European Pollen Database",
+        "dataset_id": 56839,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "99763384ef3565735fa4eed53e0b264fa838cc421b8c6ad73309fd687b18577f",
+        "site_id": 26220
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56839-facet-lithology-current-attempt-1.body",
+          "receipt_file": "dataset-56839-facet-lithology-current-attempt-1.receipt.json",
+          "receipt_sha256": "16fb7eaf7ff7f7a228c12723c7b3cf83b99714e075e1b6b2f05e946c41f6edc6",
+          "request_name": "dataset-56839-facet-lithology-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "lithology",
+      "facet_key": "dataset-56839-facet-lithology-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32500,
+        "database": "European Pollen Database",
+        "dataset_id": 56839,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "99763384ef3565735fa4eed53e0b264fa838cc421b8c6ad73309fd687b18577f",
+        "site_id": 26220
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56839-facet-projects-current-attempt-1.body",
+          "receipt_file": "dataset-56839-facet-projects-current-attempt-1.receipt.json",
+          "receipt_sha256": "70a030b8548e5a780242d33135aba059cff6f34a70e21af476f07591af8ca4ca",
+          "request_name": "dataset-56839-facet-projects-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "projects",
+      "facet_key": "dataset-56839-facet-projects-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32500,
+        "database": "European Pollen Database",
+        "dataset_id": 56839,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "99763384ef3565735fa4eed53e0b264fa838cc421b8c6ad73309fd687b18577f",
+        "site_id": 26220
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56839-facet-publications-current-attempt-1.body",
+          "receipt_file": "dataset-56839-facet-publications-current-attempt-1.receipt.json",
+          "receipt_sha256": "036da01ed1cb8d234b05db018a111a3bb2b2ff405ed789372a89906c2951366f",
+          "request_name": "dataset-56839-facet-publications-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "publications",
+      "facet_key": "dataset-56839-facet-publications-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32500,
+        "database": "European Pollen Database",
+        "dataset_id": 56839,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "99763384ef3565735fa4eed53e0b264fa838cc421b8c6ad73309fd687b18577f",
+        "site_id": 26220
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56839-facet-taxa-current-attempt-1.body",
+          "receipt_file": "dataset-56839-facet-taxa-current-attempt-1.receipt.json",
+          "receipt_sha256": "401751590a864bc7f1cffebd3b9726965303d7615be00cdee991c68fa30edd51",
+          "request_name": "dataset-56839-facet-taxa-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "taxa",
+      "facet_key": "dataset-56839-facet-taxa-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32500,
+        "database": "European Pollen Database",
+        "dataset_id": 56839,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "99763384ef3565735fa4eed53e0b264fa838cc421b8c6ad73309fd687b18577f",
+        "site_id": 26220
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56839-facet-contacts-current-attempt-1.body",
+          "receipt_file": "dataset-56839-facet-contacts-current-attempt-1.receipt.json",
+          "receipt_sha256": "6bce6ce95cadaf8d1d9dd2091439e622403c97a65f254abfc328a43506303dfc",
+          "request_name": "dataset-56839-facet-contacts-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "contacts",
+      "facet_key": "dataset-56839-facet-contacts-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32500,
+        "database": "European Pollen Database",
+        "dataset_id": 56839,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "99763384ef3565735fa4eed53e0b264fa838cc421b8c6ad73309fd687b18577f",
+        "site_id": 26220
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56839-facet-doi-current-attempt-1.body",
+          "receipt_file": "dataset-56839-facet-doi-current-attempt-1.receipt.json",
+          "receipt_sha256": "19e363ec8dba0b1bd800fbe0aabb5822beaebfd2b0ca6461df0572532b1032d3",
+          "request_name": "dataset-56839-facet-doi-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "doi",
+      "facet_key": "dataset-56839-facet-doi-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32500,
+        "database": "European Pollen Database",
+        "dataset_id": 56839,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "99763384ef3565735fa4eed53e0b264fa838cc421b8c6ad73309fd687b18577f",
+        "site_id": 26220
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56839-facet-sites-current-attempt-1.body",
+          "receipt_file": "dataset-56839-facet-sites-current-attempt-1.receipt.json",
+          "receipt_sha256": "dc99ec5e52972d1b3e8d455b321b255277a1dfbbd6407a2c2312b084364230ed",
+          "request_name": "dataset-56839-facet-sites-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "sites",
+      "facet_key": "dataset-56839-facet-sites-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32500,
+        "database": "European Pollen Database",
+        "dataset_id": 56839,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "99763384ef3565735fa4eed53e0b264fa838cc421b8c6ad73309fd687b18577f",
+        "site_id": 26220
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56840-facet-chronologies-current-attempt-1.body",
+          "receipt_file": "dataset-56840-facet-chronologies-current-attempt-1.receipt.json",
+          "receipt_sha256": "eb6f8cdb763c3030dc68352df9f37cfc4cbd0d2ebe8b9770a7a94f0753f3427d",
+          "request_name": "dataset-56840-facet-chronologies-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "chronologies",
+      "facet_key": "dataset-56840-facet-chronologies-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32497,
+        "database": "European Pollen Database",
+        "dataset_id": 56840,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "e63f9c72a56f615f1817d9fbc2087889ac3b5a2fb6548414edcad9525e0fc91b",
+        "site_id": 26217
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56840-facet-lithology-current-attempt-1.body",
+          "receipt_file": "dataset-56840-facet-lithology-current-attempt-1.receipt.json",
+          "receipt_sha256": "4dd4a06351028b31bd64035a6025719cc97eaadc71a44fa8887b468e74554d89",
+          "request_name": "dataset-56840-facet-lithology-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "lithology",
+      "facet_key": "dataset-56840-facet-lithology-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32497,
+        "database": "European Pollen Database",
+        "dataset_id": 56840,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "e63f9c72a56f615f1817d9fbc2087889ac3b5a2fb6548414edcad9525e0fc91b",
+        "site_id": 26217
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56840-facet-projects-current-attempt-1.body",
+          "receipt_file": "dataset-56840-facet-projects-current-attempt-1.receipt.json",
+          "receipt_sha256": "fa90ed59471489ed5747cb389f68251229c80406eb44f6a6c0b3b36db5411e02",
+          "request_name": "dataset-56840-facet-projects-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "projects",
+      "facet_key": "dataset-56840-facet-projects-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32497,
+        "database": "European Pollen Database",
+        "dataset_id": 56840,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "e63f9c72a56f615f1817d9fbc2087889ac3b5a2fb6548414edcad9525e0fc91b",
+        "site_id": 26217
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56840-facet-publications-current-attempt-1.body",
+          "receipt_file": "dataset-56840-facet-publications-current-attempt-1.receipt.json",
+          "receipt_sha256": "45a0dd3e6d84c62a98893ce6bba752809ccec754130db2040a35b730a527d643",
+          "request_name": "dataset-56840-facet-publications-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "publications",
+      "facet_key": "dataset-56840-facet-publications-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32497,
+        "database": "European Pollen Database",
+        "dataset_id": 56840,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "e63f9c72a56f615f1817d9fbc2087889ac3b5a2fb6548414edcad9525e0fc91b",
+        "site_id": 26217
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56840-facet-taxa-current-attempt-1.body",
+          "receipt_file": "dataset-56840-facet-taxa-current-attempt-1.receipt.json",
+          "receipt_sha256": "dfaa4cde1d86f5bc8c98210db90eaed6134a96a536631f4102e6d044a9eeff72",
+          "request_name": "dataset-56840-facet-taxa-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "taxa",
+      "facet_key": "dataset-56840-facet-taxa-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32497,
+        "database": "European Pollen Database",
+        "dataset_id": 56840,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "e63f9c72a56f615f1817d9fbc2087889ac3b5a2fb6548414edcad9525e0fc91b",
+        "site_id": 26217
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56840-facet-contacts-current-attempt-1.body",
+          "receipt_file": "dataset-56840-facet-contacts-current-attempt-1.receipt.json",
+          "receipt_sha256": "4a8bcad2f2524873526ee905ba57abfc281fb2d509f1b3378829649693072cdc",
+          "request_name": "dataset-56840-facet-contacts-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "contacts",
+      "facet_key": "dataset-56840-facet-contacts-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32497,
+        "database": "European Pollen Database",
+        "dataset_id": 56840,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "e63f9c72a56f615f1817d9fbc2087889ac3b5a2fb6548414edcad9525e0fc91b",
+        "site_id": 26217
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56840-facet-doi-current-attempt-1.body",
+          "receipt_file": "dataset-56840-facet-doi-current-attempt-1.receipt.json",
+          "receipt_sha256": "e24af83f9911433c57d4687c2fa1a95ed9131d7aacde66ac1a56054d2dd7a436",
+          "request_name": "dataset-56840-facet-doi-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "doi",
+      "facet_key": "dataset-56840-facet-doi-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32497,
+        "database": "European Pollen Database",
+        "dataset_id": 56840,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "e63f9c72a56f615f1817d9fbc2087889ac3b5a2fb6548414edcad9525e0fc91b",
+        "site_id": 26217
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56840-facet-sites-current-attempt-1.body",
+          "receipt_file": "dataset-56840-facet-sites-current-attempt-1.receipt.json",
+          "receipt_sha256": "92072736ba0a6466e3369e4b3028dfefc7c2e5d6893589c9ba80db6e6b69a078",
+          "request_name": "dataset-56840-facet-sites-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "sites",
+      "facet_key": "dataset-56840-facet-sites-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32497,
+        "database": "European Pollen Database",
+        "dataset_id": 56840,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "e63f9c72a56f615f1817d9fbc2087889ac3b5a2fb6548414edcad9525e0fc91b",
+        "site_id": 26217
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56841-facet-chronologies-current-attempt-1.body",
+          "receipt_file": "dataset-56841-facet-chronologies-current-attempt-1.receipt.json",
+          "receipt_sha256": "b3507738342794060cbe53ee95d8489a34449a8a3659d0bce7cc70ec09ae62ed",
+          "request_name": "dataset-56841-facet-chronologies-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "chronologies",
+      "facet_key": "dataset-56841-facet-chronologies-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32496,
+        "database": "European Pollen Database",
+        "dataset_id": 56841,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "f3a0ef0e7f327c17e2a0629f82f4acb1ef2515fd8b99528d35d786fcedf9ce07",
+        "site_id": 26216
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56841-facet-lithology-current-attempt-1.body",
+          "receipt_file": "dataset-56841-facet-lithology-current-attempt-1.receipt.json",
+          "receipt_sha256": "e2e775e51651cb8343ea3ac2e26ad2a5b7dab4f05cdaa49a4682a8e9baf7b0de",
+          "request_name": "dataset-56841-facet-lithology-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "lithology",
+      "facet_key": "dataset-56841-facet-lithology-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32496,
+        "database": "European Pollen Database",
+        "dataset_id": 56841,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "f3a0ef0e7f327c17e2a0629f82f4acb1ef2515fd8b99528d35d786fcedf9ce07",
+        "site_id": 26216
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56841-facet-projects-current-attempt-1.body",
+          "receipt_file": "dataset-56841-facet-projects-current-attempt-1.receipt.json",
+          "receipt_sha256": "cc2ab964f3050a270cead5bf4efae65d3e55156bf2777bb61d703b3f2933d8c5",
+          "request_name": "dataset-56841-facet-projects-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "projects",
+      "facet_key": "dataset-56841-facet-projects-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32496,
+        "database": "European Pollen Database",
+        "dataset_id": 56841,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "f3a0ef0e7f327c17e2a0629f82f4acb1ef2515fd8b99528d35d786fcedf9ce07",
+        "site_id": 26216
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56841-facet-publications-current-attempt-1.body",
+          "receipt_file": "dataset-56841-facet-publications-current-attempt-1.receipt.json",
+          "receipt_sha256": "2832f18f2654e8b3167dcfd983918b7877ed121ab222ae714fedb30dd4b747e0",
+          "request_name": "dataset-56841-facet-publications-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "publications",
+      "facet_key": "dataset-56841-facet-publications-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32496,
+        "database": "European Pollen Database",
+        "dataset_id": 56841,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "f3a0ef0e7f327c17e2a0629f82f4acb1ef2515fd8b99528d35d786fcedf9ce07",
+        "site_id": 26216
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56841-facet-taxa-current-attempt-1.body",
+          "receipt_file": "dataset-56841-facet-taxa-current-attempt-1.receipt.json",
+          "receipt_sha256": "47d329c5f1b0c82bb8c142b4595ec5dbfff4268bc2db8b311e6a626c9e881101",
+          "request_name": "dataset-56841-facet-taxa-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "taxa",
+      "facet_key": "dataset-56841-facet-taxa-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32496,
+        "database": "European Pollen Database",
+        "dataset_id": 56841,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "f3a0ef0e7f327c17e2a0629f82f4acb1ef2515fd8b99528d35d786fcedf9ce07",
+        "site_id": 26216
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56841-facet-contacts-current-attempt-1.body",
+          "receipt_file": "dataset-56841-facet-contacts-current-attempt-1.receipt.json",
+          "receipt_sha256": "87813f7e306a897b4eb4949ef84acc30dbf9a9b43296748fd7e7b1b66d0324c1",
+          "request_name": "dataset-56841-facet-contacts-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "contacts",
+      "facet_key": "dataset-56841-facet-contacts-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32496,
+        "database": "European Pollen Database",
+        "dataset_id": 56841,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "f3a0ef0e7f327c17e2a0629f82f4acb1ef2515fd8b99528d35d786fcedf9ce07",
+        "site_id": 26216
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56841-facet-doi-current-attempt-1.body",
+          "receipt_file": "dataset-56841-facet-doi-current-attempt-1.receipt.json",
+          "receipt_sha256": "48e2821ed7a0576af88cfd44e5b9a473dd44adbaf5e96d5138afa59620848150",
+          "request_name": "dataset-56841-facet-doi-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "doi",
+      "facet_key": "dataset-56841-facet-doi-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32496,
+        "database": "European Pollen Database",
+        "dataset_id": 56841,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "f3a0ef0e7f327c17e2a0629f82f4acb1ef2515fd8b99528d35d786fcedf9ce07",
+        "site_id": 26216
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56841-facet-sites-current-attempt-1.body",
+          "receipt_file": "dataset-56841-facet-sites-current-attempt-1.receipt.json",
+          "receipt_sha256": "c287e54d077a3851337732c9303da513ad0bd333e21f0bfdee3124643178f608",
+          "request_name": "dataset-56841-facet-sites-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "sites",
+      "facet_key": "dataset-56841-facet-sites-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32496,
+        "database": "European Pollen Database",
+        "dataset_id": 56841,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "f3a0ef0e7f327c17e2a0629f82f4acb1ef2515fd8b99528d35d786fcedf9ce07",
+        "site_id": 26216
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56842-facet-chronologies-current-attempt-1.body",
+          "receipt_file": "dataset-56842-facet-chronologies-current-attempt-1.receipt.json",
+          "receipt_sha256": "8833c71214a830b091d3b237d49ad2b5432c5100c2e45548645075e90e7bce6e",
+          "request_name": "dataset-56842-facet-chronologies-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "chronologies",
+      "facet_key": "dataset-56842-facet-chronologies-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32501,
+        "database": "European Pollen Database",
+        "dataset_id": 56842,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "09574cea18c0f310db625e9920ab7475a46f55b06ce48f27f42c33a51feccca2",
+        "site_id": 26221
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56842-facet-lithology-current-attempt-1.body",
+          "receipt_file": "dataset-56842-facet-lithology-current-attempt-1.receipt.json",
+          "receipt_sha256": "7900dd9c8c4a031d55bb41705319f524a3181d36f4e850e7032cac6120149faa",
+          "request_name": "dataset-56842-facet-lithology-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "lithology",
+      "facet_key": "dataset-56842-facet-lithology-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32501,
+        "database": "European Pollen Database",
+        "dataset_id": 56842,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "09574cea18c0f310db625e9920ab7475a46f55b06ce48f27f42c33a51feccca2",
+        "site_id": 26221
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56842-facet-projects-current-attempt-1.body",
+          "receipt_file": "dataset-56842-facet-projects-current-attempt-1.receipt.json",
+          "receipt_sha256": "3a7bc1371931f050252d1d1b968063196e8bf73555291be3b33773023a191e82",
+          "request_name": "dataset-56842-facet-projects-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "projects",
+      "facet_key": "dataset-56842-facet-projects-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32501,
+        "database": "European Pollen Database",
+        "dataset_id": 56842,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "09574cea18c0f310db625e9920ab7475a46f55b06ce48f27f42c33a51feccca2",
+        "site_id": 26221
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56842-facet-publications-current-attempt-1.body",
+          "receipt_file": "dataset-56842-facet-publications-current-attempt-1.receipt.json",
+          "receipt_sha256": "bed0ed46297b74ffc208029839d66389f4a550ae8047927787415f386cfcb35e",
+          "request_name": "dataset-56842-facet-publications-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "publications",
+      "facet_key": "dataset-56842-facet-publications-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32501,
+        "database": "European Pollen Database",
+        "dataset_id": 56842,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "09574cea18c0f310db625e9920ab7475a46f55b06ce48f27f42c33a51feccca2",
+        "site_id": 26221
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56842-facet-taxa-current-attempt-1.body",
+          "receipt_file": "dataset-56842-facet-taxa-current-attempt-1.receipt.json",
+          "receipt_sha256": "d156b2d530372c445e5053dce02898d84224b210ec725ccc5558a003e00d2017",
+          "request_name": "dataset-56842-facet-taxa-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "taxa",
+      "facet_key": "dataset-56842-facet-taxa-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32501,
+        "database": "European Pollen Database",
+        "dataset_id": 56842,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "09574cea18c0f310db625e9920ab7475a46f55b06ce48f27f42c33a51feccca2",
+        "site_id": 26221
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56842-facet-contacts-current-attempt-1.body",
+          "receipt_file": "dataset-56842-facet-contacts-current-attempt-1.receipt.json",
+          "receipt_sha256": "082f26977f425a042a9b8392b06212db40eaed20a6fa358f10099883fd8f4604",
+          "request_name": "dataset-56842-facet-contacts-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "contacts",
+      "facet_key": "dataset-56842-facet-contacts-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32501,
+        "database": "European Pollen Database",
+        "dataset_id": 56842,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "09574cea18c0f310db625e9920ab7475a46f55b06ce48f27f42c33a51feccca2",
+        "site_id": 26221
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56842-facet-doi-current-attempt-1.body",
+          "receipt_file": "dataset-56842-facet-doi-current-attempt-1.receipt.json",
+          "receipt_sha256": "2141bbdfabcdbcdd28f3bed2db9795cb21212827903624f6a58ef2a97a34d5c4",
+          "request_name": "dataset-56842-facet-doi-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "doi",
+      "facet_key": "dataset-56842-facet-doi-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32501,
+        "database": "European Pollen Database",
+        "dataset_id": 56842,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "09574cea18c0f310db625e9920ab7475a46f55b06ce48f27f42c33a51feccca2",
+        "site_id": 26221
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    },
+    {
+      "api_version": "v2.0",
+      "attempts": [
+        {
+          "body_file": "dataset-56842-facet-sites-current-attempt-1.body",
+          "receipt_file": "dataset-56842-facet-sites-current-attempt-1.receipt.json",
+          "receipt_sha256": "a8caac5264a243b042f04eb65420b63f79f2816c0093573636e009e0a64a8190",
+          "request_name": "dataset-56842-facet-sites-current-attempt-1"
+        }
+      ],
+      "content_version": "current",
+      "facet": "sites",
+      "facet_key": "dataset-56842-facet-sites-current",
+      "parent_scope_role": "development_resource_discovery",
+      "root_identity": {
+        "collection_unit_id": 32501,
+        "database": "European Pollen Database",
+        "dataset_id": 56842,
+        "dataset_type": "loss-on-ignition",
+        "exposure_role": "development_resource_discovery",
+        "metadata_pointer": "/data/0/site/datasets/3",
+        "metadata_sha256": "09574cea18c0f310db625e9920ab7475a46f55b06ce48f27f42c33a51feccca2",
+        "site_id": 26221
+      },
+      "scientific_admission": "not_asserted",
+      "summary": {
+        "absence_certified": false,
+        "endpoint_owner_status": "authenticated_request_dataset",
+        "payload_owner_status": "not_established",
+        "schema_qualified": false,
+        "units_interpreted": false
+      },
+      "terminal_status": "received_complete_unqualified_facet"
+    }
+  ],
+  "partitions": {
+    "received_complete_unqualified_facet": 48
+  },
+  "plan_sha256": "ed74648106d9b0dce8baac917fb5aac6a58063340965c9edaf8792352cb3a058",
+  "request_count": 48,
+  "response_bytes": 229671,
+  "schema_version": "neotoma-dataset-facet-scoped-http-capture.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "individually timed current facet responses; no transaction or frozen snapshot",
+  "status": "closed"
+}

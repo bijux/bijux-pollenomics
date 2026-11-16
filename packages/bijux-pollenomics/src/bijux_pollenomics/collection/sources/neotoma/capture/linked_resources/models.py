@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 LINKED_SCHEMA = "neotoma-linked-resource-http-capture.v1"
+EVIDENCE_SCHEMA = "neotoma-linked-source-evidence.v1"
+SCOPED_LINKED_SCHEMA = "neotoma-scoped-linked-resource-http-capture.v1"
 LINKED_KINDS = ("contact", "publication", "taxon")
 
 
@@ -40,3 +43,11 @@ class NeotomaLinkedBody:
     body_sha256: str
     receipt_sha256: str
     source_proofs: tuple[dict[str, Any], ...]
+
+
+@dataclass(frozen=True)
+class NeotomaLinkedEvidence:
+    """Explicit content anchor; the directory is supplied by a portable resolver."""
+
+    directory: Path
+    manifest_sha256: str

@@ -1,0 +1,1 @@
+{"status":"success","data":[{"datasetid":53976,"lithology":[{"lithologyid":28279,"depth":{"top":0,"bottom":117},"lowerboundary":null,"description":"carr peat"},{"lithologyid":28280,"depth":{"top":117,"bottom":120},"lowerboundary":null,"description":"silty sand"}]}],"message":"Retrieved all tables"}

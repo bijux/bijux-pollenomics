@@ -105,6 +105,19 @@ def _optional_id(value: Any) -> None:
         positive_native_id(value)
 
 
+def _publication_datasets(value: Any) -> None:
+    rows = _rows(value, "publication datasets")
+    for row in rows:
+        _fields(row, {"datasetid", "siteid", "primary"}, "publication dataset")
+    if rows == [{"datasetid": None, "siteid": None, "primary": None}]:
+        return
+    for row in rows:
+        positive_native_id(row["datasetid"])
+        positive_native_id(row["siteid"])
+        if row["primary"] is not None and type(row["primary"]) is not bool:
+            raise ValueError("Native publication primary must be a boolean or null")
+
+
 def parse_neotoma_linked_source(
     identity: dict[str, Any],
     body: bytes,
@@ -144,14 +157,7 @@ def parse_neotoma_linked_source(
                 positive_native_id(author["order"])
                 _text(author["familyname"], "author familyname")
                 _text(author["givennames"], "author givennames")
-            for dataset in _rows(record["datasets"], "publication datasets"):
-                _fields(
-                    dataset, {"datasetid", "siteid", "primary"}, "publication dataset"
-                )
-                positive_native_id(dataset["datasetid"])
-                positive_native_id(dataset["siteid"])
-                if type(dataset["primary"]) is not bool:
-                    raise ValueError("Native publication primary must be a boolean")
+            _publication_datasets(record["datasets"])
             id_field = "publicationid"
             text_fields = _PUBLICATION_FIELDS - {
                 "publicationid",
@@ -183,8 +189,16 @@ def summarize_linked_source(
 ) -> dict[str, Any]:
     """Keep prior facet relationships distinct from current global native details."""
     checks = []
+    association_population = {}
     if parsed.target_kind == "publication":
         datasets = [row for record in parsed.records for row in record["datasets"]]
+        unavailable = any(row["datasetid"] is None for row in datasets)
+        if unavailable:
+            association_population["dataset_association_population"] = (
+                "source_null_aggregate_placeholder"
+                if all(row["datasetid"] is None for row in datasets)
+                else "identified_associations_and_source_null_aggregate_placeholder"
+            )
         for proof in source_proofs:
             check = {
                 "relation": proof["relation"],
@@ -203,8 +217,16 @@ def summarize_linked_source(
                     if any(row["siteid"] != site_id for row in matches)
                     else "confirmed_by_current_detail_body"
                     if matches
+                    else "source_dataset_associations_unavailable"
+                    if unavailable
                     else "not_reported_in_current_body"
                 )
+                if any(row["primary"] is None for row in matches):
+                    check["primary_assertion_status"] = (
+                        "unknown"
+                        if all(row["primary"] is None for row in matches)
+                        else "partially_unknown"
+                    )
             checks.append(check)
     suffix = "/publication" if parsed.target_kind == "publication" else ""
     return {
@@ -219,6 +241,7 @@ def summarize_linked_source(
         ],
         "source_proof_count": len(source_proofs),
         "dataset_relation_checks": checks,
+        **association_population,
         "source_relationship_authority": "original authenticated facet proofs; current detail association checks reported separately",
         "units_interpreted": False,
         "scientific_admission": "not_asserted",
