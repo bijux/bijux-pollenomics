@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#465](https://github.com/bijux/bijux-pollenomics/pull/465) — Authenticated LRA evidence streams and receipt buffers
+
+- Hash and semantically validate the same operation-local regional draw receipt
+  bytes, preventing authenticated-source replacement from changing parsed meaning.
+- Bound control receipts at 1 MiB; stream other selected ordinary evidence under
+  its observed size without consuming unrelated siblings.
+- Refuse aliased, nonregular, replaced or changing evidence and document receipt,
+  streaming and subsequent-operation custody limits.
+
 ### [#464](https://github.com/bijux/bijux-pollenomics/pull/464) — Grid custody, destination recovery and contributor resources
 
 - Bind declared HYDE interchange grids to one bounded ordinary source descriptor
