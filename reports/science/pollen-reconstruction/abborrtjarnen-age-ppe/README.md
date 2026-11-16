@@ -38,7 +38,7 @@ The two saved chains each contribute 16,000 rows, retaining original one-based n
 
 The literal native/public axis remains Betula (29), Cyperaceae (74), Juniperus communis (4416), Pinus sylvestris (1287), Poaceae (417). The same static 3 ha circular receiver, saved five response factors, 100 km extent, wind 3 m/s, empirical coefficient 0.12 and turbulence parameter 0.25 are fixed. No new physical integration, shoreline qualification or geometry uncertainty law is introduced. The original source-point case reproduces all four prior physical covers, counting covariances and PPE gradients with maximum absolute gap **0.0**.
 
-For a joint age row A, the complete windows pool their explicit integer counts and use the existing inverse `c(A) = closure(n(A)/(K * PPE))`. Counting error has the same pooled-window fixed-total multinomial working law **conditional on A**, at the observed pooled plug-in composition. The working law declares independent conditional counting errors for windows with disjoint native sample memberships; disjointness alone does not establish independence of biological sources. This is not one age-independent raw-aliquot counting law or evidence of environmental/temporal independence.
+For a joint age row A, the complete windows pool their explicit integer counts and use the existing inverse `c(A) = closure(n(A)/(K * PPE))`. Counting error has the same pooled-window fixed-total multinomial working law **conditional on A**, at the observed pooled plug-in composition. The working law declares independent conditional counting errors for windows with disjoint native sample memberships; disjoint sample membership alone does not establish independence of biological sources. This is not one age-independent raw-aliquot counting law or evidence of environmental/temporal independence.
 
 One shared five-dimensional PPE perturbation is independent of A, and count/PPE errors are independent given A. Its baseline covariance Σ is the diagonal of the published SD squared, shared across all four windows. Source labels transfer literally; no PPE distribution shape or new PPE draw is invented. The original SD/SEM wording discrepancy remains recorded, with no square-root-of-sample-size conversion. Poaceae PPE 1 / SD 0 defines the relative reference, not zero field uncertainty.
 
@@ -71,6 +71,56 @@ Interaction size depends on the contrast. For Juniperus window 4→5, the shared
 Seed 314159 has 14,695 complete rows; seed 271828 has 14,637. Their conditional means are exported separately. Subtracting the first array from the second gives the reported seed-271828-minus-314159 difference; the maximum absolute difference is 0.0007375372 in Betula/window 9. The complete-probability difference is −0.003625. Per-chain bin-status counts follow by grouping the ledger by seed and bin. These are descriptive checks of the saved populations, not a new convergence threshold or a Monte Carlo standard-error estimate. The rows remain autocorrelated MCMC states, and qualification of the original age/free-parameter diagnostics does not by itself establish convergence of every derived moment.
 
 Covariances and contrast variance components remain raw, including signed numerical residuals. Only square roots use roundoff-only `max(0, variance)` after the frozen −1e−12 refusal criterion. Covers, contrasts and covariance matrices are not clipped or renormalized to remove numerical failures. Reported spreads are standard deviations of the conditional first-order mixture, **not standard errors of its mean**, normal intervals or coverage statements.
+
+## Grouped strict native panel shares
+
+The [grouped report](grouped/index.html) connects the retained means and full
+joint covariance to three explicit groups: Betula plus Pinus sylvestris,
+Juniperus communis, and Cyperaceae plus Poaceae. It supplies
+[means and variance components](grouped/components.csv),
+[all 18 older-minus-younger contrasts](grouped/contrasts.csv), and
+[six full grouped covariance matrices](grouped/report.json), with the
+[exact source result](grouped/source-result.json) available alongside them.
+Open the HTML report locally; its downloads need no network service.
+
+These remain shares of the **literal five-taxon modeled panel**, not whole
+forest, open land or terrestrial vegetation. The same strict native event
+retains 29,332 of 32,000 saved joint age states; the 2,668 undefined states and
+refused unconditional moments are unchanged. No recorded-zero alternative,
+new chronology fit, additional PPE draws or empirical observations enter this
+projection. This positive REVEALS inverse result needs no LOVE clipping.
+
+| Calibrated BP interval | Betula + Pinus sylvestris share (%) | Conditional SD (percentage points) |
+| --- | ---: | ---: |
+| [1500, 2000) | 83.6964 | 1.9105 |
+| [2000, 2500) | 88.2749 | 1.1531 |
+| [2500, 3000) | 90.7976 | 0.8991 |
+| [4500, 5000) | 93.8815 | 0.8773 |
+
+The oldest-minus-youngest contrast is **10.1851 percentage points**, with
+conditional SD **2.0354 points**. Its variance is 4.142796 percentage-points
+squared: age contributes 2.106804, counting 1.917864, and shared PPE 0.118128.
+The mean-gradient and age/PPE interaction terms subdivide that PPE component;
+they are not added again. These spreads are neither confidence intervals nor
+measured vegetation error.
+
+The projection uses `Gc` and `GΣGᵀ`, retaining both between-taxon and
+between-window covariance. Percentage means multiply fractions by 100;
+covariance multiplies fraction-squared values by 10,000. The
+[qualification](grouped-qualification.json) records the maintained command,
+actual result identity and independent Decimal checks of every projected
+matrix cell and contrast. The original result and all earlier exports remain
+unchanged.
+
+In the repository development environment, reproduce the self-contained view
+into a new output directory:
+
+```bash
+python -m bijux_pollenomics_dev.source_completion.pollen_reconstruction.abborrtjarnen_age_ppe.grouped \
+  --source-result reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/result.json \
+  --expected-result-sha256 af6d870767b5c393b6488242e4b966f7bbfa7a79e021ee8d70b0aaeda46981ac \
+  --output artifacts/abborrtjarnen-grouped-report
+```
 
 ## Strict native actual execution and independent observation
 

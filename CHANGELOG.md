@@ -2,6 +2,17 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#484](https://github.com/bijux/bijux-pollenomics/pull/484) — Grouped conditional panel moments
+
+- Connect retained ABBO joint moments to three literal five-taxon panel groups,
+  preserving full covariance and 18 signed cross-window contrasts.
+- Retain defined and undefined state accounting, source assumptions and qualified
+  percentage/variance units in an offline report and CSV/JSON exports.
+- Bind exact source bytes and the actual producer revision without new model
+  fits, native count/age inputs or whole-vegetation accuracy claims.
+- Create local publication parents through held physical descriptors, refusing
+  redirected namespaces before allocating foreign child directories.
+
 ### [#483](https://github.com/bijux/bijux-pollenomics/pull/483) — Canonical native variable conflicts
 
 - Reuse canonical identity variants for deterministic variable lookup labels and
