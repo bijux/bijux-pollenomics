@@ -7,19 +7,18 @@ from contextlib import ExitStack
 from hashlib import sha256
 import json
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import Any
 
 from bijux_pollenomics.core.filesystem import BoundedInputTree
 
 from ...facets.models import NeotomaFacetScopeInputs
 from ...receipts import _object, _safe_root
-from ..authority import MAX_SOURCE_BYTES, source_bindings
+from ..authority import MAX_SOURCE_BYTES, MAX_SOURCE_FILES, source_bindings
 from ..models import NeotomaLinkedEvidence
-
-if TYPE_CHECKING:
-    from ..ancestry.models import NeotomaTaxonAncestrySources
+from .ownership import _LinkedEvidenceSources
 
 _METADATA_BYTES = 16 * 1024 * 1024
+_MAX_OPERATION_FILES = 40960
 
 
 def _path(path: Path) -> str:
@@ -29,14 +28,16 @@ def _path(path: Path) -> str:
 def _paths(values: Mapping[str, Path] | None) -> tuple[tuple[str, str], ...]:
     if values is None:
         return ()
-    if not isinstance(values, Mapping):
-        raise ValueError("Evidence session source resolver must be a mapping")
+    if not isinstance(values, Mapping) or len(values) > _MAX_OPERATION_FILES:
+        raise ValueError("Evidence session source resolver exceeds its finite bound")
     return tuple(sorted((pin, _path(path)) for pin, path in values.items()))
 
 
 def _scopes(values: Mapping[str, NeotomaFacetScopeInputs] | None) -> tuple[Any, ...]:
-    if not isinstance(values, Mapping):
-        raise ValueError("Evidence session complete current scope is required")
+    if not isinstance(values, Mapping) or len(values) > _MAX_OPERATION_FILES:
+        raise ValueError(
+            "Evidence session complete current scope exceeds its finite bound"
+        )
     result = []
     for pin, scope in sorted(values.items()):
         if not isinstance(scope, NeotomaFacetScopeInputs):
@@ -59,24 +60,22 @@ class _LinkedEvidenceSession:
     def __init__(
         self,
         *,
-        source_owner: NeotomaTaxonAncestrySources,
+        source_owner: _LinkedEvidenceSources,
         scope_inputs: Mapping[str, NeotomaFacetScopeInputs],
         legacy_rosters: Mapping[str, Path],
         operation: object,
         _before_body_read: Callable[[], None] | None = None,
+        _max_source_files: int = MAX_SOURCE_FILES,
     ) -> None:
-        """Bind a single ancestry operation and its exact independent source inputs."""
-        from ..ancestry.chain.models import MAX_FILES
-        from ..ancestry.models import NeotomaTaxonAncestrySources
-
+        """Bind a single source operation and its exact independent inputs."""
         if (
-            not isinstance(source_owner, NeotomaTaxonAncestrySources)
+            type(source_owner) is not _LinkedEvidenceSources
             or type(operation) is not object
+            or type(_max_source_files) is not int
+            or not 0 < _max_source_files <= _MAX_OPERATION_FILES
         ):
-            raise ValueError(
-                "Evidence session requires its explicit ancestry operation"
-            )
-        self._max_source_files = MAX_FILES
+            raise ValueError("Evidence session requires its explicit source operation")
+        self._max_source_files = _max_source_files
         self._source_owner = source_owner
         self._scope_inputs = scope_inputs
         self._legacy_rosters = legacy_rosters
@@ -283,6 +282,52 @@ class _LinkedEvidenceSession:
             self._close()
             raise
 
+    def _check_operation(self, *, operation: object) -> None:
+        """Require this active operation and its live permissions before metadata reads."""
+        if not self._active or self._header is None or operation is not self._operation:
+            raise ValueError(
+                "Evidence session is inactive or belongs to another operation"
+            )
+        if self._before_body_read is not None:
+            self._before_body_read()
+        self._check_trees(full=False)
+
+    def _check_complete_sources(
+        self,
+        *,
+        operation: object,
+        evidence: NeotomaLinkedEvidence,
+        source_facets: Mapping[str, Path],
+        scope_inputs: Mapping[str, NeotomaFacetScopeInputs],
+        legacy_rosters: Mapping[str, Path],
+    ) -> None:
+        """Bind complete caller resolvers before any current metadata is reopened."""
+        populations = (
+            (self._source_owner.source_facets, source_facets),
+            (self._scope_inputs, scope_inputs),
+            (self._legacy_rosters, legacy_rosters),
+        )
+        if any(
+            not isinstance(supplied, Mapping) or len(supplied) > _MAX_OPERATION_FILES
+            for _, supplied in populations
+        ):
+            raise ValueError(
+                "Evidence session source resolver exceeds its finite bound"
+            )
+        if any(
+            not set(required) <= set(supplied) for required, supplied in populations
+        ):
+            raise ValueError("Evidence session complete source resolver is missing")
+        self.check(
+            operation=operation,
+            evidence=evidence,
+            source_facets={
+                pin: source_facets[pin] for pin in self._source_owner.source_facets
+            },
+            scope_inputs={pin: scope_inputs[pin] for pin in self._scope_inputs},
+            legacy_rosters={pin: legacy_rosters[pin] for pin in self._legacy_rosters},
+        )
+
     def check(
         self,
         *,
@@ -296,12 +341,7 @@ class _LinkedEvidenceSession:
         capture_manifest_sha256: str | None = None,
     ) -> None:
         """Reject stale operations, changed resolvers and permission drift before bodies."""
-        if not self._active or self._header is None or operation is not self._operation:
-            raise ValueError(
-                "Evidence session is inactive or belongs to another operation"
-            )
-        if self._before_body_read is not None:
-            self._before_body_read()
+        self._check_operation(operation=operation)
         owner = self._source_owner
         if capture_directory is not None or capture_manifest_sha256 is not None:
             declared = (

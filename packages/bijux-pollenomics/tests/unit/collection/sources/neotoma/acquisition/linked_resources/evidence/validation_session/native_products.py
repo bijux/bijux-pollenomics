@@ -118,7 +118,20 @@ def observe_work(monkeypatch: Any) -> dict[str, Any]:
 
 def session_arguments(products: dict[str, Any]) -> dict[str, Any]:
     """Select exactly the immutable legacy authority declared by the evidence."""
-    sources = products["sources"]
+    from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.evidence_parts.ownership import (
+        _LinkedEvidenceSources,
+    )
+
+    original = products["sources"]
+    sources = _LinkedEvidenceSources(
+        evidence=original.evidence,
+        source_facets=original.source_facets,
+        capture_sources=original.capture_sources,
+        context_directory=original.context_directory,
+        expected_context_sha256=original.expected_context_sha256,
+        native_archive_directory=original.native_archive_directory,
+        expected_native_archive_sha256=original.expected_native_archive_sha256,
+    )
     header = json.loads(
         (sources.evidence.directory / "evidence-manifest.json").read_bytes()
     )
@@ -128,6 +141,7 @@ def session_arguments(products: dict[str, Any]) -> dict[str, Any]:
     }
     return {
         "source_owner": sources,
+        "_max_source_files": 40960,
         "scope_inputs": products["context"].current_scope_inputs,
         "legacy_rosters": legacy,
         "operation": object(),

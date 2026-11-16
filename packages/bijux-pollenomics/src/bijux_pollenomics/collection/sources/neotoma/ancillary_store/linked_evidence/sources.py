@@ -164,15 +164,13 @@ def full_evidence_inputs(
     return _full_evidence_inputs(control, context, evidence_sources, source_facets)
 
 
-def _full_evidence_inputs(
+def _evidence_inputs(
     control: dict[str, Any],
     context: NeotomaAncillaryContext,
     evidence_sources: Mapping[str, Path] | None,
     source_facets: Mapping[str, Path],
-    *,
-    _before_body_read: Callable[[], None] | None = None,
 ) -> dict[str, Any]:
-    """Keep source semantics unchanged under an outer live metadata operation."""
+    """Resolve exact independent source metadata without claiming full validation."""
     evidence, header, _ = scoped_metadata(control, context, evidence_sources)
     authority = header["authority"]
     expected = set(authority["source_captures"])
@@ -183,11 +181,57 @@ def _full_evidence_inputs(
         for pin in authority["legacy_roster_sha256s"]
         if pin in context.legacy_rosters
     }
-    kwargs = {
-        "expected_roster_sha256": authority["roster_sha256"],
-        "scope": context.current_scope_inputs[authority["roster_sha256"]],
+    return {
+        "evidence": evidence,
         "source_facets": {pin: source_facets[pin] for pin in sorted(expected)},
+        "scope_inputs": {
+            authority["roster_sha256"]: context.current_scope_inputs[
+                authority["roster_sha256"]
+            ]
+        },
         "legacy_rosters": legacy,
+    }
+
+
+def _full_evidence_inputs(
+    control: dict[str, Any],
+    context: NeotomaAncillaryContext,
+    evidence_sources: Mapping[str, Path] | None,
+    source_facets: Mapping[str, Path],
+    *,
+    _before_body_read: Callable[[], None] | None = None,
+    _session: Any = None,
+    _operation: object | None = None,
+) -> dict[str, Any]:
+    """Require complete source validation or the exact active source-owned session."""
+    if _session is not None:
+        from ...capture.linked_resources.evidence_parts.session import (
+            _LinkedEvidenceSession,
+        )
+
+        if type(_session) is not _LinkedEvidenceSession:
+            raise ValueError("Only an active source-owned evidence session is accepted")
+        _session._check_operation(operation=_operation)
+        _session._check_complete_sources(
+            operation=_operation,
+            evidence=resolve_linked_evidence(control, evidence_sources),
+            source_facets=source_facets,
+            scope_inputs=context.current_scope_inputs,
+            legacy_rosters=context.legacy_rosters,
+        )
+    if _before_body_read is not None:
+        _before_body_read()
+    inputs = _evidence_inputs(control, context, evidence_sources, source_facets)
+    evidence = inputs["evidence"]
+    if _session is not None:
+        _session.index(operation=_operation, **inputs)
+        return inputs
+    roster, scope = next(iter(inputs["scope_inputs"].items()))
+    kwargs = {
+        "expected_roster_sha256": roster,
+        "scope": scope,
+        "source_facets": inputs["source_facets"],
+        "legacy_rosters": inputs["legacy_rosters"],
     }
     if _before_body_read is None:
         load_neotoma_linked_evidence(
@@ -206,9 +250,4 @@ def _full_evidence_inputs(
             **kwargs,
             _before_body_read=_before_body_read,
         )
-    return {
-        "evidence": evidence,
-        "source_facets": kwargs["source_facets"],
-        "scope_inputs": {authority["roster_sha256"]: kwargs["scope"]},
-        "legacy_rosters": legacy,
-    }
+    return inputs

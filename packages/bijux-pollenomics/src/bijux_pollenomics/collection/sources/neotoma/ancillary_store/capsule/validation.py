@@ -11,6 +11,7 @@ from ...capture.linked_resources.models import SCOPED_LINKED_SCHEMA
 from ...capture.linked_resources.replay import _replay_linked_resources
 from ..context.seals import context_seals
 from ..linked_evidence.sources import _full_evidence_inputs
+from .evidence import _evidence_sessions
 from .inventory import MAX_BYTES as MAX_BYTES
 from .inventory import MAX_FILES as MAX_FILES
 from .inventory import (
@@ -81,30 +82,44 @@ def _prepare_capsule(
             scope_inputs=prepared.context.current_scope_inputs,
             _before_body_read=_before_body_read,
         )
-    for digest, root in sorted(prepared.linked_sources.items()):
-        control = prepared.controls[digest]
-        if prepared.documents[digest]["schema_version"] == SCOPED_LINKED_SCHEMA:
-            inputs = _full_evidence_inputs(
-                control,
-                prepared.context,
-                evidence_sources,
-                {**(predecessor_facets or {}), **prepared.facet_sources},
+    with _evidence_sessions(
+        prepared,
+        context_directory=context_directory,
+        expected_context_sha256=expected_context_sha256,
+        native_archive_directory=native_archive_directory,
+        predecessor_facets=predecessor_facets,
+        evidence_sources=evidence_sources,
+        before_body_read=_before_body_read,
+    ) as (sessions, operation):
+        for digest, root in sorted(prepared.linked_sources.items()):
+            session = sessions.get(digest)
+            control = prepared.controls[digest]
+            if prepared.documents[digest]["schema_version"] == SCOPED_LINKED_SCHEMA:
+                inputs = _full_evidence_inputs(
+                    control,
+                    prepared.context,
+                    evidence_sources,
+                    {**(predecessor_facets or {}), **prepared.facet_sources},
+                    _before_body_read=_before_body_read,
+                    _session=session,
+                    _operation=operation,
+                )
+            else:
+                inputs = {
+                    "source_facets": {
+                        pin: prepared.facet_sources[pin]
+                        for pin in control["plan"]["source_facet_manifest_sha256s"]
+                    },
+                    "scope_inputs": prepared.context.current_scope_inputs,
+                }
+            _replay_linked_resources(
+                root,
+                expected_manifest_sha256=digest,
+                **inputs,
                 _before_body_read=_before_body_read,
+                _session=session,
+                _operation=operation,
             )
-        else:
-            inputs = {
-                "source_facets": {
-                    pin: prepared.facet_sources[pin]
-                    for pin in control["plan"]["source_facet_manifest_sha256s"]
-                },
-                "scope_inputs": prepared.context.current_scope_inputs,
-            }
-        _replay_linked_resources(
-            root,
-            expected_manifest_sha256=digest,
-            **inputs,
-            _before_body_read=_before_body_read,
-        )
     return prepared.manifest, prepared.paths, prepared.buffers, prepared.index
 
 
