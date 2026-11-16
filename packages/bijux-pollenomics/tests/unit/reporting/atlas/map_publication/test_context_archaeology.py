@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
-import tempfile
 from pathlib import Path
+import tempfile
 
 from bijux_pollenomics.reporting.context import (
     RAA_ATLAS_INPUT_STATUS_FILENAME,

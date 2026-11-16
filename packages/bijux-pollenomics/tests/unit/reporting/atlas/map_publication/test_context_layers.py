@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import json
-import tempfile
 from hashlib import sha256
+import json
 from pathlib import Path
+import tempfile
 from unittest.mock import patch
 
 from bijux_pollenomics.reporting.context import (
@@ -12,7 +12,6 @@ from bijux_pollenomics.reporting.context import (
     build_raa_atlas_input_status,
 )
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
-
 from tests.support.context_data.raa import inventory, write_authority_fixture
 
 from .support import MapPublicationTestCase
