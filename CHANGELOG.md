@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#468](https://github.com/bijux/bijux-pollenomics/pull/468) — Source-verified Neotoma taxon ancestry metadata
+
+- Publish a content-addressed ancestry capsule retaining literal source edges,
+  seed roles and known taxon/publication metadata without scientific admission.
+- Record the unacquired frontier explicitly and preserve source capture entry
+  counts independently of received entities or future request authorization.
+- Document selected metadata reader limits and the retained resolver store required
+  for complete source replay; the finite frontier producer remains open.
+
 ### [#467](https://github.com/bijux/bijux-pollenomics/pull/467) — Authenticated published draw source buffers
 
 - Parse scientific source controls and selected draw values from captured buffers

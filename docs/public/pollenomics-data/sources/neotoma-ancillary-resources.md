@@ -4,7 +4,7 @@ audience: developer
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-11-15
+last_reviewed: 2026-11-16
 ---
 
 # Neotoma Ancillary Source Resources
@@ -32,6 +32,7 @@ not geographic or global Neotoma completeness.
 | `capsules/7a7b2627d91d24b0bc9eaaaa8a8afb35d00277ad88dea36e8f0f86115bf318e3/` | `7a7b2627d91d24b0bc9eaaaa8a8afb35d00277ad88dea36e8f0f86115bf318e3` |
 | `capsules/2a4f894bbedcd297f9e8c529fcec90b09481ffb8662c1d78deb22e3cf1747c8d/` | `2a4f894bbedcd297f9e8c529fcec90b09481ffb8662c1d78deb22e3cf1747c8d` |
 | `linked-evidence/76fbc45ac0613ef1b3df21d9f56c3b629c028a361e6b515bc226689bbc5fb42f/` | `76fbc45ac0613ef1b3df21d9f56c3b629c028a361e6b515bc226689bbc5fb42f` |
+| `taxon-ancestry/84a831c05c7d018392293747925a4229faf4be935a1552ef6bdbf4587d1d0662/` | `84a831c05c7d018392293747925a4229faf4be935a1552ef6bdbf4587d1d0662` |
 | `unit-metadata/bde7f113db4f43716ec678a885b02ddb0a6a3af1ff4b4a1f6f8c66b213d654e9/` | `bde7f113db4f43716ec678a885b02ddb0a6a3af1ff4b4a1f6f8c66b213d654e9` |
 | `reference-tables/69176cd69e97efb1df19065eaafa585fb9dd87ab5c53e453555e6a999c68bdf9/` | `69176cd69e97efb1df19065eaafa585fb9dd87ab5c53e453555e6a999c68bdf9` |
 
@@ -139,6 +140,47 @@ The linked-evidence state retains 105,628 source-proof occurrences for 2,738
 direct contact, publication and taxon targets, including explicitly requested
 source-reported higher taxa. That state establishes source links; it does not
 mean every global detail entity or every transitive ancestor was collected.
+
+## Recorded Taxon Ancestry
+
+The immutable `taxon-ancestry/` baseline above derives from 2,735 retained direct
+source entries across 25 captures. Its independently bound source evidence has
+2,738 target slots; three protected contact targets remain outside those acquired
+entries. The baseline retains 2,190 seed taxa, 4,382 literal parent/citation field
+occurrences, 2,351 known taxon nodes and 174 referenced publication nodes. Its
+eleven content-addressed parts contain 16,007,737 bytes; the manifest and parts
+together contain 18,212,538 bytes.
+
+The 195 unresolved source leads are 161 additional parent taxa and 34 publication
+details. Publishing their recorded pointers does not fetch those entities. The
+18 literal self-edges remain explicit. No multi-node cycle or conflicting parent
+was found in this retained projection; uncollected ancestors can still change the
+known graph. Biological ranks, ecological groups and reconstruction admission
+remain separate from these source relationships.
+
+The API owner is
+`bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ancestry`.
+Use `read_neotoma_taxon_ancestry_target` with the independently retained manifest
+digest, a `kind` of `taxon` or `publication`, and the exact positive native ID.
+It reads selected published metadata parts and reports
+`current_roles_revalidated=False`, `native_source_fields_revalidated=False` and
+`GET_authorized=False`. A recorded pointer supplies neither current body-access
+authority nor a new collection decision.
+
+`load_neotoma_taxon_ancestry` performs complete source replay with explicit
+`NeotomaTaxonAncestrySources`: evidence, original direct captures, predecessor
+facets, context and native archive each require their independently pinned
+resolvers. The relationship product embeds no native response bodies. Complete
+source replay therefore requires the retained source store, including direct
+captures that have not yet been published as a portable ancillary capsule.
+
+The separately maintained `ancestry.chain` API authenticates later source-backed
+layers against a permanently frozen seed baseline, historical/current owner and
+PI duties, and baseline-relative depth limits. Newly discovered parents remain
+additional nodes rather than becoming new seeds. Its selected metadata reader
+also retains explicit limits on current-role and native-body authority. The
+maintained finite HTTP producer and actual collection of the 195 leads remain
+open.
 
 Publication detail can report a singleton all-null dataset-association
 placeholder. Preserve it as unavailable association metadata. An identified
