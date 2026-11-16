@@ -48,6 +48,16 @@ def scoped_metadata(
     header = read_neotoma_linked_evidence_metadata(
         evidence.directory, expected_manifest_sha256=evidence.manifest_sha256
     )
+    current = _scoped_current_metadata(control, context, header)
+    return evidence, header, current
+
+
+def _scoped_current_metadata(
+    control: dict[str, Any],
+    context: NeotomaAncillaryContext,
+    header: dict[str, Any],
+) -> dict[str, Any]:
+    """Apply unchanged current owner and predecessor duties to authenticated metadata."""
     roster = header["authority"]["roster_sha256"]
     if roster not in context.current_scope_inputs:
         raise ValueError("Scoped evidence current metadata roster resolver is missing")
@@ -79,7 +89,7 @@ def scoped_metadata(
         raise ValueError("Scoped evidence complete predecessor population differs")
     if not _same(control["policy_sources"], header["authority"]["policy_sources"]):
         raise ValueError("Scoped evidence policy source declarations differ")
-    return evidence, header, current
+    return current
 
 
 def _prepared_scoped_target(
@@ -101,6 +111,17 @@ def _prepared_scoped_target(
         native_id=native,
         reader=reader,
     )
+    return _restrict_scoped_target(selected, identity, current, attempted=attempted)
+
+
+def _restrict_scoped_target(
+    selected: dict[str, Any],
+    identity: dict[str, Any],
+    current: dict[str, Any],
+    *,
+    attempted: bool,
+) -> dict[str, Any]:
+    """Apply identical correspondence, current native owner and protected PI duties."""
     target = selected["target"]
     expected = {
         "target_key": f"{target['kind']}-{target['native_id']}",
