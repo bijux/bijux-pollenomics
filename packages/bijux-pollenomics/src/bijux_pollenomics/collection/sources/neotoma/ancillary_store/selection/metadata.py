@@ -28,6 +28,7 @@ from ..federation.validation import _FIELDS
 from .budgets import _COUNT_LIMITS as _COUNT_LIMITS
 from .budgets import _validate_limits as _validate_limits
 from .budgets import capture_response_bound
+from .parts import VerifiedParts
 
 MAX_METADATA = 16 * 1024 * 1024
 MAX_BYTES = 512 * 1024 * 1024
@@ -113,6 +114,23 @@ class SelectedMetadata:
     captures: dict[str, dict[str, Any]] = field(default_factory=dict)
     rows: dict[tuple[str, str], dict[str, Any]] = field(default_factory=dict)
     evidence_sources: Mapping[str, Path] | None = None
+    _parts: VerifiedParts | None = None
+
+    def _header(
+        self,
+        path: Path,
+        digest: str,
+        size: int | None = None,
+        *,
+        bound: int = MAX_METADATA,
+    ) -> bytes:
+        if self._parts is None:
+            return pinned(path, digest, size, bound=bound)
+        if size is not None:
+            self._parts.seal(path, size)
+        return self._parts.read(
+            path, digest, bound, source=self.context_pin + self.native_pin
+        )
 
     def member(
         self,
@@ -126,7 +144,7 @@ class SelectedMetadata:
         member = document["files"].get(name)
         if not isinstance(member, dict):
             raise ValueError("Selected ancillary member is undeclared")
-        return pinned(root / name, member["sha256"], member["bytes"], bound=bound)
+        return self._header(root / name, member["sha256"], member["bytes"], bound=bound)
 
     def row(self, population: str, group: str, key: str) -> dict[str, Any]:
         cache = (population, key)
@@ -173,7 +191,10 @@ class SelectedMetadata:
         if len(matches) != 1:
             raise ValueError("Selected federation index correspondence differs")
         selected: dict[str, Any] = matches[0]
-        self.rows[cache] = selected
+        if self._parts is not None:
+            self.rows.update({(population, row[field_name]): row for row in rows})
+        else:
+            self.rows[cache] = selected
         return selected
 
     def response_bound(
@@ -263,7 +284,7 @@ class SelectedMetadata:
             raise ValueError("Selected capture owner resolver is absent or ambiguous")
         owner = owners[0]
         root = _safe_root(self.capsule_sources[owner])
-        raw = pinned(root / "manifest.json", owner)
+        raw = self._header(root / "manifest.json", owner)
         capsule = _object(raw)
         members(capsule, raw)
         if (
@@ -364,7 +385,7 @@ class SelectedMetadata:
         )
 
 
-def selected_metadata(
+def _selected_metadata(
     directory: Path,
     *,
     expected_manifest_sha256: str,
@@ -373,10 +394,20 @@ def selected_metadata(
     capsule_sources: Mapping[str, Path],
     limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
     evidence_sources: Mapping[str, Path] | None = None,
+    parts: VerifiedParts | None = None,
 ) -> SelectedMetadata:
     _validate_limits(limits)
     root = _safe_root(directory)
-    raw = pinned(root / "manifest.json", expected_manifest_sha256)
+    raw = (
+        pinned(root / "manifest.json", expected_manifest_sha256)
+        if parts is None
+        else parts.read(
+            root / "manifest.json",
+            expected_manifest_sha256,
+            MAX_METADATA,
+            source=expected_manifest_sha256,
+        )
+    )
     manifest = _object(raw)
     members(manifest, raw)
     if (
@@ -435,6 +466,7 @@ def selected_metadata(
         expected_native_archive_sha256,
         limits=limits,
         evidence_sources=evidence_sources,
+        _parts=parts,
     )
     index = _object(result.member(root, manifest, "index.json"))
     if (
@@ -479,3 +511,24 @@ def selected_metadata(
         raise ValueError("Selected federation member correspondence differs")
     result.index = index
     return result
+
+
+def selected_metadata(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str,
+    expected_context_sha256: str,
+    expected_native_archive_sha256: str,
+    capsule_sources: Mapping[str, Path],
+    limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    evidence_sources: Mapping[str, Path] | None = None,
+) -> SelectedMetadata:
+    return _selected_metadata(
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        expected_context_sha256=expected_context_sha256,
+        expected_native_archive_sha256=expected_native_archive_sha256,
+        capsule_sources=capsule_sources,
+        limits=limits,
+        evidence_sources=evidence_sources,
+    )

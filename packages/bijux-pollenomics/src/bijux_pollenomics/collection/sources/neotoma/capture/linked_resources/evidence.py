@@ -31,6 +31,8 @@ from .authority import (
     source_pins,
     validate_linked_authority,
 )
+from .evidence_parts.reading import Reader
+from .evidence_parts.reading import _part as _part
 from .models import EVIDENCE_SCHEMA, LINKED_KINDS, NeotomaLinkedEvidence
 
 PART_TARGET_BYTES = 2 * 1024 * 1024
@@ -80,9 +82,19 @@ def _count(value: Any, *, zero: bool = False) -> int:
     return value
 
 
-def _index(directory: Path, expected: str) -> dict[str, Any]:
-    raw = _read(directory / "evidence-manifest.json", MAX_MANIFEST_BYTES)
-    if sha256(raw).hexdigest() != _digest(expected):
+def _index(
+    directory: Path, expected: str, reader: Reader | None = None
+) -> dict[str, Any]:
+    raw = (
+        _read(directory / "evidence-manifest.json", MAX_MANIFEST_BYTES)
+        if reader is None
+        else reader(directory / "evidence-manifest.json", expected, MAX_MANIFEST_BYTES)
+    )
+    if (
+        type(raw) is not bytes
+        or len(raw) > MAX_MANIFEST_BYTES
+        or sha256(raw).hexdigest() != _digest(expected)
+    ):
         raise ValueError("Linked evidence manifest identity differs")
     value = _object(raw)
     if (
@@ -190,26 +202,6 @@ def _namespace(root: Path, index: dict[str, Any]) -> None:
     )
 
 
-def _part(root: Path, descriptor: dict[str, Any]) -> list[dict[str, Any]]:
-    path = _safe_root(root / "proofs" / (descriptor["sha256"] + ".json"))
-    raw = _read(path, descriptor["bytes"])
-    if (
-        len(raw) != descriptor["bytes"]
-        or sha256(raw).hexdigest() != descriptor["sha256"]
-    ):
-        raise ValueError("Linked evidence proof part identity differs")
-    value = _object(raw)
-    if (
-        set(value) != {"schema_version", "proofs"}
-        or value["schema_version"] != EVIDENCE_SCHEMA
-        or not isinstance(value["proofs"], list)
-        or len(value["proofs"]) != descriptor["rows"]
-        or any(not isinstance(row, dict) for row in value["proofs"])
-    ):
-        raise ValueError("Linked evidence proof part population differs")
-    return value["proofs"]
-
-
 def load_neotoma_linked_evidence(
     directory: Path,
     *,
@@ -275,7 +267,7 @@ def read_neotoma_linked_evidence_metadata(
 
 
 def _occurrences(
-    root: Path, index: dict[str, Any], keys: set[str]
+    root: Path, index: dict[str, Any], keys: set[str], reader: Reader | None = None
 ) -> Iterator[tuple[dict[str, Any], dict[str, Any]]]:
     ranges: dict[str, list[tuple[int, int, str]]] = {}
     for key in sorted(keys):
@@ -287,7 +279,7 @@ def _occurrences(
         digest = descriptor["sha256"]
         if digest not in ranges:
             continue
-        rows = _part(root, descriptor)
+        rows = _part(root, descriptor, reader=reader)
         for start, count, key in sorted(ranges[digest]):
             target = index["targets"][key]
             for offset in range(start, start + count):
@@ -306,12 +298,13 @@ def iter_neotoma_linked_evidence_occurrences(
         yield proof, {"evidence_manifest_sha256": expected_manifest_sha256, **locator}
 
 
-def read_neotoma_linked_evidence_target(
+def _read_target(
     directory: Path,
     *,
     expected_manifest_sha256: str,
     kind: str,
     native_id: int,
+    reader: Reader | None = None,
 ) -> dict[str, Any]:
     """Read dated proof metadata only; this never authorizes a source entity GET.
 
@@ -322,12 +315,12 @@ def read_neotoma_linked_evidence_target(
         raise ValueError("Linked evidence target kind is invalid")
     key = f"{kind}-{positive_native_id(native_id)}"
     root = _safe_root(directory)
-    index = _index(root, expected_manifest_sha256)
+    index = _index(root, expected_manifest_sha256, reader)
     if key not in index["targets"]:
         raise ValueError("Linked target has no authenticated source proof")
     target = index["targets"][key]
     proofs, locators = [], []
-    for proof, locator in _occurrences(root, index, {key}):
+    for proof, locator in _occurrences(root, index, {key}, reader):
         proofs.append(proof)
         locators.append(
             {"evidence_manifest_sha256": expected_manifest_sha256, **locator}
@@ -339,6 +332,22 @@ def read_neotoma_linked_evidence_target(
         "scientific_admission": "not_asserted",
         "source_epoch": EVIDENCE_SCHEMA,
     }
+
+
+def read_neotoma_linked_evidence_target(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str,
+    kind: str,
+    native_id: int,
+) -> dict[str, Any]:
+    """Read dated selected proof metadata; current access duties remain independent."""
+    return _read_target(
+        directory,
+        expected_manifest_sha256=expected_manifest_sha256,
+        kind=kind,
+        native_id=native_id,
+    )
 
 
 def publish_neotoma_linked_evidence(
