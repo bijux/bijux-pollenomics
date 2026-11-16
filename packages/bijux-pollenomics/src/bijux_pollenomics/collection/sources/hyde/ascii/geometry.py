@@ -12,6 +12,7 @@ from typing import Any
 
 from ...quarantine import IntakeRefusal
 from .contracts import NativeAsciiWindow
+from .reading import read_hyde_ascii_window
 
 
 def _number(token: str, name: str) -> Decimal:
@@ -32,12 +33,23 @@ def native_axis_geometry(
     window: NativeAsciiWindow, *, archive_sha256: str
 ) -> dict[str, Any]:
     """Return a compact source-index geometry and denial of geographic authority."""
-    if not isinstance(window, NativeAsciiWindow) or not re.fullmatch(
-        r"[0-9a-f]{64}", archive_sha256
+    if (
+        type(window) is not NativeAsciiWindow
+        or not isinstance(archive_sha256, str)
+        or not re.fullmatch(r"[0-9a-f]{64}", archive_sha256)
     ):
         raise IntakeRefusal(
             "hyde_native_axis_request_invalid", "Typed window/hash required"
         )
+    owner = read_hyde_ascii_window(
+        window.directory, expected_manifest_sha256=window.manifest_sha256
+    )
+    if owner != window or owner.archive_sha256 != archive_sha256:
+        raise IntakeRefusal(
+            "hyde_native_axis_archive_binding_mismatch",
+            "Authenticated window owner differs",
+        )
+    window = owner
     selection, header = window.selection, window.header
     if (
         selection.row_stop > header.rows
@@ -68,7 +80,7 @@ def native_axis_geometry(
         "window_manifest_sha256": window.manifest_sha256,
         "custody_manifest_sha256": window.custody_manifest_sha256,
         "archive_path": selection.archive_path,
-        "archive_sha256": archive_sha256,
+        "archive_sha256": owner.archive_sha256,
         "archive_member_index": selection.member_index,
         "archive_member_name": selection.expected_member_name,
         "member_sha256": window.member_sha256,

@@ -33,6 +33,7 @@ from .parsing import number, parse_header
 
 
 def selection_from_payload(value: object) -> AsciiWindowSelection:
+    """Validate an exact selection without interpreting its native labels."""
     row = object_fields(
         value, {field.name for field in fields(AsciiWindowSelection)}, "selection"
     )
@@ -55,6 +56,7 @@ def selection_from_payload(value: object) -> AsciiWindowSelection:
 
 
 def bound_from_payload(value: object) -> BoundArchiveMember:
+    """Validate the complete archive-member identity in retained metadata."""
     row = object_fields(
         value, {field.name for field in fields(BoundArchiveMember)}, "bound member"
     )
@@ -266,6 +268,7 @@ def _read(root: Path, expected: str) -> NativeAsciiWindow:
         header,
         tokens,
         mask,
+        archive_sha256=selected.archive_sha256,
     )
 
 
