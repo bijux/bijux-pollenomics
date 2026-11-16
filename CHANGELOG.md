@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#479](https://github.com/bijux/bijux-pollenomics/pull/479) — Physical archive metadata ownership
+
+- Retain selected archive metadata ancestors and leaf identity through bounded
+  descriptor reads without inventorying sibling source entities.
+- Keep one physical archive root across manifest, download-index and final
+  reference validation, refusing equal-byte foreign root replacement.
+- Preserve declared-size preflight, exact hashes and generated public-service
+  coverage without extending qualification to actual native source bodies.
+
 ### [#478](https://github.com/bijux/bijux-pollenomics/pull/478) — Published pollen-productivity references
 
 - Retain two attributed publisher workbooks and receipts with 369 original
