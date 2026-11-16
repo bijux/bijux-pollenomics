@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#478](https://github.com/bijux/bijux-pollenomics/pull/478) — Published pollen-productivity references
+
+- Retain two attributed publisher workbooks and receipts with 369 original
+  estimates and 524 regional synthesis records, preserving source-cell locators.
+- Keep duplicate source rows, original SE and synthesized SD labels, missing
+  markers and zeros distinct; record unresolved counts, regions and units.
+- Expose the references through source guides without replacing local parameter
+  profiles, implying independent evidence or recomputing numerical results.
+
 ### [#477](https://github.com/bijux/bijux-pollenomics/pull/477) — Source proof selection and recovery diagnostics
 
 - Authenticate each Neotoma capture metadata selection in one bounded pass while

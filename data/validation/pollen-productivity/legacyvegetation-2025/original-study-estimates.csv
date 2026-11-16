@@ -1,0 +1,370 @@
+taxon,continent,rpp,rpp_se,reference,study_doi,source_workbook,source_sheet,source_row,taxon_cell,continent_cell,rpp_cell,rpp_se_cell,reference_cell,study_doi_cell
+Acer,Asia,0.0869,0.0621,,https://doi.org/10.1016/j.quaint.2022.03.010,originals/original-rpp.xlsx,Worksheet 1,2,A2,B2,C2,D2,E2,F2
+Alnus,Asia,0.85,1.53,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,3,A3,B3,C3,D3,E3,F3
+Amaranthaceae,Asia,21.01,2.47,,http://www.dsjyj.com.cn/en/article/doi/10.11928/j.issn.1001-7410.2015.04.15,originals/original-rpp.xlsx,Worksheet 1,4,A4,B4,C4,D4,E4,F4
+Amaranthaceae,Asia,3.57,0.81,,https://doi.org/10.3389/fpls.2018.01214,originals/original-rpp.xlsx,Worksheet 1,5,A5,B5,C5,D5,E5,F5
+Amaranthaceae,Asia,0.18,0.16,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,6,A6,B6,C6,D6,E6,F6
+Amaranthaceae,Asia,5.379,1.077,,https://doi.org/10.1016/j.revpalbo.2011.09.004,originals/original-rpp.xlsx,Worksheet 1,7,A7,B7,C7,D7,E7,F7
+Amaranthaceae,Asia,7.72,1.47,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,8,A8,B8,C8,D8,E8,F8
+Amaranthaceae,Asia,21.35,2.34,,https://doi.org/10.1016/j.scitotenv.2017.02.027,originals/original-rpp.xlsx,Worksheet 1,9,A9,B9,C9,D9,E9,F9
+Amaranthaceae,Asia,28.39,1.62,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.19,originals/original-rpp.xlsx,Worksheet 1,10,A10,B10,C10,D10,E10,F10
+Amaranthaceae,Asia,27.9,2.9,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,11,A11,B11,C11,D11,E11,F11
+Amaranthaceae,Asia,10.6,0.6,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,12,A12,B12,C12,D12,E12,F12
+Amaranthaceae,Asia,7.72,1.47,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,13,A13,B13,C13,D13,E13,F13
+Amaryllidaceae,Asia,1.64,0.4,,https://doi.org/10.1016/j.scitotenv.2017.02.027,originals/original-rpp.xlsx,Worksheet 1,14,A14,B14,C14,D14,E14,F14
+Anacardiaceae,Asia,0.45,0.07,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,15,A15,B15,C15,D15,E15,F15
+Anacardiaceae,Asia,1.77,0.04,,https://doi.org/10.1016/j.ecolind.2020.106297,originals/original-rpp.xlsx,Worksheet 1,16,A16,B16,C16,D16,E16,F16
+Anacardiaceae,Asia,0.4478,0.0746,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,17,A17,B17,C17,D17,E17,F17
+Artemisia,Asia,19.33,0.41,,http://www.dsjyj.com.cn/en/article/doi/10.11928/j.issn.1001-7410.2015.04.15,originals/original-rpp.xlsx,Worksheet 1,18,A18,B18,C18,D18,E18,F18
+Artemisia,Asia,19.03,0.27,,https://doi.org/10.3389/fpls.2018.01214,originals/original-rpp.xlsx,Worksheet 1,19,A19,B19,C19,D19,E19,F19
+Artemisia,Asia,24.7,0.36,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,20,A20,B20,C20,D20,E20,F20
+Artemisia,Asia,3.267,0.628,,https://doi.org/10.1016/j.revpalbo.2011.09.004,originals/original-rpp.xlsx,Worksheet 1,21,A21,B21,C21,D21,E21,F21
+Artemisia,Asia,21.53,2.16,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,22,A22,B22,C22,D22,E22,F22
+Artemisia,Asia,5.77,0.35,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,23,A23,B23,C23,D23,E23,F23
+Artemisia,Asia,3.4,0.18,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,24,A24,B24,C24,D24,E24,F24
+Artemisia,Asia,21.33,0.4,,https://doi.org/10.1016/j.scitotenv.2017.02.027,originals/original-rpp.xlsx,Worksheet 1,25,A25,B25,C25,D25,E25,F25
+Artemisia,Asia,16.15,1.41,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.19,originals/original-rpp.xlsx,Worksheet 1,26,A26,B26,C26,D26,E26,F26
+Artemisia,Asia,5.77,0.35,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,27,A27,B27,C27,D27,E27,F27
+Artemisia,Asia,1.81,0.3,,https://doi.org/10.1016/j.ecolind.2021.107928,originals/original-rpp.xlsx,Worksheet 1,28,A28,B28,C28,D28,E28,F28
+Asteraceae,Asia,7.73,0.54,,http://www.dsjyj.com.cn/en/article/doi/10.11928/j.issn.1001-7410.2015.04.15,originals/original-rpp.xlsx,Worksheet 1,29,A29,B29,C29,D29,E29,F29
+Asteraceae,Asia,1.26,0.4,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,30,A30,B30,C30,D30,E30,F30
+Asteraceae,Asia,0.86,0.11,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,31,A31,B31,C31,D31,E31,F31
+Asteraceae,Asia,3,0.32,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,32,A32,B32,C32,D32,E32,F32
+Asteraceae,Asia,1.1,0.12,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,33,A33,B33,C33,D33,E33,F33
+Asteraceae,Asia,8.85,0.51,,https://doi.org/10.1016/j.scitotenv.2017.02.027,originals/original-rpp.xlsx,Worksheet 1,34,A34,B34,C34,D34,E34,F34
+Asteraceae,Asia,20.5,2.68,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.19,originals/original-rpp.xlsx,Worksheet 1,35,A35,B35,C35,D35,E35,F35
+Asteraceae,Asia,8.15,0.45,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,36,A36,B36,C36,D36,E36,F36
+Asteraceae,Asia,1.8,0.2,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,37,A37,B37,C37,D37,E37,F37
+Asteraceae,Asia,3,0.32,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,38,A38,B38,C38,D38,E38,F38
+Asteraceae,Asia,8.74,0.05,,https://doi.org/10.1016/j.ecolind.2020.106297,originals/original-rpp.xlsx,Worksheet 1,39,A39,B39,C39,D39,E39,F39
+Asteraceae,Asia,0.31,0.25,,https://doi.org/10.1016/j.ecolind.2021.107928,originals/original-rpp.xlsx,Worksheet 1,40,A40,B40,C40,D40,E40,F40
+Betula,Asia,12.52,0.37,,https://doi.org/10.1016/j.revpalbo.2015.02.003,originals/original-rpp.xlsx,Worksheet 1,41,A41,B41,C41,D41,E41,F41
+Betula,Asia,13.16,0.08,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,42,A42,B42,C42,D42,E42,F42
+Betula,Asia,11.67,0.22,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,43,A43,B43,C43,D43,E43,F43
+Betula,Asia,7.8,0.51,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,44,A44,B44,C44,D44,E44,F44
+Betula,Asia,2.82,0.28,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,45,A45,B45,C45,D45,E45,F45
+Betula,Asia,1.59,5.86,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,46,A46,B46,C46,D46,E46,F46
+Betula,Asia,5.171,0.2259,,https://doi.org/10.1016/j.quaint.2022.03.010,originals/original-rpp.xlsx,Worksheet 1,47,A47,B47,C47,D47,E47,F47
+Betula,Asia,4.97,0.08,,https://doi.org/10.1016/j.ecolind.2021.107928,originals/original-rpp.xlsx,Worksheet 1,48,A48,B48,C48,D48,E48,F48
+Brassicaceae,Asia,0.89,0.18,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,49,A49,B49,C49,D49,E49,F49
+Brassicaceae,Asia,3.4,0.2,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,50,A50,B50,C50,D50,E50,F50
+Camellia,Asia,0.5832,0.0194,,https://doi.org/10.3390/land12071337,originals/original-rpp.xlsx,Worksheet 1,51,A51,B51,C51,D51,E51,F51
+Carpinus,Asia,1.5416,0.3029,,https://doi.org/10.1016/j.quaint.2022.03.010,originals/original-rpp.xlsx,Worksheet 1,52,A52,B52,C52,D52,E52,F52
+Caryophyllaceae,Asia,78.2,5.85,,https://doi.org/10.3389/fpls.2018.01214,originals/original-rpp.xlsx,Worksheet 1,53,A53,B53,C53,D53,E53,F53
+Caryophyllaceae,Asia,0.87,0.14,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,54,A54,B54,C54,D54,E54,F54
+Caryophyllaceae,Asia,7.28,0.14,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,55,A55,B55,C55,D55,E55,F55
+Caryophyllaceae,Asia,25.75,2.35,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,56,A56,B56,C56,D56,E56,F56
+Caryophyllaceae,Asia,7.28,0.14,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,57,A57,B57,C57,D57,E57,F57
+Caryophyllaceae,Asia,11.86,0.87,,https://doi.org/10.1016/j.ecolind.2021.107928,originals/original-rpp.xlsx,Worksheet 1,58,A58,B58,C58,D58,E58,F58
+Castanea,Asia,11.49,0.49,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,59,A59,B59,C59,D59,E59,F59
+Castanea,Asia,0.25,0.01,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,60,A60,B60,C60,D60,E60,F60
+Castanea,Asia,0.2537,0.0149,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,61,A61,B61,C61,D61,E61,F61
+Castanopsis,Asia,19.44,0.17,,https://doi.org/10.1016/j.ecolind.2020.106297,originals/original-rpp.xlsx,Worksheet 1,62,A62,B62,C62,D62,E62,F62
+Convolvulaceae,Asia,0.18,0.03,,http://www.dsjyj.com.cn/en/article/doi/10.11928/j.issn.1001-7410.2015.04.15,originals/original-rpp.xlsx,Worksheet 1,63,A63,B63,C63,D63,E63,F63
+Corylus,Asia,3.17,0.2,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,64,A64,B64,C64,D64,E64,F64
+Corylus,Asia,3.17,0.2,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,65,A65,B65,C65,D65,E65,F65
+Cupressaceae,Asia,1.11,0.09,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,66,A66,B66,C66,D66,E66,F66
+Cyclobalanopsis,Asia,2.4106,0.1361,,https://doi.org/10.3390/land12071337,originals/original-rpp.xlsx,Worksheet 1,67,A67,B67,C67,D67,E67,F67
+Cyperaceae,Asia,8.9,0.33,,http://www.dsjyj.com.cn/en/article/doi/10.11928/j.issn.1001-7410.2015.04.15,originals/original-rpp.xlsx,Worksheet 1,68,A68,B68,C68,D68,E68,F68
+Cyperaceae,Asia,0.21,0.07,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,69,A69,B69,C69,D69,E69,F69
+Cyperaceae,Asia,0.66,0.021,,https://doi.org/10.1016/j.revpalbo.2011.09.004,originals/original-rpp.xlsx,Worksheet 1,70,A70,B70,C70,D70,E70,F70
+Cyperaceae,Asia,0.54,0.19,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,71,A71,B71,C71,D71,E71,F71
+Cyperaceae,Asia,0,0.0071,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,72,A72,B72,C72,D72,E72,F72
+Cyperaceae,Asia,0.016,4.86,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,73,A73,B73,C73,D73,E73,F73
+Cyperaceae,Asia,20.8,0.65,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,74,A74,B74,C74,D74,E74,F74
+Cyperaceae,Asia,1.6,0.12,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,75,A75,B75,C75,D75,E75,F75
+Cyperaceae,Asia,0.04,0.03,,https://doi.org/10.1016/j.ecolind.2021.107928,originals/original-rpp.xlsx,Worksheet 1,76,A76,B76,C76,D76,E76,F76
+Cyperaceae,Asia,0.5373,0.194,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,77,A77,B77,C77,D77,E77,F77
+Elaeagnaceae,Asia,8.88,1.3,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,78,A78,B78,C78,D78,E78,F78
+Elaeagnaceae,Asia,18.4,0.44,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,79,A79,B79,C79,D79,E79,F79
+Ephedraceae,Asia,22.87,0.76,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.19,originals/original-rpp.xlsx,Worksheet 1,80,A80,B80,C80,D80,E80,F80
+Ericaceae,Asia,1.57,0.2,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,81,A81,B81,C81,D81,E81,F81
+Ericaceae,Asia,1.57,0.2,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,82,A82,B82,C82,D82,E82,F82
+Euphorbiaceae,Asia,2.21,0.08,,https://doi.org/10.1016/j.ecolind.2020.106297,originals/original-rpp.xlsx,Worksheet 1,83,A83,B83,C83,D83,E83,F83
+Euphorbiaceae,Asia,5.22,0.1,,https://doi.org/10.1016/j.ecolind.2020.106297,originals/original-rpp.xlsx,Worksheet 1,84,A84,B84,C84,D84,E84,F84
+Fabaceae,Asia,0.2,0.1,,http://www.dsjyj.com.cn/en/article/doi/10.11928/j.issn.1001-7410.2015.04.15,originals/original-rpp.xlsx,Worksheet 1,85,A85,B85,C85,D85,E85,F85
+Fabaceae,Asia,0.78,0.03,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,86,A86,B86,C86,D86,E86,F86
+Fabaceae,Asia,0.21,0.07,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,87,A87,B87,C87,D87,E87,F87
+Fabaceae,Asia,0.2,0.1,,https://doi.org/10.1016/j.scitotenv.2017.02.027,originals/original-rpp.xlsx,Worksheet 1,88,A88,B88,C88,D88,E88,F88
+Fabaceae,Asia,0.209,0.0746,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,89,A89,B89,C89,D89,E89,F89
+Fraxinus,Asia,1.89,0.35,,https://doi.org/10.1016/j.revpalbo.2015.02.003,originals/original-rpp.xlsx,Worksheet 1,90,A90,B90,C90,D90,E90,F90
+Fraxinus,Asia,0.21,0.06,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,91,A91,B91,C91,D91,E91,F91
+Hippophae,Asia,18.38,1.27,,https://doi.org/10.1016/j.ecolind.2021.107928,originals/original-rpp.xlsx,Worksheet 1,92,A92,B92,C92,D92,E92,F92
+Humulus,Asia,16.3,1,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,93,A93,B93,C93,D93,E93,F93
+Ilex,Asia,6.7068,0.5832,,https://doi.org/10.3390/land12071337,originals/original-rpp.xlsx,Worksheet 1,94,A94,B94,C94,D94,E94,F94
+Juglandaceae,Asia,1.8955,0.0896,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,95,A95,B95,C95,D95,E95,F95
+Juglans,Asia,4.82,0.22,,https://doi.org/10.1016/j.revpalbo.2015.02.003,originals/original-rpp.xlsx,Worksheet 1,96,A96,B96,C96,D96,E96,F96
+Juglans,Asia,0.3,0.05,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,97,A97,B97,C97,D97,E97,F97
+Juglans,Asia,7.69,0.49,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,98,A98,B98,C98,D98,E98,F98
+Juglans,Asia,1.69,0.24,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,99,A99,B99,C99,D99,E99,F99
+Juglans,Asia,1.9,0.09,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,100,A100,B100,C100,D100,E100,F100
+Lamiaceae,Asia,0.2,0.13,,http://www.dsjyj.com.cn/en/article/doi/10.11928/j.issn.1001-7410.2015.04.15,originals/original-rpp.xlsx,Worksheet 1,101,A101,B101,C101,D101,E101,F101
+Lamiaceae,Asia,2.27,0.35,,https://doi.org/10.3389/fpls.2018.01214,originals/original-rpp.xlsx,Worksheet 1,102,A102,B102,C102,D102,E102,F102
+Lamiaceae,Asia,1.9,0.3,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,103,A103,B103,C103,D103,E103,F103
+Larix,Asia,0.74,0.1,,https://doi.org/10.1016/j.revpalbo.2015.02.003,originals/original-rpp.xlsx,Worksheet 1,104,A104,B104,C104,D104,E104,F104
+Larix,Asia,3.87,0.6,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,105,A105,B105,C105,D105,E105,F105
+Larix,Asia,4.41,0.15,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,106,A106,B106,C106,D106,E106,F106
+Larix,Asia,0.2,0.06,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,107,A107,B107,C107,D107,E107,F107
+Larix,Asia,2.18,0.36,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,108,A108,B108,C108,D108,E108,F108
+Larix,Asia,6.61,3.5,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,109,A109,B109,C109,D109,E109,F109
+Liliaceae,Asia,1.49,0.11,,http://www.dsjyj.com.cn/en/article/doi/10.11928/j.issn.1001-7410.2015.04.15,originals/original-rpp.xlsx,Worksheet 1,110,A110,B110,C110,D110,E110,F110
+Liliaceae,Asia,2.45,0.4,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,111,A111,B111,C111,D111,E111,F111
+Liquidambar,Asia,2.255,0.1166,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,112,A112,B112,C112,D112,E112,F112
+Mallotus,Asia,10.8475,1.7107,,https://doi.org/10.3390/land12071337,originals/original-rpp.xlsx,Worksheet 1,113,A113,B113,C113,D113,E113,F113
+Malus,Asia,0.0869,0.0372,,https://doi.org/10.1016/j.quaint.2022.03.010,originals/original-rpp.xlsx,Worksheet 1,114,A114,B114,C114,D114,E114,F114
+Moraceae,Asia,6.52,0.08,,https://doi.org/10.1016/j.ecolind.2020.106297,originals/original-rpp.xlsx,Worksheet 1,115,A115,B115,C115,D115,E115,F115
+Papilionaceae,Asia,2.66,0.05,,https://doi.org/10.1016/j.ecolind.2020.106297,originals/original-rpp.xlsx,Worksheet 1,116,A116,B116,C116,D116,E116,F116
+Picea,Asia,29.4,0.87,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,117,A117,B117,C117,D117,E117,F117
+Picea,Asia,3.4,0.83,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,118,A118,B118,C118,D118,E118,F118
+Pinus,Asia,7.72,0.25,,https://doi.org/10.1016/j.revpalbo.2015.02.003,originals/original-rpp.xlsx,Worksheet 1,119,A119,B119,C119,D119,E119,F119
+Pinus,Asia,8.96,0.23,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,120,A120,B120,C120,D120,E120,F120
+Pinus,Asia,29.55,1.77,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,121,A121,B121,C121,D121,E121,F121
+Pinus,Asia,18.82,0.54,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,122,A122,B122,C122,D122,E122,F122
+Pinus,Asia,13.24,1.19,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,123,A123,B123,C123,D123,E123,F123
+Pinus,Asia,12.85,1.26,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,124,A124,B124,C124,D124,E124,F124
+Pinus,Asia,31.3,1.97,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,125,A125,B125,C125,D125,E125,F125
+Pinus,Asia,16.22,5.86,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,126,A126,B126,C126,D126,E126,F126
+Pinus,Asia,1.9637,0.0894,,https://doi.org/10.1016/j.quaint.2022.03.010,originals/original-rpp.xlsx,Worksheet 1,127,A127,B127,C127,D127,E127,F127
+Pinus,Asia,12.85,1.26,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,128,A128,B128,C128,D128,E128,F128
+Pinus,Asia,32.1,1.94,,https://doi.org/10.1016/j.ecolind.2021.107928,originals/original-rpp.xlsx,Worksheet 1,129,A129,B129,C129,D129,E129,F129
+Pinus,Asia,13.2388,1.194,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,130,A130,B130,C130,D130,E130,F130
+Poaceae,Asia,1,0,,http://www.dsjyj.com.cn/en/article/doi/10.11928/j.issn.1001-7410.2015.04.15,originals/original-rpp.xlsx,Worksheet 1,131,A131,B131,C131,D131,E131,F131
+Poaceae,Asia,1,0,,https://doi.org/10.3389/fpls.2018.01214,originals/original-rpp.xlsx,Worksheet 1,132,A132,B132,C132,D132,E132,F132
+Poaceae,Asia,1,0,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,133,A133,B133,C133,D133,E133,F133
+Poaceae,Asia,1,0,,https://doi.org/10.1016/j.revpalbo.2011.09.004,originals/original-rpp.xlsx,Worksheet 1,134,A134,B134,C134,D134,E134,F134
+Poaceae,Asia,1,0,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,135,A135,B135,C135,D135,E135,F135
+Poaceae,Asia,1,0,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,136,A136,B136,C136,D136,E136,F136
+Poaceae,Asia,1,0.19,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,137,A137,B137,C137,D137,E137,F137
+Poaceae,Asia,1,0,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,138,A138,B138,C138,D138,E138,F138
+Poaceae,Asia,1,0,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,139,A139,B139,C139,D139,E139,F139
+Poaceae,Asia,1,0,,https://doi.org/10.1016/j.scitotenv.2017.02.027,originals/original-rpp.xlsx,Worksheet 1,140,A140,B140,C140,D140,E140,F140
+Poaceae,Asia,1,0,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,141,A141,B141,C141,D141,E141,F141
+Poaceae,Asia,1,0,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,142,A142,B142,C142,D142,E142,F142
+Poaceae,Asia,1,0,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.19,originals/original-rpp.xlsx,Worksheet 1,143,A143,B143,C143,D143,E143,F143
+Poaceae,Asia,1,0,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,144,A144,B144,C144,D144,E144,F144
+Poaceae,Asia,1,0,,https://doi.org/10.1016/j.ecolind.2020.106297,originals/original-rpp.xlsx,Worksheet 1,145,A145,B145,C145,D145,E145,F145
+Poaceae,Asia,1,0,,https://doi.org/10.1016/j.ecolind.2021.107928,originals/original-rpp.xlsx,Worksheet 1,146,A146,B146,C146,D146,E146,F146
+Polygonaceae,Asia,26.35,1.85,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,147,A147,B147,C147,D147,E147,F147
+Potentilla,Asia,1.4,0.2,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,148,A148,B148,C148,D148,E148,F148
+Quercus,Asia,2.48,0,,https://doi.org/10.1016/j.revpalbo.2015.02.003,originals/original-rpp.xlsx,Worksheet 1,149,A149,B149,C149,D149,E149,F149
+Quercus,Asia,4.89,0.16,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,150,A150,B150,C150,D150,E150,F150
+Quercus,Asia,5.48,0.11,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,151,A151,B151,C151,D151,E151,F151
+Quercus,Asia,1.75,0.31,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,152,A152,B152,C152,D152,E152,F152
+Quercus,Asia,1.49,0,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,153,A153,B153,C153,D153,E153,F153
+Quercus,Asia,0.81,0.07,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,154,A154,B154,C154,D154,E154,F154
+Quercus,Asia,0.6,0.08,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,155,A155,B155,C155,D155,E155,F155
+Quercus,Asia,0.81,0.007,,https://doi.org/10.1007/s00334-020-00779-x,originals/original-rpp.xlsx,Worksheet 1,156,A156,B156,C156,D156,E156,F156
+Quercus,Asia,2.69,0.08,,https://doi.org/10.1016/j.ecolind.2021.107928,originals/original-rpp.xlsx,Worksheet 1,157,A157,B157,C157,D157,E157,F157
+Ranunculaceae,Asia,7.86,2.65,,https://doi.org/10.11928/j.issn.1001-7410.2017.06.24,originals/original-rpp.xlsx,Worksheet 1,158,A158,B158,C158,D158,E158,F158
+Rhododendron,Asia,2.48,0.27,,https://doi.org/10.1016/j.ecolind.2021.107928,originals/original-rpp.xlsx,Worksheet 1,159,A159,B159,C159,D159,E159,F159
+Rosaceae,Asia,0.22,0.09,,http://www.dsjyj.com.cn/en/article/doi/10.11928/j.issn.1001-7410.2015.04.15,originals/original-rpp.xlsx,Worksheet 1,160,A160,B160,C160,D160,E160,F160
+Rosaceae,Asia,0.84,0.04,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,161,A161,B161,C161,D161,E161,F161
+Rosaceae,Asia,0.8358,0.0448,,https://doi.org/10.1002/jqs.3197,originals/original-rpp.xlsx,Worksheet 1,162,A162,B162,C162,D162,E162,F162
+Rubiaceae,Asia,1.23,0.36,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,163,A163,B163,C163,D163,E163,F163
+Rubiaceae,Asia,1.29,0.02,,https://doi.org/10.1016/j.ecolind.2020.106297,originals/original-rpp.xlsx,Worksheet 1,164,A164,B164,C164,D164,E164,F164
+Salix,Asia,0.23,0.11,,https://doi.org/10.3389/fevo.2022.837857,originals/original-rpp.xlsx,Worksheet 1,165,A165,B165,C165,D165,E165,F165
+Sanguisorba,Asia,24.07,3.5,,https://doi.org/10.3389/fpls.2018.01214,originals/original-rpp.xlsx,Worksheet 1,166,A166,B166,C166,D166,E166,F166
+Symplocos,Asia,0.2138,0.0389,,https://doi.org/10.3390/land12071337,originals/original-rpp.xlsx,Worksheet 1,167,A167,B167,C167,D167,E167,F167
+Syringa,Asia,3.3936,0.216,,https://doi.org/10.1016/j.quaint.2022.03.010,originals/original-rpp.xlsx,Worksheet 1,168,A168,B168,C168,D168,E168,F168
+Tamaricaceae,Asia,1.5,0.13,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.19,originals/original-rpp.xlsx,Worksheet 1,169,A169,B169,C169,D169,E169,F169
+Thalictrum,Asia,2.8,0.4,,https://doi.org/10.11928/j.issn.1001-7410.2021.06.18,originals/original-rpp.xlsx,Worksheet 1,170,A170,B170,C170,D170,E170,F170
+Thymelaeaceae,Asia,33.05,3.78,,https://doi.org/10.3389/fpls.2018.01214,originals/original-rpp.xlsx,Worksheet 1,171,A171,B171,C171,D171,E171,F171
+Tilia,Asia,0.4,0.1,,https://doi.org/10.1016/j.revpalbo.2015.02.003,originals/original-rpp.xlsx,Worksheet 1,172,A172,B172,C172,D172,E172,F172
+Ulmus,Asia,3.48,0.87,,https://doi.org/10.1016/j.revpalbo.2015.02.003,originals/original-rpp.xlsx,Worksheet 1,173,A173,B173,C173,D173,E173,F173
+Ulmus,Asia,1,0.31,,https://doi.org/10.1007/s00334-017-0636-9,originals/original-rpp.xlsx,Worksheet 1,174,A174,B174,C174,D174,E174,F174
+Ulmus,Asia,1.5962,0.1539,,https://doi.org/10.1016/j.quaint.2022.03.010,originals/original-rpp.xlsx,Worksheet 1,175,A175,B175,C175,D175,E175,F175
+Abies,Europe,9.92,2.86,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,176,A176,B176,C176,D176,E176,F176
+Abies,Europe,3.83,0.37,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,177,A177,B177,C177,D177,E177,F177
+Acer,Europe,0.32,0.09,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,178,A178,B178,C178,D178,E178,F178
+Acer,Europe,0.3,0.09,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,179,A179,B179,C179,D179,E179,F179
+Acer,Europe,0.07,0.01,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,180,A180,B180,C180,D180,E180,F180
+Alnus,Europe,2.56,0.32,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,181,A181,B181,C181,D181,E181,F181
+Alnus,Europe,8.74,0.35,,https://doi.org/10.1191/0959683605hl821rr,originals/original-rpp.xlsx,Worksheet 1,182,A182,B182,C182,D182,E182,F182
+Alnus,Europe,19.96,1.6,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,183,A183,B183,C183,D183,E183,F183
+Alnus,Europe,15.95,0.6622,,https://doi.org/10.1177/0959683615596822,originals/original-rpp.xlsx,Worksheet 1,184,A184,B184,C184,D184,E184,F184
+Alnus,Europe,6.42,0.42,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,185,A185,B185,C185,D185,E185,F185
+Alnus,Europe,2.86,0.07,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,186,A186,B186,C186,D186,E186,F186
+Amaranthaceae,Europe,4.28,0.27,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,187,A187,B187,C187,D187,E187,F187
+Apiaceae,Europe,0.26,0.01,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,188,A188,B188,C188,D188,E188,F188
+Apiaceae,Europe,0.21,0.03,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,189,A189,B189,C189,D189,E189,F189
+Apiaceae,Europe,5.91,1.23,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,190,A190,B190,C190,D190,E190,F190
+Artemisia,Europe,2.77,0.39,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,191,A191,B191,C191,D191,E191,F191
+Artemisia,Europe,5.89,3.16,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,192,A192,B192,C192,D192,E192,F192
+Asteraceae,Europe,0.06,0.004,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,193,A193,B193,C193,D193,E193,F193
+Asteraceae,Europe,0.1,0.01,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,194,A194,B194,C194,D194,E194,F194
+Asteraceae,Europe,0.05,0.02,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,195,A195,B195,C195,D195,E195,F195
+Asteraceae,Europe,0.09,0.02,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,196,A196,B196,C196,D196,E196,F196
+Asteraceae,Europe,0.24,0.06,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,197,A197,B197,C197,D197,E197,F197
+Asteraceae,Europe,0.17,0.03,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,198,A198,B198,C198,D198,E198,F198
+Asteraceae,Europe,0.16,0.1,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,199,A199,B199,C199,D199,E199,F199
+Asteraceae,Europe,0.68,0.06,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,200,A200,B200,C200,D200,E200,F200
+Asteraceae,Europe,0.65,0.06,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,201,A201,B201,C201,D201,E201,F201
+Asteraceae,Europe,0.28,0.04,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,202,A202,B202,C202,D202,E202,F202
+Betula,Europe,6.18,0.35,,https://doi.org/10.1191/0959683605hl821rr,originals/original-rpp.xlsx,Worksheet 1,203,A203,B203,C203,D203,E203,F203
+Betula,Europe,4.6,0.7,,https://doi.org/10.1016/j.revpalbo.2007.04.004,originals/original-rpp.xlsx,Worksheet 1,204,A204,B204,C204,D204,E204,F204
+Betula,Europe,12.38,2.48,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,205,A205,B205,C205,D205,E205,F205
+Betula,Europe,13.94,0.2293,,https://doi.org/10.1177/0959683615596822,originals/original-rpp.xlsx,Worksheet 1,206,A206,B206,C206,D206,E206,F206
+Betula,Europe,1.8,0.26,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,207,A207,B207,C207,D207,E207,F207
+Betula,Europe,2.24,0.2,,https://doi.org/10.1177/0959683607086769,originals/original-rpp.xlsx,Worksheet 1,208,A208,B208,C208,D208,E208,F208
+Betula,Europe,2.42,0.39,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,209,A209,B209,C209,D209,E209,F209
+Betula,Europe,1.82,0.33,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,210,A210,B210,C210,D210,E210,F210
+Brassicaceae,Europe,0.07,0.04,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,211,A211,B211,C211,D211,E211,F211
+Carpinus,Europe,12.17,0.66,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,212,A212,B212,C212,D212,E212,F212
+Carpinus,Europe,4.48,0.0301,,https://doi.org/10.1177/0959683615596822,originals/original-rpp.xlsx,Worksheet 1,213,A213,B213,C213,D213,E213,F213
+Carpinus,Europe,4.56,0.85,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,214,A214,B214,C214,D214,E214,F214
+Carpinus,Europe,0.24,0.07,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,215,A215,B215,C215,D215,E215,F215
+Carpinus,Europe,0.1,0.01,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,216,A216,B216,C216,D216,E216,F216
+Cerealia,Europe,0.0462,0.0018,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,217,A217,B217,C217,D217,E217,F217
+Cerealia,Europe,0.75,0.04,,https://doi.org/10.1111/j.1365-2699.2004.01080.x,originals/original-rpp.xlsx,Worksheet 1,218,A218,B218,C218,D218,E218,F218
+Cerealia,Europe,11.58,2.48,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,219,A219,B219,C219,D219,E219,F219
+Cerealia,Europe,5.25,1.24,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,220,A220,B220,C220,D220,E220,F220
+Cerealia,Europe,3.023,1.14,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,221,A221,B221,C221,D221,E221,F221
+Cerealia,Europe,0.22,0.12,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,222,A222,B222,C222,D222,E222,F222
+Corylus,Europe,1.51,0.06,,https://doi.org/10.1191/0959683605hl821rr,originals/original-rpp.xlsx,Worksheet 1,223,A223,B223,C223,D223,E223,F223
+Corylus,Europe,1.35,0.0512,,https://doi.org/10.1177/0959683615596822,originals/original-rpp.xlsx,Worksheet 1,224,A224,B224,C224,D224,E224,F224
+Corylus,Europe,2.58,0.25,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,225,A225,B225,C225,D225,E225,F225
+Corylus,Europe,0.3,0.04,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,226,A226,B226,C226,D226,E226,F226
+Cyperaceae,Europe,0.29,0.01,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,227,A227,B227,C227,D227,E227,F227
+Cyperaceae,Europe,0.13,0.03,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,228,A228,B228,C228,D228,E228,F228
+Cyperaceae,Europe,0.53,0.06,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,229,A229,B229,C229,D229,E229,F229
+Cyperaceae,Europe,1,0.16,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,230,A230,B230,C230,D230,E230,F230
+Cyperaceae,Europe,0.89,0.03,,https://doi.org/10.1177/0959683607086769,originals/original-rpp.xlsx,Worksheet 1,231,A231,B231,C231,D231,E231,F231
+Cyperaceae,Europe,0.72,0.07,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,232,A232,B232,C232,D232,E232,F232
+Cyperaceae,Europe,0.11,0.075,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,233,A233,B233,C233,D233,E233,F233
+Cyperaceae,Europe,0.77,0.05,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,234,A234,B234,C234,D234,E234,F234
+Ericales,Europe,1.1,0.05,,https://doi.org/10.1111/j.1365-2699.2004.01080.x,originals/original-rpp.xlsx,Worksheet 1,235,A235,B235,C235,D235,E235,F235
+Ericales,Europe,0.07,0.06,,https://doi.org/10.1016/j.revpalbo.2007.04.004,originals/original-rpp.xlsx,Worksheet 1,236,A236,B236,C236,D236,E236,F236
+Ericales,Europe,0.01,0.01,,https://doi.org/10.1016/j.revpalbo.2007.04.004,originals/original-rpp.xlsx,Worksheet 1,237,A237,B237,C237,D237,E237,F237
+Ericales,Europe,1.07,0.03,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,238,A238,B238,C238,D238,E238,F238
+Ericales,Europe,0.33,0.03,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,239,A239,B239,C239,D239,E239,F239
+Ericales,Europe,4.69,0.7,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,240,A240,B240,C240,D240,E240,F240
+Ericales,Europe,0.11,0.03,,https://doi.org/10.1177/0959683607086769,originals/original-rpp.xlsx,Worksheet 1,241,A241,B241,C241,D241,E241,F241
+Ericales,Europe,0.07,0.04,,https://doi.org/10.1177/0959683607086769,originals/original-rpp.xlsx,Worksheet 1,242,A242,B242,C242,D242,E242,F242
+Ericales,Europe,0.3,0.03,,https://doi.org/10.1177/0959683607086769,originals/original-rpp.xlsx,Worksheet 1,243,A243,B243,C243,D243,E243,F243
+Fabaceae,Europe,0.4,0.07,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,244,A244,B244,C244,D244,E244,F244
+Fagus,Europe,5.09,0.22,,https://doi.org/10.1111/j.1365-2699.2004.01080.x,originals/original-rpp.xlsx,Worksheet 1,245,A245,B245,C245,D245,E245,F245
+Fagus,Europe,7.5,0.58,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,246,A246,B246,C246,D246,E246,F246
+Fagus,Europe,0.76,0.17,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,247,A247,B247,C247,D247,E247,F247
+Fagus,Europe,1.2,0.16,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,248,A248,B248,C248,D248,E248,F248
+Fagus,Europe,0.06,0,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,249,A249,B249,C249,D249,E249,F249
+Fraxinus,Europe,1.11,0.09,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,250,A250,B250,C250,D250,E250,F250
+Fraxinus,Europe,0.7,0.06,,https://doi.org/10.1191/0959683605hl821rr,originals/original-rpp.xlsx,Worksheet 1,251,A251,B251,C251,D251,E251,F251
+Fraxinus,Europe,8.67,0.87,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,252,A252,B252,C252,D252,E252,F252
+Fraxinus,Europe,1.39,0.21,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,253,A253,B253,C253,D253,E253,F253
+Fraxinus,Europe,2.99,0.88,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,254,A254,B254,C254,D254,E254,F254
+Juniperus,Europe,7.94,1.28,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,255,A255,B255,C255,D255,E255,F255
+Larix,Europe,11.29,2.33,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,256,A256,B256,C256,D256,E256,F256
+Larix,Europe,0.16,0.05,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,257,A257,B257,C257,D257,E257,F257
+Picea,Europe,1.19,0.42,,https://doi.org/10.1111/j.1365-2699.2004.01080.x,originals/original-rpp.xlsx,Worksheet 1,258,A258,B258,C258,D258,E258,F258
+Picea,Europe,2.04,0.36,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,259,A259,B259,C259,D259,E259,F259
+Picea,Europe,2.78,0.21,,https://doi.org/10.1177/0959683607086769,originals/original-rpp.xlsx,Worksheet 1,260,A260,B260,C260,D260,E260,F260
+Picea,Europe,0.57,0.16,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,261,A261,B261,C261,D261,E261,F261
+Picea,Europe,8.5,0.3,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,262,A262,B262,C262,D262,E262,F262
+Picea,Europe,0.36,0.02,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,263,A263,B263,C263,D263,E263,F263
+Pinus,Europe,6.17,0.41,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,264,A264,B264,C264,D264,E264,F264
+Pinus,Europe,8.4,1.34,,https://doi.org/10.1016/j.revpalbo.2007.04.004,originals/original-rpp.xlsx,Worksheet 1,265,A265,B265,C265,D265,E265,F265
+Pinus,Europe,7.29,0,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,266,A266,B266,C266,D266,E266,F266
+Pinus,Europe,23.12,0.2388,,https://doi.org/10.1177/0959683615596822,originals/original-rpp.xlsx,Worksheet 1,267,A267,B267,C267,D267,E267,F267
+Pinus,Europe,21.58,2.87,,https://doi.org/10.1177/0959683607086769,originals/original-rpp.xlsx,Worksheet 1,268,A268,B268,C268,D268,E268,F268
+Pinus,Europe,1.35,0.45,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,269,A269,B269,C269,D269,E269,F269
+Plantaginaceae,Europe,3.7,0.7,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,270,A270,B270,C270,D270,E270,F270
+Plantaginaceae,Europe,1.27,0.18,,https://doi.org/10.1111/j.1365-2699.2004.01080.x,originals/original-rpp.xlsx,Worksheet 1,271,A271,B271,C271,D271,E271,F271
+Plantaginaceae,Europe,1.99,0.04,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,272,A272,B272,C272,D272,E272,F272
+Plantaginaceae,Europe,0.48,0.02,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,273,A273,B273,C273,D273,E273,F273
+Plantaginaceae,Europe,12.83,1.85,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,274,A274,B274,C274,D274,E274,F274
+Plantaginaceae,Europe,0.24,0.15,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,275,A275,B275,C275,D275,E275,F275
+Plantaginaceae,Europe,1.29,0.18,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,276,A276,B276,C276,D276,E276,F276
+Plantaginaceae,Europe,0.74,0.14,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,277,A277,B277,C277,D277,E277,F277
+Plantaginaceae,Europe,0.58,0.32,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,278,A278,B278,C278,D278,E278,F278
+Plantaginaceae,Europe,9.84,0.24,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,279,A279,B279,C279,D279,E279,F279
+Poaceae,Europe,1,0,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,280,A280,B280,C280,D280,E280,F280
+Poaceae,Europe,1,0,,https://doi.org/10.1111/j.1365-2699.2004.01080.x,originals/original-rpp.xlsx,Worksheet 1,281,A281,B281,C281,D281,E281,F281
+Poaceae,Europe,1,0,,https://doi.org/10.1016/j.revpalbo.2007.04.004,originals/original-rpp.xlsx,Worksheet 1,282,A282,B282,C282,D282,E282,F282
+Poaceae,Europe,1,0,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,283,A283,B283,C283,D283,E283,F283
+Poaceae,Europe,1,0,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,284,A284,B284,C284,D284,E284,F284
+Poaceae,Europe,1,0,,https://doi.org/10.1177/0959683615596822,originals/original-rpp.xlsx,Worksheet 1,285,A285,B285,C285,D285,E285,F285
+Poaceae,Europe,1,0,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,286,A286,B286,C286,D286,E286,F286
+Poaceae,Europe,1,0,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,287,A287,B287,C287,D287,E287,F287
+Poaceae,Europe,1,0,,https://doi.org/10.1177/0959683607086769,originals/original-rpp.xlsx,Worksheet 1,288,A288,B288,C288,D288,E288,F288
+Poaceae,Europe,1,0,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,289,A289,B289,C289,D289,E289,F289
+Poaceae,Europe,1,0,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,290,A290,B290,C290,D290,E290,F290
+Poaceae,Europe,1,0,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,291,A291,B291,C291,D291,E291,F291
+Poaceae,Europe,1,0,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,292,A292,B292,C292,D292,E292,F292
+Poaceae,Europe,1,0,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,293,A293,B293,C293,D293,E293,F293
+Populus,Europe,3.42,1.6,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,294,A294,B294,C294,D294,E294,F294
+Quercus,Europe,1.76,0.2,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,295,A295,B295,C295,D295,E295,F295
+Quercus,Europe,5.83,0,,https://doi.org/10.1191/0959683605hl821rr,originals/original-rpp.xlsx,Worksheet 1,296,A296,B296,C296,D296,E296,F296
+Quercus,Europe,2.77,0.22,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,297,A297,B297,C297,D297,E297,F297
+Quercus,Europe,18.47,0.1032,,https://doi.org/10.1177/0959683615596822,originals/original-rpp.xlsx,Worksheet 1,298,A298,B298,C298,D298,E298,F298
+Quercus,Europe,2.56,0.39,,https://doi.org/10.1177/0959683607073279,originals/original-rpp.xlsx,Worksheet 1,299,A299,B299,C299,D299,E299,F299
+Quercus,Europe,1.1,0.35,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,300,A300,B300,C300,D300,E300,F300
+Quercus,Europe,1.7,0.03,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,301,A301,B301,C301,D301,E301,F301
+Ranunculaceae,Europe,0.7,0.004,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,302,A302,B302,C302,D302,E302,F302
+Ranunculaceae,Europe,0.08,0.02,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,303,A303,B303,C303,D303,E303,F303
+Ranunculaceae,Europe,3.91,0.72,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,304,A304,B304,C304,D304,E304,F304
+Ranunculaceae,Europe,2.31,0.35,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,305,A305,B305,C305,D305,E305,F305
+Ranunculaceae,Europe,0.59,0.09,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,306,A306,B306,C306,D306,E306,F306
+Rosaceae,Europe,0.14,0.005,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,307,A307,B307,C307,D307,E307,F307
+Rosaceae,Europe,0.18,0.04,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,308,A308,B308,C308,D308,E308,F308
+Rosaceae,Europe,2.46,0.85,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,309,A309,B309,C309,D309,E309,F309
+Rosaceae,Europe,2.45,0.4,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,310,A310,B310,C310,D310,E310,F310
+Rosaceae,Europe,0.97,0.12,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,311,A311,B311,C311,D311,E311,F311
+Rosaceae,Europe,0.29,0.12,,https://doi.org/10.1016/j.revpalbo.2019.02.007,originals/original-rpp.xlsx,Worksheet 1,312,A312,B312,C312,D312,E312,F312
+Rubiaceae,Europe,0.42,0.01,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,313,A313,B313,C313,D313,E313,F313
+Rubiaceae,Europe,0.13,0.03,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,314,A314,B314,C314,D314,E314,F314
+Rubiaceae,Europe,3.95,0.59,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,315,A315,B315,C315,D315,E315,F315
+Rubiaceae,Europe,3.5,0.35,,https://doi.org/10.1007/s00334-008-0143-0,originals/original-rpp.xlsx,Worksheet 1,316,A316,B316,C316,D316,E316,F316
+Rubiaceae,Europe,0.76,0.05,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,317,A317,B317,C317,D317,E317,F317
+Rumex,Europe,1.56,0.09,,https://doi.org/10.1111/j.1365-2699.2004.01080.x,originals/original-rpp.xlsx,Worksheet 1,318,A318,B318,C318,D318,E318,F318
+Rumex,Europe,0.13,0.004,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,319,A319,B319,C319,D319,E319,F319
+Rumex,Europe,0.04,0.02,,https://doi.org/10.1007/BF01373926,originals/original-rpp.xlsx,Worksheet 1,320,A320,B320,C320,D320,E320,F320
+Rumex,Europe,4.74,0.83,,https://doi.org/10.1191/0959683604hl713rp,originals/original-rpp.xlsx,Worksheet 1,321,A321,B321,C321,D321,E321,F321
+Salix,Europe,1.19,0.12,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,322,A322,B322,C322,D322,E322,F322
+Salix,Europe,1.05,0.17,,https://doi.org/10.1191/0959683605hl821rr,originals/original-rpp.xlsx,Worksheet 1,323,A323,B323,C323,D323,E323,F323
+Salix,Europe,0.03,0.03,,https://doi.org/10.1016/j.revpalbo.2015.06.008,originals/original-rpp.xlsx,Worksheet 1,324,A324,B324,C324,D324,E324,F324
+Salix,Europe,0.09,0.03,,https://doi.org/10.1177/0959683607086769,originals/original-rpp.xlsx,Worksheet 1,325,A325,B325,C325,D325,E325,F325
+Sambucus,Europe,1.3,0.12,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,326,A326,B326,C326,D326,E326,F326
+Tilia,Europe,1.36,0.26,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,327,A327,B327,C327,D327,E327,F327
+Tilia,Europe,1.89,0.29,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,328,A328,B328,C328,D328,E328,F328
+Tilia,Europe,0.98,0.0263,,https://doi.org/10.1177/0959683615596822,originals/original-rpp.xlsx,Worksheet 1,329,A329,B329,C329,D329,E329,F329
+Tilia,Europe,0.45,0.02,,https://doi.org/10.1177/0959683619862026,originals/original-rpp.xlsx,Worksheet 1,330,A330,B330,C330,D330,E330,F330
+Urtica,Europe,10.52,0.31,,https://doi.org/10.1016/j.revpalbo.2012.04.004,originals/original-rpp.xlsx,Worksheet 1,331,A331,B331,C331,D331,E331,F331
+Wild herbs,Europe,0.07,0.07,,https://doi.org/10.1007/s00334-012-0373-z,originals/original-rpp.xlsx,Worksheet 1,332,A332,B332,C332,D332,E332,F332
+Alnus,North America,2.7,0.12,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,333,A333,B333,C333,D333,E333,F333
+Artemisia,North America,1.35,0.24,,https://doi.org/10.4236/ajps.2013.47A1001,originals/original-rpp.xlsx,Worksheet 1,334,A334,B334,C334,D334,E334,F334
+Asteraceae,North America,0.03,0.02,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,335,A335,B335,C335,D335,E335,F335
+Asteraceae,North America,1.36,0.36,,https://doi.org/10.4236/ajps.2013.47A1001,originals/original-rpp.xlsx,Worksheet 1,336,A336,B336,C336,D336,E336,F336
+Asteraceae,North America,0.37,0.16,,https://doi.org/10.4236/ajps.2013.47A1001,originals/original-rpp.xlsx,Worksheet 1,337,A337,B337,C337,D337,E337,F337
+Betula,North America,1.4,0.05,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,338,A338,B338,C338,D338,E338,F338
+Betula,North America,3.7,0.4,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,339,A339,B339,C339,D339,E339,F339
+Betula,North America,10.95,0.02,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,340,A340,B340,C340,D340,E340,F340
+Betula,North America,8.7,0.44,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,341,A341,B341,C341,D341,E341,F341
+Campanulaceae,North America,2.29,0.14,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,342,A342,B342,C342,D342,E342,F342
+Caryophyllaceae,North America,0.6,0.05,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,343,A343,B343,C343,D343,E343,F343
+Cornaceae,North America,1.72,0.14,,https://doi.org/10.4236/ajps.2013.47A1001,originals/original-rpp.xlsx,Worksheet 1,344,A344,B344,C344,D344,E344,F344
+Cyperaceae,North America,0.95,0.05,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,345,A345,B345,C345,D345,E345,F345
+Cyperaceae,North America,1,0,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,346,A346,B346,C346,D346,E346,F346
+Equisetum,North America,0.09,0.02,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,347,A347,B347,C347,D347,E347,F347
+Ericales,North America,0.53,0,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,348,A348,B348,C348,D348,E348,F348
+Fabaceae,North America,0.02,0.02,,https://doi.org/10.4236/ajps.2013.47A1001,originals/original-rpp.xlsx,Worksheet 1,349,A349,B349,C349,D349,E349,F349
+Juniperus,North America,20.67,1.54,,https://doi.org/10.4236/ajps.2013.47A1001,originals/original-rpp.xlsx,Worksheet 1,350,A350,B350,C350,D350,E350,F350
+Lamiaceae,North America,0.72,0.08,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,351,A351,B351,C351,D351,E351,F351
+Moraceae,North America,1.1,0.55,,https://doi.org/10.4236/ajps.2013.47A1001,originals/original-rpp.xlsx,Worksheet 1,352,A352,B352,C352,D352,E352,F352
+Orobanchaceae,North America,0.33,0.04,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,353,A353,B353,C353,D353,E353,F353
+Picea,North America,2.8,0,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,354,A354,B354,C354,D354,E354,F354
+Plantaginaceae,North America,5.96,0.31,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,355,A355,B355,C355,D355,E355,F355
+Poaceae,North America,1,0,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,356,A356,B356,C356,D356,E356,F356
+Poaceae,North America,1,0,,https://doi.org/10.4236/ajps.2013.47A1001,originals/original-rpp.xlsx,Worksheet 1,357,A357,B357,C357,D357,E357,F357
+Poaceae,North America,1,0.07,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,358,A358,B358,C358,D358,E358,F358
+Poaceae,North America,1,0.18,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,359,A359,B359,C359,D359,E359,F359
+Populus,North America,1.23,17,,https://doi.org/10.4236/ajps.2013.47A1001,originals/original-rpp.xlsx,Worksheet 1,360,A360,B360,C360,D360,E360,F360
+Populus,North America,0.11,0,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,361,A361,B361,C361,D361,E361,F361
+Quercus,North America,2.08,0.43,,https://doi.org/10.4236/ajps.2013.47A1001,originals/original-rpp.xlsx,Worksheet 1,362,A362,B362,C362,D362,E362,F362
+Ranunculaceae,North America,1.95,0.1,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,363,A363,B363,C363,D363,E363,F363
+Rosaceae,North America,0.35,0.03,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,364,A364,B364,C364,D364,E364,F364
+Rumex,North America,3.53,0.3,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,365,A365,B365,C365,D365,E365,F365
+Rumex,North America,2.05,0.17,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,366,A366,B366,C366,D366,E366,F366
+Salix,North America,0.8,0,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,367,A367,B367,C367,D367,E367,F367
+Salix,North America,0.58,0,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,368,A368,B368,C368,D368,E368,F368
+Salix,North America,0.67,0.44,,https://eprints.soton.ac.uk/422162/,originals/original-rpp.xlsx,Worksheet 1,369,A369,B369,C369,D369,E369,F369
+Thalictrum,North America,4.65,0.3,,https://doi.org/10.1016/j.revpalbo.2012.11.003,originals/original-rpp.xlsx,Worksheet 1,370,A370,B370,C370,D370,E370,F370
