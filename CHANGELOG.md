@@ -2,6 +2,13 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#476](https://github.com/bijux/bijux-pollenomics/pull/476) — Metadata response ownership and primary failures
+
+- Close metadata response streams and connections deterministically, including
+  bounded or truncated responses detached from their connection.
+- Retain the primary read failure and annotate secondary close failures while
+  still attempting both owners; preserve existing transport and retry policies.
+
 ### [#475](https://github.com/bijux/bijux-pollenomics/pull/475) — Authenticated admission buffers and native database attachments
 
 - Derive SEAD evidence from authenticated table, receipt, country and chronology
