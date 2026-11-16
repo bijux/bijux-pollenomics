@@ -9,6 +9,8 @@ import json
 from pathlib import Path
 from typing import cast
 
+from bijux_pollenomics.core.filesystem import read_regular_file
+
 from ...acquisition.scoped.models import SeadScopedTablePlan
 from .contract import (
     SOURCE_KEY_LEDGER_SCHEMA_VERSION,
@@ -35,8 +37,9 @@ def build_sead_source_key_ledger(
     admission: Mapping[str, object],
     tables: Mapping[str, Sequence[Mapping[str, object]]],
     table_sha256: Mapping[str, str],
+    source_files: Mapping[str, bytes] | None = None,
 ) -> dict[str, object]:
-    """Build the exact primary-key ledger for all admitted SEAD source tables."""
+    """Build the primary-key ledger from pinned paths or supplied admitted buffers."""
     root = Path(acquisition_root)
     plans = sead_source_key_table_plans()
     expected_tables = tuple(plan.table for plan in plans)
@@ -64,7 +67,9 @@ def build_sead_source_key_ledger(
         payload_digest = _required_sha256(payload_record, "sha256")
         if payload_digest != table_sha256[plan.table]:
             raise ValueError(f"SEAD payload digest changed for {plan.table}")
-        receipt = _read_bound_object(root, receipt_path, receipt_record)
+        receipt = _read_bound_object(
+            root, receipt_path, receipt_record, source_files=source_files
+        )
         _validate_receipt(receipt, plan=plan, admission=admission, rows=rows)
         if receipt.get("content_sha256") != payload_digest:
             raise ValueError(f"SEAD receipt content digest changed for {plan.table}")
@@ -130,6 +135,7 @@ def build_sead_source_key_ledger(
         root,
         "country-decisions.json",
         _required_file_record(copied_records, "country-decisions.json"),
+        source_files=source_files,
     )
     site_binding, country_accountability, site_identity_sha256 = (
         _build_site_country_binding(
@@ -319,10 +325,28 @@ def _validate_receipt(
 
 
 def _read_bound_object(
-    root: Path, relative_path: str, record: Mapping[str, object]
+    root: Path,
+    relative_path: str,
+    record: Mapping[str, object],
+    *,
+    source_files: Mapping[str, bytes] | None = None,
 ) -> dict[str, object]:
-    content = (root / relative_path).read_bytes()
-    if len(content) != _non_negative_int(record, "byte_count"):
+    size = _non_negative_int(record, "byte_count")
+    if source_files is None:
+        path = root / relative_path
+        if path.stat(follow_symlinks=False).st_size != size:
+            raise ValueError(f"SEAD admitted byte count changed: {relative_path}")
+        content = read_regular_file(path, max_bytes=size)
+    else:
+        try:
+            content = source_files[relative_path]
+        except KeyError as error:
+            raise ValueError(
+                f"SEAD admitted source bytes are missing: {relative_path}"
+            ) from error
+        if type(content) is not bytes:
+            raise TypeError("SEAD admitted source buffers must be immutable bytes")
+    if len(content) != size:
         raise ValueError(f"SEAD admitted byte count changed: {relative_path}")
     if hashlib.sha256(content).hexdigest() != _required_sha256(record, "sha256"):
         raise ValueError(f"SEAD admitted digest changed: {relative_path}")
