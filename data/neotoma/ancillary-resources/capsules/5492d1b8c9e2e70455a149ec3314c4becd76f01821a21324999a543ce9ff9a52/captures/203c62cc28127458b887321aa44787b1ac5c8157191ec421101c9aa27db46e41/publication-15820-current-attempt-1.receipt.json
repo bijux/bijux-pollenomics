@@ -1,0 +1,94 @@
+{
+  "body_complete": true,
+  "body_file": "publication-15820-current-attempt-1.body",
+  "expected_site_id": null,
+  "final_url": "https://api.neotomadb.org/v2.0/data/publications/15820",
+  "http_status": 200,
+  "parameters": {},
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/publications/15820",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/publications/15820",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "967"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 16:59:35 GMT"
+    ],
+    [
+      "etag",
+      "W/\"3c7-bpNVSYNj9g1fnC1UkiLdFPu2WFM\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4955"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794762019"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "3"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 967,
+  "retained_body_sha256": "e7985812bd3cc2ce5dda9aecca8733b8d1310dd9c8a8c6566a6b73e33fec9ad3",
+  "role": "linked_resource_publication",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T16:59:35.246861+00:00",
+  "utc_start": "2026-11-15T16:59:34.873237+00:00"
+}

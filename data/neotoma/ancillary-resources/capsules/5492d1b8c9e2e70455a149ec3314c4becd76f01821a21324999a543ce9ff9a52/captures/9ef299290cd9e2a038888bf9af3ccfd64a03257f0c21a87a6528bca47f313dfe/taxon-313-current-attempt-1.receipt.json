@@ -1,0 +1,94 @@
+{
+  "body_complete": true,
+  "body_file": "taxon-313-current-attempt-1.body",
+  "expected_site_id": null,
+  "final_url": "https://api.neotomadb.org/v2.0/data/taxa/313",
+  "http_status": 200,
+  "parameters": {},
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/taxa/313",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/taxa/313",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "249"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 17:05:32 GMT"
+    ],
+    [
+      "etag",
+      "W/\"f9-NBHakpsmaR2mwad0dkoA4wroDAA\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4978"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794762385"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "4"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 249,
+  "retained_body_sha256": "f543ae362c826b4f4a9be6336441b62a8c1f5a4488c8d684dfeb6889cc5b0791",
+  "role": "linked_resource_taxon",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T17:05:32.598466+00:00",
+  "utc_start": "2026-11-15T17:05:32.217803+00:00"
+}

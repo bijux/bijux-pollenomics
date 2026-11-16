@@ -1,0 +1,94 @@
+{
+  "body_complete": true,
+  "body_file": "contact-604-current-attempt-1.body",
+  "expected_site_id": null,
+  "final_url": "https://api.neotomadb.org/v2.0/data/contacts/604",
+  "http_status": 200,
+  "parameters": {},
+  "request_headers": [
+    [
+      "Host",
+      "api.neotomadb.org"
+    ],
+    [
+      "Accept",
+      "application/json"
+    ],
+    [
+      "Accept-Encoding",
+      "identity"
+    ],
+    [
+      "User-Agent",
+      "bijux-pollenomics"
+    ],
+    [
+      "Connection",
+      "close"
+    ]
+  ],
+  "request_method": "GET",
+  "request_target": "/v2.0/data/contacts/604",
+  "requested_url": "https://api.neotomadb.org/v2.0/data/contacts/604",
+  "response_headers": [
+    [
+      "access-control-allow-credentials",
+      "true"
+    ],
+    [
+      "content-length",
+      "332"
+    ],
+    [
+      "content-type",
+      "application/json; charset=utf-8"
+    ],
+    [
+      "date",
+      "Sun, 15 Nov 2026 16:54:45 GMT"
+    ],
+    [
+      "etag",
+      "W/\"14c-i8pwdM+iORR0EEWpb4QFAlxV7Ss\""
+    ],
+    [
+      "vary",
+      "Origin, Accept-Encoding"
+    ],
+    [
+      "x-powered-by",
+      "Express"
+    ],
+    [
+      "x-ratelimit-limit",
+      "5000"
+    ],
+    [
+      "x-ratelimit-remaining",
+      "4988"
+    ],
+    [
+      "x-ratelimit-reset",
+      "1794761742"
+    ],
+    [
+      "x-envoy-upstream-service-time",
+      "3"
+    ],
+    [
+      "server",
+      "envoy"
+    ],
+    [
+      "connection",
+      "close"
+    ]
+  ],
+  "retained_body_bytes": 332,
+  "retained_body_sha256": "50c6a3975d6047efb4c8e9efc5d03beda65fbe18f48f1e64ae6ea701a73b7798",
+  "role": "linked_resource_contact",
+  "terminal_status": "complete_http_200",
+  "tls_mode": "verified_no_insecure_fallback",
+  "utc_end": "2026-11-15T16:54:46.027929+00:00",
+  "utc_start": "2026-11-15T16:54:45.649155+00:00"
+}

@@ -32,6 +32,7 @@ not geographic or global Neotoma completeness.
 | `capsules/e5afd23fed399ab1d0ae5d8970d2cf36e4240fb9c0c083a64df220d11ffcd1aa/` | `e5afd23fed399ab1d0ae5d8970d2cf36e4240fb9c0c083a64df220d11ffcd1aa` |
 | `capsules/7a7b2627d91d24b0bc9eaaaa8a8afb35d00277ad88dea36e8f0f86115bf318e3/` | `7a7b2627d91d24b0bc9eaaaa8a8afb35d00277ad88dea36e8f0f86115bf318e3` |
 | `capsules/2a4f894bbedcd297f9e8c529fcec90b09481ffb8662c1d78deb22e3cf1747c8d/` | `2a4f894bbedcd297f9e8c529fcec90b09481ffb8662c1d78deb22e3cf1747c8d` |
+| `capsules/5492d1b8c9e2e70455a149ec3314c4becd76f01821a21324999a543ce9ff9a52/` | `5492d1b8c9e2e70455a149ec3314c4becd76f01821a21324999a543ce9ff9a52` |
 | `linked-evidence/76fbc45ac0613ef1b3df21d9f56c3b629c028a361e6b515bc226689bbc5fb42f/` | `76fbc45ac0613ef1b3df21d9f56c3b629c028a361e6b515bc226689bbc5fb42f` |
 | `taxon-ancestry/84a831c05c7d018392293747925a4229faf4be935a1552ef6bdbf4587d1d0662/` | `84a831c05c7d018392293747925a4229faf4be935a1552ef6bdbf4587d1d0662` |
 | `unit-metadata/bde7f113db4f43716ec678a885b02ddb0a6a3af1ff4b4a1f6f8c66b213d654e9/` | `bde7f113db4f43716ec678a885b02ddb0a6a3af1ff4b4a1f6f8c66b213d654e9` |
@@ -49,6 +50,20 @@ rosters. Capsules retain original captures, including their recorded source
 epochs. Historical captures without contemporaneous parent-scope attestations
 remain explicitly historical; current metadata cannot reconstruct a missing
 pre-request attestation.
+
+The `5492d1b8…` capsule retains 24 direct linked-resource captures and 2,732
+source-entry occurrences in 5,514 files (34,530,932 bytes). Its maintained
+publication and full replay completed on 16 November 2026, followed by an
+independent check of every published member's digest and byte count. Its index
+preserves individually timed responses, original acquisition outcomes and
+source-proof references; it asserts no transactional provider snapshot or
+scientific admission. It copies no native pollen/count response bodies.
+
+Use this capsule together with the four earlier capsules above for the existing
+ancestry baseline's captured direct evidence and predecessor facets. Native
+archive, context and linked-evidence bindings remain separate independently
+pinned inputs. These retained responses do not collect the 195 unresolved
+ancestry leads below.
 
 ## Country Reference Metadata
 
@@ -105,6 +120,14 @@ The native fields are `siteid`, `collectionunitid`, `datasetid` and `depenvt`.
 Missing environment labels retain their source nulls. Owner-row coverage does
 not establish dated basin geometry, shoreline history, water depth or a
 reconstruction's applicable source radius.
+
+On 16 November 2026 the maintained context reader requalified all five archives
+against their original and current native owner bindings: 515 response bodies,
+113,238 source bytes and 1,225 owner rows. The 157 null environment labels remain
+null. This was an offline readback with no new requests or refetches. The
+[qualification account](../../../../reports/science/source-cohorts/neotoma-environment-qualification.json)
+binds the source and reader identities; it admits source context, not dated basin
+geometry or reconstruction suitability.
 
 The older context archive
 `df7ffd0712ec6ea7f6b46b8dfd3a31a05be5811ed2d09666f9309308c064670c`
@@ -214,8 +237,11 @@ authority nor a new collection decision.
 `NeotomaTaxonAncestrySources`: evidence, original direct captures, predecessor
 facets, context and native archive each require their independently pinned
 resolvers. The relationship product embeds no native response bodies. Complete
-source replay therefore requires the retained source store, including direct
-captures that have not yet been published as a portable ancillary capsule.
+source replay therefore requires the independently bound native archive,
+context, linked evidence and capture resolvers. The five capsules listed above
+now retain the baseline's existing direct captures and predecessor facets;
+their presence does not replace current owner checks or supply uncollected
+frontier responses.
 
 The separately maintained `ancestry.chain` API authenticates later source-backed
 layers against a permanently frozen seed baseline, historical/current owner and

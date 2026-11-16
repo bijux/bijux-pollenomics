@@ -1,0 +1,4628 @@
+{
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 128,
+    "max_response_bytes": 8388607,
+    "max_total_bytes": 134217727,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 1800
+  },
+  "plan": {
+    "include_higher_taxa": true,
+    "source_facet_manifest_sha256s": [
+      "0178893fc60b65119df3c73e8f438f5eb8b6280f4f0c5b44519667b5c555f00d",
+      "03793eabf1a9cd04e863d0d28afe0b3a0f224a9573e7bf21b2a619e7b8e7e40b",
+      "03b797c9b236cd501492c6ccd0af07b8ef32fb25d6bb8bf0b31f5d444900c599",
+      "05047923fe55fc403b5a0f4f8c377c37d11cbd56d69483cceeacee5141519f26",
+      "0552a7a554f121af2015c16f140d256f8c2ae270a66795367d08a07501ddc678",
+      "0640828fb26c10bb6b30c23169526f801972b1730c0a45aa2c57353bb56baee0",
+      "07bf67e2d5f04c12e011b47e61fa6fb6d5e0cf45ae694130647f7b9869af4fc5",
+      "09156ca5b9e99f66afd067cde241701f6e229b5b58e6eeb3c087c28d078b51af",
+      "098c9d59211ceeafb8ebece7c76179053968259d4dbe50e655c4e84dce14d3b9",
+      "0a75e15f15bc75db2a30f23f697f02be8cddbed72229912f8a1f2129aecff1a4",
+      "0c08326fe00cc1c7c483975b97bdf14833556ef07cd6fcf0324c12476b7957da",
+      "0dbb0c16c1e460f1e98bd1616dbc300476e01d36a17381e00de5a3fd237cc2c8",
+      "0e4d0d972c459b7bb84056efb853d8f03f1ee8b69d922de92747f60c38eb4e43",
+      "0ed1fa9f62594588df4a13edd6cc381718ae338919e715388d6a1589a993a1db",
+      "118bc312e388a560e0ec5a10e13fca9ea3a9dd8d530ec211437546800015dd38",
+      "1369a413ebcf4c77afcb20ea79d7c858070f79b57a9f4d7db40ecc6ef420053c",
+      "14f3372656b230afe75363a6fc023067a4b8f784ed151f85c5e420cd0e470f59",
+      "1578e20f814fafbc06305f64d774f19c6520e44b4d224106803d9a00a3126491",
+      "1714a1c6a75039fb98236584243615d9856ad3f953f95e92d479e27bf3155268",
+      "1874abd4799dfa394a3d888a3d283bf3c011fbb22f4528a857a6b5b11f0f3365",
+      "194facf47f7c8247f88549f927ffd9a2c30bbd2a4330538f44d60b1883202f84",
+      "1b84ba4ecd9b78c1c1118c219532c33e1cc02f4b7bec88961d6e03325ec24df6",
+      "1d50595d0888cb6248d6b6e66d7c6c3297742aab265a2c57aa57ea8dc5e1b9ad",
+      "1eca1b45f6252e22612376ccfa8f764b67b059859c70ed721739100c1861a15e",
+      "2140c57ff4e0bf56307a649f75d7d3fd042a75424c6a8b262c5cbc14350f2a75",
+      "220811dff3764d6c783724d5ebaa0c122329e58c028d6c561facbb93bfcde548",
+      "226cbd0f9a4e133057d1e9dda332608cd12ef503baf699669324d2d68fc29b1e",
+      "22e1b6bd7f11d70c2f41d1ed5289764620f5c0e5068c6bf0c0caf854e641d9af",
+      "270aaefab53762ca48c830215503cd029540b480248908fe400643bd1fe7401e",
+      "27350b1369ed216b5d51c96d8ff3b5a7e9a717dda0f7aa007856534ad1c6eb4b",
+      "285edb9d62b69c53f3002c781d965611e04f793f5b6d24b988733fddffa513db",
+      "28dd0369c1b366553a904e00c5275db75ac11e59ff7b71575c7c36b5e0e57655",
+      "2a762fc890c6886b842a6d9724d122bb754cbf474c0b0bef3cc2c92ef0e9e793",
+      "2b113e77705f560f30d291e97fd2485eda7037b8c45b68f9db163beaf6b58cb6",
+      "2cdd5d623c5ad8d4bdc5ba7d877babc024bc1da84d3f5fa8f960fa0fd2b096cf",
+      "2d25aa5922283e923a427a0d7eaa853c929013c8a9ac3bc155e812f5971ba740",
+      "2d64803ee499c568143a044a48a54ac8451a721b06e936541c9ff8916494f2f1",
+      "2f6c45e6d7a171dfa98f76e3062bc8b8de4c66cabb7726b14770fac32679e469",
+      "2f786822da07667c12b8135a8d671b8d744dba7a42e6035d9eda80ec004313cf",
+      "2fc796f18dda5db00d88739ca61e4c88a98f105ad1f63eae12a4d68f5d8616dc",
+      "31f3b830a4d12127fb1d9ed948adfb439e4e3083d9708448277c75cd9f95086c",
+      "3246c8772ee870df8dde99601e3d451d1c5f0ef1b71432541971a1c0355cf584",
+      "326450c969822a1a0481927a6694972dce3e4484f2b41b9b0baa9dc4af25dc52",
+      "331a55a003fce5288f08db26f69b6bdf815fede12e300e0ee101dc1bc2767a91",
+      "3332f3a7683e56aa5b770880eb035e874d4dd6ffa23dbd11a53c2515467d9460",
+      "335bc83da8ef1109d34f43ecec15121666c50b016f28d99d52a6212e27bcf04c",
+      "3402cc197b27045e2c0385ae10696ce8dfe4fd9a2db8c0b1f855e94a4e936f35",
+      "37c5edfff8fe15a3f862c47d591495013f74117103aa6587b30ebdbc0d27a201",
+      "393cd39a81b4f4b168255713474fd087390b035d17b17bf76a325b552838c370",
+      "3b6894dde09b4f918ee5bf3ddb4bc95b65cc4c15e9cc1b12287c3815cb50b969",
+      "3bcb4c2d08a305dfdca9efb0d0bac02c77d7607aef906b79c899ed8d7433abcc",
+      "3d851e7cddec4edf757f5715348a76b10afa06265e2aecedfc78e7b7d3474316",
+      "3e43a86c2f4a28ebd907be05819155600b7267bd01d69a40a617fa6b62c87759",
+      "3f2879c3c9f48d2f3a1a1f8db4d867daeaec0ebc439a95083c0d2b27b7257bbb",
+      "404ba880d9d30c0e8efdd566dfe8a74fc1ab532b1021169e18dd7b25093e413c",
+      "41b00e4364eb8e7e5d3a211f1cc7f41662cf87f29df285f65d97e9939e6d7772",
+      "4319363dfcdbe5e819f375ffabbb376b1844161228875447e57c11907af47f55",
+      "44273d2a006efdce9f1aad95cf7ca94c5764a92f2532c3733ae3d8f4ecf2d4ee",
+      "45296aee08efd02596724b14342c6139e9de19b7c4f1b7f5a37567c3272ee8a7",
+      "4569398b8b8fb66cae3b1062d5bf45d7f3ceca5ec45c4c00e06071907e87dd97",
+      "4614712594257cd1aab7de8b61032d3255a5dde1de8fb74b09715dc15cc43eab",
+      "46e0e6d8c9574c1d4f18a98459d582bb3b7fe2be4e4f76e2f7da20dbb47e210e",
+      "4767f523fb1eb64f2a48b6bffb3a2fab5547a84a1d503ede0b680d19a1ce040d",
+      "481f8a4c89f531be0a53af8cf116555150a7fcf68766e3cd7713488c741b74af",
+      "48dc9f86d0f66681acd438e43582ac73e69e176e17bb2c693225326d36f5dd9b",
+      "4b442bf22286cc75c16da7d6e81059cd96adff11caea4c944ec4ba3f885ae8b9",
+      "4eff061c50da2f6d2bbe50f10970b2360903dab9b5bcb39585dca93eecc0eb89",
+      "4f1ed084e4b41a769745d9001cb56de454a58d45e29fc98ad272f23472c88704",
+      "50064dc1df1467d9c4637d8c9623c9c9202df5cdaf59476b20ca537e3e7f179c",
+      "500a2ed56796f1609204a3c469e73d30a6b6169453c4cfd671ac5bf697d2e0f3",
+      "507589bb9805fe3141c94f5d1ac68c5863008421c8d87af7b2820afeb44d016e",
+      "508c56e21cfdda6c25ecd026c1b51c9c6f776f813fbf099b5c6508da2fc56457",
+      "50f5ac617a71e704dbd14aa382c7742dbf65e89cc032fd4ff65f97e8e27a738e",
+      "526633589cbde1b1eb8888b7b673f7a0d20bb21be0bec2585431739115c2a2b8",
+      "529377359668beacd6fab6bc64bef7826d240598c76d0e4f44e59740445ac951",
+      "5293dea7e37bdaed2dfcb8b54f1d50bde74e201d6ebafd52959181ee603a4a59",
+      "546d4f65ed3282da2468acae534e87ab0befad439e8b3f254b80341033ecdcd0",
+      "5474dde484b092d7973a49b946da8f40347fbdaf3da7e6840d20285016abf750",
+      "564c00f481274eca7d2d376614955cc9b0f7fbdfe29bfbb4900dc59eb29e089c",
+      "58fe3893d867a55b3b922f16661bbdb3a2acd0f6fb2227525350375d691033c0",
+      "5ca1c80745d7d2fcea8c6b011dcefa57f4c218a584680908c3d34a8ece023a5b",
+      "5e3cbf4ee988a293380b94f3cd19a27faca2ee2d54d85dd19854341ebec2e2c3",
+      "5f7865adfd6eb0dfd04de78152dc001090b4f71098dc2826bb1f3d85d8d711a7",
+      "63f98e94ab3a8e8a714102e3353c29882364fb6cb9d578932674c53e69e896c5",
+      "6515b6c1c434f819eac73aa7a0d4e513525a16d63dbb88dacb5c593bd92c6099",
+      "6a7451b79893c40cd56113dd95ecdcc532d2dfcc310e7f49661a17bf4ba23c1b",
+      "6b36271bd0069d2b7172df048c4c5b65b3ab9be46b01359cdd897fcd4d8e70ce",
+      "6b622ab85ae39af2af1edb051f3db1f231e7ca7abd2937ea9e8f7094c06787f4",
+      "6ccba18f5d7c334ae924ad9d9a3e47578016a8521249a2286e08773597f18fd6",
+      "6cf2f4ebe4f01330f41c42218bb3b64584391a18c9c2a537b5c7995d5bee4c3b",
+      "70527f98210158a8f37cd0a4de5106db1f81ec000e3d9dffae1ee232ba16239b",
+      "70785e3e8c982068923dc3ca2941ff99999a4631d7020f3601a941f51a8f74ff",
+      "74d94befde414830856de770b9f0072feeb506b9bbb74c2620eefab46a778205",
+      "7515d99a3e265e9f24b4eb52dcd6c6791b861b4615be4c55a2d9f8d8ddb591e0",
+      "766e4a796597ef4808f9495b57aea3c42ceb90e2318d87c8fce21ceca6c7c77d",
+      "7d25b5c2a438271f15074a9236010af38a5875d141e34cbe7446a5ec6d66e9ea",
+      "7d627b79eef81232024d3c31ee7cdbfb6e47bb3202a24481b5deb1489cb3fe7a",
+      "7e895b3653a799c5a8f824d1a61f766509e684d2286bf606f0692ff90edc8b31",
+      "7f86b60ba90f0bc17833ec4c3255fce5f87738da501945bac43996bdd4f6bdb6",
+      "8015f596fef231775fd23acfc01f967592eba9943ed4c7ebe6dd209e48667dd4",
+      "805f05cb5afd14a5a03283e9145a4fcb297f66e45c781a6a0ec40cc5549d8eeb",
+      "813c68e2fc23fa3c5694e1c6c7f5d580c8b1e83428825d510f99c5ac702ba6f0",
+      "85521e58017aad9304d98ccb23bc2451c003e0d8b869cb15615faca88fbe7426",
+      "85b286d7e97105c0aaddf34a1e09a328333e5da41a6741a5efbe0dee297d7112",
+      "89d076e4fd17f6245956733bf700466da8131d2ece83664aeae8733e3fdb123a",
+      "8a6fe634edf117c4dd32f797cafd49f7ab55b496a83942e09a5048e62c46bf44",
+      "8a7174753d59ffe9fdece1e86fa22e84f5eda866d474bc157ceb69861bf40166",
+      "8b1c53faf76f75bcbc99822a6196fcc2a521c85c099d07307eac97c7dad2ea16",
+      "8beac490f38e59e9d80b6081a70e3a82f47230258e6b5a90fabe89e7a6d4f8fd",
+      "8c9fc917aa5a93b313eb92418606037705149016c4ca5cc06201f260ea8d7d14",
+      "8f8bd12fa0ba3745f8a8760f97bc891d249325dd46fb6f9cacf31fdc3aa7ed47",
+      "9133f06882c91389c7568db95a64fc185675b4ce049027fc22a10e199714fb7f",
+      "91720d65a8fbcd3d70297db63653f0bd107323482548964ee3092369c3c27e70",
+      "9349c7e2ca5df96aab9403077ab86e8671e4bcf06fd743c45ffbb834f747b1a8",
+      "93a01aa3b6e47331a8523d7750c33416ef9af4f2f72bf29b2f57a410fd2f2355",
+      "95fe1e42c0669f8b8f908cee2b77a29a2db8bed569cbd2eed71aad1b02d50e4c",
+      "975af228ebcebafa86d42cd2f3fb9c53b08534147c975191a8e7d5d3f15ed752",
+      "97f8e93ee0b1b01d18a1ef8683ddfa2ac796490380c5bbedcc17451be0a11791",
+      "9849365e641a0b233433c203f89417dbc922896e88d5b998a3236f12f8ad9519",
+      "995a31f173b41c33a7d92ccc731bde04a18e268efcea316b62197a81ffdb45d9",
+      "9aa446b0a2190fad2656f6381d25e87511bbb93085bf840458c81dc15d74783f",
+      "9b1029c9c2d2b09b8f5c666d31fffb89edd3752e7adda7af6cd0fa97c79396dc",
+      "9e8482e67e452660e055cee8c5d4167f1c20b58a6882102e714ca31269dd17c6",
+      "a2032af6fece657f83150621d542ded03fa014c22f9c5f52880cdd1a5ac19982",
+      "a4c13f08841745e024cddbac39b1f4c037e5118290b2df154e44a2f10650ed4d",
+      "a4e45ac6296b026a4417d7e17ce489f984fc32e3017fed870bdb6950e1d04e59",
+      "a56c55ce4edf2e834a9fd4e1562ce295a7d42999319e44830d7e5b415b68ff60",
+      "a5f725d5d6cfed6f9faf774464dc608d9a6c56e2c675ef3421242623e5b9d1bc",
+      "a67ac75eb5b9505c6c0b6d073e1d87d2a7039f99d71707dd713b75766ec3c405",
+      "a6b08b6a78939dae0de3c0c11b5e379f9758a1c682bc23bb0b0f4e089e517376",
+      "a71016c54d7e5525c1991cf161dca4090af8c023e17c0ee50f53f03b3d170b34",
+      "a7ec1eabfebd87872e1a4fb2a8b945373f46aca16ef9a8ecbc2191860bd34cd6",
+      "a973be3c26cd86e7661dbece3ae4775f50479513c948aded6467e3557e65b21a",
+      "a981aafdbc261cac2f8e6a627fd02742a15e90fedb201cd864f0570c955b69c4",
+      "a981ea9c4069aa4439fe125abd8707f26206ed9439582acce89ecbc6cbe8c043",
+      "aa16d542900633d27c21ed50c4bf5b058a795c44a6ab9907ebd455186c455e2b",
+      "ac8424e15b86a0fac4da69b1c17715dcabac9ee17a9ea9a885d3e82e4d2eaa03",
+      "ad08f0d2f1ca8bcb81a5399b4c913197a8d3ddca0d1c38dabb69ddeaec6d5e73",
+      "af0958315ec884ec84420cebef665577849a534a61f5bc1a912693ddfb956163",
+      "af4391a16371495593cdf635bb8a50303e43ba917a5b9216d89f216973b25288",
+      "b071ae59923e826929854f26953979d3e9243d7a9a0a34438a91dd8c2e36cd94",
+      "b1d50c1e9e40ed26df56ccb9eadc1f44cc58f8c550bc12075e2d325736bd977f",
+      "b20ef03dfc6cc971440048ae351132348e99a63cabfce3d0166c72f36f335398",
+      "b248300ec5b9a21c4b8aa943d812d5072ed2ae7e0a5071fc6fb74796c7630fe9",
+      "b2c3723b48c6ecaa3b8cfaa9d43b810b648c6ca8b33f53ae1b99069c4d096241",
+      "b43c67528f28a27eccce45140ee7a64e701ff204e86c37a3268a9f19124f0277",
+      "b4db3f0c68ef16d3a1d86c192c57adb50f93e28b0e25ebaace42d20c0094eb5b",
+      "b4f2a6d9f436ddc0eb809e40b0b839dfeca9f23f020ff538b9ebbbff928f46b6",
+      "b502dbc46af379d4fa76901a976a0005d2b7367b6a1adb8a176e72216709eef6",
+      "b59c2f8367878f7c6c5f614ec5ebd218ec3619683ebe08bc21fbaf76ec689791",
+      "b74b4d556752c9ee644f0d82c372595c1a3e1c2950d76064d07054a626a96646",
+      "b83ea6c01da65c7194745c28f77a6c519c7d92385edb7f6cbee383a2ff4d8ee1",
+      "b88ae26ed3257b51f3db8b96b725691f8f81931829394cfeb3ecbc7694c66ef5",
+      "baf9d8ecaa5bbe8d3e9a1692045c7237c7d80c6c93fe00f9eb0918cfef03ec96",
+      "bde9b3bb984d28182feb084bbb3e387682e81c2416d968c83bca470005275084",
+      "c1282cd4cd33ab21458566034cb0d59488c31e5a70a92829bbbbd99a45a25b2c",
+      "c1c706dc3edcfbeda4617af612f3b915046b57311ddd3c64b42f25dd388e00c4",
+      "c3d1d5943da17c6bd0b229b9d55024a8db5af8e281cf43a886b4346c6c08b140",
+      "c5a8a1656c55d40da0fc0e3f1cd31bafa28ee71e0ec976c4cc08281fbcdb8f3a",
+      "c6c8ef1b2bf0b9e1149c8505bd3dec455c76a457079c40afed07ee4fd05fd58f",
+      "c74b61b26c27145c15a79200669d8b13bc43cc5814410578e0aaeca7a3155177",
+      "c898f27e431864a3ff0bb183c76414e217bb07d2be7573418239488ee9d88b57",
+      "c902879598012ed4e36c0e381665d8d092efe696a799fba336cfe212d33526b7",
+      "ca34a0fd5308c980d97a6dc7ee3076f7cc410b5761bb83ba18f13a7e8f739544",
+      "ca447cc0a79c5cac43621351cc7c8c86ea7d23b1f73d441f38b23fe3ecb020d7",
+      "cbffcbca0267aa8178de3e2cbfbc625abcbed2d2ebd23dfd128bb240ff833fd4",
+      "cdd67bb04f7d307eb2f0c46b390d39d70a489a619936344ecb843a78e5ae942e",
+      "cf199810a06ceff27217a0a28de44e898554824c68e7a554c59b3d9d3e3ea4e8",
+      "d0ca08afe8bcc94b4e54f9ba247a846b6ca7b18ca318d0cf3ae8449d3a33b7b3",
+      "d1263c690f2685467480c97f9e3af3ddcc2ec0906206556c451f56b7e4c64819",
+      "d3cbdca723c1eec1858c95e584400a121f55bc3ebeabd72f4b5e2588b1b2a3c8",
+      "d48adecde837f9cba897c599a7fe60df8f191575a26f532a15b4094b84b67917",
+      "d4c36e8c9c074bbc3e4d020568e622903852e4a8821ca4c170c56f831839efc0",
+      "d540e7b260495f1ef109ea95289d22a803981e9c2dedf3252f1f597cc24ff8ef",
+      "dacc78cfae4c982699263fef1bacf7594d89288fdb06fbac9ab9813826f95150",
+      "dc74269b33c73701e310177f3c499cd0737d05489ee977caf8b65abbe89c07f9",
+      "de28db8c62bdb193715e00102377fc1165b218763f6394cb53984f45e1353932",
+      "e0fd27598f9633ff4dffa15fbe03403c04b6b5f19012989345f78f6cc2678d84",
+      "e10e00dfe5298fddf3b59010cf6929c7d9880036e8945e7a44b25b195275720b",
+      "e1d7e70d0d4a2d0c8081c6f117d4a499fb287ecf43f9d47a71e68ccbc0ed54da",
+      "e31672be6d11c4e635856d59bef07be4f1a963ffc22fba0733dfe48bfc9d4ebc",
+      "e3933a3266742145d5f9784c28296ea5f5a72bc9dc87412441bdcbaa9b8caa00",
+      "e44df19cbe6252fec37853e59ad4dda61b86741c9c0988f434670672be554775",
+      "e4535c57e5b1ad097e157f9668df66d4a6cc1517d87fa0969d09b8d640148be4",
+      "e57ff3647839a11a02c3c841266b0a82b21c1cde5c34c18d069df2dfb3ff8ad5",
+      "e673160608aa616090f1141ff3406acc3730fc97a8d3d07adb3581a17c05f170",
+      "e735c538bc52dcd705c76fe5217fd0b369c7633dc46b367e0d8c37126baaee00",
+      "e95d07149f43151aea0c9927a4d294d90d4407025e9237763e12c977b9de8f8a",
+      "ea2ae7b7b6b15e344cd3bbee7c4575b7111ae6ebfb32819c33f4e418a5b3fdec",
+      "eb0ec33d77e22ac84d3a3a00297ac4ae92472db8410d385ad8c9f907095a80c8",
+      "ee4a342c0ece82bf1639e060fb62e98d2728b8a9ce7d7a6d655d2003d449b2a4",
+      "ee89c11ad97b9942e2460cfa4b6e97462b555e6202130a7a352aac95f693ed7e",
+      "f0bccb461c12b0c785a4c57ab08aa34f5446370a7a3e70659a862042b938164a",
+      "f1a317d044bcd65867e536e1a2630928a8a580ee0301e25cd22fc842e87943a7",
+      "f24388513b93268a9f636de84ec8428689e48c52e696c404a23ed834319c0093",
+      "f286e00d87a712401825e5728eb7aff73a0e9742ae3e01e28193220e44347061",
+      "f538198f40d6b7a34b41fe8ca0788d27d48a5814f910db46d9c21048c856f3d7",
+      "f5a9fc4b02f5fc3839f90478479c3555c66e08415212374ec50fbfdf61ad6081",
+      "f8da7b2e1ebc3d560df76d35043139047a1ba760b0600d9cdd2e968b69042c3e",
+      "f9de092cf64848be1a5d63695bad1f1f12079ff743c83f8522eac40f98aee403",
+      "faf3d3366067311b20739a784a66c32028ff05fe0e6a03c1066f5859105dc13b",
+      "fb83c7f5d588a5f7d92981869cbf691cd859e4586bbacbb28237ba2909d45052",
+      "fd8ba8418d1b315d59c929d09be0a32efe284321c8e47ee9a0e7810e1400118b",
+      "fda8441e501632b04230e7470f25a5ea026ca35536e4675a76560db5395790f9",
+      "fe002257244250df6593416f885f8a5b6bc4b1f0ee4dbed9591b935a6a912c0f",
+      "fe13053ec3d8daa255caedae9cbf19d1450999214a4fe8a6870d10f024a56c8e",
+      "fe865a1d4c99f8a506fe5c6ed6123de6d2fefc13c453cededd5eed699f2f9bf1",
+      "ff447b9acf632d66f5bd44d2df8434983d94751da3683bdac4ddb488a5007d8e"
+    ],
+    "targets": [
+      {
+        "kind": "taxon",
+        "native_id": 44114
+      },
+      {
+        "kind": "taxon",
+        "native_id": 44830
+      },
+      {
+        "kind": "taxon",
+        "native_id": 44834
+      },
+      {
+        "kind": "taxon",
+        "native_id": 44847
+      },
+      {
+        "kind": "taxon",
+        "native_id": 44855
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45041
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45045
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45050
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45051
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45056
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45057
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45058
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45063
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45405
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45408
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45409
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45410
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45454
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45455
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45554
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45557
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45560
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45562
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45581
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45584
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45717
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45718
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45720
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45721
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45731
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45733
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45741
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45743
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45744
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45745
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45752
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45753
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45754
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45755
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45778
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45779
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45783
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45788
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45789
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45846
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45860
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45862
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45871
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45898
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45924
+      },
+      {
+        "kind": "taxon",
+        "native_id": 45925
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46039
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46045
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46052
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46058
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46059
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46093
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46094
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46097
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46098
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46099
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46108
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46120
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46122
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46123
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46124
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46172
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46174
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46175
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46176
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46179
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46180
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46181
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46182
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46183
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46184
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46185
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46186
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46189
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46190
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46208
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46330
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46331
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46332
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46333
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46468
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46527
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46714
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46715
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46716
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46717
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46718
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46719
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46792
+      },
+      {
+        "kind": "taxon",
+        "native_id": 46793
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47084
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47085
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47089
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47090
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47092
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47093
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47097
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47109
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47190
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47346
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47392
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47393
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47394
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47475
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47519
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47520
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47539
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47540
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47541
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47542
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47544
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47545
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47549
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47550
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47551
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47571
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47636
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47665
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47702
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47706
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47708
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47712
+      },
+      {
+        "kind": "taxon",
+        "native_id": 47714
+      }
+    ]
+  },
+  "policy_sources": [
+    "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+    "https://epdweblog.org/epd_data_home/epd_policy/"
+  ],
+  "schema_version": "neotoma-scoped-linked-resource-http-capture.v1",
+  "source_evidence": {
+    "manifest_sha256": "76fbc45ac0613ef1b3df21d9f56c3b629c028a361e6b515bc226689bbc5fb42f",
+    "schema_version": "neotoma-linked-source-evidence.v1"
+  },
+  "targets": [
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 44114,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 482
+          }
+        ],
+        "target_key": "taxon-44114"
+      },
+      "target_key": "taxon-44114"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 44830,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 483
+          }
+        ],
+        "target_key": "taxon-44830"
+      },
+      "target_key": "taxon-44830"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 44834,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 484
+          }
+        ],
+        "target_key": "taxon-44834"
+      },
+      "target_key": "taxon-44834"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 44847,
+      "source_proof_reference": {
+        "occurrence_count": 4,
+        "proof_ranges": [
+          {
+            "count": 4,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 485
+          }
+        ],
+        "target_key": "taxon-44847"
+      },
+      "target_key": "taxon-44847"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 44855,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 489
+          }
+        ],
+        "target_key": "taxon-44855"
+      },
+      "target_key": "taxon-44855"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45041,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 490
+          }
+        ],
+        "target_key": "taxon-45041"
+      },
+      "target_key": "taxon-45041"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45045,
+      "source_proof_reference": {
+        "occurrence_count": 3,
+        "proof_ranges": [
+          {
+            "count": 3,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 491
+          }
+        ],
+        "target_key": "taxon-45045"
+      },
+      "target_key": "taxon-45045"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45050,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 494
+          }
+        ],
+        "target_key": "taxon-45050"
+      },
+      "target_key": "taxon-45050"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45051,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 495
+          }
+        ],
+        "target_key": "taxon-45051"
+      },
+      "target_key": "taxon-45051"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45056,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 496
+          }
+        ],
+        "target_key": "taxon-45056"
+      },
+      "target_key": "taxon-45056"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45057,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 498
+          }
+        ],
+        "target_key": "taxon-45057"
+      },
+      "target_key": "taxon-45057"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45058,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 499
+          }
+        ],
+        "target_key": "taxon-45058"
+      },
+      "target_key": "taxon-45058"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45063,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 500
+          }
+        ],
+        "target_key": "taxon-45063"
+      },
+      "target_key": "taxon-45063"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45405,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 1048
+          },
+          {
+            "count": 1,
+            "part_sha256": "01acd617e878586e1e5d71edb298570a418a6ef146352767067813834d968625",
+            "start": 445
+          }
+        ],
+        "target_key": "taxon-45405"
+      },
+      "target_key": "taxon-45405"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45408,
+      "source_proof_reference": {
+        "occurrence_count": 222,
+        "proof_ranges": [
+          {
+            "count": 3,
+            "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+            "start": 758
+          },
+          {
+            "count": 1,
+            "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+            "start": 1408
+          },
+          {
+            "count": 4,
+            "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+            "start": 2045
+          },
+          {
+            "count": 3,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 604
+          },
+          {
+            "count": 4,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 995
+          },
+          {
+            "count": 3,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1437
+          },
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1977
+          },
+          {
+            "count": 4,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 194
+          },
+          {
+            "count": 3,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 736
+          },
+          {
+            "count": 4,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 1068
+          },
+          {
+            "count": 3,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 1696
+          },
+          {
+            "count": 2,
+            "part_sha256": "8677e3092101d7eced1582c13a63bac913a6e49d815d6a40a74e47372f220d84",
+            "start": 43
+          },
+          {
+            "count": 2,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 118
+          },
+          {
+            "count": 4,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 1379
+          },
+          {
+            "count": 2,
+            "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+            "start": 67
+          },
+          {
+            "count": 4,
+            "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+            "start": 1087
+          },
+          {
+            "count": 2,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 356
+          },
+          {
+            "count": 6,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 1423
+          },
+          {
+            "count": 5,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 1859
+          },
+          {
+            "count": 6,
+            "part_sha256": "4f8655f2b820876fc984213041aa06c9f63525dcafff2a8ba241834b71431e9f",
+            "start": 674
+          },
+          {
+            "count": 6,
+            "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+            "start": 1782
+          },
+          {
+            "count": 6,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 786
+          },
+          {
+            "count": 3,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 1929
+          },
+          {
+            "count": 5,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1051
+          },
+          {
+            "count": 5,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1443
+          },
+          {
+            "count": 3,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 2053
+          },
+          {
+            "count": 1,
+            "part_sha256": "7327fd8d863a3d9b011669fb549228c9e54101129777ee68f82705b53b86f827",
+            "start": 420
+          },
+          {
+            "count": 3,
+            "part_sha256": "38718cd4e4d0ac0a10a2f01af6999b087b06a39e1124050e64b61faae8e09bce",
+            "start": 582
+          },
+          {
+            "count": 2,
+            "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+            "start": 153
+          },
+          {
+            "count": 1,
+            "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+            "start": 323
+          },
+          {
+            "count": 5,
+            "part_sha256": "ac0fa32c718d199058333f9fefd906920825e74c1f310736749c333cf2ad2466",
+            "start": 392
+          },
+          {
+            "count": 4,
+            "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+            "start": 687
+          },
+          {
+            "count": 1,
+            "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+            "start": 1414
+          },
+          {
+            "count": 1,
+            "part_sha256": "adf8c3a5dc4d21bf5aad5b4287e5f0e09ad98ec95ec0d8692d6e0f666e3c3beb",
+            "start": 2112
+          },
+          {
+            "count": 4,
+            "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+            "start": 2196
+          },
+          {
+            "count": 5,
+            "part_sha256": "3a8bd8c30a2569f4f1e7603e07960a386f5df5ba352f4a4378ffe8e0a026ce21",
+            "start": 1457
+          },
+          {
+            "count": 1,
+            "part_sha256": "799bffad73586c89388c49fe7026748509c9b1d228e0cdc92a3759eaa85963ae",
+            "start": 964
+          },
+          {
+            "count": 2,
+            "part_sha256": "5f2e7b311f9eea273953919b53c17d7ad1e8733b4cb8dae36e99d1b1ed45aa8f",
+            "start": 1089
+          },
+          {
+            "count": 4,
+            "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+            "start": 29
+          },
+          {
+            "count": 4,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 158
+          },
+          {
+            "count": 5,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 616
+          },
+          {
+            "count": 2,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 1094
+          },
+          {
+            "count": 3,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 266
+          },
+          {
+            "count": 3,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 710
+          },
+          {
+            "count": 6,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 1052
+          },
+          {
+            "count": 4,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 1437
+          },
+          {
+            "count": 4,
+            "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+            "start": 876
+          },
+          {
+            "count": 2,
+            "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+            "start": 1289
+          },
+          {
+            "count": 3,
+            "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+            "start": 732
+          },
+          {
+            "count": 4,
+            "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+            "start": 1478
+          },
+          {
+            "count": 3,
+            "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+            "start": 1914
+          },
+          {
+            "count": 2,
+            "part_sha256": "a98d1ed811f255ba3ae2fcaebf06649ac66a56d763a1572a3a832077b4378336",
+            "start": 248
+          },
+          {
+            "count": 2,
+            "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+            "start": 512
+          },
+          {
+            "count": 3,
+            "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+            "start": 806
+          },
+          {
+            "count": 2,
+            "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+            "start": 1764
+          },
+          {
+            "count": 1,
+            "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+            "start": 1216
+          },
+          {
+            "count": 4,
+            "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+            "start": 1616
+          },
+          {
+            "count": 3,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 81
+          },
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 501
+          },
+          {
+            "count": 5,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 1030
+          },
+          {
+            "count": 4,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 1713
+          },
+          {
+            "count": 5,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 1950
+          },
+          {
+            "count": 5,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 333
+          },
+          {
+            "count": 2,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 756
+          },
+          {
+            "count": 4,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 1135
+          },
+          {
+            "count": 1,
+            "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+            "start": 381
+          },
+          {
+            "count": 1,
+            "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+            "start": 584
+          },
+          {
+            "count": 4,
+            "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+            "start": 2113
+          },
+          {
+            "count": 2,
+            "part_sha256": "344dd0cc3663698a5bda375eab4007c546f57e0442fa1d8617f031fd958523ee",
+            "start": 457
+          }
+        ],
+        "target_key": "taxon-45408"
+      },
+      "target_key": "taxon-45408"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45409,
+      "source_proof_reference": {
+        "occurrence_count": 68,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1978
+          },
+          {
+            "count": 4,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 198
+          },
+          {
+            "count": 2,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 120
+          },
+          {
+            "count": 2,
+            "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+            "start": 69
+          },
+          {
+            "count": 6,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 1429
+          },
+          {
+            "count": 6,
+            "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+            "start": 1788
+          },
+          {
+            "count": 6,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 792
+          },
+          {
+            "count": 2,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1056
+          },
+          {
+            "count": 1,
+            "part_sha256": "7327fd8d863a3d9b011669fb549228c9e54101129777ee68f82705b53b86f827",
+            "start": 421
+          },
+          {
+            "count": 2,
+            "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+            "start": 155
+          },
+          {
+            "count": 5,
+            "part_sha256": "ac0fa32c718d199058333f9fefd906920825e74c1f310736749c333cf2ad2466",
+            "start": 397
+          },
+          {
+            "count": 5,
+            "part_sha256": "3a8bd8c30a2569f4f1e7603e07960a386f5df5ba352f4a4378ffe8e0a026ce21",
+            "start": 1462
+          },
+          {
+            "count": 1,
+            "part_sha256": "799bffad73586c89388c49fe7026748509c9b1d228e0cdc92a3759eaa85963ae",
+            "start": 965
+          },
+          {
+            "count": 6,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 1058
+          },
+          {
+            "count": 4,
+            "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+            "start": 1482
+          },
+          {
+            "count": 2,
+            "part_sha256": "a98d1ed811f255ba3ae2fcaebf06649ac66a56d763a1572a3a832077b4378336",
+            "start": 250
+          },
+          {
+            "count": 3,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 84
+          },
+          {
+            "count": 5,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 1035
+          },
+          {
+            "count": 4,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 1717
+          },
+          {
+            "count": 1,
+            "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+            "start": 382
+          }
+        ],
+        "target_key": "taxon-45409"
+      },
+      "target_key": "taxon-45409"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45410,
+      "source_proof_reference": {
+        "occurrence_count": 154,
+        "proof_ranges": [
+          {
+            "count": 3,
+            "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+            "start": 761
+          },
+          {
+            "count": 1,
+            "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+            "start": 1409
+          },
+          {
+            "count": 4,
+            "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+            "start": 2049
+          },
+          {
+            "count": 3,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 607
+          },
+          {
+            "count": 4,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 999
+          },
+          {
+            "count": 3,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1440
+          },
+          {
+            "count": 3,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 739
+          },
+          {
+            "count": 4,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 1072
+          },
+          {
+            "count": 3,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 1699
+          },
+          {
+            "count": 2,
+            "part_sha256": "8677e3092101d7eced1582c13a63bac913a6e49d815d6a40a74e47372f220d84",
+            "start": 45
+          },
+          {
+            "count": 4,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 1383
+          },
+          {
+            "count": 4,
+            "part_sha256": "aac9333439b6e981b5cffbbe5ff7515a218b1e3afa1e8e5b1565bab714095c1e",
+            "start": 1091
+          },
+          {
+            "count": 2,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 358
+          },
+          {
+            "count": 5,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 1864
+          },
+          {
+            "count": 6,
+            "part_sha256": "4f8655f2b820876fc984213041aa06c9f63525dcafff2a8ba241834b71431e9f",
+            "start": 680
+          },
+          {
+            "count": 3,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 1932
+          },
+          {
+            "count": 3,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1058
+          },
+          {
+            "count": 5,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1448
+          },
+          {
+            "count": 3,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 2056
+          },
+          {
+            "count": 3,
+            "part_sha256": "38718cd4e4d0ac0a10a2f01af6999b087b06a39e1124050e64b61faae8e09bce",
+            "start": 585
+          },
+          {
+            "count": 1,
+            "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+            "start": 324
+          },
+          {
+            "count": 4,
+            "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+            "start": 691
+          },
+          {
+            "count": 1,
+            "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+            "start": 1415
+          },
+          {
+            "count": 1,
+            "part_sha256": "adf8c3a5dc4d21bf5aad5b4287e5f0e09ad98ec95ec0d8692d6e0f666e3c3beb",
+            "start": 2113
+          },
+          {
+            "count": 4,
+            "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+            "start": 2200
+          },
+          {
+            "count": 2,
+            "part_sha256": "5f2e7b311f9eea273953919b53c17d7ad1e8733b4cb8dae36e99d1b1ed45aa8f",
+            "start": 1091
+          },
+          {
+            "count": 4,
+            "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+            "start": 33
+          },
+          {
+            "count": 4,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 162
+          },
+          {
+            "count": 5,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 621
+          },
+          {
+            "count": 2,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 1096
+          },
+          {
+            "count": 3,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 269
+          },
+          {
+            "count": 3,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 713
+          },
+          {
+            "count": 4,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 1441
+          },
+          {
+            "count": 4,
+            "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+            "start": 880
+          },
+          {
+            "count": 2,
+            "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+            "start": 1291
+          },
+          {
+            "count": 3,
+            "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+            "start": 735
+          },
+          {
+            "count": 3,
+            "part_sha256": "c6f9d7e73fe9ad4ae7186e2507a15094a722f0fcf7ddb2bbb0aeb83210f6644e",
+            "start": 1917
+          },
+          {
+            "count": 2,
+            "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+            "start": 514
+          },
+          {
+            "count": 3,
+            "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+            "start": 809
+          },
+          {
+            "count": 2,
+            "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+            "start": 1766
+          },
+          {
+            "count": 1,
+            "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+            "start": 1217
+          },
+          {
+            "count": 4,
+            "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+            "start": 1620
+          },
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 502
+          },
+          {
+            "count": 5,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 1955
+          },
+          {
+            "count": 5,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 338
+          },
+          {
+            "count": 2,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 758
+          },
+          {
+            "count": 4,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 1139
+          },
+          {
+            "count": 1,
+            "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+            "start": 585
+          },
+          {
+            "count": 4,
+            "part_sha256": "921011823b25c704046d230f879b29ffc209db0ad5569f7672c12f38b113230b",
+            "start": 2117
+          },
+          {
+            "count": 2,
+            "part_sha256": "344dd0cc3663698a5bda375eab4007c546f57e0442fa1d8617f031fd958523ee",
+            "start": 459
+          }
+        ],
+        "target_key": "taxon-45410"
+      },
+      "target_key": "taxon-45410"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45454,
+      "source_proof_reference": {
+        "occurrence_count": 94,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+            "start": 764
+          },
+          {
+            "count": 4,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 610
+          },
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1003
+          },
+          {
+            "count": 4,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1443
+          },
+          {
+            "count": 3,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 202
+          },
+          {
+            "count": 2,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 742
+          },
+          {
+            "count": 2,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 1076
+          },
+          {
+            "count": 2,
+            "part_sha256": "8677e3092101d7eced1582c13a63bac913a6e49d815d6a40a74e47372f220d84",
+            "start": 47
+          },
+          {
+            "count": 4,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 122
+          },
+          {
+            "count": 1,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 1387
+          },
+          {
+            "count": 4,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 360
+          },
+          {
+            "count": 4,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 1435
+          },
+          {
+            "count": 2,
+            "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+            "start": 1794
+          },
+          {
+            "count": 1,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 798
+          },
+          {
+            "count": 4,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 1935
+          },
+          {
+            "count": 2,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1061
+          },
+          {
+            "count": 1,
+            "part_sha256": "38718cd4e4d0ac0a10a2f01af6999b087b06a39e1124050e64b61faae8e09bce",
+            "start": 588
+          },
+          {
+            "count": 3,
+            "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+            "start": 157
+          },
+          {
+            "count": 1,
+            "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+            "start": 325
+          },
+          {
+            "count": 4,
+            "part_sha256": "ac0fa32c718d199058333f9fefd906920825e74c1f310736749c333cf2ad2466",
+            "start": 402
+          },
+          {
+            "count": 5,
+            "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+            "start": 695
+          },
+          {
+            "count": 1,
+            "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+            "start": 1416
+          },
+          {
+            "count": 3,
+            "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+            "start": 2204
+          },
+          {
+            "count": 2,
+            "part_sha256": "3a8bd8c30a2569f4f1e7603e07960a386f5df5ba352f4a4378ffe8e0a026ce21",
+            "start": 1467
+          },
+          {
+            "count": 2,
+            "part_sha256": "5f2e7b311f9eea273953919b53c17d7ad1e8733b4cb8dae36e99d1b1ed45aa8f",
+            "start": 1093
+          },
+          {
+            "count": 3,
+            "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+            "start": 37
+          },
+          {
+            "count": 1,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 166
+          },
+          {
+            "count": 1,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 626
+          },
+          {
+            "count": 3,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 1098
+          },
+          {
+            "count": 2,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 716
+          },
+          {
+            "count": 3,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 1064
+          },
+          {
+            "count": 2,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 1445
+          },
+          {
+            "count": 1,
+            "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+            "start": 884
+          },
+          {
+            "count": 5,
+            "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+            "start": 1293
+          },
+          {
+            "count": 2,
+            "part_sha256": "a98d1ed811f255ba3ae2fcaebf06649ac66a56d763a1572a3a832077b4378336",
+            "start": 252
+          },
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 87
+          },
+          {
+            "count": 3,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 1721
+          },
+          {
+            "count": 3,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 760
+          },
+          {
+            "count": 1,
+            "part_sha256": "344dd0cc3663698a5bda375eab4007c546f57e0442fa1d8617f031fd958523ee",
+            "start": 461
+          }
+        ],
+        "target_key": "taxon-45454"
+      },
+      "target_key": "taxon-45454"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45455,
+      "source_proof_reference": {
+        "occurrence_count": 71,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+            "start": 765
+          },
+          {
+            "count": 3,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 614
+          },
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1004
+          },
+          {
+            "count": 3,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1447
+          },
+          {
+            "count": 3,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 205
+          },
+          {
+            "count": 2,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 744
+          },
+          {
+            "count": 2,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 1078
+          },
+          {
+            "count": 2,
+            "part_sha256": "8677e3092101d7eced1582c13a63bac913a6e49d815d6a40a74e47372f220d84",
+            "start": 49
+          },
+          {
+            "count": 3,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 126
+          },
+          {
+            "count": 1,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 1388
+          },
+          {
+            "count": 3,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 364
+          },
+          {
+            "count": 4,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 1439
+          },
+          {
+            "count": 2,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 1939
+          },
+          {
+            "count": 1,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1063
+          },
+          {
+            "count": 1,
+            "part_sha256": "38718cd4e4d0ac0a10a2f01af6999b087b06a39e1124050e64b61faae8e09bce",
+            "start": 589
+          },
+          {
+            "count": 3,
+            "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+            "start": 160
+          },
+          {
+            "count": 1,
+            "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+            "start": 326
+          },
+          {
+            "count": 3,
+            "part_sha256": "ac0fa32c718d199058333f9fefd906920825e74c1f310736749c333cf2ad2466",
+            "start": 406
+          },
+          {
+            "count": 3,
+            "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+            "start": 700
+          },
+          {
+            "count": 2,
+            "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+            "start": 2207
+          },
+          {
+            "count": 1,
+            "part_sha256": "3a8bd8c30a2569f4f1e7603e07960a386f5df5ba352f4a4378ffe8e0a026ce21",
+            "start": 1469
+          },
+          {
+            "count": 2,
+            "part_sha256": "5f2e7b311f9eea273953919b53c17d7ad1e8733b4cb8dae36e99d1b1ed45aa8f",
+            "start": 1095
+          },
+          {
+            "count": 2,
+            "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+            "start": 40
+          },
+          {
+            "count": 1,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 167
+          },
+          {
+            "count": 1,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 627
+          },
+          {
+            "count": 1,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 1101
+          },
+          {
+            "count": 2,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 718
+          },
+          {
+            "count": 1,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 1067
+          },
+          {
+            "count": 1,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 1447
+          },
+          {
+            "count": 1,
+            "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+            "start": 885
+          },
+          {
+            "count": 4,
+            "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+            "start": 1298
+          },
+          {
+            "count": 2,
+            "part_sha256": "a98d1ed811f255ba3ae2fcaebf06649ac66a56d763a1572a3a832077b4378336",
+            "start": 254
+          },
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 88
+          },
+          {
+            "count": 3,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 1724
+          },
+          {
+            "count": 3,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 763
+          },
+          {
+            "count": 1,
+            "part_sha256": "344dd0cc3663698a5bda375eab4007c546f57e0442fa1d8617f031fd958523ee",
+            "start": 462
+          }
+        ],
+        "target_key": "taxon-45455"
+      },
+      "target_key": "taxon-45455"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45554,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 503
+          }
+        ],
+        "target_key": "taxon-45554"
+      },
+      "target_key": "taxon-45554"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45557,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 504
+          }
+        ],
+        "target_key": "taxon-45557"
+      },
+      "target_key": "taxon-45557"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45560,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 505
+          }
+        ],
+        "target_key": "taxon-45560"
+      },
+      "target_key": "taxon-45560"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45562,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 506
+          }
+        ],
+        "target_key": "taxon-45562"
+      },
+      "target_key": "taxon-45562"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45581,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 507
+          }
+        ],
+        "target_key": "taxon-45581"
+      },
+      "target_key": "taxon-45581"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45584,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 508
+          }
+        ],
+        "target_key": "taxon-45584"
+      },
+      "target_key": "taxon-45584"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45717,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 509
+          }
+        ],
+        "target_key": "taxon-45717"
+      },
+      "target_key": "taxon-45717"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45718,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 510
+          }
+        ],
+        "target_key": "taxon-45718"
+      },
+      "target_key": "taxon-45718"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45720,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 511
+          }
+        ],
+        "target_key": "taxon-45720"
+      },
+      "target_key": "taxon-45720"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45721,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 512
+          }
+        ],
+        "target_key": "taxon-45721"
+      },
+      "target_key": "taxon-45721"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45731,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 513
+          }
+        ],
+        "target_key": "taxon-45731"
+      },
+      "target_key": "taxon-45731"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45733,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 514
+          }
+        ],
+        "target_key": "taxon-45733"
+      },
+      "target_key": "taxon-45733"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45741,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 516
+          }
+        ],
+        "target_key": "taxon-45741"
+      },
+      "target_key": "taxon-45741"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45743,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 517
+          }
+        ],
+        "target_key": "taxon-45743"
+      },
+      "target_key": "taxon-45743"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45744,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 518
+          }
+        ],
+        "target_key": "taxon-45744"
+      },
+      "target_key": "taxon-45744"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45745,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 519
+          }
+        ],
+        "target_key": "taxon-45745"
+      },
+      "target_key": "taxon-45745"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45752,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 520
+          }
+        ],
+        "target_key": "taxon-45752"
+      },
+      "target_key": "taxon-45752"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45753,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 521
+          }
+        ],
+        "target_key": "taxon-45753"
+      },
+      "target_key": "taxon-45753"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45754,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 522
+          }
+        ],
+        "target_key": "taxon-45754"
+      },
+      "target_key": "taxon-45754"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45755,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 523
+          }
+        ],
+        "target_key": "taxon-45755"
+      },
+      "target_key": "taxon-45755"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45778,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 524
+          }
+        ],
+        "target_key": "taxon-45778"
+      },
+      "target_key": "taxon-45778"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45779,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 526
+          }
+        ],
+        "target_key": "taxon-45779"
+      },
+      "target_key": "taxon-45779"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45783,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 527
+          }
+        ],
+        "target_key": "taxon-45783"
+      },
+      "target_key": "taxon-45783"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45788,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 528
+          }
+        ],
+        "target_key": "taxon-45788"
+      },
+      "target_key": "taxon-45788"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45789,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 529
+          }
+        ],
+        "target_key": "taxon-45789"
+      },
+      "target_key": "taxon-45789"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45846,
+      "source_proof_reference": {
+        "occurrence_count": 23,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 617
+          },
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1450
+          },
+          {
+            "count": 1,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 129
+          },
+          {
+            "count": 1,
+            "part_sha256": "c83a110bc1889c19820b95428b4e027e9082fa4da8b210c831b64546a702b26b",
+            "start": 367
+          },
+          {
+            "count": 2,
+            "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+            "start": 1796
+          },
+          {
+            "count": 1,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 799
+          },
+          {
+            "count": 2,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 1941
+          },
+          {
+            "count": 1,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1064
+          },
+          {
+            "count": 1,
+            "part_sha256": "ac0fa32c718d199058333f9fefd906920825e74c1f310736749c333cf2ad2466",
+            "start": 409
+          },
+          {
+            "count": 2,
+            "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+            "start": 703
+          },
+          {
+            "count": 1,
+            "part_sha256": "cb36f0ac95330adbc41f047ce93dedb9f39b55712db30a9327515a0ff6056def",
+            "start": 1417
+          },
+          {
+            "count": 1,
+            "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+            "start": 2209
+          },
+          {
+            "count": 1,
+            "part_sha256": "3a8bd8c30a2569f4f1e7603e07960a386f5df5ba352f4a4378ffe8e0a026ce21",
+            "start": 1470
+          },
+          {
+            "count": 1,
+            "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+            "start": 42
+          },
+          {
+            "count": 2,
+            "part_sha256": "d1277e6280892fe4f983bc2f587490b925b0eb0644858bfb7815085ee8fbe245",
+            "start": 1102
+          },
+          {
+            "count": 2,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 1068
+          },
+          {
+            "count": 1,
+            "part_sha256": "2e9fc993d1cb4f3c261f77a514d52950db8b26f63c04aee15cf692ec4302a82e",
+            "start": 1448
+          },
+          {
+            "count": 1,
+            "part_sha256": "a25c8d21ce888efe01b5321ba80f382a83fb8543733ada894b3ae0141fbc2ed3",
+            "start": 1302
+          }
+        ],
+        "target_key": "taxon-45846"
+      },
+      "target_key": "taxon-45846"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45860,
+      "source_proof_reference": {
+        "occurrence_count": 3,
+        "proof_ranges": [
+          {
+            "count": 3,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 530
+          }
+        ],
+        "target_key": "taxon-45860"
+      },
+      "target_key": "taxon-45860"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45862,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 533
+          }
+        ],
+        "target_key": "taxon-45862"
+      },
+      "target_key": "taxon-45862"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45871,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 534
+          }
+        ],
+        "target_key": "taxon-45871"
+      },
+      "target_key": "taxon-45871"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45898,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 535
+          }
+        ],
+        "target_key": "taxon-45898"
+      },
+      "target_key": "taxon-45898"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45924,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 536
+          }
+        ],
+        "target_key": "taxon-45924"
+      },
+      "target_key": "taxon-45924"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 45925,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 537
+          }
+        ],
+        "target_key": "taxon-45925"
+      },
+      "target_key": "taxon-45925"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46039,
+      "source_proof_reference": {
+        "occurrence_count": 27,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 185
+          },
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1979
+          },
+          {
+            "count": 3,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 1924
+          },
+          {
+            "count": 4,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1752
+          },
+          {
+            "count": 3,
+            "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+            "start": 1866
+          },
+          {
+            "count": 2,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1253
+          },
+          {
+            "count": 1,
+            "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+            "start": 1877
+          },
+          {
+            "count": 3,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 11
+          },
+          {
+            "count": 4,
+            "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+            "start": 162
+          },
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1780
+          },
+          {
+            "count": 1,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 907
+          },
+          {
+            "count": 2,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 66
+          },
+          {
+            "count": 1,
+            "part_sha256": "344dd0cc3663698a5bda375eab4007c546f57e0442fa1d8617f031fd958523ee",
+            "start": 1662
+          }
+        ],
+        "target_key": "taxon-46039"
+      },
+      "target_key": "taxon-46039"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46045,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 538
+          }
+        ],
+        "target_key": "taxon-46045"
+      },
+      "target_key": "taxon-46045"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46052,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 539
+          }
+        ],
+        "target_key": "taxon-46052"
+      },
+      "target_key": "taxon-46052"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46058,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 540
+          }
+        ],
+        "target_key": "taxon-46058"
+      },
+      "target_key": "taxon-46058"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46059,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 541
+          }
+        ],
+        "target_key": "taxon-46059"
+      },
+      "target_key": "taxon-46059"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46093,
+      "source_proof_reference": {
+        "occurrence_count": 17,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 186
+          },
+          {
+            "count": 2,
+            "part_sha256": "323efa1685914c2f922a79c48a9d1461db18f79c4721b9c3ee8ab6748b3f469b",
+            "start": 1876
+          },
+          {
+            "count": 4,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1756
+          },
+          {
+            "count": 1,
+            "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+            "start": 1869
+          },
+          {
+            "count": 2,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1255
+          },
+          {
+            "count": 2,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 14
+          },
+          {
+            "count": 1,
+            "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+            "start": 88
+          },
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1781
+          },
+          {
+            "count": 2,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 908
+          },
+          {
+            "count": 1,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 1132
+          }
+        ],
+        "target_key": "taxon-46093"
+      },
+      "target_key": "taxon-46093"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46094,
+      "source_proof_reference": {
+        "occurrence_count": 5,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 1500
+          },
+          {
+            "count": 2,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1257
+          },
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1782
+          }
+        ],
+        "target_key": "taxon-46094"
+      },
+      "target_key": "taxon-46094"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46097,
+      "source_proof_reference": {
+        "occurrence_count": 6,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 1049
+          },
+          {
+            "count": 1,
+            "part_sha256": "323efa1685914c2f922a79c48a9d1461db18f79c4721b9c3ee8ab6748b3f469b",
+            "start": 1878
+          },
+          {
+            "count": 3,
+            "part_sha256": "da216b851cb240e91454efe4c5d855e70a79d2af85c9160e91610250988c5d47",
+            "start": 1176
+          },
+          {
+            "count": 1,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 1134
+          }
+        ],
+        "target_key": "taxon-46097"
+      },
+      "target_key": "taxon-46097"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46098,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "323efa1685914c2f922a79c48a9d1461db18f79c4721b9c3ee8ab6748b3f469b",
+            "start": 1879
+          }
+        ],
+        "target_key": "taxon-46098"
+      },
+      "target_key": "taxon-46098"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46099,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "323efa1685914c2f922a79c48a9d1461db18f79c4721b9c3ee8ab6748b3f469b",
+            "start": 1880
+          }
+        ],
+        "target_key": "taxon-46099"
+      },
+      "target_key": "taxon-46099"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46108,
+      "source_proof_reference": {
+        "occurrence_count": 13,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 570
+          },
+          {
+            "count": 2,
+            "part_sha256": "323efa1685914c2f922a79c48a9d1461db18f79c4721b9c3ee8ab6748b3f469b",
+            "start": 1881
+          },
+          {
+            "count": 1,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1760
+          },
+          {
+            "count": 1,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1259
+          },
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1783
+          },
+          {
+            "count": 2,
+            "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+            "start": 1242
+          },
+          {
+            "count": 1,
+            "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+            "start": 1442
+          },
+          {
+            "count": 1,
+            "part_sha256": "60875b835d8055a75ee7c767b349ab6428e3cca312087df7ff106529d0f3cb72",
+            "start": 1950
+          },
+          {
+            "count": 1,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 910
+          },
+          {
+            "count": 1,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 1133
+          },
+          {
+            "count": 1,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 68
+          }
+        ],
+        "target_key": "taxon-46108"
+      },
+      "target_key": "taxon-46108"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46120,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 16
+          },
+          {
+            "count": 1,
+            "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+            "start": 89
+          }
+        ],
+        "target_key": "taxon-46120"
+      },
+      "target_key": "taxon-46120"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46122,
+      "source_proof_reference": {
+        "occurrence_count": 3,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1260
+          },
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1784
+          }
+        ],
+        "target_key": "taxon-46122"
+      },
+      "target_key": "taxon-46122"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46123,
+      "source_proof_reference": {
+        "occurrence_count": 21,
+        "proof_ranges": [
+          {
+            "count": 3,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 187
+          },
+          {
+            "count": 1,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 571
+          },
+          {
+            "count": 2,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 1502
+          },
+          {
+            "count": 1,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 1927
+          },
+          {
+            "count": 4,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1262
+          },
+          {
+            "count": 1,
+            "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+            "start": 1878
+          },
+          {
+            "count": 1,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 17
+          },
+          {
+            "count": 3,
+            "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+            "start": 166
+          },
+          {
+            "count": 1,
+            "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+            "start": 90
+          },
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1785
+          },
+          {
+            "count": 1,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 911
+          },
+          {
+            "count": 1,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 1134
+          },
+          {
+            "count": 1,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 69
+          }
+        ],
+        "target_key": "taxon-46123"
+      },
+      "target_key": "taxon-46123"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46124,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1786
+          },
+          {
+            "count": 1,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 912
+          }
+        ],
+        "target_key": "taxon-46124"
+      },
+      "target_key": "taxon-46124"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46172,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1787
+          }
+        ],
+        "target_key": "taxon-46172"
+      },
+      "target_key": "taxon-46172"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46174,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1789
+          }
+        ],
+        "target_key": "taxon-46174"
+      },
+      "target_key": "taxon-46174"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46175,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1791
+          }
+        ],
+        "target_key": "taxon-46175"
+      },
+      "target_key": "taxon-46175"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46176,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1793
+          }
+        ],
+        "target_key": "taxon-46176"
+      },
+      "target_key": "taxon-46176"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46179,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1795
+          }
+        ],
+        "target_key": "taxon-46179"
+      },
+      "target_key": "taxon-46179"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46180,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1797
+          }
+        ],
+        "target_key": "taxon-46180"
+      },
+      "target_key": "taxon-46180"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46181,
+      "source_proof_reference": {
+        "occurrence_count": 55,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 190
+          },
+          {
+            "count": 1,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 572
+          },
+          {
+            "count": 1,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 441
+          },
+          {
+            "count": 6,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1761
+          },
+          {
+            "count": 5,
+            "part_sha256": "38718cd4e4d0ac0a10a2f01af6999b087b06a39e1124050e64b61faae8e09bce",
+            "start": 219
+          },
+          {
+            "count": 5,
+            "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+            "start": 1870
+          },
+          {
+            "count": 2,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1266
+          },
+          {
+            "count": 3,
+            "part_sha256": "03eac366e888fcce2770394b05c64d2497d6f7eed359f78e5457591b2a95c5b3",
+            "start": 1879
+          },
+          {
+            "count": 2,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 18
+          },
+          {
+            "count": 2,
+            "part_sha256": "1a08a977d30e50df5bf0d1a275859baab9ba4772ad89b592dc43d7bcc9ce13fc",
+            "start": 169
+          },
+          {
+            "count": 1,
+            "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+            "start": 91
+          },
+          {
+            "count": 5,
+            "part_sha256": "01490b2e3184c380120c829a7245198d45916244b36ded4b4212025e2dbcb4b4",
+            "start": 699
+          },
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1799
+          },
+          {
+            "count": 6,
+            "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+            "start": 1244
+          },
+          {
+            "count": 3,
+            "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+            "start": 1443
+          },
+          {
+            "count": 3,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 913
+          },
+          {
+            "count": 2,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 70
+          },
+          {
+            "count": 6,
+            "part_sha256": "344dd0cc3663698a5bda375eab4007c546f57e0442fa1d8617f031fd958523ee",
+            "start": 1663
+          }
+        ],
+        "target_key": "taxon-46181"
+      },
+      "target_key": "taxon-46181"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46182,
+      "source_proof_reference": {
+        "occurrence_count": 28,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 573
+          },
+          {
+            "count": 2,
+            "part_sha256": "b8f67de70a61261a887cda74b6c7bfe1023a2b08289f6e018df64f81a135e7e9",
+            "start": 1928
+          },
+          {
+            "count": 6,
+            "part_sha256": "6473c5ea1d63714c800f19af7140edb85d6d2d9cfeb4cce52cbb4c59cd1b47cb",
+            "start": 1767
+          },
+          {
+            "count": 3,
+            "part_sha256": "38718cd4e4d0ac0a10a2f01af6999b087b06a39e1124050e64b61faae8e09bce",
+            "start": 224
+          },
+          {
+            "count": 5,
+            "part_sha256": "fb049a4dbf9c05494c5d3b3d32bc01eaa2e4c360988c0b3f2a1f7b2f7c11be7e",
+            "start": 1875
+          },
+          {
+            "count": 1,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1268
+          },
+          {
+            "count": 1,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 20
+          },
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1800
+          },
+          {
+            "count": 3,
+            "part_sha256": "4afdeb5000afbb84a401084dd2861f5cb1ad77ec708eb5229dbbd6bf646fec27",
+            "start": 1250
+          },
+          {
+            "count": 2,
+            "part_sha256": "f37591b63e2cdf9f4d67cbca2e29c2062e01e33d8835956d63cc45b9d1cdf98c",
+            "start": 1446
+          },
+          {
+            "count": 2,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 916
+          },
+          {
+            "count": 1,
+            "part_sha256": "f6358642f25efec5fd90894b5f241071504a4804bd2a7f861a5ee236accaeb6b",
+            "start": 72
+          }
+        ],
+        "target_key": "taxon-46182"
+      },
+      "target_key": "taxon-46182"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46183,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1269
+          }
+        ],
+        "target_key": "taxon-46183"
+      },
+      "target_key": "taxon-46183"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46184,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 918
+          }
+        ],
+        "target_key": "taxon-46184"
+      },
+      "target_key": "taxon-46184"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46185,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1801
+          }
+        ],
+        "target_key": "taxon-46185"
+      },
+      "target_key": "taxon-46185"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46186,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1270
+          }
+        ],
+        "target_key": "taxon-46186"
+      },
+      "target_key": "taxon-46186"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46189,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 1271
+          }
+        ],
+        "target_key": "taxon-46189"
+      },
+      "target_key": "taxon-46189"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46190,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 21
+          }
+        ],
+        "target_key": "taxon-46190"
+      },
+      "target_key": "taxon-46190"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46208,
+      "source_proof_reference": {
+        "occurrence_count": 3,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 574
+          },
+          {
+            "count": 1,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 919
+          }
+        ],
+        "target_key": "taxon-46208"
+      },
+      "target_key": "taxon-46208"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46330,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 1504
+          }
+        ],
+        "target_key": "taxon-46330"
+      },
+      "target_key": "taxon-46330"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46331,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 1505
+          }
+        ],
+        "target_key": "taxon-46331"
+      },
+      "target_key": "taxon-46331"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46332,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 1506
+          }
+        ],
+        "target_key": "taxon-46332"
+      },
+      "target_key": "taxon-46332"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46333,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "f3e63395744f0e9a8bcc3a080a11e8652e30f964d7d12210840a91daebe872bf",
+            "start": 1507
+          }
+        ],
+        "target_key": "taxon-46333"
+      },
+      "target_key": "taxon-46333"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46468,
+      "source_proof_reference": {
+        "occurrence_count": 10,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "04fbf2d66562ac2b27e27647482f17e29bc082467aec31c0cb9a9ca6daab17cb",
+            "start": 1050
+          },
+          {
+            "count": 2,
+            "part_sha256": "a86280052b9eb9842de5d4a7a315831e906711d55a3c465087a990b012ec0389",
+            "start": 442
+          },
+          {
+            "count": 1,
+            "part_sha256": "01acd617e878586e1e5d71edb298570a418a6ef146352767067813834d968625",
+            "start": 446
+          },
+          {
+            "count": 3,
+            "part_sha256": "da216b851cb240e91454efe4c5d855e70a79d2af85c9160e91610250988c5d47",
+            "start": 1179
+          },
+          {
+            "count": 1,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 1135
+          },
+          {
+            "count": 1,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 1703
+          }
+        ],
+        "target_key": "taxon-46468"
+      },
+      "target_key": "taxon-46468"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46527,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "2c14bcb35fee7b511c31d4b5a387f56a83d674b5c0fe7853f11949666434f123",
+            "start": 920
+          }
+        ],
+        "target_key": "taxon-46527"
+      },
+      "target_key": "taxon-46527"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46714,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1802
+          }
+        ],
+        "target_key": "taxon-46714"
+      },
+      "target_key": "taxon-46714"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46715,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1803
+          }
+        ],
+        "target_key": "taxon-46715"
+      },
+      "target_key": "taxon-46715"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46716,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1804
+          }
+        ],
+        "target_key": "taxon-46716"
+      },
+      "target_key": "taxon-46716"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46717,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1805
+          }
+        ],
+        "target_key": "taxon-46717"
+      },
+      "target_key": "taxon-46717"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46718,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1806
+          }
+        ],
+        "target_key": "taxon-46718"
+      },
+      "target_key": "taxon-46718"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46719,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "c9eef204e9d60c65f2e2b1aa602a3333334da7f2b202ec7fd4ebc7320af214b4",
+            "start": 1807
+          }
+        ],
+        "target_key": "taxon-46719"
+      },
+      "target_key": "taxon-46719"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46792,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "077632d840caf3cf8890e43d07776c9104da839e50bc22ea8aa9e5405eda569e",
+            "start": 23
+          }
+        ],
+        "target_key": "taxon-46792"
+      },
+      "target_key": "taxon-46792"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 46793,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+            "start": 92
+          }
+        ],
+        "target_key": "taxon-46793"
+      },
+      "target_key": "taxon-46793"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47084,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 542
+          }
+        ],
+        "target_key": "taxon-47084"
+      },
+      "target_key": "taxon-47084"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47085,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 543
+          }
+        ],
+        "target_key": "taxon-47085"
+      },
+      "target_key": "taxon-47085"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47089,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 544
+          }
+        ],
+        "target_key": "taxon-47089"
+      },
+      "target_key": "taxon-47089"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47090,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 545
+          }
+        ],
+        "target_key": "taxon-47090"
+      },
+      "target_key": "taxon-47090"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47092,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 546
+          }
+        ],
+        "target_key": "taxon-47092"
+      },
+      "target_key": "taxon-47092"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47093,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 547
+          }
+        ],
+        "target_key": "taxon-47093"
+      },
+      "target_key": "taxon-47093"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47097,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 548
+          }
+        ],
+        "target_key": "taxon-47097"
+      },
+      "target_key": "taxon-47097"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47109,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "995b2e959e3ac84c3e35359ec8e09b4b6146bc25a7e2ca3251ba8baeb445a423",
+            "start": 414
+          }
+        ],
+        "target_key": "taxon-47109"
+      },
+      "target_key": "taxon-47109"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47190,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 549
+          }
+        ],
+        "target_key": "taxon-47190"
+      },
+      "target_key": "taxon-47190"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47346,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "744822014178f63c4034ee275cc8a4ddf33f9ceb501a5ac94909b5abf7296fe3",
+            "start": 1980
+          }
+        ],
+        "target_key": "taxon-47346"
+      },
+      "target_key": "taxon-47346"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47392,
+      "source_proof_reference": {
+        "occurrence_count": 3,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 13
+          },
+          {
+            "count": 1,
+            "part_sha256": "a7eb592ff9059e12a1a4228d51e18bf173da0c98d2d81a893960dec3d5ef3d3c",
+            "start": 93
+          }
+        ],
+        "target_key": "taxon-47392"
+      },
+      "target_key": "taxon-47392"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47393,
+      "source_proof_reference": {
+        "occurrence_count": 3,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "245adb83b76de1fceb63afacba82778b462bd494e73dd192000b4ea124555a19",
+            "start": 2179
+          },
+          {
+            "count": 2,
+            "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+            "start": 1462
+          }
+        ],
+        "target_key": "taxon-47393"
+      },
+      "target_key": "taxon-47393"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47394,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "01490b2e3184c380120c829a7245198d45916244b36ded4b4212025e2dbcb4b4",
+            "start": 454
+          }
+        ],
+        "target_key": "taxon-47394"
+      },
+      "target_key": "taxon-47394"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47475,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 15
+          }
+        ],
+        "target_key": "taxon-47475"
+      },
+      "target_key": "taxon-47475"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47519,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 16
+          }
+        ],
+        "target_key": "taxon-47519"
+      },
+      "target_key": "taxon-47519"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47520,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "eb1de2e85f2aa14611fba89a90688235f0639576a2d67ea20128376700d173db",
+            "start": 17
+          }
+        ],
+        "target_key": "taxon-47520"
+      },
+      "target_key": "taxon-47520"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47539,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 550
+          }
+        ],
+        "target_key": "taxon-47539"
+      },
+      "target_key": "taxon-47539"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47540,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 551
+          }
+        ],
+        "target_key": "taxon-47540"
+      },
+      "target_key": "taxon-47540"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47541,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 553
+          }
+        ],
+        "target_key": "taxon-47541"
+      },
+      "target_key": "taxon-47541"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47542,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 554
+          }
+        ],
+        "target_key": "taxon-47542"
+      },
+      "target_key": "taxon-47542"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47544,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 555
+          }
+        ],
+        "target_key": "taxon-47544"
+      },
+      "target_key": "taxon-47544"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47545,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 556
+          }
+        ],
+        "target_key": "taxon-47545"
+      },
+      "target_key": "taxon-47545"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47549,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+            "start": 1464
+          }
+        ],
+        "target_key": "taxon-47549"
+      },
+      "target_key": "taxon-47549"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47550,
+      "source_proof_reference": {
+        "occurrence_count": 2,
+        "proof_ranges": [
+          {
+            "count": 2,
+            "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+            "start": 1465
+          }
+        ],
+        "target_key": "taxon-47550"
+      },
+      "target_key": "taxon-47550"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47551,
+      "source_proof_reference": {
+        "occurrence_count": 3,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "245adb83b76de1fceb63afacba82778b462bd494e73dd192000b4ea124555a19",
+            "start": 2180
+          },
+          {
+            "count": 2,
+            "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+            "start": 1467
+          }
+        ],
+        "target_key": "taxon-47551"
+      },
+      "target_key": "taxon-47551"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47571,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 557
+          }
+        ],
+        "target_key": "taxon-47571"
+      },
+      "target_key": "taxon-47571"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47636,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 558
+          }
+        ],
+        "target_key": "taxon-47636"
+      },
+      "target_key": "taxon-47636"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47665,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "f13527af5c56f5254b3c51ba6c941d6dfaad02206ecb24c324caf42e215cbac0",
+            "start": 1469
+          }
+        ],
+        "target_key": "taxon-47665"
+      },
+      "target_key": "taxon-47665"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47702,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 559
+          }
+        ],
+        "target_key": "taxon-47702"
+      },
+      "target_key": "taxon-47702"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47706,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 560
+          }
+        ],
+        "target_key": "taxon-47706"
+      },
+      "target_key": "taxon-47706"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47708,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 561
+          }
+        ],
+        "target_key": "taxon-47708"
+      },
+      "target_key": "taxon-47708"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47712,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 562
+          }
+        ],
+        "target_key": "taxon-47712"
+      },
+      "target_key": "taxon-47712"
+    },
+    {
+      "exposure_role": "development_resource_discovery",
+      "kind": "taxon",
+      "metadata_dependency_count": 0,
+      "native_id": 47714,
+      "source_proof_reference": {
+        "occurrence_count": 1,
+        "proof_ranges": [
+          {
+            "count": 1,
+            "part_sha256": "44733f549dc4c15a7455d118ae9653a3ee2e5347cc615888754bb911856b32f5",
+            "start": 563
+          }
+        ],
+        "target_key": "taxon-47714"
+      },
+      "target_key": "taxon-47714"
+    }
+  ]
+}
