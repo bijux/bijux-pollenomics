@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from pathlib import Path
 from typing import Any
 
-from ...capture.facets.replay import replay_neotoma_facet_capture
+from ...capture.facets.replay import _replay_facet_capture
 from ...capture.linked_resources.models import SCOPED_LINKED_SCHEMA
-from ...capture.linked_resources.replay import replay_neotoma_linked_resources
-from ..linked_evidence.sources import full_evidence_inputs
+from ...capture.linked_resources.replay import _replay_linked_resources
+from ..context.seals import context_seals
+from ..linked_evidence.sources import _full_evidence_inputs
 from .inventory import MAX_BYTES as MAX_BYTES
 from .inventory import MAX_FILES as MAX_FILES
 from .inventory import (
@@ -32,6 +33,36 @@ def prepare_capsule(
     dict[str, Any], dict[str, tuple[Path, int]], dict[str, bytes], dict[str, Any]
 ]:
     """Validate finite metadata closure, then replay every owned/predecessor entity."""
+    options: dict[str, Any] = {
+        "context_directory": context_directory,
+        "expected_context_sha256": expected_context_sha256,
+        "native_archive_directory": native_archive_directory,
+    }
+    with context_seals(options) as guard:
+        return _prepare_capsule(
+            **options,
+            facet_captures=facet_captures,
+            linked_captures=linked_captures,
+            predecessor_facets=predecessor_facets,
+            evidence_sources=evidence_sources,
+            _before_body_read=guard.check,
+        )
+
+
+def _prepare_capsule(
+    *,
+    context_directory: Path,
+    expected_context_sha256: str,
+    native_archive_directory: Path,
+    facet_captures: Mapping[str, Path],
+    linked_captures: Mapping[str, Path] | None = None,
+    predecessor_facets: Mapping[str, Path] | None = None,
+    evidence_sources: Mapping[str, Path] | None = None,
+    _before_body_read: Callable[[], None],
+) -> tuple[
+    dict[str, Any], dict[str, tuple[Path, int]], dict[str, bytes], dict[str, Any]
+]:
+    """Preserve semantic replay while applying an outer refusal at each body read."""
     prepared = prepare_capsule_metadata(
         context_directory=context_directory,
         expected_context_sha256=expected_context_sha256,
@@ -44,19 +75,21 @@ def prepare_capsule(
         max_files=MAX_FILES,
     )
     for digest, root in sorted(prepared.facet_sources.items()):
-        replay_neotoma_facet_capture(
+        _replay_facet_capture(
             root,
             expected_manifest_sha256=digest,
             scope_inputs=prepared.context.current_scope_inputs,
+            _before_body_read=_before_body_read,
         )
     for digest, root in sorted(prepared.linked_sources.items()):
         control = prepared.controls[digest]
         if prepared.documents[digest]["schema_version"] == SCOPED_LINKED_SCHEMA:
-            inputs = full_evidence_inputs(
+            inputs = _full_evidence_inputs(
                 control,
                 prepared.context,
                 evidence_sources,
                 {**(predecessor_facets or {}), **prepared.facet_sources},
+                _before_body_read=_before_body_read,
             )
         else:
             inputs = {
@@ -66,7 +99,12 @@ def prepare_capsule(
                 },
                 "scope_inputs": prepared.context.current_scope_inputs,
             }
-        replay_neotoma_linked_resources(root, expected_manifest_sha256=digest, **inputs)
+        _replay_linked_resources(
+            root,
+            expected_manifest_sha256=digest,
+            **inputs,
+            _before_body_read=_before_body_read,
+        )
     return prepared.manifest, prepared.paths, prepared.buffers, prepared.index
 
 
