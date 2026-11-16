@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from http.client import HTTPSConnection, IncompleteRead
+from http.client import HTTPResponse, HTTPSConnection, IncompleteRead
 import ssl
 from urllib.parse import urlsplit
 
@@ -27,6 +27,29 @@ class NeotomaHttpResponse:
     body_complete: bool = True
 
 
+def _close_transport(
+    response: HTTPResponse | None,
+    connection: HTTPSConnection,
+    primary: BaseException | None,
+) -> None:
+    """Close both owners without replacing a read failure or skipping cleanup."""
+    failure = primary
+    closed: set[int] = set()
+    for role, resource in (("response", response), ("connection", connection)):
+        if resource is None or id(resource) in closed:
+            continue
+        closed.add(id(resource))
+        try:
+            resource.close()
+        except BaseException as error:
+            if failure is None:
+                failure = error
+            else:
+                failure.add_note(f"Neotoma {role} close failed: {error}")
+    if primary is None and failure is not None:
+        raise failure
+
+
 def _fetch_response(url: str, *, timeout: float, max_bytes: int) -> NeotomaHttpResponse:
     parts = urlsplit(url)
     if parts.scheme != "https" or parts.netloc != "api.neotomadb.org":
@@ -35,6 +58,8 @@ def _fetch_response(url: str, *, timeout: float, max_bytes: int) -> NeotomaHttpR
     connection = HTTPSConnection(
         parts.netloc, timeout=timeout, context=ssl.create_default_context()
     )
+    response: HTTPResponse | None = None
+    primary: BaseException | None = None
     try:
         connection.putrequest("GET", target, skip_host=True, skip_accept_encoding=True)
         for name, value in _HEADERS:
@@ -60,5 +85,8 @@ def _fetch_response(url: str, *, timeout: float, max_bytes: int) -> NeotomaHttpR
             body=body,
             body_complete=complete and len(body) <= max_bytes,
         )
+    except BaseException as error:
+        primary = error
+        raise
     finally:
-        connection.close()
+        _close_transport(response, connection, primary)
