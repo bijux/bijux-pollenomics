@@ -8,7 +8,6 @@ from typing import Any
 
 from bijux_pollenomics.core.filesystem import (
     OwnedTreeWriter,
-    validate_regular_namespace,
 )
 from bijux_pollenomics.core.owned_tree import build_staging_output_dir
 
@@ -16,15 +15,14 @@ from ....client import positive_native_id
 from ....publication.ownership import publish_owned_source_tree
 from ....resource_catalogue.archive.files import _digest, encoded_json
 from ....resource_catalogue.source_projection import _same
-from ...receipts import _object, _read, _safe_root
+from ...receipts import _safe_root
+from . import storage
 from .layers import derive_neotoma_taxon_ancestry
 from .models import (
     HARD_PART_BYTES,
     MAX_BYTES,
-    MAX_METADATA_BYTES,
     MAX_PARTS,
     PART_BYTES,
-    SCHEMA,
     NeotomaTaxonAncestryLimits,
     NeotomaTaxonAncestrySources,
 )
@@ -33,168 +31,28 @@ COLLECTIONS = ("seeds", "edges", "taxa", "publications", "frontier", "cycle_comp
 
 
 def _pinned(path: Path, digest: str, bound: int, size: int | None = None) -> bytes:
-    raw = _read(_safe_root(path), bound)
-    if (
-        not _digest(digest)
-        or sha256(raw).hexdigest() != digest
-        or size is not None
-        and len(raw) != size
-    ):
-        raise ValueError("Taxon ancestry metadata identity or size differs")
-    return raw
+    return storage._pinned(path, digest, bound, size)
 
 
 def _pack(document: dict[str, Any]) -> tuple[dict[str, Any], dict[str, bytes]]:
-    manifest = {key: value for key, value in document.items() if key not in COLLECTIONS}
-    parts: list[dict[str, Any]] = []
-    buffers = {}
-    nodes = {}
-    edges = {}
-    for collection in COLLECTIONS:
-        pending: list[Any] = []
-        envelope_bytes = (
-            len(
-                encoded_json(
-                    {"schema_version": SCHEMA, "collection": collection, "rows": []}
-                )
-            )
-            + 2
-        )
-        pending_bytes = envelope_bytes
-
-        def flush(collection: str, pending: list[Any]) -> None:
-            if not pending:
-                return
-            raw = encoded_json(
-                {"schema_version": SCHEMA, "collection": collection, "rows": pending}
-            )
-            if len(raw) > HARD_PART_BYTES or len(parts) >= MAX_PARTS:
-                raise ValueError("Taxon ancestry part exceeds finite publication bound")
-            digest = sha256(raw).hexdigest()
-            path = f"parts/{collection}/{digest}.json"
-            parts.append(
-                {
-                    "collection": collection,
-                    "path": path,
-                    "sha256": digest,
-                    "bytes": len(raw),
-                    "rows": len(pending),
-                }
-            )
-            buffers[path] = raw
-            for offset, row in enumerate(pending):
-                locator = {"part_sha256": digest, "row_offset": offset}
-                if collection in {"taxa", "publications"}:
-                    if row["target_key"] in nodes:
-                        raise ValueError("Taxon ancestry target is duplicated")
-                    nodes[row["target_key"]] = locator
-                elif collection == "edges":
-                    if row["edge_id"] in edges:
-                        raise ValueError("Taxon ancestry edge is duplicated")
-                    edges[row["edge_id"]] = locator
-            pending.clear()
-
-        for row in document[collection]:
-            raw_row = encoded_json(row)
-            # Array membership adds four spaces to every encoded row line.
-            # The final newline becomes a separator; account for its comma once.
-            row_bytes = len(raw_row) + 4 * raw_row.count(b"\n") + 1
-            if envelope_bytes + row_bytes > HARD_PART_BYTES:
-                raise ValueError("Taxon ancestry part exceeds finite publication bound")
-            if pending and pending_bytes + row_bytes > PART_BYTES:
-                flush(collection, pending)
-                pending_bytes = envelope_bytes
-            pending.append(row)
-            pending_bytes += row_bytes
-        flush(collection, pending)
-    manifest.update(parts=parts, node_index=nodes, edge_index=edges)
-    raw = encoded_json(manifest)
-    if (
-        len(raw) > MAX_METADATA_BYTES
-        or len(raw) + sum(map(len, buffers.values())) > MAX_BYTES
-    ):
-        raise ValueError("Taxon ancestry exceeds finite publication byte budget")
-    return manifest, buffers
+    return storage._pack(
+        document,
+        part_bytes=PART_BYTES,
+        hard_part_bytes=HARD_PART_BYTES,
+        encoder=encoded_json,
+    )
 
 
 def _manifest(root: Path, digest: str) -> dict[str, Any]:
-    raw = _pinned(root / "manifest.json", digest, MAX_METADATA_BYTES)
-    manifest = _object(raw)
-    if (
-        manifest.get("schema_version") != SCHEMA
-        or not isinstance(manifest.get("parts"), list)
-        or len(manifest["parts"]) > MAX_PARTS
-    ):
-        raise ValueError("Taxon ancestry metadata schema or parts differ")
-    total = len(raw)
-    names = set()
-    counts = dict.fromkeys(COLLECTIONS, 0)
-    for part in manifest["parts"]:
-        if (
-            not isinstance(part, dict)
-            or set(part) != {"collection", "path", "sha256", "bytes", "rows"}
-            or part.get("collection") not in COLLECTIONS
-            or not _digest(part.get("sha256"))
-            or part.get("path") != f"parts/{part['collection']}/{part['sha256']}.json"
-            or part["path"] in names
-            or type(part.get("bytes")) is not int
-            or not 0 < part["bytes"] <= HARD_PART_BYTES
-            or type(part.get("rows")) is not int
-            or not 0 < part["rows"] <= 100000
-        ):
-            raise ValueError("Taxon ancestry part contract differs")
-        names.add(part["path"])
-        total += part["bytes"]
-        counts[part["collection"]] += part["rows"]
-    if (
-        total > MAX_BYTES
-        or not isinstance(manifest.get("node_index"), dict)
-        or not isinstance(manifest.get("edge_index"), dict)
-    ):
-        raise ValueError("Taxon ancestry index or aggregate byte budget differs")
-    return manifest
+    return storage._manifest(root, digest)
 
 
 def _part(root: Path, part: dict[str, Any]) -> list[Any]:
-    doc = _object(
-        _pinned(root / part["path"], part["sha256"], part["bytes"], part["bytes"])
-    )
-    rows = doc.get("rows")
-    if (
-        set(doc) != {"schema_version", "collection", "rows"}
-        or doc["schema_version"] != SCHEMA
-        or doc["collection"] != part["collection"]
-        or not isinstance(rows, list)
-        or len(rows) != part["rows"]
-    ):
-        raise ValueError("Taxon ancestry part population differs")
-    return rows
+    return storage._part(root, part)
 
 
 def _readback(root: Path, digest: str) -> dict[str, Any]:
-    root = _safe_root(root)
-    manifest = _manifest(root, digest)
-    validate_regular_namespace(
-        root,
-        {"manifest.json", *(part["path"] for part in manifest["parts"])},
-        max_files=MAX_PARTS + 1,
-        max_bytes=MAX_BYTES,
-    )
-    document = {
-        key: value
-        for key, value in manifest.items()
-        if key not in {"parts", "node_index", "edge_index"}
-    }
-    document.update({name: [] for name in COLLECTIONS})
-    for part in manifest["parts"]:
-        document[part["collection"]].extend(_part(root, part))
-    expected, buffers = _pack(document)
-    if not _same(expected, manifest):
-        raise ValueError("Taxon ancestry index or part closure differs")
-    for name, raw in buffers.items():
-        if _read(root / name, len(raw)) != raw:
-            raise ValueError("Taxon ancestry part bytes differ")
-    return document
+    return storage._readback(root, digest)
 
 
 def load_neotoma_taxon_ancestry(
