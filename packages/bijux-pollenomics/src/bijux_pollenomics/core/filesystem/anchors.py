@@ -21,8 +21,12 @@ def identity(node: os.stat_result) -> tuple[int, int, int]:
 class DirectoryAnchor:
     """Hold an ordinary directory and every ancestor without resolving aliases."""
 
-    def __init__(self, path: Path, *, create: bool = False) -> None:
+    def __init__(
+        self, path: Path, *, create: bool = False, creation_mode: int = 0o700
+    ) -> None:
         """Open each literal component through its held parent descriptor."""
+        if type(creation_mode) is not int or not 0 <= creation_mode <= 0o777:
+            raise ValueError("Directory creation mode must be native permission bits")
         self.path = Path(path).absolute()
         if ".." in self.path.parts or not all(
             hasattr(os, flag) for flag in ("O_DIRECTORY", "O_NOFOLLOW")
@@ -39,7 +43,7 @@ class DirectoryAnchor:
             for component in self.path.parts[1:]:
                 if create:
                     with suppress(FileExistsError):
-                        os.mkdir(component, 0o700, dir_fd=descriptor)
+                        os.mkdir(component, creation_mode, dir_fd=descriptor)
                 before = os.stat(component, dir_fd=descriptor, follow_symlinks=False)
                 child = os.open(component, DIRECTORY_FLAGS, dir_fd=descriptor)
                 self._stack.callback(os.close, child)

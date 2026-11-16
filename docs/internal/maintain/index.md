@@ -283,6 +283,7 @@ confirm that the status does not depend on a pre-existing generated matrix.
 | repository-health implementation | [`bijux-pollenomics-dev`](../pollenomics-dev/index.md) |
 | validation selection and release stops | [Quality gates](../pollenomics-dev/quality-gates.md) |
 | bounded Neotoma archive and relational replacement, recovery and installed checks | [Neotoma source publication](source-publication/neotoma.md) |
+| report callback ownership, complete candidate validation and retained recovery | [Report publication ownership](report-publication.md) |
 | append-only development-fold experiment attempts | [Recorded LRA development trials](lra-development-trials.md) |
 | GitHub Actions trigger and evidence ownership | [GitHub workflows](gh-workflows/index.md) |
 | release ordering and publication proof | [Verification and release](gh-workflows/verification-and-release.md) |
