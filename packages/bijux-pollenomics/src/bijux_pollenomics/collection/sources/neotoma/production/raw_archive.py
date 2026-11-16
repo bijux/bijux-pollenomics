@@ -5,7 +5,13 @@ import hashlib
 from pathlib import Path
 from typing import Any
 
+from bijux_pollenomics.core.filesystem.regular_inputs import BoundedInputTree
+
 from .models import _RawArchive
+
+SOURCE_MAX_BYTES = 512 * 1024 * 1024
+SOURCE_MAX_FILES = 20000
+MANIFEST_MAX_BYTES = 16 * 1024 * 1024
 
 
 def load_raw_archive(
@@ -29,6 +35,59 @@ def load_raw_archive(
     canonical_digest: Callable[[object], str],
 ) -> _RawArchive:
     root = validate_directory(raw_archive_root, "Neotoma raw archive")
+    with BoundedInputTree(
+        root,
+        max_bytes=SOURCE_MAX_BYTES,
+        max_files=SOURCE_MAX_FILES,
+        member_limits={"manifest.json": MANIFEST_MAX_BYTES},
+    ) as inputs:
+        if set(inputs.directories) != {""}:
+            raise ValueError("Raw archive contains undeclared directories")
+
+        def reader(path: Path) -> bytes:
+            return inputs.read_with(path, read_file)
+
+        result = _load_raw_archive(
+            root,
+            read_file=reader,
+            expected_part_count=expected_part_count,
+            raw_source=raw_source,
+            archive_label=archive_label,
+            endpoint=endpoint,
+            dataset_type=dataset_type,
+            sha256_pattern=sha256_pattern,
+            parse_object=parse_object,
+            parse_mapping=parse_mapping,
+            parse_positive_integer=parse_positive_integer,
+            parse_non_negative_integer=parse_non_negative_integer,
+            parse_integer_list=parse_integer_list,
+            expect_equal=expect_equal,
+            download_dataset_id=download_dataset_id,
+            canonical_digest=canonical_digest,
+        )
+        inputs.validate()
+        return result
+
+
+def _load_raw_archive(
+    root: Path,
+    *,
+    expected_part_count: int,
+    raw_source: str,
+    archive_label: str,
+    endpoint: str,
+    dataset_type: str,
+    sha256_pattern: Any,
+    read_file: Callable[[Path], bytes],
+    parse_object: Callable[[bytes, Path], dict[str, object]],
+    parse_mapping: Callable[[object, str], Mapping[str, object]],
+    parse_positive_integer: Callable[[object, str], int],
+    parse_non_negative_integer: Callable[[object, str], int],
+    parse_integer_list: Callable[[object, str], list[int]],
+    expect_equal: Callable[[object, object, str], None],
+    download_dataset_id: Callable[[Mapping[str, object], str], int],
+    canonical_digest: Callable[[object], str],
+) -> _RawArchive:
     manifest_path = root / "manifest.json"
     manifest_bytes = read_file(manifest_path)
     manifest = parse_object(manifest_bytes, manifest_path)

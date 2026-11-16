@@ -11,6 +11,42 @@ from .models import AadrAnnoFile, AadrReleaseResolution
 CANONICAL_AADR_DATASETS = frozenset({"1240k", "ho"})
 
 
+def _literal_component(value: object, *, field: str) -> str:
+    if (
+        not isinstance(value, str)
+        or not value
+        or value != value.strip()
+        or value in {".", ".."}
+        or "/" in value
+        or "\\" in value
+        or not value.isprintable()
+    ):
+        raise ValueError(f"AADR {field} must be a literal flat member")
+    return value
+
+
+def validate_release_version(version: str) -> str:
+    """Validate a literal release directory before transport or output creation."""
+    return _literal_component(version, field="release version")
+
+
+def _native_file_id(value: object) -> int:
+    if type(value) is int:
+        file_id = value
+    elif isinstance(value, str) and value.isascii() and value.isdecimal():
+        try:
+            file_id = int(value)
+        except ValueError as error:
+            raise ValueError(
+                "AADR file id must be an exact positive integer"
+            ) from error
+    else:
+        raise ValueError("AADR file id must be an exact positive integer")
+    if file_id <= 0:
+        raise ValueError("AADR file id must be an exact positive integer")
+    return file_id
+
+
 def resolve_anno_files(
     version: str, metadata: Mapping[str, object]
 ) -> tuple[AadrAnnoFile, ...]:
@@ -22,6 +58,7 @@ def resolve_aadr_release(
     version: str, metadata: Mapping[str, object]
 ) -> AadrReleaseResolution:
     """Resolve one requested AADR release from the Dataverse version history."""
+    validate_release_version(version)
     for dataset_version in iter_release_versions(metadata):
         matched_files = extract_anno_files_from_release(
             dataset_version, version=version
@@ -54,7 +91,8 @@ def extract_anno_files_from_release(
     *,
     version: str,
 ) -> list[AadrAnnoFile]:
-    """Extract public `.anno` files for one Dataverse dataset version."""
+    """Extract public `.anno` files, retaining missing/None sizes as unknown zero."""
+    validate_release_version(version)
     files = dataset_version.get("files", [])
     if not isinstance(files, list):
         return []
@@ -69,16 +107,22 @@ def extract_anno_files_from_release(
         filename = str(data_file.get("filename", "")).strip()
         if not is_requested_anno_filename(filename=filename, version=version):
             continue
+        _literal_component(filename, field="source filename")
         dataset_name = dataset_directory_name(filename)
         if dataset_name not in CANONICAL_AADR_DATASETS:
             continue
+        filesize = data_file.get("filesize")
+        if filesize is None:
+            filesize = 0
+        if type(filesize) is not int or filesize < 0:
+            raise ValueError("AADR filesize must be a nonnegative integer or unknown")
         matched_files.append(
             AadrAnnoFile(
                 filename=filename,
-                file_id=int(data_file["id"]),
+                file_id=_native_file_id(data_file.get("id")),
                 dataset_name=dataset_name,
                 md5=str(data_file.get("md5", "")).strip(),
-                filesize=int(data_file.get("filesize", 0) or 0),
+                filesize=filesize,
             )
         )
     return matched_files
@@ -98,8 +142,10 @@ def is_requested_anno_filename(*, filename: str, version: str) -> bool:
 def validate_anno_files(files: list[AadrAnnoFile]) -> list[AadrAnnoFile]:
     """Validate resolved AADR `.anno` files before download."""
     seen_dataset_names: set[str] = set()
+    seen_file_ids: set[int] = set()
     for file in files:
-        if not file.filename or file.file_id <= 0:
+        _literal_component(file.filename, field="source filename")
+        if type(file.file_id) is not int or file.file_id <= 0:
             raise ValueError(
                 "Resolved AADR release includes an invalid public .anno entry"
             )
@@ -107,7 +153,12 @@ def validate_anno_files(files: list[AadrAnnoFile]) -> list[AadrAnnoFile]:
             raise ValueError(
                 f"Resolved AADR release contains duplicate dataset coverage for {file.dataset_name}"
             )
+        if file.dataset_name not in CANONICAL_AADR_DATASETS:
+            raise ValueError("Resolved AADR release includes an unknown dataset panel")
+        if file.file_id in seen_file_ids:
+            raise ValueError("Resolved AADR release contains duplicate file identity")
         seen_dataset_names.add(file.dataset_name)
+        seen_file_ids.add(file.file_id)
     return files
 
 
@@ -135,7 +186,7 @@ def fetch_release_history_metadata(
         fetch_text_fn(
             AADR_DATAVERSE_VERSIONS_URL,
             headers={"User-Agent": "Mozilla/5.0"},
-            insecure=True,
+            insecure=False,
         )
     )
     mapping = as_mapping(payload)

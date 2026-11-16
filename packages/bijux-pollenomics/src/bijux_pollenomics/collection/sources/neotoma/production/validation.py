@@ -6,6 +6,12 @@ import json
 from pathlib import Path
 from typing import Any
 
+from bijux_pollenomics.core.filesystem.regular_inputs import (
+    read_regular_file as read_bounded_regular_file,
+)
+
+SOURCE_MAX_BYTES = 512 * 1024 * 1024
+
 
 def validated_input_directory(path: Path, label: str) -> Path:
     candidate = Path(path)
@@ -39,9 +45,7 @@ def validated_output_target(
 
 
 def read_regular_file(path: Path) -> bytes:
-    if path.is_symlink() or not path.is_file():
-        raise ValueError(f"Required input is not a regular file: {path}")
-    return path.read_bytes()
+    return read_bounded_regular_file(path, max_bytes=SOURCE_MAX_BYTES)
 
 
 def json_object(

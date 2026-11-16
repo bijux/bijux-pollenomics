@@ -4,12 +4,14 @@ import hashlib
 import json
 from pathlib import Path
 import tempfile
+from typing import Any
 import unittest
 from unittest.mock import patch
 
 from bijux_pollenomics.collection.sources.neotoma.materialization import (
     materialize_neotoma_relational_snapshot,
 )
+from bijux_pollenomics.core.filesystem.regular_inputs import BoundedInputTree
 from bijux_pollenomics.evidence.sources.neotoma import (
     validate_neotoma_relational_materialization,
 )
@@ -34,6 +36,7 @@ class NeotomaMaterializationTests(unittest.TestCase):
             bad = canonical_json_bytes(part)
             _rebind_authenticated_file(output, relative, bad)
             read_bytes = Path.read_bytes
+            tree_read = BoundedInputTree.read
             reads = 0
 
             def read_part(path: Path) -> bytes:
@@ -44,11 +47,22 @@ class NeotomaMaterializationTests(unittest.TestCase):
                         return original
                 return read_bytes(path)
 
+            def read_tree(inputs: BoundedInputTree, path: Path, **kwargs: Any) -> bytes:
+                raw = tree_read(inputs, path, **kwargs)
+                nonlocal reads
+                if path == part_path:
+                    reads += 1
+                    if reads == 2:
+                        return original
+                return raw
+
             with (
+                patch.object(BoundedInputTree, "read", read_tree),
                 patch.object(Path, "read_bytes", read_part),
                 self.assertRaisesRegex(ValueError, "missing parent"),
             ):
                 validate_neotoma_relational_materialization(output)
+            self.assertEqual(reads, 1)
             self.assertEqual(part_path.read_bytes(), bad)
 
     def test_reconciliation_validation_uses_the_authenticated_buffer(self) -> None:
@@ -62,6 +76,7 @@ class NeotomaMaterializationTests(unittest.TestCase):
             bad = canonical_json_bytes(payload)
             _rebind_authenticated_file(output, "reconciliation.json", bad)
             read_bytes = Path.read_bytes
+            tree_read = BoundedInputTree.read
             reads = 0
 
             def read_reconciliation(candidate: Path) -> bytes:
@@ -72,11 +87,24 @@ class NeotomaMaterializationTests(unittest.TestCase):
                         return original
                 return read_bytes(candidate)
 
+            def read_tree(
+                inputs: BoundedInputTree, candidate: Path, **kwargs: Any
+            ) -> bytes:
+                raw = tree_read(inputs, candidate, **kwargs)
+                nonlocal reads
+                if candidate == path:
+                    reads += 1
+                    if reads == 2:
+                        return original
+                return raw
+
             with (
+                patch.object(BoundedInputTree, "read", read_tree),
                 patch.object(Path, "read_bytes", read_reconciliation),
                 self.assertRaisesRegex(ValueError, "reconciled samples row_count"),
             ):
                 validate_neotoma_relational_materialization(output)
+            self.assertEqual(reads, 1)
             self.assertEqual(path.read_bytes(), bad)
 
     def test_valid_part_does_not_parse_an_unauthenticated_second_read(self) -> None:
@@ -86,6 +114,7 @@ class NeotomaMaterializationTests(unittest.TestCase):
             expected = json.loads((output / "manifest.json").read_bytes())
             part = output / "surfaces/samples/part-00001.json"
             read_bytes = Path.read_bytes
+            tree_read = BoundedInputTree.read
             reads = 0
 
             def read_part(path: Path) -> bytes:
@@ -96,10 +125,23 @@ class NeotomaMaterializationTests(unittest.TestCase):
                         return b"{}"
                 return read_bytes(path)
 
-            with patch.object(Path, "read_bytes", read_part):
+            def read_tree(inputs: BoundedInputTree, path: Path, **kwargs: Any) -> bytes:
+                raw = tree_read(inputs, path, **kwargs)
+                nonlocal reads
+                if path == part:
+                    reads += 1
+                    if reads == 2:
+                        return b"{}"
+                return raw
+
+            with (
+                patch.object(BoundedInputTree, "read", read_tree),
+                patch.object(Path, "read_bytes", read_part),
+            ):
                 self.assertEqual(
                     validate_neotoma_relational_materialization(output), expected
                 )
+            self.assertEqual(reads, 1)
 
     def test_correctly_rehashed_missing_sample_parent_is_refused(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:

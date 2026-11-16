@@ -4,11 +4,17 @@ from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Mapping
+from contextvars import ContextVar
 import copy
 import hashlib
 import json
 from pathlib import Path, PurePosixPath
 import re
+
+from bijux_pollenomics.core.filesystem.regular_inputs import (
+    BoundedInputTree,
+    read_regular_file,
+)
 
 from .contract import (
     COUNTRY_CODES,
@@ -33,7 +39,35 @@ from .ownership import NeotomaOwnershipIndex
 _SHA256_PATTERN = re.compile(r"[0-9a-f]{64}\Z")
 
 
-def validate_neotoma_relational_materialization(
+RELATIONAL_MATERIALIZATION_MAX_BYTES = 640 * 1024 * 1024
+RELATIONAL_MATERIALIZATION_MAX_FILES = 20000
+MATERIALIZATION_MANIFEST_MAX_BYTES = 16 * 1024 * 1024
+_INPUT_TREE: ContextVar[BoundedInputTree | None] = ContextVar(
+    "neotoma_materialization_inputs", default=None
+)
+
+
+def validate_neotoma_relational_materialization(output_root: Path) -> dict[str, object]:
+    """Validate one closed bounded tree using exact ordinary member buffers."""
+    root = Path(output_root)
+    if not root.is_absolute():
+        raise ValueError("Neotoma materialization path must be absolute")
+    with BoundedInputTree(
+        root,
+        max_bytes=RELATIONAL_MATERIALIZATION_MAX_BYTES,
+        max_files=RELATIONAL_MATERIALIZATION_MAX_FILES,
+        member_limits={"manifest.json": MATERIALIZATION_MANIFEST_MAX_BYTES},
+    ) as inputs:
+        token = _INPUT_TREE.set(inputs)
+        try:
+            result = _validate_materialization(root)
+            inputs.validate()
+            return result
+        finally:
+            _INPUT_TREE.reset(token)
+
+
+def _validate_materialization(
     output_root: Path,
 ) -> dict[str, object]:
     """Validate schemas, ownership, counts, paths, ordering and published digests."""
@@ -292,12 +326,14 @@ def validate_neotoma_relational_materialization(
         "materialization_sha256",
     )
 
-    actual_files: set[str] = set()
-    for path in root.rglob("*"):
-        if path.is_symlink():
-            raise ValueError(f"Symlinks are not allowed in materialization: {path}")
-        if path.is_file():
-            actual_files.add(path.relative_to(root).as_posix())
+    inputs = _INPUT_TREE.get()
+    if inputs is None:
+        raise ValueError("Materialization validation requires a bounded input scope")
+    inputs.check()
+    actual_files = set(inputs.files)
+    allowed_directories = {"", "surfaces", *(f"surfaces/{name}" for name in surfaces)}
+    if not set(inputs.directories) <= allowed_directories:
+        raise ValueError("Materialization directory-set mismatch")
     if actual_files != expected_files:
         unexpected = sorted(actual_files - expected_files)
         missing = sorted(expected_files - actual_files)
@@ -329,9 +365,10 @@ def _safe_relative_path(value: object) -> str:
 
 
 def _read_regular_file(path: Path) -> bytes:
-    if path.is_symlink() or not path.is_file():
-        raise ValueError(f"Materialization file is missing or unsafe: {path}")
-    return path.read_bytes()
+    inputs = _INPUT_TREE.get()
+    if inputs is not None:
+        return inputs.read(path)
+    return read_regular_file(path, max_bytes=RELATIONAL_MATERIALIZATION_MAX_BYTES)
 
 
 def _read_json_object(path: Path) -> dict[str, object]:

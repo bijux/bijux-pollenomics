@@ -1,11 +1,21 @@
+"""Capture RAÄ Atlas status and normalized display bytes from one input epoch."""
+
 from __future__ import annotations
 
+from contextlib import ExitStack
+from dataclasses import dataclass
 from hashlib import sha256
 import json
 from pathlib import Path
 
-from ...collection.contracts.artifacts import RAA_DENSITY_GEOJSON, RAA_LAYER_METADATA
-from ...collection.sources.raa import assess_raa_density_authority
+from ...collection.sources.raa.authority import (
+    RaaDensityAuthorityDecision,
+    capture_raa_authority_snapshot,
+)
+from ...collection.sources.raa.authority_inputs import INPUT_PATHS
+from ...collection.sources.raa.inventory import decode_source_object, non_negative_count
+from ...core.filesystem import BoundedInputTree
+from ...core.geospatial.geojson import as_mapping
 
 RAA_ATLAS_INPUT_STATUS_FILENAME = "raa_atlas_input_status.json"
 RAA_ATLAS_INPUT_STATUS_LABEL = "RAÄ atlas input status"
@@ -17,27 +27,108 @@ RAA_V018_METADATA_SHA256 = (
     "baa5f7ec34e290d5b52ad93afb8a05e77830bd2b2672a15a579e571f5f6d91d8"
 )
 
-_AUTHORITY_INPUTS = {
-    "raw_inventory": "raa/raw/publicerade_lamningar_centrumpunkt.geojson",
-    "raw_summary": "raa/raw/publicerade_lamningar_centrumpunkt_summary.json",
-    "normalized_metadata": "/".join(
-        (RAA_LAYER_METADATA.source, *RAA_LAYER_METADATA.relative_parts)
-    ),
-    "normalized_density": "/".join(
-        (RAA_DENSITY_GEOJSON.source, *RAA_DENSITY_GEOJSON.relative_parts)
-    ),
-    "scientific_review": "raa/review/spatiotemporal_review.json",
-}
+RAA_CONTEXT_RELATIVE_DIRECTORY = Path("context/raa")
+_AUTHORITY_INPUTS = INPUT_PATHS
+
+
+@dataclass(frozen=True)
+class RaaAtlasInputSnapshot:
+    """Immutable public buffers and status for one captured input epoch."""
+
+    status_bytes: bytes
+    metadata_bytes: bytes | None
+    density_bytes: bytes | None
+
+    def __post_init__(self) -> None:
+        """Keep each public buffer within the explicit publication byte ceiling."""
+        for raw in (self.status_bytes, self.metadata_bytes, self.density_bytes):
+            if raw is not None and (type(raw) is not bytes or len(raw) > 1024 * 1024):
+                raise ValueError("RAÄ public snapshot requires bounded immutable bytes")
+
+    def status(self) -> dict[str, object]:
+        """Decode a fresh status view without reopening source paths."""
+        return decode_source_object(self.status_bytes.decode("utf-8"))
 
 
 def build_raa_atlas_input_status(context_root: Path) -> dict[str, object]:
-    """Describe whether the Sweden-only RAÄ context may enter an atlas bundle."""
-    context_root = Path(context_root)
-    authority = assess_raa_density_authority(context_root)
+    """Describe a captured input epoch, not the future state of its source paths."""
+    return capture_raa_atlas_input_snapshot(context_root).status()
+
+
+def capture_raa_atlas_input_snapshot(context_root: Path) -> RaaAtlasInputSnapshot:
+    """Capture authority payloads or a separate bounded historical display pair."""
+    context_root = Path(context_root).absolute()
+    captured = capture_raa_authority_snapshot(context_root)
+    authority = captured.decision
+    receipts = {record.role: record.payload() for record in captured.input_receipts}
+    metadata_bytes, density_bytes = captured.metadata_bytes, captured.density_bytes
+    if metadata_bytes is None or density_bytes is None:
+        metadata_bytes, density_bytes, pair_receipts = _capture_normalized_pair(
+            context_root
+        )
+        receipts.update(pair_receipts)
     inputs = {
-        name: _input_receipt(context_root, relative_path)
-        for name, relative_path in _AUTHORITY_INPUTS.items()
+        name: {
+            "path": relative,
+            "present": name in receipts or (context_root / relative).is_file(),
+            "sha256": receipts[name]["sha256"] if name in receipts else None,
+            "byte_count": receipts[name]["byte_count"] if name in receipts else None,
+            "receipt_status": "captured_bytes" if name in receipts else "presence_only",
+        }
+        for name, relative in _AUTHORITY_INPUTS.items()
     }
+    status = _build_status(authority, inputs, metadata_bytes, density_bytes)
+    return RaaAtlasInputSnapshot(
+        json.dumps(status, indent=2, ensure_ascii=False).encode("utf-8"),
+        metadata_bytes,
+        density_bytes,
+    )
+
+
+def _capture_normalized_pair(
+    root: Path,
+) -> tuple[bytes | None, bytes | None, dict[str, dict[str, object]]]:
+    roles = ("normalized_metadata", "normalized_density")
+    try:
+        with ExitStack() as stack:
+            trees = {}
+            for role in roles:
+                path = root / _AUTHORITY_INPUTS[role]
+                trees[role] = stack.enter_context(
+                    BoundedInputTree(
+                        path.parent,
+                        max_bytes=1024 * 1024,
+                        max_files=1,
+                        selected=path.name,
+                    )
+                )
+            buffers = {
+                role: tree.read(root / _AUTHORITY_INPUTS[role], max_bytes=1024 * 1024)
+                for role, tree in trees.items()
+            }
+            for tree in trees.values():
+                tree.validate()
+            for tree in trees.values():
+                tree.check()
+            receipts = {
+                role: {
+                    "path": _AUTHORITY_INPUTS[role],
+                    "sha256": sha256(raw).hexdigest(),
+                    "byte_count": len(raw),
+                }
+                for role, raw in buffers.items()
+            }
+            return buffers[roles[0]], buffers[roles[1]], receipts
+    except (OSError, ValueError):
+        return None, None, {}
+
+
+def _build_status(
+    authority: RaaDensityAuthorityDecision,
+    inputs: dict[str, dict[str, object]],
+    metadata_bytes: bytes | None,
+    density_bytes: bytes | None,
+) -> dict[str, object]:
     retained_normalized_input = bool(
         inputs["normalized_metadata"]["present"]
         or inputs["normalized_density"]["present"]
@@ -52,7 +143,9 @@ def build_raa_atlas_input_status(context_root: Path) -> dict[str, object]:
         and inputs["normalized_density"]["sha256"] == RAA_V018_DENSITY_SHA256
     )
     density_count_accounting = (
-        _density_count_accounting(context_root) if retained_density_pair else None
+        _density_count_accounting(metadata_bytes, density_bytes, authority)
+        if retained_density_pair
+        else None
     )
     display_warning_codes: list[str] = []
     if retained_density_pair and not authority.admitted and not retained_v018_surface:
@@ -93,6 +186,7 @@ def build_raa_atlas_input_status(context_root: Path) -> dict[str, object]:
     return {
         "schema_version": "raa-atlas-input-status.v1",
         "status_namespace": "raa_atlas_input_availability",
+        "input_epoch": "captured_buffers; source paths may subsequently change",
         "status_namespace_note": (
             "Atlas-input rendering state only; not country/source availability, "
             "external-intake lifecycle, backlog status, or release state."
@@ -171,50 +265,38 @@ def build_raa_atlas_input_status(context_root: Path) -> dict[str, object]:
             "density_feature_count": authority.density_feature_count,
         },
         "review": {
-            "accepted": (
-                authority.reviewer_id is not None
-                and "scientific_review_not_accepted" not in authority.reason_codes
-            ),
+            "accepted": authority.admitted,
             "reviewer_id": authority.reviewer_id,
         },
         "inputs": inputs,
     }
 
 
-def _input_receipt(context_root: Path, relative_path: str) -> dict[str, object]:
-    path = context_root / relative_path
-    present = path.is_file()
-    return {
-        "path": relative_path,
-        "present": present,
-        "sha256": _file_sha256(path) if present else None,
-    }
-
-
-def _file_sha256(path: Path) -> str:
-    digest = sha256()
-    with path.open("rb") as handle:
-        for block in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
-
-
-def _density_count_accounting(context_root: Path) -> dict[str, object]:
-    metadata_path = context_root / _AUTHORITY_INPUTS["normalized_metadata"]
-    density_path = context_root / _AUTHORITY_INPUTS["normalized_density"]
+def _density_count_accounting(
+    metadata_bytes: bytes | None,
+    density_bytes: bytes | None,
+    authority: RaaDensityAuthorityDecision,
+) -> dict[str, object]:
     try:
-        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
-        density = json.loads(density_path.read_text(encoding="utf-8"))
-        metadata_counts = metadata["counts"]
-        metadata_count = metadata_counts["fornlamning"]
+        if metadata_bytes is None or density_bytes is None:
+            raise ValueError("Normalized buffers unavailable")
+        metadata = decode_source_object(metadata_bytes.decode("utf-8"))
+        density = decode_source_object(density_bytes.decode("utf-8"))
+        metadata_count = non_negative_count(
+            (as_mapping(metadata["counts"]) or {}).get("fornlamning")
+        )
         features = density["features"]
-        cell_counts = [feature["properties"]["count"] for feature in features]
-        if (
-            type(metadata_count) is not int
-            or metadata_count < 0
-            or any(type(count) is not int or count < 0 for count in cell_counts)
-        ):
-            raise ValueError("RAÄ density counts must be nonnegative integers")
+        if not isinstance(features, list):
+            raise TypeError("Density feature list is unavailable")
+        cell_counts: list[int] = []
+        for feature in features:
+            properties = as_mapping((as_mapping(feature) or {}).get("properties")) or {}
+            count = non_negative_count(properties.get("count"))
+            if count is None:
+                raise ValueError("RAÄ cell count must be a nonnegative integer")
+            cell_counts.append(count)
+        if metadata_count is None:
+            raise ValueError("RAÄ metadata count must be a nonnegative integer")
     except (KeyError, TypeError, ValueError, OSError, json.JSONDecodeError):
         return {
             "status": "unavailable",
@@ -225,21 +307,34 @@ def _density_count_accounting(context_root: Path) -> dict[str, object]:
             "reconciled": False,
         }
     density_sum = sum(cell_counts)
-    return {
-        "status": "observed_retained_normalized_pair",
+    expected_count = (
+        authority.density_site_count if authority.admitted else metadata_count
+    )
+    if expected_count is None:
+        raise ValueError("Admitted RAÄ density lacks its included numerator")
+    result: dict[str, object] = {
+        "status": "observed_modern_membership"
+        if authority.admitted
+        else "observed_retained_normalized_pair",
         "density_feature_count": len(features),
         "density_cell_count_sum": density_sum,
         "metadata_fornlamning_count": metadata_count,
-        "difference": density_sum - metadata_count,
-        "reconciled": density_sum == metadata_count,
+        "difference": density_sum - expected_count,
+        "reconciled": density_sum == expected_count,
     }
+    if authority.admitted:
+        result["expected_included_count"] = expected_count
+    return result
 
 
 __all__ = [
     "RAA_ATLAS_INPUT_STATUS_FILENAME",
     "RAA_ATLAS_INPUT_STATUS_LABEL",
+    "RAA_CONTEXT_RELATIVE_DIRECTORY",
     "RAA_V018_COMMIT",
     "RAA_V018_DENSITY_SHA256",
     "RAA_V018_METADATA_SHA256",
+    "RaaAtlasInputSnapshot",
     "build_raa_atlas_input_status",
+    "capture_raa_atlas_input_snapshot",
 ]

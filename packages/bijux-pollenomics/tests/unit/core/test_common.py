@@ -24,8 +24,12 @@ class _FakeResponse:
     ) -> None:
         return None
 
-    def read(self) -> bytes:
-        return self.payload
+    def read(self, size: int = -1) -> bytes:
+        if size < 0:
+            payload, self.payload = self.payload, b""
+            return payload
+        payload, self.payload = self.payload[:size], self.payload[size:]
+        return payload
 
 
 class CommonFetchTests(unittest.TestCase):
@@ -55,7 +59,7 @@ class CommonFetchTests(unittest.TestCase):
     def test_fetch_binary_uses_unverified_context_only_when_requested(self) -> None:
         def fake_urlopen(request, context=None, timeout=None):  # type: ignore[no-untyped-def]
             self.assertIsNotNone(context)
-            self.assertIsNone(timeout)
+            self.assertEqual(timeout, 30.0)
             return _FakeResponse(b"\x00\x01")
 
         with patch("bijux_pollenomics.core.http.urlopen", side_effect=fake_urlopen):

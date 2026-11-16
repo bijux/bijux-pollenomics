@@ -1,10 +1,14 @@
+"""Receipt-bound country geometry from bounded, shared decode and digest buffers."""
+
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 import hashlib
 import json
+import math
 from pathlib import Path
 
+from ....core.filesystem import read_regular_file
 from ....core.text import clean_optional_text, slugify
 
 __all__ = [
@@ -30,6 +34,8 @@ _SOVEREIGNTY = {
     "Finland": ("Finland", "FI1"),
     "Denmark": ("Denmark", "DN1"),
 }
+_MANIFEST_MAX_BYTES = 64 * 1024
+_COUNTRY_MAX_BYTES = 4 * 1024 * 1024
 
 
 def boundary_selection_profile(manifest: Mapping[str, object]) -> str | None:
@@ -78,14 +84,18 @@ def load_country_boundaries(
     natural_earth_version: str,
     natural_earth_admin0_url: str,
     natural_earth_terms_url: str,
+    byte_reader: Callable[[Path], bytes] | None = None,
 ) -> dict[str, dict[str, object]] | None:
-    """Load tracked Nordic country boundaries from a local boundaries directory when present."""
+    """Decode and hash the same bounded bytes, leaving operation stability to callers."""
     raw_dir = Path(output_root) / "raw"
     manifest_path = raw_dir / "source_manifest.json"
     if not manifest_path.exists():
         return None
+    manifest_payload, _ = _read_boundary_input(
+        manifest_path, max_bytes=_MANIFEST_MAX_BYTES, byte_reader=byte_reader
+    )
     manifest = validate_boundary_manifest(
-        json.loads(manifest_path.read_text(encoding="utf-8")),
+        manifest_payload,
         path=manifest_path,
         natural_earth_version=natural_earth_version,
         natural_earth_admin0_url=natural_earth_admin0_url,
@@ -97,8 +107,11 @@ def load_country_boundaries(
         path = raw_dir / f"{slugify(country)}.geojson"
         if not path.exists():
             return None
+        payload, digest = _read_boundary_input(
+            path, max_bytes=_COUNTRY_MAX_BYTES, byte_reader=byte_reader
+        )
         country_boundaries[country] = validate_boundary_collection(
-            json.loads(path.read_text(encoding="utf-8")),
+            payload,
             path=path,
             country=country,
             country_code=country_code,
@@ -108,6 +121,7 @@ def load_country_boundaries(
             manifest,
             country=country,
             path=path,
+            content_sha256=digest,
             expected_member_count=len(NORDIC_ADMIN0_MEMBERS[country])
             if profile is not None
             else None,
@@ -173,6 +187,7 @@ def _validate_country_artifact_digest(
     *,
     country: str,
     path: Path,
+    content_sha256: str,
     expected_member_count: int | None = None,
 ) -> None:
     artifacts = manifest["country_artifacts"]
@@ -189,8 +204,7 @@ def _validate_country_artifact_digest(
             f"Boundary manifest member count differs for {country}: {path}"
         )
     expected = record.get("sha256")
-    actual = hashlib.sha256(path.read_bytes()).hexdigest()
-    if expected != actual:
+    if expected != content_sha256:
         raise ValueError(f"Boundary artifact digest mismatch for {country}: {path}")
 
 
@@ -268,3 +282,45 @@ def validate_boundary_collection(
             f"Boundary profile requires unique complete ordered members for {country}: {path}"
         )
     return payload
+
+
+def _read_boundary_input(
+    path: Path,
+    *,
+    max_bytes: int,
+    byte_reader: Callable[[Path], bytes] | None,
+) -> tuple[object, str]:
+    raw = (
+        read_regular_file(path, max_bytes=max_bytes)
+        if byte_reader is None
+        else byte_reader(path)
+    )
+    if type(raw) is not bytes:
+        raise ValueError("Boundary input reader must return immutable bytes")
+    if len(raw) > max_bytes:
+        raise ValueError(f"Boundary input exceeds its byte budget: {path}")
+    payload: object = json.loads(
+        raw.decode("utf-8"),
+        object_pairs_hook=_unique_boundary_object,
+        parse_constant=_reject_nonfinite,
+        parse_float=_finite_float,
+    )
+    return payload, hashlib.sha256(raw).hexdigest()
+
+
+def _unique_boundary_object(pairs: list[tuple[str, object]]) -> dict[str, object]:
+    result: dict[str, object] = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"Boundary source JSON contains a duplicate key: {key}")
+        result[key] = value
+    return result
+
+
+def _reject_nonfinite(value: str) -> float:
+    raise ValueError(f"Boundary source JSON contains a nonfinite number: {value}")
+
+
+def _finite_float(value: str) -> float:
+    number = float(value)
+    return number if math.isfinite(number) else _reject_nonfinite(value)

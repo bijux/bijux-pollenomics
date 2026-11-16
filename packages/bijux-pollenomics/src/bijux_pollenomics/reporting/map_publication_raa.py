@@ -55,15 +55,69 @@ def _raa_context_posture(
     ):
         raise ValueError("RAÄ display warning codes differ")
     accounting = layer.get("density_count_accounting")
-    if not isinstance(accounting, dict) or set(accounting) != {
+    base_fields = {
         "status",
         "density_feature_count",
         "density_cell_count_sum",
         "metadata_fornlamning_count",
         "difference",
         "reconciled",
-    }:
+    }
+    if not isinstance(accounting, dict) or "status" not in accounting:
         raise ValueError("RAÄ density count accounting differs")
+    if admitted:
+        if (
+            set(accounting) != base_fields | {"expected_included_count"}
+            or accounting.get("status") != "observed_modern_membership"
+        ):
+            raise ValueError("RAÄ modern density accounting profile differs")
+        count_fields = (
+            "density_feature_count",
+            "density_cell_count_sum",
+            "metadata_fornlamning_count",
+            "expected_included_count",
+        )
+        if any(
+            type(accounting[field]) is not int or accounting[field] < 0
+            for field in count_fields
+        ):
+            raise ValueError(
+                "RAÄ modern density counts must be native nonnegative integers"
+            )
+        total = accounting["density_cell_count_sum"]
+        included = accounting["expected_included_count"]
+        if (
+            type(accounting["difference"]) is not int
+            or accounting["difference"] != total - included
+            or type(accounting["reconciled"]) is not bool
+            or accounting["reconciled"] is not (total == included)
+        ):
+            raise ValueError("RAÄ modern density arithmetic differs")
+        if total != included or included > accounting["metadata_fornlamning_count"]:
+            raise ValueError("RAÄ modern included numerator is not reconciled")
+        geojson = layer.get("geojson")
+        features = geojson.get("features") if isinstance(geojson, dict) else None
+        if (
+            not isinstance(features, list)
+            or len(features) != accounting["density_feature_count"]
+        ):
+            raise ValueError("RAÄ modern density feature count differs")
+        counts = []
+        for feature in features:
+            properties = (
+                feature.get("properties") if isinstance(feature, dict) else None
+            )
+            count = properties.get("count") if isinstance(properties, dict) else None
+            if type(count) is not int or count < 0:
+                raise ValueError("RAÄ modern cell count differs")
+            counts.append(count)
+        if sum(counts) != total:
+            raise ValueError("RAÄ modern density sum differs from its geometry")
+    elif (
+        set(accounting) != base_fields
+        or accounting.get("status") != "observed_retained_normalized_pair"
+    ):
+        raise ValueError("RAÄ legacy density accounting differs")
     for field in ("density_value_label", "density_count_label"):
         if not isinstance(layer.get(field), str) or not str(layer[field]).strip():
             raise ValueError(f"RAÄ {field} differs")
