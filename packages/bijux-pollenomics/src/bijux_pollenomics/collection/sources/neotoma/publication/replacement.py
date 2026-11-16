@@ -135,7 +135,7 @@ def replace_neotoma_tree(
         except BaseException as error:
             try:
                 record("refused-build", {"prior_preserved": prior is not None})
-            except (OSError, ValueError) as receipt_error:
+            except Exception as receipt_error:
 
                 def receipt_note(failure: Exception = receipt_error) -> str:
                     return (
