@@ -6,6 +6,7 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
 import re
+from types import MappingProxyType
 
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_FULL_EVIDENCE_SOURCE_TABLES,
@@ -323,10 +324,19 @@ class SeadAdmissionExpectedIdentity:
 
 @dataclass(frozen=True)
 class SeadMaterializedAdmissionSnapshot:
-    """Admission metadata and the exact bytes verified in one validation pass."""
+    """Admission metadata and owned immutable buffers from one validation pass."""
 
     admission: Mapping[str, object]
     copied_files: Mapping[str, bytes]
+
+    def __post_init__(self) -> None:
+        """Own the file map without copying or allowing replacement of its bytes."""
+        files = dict(self.copied_files)
+        if any(type(content) is not bytes for content in files.values()):
+            raise TypeError(
+                "SEAD admission snapshots require native immutable byte buffers"
+            )
+        object.__setattr__(self, "copied_files", MappingProxyType(files))
 
 
 @dataclass(frozen=True)
