@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#480](https://github.com/bijux/bijux-pollenomics/pull/480) — Portable captured ancestry and qualified environment context
+
+- Retain 24 existing direct linked-resource captures in a qualified portable
+  capsule, preserving 2,732 source entries and separate native/context bindings.
+- Record the completed five-archive environment readback with 515 responses,
+  1,225 native owners and 157 source nulls, bound to its exact reader epoch.
+- Document portable locators and context limits without new requests, frontier
+  collection, dated basin geometry or scientific-admission claims.
+
 ### [#479](https://github.com/bijux/bijux-pollenomics/pull/479) — Physical archive metadata ownership
 
 - Retain selected archive metadata ancestors and leaf identity through bounded
