@@ -2,6 +2,30 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#464](https://github.com/bijux/bijux-pollenomics/pull/464) — Grid custody, destination recovery and contributor resources
+
+- Bind declared HYDE interchange grids to one bounded ordinary source descriptor
+  without reading unrelated siblings or asserting native HYDE admission.
+- Keep LandClim candidates, predecessors and recovery receipts outside the entire
+  destination publication, including nested collection runs.
+- Preserve native failures and distinguish displaced, unverified recovery locations
+  from currently owned paths instead of attributing a foreign replacement.
+- Expose dataset 937075 contributor-resource metadata without opening contributor
+  bodies or changing existing licensing and citation fields.
+
+### [#463](https://github.com/bijux/bijux-pollenomics/pull/463) — Native archive identities and authenticated ancestry chains
+
+- Compare Neotoma part/aggregate identity indexes without reordering retained
+  source rows or changing part packing during publication and replacement.
+- Preserve exact large native identities and retain duplicate/foreign membership
+  refusals with the existing archive unchanged.
+- Require native integer/boolean scalar declarations instead of accepting merely
+  numerically equal archive counts and part numbers.
+- Authenticate finite ancestry chains against independently pinned native source
+  epochs, frozen seeds and current/historical owner and PI restrictions.
+- Preserve baseline-relative depth and selected metadata authority limits without
+  claiming a new source producer or scientific cohort replay.
+
 ### [#462](https://github.com/bijux/bijux-pollenomics/pull/462) — Owned source publication and native collection admission
 
 - Bind boundary decoding to authenticated bounded bytes and retain owned Neotoma
