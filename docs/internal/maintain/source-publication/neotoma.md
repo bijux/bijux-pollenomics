@@ -85,3 +85,17 @@ requiring retained scientific observations.
 The separately published [portable native source archive](../../../public/pollenomics-data/sources/neotoma-source-resources.md)
 has its own manifest, population and selected-reader contract. Installing the
 host package does not install that archive or admit its data to LRA.
+
+## Retained Observation Checks
+
+The retained observation trace test is skipped by default. Enabling
+`BIJUX_POLLENOMICS_NEOTOMA_OBSERVATION_SOURCE_CHECK=1` reads the complete raw
+`part-001.json` and relational observations `part-00002.json`, even though its
+assertions follow one observation. Review the exposure scope of both complete
+partitions before enabling it; a single asserted sample does not bound the
+observations decoded by the test. A passing trace does not establish an untouched
+validation cohort.
+
+The separate original BOKE occurrence check retains its existing
+`BIJUX_POLLENOMICS_NEOTOMA_BOKE_OCCURRENCE_CHECK` opt-in. Neither opt-in is needed
+for generated archive, relational publication or evidence-session controls.

@@ -3,7 +3,10 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
+
+import pytest
 
 from bijux_pollenomics.collection.sources.neotoma.relational.identifiers import digest
 from tests.support.neotoma.relational_shapes import nested, rows
@@ -20,6 +23,10 @@ def _json(path: Path) -> dict[str, object]:
     return payload
 
 
+@pytest.mark.skipif(
+    os.environ.get("BIJUX_POLLENOMICS_NEOTOMA_OBSERVATION_SOURCE_CHECK") != "1",
+    reason="explicit exposure review required for complete retained observation parts",
+)
 def test_pinned_observation_attributes_and_parent_ids_survive() -> None:
     raw = _json(
         ROOT / "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json"
