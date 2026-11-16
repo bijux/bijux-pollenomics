@@ -7,6 +7,8 @@ from http.client import HTTPResponse, HTTPSConnection, IncompleteRead
 import ssl
 from urllib.parse import urlsplit
 
+from bijux_pollenomics.core.errors.cleanup import add_cleanup_note
+
 _HEADERS = (
     ("Host", "api.neotomadb.org"),
     ("Accept", "application/json"),
@@ -45,7 +47,11 @@ def _close_transport(
             if failure is None:
                 failure = error
             else:
-                failure.add_note(f"Neotoma {role} close failed: {error}")
+
+                def close_note(error: BaseException = error, role: str = role) -> str:
+                    return f"Neotoma {role} close failed: {error}"
+
+                add_cleanup_note(failure, close_note)
     if primary is None and failure is not None:
         raise failure
 

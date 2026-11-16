@@ -13,6 +13,8 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
 
+from .errors.cleanup import add_cleanup_note
+
 INSECURE_TLS_ENV_VAR = "BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS"
 HTTP_REQUEST_RETRIES = 3
 BINARY_MAX_BYTES = 32 * 1024 * 1024
@@ -142,13 +144,23 @@ def fetch_binary(
                 try:
                     manager.__exit__(type(primary), primary, primary.__traceback__)
                 except BaseException as close_error:
-                    primary.add_note(f"HTTP response close failed: {close_error}")
+
+                    def response_close_note(
+                        error: BaseException = close_error,
+                    ) -> str:
+                        return f"HTTP response close failed: {error}"
+
+                    add_cleanup_note(primary, response_close_note)
                 raise
         except HTTPError as error:
             try:
                 error.close()
             except Exception as close_error:
-                error.add_note(f"HTTP error response close failed: {close_error}")
+
+                def http_error_close_note(error: Exception = close_error) -> str:
+                    return f"HTTP error response close failed: {error}"
+
+                add_cleanup_note(error, http_error_close_note)
             if (
                 error.code != 403
                 or browser_retry
@@ -243,7 +255,13 @@ def fetch_url_bytes(
                 try:
                     manager.__exit__(type(primary), primary, primary.__traceback__)
                 except BaseException as close_error:
-                    primary.add_note(f"HTTP response close failed: {close_error}")
+
+                    def response_close_note(
+                        error: BaseException = close_error,
+                    ) -> str:
+                        return f"HTTP response close failed: {error}"
+
+                    add_cleanup_note(primary, response_close_note)
                 raise
         except URLError as error:
             last_error = error
@@ -251,7 +269,11 @@ def fetch_url_bytes(
                 try:
                     error.close()
                 except Exception as close_error:
-                    error.add_note(f"HTTP error response close failed: {close_error}")
+
+                    def http_error_close_note(error: Exception = close_error) -> str:
+                        return f"HTTP error response close failed: {error}"
+
+                    add_cleanup_note(error, http_error_close_note)
             if (
                 not insecure
                 and allow_insecure_tls_fallback()

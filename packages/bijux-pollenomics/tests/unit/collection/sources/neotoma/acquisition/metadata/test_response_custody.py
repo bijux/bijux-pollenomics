@@ -118,3 +118,43 @@ def test_response_cleanup_failure_still_closes_the_connection(monkeypatch: Any) 
         assert events == ["response.close", "connection.close"]
     finally:
         HTTPResponse.close(response)
+
+
+@pytest.mark.parametrize("diagnostic", ["notes", "annotation", "format"])
+def test_native_cleanup_diagnostics_preserve_primary_and_all_owners(
+    monkeypatch: Any, diagnostic: str
+) -> None:
+    class Primary(OSError):
+        def add_note(self, note: str) -> None:
+            if diagnostic == "annotation":
+                raise RuntimeError("annotation failed")
+            super().add_note(note)
+
+    class BrokenDiagnostic(OSError):
+        def __str__(self) -> str:
+            raise RuntimeError("cleanup formatting failed")
+
+    primary = Primary("native generated read failure")
+    if diagnostic == "notes":
+        primary.__notes__ = ()  # type: ignore[assignment]
+    secondary = (
+        BrokenDiagnostic("secondary")
+        if diagnostic == "format"
+        else OSError("secondary response close")
+    )
+    response, stream, events = _response(
+        monkeypatch,
+        read_error=primary,
+        response_close_error=secondary,
+        connection_close_error=OSError("secondary connection close"),
+    )
+    try:
+        with pytest.raises(Primary) as caught:
+            transport._fetch_response(
+                "https://api.neotomadb.org/v2.0/data/taxa/1", timeout=1, max_bytes=8
+            )
+        assert caught.value is primary
+        assert stream.closed
+        assert events == ["response.close", "connection.close"]
+    finally:
+        HTTPResponse.close(response)

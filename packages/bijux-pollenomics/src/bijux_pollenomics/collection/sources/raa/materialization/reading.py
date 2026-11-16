@@ -9,6 +9,7 @@ from pathlib import Path
 import sqlite3
 import stat
 
+from bijux_pollenomics.core.errors.cleanup import add_cleanup_note
 from bijux_pollenomics.core.filesystem import BoundedInputTree
 
 from .contracts import (
@@ -151,11 +152,17 @@ def read_only_database(
                     if cleanup is None:
                         cleanup = error
                     elif primary is not None:
-                        primary.add_note(f"RAÄ source cleanup failed: {error}")
+
+                        def close_note(error: BaseException = error) -> str:
+                            return f"RAÄ source cleanup failed: {error}"
+
+                        add_cleanup_note(primary, close_note)
             if cleanup is not None:
                 if primary is None:
                     raise cleanup
-                primary.add_note(f"RAÄ source cleanup failed: {cleanup}")
+                add_cleanup_note(
+                    primary, lambda: f"RAÄ source cleanup failed: {cleanup}"
+                )
 
 
 def quote_identifier(value: str) -> str:
