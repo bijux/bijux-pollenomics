@@ -1,3 +1,5 @@
+"""Finite HTTP transfers with explicit TLS and retry policies."""
+
 from __future__ import annotations
 
 from http.client import HTTPResponse, IncompleteRead
@@ -6,7 +8,7 @@ import math
 import os
 import ssl
 import time
-from typing import BinaryIO, cast
+from typing import BinaryIO
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
@@ -15,6 +17,8 @@ INSECURE_TLS_ENV_VAR = "BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS"
 HTTP_REQUEST_RETRIES = 3
 BINARY_MAX_BYTES = 32 * 1024 * 1024
 BINARY_SOCKET_TIMEOUT = 30.0
+TEXT_MAX_BYTES = 32 * 1024 * 1024
+TEXT_SOCKET_TIMEOUT = 30.0
 ALLOWED_URL_SCHEMES = frozenset({"http", "https"})
 
 
@@ -61,11 +65,18 @@ def fetch_json(
     headers: dict[str, str] | None = None,
     insecure: bool = False,
     timeout: float | None = None,
+    *,
+    max_bytes: int = TEXT_MAX_BYTES,
 ) -> object:
-    """Fetch and decode a JSON payload."""
+    """Decode JSON only after a finite byte transfer and socket timeout."""
     return json.loads(
         fetch_text(
-            url, params=params, headers=headers, insecure=insecure, timeout=timeout
+            url,
+            params=params,
+            headers=headers,
+            insecure=insecure,
+            timeout=timeout,
+            max_bytes=max_bytes,
         )
     )
 
@@ -76,15 +87,19 @@ def fetch_text(
     headers: dict[str, str] | None = None,
     insecure: bool = False,
     timeout: float | None = None,
+    *,
+    max_bytes: int = TEXT_MAX_BYTES,
 ) -> str:
-    """Fetch a text payload using the standard library."""
+    """Decode UTF-8 after a bounded transfer; None uses a finite socket timeout."""
     if params:
         query = urlencode(params)
         separator = "&" if "?" in url else "?"
         url = f"{url}{separator}{query}"
     validate_http_url(url)
     request = Request(url, headers=headers or {})
-    return fetch_url_bytes(request, insecure=insecure, timeout=timeout).decode("utf-8")
+    return fetch_url_bytes(
+        request, insecure=insecure, timeout=timeout, max_bytes=max_bytes
+    ).decode("utf-8")
 
 
 def fetch_binary(
@@ -198,17 +213,45 @@ def fetch_url_bytes(
     *,
     insecure: bool,
     timeout: float | None,
+    max_bytes: int = TEXT_MAX_BYTES,
 ) -> bytes:
-    """Fetch one HTTP payload with TLS fallback and bounded retries for transient failures."""
+    """Bound each response while retaining the existing TLS and retry behavior."""
     validate_http_url(request.full_url)
+    if type(insecure) is not bool:
+        raise ValueError("insecure must be a boolean")
+    if type(max_bytes) is not int or max_bytes <= 0:
+        raise ValueError("max_bytes must be a positive integer")
+    if timeout is None:
+        timeout = TEXT_SOCKET_TIMEOUT
+    if isinstance(timeout, bool) or not isinstance(timeout, (int, float)):
+        raise ValueError("timeout must be positive and finite")
+    try:
+        socket_timeout = float(timeout)
+    except (ValueError, OverflowError) as error:
+        raise ValueError("timeout must be positive and finite") from error
+    if not math.isfinite(socket_timeout) or socket_timeout <= 0:
+        raise ValueError("timeout must be positive and finite")
     context = build_ssl_context(insecure=insecure)
     last_error: TimeoutError | URLError | None = None
     for attempt in range(HTTP_REQUEST_RETRIES):
         try:
-            with urlopen(request, context=context, timeout=timeout) as response:  # nosec B310
-                return cast(bytes, response.read())
+            manager = urlopen(request, context=context, timeout=socket_timeout)  # nosec B310
+            response = manager.__enter__()
+            try:
+                payload = _read_binary(response, max_bytes=max_bytes)
+            except BaseException as primary:
+                try:
+                    manager.__exit__(type(primary), primary, primary.__traceback__)
+                except BaseException as close_error:
+                    primary.add_note(f"HTTP response close failed: {close_error}")
+                raise
         except URLError as error:
             last_error = error
+            if isinstance(error, HTTPError):
+                try:
+                    error.close()
+                except Exception as close_error:
+                    error.add_note(f"HTTP error response close failed: {close_error}")
             if (
                 not insecure
                 and allow_insecure_tls_fallback()
@@ -229,6 +272,9 @@ def fetch_url_bytes(
                 or attempt + 1 >= HTTP_REQUEST_RETRIES
             ):
                 raise
+        else:
+            manager.__exit__(None, None, None)
+            return payload
         time.sleep(float(attempt + 1))
     if last_error is not None:
         raise last_error

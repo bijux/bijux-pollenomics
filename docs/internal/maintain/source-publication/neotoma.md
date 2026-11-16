@@ -63,6 +63,20 @@ candidate output; they do not bound peak memory, cumulative read traffic or
 all retained recovery trees. Both formats refuse aliases, unsuitable file
 types, source growth beyond the selected bound and changes to sealed inputs.
 
+The shared `core.http.fetch_text` and `fetch_json` transports, including
+`collection.sources.neotoma.client.fetch_neotoma_json`, default to a 32 MiB
+response limit and a 30-second socket timeout. `timeout=None` selects that finite
+default. Larger source responses require an explicit positive `max_bytes`;
+text and JSON limits apply to received bytes before UTF-8 decoding. Declared
+oversize responses refuse before a body read; observed overflow consumes at
+most one additional sentinel byte. Refusals and HTTP errors close their response
+streams, and a secondary close failure cannot replace the original error.
+
+Socket timeouts do not bound a complete multi-request collection. The existing
+three-attempt transport budget applies to each invocation; callers that retry
+an invocation need a separate operation request budget. The ancestry frontier
+producer uses its own stricter two-MiB, one-attempt profile.
+
 The replacement contract preserves owned and competing trees during handled
 failures. It does not promise process-crash atomicity or an atomic comparison
 of a source pathname's inode against a competing writer.
