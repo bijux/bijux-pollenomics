@@ -128,13 +128,26 @@ def test_cold_session_constructor_has_no_ancestry_import_cycle(
     script = """
 from pathlib import Path
 from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.evidence_parts.session import _LinkedEvidenceSession
-from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ancestry.models import NeotomaTaxonAncestrySources
+from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.evidence_parts import session as session_owner
+from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.evidence_parts.ownership import _LinkedEvidenceSources
+import sys
+assert Path(session_owner.__file__).parent == Path(sys.argv[1])
 from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.models import NeotomaLinkedEvidence
-owner = NeotomaTaxonAncestrySources(NeotomaLinkedEvidence(Path('.'), 'a' * 64), {}, {}, Path('.'), 'b' * 64, Path('.'), 'c' * 64)
-assert _LinkedEvidenceSession(source_owner=owner, scope_inputs={}, legacy_rosters={}, operation=object())._max_source_files == 40960
+owner = _LinkedEvidenceSources(NeotomaLinkedEvidence(Path('.'), 'a' * 64), {}, {}, Path('.'), 'b' * 64, Path('.'), 'c' * 64)
+assert _LinkedEvidenceSession(source_owner=owner, scope_inputs={}, legacy_rosters={}, operation=object(), _max_source_files=40960)._max_source_files == 40960
 """
+    from inspect import getfile
+
     subprocess.run(
-        [sys.executable, "-B", "-c", script], check=True, capture_output=True
+        [
+            sys.executable,
+            "-B",
+            "-c",
+            script,
+            str(Path(getfile(_LinkedEvidenceSession)).parent),
+        ],
+        check=True,
+        capture_output=True,
     )
 
 

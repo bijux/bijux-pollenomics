@@ -438,6 +438,7 @@ def _read_linked_entry_body(
     limits: NeotomaResourceLimits,
     *,
     evidence: NeotomaLinkedEvidence | None = None,
+    _before_body_read: Callable[[], None] | None = None,
 ) -> NeotomaLinkedBody:
     target = entry["identity"]
     target_key = entry["target_key"]
@@ -460,7 +461,11 @@ def _read_linked_entry_body(
     if sha256(raw).hexdigest() != reference["receipt_sha256"]:
         raise ValueError("Neotoma linked receipt changed during body access")
     record = _object(raw)
+    if _before_body_read is not None:
+        _before_body_read()
     body = _read(root / reference["body_file"], limits.max_response_bytes)
+    if _before_body_read is not None:
+        _before_body_read()
     _validate_receipt(
         record,
         request_for(target, len(entry["attempts"])),

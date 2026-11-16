@@ -21,6 +21,7 @@ from ..evidence import (
     iter_neotoma_linked_evidence_occurrences,
     read_neotoma_linked_evidence_metadata,
 )
+from ..evidence_parts.ownership import _LinkedEvidenceSources
 from ..evidence_parts.session import _LinkedEvidenceSession
 from ..models import EVIDENCE_SCHEMA, LINKED_SCHEMA, SCOPED_LINKED_SCHEMA
 from ..profiles import _UnavailableLinkedSource, parse_neotoma_linked_source
@@ -213,10 +214,21 @@ def source_facts(
         for pin in header["authority"]["legacy_roster_sha256s"]
         if pin in context.legacy_rosters
     }
+    from .chain.models import MAX_FILES as MAX_ANCESTRY_SOURCE_FILES
+
     operation = object()
     session = (
         _LinkedEvidenceSession(
-            source_owner=sources,
+            source_owner=_LinkedEvidenceSources(
+                evidence=sources.evidence,
+                source_facets=sources.source_facets,
+                capture_sources=sources.capture_sources,
+                context_directory=sources.context_directory,
+                expected_context_sha256=sources.expected_context_sha256,
+                native_archive_directory=sources.native_archive_directory,
+                expected_native_archive_sha256=sources.expected_native_archive_sha256,
+            ),
+            _max_source_files=MAX_ANCESTRY_SOURCE_FILES,
             scope_inputs=context.current_scope_inputs,
             legacy_rosters=legacy,
             operation=operation,
