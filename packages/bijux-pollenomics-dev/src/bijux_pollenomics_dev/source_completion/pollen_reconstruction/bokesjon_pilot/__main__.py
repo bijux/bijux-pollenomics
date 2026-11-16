@@ -7,6 +7,7 @@ from .workflow import run
 
 
 def main() -> None:
+    """Parse explicit source-audit inputs and an absent artifact destination."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
