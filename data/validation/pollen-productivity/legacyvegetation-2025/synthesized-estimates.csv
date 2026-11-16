@@ -1,0 +1,525 @@
+taxon,taxonomic_level,region,rpp,rpp_sd,n_estimates,fall_speed,source_workbook,source_sheet,source_row,taxon_cell,taxonomic_level_cell,rpp_cell,rpp_sd_cell,n_estimates_cell,fall_speed_cell
+Acer,genus,Asia,0.087,0.062,1,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,3,A3,B3,C3,D3,E3,F3
+Acer,genus,Europe,0.23,0.043,3,0.056,originals/synthesized-rpp.xlsx,Worksheet 1,3,A3,B3,G3,H3,I3,J3
+Acer,genus,North America,–,–,–,0.056,originals/synthesized-rpp.xlsx,Worksheet 1,3,A3,B3,K3,L3,M3,N3
+Acer,genus,Northern Hemisphere,0.152,0.037,3,0.038,originals/synthesized-rpp.xlsx,Worksheet 1,3,A3,B3,O3,P3,Q3,R3
+Alnus,genus,Asia,0.85,1.53,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,4,A4,B4,C4,D4,E4,F4
+Alnus,genus,Europe,8.492,0.215,4,0.02,originals/synthesized-rpp.xlsx,Worksheet 1,4,A4,B4,G4,H4,I4,J4
+Alnus,genus,North America,2.7,0.12,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,4,A4,B4,K4,L4,M4,N4
+Alnus,genus,Northern Hemisphere,6.538,0.154,6,0.02,originals/synthesized-rpp.xlsx,Worksheet 1,4,A4,B4,O4,P4,Q4,R4
+Artemisia,genus,Asia,12.842,0.309,9,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,5,A5,B5,C5,D5,E5,F5
+Artemisia,genus,Europe,4.33,1.592,2,0.018,originals/synthesized-rpp.xlsx,Worksheet 1,5,A5,B5,G5,H5,I5,J5
+Artemisia,genus,North America,1.35,0.24,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,5,A5,B5,K5,L5,M5,N5
+Artemisia,genus,Northern Hemisphere,10.504,0.353,12,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,5,A5,B5,O5,P5,Q5,R5
+Betula,genus,Asia,7.492,0.127,6,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,6,A6,B6,C6,D6,E6,F6
+Betula,genus,Europe,4.94,0.443,6,0.024,originals/synthesized-rpp.xlsx,Worksheet 1,6,A6,B6,G6,H6,I6,J6
+Betula,genus,North America,6.188,0.149,4,0.038,originals/synthesized-rpp.xlsx,Worksheet 1,6,A6,B6,K6,L6,M6,N6
+Betula,genus,Northern Hemisphere,6.361,0.362,18,0.024,originals/synthesized-rpp.xlsx,Worksheet 1,6,A6,B6,O6,P6,Q6,R6
+Camellia,genus,Asia,0.583,0.019,1,0.023,originals/synthesized-rpp.xlsx,Worksheet 1,7,A7,B7,C7,D7,E7,F7
+Camellia,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,7,A7,B7,G7,H7,I7,J7
+Camellia,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,7,A7,B7,K7,L7,M7,N7
+Camellia,genus,Northern Hemisphere,0.583,0.019,1,0.023,originals/synthesized-rpp.xlsx,Worksheet 1,7,A7,B7,O7,P7,Q7,R7
+Carpinus,genus,Asia,1.542,0.303,1,0.018,originals/synthesized-rpp.xlsx,Worksheet 1,8,A8,B8,C8,D8,E8,F8
+Carpinus,genus,Europe,3.093,0.284,3,0.042,originals/synthesized-rpp.xlsx,Worksheet 1,8,A8,B8,G8,H8,I8,J8
+Carpinus,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,8,A8,B8,K8,L8,M8,N8
+Carpinus,genus,Northern Hemisphere,2.705,0.226,4,0.034,originals/synthesized-rpp.xlsx,Worksheet 1,8,A8,B8,O8,P8,Q8,R8
+Castanea,genus,Asia,3.998,0.163,3,0.009,originals/synthesized-rpp.xlsx,Worksheet 1,9,A9,B9,C9,D9,E9,F9
+Castanea,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,9,A9,B9,G9,H9,I9,J9
+Castanea,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,9,A9,B9,K9,L9,M9,N9
+Castanea,genus,Northern Hemisphere,3.998,0.163,3,0.009,originals/synthesized-rpp.xlsx,Worksheet 1,9,A9,B9,O9,P9,Q9,R9
+Castanopsis,genus,Asia,19.44,0.17,1,0.007,originals/synthesized-rpp.xlsx,Worksheet 1,10,A10,B10,C10,D10,E10,F10
+Castanopsis,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,10,A10,B10,G10,H10,I10,J10
+Castanopsis,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,10,A10,B10,K10,L10,M10,N10
+Castanopsis,genus,Northern Hemisphere,19.44,0.17,1,0.007,originals/synthesized-rpp.xlsx,Worksheet 1,10,A10,B10,O10,P10,Q10,R10
+Corylus,genus,Asia,3.17,0.141,2,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,11,A11,B11,C11,D11,E11,F11
+Corylus,genus,Europe,1.053,0.029,3,0.025,originals/synthesized-rpp.xlsx,Worksheet 1,11,A11,B11,G11,H11,I11,J11
+Corylus,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,11,A11,B11,K11,L11,M11,N11
+Corylus,genus,Northern Hemisphere,1.813,0.087,3,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,11,A11,B11,O11,P11,Q11,R11
+Cryptomeria,genus,Asia,–,–,–,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,12,A12,B12,C12,D12,E12,F12
+Cryptomeria,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,12,A12,B12,G12,H12,I12,J12
+Cryptomeria,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,12,A12,B12,K12,L12,M12,N12
+Cryptomeria,genus,Northern Hemisphere,–,–,1,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,12,A12,B12,O12,P12,Q12,R12
+Cyclobalanopsis,genus,Asia,2.411,0.136,1,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,13,A13,B13,C13,D13,E13,F13
+Cyclobalanopsis,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,13,A13,B13,G13,H13,I13,J13
+Cyclobalanopsis,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,13,A13,B13,K13,L13,M13,N13
+Cyclobalanopsis,genus,Northern Hemisphere,2.411,0.136,1,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,13,A13,B13,O13,P13,Q13,R13
+Fraxinus,genus,Asia,1.05,0.178,2,0.02,originals/synthesized-rpp.xlsx,Worksheet 1,14,A14,B14,C14,D14,E14,F14
+Fraxinus,genus,Europe,1.83,0.303,3,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,14,A14,B14,G14,H14,I14,J14
+Fraxinus,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,14,A14,B14,K14,L14,M14,N14
+Fraxinus,genus,Northern Hemisphere,1.616,0.195,5,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,14,A14,B14,O14,P14,Q14,R14
+Hippophae,genus,Asia,18.38,1.27,1,0.017,originals/synthesized-rpp.xlsx,Worksheet 1,15,A15,B15,C15,D15,E15,F15
+Hippophae,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,15,A15,B15,G15,H15,I15,J15
+Hippophae,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,15,A15,B15,K15,L15,M15,N15
+Hippophae,genus,Northern Hemisphere,18.38,1.27,1,0.017,originals/synthesized-rpp.xlsx,Worksheet 1,15,A15,B15,O15,P15,Q15,R15
+Humulus,genus,Asia,16.3,1,1,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,16,A16,B16,C16,D16,E16,F16
+Humulus,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,16,A16,B16,G16,H16,I16,J16
+Humulus,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,16,A16,B16,K16,L16,M16,N16
+Humulus,genus,Northern Hemisphere,16.3,1,1,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,16,A16,B16,O16,P16,Q16,R16
+Ilex,genus,Asia,6.707,0.583,1,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,17,A17,B17,C17,D17,E17,F17
+Ilex,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,17,A17,B17,G17,H17,I17,J17
+Ilex,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,17,A17,B17,K17,L17,M17,N17
+Ilex,genus,Northern Hemisphere,6.707,0.583,1,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,17,A17,B17,O17,P17,Q17,R17
+Juglans,genus,Asia,2.803,0.113,3,0.033,originals/synthesized-rpp.xlsx,Worksheet 1,18,A18,B18,C18,D18,E18,F18
+Juglans,genus,Europe,–,–,–,0.036,originals/synthesized-rpp.xlsx,Worksheet 1,18,A18,B18,G18,H18,I18,J18
+Juglans,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,18,A18,B18,K18,L18,M18,N18
+Juglans,genus,Northern Hemisphere,2.803,0.113,3,0.034,originals/synthesized-rpp.xlsx,Worksheet 1,18,A18,B18,O18,P18,Q18,R18
+Larix,genus,Asia,2.8,0.181,4,0.12,originals/synthesized-rpp.xlsx,Worksheet 1,19,A19,B19,C19,D19,E19,F19
+Larix,genus,Europe,5.725,1.165,2,0.126,originals/synthesized-rpp.xlsx,Worksheet 1,19,A19,B19,G19,H19,I19,J19
+Larix,genus,North America,–,–,–,0.126,originals/synthesized-rpp.xlsx,Worksheet 1,19,A19,B19,K19,L19,M19,N19
+Larix,genus,Northern Hemisphere,3.002,0.596,6,0.121,originals/synthesized-rpp.xlsx,Worksheet 1,19,A19,B19,O19,P19,Q19,R19
+Liquidambar,genus,Asia,2.255,0.117,1,0.031,originals/synthesized-rpp.xlsx,Worksheet 1,20,A20,B20,C20,D20,E20,F20
+Liquidambar,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,20,A20,B20,G20,H20,I20,J20
+Liquidambar,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,20,A20,B20,K20,L20,M20,N20
+Liquidambar,genus,Northern Hemisphere,2.255,0.117,1,0.031,originals/synthesized-rpp.xlsx,Worksheet 1,20,A20,B20,O20,P20,Q20,R20
+Mallotus,genus,Asia,10.848,1.711,1,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,21,A21,B21,C21,D21,E21,F21
+Mallotus,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,21,A21,B21,G21,H21,I21,J21
+Mallotus,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,21,A21,B21,K21,L21,M21,N21
+Mallotus,genus,Northern Hemisphere,10.848,1.711,1,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,21,A21,B21,O21,P21,Q21,R21
+Malus,genus,Asia,0.087,0.037,1,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,22,A22,B22,C22,D22,E22,F22
+Malus,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,22,A22,B22,G22,H22,I22,J22
+Malus,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,22,A22,B22,K22,L22,M22,N22
+Malus,genus,Northern Hemisphere,0.087,0.037,1,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,22,A22,B22,O22,P22,Q22,R22
+Nitraria,genus,Asia,–,–,–,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,23,A23,B23,C23,D23,E23,F23
+Nitraria,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,23,A23,B23,G23,H23,I23,J23
+Nitraria,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,23,A23,B23,K23,L23,M23,N23
+Nitraria,genus,Northern Hemisphere,–,–,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,23,A23,B23,O23,P23,Q23,R23
+Picea,genus,Asia,16.4,0.601,2,0.09,originals/synthesized-rpp.xlsx,Worksheet 1,24,A24,B24,C24,D24,E24,F24
+Picea,genus,Europe,1.645,0.153,4,0.056,originals/synthesized-rpp.xlsx,Worksheet 1,24,A24,B24,G24,H24,I24,J24
+Picea,genus,North America,2.8,0,1,0.056,originals/synthesized-rpp.xlsx,Worksheet 1,24,A24,B24,K24,L24,M24,N24
+Picea,genus,Northern Hemisphere,3.04,0.154,7,0.09,originals/synthesized-rpp.xlsx,Worksheet 1,24,A24,B24,O24,P24,Q24,R24
+Pinus,genus,Asia,16.475,0.691,10,0.048,originals/synthesized-rpp.xlsx,Worksheet 1,25,A25,B25,C25,D25,E25,F25
+Pinus,genus,Europe,10.86,0.798,4,0.038,originals/synthesized-rpp.xlsx,Worksheet 1,25,A25,B25,G25,H25,I25,J25
+Pinus,genus,North America,–,–,–,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,25,A25,B25,K25,L25,M25,N25
+Pinus,genus,Northern Hemisphere,14.58,0.476,16,0.043,originals/synthesized-rpp.xlsx,Worksheet 1,25,A25,B25,O25,P25,Q25,R25
+Potentilla,genus,Asia,1.4,0.2,1,–,originals/synthesized-rpp.xlsx,Worksheet 1,26,A26,B26,C26,D26,E26,F26
+Potentilla,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,26,A26,B26,G26,H26,I26,J26
+Potentilla,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,26,A26,B26,K26,L26,M26,N26
+Potentilla,genus,Northern Hemisphere,1.4,0.2,1,–,originals/synthesized-rpp.xlsx,Worksheet 1,26,A26,B26,O26,P26,Q26,R26
+Quercus,genus,Asia,2.131,0.052,7,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,27,A27,B27,C27,D27,E27,F27
+Quercus,genus,Europe,2.924,0.098,5,0.035,originals/synthesized-rpp.xlsx,Worksheet 1,27,A27,B27,G27,H27,I27,J27
+Quercus,genus,North America,2.08,0.43,1,0.032,originals/synthesized-rpp.xlsx,Worksheet 1,27,A27,B27,K27,L27,M27,N27
+Quercus,genus,Northern Hemisphere,2.547,0.056,15,0.023,originals/synthesized-rpp.xlsx,Worksheet 1,27,A27,B27,O27,P27,Q27,R27
+Rhododendron,genus,Asia,2.48,0.27,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,28,A28,B28,C28,D28,E28,F28
+Rhododendron,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,28,A28,B28,G28,H28,I28,J28
+Rhododendron,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,28,A28,B28,K28,L28,M28,N28
+Rhododendron,genus,Northern Hemisphere,2.48,0.27,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,28,A28,B28,O28,P28,Q28,R28
+Salix,genus,Asia,0.23,0.11,1,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,29,A29,B29,C29,D29,E29,F29
+Salix,genus,Europe,0.39,0.058,3,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,29,A29,B29,G29,H29,I29,J29
+Salix,genus,North America,0.683,0.147,3,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,29,A29,B29,K29,L29,M29,N29
+Salix,genus,Northern Hemisphere,0.57,0.081,6,0.024,originals/synthesized-rpp.xlsx,Worksheet 1,29,A29,B29,O29,P29,Q29,R29
+Sanguisorba,genus,Asia,24.07,3.5,1,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,30,A30,B30,C30,D30,E30,F30
+Sanguisorba,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,30,A30,B30,G30,H30,I30,J30
+Sanguisorba,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,30,A30,B30,K30,L30,M30,N30
+Sanguisorba,genus,Northern Hemisphere,24.07,3.5,1,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,30,A30,B30,O30,P30,Q30,R30
+Selaginella,genus,Asia,–,–,–,0.041,originals/synthesized-rpp.xlsx,Worksheet 1,31,A31,B31,C31,D31,E31,F31
+Selaginella,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,31,A31,B31,G31,H31,I31,J31
+Selaginella,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,31,A31,B31,K31,L31,M31,N31
+Selaginella,genus,Northern Hemisphere,–,–,1,0.041,originals/synthesized-rpp.xlsx,Worksheet 1,31,A31,B31,O31,P31,Q31,R31
+Symplocos,genus,Asia,0.214,0.039,1,0.039,originals/synthesized-rpp.xlsx,Worksheet 1,32,A32,B32,C32,D32,E32,F32
+Symplocos,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,32,A32,B32,G32,H32,I32,J32
+Symplocos,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,32,A32,B32,K32,L32,M32,N32
+Symplocos,genus,Northern Hemisphere,0.214,0.039,1,0.039,originals/synthesized-rpp.xlsx,Worksheet 1,32,A32,B32,O32,P32,Q32,R32
+Syringa,genus,Asia,3.394,0.216,1,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,33,A33,B33,C33,D33,E33,F33
+Syringa,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,33,A33,B33,G33,H33,I33,J33
+Syringa,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,33,A33,B33,K33,L33,M33,N33
+Syringa,genus,Northern Hemisphere,3.394,0.216,1,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,33,A33,B33,O33,P33,Q33,R33
+Thalictrum,genus,Asia,2.8,0.4,1,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,34,A34,B34,C34,D34,E34,F34
+Thalictrum,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,34,A34,B34,G34,H34,I34,J34
+Thalictrum,genus,North America,4.65,0.3,1,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,34,A34,B34,K34,L34,M34,N34
+Thalictrum,genus,Northern Hemisphere,3.725,0.25,2,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,34,A34,B34,O34,P34,Q34,R34
+Tilia,genus,Asia,0.4,0.1,1,0.029,originals/synthesized-rpp.xlsx,Worksheet 1,35,A35,B35,C35,D35,E35,F35
+Tilia,genus,Europe,1.17,0.131,2,0.032,originals/synthesized-rpp.xlsx,Worksheet 1,35,A35,B35,G35,H35,I35,J35
+Tilia,genus,North America,–,–,–,0.044,originals/synthesized-rpp.xlsx,Worksheet 1,35,A35,B35,K35,L35,M35,N35
+Tilia,genus,Northern Hemisphere,0.93,0.087,3,0.036,originals/synthesized-rpp.xlsx,Worksheet 1,35,A35,B35,O35,P35,Q35,R35
+Ulmus,genus,Asia,2.025,0.312,3,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,36,A36,B36,C36,D36,E36,F36
+Ulmus,genus,Europe,–,–,–,0.032,originals/synthesized-rpp.xlsx,Worksheet 1,36,A36,B36,G36,H36,I36,J36
+Ulmus,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,36,A36,B36,K36,L36,M36,N36
+Ulmus,genus,Northern Hemisphere,2.025,0.312,3,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,36,A36,B36,O36,P36,Q36,R36
+Vitex,genus,Asia,–,–,–,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,37,A37,B37,C37,D37,E37,F37
+Vitex,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,37,A37,B37,G37,H37,I37,J37
+Vitex,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,37,A37,B37,K37,L37,M37,N37
+Vitex,genus,Northern Hemisphere,–,–,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,37,A37,B37,O37,P37,Q37,R37
+Abies,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,38,A38,B38,C38,D38,E38,F38
+Abies,genus,Europe,6.875,1.442,2,0.12,originals/synthesized-rpp.xlsx,Worksheet 1,38,A38,B38,G38,H38,I38,J38
+Abies,genus,North America,–,–,–,0.12,originals/synthesized-rpp.xlsx,Worksheet 1,38,A38,B38,K38,L38,M38,N38
+Abies,genus,Northern Hemisphere,6.875,1.442,2,0.12,originals/synthesized-rpp.xlsx,Worksheet 1,38,A38,B38,O38,P38,Q38,R38
+Aesculus,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,39,A39,B39,C39,D39,E39,F39
+Aesculus,genus,Europe,–,–,–,0.029,originals/synthesized-rpp.xlsx,Worksheet 1,39,A39,B39,G39,H39,I39,J39
+Aesculus,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,39,A39,B39,K39,L39,M39,N39
+Aesculus,genus,Northern Hemisphere,–,–,1,0.029,originals/synthesized-rpp.xlsx,Worksheet 1,39,A39,B39,O39,P39,Q39,R39
+Fagus,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,40,A40,B40,C40,D40,E40,F40
+Fagus,genus,Europe,2.35,0.107,3,0.057,originals/synthesized-rpp.xlsx,Worksheet 1,40,A40,B40,G40,H40,I40,J40
+Fagus,genus,North America,–,–,–,0.057,originals/synthesized-rpp.xlsx,Worksheet 1,40,A40,B40,K40,L40,M40,N40
+Fagus,genus,Northern Hemisphere,2.35,0.107,3,0.057,originals/synthesized-rpp.xlsx,Worksheet 1,40,A40,B40,O40,P40,Q40,R40
+Juniperus,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,41,A41,B41,C41,D41,E41,F41
+Juniperus,genus,Europe,7.94,1.28,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,41,A41,B41,G41,H41,I41,J41
+Juniperus,genus,North America,20.67,1.54,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,41,A41,B41,K41,L41,M41,N41
+Juniperus,genus,Northern Hemisphere,14.305,1.001,2,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,41,A41,B41,O41,P41,Q41,R41
+Populus,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,42,A42,B42,C42,D42,E42,F42
+Populus,genus,Europe,3.42,1.6,1,0.025,originals/synthesized-rpp.xlsx,Worksheet 1,42,A42,B42,G42,H42,I42,J42
+Populus,genus,North America,0.67,8.5,2,0.026,originals/synthesized-rpp.xlsx,Worksheet 1,42,A42,B42,K42,L42,M42,N42
+Populus,genus,Northern Hemisphere,1.587,5.692,3,0.026,originals/synthesized-rpp.xlsx,Worksheet 1,42,A42,B42,O42,P42,Q42,R42
+Pterocarya,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,43,A43,B43,C43,D43,E43,F43
+Pterocarya,genus,Europe,–,–,–,0.042,originals/synthesized-rpp.xlsx,Worksheet 1,43,A43,B43,G43,H43,I43,J43
+Pterocarya,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,43,A43,B43,K43,L43,M43,N43
+Pterocarya,genus,Northern Hemisphere,–,–,1,0.042,originals/synthesized-rpp.xlsx,Worksheet 1,43,A43,B43,O43,P43,Q43,R43
+Rumex,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,44,A44,B44,C44,D44,E44,F44
+Rumex,genus,Europe,0.577,0.031,3,0.018,originals/synthesized-rpp.xlsx,Worksheet 1,44,A44,B44,G44,H44,I44,J44
+Rumex,genus,North America,2.79,0.172,2,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,44,A44,B44,K44,L44,M44,N44
+Rumex,genus,Northern Hemisphere,1.817,0.089,4,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,44,A44,B44,O44,P44,Q44,R44
+Sambucus,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,45,A45,B45,C45,D45,E45,F45
+Sambucus,genus,Europe,1.3,0.12,1,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,45,A45,B45,G45,H45,I45,J45
+Sambucus,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,45,A45,B45,K45,L45,M45,N45
+Sambucus,genus,Northern Hemisphere,1.3,0.12,1,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,45,A45,B45,O45,P45,Q45,R45
+Urtica,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,46,A46,B46,C46,D46,E46,F46
+Urtica,genus,Europe,10.52,0.31,1,0.007,originals/synthesized-rpp.xlsx,Worksheet 1,46,A46,B46,G46,H46,I46,J46
+Urtica,genus,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,46,A46,B46,K46,L46,M46,N46
+Urtica,genus,Northern Hemisphere,10.52,0.31,1,0.007,originals/synthesized-rpp.xlsx,Worksheet 1,46,A46,B46,O46,P46,Q46,R46
+Equisetum,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,47,A47,B47,C47,D47,E47,F47
+Equisetum,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,47,A47,B47,G47,H47,I47,J47
+Equisetum,genus,North America,0.09,0.02,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,47,A47,B47,K47,L47,M47,N47
+Equisetum,genus,Northern Hemisphere,0.09,0.02,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,47,A47,B47,O47,P47,Q47,R47
+Tsuga,genus,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,48,A48,B48,C48,D48,E48,F48
+Tsuga,genus,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,48,A48,B48,G48,H48,I48,J48
+Tsuga,genus,North America,–,–,–,0.064,originals/synthesized-rpp.xlsx,Worksheet 1,48,A48,B48,K48,L48,M48,N48
+Tsuga,genus,Northern Hemisphere,–,–,1,0.064,originals/synthesized-rpp.xlsx,Worksheet 1,48,A48,B48,O48,P48,Q48,R48
+Altingiaceae,family,Asia,2.255,0.117,1,0.031,originals/synthesized-rpp.xlsx,Worksheet 1,49,A49,B49,C49,D49,E49,F49
+Altingiaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,49,A49,B49,G49,H49,I49,J49
+Altingiaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,49,A49,B49,K49,L49,M49,N49
+Altingiaceae,family,Northern Hemisphere,2.255,0.117,1,0.031,originals/synthesized-rpp.xlsx,Worksheet 1,49,A49,B49,O49,P49,Q49,R49
+Amaranthaceae,family,Asia,13.156,0.643,8,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,50,A50,B50,C50,D50,E50,F50
+Amaranthaceae,family,Europe,4.28,0.27,1,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,50,A50,B50,G50,H50,I50,J50
+Amaranthaceae,family,North America,–,–,–,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,50,A50,B50,K50,L50,M50,N50
+Amaranthaceae,family,Northern Hemisphere,12.17,0.573,9,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,50,A50,B50,O50,P50,Q50,R50
+Amaryllidaceae,family,Asia,1.64,0.4,1,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,51,A51,B51,C51,D51,E51,F51
+Amaryllidaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,51,A51,B51,G51,H51,I51,J51
+Amaryllidaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,51,A51,B51,K51,L51,M51,N51
+Amaryllidaceae,family,Northern Hemisphere,1.64,0.4,1,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,51,A51,B51,O51,P51,Q51,R51
+Anacardiaceae,family,Asia,0.889,0.037,3,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,52,A52,B52,C52,D52,E52,F52
+Anacardiaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,52,A52,B52,G52,H52,I52,J52
+Anacardiaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,52,A52,B52,K52,L52,M52,N52
+Anacardiaceae,family,Northern Hemisphere,0.889,0.037,3,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,52,A52,B52,O52,P52,Q52,R52
+Apiaceae,family,Asia,–,–,–,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,53,A53,B53,C53,D53,E53,F53
+Apiaceae,family,Europe,2.127,0.41,3,0.042,originals/synthesized-rpp.xlsx,Worksheet 1,53,A53,B53,G53,H53,I53,J53
+Apiaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,53,A53,B53,K53,L53,M53,N53
+Apiaceae,family,Northern Hemisphere,2.127,0.41,3,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,53,A53,B53,O53,P53,Q53,R53
+Aquifoliaceae,family,Asia,6.707,0.583,1,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,54,A54,B54,C54,D54,E54,F54
+Aquifoliaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,54,A54,B54,G54,H54,I54,J54
+Aquifoliaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,54,A54,B54,K54,L54,M54,N54
+Aquifoliaceae,family,Northern Hemisphere,6.707,0.583,1,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,54,A54,B54,O54,P54,Q54,R54
+Asteraceae,family,Asia,8.685,0.192,21,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,55,A55,B55,C55,D55,E55,F55
+Asteraceae,family,Europe,0.52,0.042,10,0.03,originals/synthesized-rpp.xlsx,Worksheet 1,55,A55,B55,G55,H55,I55,J55
+Asteraceae,family,North America,1.027,0.154,3,0.023,originals/synthesized-rpp.xlsx,Worksheet 1,55,A55,B55,K55,L55,M55,N55
+Asteraceae,family,Northern Hemisphere,5.322,0.139,37,0.018,originals/synthesized-rpp.xlsx,Worksheet 1,55,A55,B55,O55,P55,Q55,R55
+Betulaceae,family,Asia,5.442,0.592,10,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,56,A56,B56,C56,D56,E56,F56
+Betulaceae,family,Europe,5.195,0.145,21,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,56,A56,B56,G56,H56,I56,J56
+Betulaceae,family,North America,5.033,0.202,3,0.033,originals/synthesized-rpp.xlsx,Worksheet 1,56,A56,B56,K56,L56,M56,N56
+Betulaceae,family,Northern Hemisphere,5.394,0.181,38,0.025,originals/synthesized-rpp.xlsx,Worksheet 1,56,A56,B56,O56,P56,Q56,R56
+Brassicaceae,family,Asia,2.145,0.135,2,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,57,A57,B57,C57,D57,E57,F57
+Brassicaceae,family,Europe,0.07,0.04,1,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,57,A57,B57,G57,H57,I57,J57
+Brassicaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,57,A57,B57,K57,L57,M57,N57
+Brassicaceae,family,Northern Hemisphere,1.453,0.091,3,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,57,A57,B57,O57,P57,Q57,R57
+Cannabaceae,family,Asia,16.3,1,1,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,58,A58,B58,C58,D58,E58,F58
+Cannabaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,58,A58,B58,G58,H58,I58,J58
+Cannabaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,58,A58,B58,K58,L58,M58,N58
+Cannabaceae,family,Northern Hemisphere,16.3,1,1,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,58,A58,B58,O58,P58,Q58,R58
+Caryophyllaceae,family,Asia,13.043,0.628,4,0.024,originals/synthesized-rpp.xlsx,Worksheet 1,59,A59,B59,C59,D59,E59,F59
+Caryophyllaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,59,A59,B59,G59,H59,I59,J59
+Caryophyllaceae,family,North America,0.6,0.05,1,0.04,originals/synthesized-rpp.xlsx,Worksheet 1,59,A59,B59,K59,L59,M59,N59
+Caryophyllaceae,family,Northern Hemisphere,10.608,0.504,5,0.03,originals/synthesized-rpp.xlsx,Worksheet 1,59,A59,B59,O59,P59,Q59,R59
+Convolvulaceae,family,Asia,0.18,0.03,1,0.043,originals/synthesized-rpp.xlsx,Worksheet 1,60,A60,B60,C60,D60,E60,F60
+Convolvulaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,60,A60,B60,G60,H60,I60,J60
+Convolvulaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,60,A60,B60,K60,L60,M60,N60
+Convolvulaceae,family,Northern Hemisphere,0.18,0.03,1,0.043,originals/synthesized-rpp.xlsx,Worksheet 1,60,A60,B60,O60,P60,Q60,R60
+Cupressaceae,family,Asia,1.11,0.09,1,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,61,A61,B61,C61,D61,E61,F61
+Cupressaceae,family,Europe,7.94,1.28,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,61,A61,B61,G61,H61,I61,J61
+Cupressaceae,family,North America,20.67,1.54,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,61,A61,B61,K61,L61,M61,N61
+Cupressaceae,family,Northern Hemisphere,–,–,–,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,61,A61,B61,O61,P61,Q61,R61
+Cyperaceae,family,Asia,1.563,0.61,8,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,62,A62,B62,C62,D62,E62,F62
+Cyperaceae,family,Europe,0.555,0.019,6,0.035,originals/synthesized-rpp.xlsx,Worksheet 1,62,A62,B62,G62,H62,I62,J62
+Cyperaceae,family,North America,0.975,0.025,2,0.033,originals/synthesized-rpp.xlsx,Worksheet 1,62,A62,B62,K62,L62,M62,N62
+Cyperaceae,family,Northern Hemisphere,1.05,0.271,18,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,62,A62,B62,O62,P62,Q62,R62
+Elaeagnaceae,family,Asia,15.22,0.623,3,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,63,A63,B63,C63,D63,E63,F63
+Elaeagnaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,63,A63,B63,G63,H63,I63,J63
+Elaeagnaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,63,A63,B63,K63,L63,M63,N63
+Elaeagnaceae,family,Northern Hemisphere,15.22,0.623,3,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,63,A63,B63,O63,P63,Q63,R63
+Ephedraceae,family,Asia,22.87,0.76,1,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,64,A64,B64,C64,D64,E64,F64
+Ephedraceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,64,A64,B64,G64,H64,I64,J64
+Ephedraceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,64,A64,B64,K64,L64,M64,N64
+Ephedraceae,family,Northern Hemisphere,22.87,0.76,1,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,64,A64,B64,O64,P64,Q64,R64
+Ericaceae,family,Asia,1.873,0.13,3,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,65,A65,B65,C65,D65,E65,F65
+Ericaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,65,A65,B65,G65,H65,I65,J65
+Ericaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,65,A65,B65,K65,L65,M65,N65
+Ericaceae,family,Northern Hemisphere,1.873,0.13,3,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,65,A65,B65,O65,P65,Q65,R65
+Euphorbiaceae,family,Asia,6.093,0.572,3,0.009,originals/synthesized-rpp.xlsx,Worksheet 1,66,A66,B66,C66,D66,E66,F66
+Euphorbiaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,66,A66,B66,G66,H66,I66,J66
+Euphorbiaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,66,A66,B66,K66,L66,M66,N66
+Euphorbiaceae,family,Northern Hemisphere,6.093,0.572,3,0.009,originals/synthesized-rpp.xlsx,Worksheet 1,66,A66,B66,O66,P66,Q66,R66
+Fabaceae,family,Asia,0.209,0.051,2,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,67,A67,B67,C67,D67,E67,F67
+Fabaceae,family,Europe,0.4,0.07,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,67,A67,B67,G67,H67,I67,J67
+Fabaceae,family,North America,0.02,0.02,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,67,A67,B67,K67,L67,M67,N67
+Fabaceae,family,Northern Hemisphere,0.244,0.038,5,0.017,originals/synthesized-rpp.xlsx,Worksheet 1,67,A67,B67,O67,P67,Q67,R67
+Fagaceae,family,Asia,2.93,0.053,12,0.017,originals/synthesized-rpp.xlsx,Worksheet 1,68,A68,B68,C68,D68,E68,F68
+Fagaceae,family,Europe,3.027,0.09,10,0.052,originals/synthesized-rpp.xlsx,Worksheet 1,68,A68,B68,G68,H68,I68,J68
+Fagaceae,family,North America,2.08,0.43,1,0.038,originals/synthesized-rpp.xlsx,Worksheet 1,68,A68,B68,K68,L68,M68,N68
+Fagaceae,family,Northern Hemisphere,3.449,0.047,25,0.025,originals/synthesized-rpp.xlsx,Worksheet 1,68,A68,B68,O68,P68,Q68,R68
+Gentianaceae,family,Asia,–,–,–,0.02,originals/synthesized-rpp.xlsx,Worksheet 1,69,A69,B69,C69,D69,E69,F69
+Gentianaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,69,A69,B69,G69,H69,I69,J69
+Gentianaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,69,A69,B69,K69,L69,M69,N69
+Gentianaceae,family,Northern Hemisphere,–,–,1,0.02,originals/synthesized-rpp.xlsx,Worksheet 1,69,A69,B69,O69,P69,Q69,R69
+Iridaceae,family,Asia,–,–,–,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,70,A70,B70,C70,D70,E70,F70
+Iridaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,70,A70,B70,G70,H70,I70,J70
+Iridaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,70,A70,B70,K70,L70,M70,N70
+Iridaceae,family,Northern Hemisphere,–,–,1,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,70,A70,B70,O70,P70,Q70,R70
+Juglandaceae,family,Asia,2.576,0.087,4,0.033,originals/synthesized-rpp.xlsx,Worksheet 1,71,A71,B71,C71,D71,E71,F71
+Juglandaceae,family,Europe,–,–,–,0.039,originals/synthesized-rpp.xlsx,Worksheet 1,71,A71,B71,G71,H71,I71,J71
+Juglandaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,71,A71,B71,K71,L71,M71,N71
+Juglandaceae,family,Northern Hemisphere,–,–,–,0.035,originals/synthesized-rpp.xlsx,Worksheet 1,71,A71,B71,O71,P71,Q71,R71
+Lamiaceae,family,Asia,1.457,0.16,3,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,72,A72,B72,C72,D72,E72,F72
+Lamiaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,72,A72,B72,G72,H72,I72,J72
+Lamiaceae,family,North America,0.72,0.08,1,0.031,originals/synthesized-rpp.xlsx,Worksheet 1,72,A72,B72,K72,L72,M72,N72
+Lamiaceae,family,Northern Hemisphere,–,–,–,0.018,originals/synthesized-rpp.xlsx,Worksheet 1,72,A72,B72,O72,P72,Q72,R72
+Liliaceae,family,Asia,1.97,0.207,2,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,73,A73,B73,C73,D73,E73,F73
+Liliaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,73,A73,B73,G73,H73,I73,J73
+Liliaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,73,A73,B73,K73,L73,M73,N73
+Liliaceae,family,Northern Hemisphere,1.97,0.207,2,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,73,A73,B73,O73,P73,Q73,R73
+Malvaceae,family,Asia,0.4,0.1,1,0.029,originals/synthesized-rpp.xlsx,Worksheet 1,74,A74,B74,C74,D74,E74,F74
+Malvaceae,family,Europe,1.17,0.131,2,0.032,originals/synthesized-rpp.xlsx,Worksheet 1,74,A74,B74,G74,H74,I74,J74
+Malvaceae,family,North America,–,–,–,0.044,originals/synthesized-rpp.xlsx,Worksheet 1,74,A74,B74,K74,L74,M74,N74
+Malvaceae,family,Northern Hemisphere,0.93,0.087,3,0.036,originals/synthesized-rpp.xlsx,Worksheet 1,74,A74,B74,O74,P74,Q74,R74
+Moraceae,family,Asia,6.52,0.08,1,0.008,originals/synthesized-rpp.xlsx,Worksheet 1,75,A75,B75,C75,D75,E75,F75
+Moraceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,75,A75,B75,G75,H75,I75,J75
+Moraceae,family,North America,1.1,0.55,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,75,A75,B75,K75,L75,M75,N75
+Moraceae,family,Northern Hemisphere,3.81,0.278,2,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,75,A75,B75,O75,P75,Q75,R75
+Nitrariaceae,family,Asia,–,–,–,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,76,A76,B76,C76,D76,E76,F76
+Nitrariaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,76,A76,B76,G76,H76,I76,J76
+Nitrariaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,76,A76,B76,K76,L76,M76,N76
+Nitrariaceae,family,Northern Hemisphere,–,–,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,76,A76,B76,O76,P76,Q76,R76
+Oleaceae,family,Asia,1.831,0.139,3,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,77,A77,B77,C77,D77,E77,F77
+Oleaceae,family,Europe,1.83,0.303,3,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,77,A77,B77,G77,H77,I77,J77
+Oleaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,77,A77,B77,K77,L77,M77,N77
+Oleaceae,family,Northern Hemisphere,1.912,0.167,6,0.02,originals/synthesized-rpp.xlsx,Worksheet 1,77,A77,B77,O77,P77,Q77,R77
+Papilionaceae,family,Asia,2.66,0.05,1,0.007,originals/synthesized-rpp.xlsx,Worksheet 1,78,A78,B78,C78,D78,E78,F78
+Papilionaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,78,A78,B78,G78,H78,I78,J78
+Papilionaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,78,A78,B78,K78,L78,M78,N78
+Papilionaceae,family,Northern Hemisphere,2.66,0.05,1,0.007,originals/synthesized-rpp.xlsx,Worksheet 1,78,A78,B78,O78,P78,Q78,R78
+Pinaceae,family,Asia,12.073,0.437,18,0.072,originals/synthesized-rpp.xlsx,Worksheet 1,79,A79,B79,C79,D79,E79,F79
+Pinaceae,family,Europe,6.091,0.354,14,0.061,originals/synthesized-rpp.xlsx,Worksheet 1,79,A79,B79,G79,H79,I79,J79
+Pinaceae,family,North America,2.8,0,1,0.072,originals/synthesized-rpp.xlsx,Worksheet 1,79,A79,B79,K79,L79,M79,N79
+Pinaceae,family,Northern Hemisphere,–,–,–,0.068,originals/synthesized-rpp.xlsx,Worksheet 1,79,A79,B79,O79,P79,Q79,R79
+Plantaginaceae,family,Asia,–,–,–,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,80,A80,B80,C80,D80,E80,F80
+Plantaginaceae,family,Europe,2.486,0.107,8,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,80,A80,B80,G80,H80,I80,J80
+Plantaginaceae,family,North America,5.96,0.31,1,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,80,A80,B80,K80,L80,M80,N80
+Plantaginaceae,family,Northern Hemisphere,2.872,0.101,9,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,80,A80,B80,O80,P80,Q80,R80
+Poaceae,family,Asia,1,0.012,16,0.023,originals/synthesized-rpp.xlsx,Worksheet 1,81,A81,B81,C81,D81,E81,F81
+Poaceae,family,Europe,1,0,14,0.036,originals/synthesized-rpp.xlsx,Worksheet 1,81,A81,B81,G81,H81,I81,J81
+Poaceae,family,North America,–,–,–,0.031,originals/synthesized-rpp.xlsx,Worksheet 1,81,A81,B81,K81,L81,M81,N81
+Poaceae,family,Northern Hemisphere,1,0.008,34,0.024,originals/synthesized-rpp.xlsx,Worksheet 1,81,A81,B81,O81,P81,Q81,R81
+Polygonaceae,family,Asia,26.35,1.85,1,0.024,originals/synthesized-rpp.xlsx,Worksheet 1,82,A82,B82,C82,D82,E82,F82
+Polygonaceae,family,Europe,0.577,0.031,3,0.018,originals/synthesized-rpp.xlsx,Worksheet 1,82,A82,B82,G82,H82,I82,J82
+Polygonaceae,family,North America,2.79,0.172,2,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,82,A82,B82,K82,L82,M82,N82
+Polygonaceae,family,Northern Hemisphere,2.402,0.181,5,0.02,originals/synthesized-rpp.xlsx,Worksheet 1,82,A82,B82,O82,P82,Q82,R82
+Ranunculaceae,family,Asia,5.33,1.34,2,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,83,A83,B83,C83,D83,E83,F83
+Ranunculaceae,family,Europe,1.2,0.12,3,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,83,A83,B83,G83,H83,I83,J83
+Ranunculaceae,family,North America,3.3,0.158,2,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,83,A83,B83,K83,L83,M83,N83
+Ranunculaceae,family,Northern Hemisphere,2.416,0.136,7,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,83,A83,B83,O83,P83,Q83,R83
+Rosaceae,family,Asia,0.824,0.057,4,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,84,A84,B84,C84,D84,E84,F84
+Rosaceae,family,Europe,0.973,0.109,4,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,84,A84,B84,G84,H84,I84,J84
+Rosaceae,family,North America,0.35,0.03,1,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,84,A84,B84,K84,L84,M84,N84
+Rosaceae,family,Northern Hemisphere,0.921,0.089,11,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,84,A84,B84,O84,P84,Q84,R84
+Rubiaceae,family,Asia,1.26,0.18,2,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,85,A85,B85,C85,D85,E85,F85
+Rubiaceae,family,Europe,1.56,0.118,3,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,85,A85,B85,G85,H85,I85,J85
+Rubiaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,85,A85,B85,K85,L85,M85,N85
+Rubiaceae,family,Northern Hemisphere,1.44,0.101,5,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,85,A85,B85,O85,P85,Q85,R85
+Salicaceae,family,Asia,0.23,0.11,1,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,86,A86,B86,C86,D86,E86,F86
+Salicaceae,family,Europe,0.777,0.07,3,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,86,A86,B86,G86,H86,I86,J86
+Salicaceae,family,North America,0.683,0.147,3,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,86,A86,B86,K86,L86,M86,N86
+Salicaceae,family,Northern Hemisphere,0.661,1.89,9,0.025,originals/synthesized-rpp.xlsx,Worksheet 1,86,A86,B86,O86,P86,Q86,R86
+Sapindaceae,family,Asia,0.087,0.062,1,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,87,A87,B87,C87,D87,E87,F87
+Sapindaceae,family,Europe,0.23,0.043,3,0.043,originals/synthesized-rpp.xlsx,Worksheet 1,87,A87,B87,G87,H87,I87,J87
+Sapindaceae,family,North America,–,–,–,0.056,originals/synthesized-rpp.xlsx,Worksheet 1,87,A87,B87,K87,L87,M87,N87
+Sapindaceae,family,Northern Hemisphere,–,–,–,0.035,originals/synthesized-rpp.xlsx,Worksheet 1,87,A87,B87,O87,P87,Q87,R87
+Selaginellaceae,family,Asia,–,–,–,0.041,originals/synthesized-rpp.xlsx,Worksheet 1,88,A88,B88,C88,D88,E88,F88
+Selaginellaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,88,A88,B88,G88,H88,I88,J88
+Selaginellaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,88,A88,B88,K88,L88,M88,N88
+Selaginellaceae,family,Northern Hemisphere,–,–,1,0.041,originals/synthesized-rpp.xlsx,Worksheet 1,88,A88,B88,O88,P88,Q88,R88
+Solanaceae,family,Asia,–,–,–,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,89,A89,B89,C89,D89,E89,F89
+Solanaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,89,A89,B89,G89,H89,I89,J89
+Solanaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,89,A89,B89,K89,L89,M89,N89
+Solanaceae,family,Northern Hemisphere,–,–,1,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,89,A89,B89,O89,P89,Q89,R89
+Symplocaceae,family,Asia,0.214,0.039,1,0.039,originals/synthesized-rpp.xlsx,Worksheet 1,90,A90,B90,C90,D90,E90,F90
+Symplocaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,90,A90,B90,G90,H90,I90,J90
+Symplocaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,90,A90,B90,K90,L90,M90,N90
+Symplocaceae,family,Northern Hemisphere,0.214,0.039,1,0.039,originals/synthesized-rpp.xlsx,Worksheet 1,90,A90,B90,O90,P90,Q90,R90
+Tamaricaceae,family,Asia,1.5,0.13,1,–,originals/synthesized-rpp.xlsx,Worksheet 1,91,A91,B91,C91,D91,E91,F91
+Tamaricaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,91,A91,B91,G91,H91,I91,J91
+Tamaricaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,91,A91,B91,K91,L91,M91,N91
+Tamaricaceae,family,Northern Hemisphere,1.5,0.13,1,–,originals/synthesized-rpp.xlsx,Worksheet 1,91,A91,B91,O91,P91,Q91,R91
+Theaceae,family,Asia,0.583,0.019,1,0.024,originals/synthesized-rpp.xlsx,Worksheet 1,92,A92,B92,C92,D92,E92,F92
+Theaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,92,A92,B92,G92,H92,I92,J92
+Theaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,92,A92,B92,K92,L92,M92,N92
+Theaceae,family,Northern Hemisphere,0.583,0.019,2,0.024,originals/synthesized-rpp.xlsx,Worksheet 1,92,A92,B92,O92,P92,Q92,R92
+Thymelaeaceae,family,Asia,33.05,3.78,1,0.009,originals/synthesized-rpp.xlsx,Worksheet 1,93,A93,B93,C93,D93,E93,F93
+Thymelaeaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,93,A93,B93,G93,H93,I93,J93
+Thymelaeaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,93,A93,B93,K93,L93,M93,N93
+Thymelaeaceae,family,Northern Hemisphere,33.05,3.78,1,0.009,originals/synthesized-rpp.xlsx,Worksheet 1,93,A93,B93,O93,P93,Q93,R93
+Ulmaceae,family,Asia,1.298,0.173,2,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,94,A94,B94,C94,D94,E94,F94
+Ulmaceae,family,Europe,–,–,–,0.032,originals/synthesized-rpp.xlsx,Worksheet 1,94,A94,B94,G94,H94,I94,J94
+Ulmaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,94,A94,B94,K94,L94,M94,N94
+Ulmaceae,family,Northern Hemisphere,1.298,0.173,2,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,94,A94,B94,O94,P94,Q94,R94
+Urticaceae,family,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,95,A95,B95,C95,D95,E95,F95
+Urticaceae,family,Europe,10.52,0.31,1,0.007,originals/synthesized-rpp.xlsx,Worksheet 1,95,A95,B95,G95,H95,I95,J95
+Urticaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,95,A95,B95,K95,L95,M95,N95
+Urticaceae,family,Northern Hemisphere,10.52,0.31,1,0.007,originals/synthesized-rpp.xlsx,Worksheet 1,95,A95,B95,O95,P95,Q95,R95
+Viburnaceae,family,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,96,A96,B96,C96,D96,E96,F96
+Viburnaceae,family,Europe,1.3,0.12,1,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,96,A96,B96,G96,H96,I96,J96
+Viburnaceae,family,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,96,A96,B96,K96,L96,M96,N96
+Viburnaceae,family,Northern Hemisphere,1.3,0.12,1,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,96,A96,B96,O96,P96,Q96,R96
+Campanulaceae,family,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,97,A97,B97,C97,D97,E97,F97
+Campanulaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,97,A97,B97,G97,H97,I97,J97
+Campanulaceae,family,North America,2.29,0.14,1,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,97,A97,B97,K97,L97,M97,N97
+Campanulaceae,family,Northern Hemisphere,2.29,0.14,1,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,97,A97,B97,O97,P97,Q97,R97
+Cornaceae,family,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,98,A98,B98,C98,D98,E98,F98
+Cornaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,98,A98,B98,G98,H98,I98,J98
+Cornaceae,family,North America,1.72,0.14,1,0.044,originals/synthesized-rpp.xlsx,Worksheet 1,98,A98,B98,K98,L98,M98,N98
+Cornaceae,family,Northern Hemisphere,1.72,0.14,1,0.044,originals/synthesized-rpp.xlsx,Worksheet 1,98,A98,B98,O98,P98,Q98,R98
+Equisetaceae,family,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,99,A99,B99,C99,D99,E99,F99
+Equisetaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,99,A99,B99,G99,H99,I99,J99
+Equisetaceae,family,North America,0.09,0.02,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,99,A99,B99,K99,L99,M99,N99
+Equisetaceae,family,Northern Hemisphere,0.09,0.02,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,99,A99,B99,O99,P99,Q99,R99
+Onagraceae,family,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,100,A100,B100,C100,D100,E100,F100
+Onagraceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,100,A100,B100,G100,H100,I100,J100
+Onagraceae,family,North America,–,–,–,0.098,originals/synthesized-rpp.xlsx,Worksheet 1,100,A100,B100,K100,L100,M100,N100
+Onagraceae,family,Northern Hemisphere,–,–,1,0.098,originals/synthesized-rpp.xlsx,Worksheet 1,100,A100,B100,O100,P100,Q100,R100
+Orobanchaceae,family,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,101,A101,B101,C101,D101,E101,F101
+Orobanchaceae,family,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,101,A101,B101,G101,H101,I101,J101
+Orobanchaceae,family,North America,0.33,0.04,1,0.038,originals/synthesized-rpp.xlsx,Worksheet 1,101,A101,B101,K101,L101,M101,N101
+Orobanchaceae,family,Northern Hemisphere,0.33,0.04,1,0.038,originals/synthesized-rpp.xlsx,Worksheet 1,101,A101,B101,O101,P101,Q101,R101
+Apiales,order,Asia,–,–,–,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,102,A102,B102,C102,D102,E102,F102
+Apiales,order,Europe,2.127,0.41,3,0.042,originals/synthesized-rpp.xlsx,Worksheet 1,102,A102,B102,G102,H102,I102,J102
+Apiales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,102,A102,B102,K102,L102,M102,N102
+Apiales,order,Northern Hemisphere,2.127,0.41,3,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,102,A102,B102,O102,P102,Q102,R102
+Aquifoliales,order,Asia,6.707,0.583,1,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,103,A103,B103,C103,D103,E103,F103
+Aquifoliales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,103,A103,B103,G103,H103,I103,J103
+Aquifoliales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,103,A103,B103,K103,L103,M103,N103
+Aquifoliales,order,Northern Hemisphere,6.707,0.583,1,0.011,originals/synthesized-rpp.xlsx,Worksheet 1,103,A103,B103,O103,P103,Q103,R103
+Asparagales,order,Asia,1.64,0.4,1,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,104,A104,B104,C104,D104,E104,F104
+Asparagales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,104,A104,B104,G104,H104,I104,J104
+Asparagales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,104,A104,B104,K104,L104,M104,N104
+Asparagales,order,Northern Hemisphere,1.64,0.4,2,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,104,A104,B104,O104,P104,Q104,R104
+Asterales,order,Asia,8.685,0.192,21,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,105,A105,B105,C105,D105,E105,F105
+Asterales,order,Europe,0.52,0.042,10,0.03,originals/synthesized-rpp.xlsx,Worksheet 1,105,A105,B105,G105,H105,I105,J105
+Asterales,order,North America,1.027,0.154,3,0.023,originals/synthesized-rpp.xlsx,Worksheet 1,105,A105,B105,K105,L105,M105,N105
+Asterales,order,Northern Hemisphere,5.242,0.136,38,0.018,originals/synthesized-rpp.xlsx,Worksheet 1,105,A105,B105,O105,P105,Q105,R105
+Brassicales,order,Asia,2.145,0.135,2,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,106,A106,B106,C106,D106,E106,F106
+Brassicales,order,Europe,0.07,0.04,1,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,106,A106,B106,G106,H106,I106,J106
+Brassicales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,106,A106,B106,K106,L106,M106,N106
+Brassicales,order,Northern Hemisphere,1.453,0.091,3,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,106,A106,B106,O106,P106,Q106,R106
+Caryophyllales,order,Asia,13.408,0.39,16,0.017,originals/synthesized-rpp.xlsx,Worksheet 1,107,A107,B107,C107,D107,E107,F107
+Caryophyllales,order,Europe,1.99,0.095,3,0.018,originals/synthesized-rpp.xlsx,Worksheet 1,107,A107,B107,G107,H107,I107,J107
+Caryophyllales,order,North America,2.06,0.116,3,0.026,originals/synthesized-rpp.xlsx,Worksheet 1,107,A107,B107,K107,L107,M107,N107
+Caryophyllales,order,Northern Hemisphere,9.65,0.263,24,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,107,A107,B107,O107,P107,Q107,R107
+Coniferales,order,Asia,29.4,0.87,1,0.071,originals/synthesized-rpp.xlsx,Worksheet 1,108,A108,B108,C108,D108,E108,F108
+Coniferales,order,Europe,–,–,–,0.056,originals/synthesized-rpp.xlsx,Worksheet 1,108,A108,B108,G108,H108,I108,J108
+Coniferales,order,North America,–,–,–,0.064,originals/synthesized-rpp.xlsx,Worksheet 1,108,A108,B108,K108,L108,M108,N108
+Coniferales,order,Northern Hemisphere,–,–,–,0.071,originals/synthesized-rpp.xlsx,Worksheet 1,108,A108,B108,O108,P108,Q108,R108
+Ephedrales,order,Asia,22.87,0.76,1,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,109,A109,B109,C109,D109,E109,F109
+Ephedrales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,109,A109,B109,G109,H109,I109,J109
+Ephedrales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,109,A109,B109,K109,L109,M109,N109
+Ephedrales,order,Northern Hemisphere,22.87,0.76,1,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,109,A109,B109,O109,P109,Q109,R109
+Ericales,order,Asia,1.241,0.095,3,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,110,A110,B110,C110,D110,E110,F110
+Ericales,order,Europe,0.436,0.015,7,0.032,originals/synthesized-rpp.xlsx,Worksheet 1,110,A110,B110,G110,H110,I110,J110
+Ericales,order,North America,0.53,0,1,0.038,originals/synthesized-rpp.xlsx,Worksheet 1,110,A110,B110,K110,L110,M110,N110
+Ericales,order,Northern Hemisphere,–,–,–,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,110,A110,B110,O110,P110,Q110,R110
+Fabales,order,Asia,0.4,0.036,3,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,111,A111,B111,C111,D111,E111,F111
+Fabales,order,Europe,0.4,0.07,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,111,A111,B111,G111,H111,I111,J111
+Fabales,order,North America,0.02,0.02,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,111,A111,B111,K111,L111,M111,N111
+Fabales,order,Northern Hemisphere,0.333,0.032,6,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,111,A111,B111,O111,P111,Q111,R111
+Fagales,order,Asia,4.063,0.206,30,0.02,originals/synthesized-rpp.xlsx,Worksheet 1,112,A112,B112,C112,D112,E112,F112
+Fagales,order,Europe,4.786,0.096,33,0.036,originals/synthesized-rpp.xlsx,Worksheet 1,112,A112,B112,G112,H112,I112,J112
+Fagales,order,North America,4.295,0.186,4,0.036,originals/synthesized-rpp.xlsx,Worksheet 1,112,A112,B112,K112,L112,M112,N112
+Fagales,order,Northern Hemisphere,–,–,–,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,112,A112,B112,O112,P112,Q112,R112
+Gentianales,order,Asia,1.26,0.18,2,0.017,originals/synthesized-rpp.xlsx,Worksheet 1,113,A113,B113,C113,D113,E113,F113
+Gentianales,order,Europe,1.56,0.118,3,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,113,A113,B113,G113,H113,I113,J113
+Gentianales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,113,A113,B113,K113,L113,M113,N113
+Gentianales,order,Northern Hemisphere,–,–,–,0.017,originals/synthesized-rpp.xlsx,Worksheet 1,113,A113,B113,O113,P113,Q113,R113
+Lamiales,order,Asia,1.567,0.145,4,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,114,A114,B114,C114,D114,E114,F114
+Lamiales,order,Europe,2.673,0.117,13,0.026,originals/synthesized-rpp.xlsx,Worksheet 1,114,A114,B114,G114,H114,I114,J114
+Lamiales,order,North America,2.337,0.108,3,0.029,originals/synthesized-rpp.xlsx,Worksheet 1,114,A114,B114,K114,L114,M114,N114
+Lamiales,order,Northern Hemisphere,–,–,–,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,114,A114,B114,O114,P114,Q114,R114
+Liliales,order,Asia,1.97,0.207,2,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,115,A115,B115,C115,D115,E115,F115
+Liliales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,115,A115,B115,G115,H115,I115,J115
+Liliales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,115,A115,B115,K115,L115,M115,N115
+Liliales,order,Northern Hemisphere,1.97,0.207,2,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,115,A115,B115,O115,P115,Q115,R115
+Malpighiales,order,Asia,2.553,0.056,3,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,116,A116,B116,C116,D116,E116,F116
+Malpighiales,order,Europe,0.777,0.07,3,0.027,originals/synthesized-rpp.xlsx,Worksheet 1,116,A116,B116,G116,H116,I116,J116
+Malpighiales,order,North America,0.683,0.147,3,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,116,A116,B116,K116,L116,M116,N116
+Malpighiales,order,Northern Hemisphere,1.053,1.553,11,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,116,A116,B116,O116,P116,Q116,R116
+Malphigiales,order,Asia,10.848,1.711,1,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,117,A117,B117,C117,D117,E117,F117
+Malphigiales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,117,A117,B117,G117,H117,I117,J117
+Malphigiales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,117,A117,B117,K117,L117,M117,N117
+Malphigiales,order,Northern Hemisphere,10.848,1.711,1,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,117,A117,B117,O117,P117,Q117,R117
+Malvales,order,Asia,16.725,1.891,2,0.022,originals/synthesized-rpp.xlsx,Worksheet 1,118,A118,B118,C118,D118,E118,F118
+Malvales,order,Europe,1.17,0.131,2,0.032,originals/synthesized-rpp.xlsx,Worksheet 1,118,A118,B118,G118,H118,I118,J118
+Malvales,order,North America,–,–,–,0.044,originals/synthesized-rpp.xlsx,Worksheet 1,118,A118,B118,K118,L118,M118,N118
+Malvales,order,Northern Hemisphere,1.17,0.098,4,0.031,originals/synthesized-rpp.xlsx,Worksheet 1,118,A118,B118,O118,P118,Q118,R118
+Pinales,order,Asia,10.502,0.435,18,0.069,originals/synthesized-rpp.xlsx,Worksheet 1,119,A119,B119,C119,D119,E119,F119
+Pinales,order,Europe,6.214,0.342,15,0.056,originals/synthesized-rpp.xlsx,Worksheet 1,119,A119,B119,G119,H119,I119,J119
+Pinales,order,North America,11.735,0.77,2,0.062,originals/synthesized-rpp.xlsx,Worksheet 1,119,A119,B119,K119,L119,M119,N119
+Pinales,order,Northern Hemisphere,8.893,0.256,37,0.063,originals/synthesized-rpp.xlsx,Worksheet 1,119,A119,B119,O119,P119,Q119,R119
+Poales,order,Asia,1.188,0.204,24,0.025,originals/synthesized-rpp.xlsx,Worksheet 1,120,A120,B120,C120,D120,E120,F120
+Poales,order,Europe,0.555,0.019,6,0.036,originals/synthesized-rpp.xlsx,Worksheet 1,120,A120,B120,G120,H120,I120,J120
+Poales,order,North America,–,–,–,0.031,originals/synthesized-rpp.xlsx,Worksheet 1,120,A120,B120,K120,L120,M120,N120
+Poales,order,Northern Hemisphere,1.017,0.094,52,0.026,originals/synthesized-rpp.xlsx,Worksheet 1,120,A120,B120,O120,P120,Q120,R120
+Ranunculales,order,Asia,5.33,1.34,2,0.01,originals/synthesized-rpp.xlsx,Worksheet 1,121,A121,B121,C121,D121,E121,F121
+Ranunculales,order,Europe,1.2,0.12,3,0.014,originals/synthesized-rpp.xlsx,Worksheet 1,121,A121,B121,G121,H121,I121,J121
+Ranunculales,order,North America,3.3,0.158,2,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,121,A121,B121,K121,L121,M121,N121
+Ranunculales,order,Northern Hemisphere,2.416,0.136,7,0.012,originals/synthesized-rpp.xlsx,Worksheet 1,121,A121,B121,O121,P121,Q121,R121
+Rosales,order,Asia,6.761,0.197,11,0.017,originals/synthesized-rpp.xlsx,Worksheet 1,122,A122,B122,C122,D122,E122,F122
+Rosales,order,Europe,1.27,0.191,5,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,122,A122,B122,G122,H122,I122,J122
+Rosales,order,North America,0.725,0.275,2,0.015,originals/synthesized-rpp.xlsx,Worksheet 1,122,A122,B122,K122,L122,M122,N122
+Rosales,order,Northern Hemisphere,4.642,0.122,20,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,122,A122,B122,O122,P122,Q122,R122
+Sapindales,order,Asia,0.328,0.04,3,0.019,originals/synthesized-rpp.xlsx,Worksheet 1,123,A123,B123,C123,D123,E123,F123
+Sapindales,order,Europe,0.23,0.043,3,0.043,originals/synthesized-rpp.xlsx,Worksheet 1,123,A123,B123,G123,H123,I123,J123
+Sapindales,order,North America,–,–,–,0.056,originals/synthesized-rpp.xlsx,Worksheet 1,123,A123,B123,K123,L123,M123,N123
+Sapindales,order,Northern Hemisphere,–,–,–,0.028,originals/synthesized-rpp.xlsx,Worksheet 1,123,A123,B123,O123,P123,Q123,R123
+Saxifragales,order,Asia,2.255,0.117,1,0.031,originals/synthesized-rpp.xlsx,Worksheet 1,124,A124,B124,C124,D124,E124,F124
+Saxifragales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,124,A124,B124,G124,H124,I124,J124
+Saxifragales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,124,A124,B124,K124,L124,M124,N124
+Saxifragales,order,Northern Hemisphere,2.255,0.117,1,0.031,originals/synthesized-rpp.xlsx,Worksheet 1,124,A124,B124,O124,P124,Q124,R124
+Selaginellales,order,Asia,–,–,–,0.041,originals/synthesized-rpp.xlsx,Worksheet 1,125,A125,B125,C125,D125,E125,F125
+Selaginellales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,125,A125,B125,G125,H125,I125,J125
+Selaginellales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,125,A125,B125,K125,L125,M125,N125
+Selaginellales,order,Northern Hemisphere,–,–,1,0.041,originals/synthesized-rpp.xlsx,Worksheet 1,125,A125,B125,O125,P125,Q125,R125
+Solanales,order,Asia,0.18,0.03,1,0.035,originals/synthesized-rpp.xlsx,Worksheet 1,126,A126,B126,C126,D126,E126,F126
+Solanales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,126,A126,B126,G126,H126,I126,J126
+Solanales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,126,A126,B126,K126,L126,M126,N126
+Solanales,order,Northern Hemisphere,0.18,0.03,2,0.035,originals/synthesized-rpp.xlsx,Worksheet 1,126,A126,B126,O126,P126,Q126,R126
+Sapindales,order,Asia,–,–,–,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,127,A127,B127,C127,D127,E127,F127
+Sapindales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,127,A127,B127,G127,H127,I127,J127
+Sapindales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,127,A127,B127,K127,L127,M127,N127
+Sapindales,order,Northern Hemisphere,–,–,1,0.016,originals/synthesized-rpp.xlsx,Worksheet 1,127,A127,B127,O127,P127,Q127,R127
+Cerealia,order,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,128,A128,B128,C128,D128,E128,F128
+Cerealia,order,Europe,2.311,0.422,4,0.069,originals/synthesized-rpp.xlsx,Worksheet 1,128,A128,B128,G128,H128,I128,J128
+Cerealia,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,128,A128,B128,K128,L128,M128,N128
+Cerealia,order,Northern Hemisphere,2.311,0.422,4,0.069,originals/synthesized-rpp.xlsx,Worksheet 1,128,A128,B128,O128,P128,Q128,R128
+Dipsacales,order,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,129,A129,B129,C129,D129,E129,F129
+Dipsacales,order,Europe,1.3,0.12,1,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,129,A129,B129,G129,H129,I129,J129
+Dipsacales,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,129,A129,B129,K129,L129,M129,N129
+Dipsacales,order,Northern Hemisphere,1.3,0.12,1,0.013,originals/synthesized-rpp.xlsx,Worksheet 1,129,A129,B129,O129,P129,Q129,R129
+Wild herbs,order,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,130,A130,B130,C130,D130,E130,F130
+Wild herbs,order,Europe,0.07,0.07,1,0.034,originals/synthesized-rpp.xlsx,Worksheet 1,130,A130,B130,G130,H130,I130,J130
+Wild herbs,order,North America,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,130,A130,B130,K130,L130,M130,N130
+Wild herbs,order,Northern Hemisphere,0.07,0.07,1,0.034,originals/synthesized-rpp.xlsx,Worksheet 1,130,A130,B130,O130,P130,Q130,R130
+Cornales,order,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,131,A131,B131,C131,D131,E131,F131
+Cornales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,131,A131,B131,G131,H131,I131,J131
+Cornales,order,North America,1.72,0.14,1,0.044,originals/synthesized-rpp.xlsx,Worksheet 1,131,A131,B131,K131,L131,M131,N131
+Cornales,order,Northern Hemisphere,1.72,0.14,1,0.044,originals/synthesized-rpp.xlsx,Worksheet 1,131,A131,B131,O131,P131,Q131,R131
+Equisetales,order,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,132,A132,B132,C132,D132,E132,F132
+Equisetales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,132,A132,B132,G132,H132,I132,J132
+Equisetales,order,North America,0.09,0.02,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,132,A132,B132,K132,L132,M132,N132
+Equisetales,order,Northern Hemisphere,0.09,0.02,1,0.021,originals/synthesized-rpp.xlsx,Worksheet 1,132,A132,B132,O132,P132,Q132,R132
+Myrtales,order,Asia,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,133,A133,B133,C133,D133,E133,F133
+Myrtales,order,Europe,–,–,–,–,originals/synthesized-rpp.xlsx,Worksheet 1,133,A133,B133,G133,H133,I133,J133
+Myrtales,order,North America,–,–,–,0.098,originals/synthesized-rpp.xlsx,Worksheet 1,133,A133,B133,K133,L133,M133,N133
+Myrtales,order,Northern Hemisphere,–,–,1,0.098,originals/synthesized-rpp.xlsx,Worksheet 1,133,A133,B133,O133,P133,Q133,R133
