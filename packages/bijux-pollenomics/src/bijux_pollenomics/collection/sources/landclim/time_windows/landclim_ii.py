@@ -136,6 +136,8 @@ def _merge_landclim_ii_time_windows(
                         quality_by_grid,
                         grid_id=cell_id,
                         time_window=time_window,
+                        longitude_token=row["lonDD"],
+                        latitude_token=row["latDD"],
                     )
                     properties["quality_class"] = summarize_quality_labels(
                         {quality_class}

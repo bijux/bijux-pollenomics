@@ -1,9 +1,10 @@
+"""Project source-owned LandClim cells and their physical quality evidence."""
+
 from __future__ import annotations
 
 from collections.abc import Mapping
 import csv
 from io import TextIOWrapper
-import math
 from pathlib import Path
 import re
 from zipfile import ZipFile
@@ -15,10 +16,19 @@ from ...intake.workbooks import list_xlsx_sheet_names, read_xlsx_sheet_rows
 from ...spatial import classify_country, point_in_bbox
 from .catalog import (
     LANDCLIM_DATASET_METADATA,
-    LANDCLIM_II_EXPECTED_TIME_WINDOW_COUNT,
     LANDCLIM_II_MEANS_DIRECTORY,
     time_window_from_tw_filename,
     time_window_sort_key,
+)
+from .quality import (
+    _LANDCLIM_II_QUALITY_CLASS_BY_CODE,
+    _LANDCLIM_II_QUALITY_CLASSES,
+)
+from .quality import (
+    _required_landclim_ii_quality_class as _required_landclim_ii_quality_class,
+)
+from .quality import (
+    landclim_ii_quality_lookup as landclim_ii_quality_lookup,
 )
 from .sites import (
     landclim_time_windows_interval,
@@ -40,20 +50,6 @@ LANDCLIM_GRID_LAYER_KEY = "landclim-reveals-grid"
 GRID_CELL_PATTERN = re.compile(
     r"(?P<lon>\d+(?:\.\d+)?)°(?P<eastwest>[EW])\s+(?P<lat>\d+(?:\.\d+)?)°(?P<northsouth>[NS])"
 )
-_LANDCLIM_II_QUALITY_HEADER_PREFIX = ("LCGRID_ID", "lonDD", "latDD")
-_LANDCLIM_II_QUALITY_CLASSES = frozenset({"high", "low", "no_pollen_data"})
-_LANDCLIM_II_QUALITY_CLASS_BY_CODE = {
-    "1": "high",
-    "2": "low",
-    "nodata": "no_pollen_data",
-}
-
-
-def _landclim_ii_quality_windows() -> tuple[str, ...]:
-    return tuple(
-        time_window_from_tw_filename(f"TW{index}.csv")
-        for index in range(1, LANDCLIM_II_EXPECTED_TIME_WINDOW_COUNT + 1)
-    )
 
 
 def build_landclim_grid_geojson(
@@ -103,86 +99,6 @@ def build_landclim_grid_geojson(
             )
         ],
     }
-
-
-def landclim_ii_quality_lookup(path: Path) -> dict[str, dict[str, str]]:
-    """Load quality labels for LandClim II grid cells keyed by LCGRID_ID."""
-    rows = read_xlsx_sheet_rows(path, "GC_quality_by_TW")
-    if not rows:
-        raise ValueError("LandClim II quality workbook has no rows")
-    canonical_windows = _landclim_ii_quality_windows()
-    expected_header = (
-        *_LANDCLIM_II_QUALITY_HEADER_PREFIX,
-        *(window.removesuffix(" BP") for window in canonical_windows),
-    )
-    header = tuple(clean_optional_text(value) for value in rows[0])
-    if header != expected_header:
-        raise ValueError(
-            "LandClim II quality workbook header must contain the exact first "
-            "columns and 25 ordered bare BP windows"
-        )
-    quality: dict[str, dict[str, str]] = {}
-    for row_number, row in enumerate(rows[1:], start=2):
-        if len(row) != len(expected_header):
-            raise ValueError(
-                f"LandClim II quality workbook row {row_number} has {len(row)} "
-                f"columns; expected {len(expected_header)}"
-            )
-        grid_id, longitude, latitude = (clean_optional_text(value) for value in row[:3])
-        for field, value in zip(
-            _LANDCLIM_II_QUALITY_HEADER_PREFIX,
-            (grid_id, longitude, latitude),
-            strict=True,
-        ):
-            if not value:
-                raise ValueError(
-                    f"LandClim II quality workbook row {row_number} has empty {field}"
-                )
-        for field, value, minimum, maximum in (
-            ("lonDD", longitude, -180.0, 180.0),
-            ("latDD", latitude, -90.0, 90.0),
-        ):
-            try:
-                coordinate = float(value)
-            except ValueError as exc:
-                raise ValueError(
-                    f"LandClim II quality workbook row {row_number} has invalid {field}"
-                ) from exc
-            if not math.isfinite(coordinate) or not minimum <= coordinate <= maximum:
-                raise ValueError(
-                    f"LandClim II quality workbook row {row_number} has invalid {field}"
-                )
-        if grid_id in quality:
-            raise ValueError(
-                f"LandClim II quality workbook repeats LCGRID_ID {grid_id}"
-            )
-        row_quality: dict[str, str] = {}
-        for window, value in zip(canonical_windows, row[3:], strict=True):
-            code = clean_optional_text(value)
-            quality_class = _LANDCLIM_II_QUALITY_CLASS_BY_CODE.get(code)
-            if quality_class is None:
-                raise ValueError(
-                    "LandClim II quality workbook has unsupported quality code "
-                    f"{code!r} for {grid_id} {window}"
-                )
-            row_quality[window] = quality_class
-        quality[grid_id] = row_quality
-    return quality
-
-
-def _required_landclim_ii_quality_class(
-    quality_by_grid: Mapping[str, Mapping[str, str]],
-    *,
-    grid_id: str,
-    time_window: str,
-) -> str:
-    quality_class = quality_by_grid.get(grid_id, {}).get(time_window)
-    if quality_class not in _LANDCLIM_II_QUALITY_CLASSES:
-        raise ValueError(
-            "LandClim II quality is missing or invalid for in-scope record "
-            f"{grid_id}:{time_window}"
-        )
-    return quality_class
 
 
 def merge_landclim_i_grid_features(
@@ -291,6 +207,8 @@ def merge_landclim_ii_grid_features(
                         quality_by_grid,
                         grid_id=grid_id,
                         time_window=time_window,
+                        longitude_token=clean_optional_text(row.get("lonDD")),
+                        latitude_token=clean_optional_text(row.get("latDD")),
                     )
                     record_id = feature_key_from_center(
                         center_longitude, center_latitude
