@@ -12,6 +12,10 @@ from bijux_pollenomics.collection.sources.sead.acquisition.full import (
 from bijux_pollenomics.collection.sources.sead.acquisition.scoped import (
     SCOPED_RECEIPT_SCHEMA_VERSION,
 )
+from bijux_pollenomics.core.filesystem import (
+    BoundedInputTree,
+    validate_regular_namespace,
+)
 
 from ..codec import (
     _canonical_bytes,
@@ -19,7 +23,6 @@ from ..codec import (
     _non_negative_int,
     _observed_schema,
     _positive_int,
-    _read_regular_file,
     _required_text,
     _safe_relative_path,
     _sha256,
@@ -45,36 +48,74 @@ def _validate_manifest_files(
         "reconciliation/countries.json",
         "reconciliation/joins.json",
     }
-    files: dict[str, bytes] = {"manifest.json": manifest_bytes}
+    declarations: dict[str, Mapping[str, object]] = {}
+    limits: dict[str, int] = {"manifest.json": len(manifest_bytes)}
     for item in records:
         if not isinstance(item, Mapping):
             raise TypeError("SEAD manifest file record must be an object")
         relative_path = _safe_relative_path(item.get("path"))
-        if relative_path in files:
+        if relative_path in limits:
             raise ValueError(f"Duplicate SEAD manifest path: {relative_path}")
-        content = _read_regular_file(root.joinpath(*PurePosixPath(relative_path).parts))
-        _expect_equal(
-            len(content),
-            _non_negative_int(item.get("byte_count"), f"{relative_path} byte_count"),
-            f"{relative_path} byte_count",
+        limits[relative_path] = _non_negative_int(
+            item.get("byte_count"), f"{relative_path} byte_count"
         )
-        _expect_equal(
-            hashlib.sha256(content).hexdigest(),
-            _sha256(item.get("sha256"), relative_path),
-            f"{relative_path} SHA-256",
-        )
-        files[relative_path] = content
-    if set(files) - {"manifest.json"} != expected_paths:
+        declarations[relative_path] = item
+    if set(declarations) != expected_paths:
         raise ValueError("SEAD manifest does not cover the exact acquisition file set")
-    actual_paths: set[str] = set()
-    for path in root.rglob("*"):
-        if path.is_symlink():
-            raise ValueError(f"Symlinks are forbidden in SEAD acquisition: {path}")
-        if path.is_file():
-            actual_paths.add(path.relative_to(root).as_posix())
-    if actual_paths != set(files) | allowed_extra_paths:
-        raise ValueError("SEAD acquisition contains missing or unmanifested files")
-    return files
+    expected_namespace = set(limits) | allowed_extra_paths
+    try:
+        physical_sizes = {
+            name: root.joinpath(*PurePosixPath(name).parts)
+            .stat(follow_symlinks=False)
+            .st_size
+            for name in expected_namespace
+        }
+    except OSError as error:
+        raise ValueError(
+            "SEAD acquisition contains missing or unmanifested files"
+        ) from error
+    for name, expected in limits.items():
+        _expect_equal(physical_sizes[name], expected, f"{name} byte_count")
+    try:
+        sizes = validate_regular_namespace(
+            root,
+            expected_namespace,
+            max_files=len(expected_namespace),
+            max_bytes=max(1, sum(physical_sizes.values())),
+        )
+    except ValueError as error:
+        raise ValueError(
+            "SEAD acquisition contains missing or unmanifested files"
+        ) from error
+    with BoundedInputTree(
+        root,
+        max_bytes=max(1, sum(sizes.values())),
+        max_files=len(expected_namespace),
+        member_limits=sizes,
+    ) as tree:
+        if set(tree.files) != expected_namespace:
+            raise ValueError("SEAD acquisition namespace changed after preflight")
+        if (
+            tree.read(root / "manifest.json", max_bytes=len(manifest_bytes))
+            != manifest_bytes
+        ):
+            raise ValueError("SEAD acquisition manifest changed after validation")
+        files: dict[str, bytes] = {"manifest.json": manifest_bytes}
+        for relative_path, item in declarations.items():
+            tree.check()
+            content = tree.read(root / relative_path, max_bytes=limits[relative_path])
+            _expect_equal(
+                len(content), limits[relative_path], f"{relative_path} byte_count"
+            )
+            _expect_equal(
+                hashlib.sha256(content).hexdigest(),
+                _sha256(item.get("sha256"), relative_path),
+                f"{relative_path} SHA-256",
+            )
+            tree.check()
+            files[relative_path] = content
+        tree.check()
+        return files
 
 
 def _validate_table_payload(
