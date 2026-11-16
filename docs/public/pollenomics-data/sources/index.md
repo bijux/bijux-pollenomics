@@ -62,6 +62,13 @@ row-level custody only for the contracted Swedish source, not NFI access or
 area coverage for Denmark, Finland, or Norway. The EMPD2–NFI review has zero
 scientifically admitted vegetation–pollen pairs.
 
+## Parameter References
+
+[Pollen-productivity references](pollen-productivity.md) preserve the 2020
+compilation and the separately attributed 2025 LegacyVegetation tables. They
+support source and parameter review without adding a collection adapter or
+admitting a local LRA configuration.
+
 ## Choose By Question And Observation Unit
 
 The most convenient layer is not necessarily the right evidence. Select a
