@@ -12,7 +12,7 @@ from typing import Any, NoReturn, cast
 
 from jsonschema import Draft202012Validator
 
-from ....core.filesystem import read_regular_file
+from ....core.filesystem import BoundedInputTree, read_regular_file
 from ..engine.errors import LRARefusal
 from .schema import REQUEST_SCHEMA
 
@@ -82,8 +82,16 @@ def _evidence(
                 digest = hashlib.sha256(content).hexdigest()
             else:
                 content = None
-                with source.open("rb") as stream:
-                    digest = hashlib.file_digest(stream, "sha256").hexdigest()
+                # Native evidence has no control-receipt ceiling. Its observed
+                # size bounds a streaming read sealed to one literal member.
+                with BoundedInputTree(
+                    literal.parent,
+                    max_bytes=max(1, literal.lstat().st_size),
+                    max_files=1,
+                    selected=literal.name,
+                ) as tree:
+                    tree.validate()
+                    digest = tree.digests[literal.name]
         except (OSError, ValueError) as exc:
             raise LRARefusal("evidence_unavailable", f"{identity}: {exc}") from exc
         if digest != item["sha256"]:
