@@ -173,7 +173,7 @@ def _load_raw_archive(
             f"{filename} manifest count",
         )
         row_ids = [download_dataset_id(row, filename) for row in rows]
-        expect_equal(row_ids, part_ids, f"{filename} row dataset IDs")
+        expect_equal(sorted(row_ids), part_ids, f"{filename} row dataset IDs")
         all_rows.extend(rows)
         all_dataset_ids.extend(part_ids)
         digest_records.append(
@@ -197,7 +197,7 @@ def _load_raw_archive(
     )
     if manifest_ids != sorted(manifest_ids) or requested_ids != sorted(requested_ids):
         raise ValueError("Raw manifest dataset IDs must be sorted")
-    expect_equal(all_dataset_ids, manifest_ids, "raw aggregate dataset IDs")
+    expect_equal(sorted(all_dataset_ids), manifest_ids, "raw aggregate dataset IDs")
     expect_equal(
         manifest.get("downloaded_dataset_count"), len(manifest_ids), "downloaded count"
     )
