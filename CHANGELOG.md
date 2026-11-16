@@ -2,6 +2,13 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#466](https://github.com/bijux/bijux-pollenomics/pull/466) — Finite numeric GeoJSON positions
+
+- Refuse boolean, non-finite and float-overflowing coordinate values before they
+  acquire a representative map location.
+- Preserve finite coordinates, signed zero, existing range behavior and the
+  two-dimensional projection of positions with additional ordinates.
+
 ### [#465](https://github.com/bijux/bijux-pollenomics/pull/465) — Authenticated LRA evidence streams and receipt buffers
 
 - Hash and semantically validate the same operation-local regional draw receipt
