@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from dataclasses import asdict, fields
 import json
 from pathlib import Path
@@ -11,7 +11,7 @@ import re
 from typing import Any
 
 from ...client import positive_native_id
-from ..facets.links import discover_neotoma_facet_links
+from ..facets.links import _discover_facet_links, discover_neotoma_facet_links
 from ..facets.models import NeotomaFacetScopeInputs
 from ..facets.replay import _control as facet_control
 from ..models import _Request
@@ -89,6 +89,20 @@ def prepare_targets(
     Original facet replay has its own bounded source limits. A linked transport
     budget of three requests must not be applied to its five predecessor requests.
     """
+    return _prepare_targets(plan, source_facets, limits, scope_inputs=scope_inputs)
+
+
+def _prepare_targets(
+    plan: NeotomaLinkedResourcePlan,
+    source_facets: Mapping[str, Path],
+    limits: NeotomaResourceLimits,
+    *,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
+    _before_body_read: Callable[[], None] | None = None,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    """Retain legacy source proof discovery under an outer operation refusal."""
+    if _before_body_read is not None:
+        _before_body_read()
     selected = _selected(plan, source_facets)
     proofs: dict[tuple[str, int], list[dict[str, Any]]] = defaultdict(list)
     policies: list[str] = []
@@ -100,11 +114,22 @@ def prepare_targets(
         )
         validate_resource_plan(source_plan, limits)
         policies = list(source_plan.policy_sources)
-        links = discover_neotoma_facet_links(
+        discover = (
+            discover_neotoma_facet_links
+            if _before_body_read is None
+            else _discover_facet_links
+        )
+        options: dict[str, Any] = (
+            {}
+            if _before_body_read is None
+            else {"_before_body_read": _before_body_read}
+        )
+        links = discover(
             root,
             expected_manifest_sha256=digest,
             include_higher_taxa=plan.include_higher_taxa,
             scope_inputs=scope_inputs,
+            **options,
         )
         for proof in links["links"]:
             key = (proof["target_kind"], proof["native_id"])
@@ -297,6 +322,7 @@ def _prepare_scoped_targets(
     legacy_rosters: Mapping[str, Path] | None = None,
     _session: Any = None,
     _operation: object | None = None,
+    _before_body_read: Callable[[], None] | None = None,
 ) -> tuple[list[dict[str, Any]], list[str], dict[str, str]]:
     """Require an externally anchored complete source publication before new GETs."""
     selected = _selected(plan, source_facets)
@@ -310,13 +336,26 @@ def _prepare_scoped_targets(
         raise ValueError("Linked evidence complete source namespace differs")
     validate_scoped_limits(evidence, limits)
     if _session is None:
-        index = load_neotoma_linked_evidence(
+        from .evidence_parts.validation import _load_linked_evidence
+
+        loader = (
+            load_neotoma_linked_evidence
+            if _before_body_read is None
+            else _load_linked_evidence
+        )
+        extra = (
+            {}
+            if _before_body_read is None
+            else {"_before_body_read": _before_body_read}
+        )
+        index = loader(
             evidence.directory,
             expected_manifest_sha256=evidence.manifest_sha256,
             expected_roster_sha256=roster_sha,
             scope=scope_inputs[roster_sha],
             source_facets=source_facets,
             legacy_rosters=legacy_rosters,
+            **extra,
         )
     else:
         from .evidence_parts.session import _LinkedEvidenceSession

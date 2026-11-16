@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from contextlib import ExitStack
 from hashlib import sha256
 import json
@@ -63,6 +63,7 @@ class _LinkedEvidenceSession:
         scope_inputs: Mapping[str, NeotomaFacetScopeInputs],
         legacy_rosters: Mapping[str, Path],
         operation: object,
+        _before_body_read: Callable[[], None] | None = None,
     ) -> None:
         """Bind a single ancestry operation and its exact independent source inputs."""
         from ..ancestry.chain.models import MAX_FILES
@@ -80,6 +81,7 @@ class _LinkedEvidenceSession:
         self._scope_inputs = scope_inputs
         self._legacy_rosters = legacy_rosters
         self._operation = operation
+        self._before_body_read = _before_body_read
         self._stack = ExitStack()
         self._trees: dict[tuple[Path, str | None], BoundedInputTree] = {}
         self._permissions: list[BoundedInputTree] = []
@@ -178,6 +180,8 @@ class _LinkedEvidenceSession:
         self._used = True
         try:
             owner = self._source_owner
+            if self._before_body_read is not None:
+                self._before_body_read()
             header = evidence._index(
                 _safe_root(owner.evidence.directory), owner.evidence.manifest_sha256
             )
@@ -246,11 +250,21 @@ class _LinkedEvidenceSession:
                     part["sha256"],
                     part["bytes"],
                 )
-            index = evidence.load_neotoma_linked_evidence(
-                owner.evidence.directory,
-                expected_manifest_sha256=owner.evidence.manifest_sha256,
-                **inputs,
-            )
+            if self._before_body_read is None:
+                index = evidence.load_neotoma_linked_evidence(
+                    owner.evidence.directory,
+                    expected_manifest_sha256=owner.evidence.manifest_sha256,
+                    **inputs,
+                )
+            else:
+                from .validation import _load_linked_evidence
+
+                index = _load_linked_evidence(
+                    owner.evidence.directory,
+                    expected_manifest_sha256=owner.evidence.manifest_sha256,
+                    _before_body_read=self._before_body_read,
+                    **inputs,
+                )
             self._header = json.dumps(
                 index,
                 sort_keys=True,
@@ -286,6 +300,8 @@ class _LinkedEvidenceSession:
             raise ValueError(
                 "Evidence session is inactive or belongs to another operation"
             )
+        if self._before_body_read is not None:
+            self._before_body_read()
         owner = self._source_owner
         if capture_directory is not None or capture_manifest_sha256 is not None:
             declared = (
@@ -335,7 +351,11 @@ class _LinkedEvidenceSession:
             if kind is None:
                 self._check_trees(full=True)
                 for path, (digest, size, tree) in self._pins.items():
+                    if path.suffix == ".body" and self._before_body_read is not None:
+                        self._before_body_read()
                     raw = tree.read(path, max_bytes=size)
+                    if path.suffix == ".body" and self._before_body_read is not None:
+                        self._before_body_read()
                     if sha256(raw).hexdigest() != digest:
                         raise ValueError(
                             "Evidence session already-read content pin changed"

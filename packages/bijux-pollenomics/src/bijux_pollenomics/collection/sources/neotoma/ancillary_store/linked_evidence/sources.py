@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from pathlib import Path
 from typing import Any
 
@@ -161,6 +161,18 @@ def full_evidence_inputs(
     source_facets: Mapping[str, Path],
 ) -> dict[str, Any]:
     """Authenticate the complete external source closure without owning its copies."""
+    return _full_evidence_inputs(control, context, evidence_sources, source_facets)
+
+
+def _full_evidence_inputs(
+    control: dict[str, Any],
+    context: NeotomaAncillaryContext,
+    evidence_sources: Mapping[str, Path] | None,
+    source_facets: Mapping[str, Path],
+    *,
+    _before_body_read: Callable[[], None] | None = None,
+) -> dict[str, Any]:
+    """Keep source semantics unchanged under an outer live metadata operation."""
     evidence, header, _ = scoped_metadata(control, context, evidence_sources)
     authority = header["authority"]
     expected = set(authority["source_captures"])
@@ -177,9 +189,23 @@ def full_evidence_inputs(
         "source_facets": {pin: source_facets[pin] for pin in sorted(expected)},
         "legacy_rosters": legacy,
     }
-    load_neotoma_linked_evidence(
-        evidence.directory, expected_manifest_sha256=evidence.manifest_sha256, **kwargs
-    )
+    if _before_body_read is None:
+        load_neotoma_linked_evidence(
+            evidence.directory,
+            expected_manifest_sha256=evidence.manifest_sha256,
+            **kwargs,
+        )
+    else:
+        from ...capture.linked_resources.evidence_parts.validation import (
+            _load_linked_evidence,
+        )
+
+        _load_linked_evidence(
+            evidence.directory,
+            expected_manifest_sha256=evidence.manifest_sha256,
+            **kwargs,
+            _before_body_read=_before_body_read,
+        )
     return {
         "evidence": evidence,
         "source_facets": kwargs["source_facets"],

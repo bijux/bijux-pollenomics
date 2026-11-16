@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -90,12 +90,18 @@ def source_bindings(
     return result
 
 
-def source_pins(bindings: Mapping[str, Path]) -> dict[str, dict[str, Any]]:
+def source_pins(
+    bindings: Mapping[str, Path], *, _before_body_read: Callable[[], None] | None = None
+) -> dict[str, dict[str, Any]]:
     """Hash bounded source buffers without decoding numerical predecessors again."""
     result = {}
     total = 0
     for key, path in sorted(bindings.items()):
+        if path.suffix == ".body" and _before_body_read is not None:
+            _before_body_read()
         raw = _read(path, min(MAX_INPUT_BYTES, MAX_SOURCE_BYTES - total))
+        if path.suffix == ".body" and _before_body_read is not None:
+            _before_body_read()
         total += len(raw)
         result[key] = {"bytes": len(raw), "sha256": sha256(raw).hexdigest()}
     return result

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from hashlib import sha256
 from pathlib import Path
 from typing import Any
@@ -164,6 +165,8 @@ def _body(
     request: Any,
     observation: dict[str, Any] | None = None,
     response: tuple[dict[str, Any], int] | None = None,
+    *,
+    _before_body_read: Callable[[], None] | None = None,
 ) -> tuple[bytes, dict[str, Any]]:
     receipt, bound = (
         response
@@ -171,7 +174,11 @@ def _body(
         else _response(metadata, capture, entry, request, observation)
     )
     reference = entry["attempts"][-1]
+    if _before_body_read is not None:
+        _before_body_read()
     body = metadata.source_member(capture, reference["body_file"], bound=bound + 1)
+    if _before_body_read is not None:
+        _before_body_read()
     assessor = (
         facet_assessment if "facets" in capture["document"] else linked_assessment
     )

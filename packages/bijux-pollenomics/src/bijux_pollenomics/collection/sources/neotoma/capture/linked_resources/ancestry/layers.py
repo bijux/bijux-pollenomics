@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import defaultdict, deque
+from collections.abc import Callable
 from dataclasses import asdict
 from typing import Any
 
@@ -114,7 +115,17 @@ def derive_neotoma_taxon_ancestry(
     limits: NeotomaTaxonAncestryLimits = DEFAULT_ANCESTRY_LIMITS,
 ) -> dict[str, Any]:
     """Derive known source edges and an unapproved, finite next parent frontier."""
-    facts = source_facts(sources, limits)
+    return _derive_taxon_ancestry(sources, limits=limits)
+
+
+def _derive_taxon_ancestry(
+    sources: NeotomaTaxonAncestrySources,
+    *,
+    limits: NeotomaTaxonAncestryLimits = DEFAULT_ANCESTRY_LIMITS,
+    _before_body_read: Callable[[], None] | None = None,
+) -> dict[str, Any]:
+    """Compose outer current-epoch refusals with the complete source derivation."""
+    facts = source_facts(sources, limits, _before_body_read=_before_body_read)
     seeds = sorted(facts["seeds"], key=lambda row: row["native_id"])
     seed_ids = {row["native_id"] for row in seeds}
     edges = sorted(
