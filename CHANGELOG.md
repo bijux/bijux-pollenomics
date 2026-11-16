@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#476](https://github.com/bijux/bijux-pollenomics/pull/476) — Response ownership and cleanup error authority
+
+- Close Neotoma metadata response streams and connections deterministically,
+  including bounded or truncated responses detached from their connection.
+- Keep diagnostic construction and annotation best-effort across metadata
+  transport, generic HTTP, RAÄ native reads and owned filesystem replacement.
+- Preserve the original failure, remaining owner cleanup, retry budgets and
+  prior-publication recovery when secondary diagnostics also fail.
+
 ### [#475](https://github.com/bijux/bijux-pollenomics/pull/475) — Authenticated admission buffers and native database attachments
 
 - Derive SEAD evidence from authenticated table, receipt, country and chronology
