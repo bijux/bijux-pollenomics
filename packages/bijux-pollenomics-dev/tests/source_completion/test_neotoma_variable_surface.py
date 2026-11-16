@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import copy
+import itertools
+
+import pytest
 
 from bijux_pollenomics_dev.source_completion.neotoma_variable_surface import (
     reconcile,
@@ -104,3 +107,106 @@ def test_unidentified_taxon_is_retained_as_an_explicit_native_key() -> None:
     result = reconcile([datum], [variable], [])
     assert result["match"]
     assert result["unidentified_taxon_variable_ids"] == [variable_id(datum)]
+
+
+def _canonical_case() -> tuple[
+    list[dict[str, object]], dict[str, object], dict[str, object]
+]:
+    datums = [
+        {**_datum(), "variablename": label}
+        for label in ["Name B", "Name A", "Name B", "Name C"]
+    ]
+    variable = {**_variable(), "source_reported_name": "Name A"}
+    ledger: dict[str, object] = {
+        "conflict_kind": "variable_identity_conflict",
+        "subject_id": "neotoma:variable:309",
+        "detail": {
+            "resolution": "canonical_minimum",
+            "variants": [
+                {"source_taxon_id": 309, "source_reported_name": label}
+                for label in ["Name A", "Name B", "Name C"]
+            ],
+        },
+    }
+    return datums, variable, ledger
+
+
+def test_canonical_variable_reconciliation_is_independent_of_native_arrival() -> None:
+    datums, variable, ledger = _canonical_case()
+    for permutation in itertools.permutations(datums):
+        result = reconcile(permutation, [variable], [ledger])
+        assert result["match"], result
+        assert result["native_datum_rows"] == 4
+        assert result["variable_identity_conflict_rows"] == 1
+
+
+@pytest.mark.parametrize(
+    "change",
+    [
+        "missing",
+        "foreign",
+        "duplicate",
+        "reversed",
+        "representative",
+        "repeated_ledger",
+    ],
+)
+def test_canonical_ledger_requires_exact_native_variants(change: str) -> None:
+    datums, variable, ledger = _canonical_case()
+    detail = ledger["detail"]
+    assert isinstance(detail, dict)
+    variants = detail["variants"]
+    assert isinstance(variants, list)
+    if change == "missing":
+        variants.pop()
+    elif change == "foreign":
+        variants.append(
+            {"source_taxon_id": 309, "source_reported_name": "Foreign name"}
+        )
+    elif change == "duplicate":
+        variants.append(copy.deepcopy(variants[0]))
+    elif change == "reversed":
+        variants.reverse()
+    elif change == "representative":
+        variable["source_reported_name"] = "Name B"
+    ledger_rows = (
+        [ledger, copy.deepcopy(ledger)] if change == "repeated_ledger" else [ledger]
+    )
+    assert not reconcile(datums, [variable], ledger_rows)["match"]
+
+
+def test_real_builder_canonical_ledger_reconciles_all_generated_datums() -> None:
+    from bijux_pollenomics.collection.sources.neotoma.relational import (
+        build_neotoma_relational_snapshot,
+    )
+    from bijux_pollenomics_dev.source_completion.neotoma_variable_surface import (
+        native_datums,
+    )
+
+    datums, _, _ = _canonical_case()
+    source = [
+        {
+            "site": {
+                "siteid": 1,
+                "collectionunit": {
+                    "collectionunitid": 2,
+                    "dataset": {
+                        "datasetid": 3,
+                        "samples": [{"sampleid": 4, "datum": datums}],
+                    },
+                },
+            }
+        }
+    ]
+    snapshot = build_neotoma_relational_snapshot(
+        source,
+        source_snapshot_id="generated-native-variables",
+        build_id="generated-native-variables",
+    )
+    variables, conflicts = snapshot["variables"], snapshot["conflicts"]
+    assert isinstance(variables, list) and isinstance(conflicts, list)
+    result = reconcile(native_datums(source), variables, conflicts)
+    assert result["match"], result
+    assert result["native_datum_rows"] == 4
+    observations = snapshot["observations"]
+    assert isinstance(observations, list) and len(observations) == 4
