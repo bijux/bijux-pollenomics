@@ -87,6 +87,8 @@ class ChainOperation:
         ):
             raise ValueError("Ancestry source member is not a literal safe path")
         tree = self.seal(root)
+        if relative.endswith(".body"):
+            self.validate()
         return tree.read(tree.root / relative, max_bytes=bound)
 
     def epoch(self, context_pin: str, native_pin: str) -> dict[str, Any]:
