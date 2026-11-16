@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
+import math
 from typing import TypeAlias
 
 JsonObject: TypeAlias = Mapping[str, object]
@@ -57,7 +58,15 @@ def parse_position(value: object) -> Position | None:
         latitude, (int, float)
     ):
         return None
-    return float(longitude), float(latitude)
+    if isinstance(longitude, bool) or isinstance(latitude, bool):
+        return None
+    try:
+        position = float(longitude), float(latitude)
+    except OverflowError:
+        return None
+    if not all(math.isfinite(coordinate) for coordinate in position):
+        return None
+    return position
 
 
 def parse_linear_ring(value: object) -> LinearRing | None:
