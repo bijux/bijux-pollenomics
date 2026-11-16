@@ -53,6 +53,13 @@ def generate_report_partition(
     if partition is None:
         raise ValueError(f"Unknown report partition: {partition_id}")
     output_root = Path(output_root)
+    inventory: tuple[str, ...] = ()
+
+    def validate_partition(root: Path) -> None:
+        nonlocal inventory
+        inventory = relative_file_inventory(root)
+        _validate_partition_paths(partition.identity, inventory, plan=plan)
+
     publish_into_staging_dir(
         output_root,
         lambda staging_output_root: publish_report_partition(
@@ -76,9 +83,8 @@ def generate_report_partition(
             ),
             write_summary_json_fn=write_summary_json,
         ),
+        validate=validate_partition,
     )
-    inventory = relative_file_inventory(output_root)
-    _validate_partition_paths(partition.identity, inventory, plan=plan)
     return ReportPartitionResult(
         partition=partition,
         output_root=output_root,

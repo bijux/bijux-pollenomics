@@ -6,15 +6,31 @@ from collections.abc import Callable
 from contextlib import suppress
 import os
 from pathlib import Path
-from typing import Any, TypeVar
+from typing import Any, Protocol, TypeVar
 
 from ..errors.cleanup import add_cleanup_note
 from .anchors import DirectoryAnchor, identity
-from .owned_writes import OwnedTreeWriter
 from .owned_writes import _rename_directory as _rename_directory
 from .regular_inputs import BoundedInputTree
 
 _Result = TypeVar("_Result")
+
+
+class ReplacementCandidate(Protocol):
+    """An exclusive root and its complete publication attachment seal."""
+
+    @property
+    def root(self) -> Path:
+        """Return the original private candidate path."""
+        ...
+
+    def validate_attachment(self) -> None:
+        """Require the original candidate at its private path."""
+        ...
+
+    def validate_closed_attachment(self, root: Path) -> None:
+        """Require the same complete candidate at an intentional attachment."""
+        ...
 
 
 def _attached(parent: DirectoryAnchor, name: str) -> tuple[int, int, int] | None:
@@ -42,7 +58,7 @@ def _move(
 
 
 def publish_owned_replacement(
-    writer: OwnedTreeWriter,
+    writer: ReplacementCandidate,
     *,
     final: Path,
     prior: BoundedInputTree | None,
