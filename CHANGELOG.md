@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#462](https://github.com/bijux/bijux-pollenomics/pull/462) — Owned source publication and native collection admission
+
+- Bind boundary decoding to authenticated bounded bytes and retain owned Neotoma
+  source replacement, predecessors and recovery receipts.
+- Bind RAÄ density admission to native membership and reviewed source inputs;
+  complete the maintained Atlas consumer before claiming delivery readiness.
+- Bound binary HTTP/AADR annotation ingress with verified TLS and literal native
+  release/file identities; describe source publication and recovery contracts.
+
 ### [#461](https://github.com/bijux/bijux-pollenomics/pull/461) — Bounded source membership and contributor attribution
 
 - Enforce per-query SEAD page budgets across filtered source ID batches.
