@@ -51,14 +51,18 @@ def publish_owned_source_tree(
     owned = _identity(staging)
     writer.validate_attachment()
     _require_identity(staging, owned)
+    writer.validate_publication_attachment(staging)
     validate(staging)
     writer.validate_attachment()
     _require_identity(staging, owned)
     if final.name in {"", ".", ".."} or not final.is_absolute():
         raise ValueError("Source publication target is not a canonical path")
+    writer.validate_publication_attachment(staging)
     _identity(final.parent)
     publish_new_output_tree(final_output_root=final, staging_output_root=staging)
     _require_identity(final, owned)
+    writer.validate_publication_attachment(final)
     result = validate(final)
     _require_identity(final, owned)
+    writer.validate_publication_attachment(final)
     return result

@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 
 from ....core.files import write_json
+from ....core.filesystem import OwnedTreeWriter
 from ....core.owned_tree import (
     build_staging_output_dir,
     remove_output_tree,
@@ -62,6 +63,7 @@ def write_neotoma_download_archive(
     extract_neotoma_download_dataset_ids_fn: Callable[
         [Iterable[Mapping[str, object]]], list[int]
     ],
+    writer: OwnedTreeWriter | None = None,
 ) -> Path:
     """Stage reconciled downloads before replacing the owned archive together."""
     archive_dir = Path(raw_dir) / neotoma_download_archive_dirname
@@ -88,6 +90,22 @@ def write_neotoma_download_archive(
         archive_label=neotoma_download_archive_label,
         extract_ids=extract_neotoma_download_dataset_ids_fn,
     )
+    if writer is not None:
+        if archive_dir.exists():
+            raise FileExistsError(archive_dir)
+        _write_archive_members(
+            archive_dir,
+            parts=parts,
+            requested_ids=requested_ids,
+            returned_ids=returned_ids,
+            row_count=len(rows),
+            rows_per_part=rows_per_part,
+            neotoma_data_url=neotoma_data_url,
+            neotoma_datasettype=neotoma_datasettype,
+            neotoma_download_archive_label=neotoma_download_archive_label,
+            writer=writer,
+        )
+        return archive_dir / "manifest.json"
     stage = build_staging_output_dir(archive_dir)
     stage.mkdir(parents=True, exist_ok=False)
     try:
@@ -190,6 +208,7 @@ def _write_archive_members(
     neotoma_data_url: str,
     neotoma_datasettype: str,
     neotoma_download_archive_label: str,
+    writer: OwnedTreeWriter | None = None,
 ) -> None:
     """Write members into the exclusive, unpublished candidate tree."""
     generated_on = str(date.today())
@@ -211,6 +230,7 @@ def _write_archive_members(
                 "downloaded_dataset_ids": part["downloaded_dataset_ids"],
                 "rows": part["rows"],
             },
+            writer=writer,
         )
         manifest_parts.append(
             {
@@ -240,4 +260,5 @@ def _write_archive_members(
             "part_count": len(parts),
             "parts": manifest_parts,
         },
+        writer=writer,
     )

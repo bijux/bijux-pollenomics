@@ -164,9 +164,40 @@ def test_supporting_archives_preserve_all_native_populations_and_legacy_bytes(
     for field in fields(baseline):
         if field.name != "ancillary":
             assert getattr(baseline, field.name) == getattr(configured, field.name)
-    assert build_source_resource_payloads(baseline) == build_source_resource_payloads(
-        configured
+    before = build_source_resource_payloads(baseline)
+    after = build_source_resource_payloads(configured)
+    assert (
+        before.domain["schema_version"]
+        == after.domain["schema_version"]
+        == "atlas-source-resources.v2"
     )
+    core_kinds = {
+        "context",
+        "sites",
+        "resources",
+        "descriptors",
+        "ancillary_context",
+        "facet_slots",
+        "ancillary_observations",
+        "linked_occurrences",
+    }
+    assert [part for part in before.payloads if part["kind"] in core_kinds] == [
+        part for part in after.payloads if part["kind"] in core_kinds
+    ]
+    assert before.domain["supporting_archive_count"] == 0
+    assert after.domain["supporting_archive_count"] == 1
+    for key in (
+        "record_count",
+        "site_count",
+        "version_status_count",
+        "ancillary_slot_count",
+        "ancillary_observation_count",
+        "ancillary_linked_occurrence_count",
+    ):
+        assert before.domain[key] == after.domain[key]
+    assert build_source_resource_payloads(
+        replace(baseline, ancillary=None)
+    ) == build_source_resource_payloads(replace(configured, ancillary=None))
     empty = replace(
         source,
         ancillary=replace(

@@ -3,11 +3,13 @@ from __future__ import annotations
 from collections.abc import Iterable
 from copy import deepcopy
 import csv
+from io import StringIO
 import json
 from pathlib import Path
 from typing import cast
 
 from ...core.files import write_json
+from ...core.filesystem import OwnedTreeWriter
 from ..contracts.models import ContextPointRecord
 
 
@@ -16,7 +18,12 @@ def _normalize_csv_text(value: str) -> str:
     return "\n".join(line.rstrip() for line in value.splitlines()).strip()
 
 
-def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) -> None:
+def write_context_points_csv(
+    path: Path,
+    records: Iterable[ContextPointRecord],
+    *,
+    writer: OwnedTreeWriter | None = None,
+) -> None:
     """Write normalized context point records as CSV."""
     records = tuple(records)
     include_source = any(
@@ -48,11 +55,16 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
     ]
     if include_source:
         fieldnames.extend(("occurrence_supports_json", "source_record_json"))
-    with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
-        writer.writeheader()
+    buffer = StringIO(newline="") if writer is not None else None
+    with (
+        buffer
+        if buffer is not None
+        else path.open("w", encoding="utf-8", newline="") as handle
+    ):
+        csv_writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
+        csv_writer.writeheader()
         for record in records:
-            writer.writerow(
+            csv_writer.writerow(
                 {
                     "source": record.source,
                     "layer_key": record.layer_key,
@@ -110,10 +122,18 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
                     ),
                 }
             )
+        if writer is not None and buffer is not None:
+            writer.write_bytes(
+                path.relative_to(writer.root).as_posix(),
+                buffer.getvalue().encode("utf-8"),
+            )
 
 
 def write_context_points_geojson(
-    path: Path, records: Iterable[ContextPointRecord]
+    path: Path,
+    records: Iterable[ContextPointRecord],
+    *,
+    writer: OwnedTreeWriter | None = None,
 ) -> None:
     """Write normalized context point records as GeoJSON."""
     features = []
@@ -169,7 +189,7 @@ def write_context_points_geojson(
             properties["occurrence_supports"] = [
                 support.as_dict() for support in record.occurrence_supports
             ]
-    write_json(path, {"type": "FeatureCollection", "features": features})
+    write_json(path, {"type": "FeatureCollection", "features": features}, writer=writer)
 
 
 __all__ = ["write_context_points_csv", "write_context_points_geojson"]

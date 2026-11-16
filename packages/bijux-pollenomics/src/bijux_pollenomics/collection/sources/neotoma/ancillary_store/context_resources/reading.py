@@ -7,8 +7,11 @@ import math
 from pathlib import Path
 from typing import Any
 
-from ...capture.context_resources.models import DEFAULT_CONTEXT_LIMITS, RESOURCE_KINDS
-from ...capture.context_resources.protocol import assess_http, request_for
+from ...capture.context_resources.models import (
+    DEFAULT_CONTEXT_LIMITS,
+    SUPPORTED_RESOURCE_KINDS,
+)
+from ...capture.context_resources.protocol import assess_http
 from ...capture.receipts import _object
 from ...capture.resources.models import NeotomaResourceLimits
 from ...capture.resources.replay import _same_json
@@ -17,6 +20,7 @@ from .metadata import (
     NeotomaContextResourceInventory,
     pinned,
     read_neotoma_context_resource_inventory,
+    source_request,
 )
 from .scope import NeotomaContextArchiveBindings
 
@@ -84,7 +88,7 @@ def qualify_profile(
     kind = entry["resource_kind"]
     expected_fields = (
         {"status", "data"}
-        if kind == "depositional_environment"
+        if kind in {"depositional_environment", "dataset_depositional_environment"}
         else {"status", "data", "message"}
     )
     if (
@@ -100,7 +104,7 @@ def qualify_profile(
         "source_payload_preserved": True,
         "related_resource_graph_complete": False,
     }
-    if kind == "depositional_environment":
+    if kind in {"depositional_environment", "dataset_depositional_environment"}:
         parent = next(
             row
             for row in inventory.scopes.original["requested_sites"]
@@ -142,6 +146,14 @@ def qualify_profile(
             complete_environment_coverage_established=False,
             environment_inferred_from_prose_or_collection_type=False,
         )
+        if kind == "dataset_depositional_environment":
+            requested = {owner[2] for owner in owners}
+            returned = {owner[2] for owner in observed}
+            profile.update(
+                requested_native_dataset_ids=sorted(requested),
+                returned_native_dataset_ids=sorted(returned),
+                missing_requested_native_dataset_ids=sorted(requested - returned),
+            )
     else:
         fields = {
             "hydrolakeid",
@@ -226,7 +238,7 @@ def read_entry(
         bound + int(not record["body_complete"]),
     )
     assessed = assess_http(
-        record, request_for(entry["resource_kind"], entry["site_id"]), body, bound
+        record, source_request(entry, inventory.source.proof), body, bound
     )
     if not _same_json({key: entry.get(key) for key in assessed}, assessed):
         raise ValueError("Selected context source buffer assessment differs")
@@ -261,7 +273,10 @@ def _selected(
     typed: bool = False,
 ) -> tuple[NeotomaContextResourceInventory, dict[str, Any], dict[str, Any]]:
     positive_native_id(site_id)
-    if not isinstance(resource_kind, str) or resource_kind not in RESOURCE_KINDS:
+    if (
+        not isinstance(resource_kind, str)
+        or resource_kind not in SUPPORTED_RESOURCE_KINDS
+    ):
         raise ValueError("Selected context kind is unsupported")
     inventory = read_neotoma_context_resource_inventory(
         directory,

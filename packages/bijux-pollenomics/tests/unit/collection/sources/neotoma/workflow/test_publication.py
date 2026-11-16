@@ -19,33 +19,7 @@ from bijux_pollenomics.collection.workflow.planning.source_registry import (
 )
 from bijux_pollenomics.core.files import write_json
 
-
-@pytest.fixture
-def source(monkeypatch: pytest.MonkeyPatch) -> list[str]:
-    calls: list[str] = []
-
-    def inventory(*args: Any) -> list[dict[str, object]]:
-        calls.append("inventory")
-        return [{"site": {"datasets": [{"datasetid": 201}]}}]
-
-    monkeypatch.setattr(collection, "fetch_neotoma_dataset_inventory_rows", inventory)
-    monkeypatch.setattr(
-        collection, "filter_neotoma_dataset_inventory_rows", lambda rows, **_: rows
-    )
-    monkeypatch.setattr(
-        collection,
-        "fetch_neotoma_dataset_download_rows",
-        lambda _: [{"site": {"dataset": {"datasetid": 201}}}],
-    )
-    monkeypatch.setattr(
-        collection, "build_neotoma_site_rows_from_downloads", lambda _: []
-    )
-    monkeypatch.setattr(collection, "normalize_neotoma_rows", lambda *_, **__: [])
-    return calls
-
-
-def collect(path: Path) -> collection.NeotomaDataReport:
-    return collection.collect_neotoma_data(path, {}, (4, 54, 35, 72))
+from .native_products import collect
 
 
 def test_collection_refuses_existing_outputs_before_source_access(
@@ -70,10 +44,10 @@ def test_failed_later_surface_does_not_publish_partial_collection(
 ) -> None:
     writer = write_json
 
-    def fail(path: Path, payload: object) -> None:
+    def fail(path: Path, payload: object, **kwargs: Any) -> None:
         if path.name == "neotoma_pollen_sites.json":
             raise OSError("site surface cannot be written")
-        writer(path, payload)
+        writer(path, payload, **kwargs)
 
     monkeypatch.setattr(collection, "write_json", fail)
     output = tmp_path / "neotoma"

@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#456](https://github.com/bijux/bijux-pollenomics/pull/456) — Qualified environment sources and bounded Atlas metadata
+
+- Retain matched dataset environment sources and preserve exact native owners,
+  null values and separately declared requested/returned/missing dataset spans.
+- Seal complete collection inventories and retain writer-owned file identities
+  through bounded final member readback without asserting provider admission.
+- Publish bounded ancillary Atlas metadata populations while refusing embedded
+  native bodies, source readers and unsupported verification/admission claims.
+
 ### [#455](https://github.com/bijux/bijux-pollenomics/pull/455) — Source publication ownership and later linked associations
 
 - Retain later literal source associations with independent evidence anchors

@@ -9,6 +9,7 @@ from typing import Any
 from ...source_resources import AtlasResourceCatalogue
 from ..budgets import ATLAS_COMPRESSED_CHUNK_TARGET_BYTES
 from ..nodes import partition_features
+from .ancillary.publication import ancillary_counts, ancillary_groups
 from .validation import (
     _digest,
     _index_entry,
@@ -62,6 +63,8 @@ def build_source_resource_payloads(
             for digest, descriptor in sorted(catalogue.source_descriptors.items())
         ],
     }
+    ancillary = ancillary_groups(catalogue)
+    groups.update(ancillary)
     parts: list[dict[str, Any]] = []
     index: list[dict[str, Any]] = []
     for kind, records in groups.items():
@@ -97,6 +100,12 @@ def build_source_resource_payloads(
         "index_part_ids": index_parts,
         "context_part_id": "context:0",
     }
+    if ancillary:
+        domain.update(
+            schema_version="atlas-source-resources.v2",
+            ancillary_context_part_id="ancillary_context:0",
+            **ancillary_counts(ancillary),
+        )
     result = SourceResourcePayloads(domain=domain, payloads=tuple(parts))
     validate_source_resource_payloads(result, expected_catalogue_manifest_sha256=anchor)
     return result
