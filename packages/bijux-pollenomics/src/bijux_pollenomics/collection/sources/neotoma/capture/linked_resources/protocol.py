@@ -134,6 +134,7 @@ def prepare_targets(
 
 
 def request_for(target: dict[str, Any], attempt: int) -> _Request:
+    """Bind a linked native identity to its exact current-response route."""
     return _Request(
         f"{target['target_key']}-current-attempt-{attempt}",
         f"linked_resource_{target['kind']}",
@@ -145,6 +146,7 @@ def request_for(target: dict[str, Any], attempt: int) -> _Request:
 def plan_from_json(
     control: dict[str, Any],
 ) -> tuple[NeotomaLinkedResourcePlan, NeotomaResourceLimits]:
+    """Decode only the complete maintained linked plan and limit fields."""
     try:
         raw = control["plan"]
         if (
@@ -176,6 +178,7 @@ MAX_MANIFEST_BYTES = 16 * 1024 * 1024
 
 
 def encoded_control(value: Any) -> bytes:
+    """Encode deterministic finite control bytes for content-addressed receipts."""
     return (
         json.dumps(value, sort_keys=True, ensure_ascii=False, allow_nan=False, indent=2)
         + "\n"
@@ -189,6 +192,7 @@ def scoped_control(
     policies: list[str],
     reference: dict[str, str],
 ) -> dict[str, Any]:
+    """Retain exact target permissions and their independent evidence reference."""
     control = {
         "schema_version": SCOPED_LINKED_SCHEMA,
         "plan": asdict(plan),
@@ -253,6 +257,7 @@ def scoped_control(
 def validate_scoped_limits(
     evidence: NeotomaLinkedEvidence, limits: NeotomaResourceLimits
 ) -> None:
+    """Apply existing source resource limits to the anchored evidence population."""
     header = _index(_safe_root(evidence.directory), evidence.manifest_sha256)
     roster_sha = header["authority"]["roster_sha256"]
     resources = tuple(
@@ -271,6 +276,28 @@ def prepare_scoped_targets(
     scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None,
     legacy_rosters: Mapping[str, Path] | None = None,
 ) -> tuple[list[dict[str, Any]], list[str], dict[str, str]]:
+    """Require a freshly authenticated complete evidence publication before GETs."""
+    return _prepare_scoped_targets(
+        plan,
+        source_facets,
+        limits,
+        evidence=evidence,
+        scope_inputs=scope_inputs,
+        legacy_rosters=legacy_rosters,
+    )
+
+
+def _prepare_scoped_targets(
+    plan: NeotomaLinkedResourcePlan,
+    source_facets: Mapping[str, Path],
+    limits: NeotomaResourceLimits,
+    *,
+    evidence: NeotomaLinkedEvidence,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None,
+    legacy_rosters: Mapping[str, Path] | None = None,
+    _session: Any = None,
+    _operation: object | None = None,
+) -> tuple[list[dict[str, Any]], list[str], dict[str, str]]:
     """Require an externally anchored complete source publication before new GETs."""
     selected = _selected(plan, source_facets)
     if not isinstance(evidence, NeotomaLinkedEvidence):
@@ -282,14 +309,27 @@ def prepare_scoped_targets(
     if set(source_facets) != set(header["authority"]["source_captures"]):
         raise ValueError("Linked evidence complete source namespace differs")
     validate_scoped_limits(evidence, limits)
-    index = load_neotoma_linked_evidence(
-        evidence.directory,
-        expected_manifest_sha256=evidence.manifest_sha256,
-        expected_roster_sha256=roster_sha,
-        scope=scope_inputs[roster_sha],
-        source_facets=source_facets,
-        legacy_rosters=legacy_rosters,
-    )
+    if _session is None:
+        index = load_neotoma_linked_evidence(
+            evidence.directory,
+            expected_manifest_sha256=evidence.manifest_sha256,
+            expected_roster_sha256=roster_sha,
+            scope=scope_inputs[roster_sha],
+            source_facets=source_facets,
+            legacy_rosters=legacy_rosters,
+        )
+    else:
+        from .evidence_parts.session import _LinkedEvidenceSession
+
+        if type(_session) is not _LinkedEvidenceSession:
+            raise ValueError("Only an active source-owned evidence session is accepted")
+        index = _session.index(
+            operation=_operation,
+            evidence=evidence,
+            source_facets=source_facets,
+            scope_inputs=scope_inputs,
+            legacy_rosters=legacy_rosters,
+        )
     targets = []
     for kind, native_id in sorted(selected):
         key = f"{kind}-{native_id}"

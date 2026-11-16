@@ -50,11 +50,15 @@ class ApiSeadTableReader:
         self, table_name: str, *, select: str, order_by: tuple[str, ...]
     ) -> list[Row]:
         """Collect a complete source table under the declared projection."""
-        return fetch_sead_rows(
+        return _owned_rows(
             table_name,
-            fetch_json_fn=self.fetch_json_fn,
+            fetch_sead_rows(
+                table_name,
+                fetch_json_fn=self.fetch_json_fn,
+                select=select,
+                order_by=order_by,
+            ),
             select=select,
-            order_by=order_by,
         )
 
     def rows_by_ids(
@@ -67,13 +71,17 @@ class ApiSeadTableReader:
         order_by: tuple[str, ...],
     ) -> list[Row]:
         """Collect exact requested identities through bounded provider queries."""
-        return fetch_sead_rows_by_ids(
+        return _owned_rows(
             table_name,
-            fetch_json_fn=self.fetch_json_fn,
+            fetch_sead_rows_by_ids(
+                table_name,
+                fetch_json_fn=self.fetch_json_fn,
+                select=select,
+                filter_field=filter_field,
+                ids=ids,
+                order_by=order_by,
+            ),
             select=select,
-            filter_field=filter_field,
-            ids=ids,
-            order_by=order_by,
         )
 
 
@@ -143,7 +151,31 @@ class MappingSeadTableReader:
                     _source_order_value(row, field) for field in order_by
                 )
             )
-        return projected_rows
+        return _owned_rows(table_name, projected_rows, select=select)
+
+
+def _owned_rows(table_name: str, rows: list[Row], *, select: str) -> list[Row]:
+    """Require unique owners when the declared projection requests their key."""
+    # The collection facade imports catalog projections during initialization.
+    from bijux_pollenomics.collection.sources.sead.collection.validation import (
+        primary_key_for_table,
+    )
+
+    try:
+        primary_key = primary_key_for_table(table_name)
+    except ValueError:
+        # Generic projections have no declared owner in the site inventory graph.
+        return rows
+    fields = {field.strip() for field in select.split(",")}
+    if primary_key not in fields and "*" not in fields:
+        return rows
+    seen: set[int] = set()
+    for row in rows:
+        identity = required_sead_identifier(row.get(primary_key))
+        if identity in seen:
+            raise ValueError(f"Duplicate SEAD {table_name}.{primary_key}: {identity}")
+        seen.add(identity)
+    return rows
 
 
 def _source_order_value(row: Mapping[str, object], field: str) -> tuple[bool, object]:

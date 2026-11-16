@@ -2,6 +2,14 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#470](https://github.com/bijux/bijux-pollenomics/pull/470) — Source-owned evidence sessions and inventory projections
+
+- Bind linked-evidence reuse to live ancestry operations, exact resolvers and
+  current permission seals while preserving independent public replay validation.
+- Refuse ambiguous requested SEAD owners while retaining valid nonowner projections.
+- Require explicit opt-in for retained observation tracing and export source
+  classification directly from its defining owner without changing the public API.
+
 ### [#469](https://github.com/bijux/bijux-pollenomics/pull/469) — Owned annotation release publication and primary recovery errors
 
 - Preflight finite release metadata and validate complete AADR releases before
