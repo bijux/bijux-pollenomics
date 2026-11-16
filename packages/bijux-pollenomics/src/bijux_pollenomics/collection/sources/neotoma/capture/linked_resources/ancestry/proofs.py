@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
+from contextlib import nullcontext
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -20,10 +21,11 @@ from ..evidence import (
     iter_neotoma_linked_evidence_occurrences,
     read_neotoma_linked_evidence_metadata,
 )
+from ..evidence_parts.session import _LinkedEvidenceSession
 from ..models import EVIDENCE_SCHEMA, LINKED_SCHEMA, SCOPED_LINKED_SCHEMA
 from ..profiles import _UnavailableLinkedSource, parse_neotoma_linked_source
 from ..protocol import _RANK, request_for
-from ..replay import _control, replay_neotoma_linked_resources
+from ..replay import _control, _replay_linked_resources
 from .models import (
     MAX_FILES,
     MAX_SOURCE_BYTES,
@@ -32,7 +34,9 @@ from .models import (
 )
 
 
-def capture_snapshot(roots: Mapping[str, Path]) -> dict[str, Any]:
+def capture_snapshot(
+    roots: Mapping[str, Path], *, _before_body_read: Callable[[], None] | None = None
+) -> dict[str, Any]:
     """Hash finite literal capture namespaces; never accept caller-added members."""
     result = {}
     total = 0
@@ -50,6 +54,8 @@ def capture_snapshot(roots: Mapping[str, Path]) -> dict[str, Any]:
         )
         members = {}
         for name, size in sorted(sizes.items()):
+            if name.endswith(".body") and _before_body_read is not None:
+                _before_body_read()
             raw = _read(root / name, min(32 * 1024 * 1024, MAX_SOURCE_BYTES - total))
             if len(raw) != size:
                 raise ValueError("Taxon ancestry source namespace size changed")
@@ -197,148 +203,187 @@ def source_facts(
         raise ValueError(
             "Taxon ancestry complete eligible source target coverage is missing"
         )
-    before = capture_snapshot(sources.capture_sources)
-    seeds = []
-    edges = []
-    source_counts = {}
-    attempted_targets = received_entities = 0
-    for digest, directory in sorted(sources.capture_sources.items()):
-        manifest, control, plan, recorded = controls[digest]
-        scoped = manifest["schema_version"] == SCOPED_LINKED_SCHEMA
-        predecessors = {
-            key: sources.source_facets[key]
-            for key in plan.source_facet_manifest_sha256s
-        }
-        captured = replay_neotoma_linked_resources(
-            directory,
-            expected_manifest_sha256=digest,
-            source_facets=predecessors,
-            scope_inputs=context.current_scope_inputs,
-            evidence=sources.evidence if scoped else None,
-            legacy_rosters={
-                pin: context.legacy_rosters[pin]
-                for pin in header["authority"]["legacy_roster_sha256s"]
-                if pin in context.legacy_rosters
-            },
-        )
-        for entry in captured.resources:
-            identity = entry["identity"]
-            source_counts[entry["target_key"]] = entry["terminal_status"]
-            attempted_targets += bool(entry["attempts"])
-            received_entities += sum(
-                "body_file" in attempt for attempt in entry["attempts"]
-            )
-            if identity["kind"] != "taxon":
-                continue
-            row = {
-                "native_id": identity["native_id"],
-                "source_capture_manifest_sha256": digest,
-                "target_key": entry["target_key"],
-                "source_terminal_status": entry["terminal_status"],
-                "source_proof_reference": {
-                    "target_key": entry["target_key"],
-                    "occurrence_count": header["targets"][entry["target_key"]][
-                        "occurrence_count"
-                    ],
-                    "proof_ranges": header["targets"][entry["target_key"]][
-                        "proof_ranges"
-                    ],
-                },
-                "literal_record_count": None,
-                "capture_preget_scope": "not_recorded_legacy_capture"
-                if manifest["schema_version"] == LINKED_SCHEMA
-                else "authenticated_complete_source_evidence",
-            }
-            seeds.append(row)
-            if (
-                entry["terminal_status"]
-                != "received_complete_unqualified_linked_resource"
-            ):
-                row["qualification_status"] = "unavailable_source_result"
-                continue
-            reference = entry["attempts"][-1]
-            receipt_raw = _read(directory / reference["receipt_file"], 1024 * 1024)
-            if sha256(receipt_raw).hexdigest() != reference["receipt_sha256"]:
-                raise ValueError("Taxon ancestry source receipt identity differs")
-            receipt = _object(receipt_raw)
-            body = _read(
-                directory / reference["body_file"], recorded.max_response_bytes
-            )
-            _validate_receipt(
-                receipt,
-                request_for(identity, len(entry["attempts"])),
-                body,
-                recorded.max_response_bytes,
-            )
-            row["source"] = {
-                "body_file": reference["body_file"],
-                "body_sha256": sha256(body).hexdigest(),
-                "receipt_file": reference["receipt_file"],
-                "receipt_sha256": reference["receipt_sha256"],
-                "utc_start": receipt["utc_start"],
-                "utc_end": receipt["utc_end"],
-            }
-            try:
-                parsed = parse_neotoma_linked_source(
-                    identity, body, expected_body_sha256=sha256(body).hexdigest()
-                )
-            except _UnavailableLinkedSource as error:
-                row.update(
-                    qualification_status="successful_empty_not_absence",
-                    reason=str(error),
-                )
-                continue
-            except ValueError as error:
-                row.update(
-                    qualification_status="refused_source_profile", reason=str(error)
-                )
-                continue
-            row["qualification_status"] = "qualified_native_taxon_detail"
-            row["literal_record_count"] = len(parsed.records)
-            for index, record in enumerate(parsed.payload["data"]):
-                for field, kind, relation in [
-                    ("highertaxonid", "taxon", "taxon_parent"),
-                    ("publicationid", "publication", "taxon_reference_publication"),
-                ]:
-                    value = record[field]
-                    status = (
-                        "explicit_null"
-                        if value is None
-                        else "self_edge"
-                        if kind == "taxon" and value == identity["native_id"]
-                        else "literal_parent"
-                        if kind == "taxon"
-                        else "literal_citation"
-                    )
-                    edge = {
-                        "child_taxon_id": identity["native_id"],
-                        "native_id": value,
-                        "target_kind": kind,
-                        "relation": relation,
-                        "status": status,
-                        "json_pointer": f"/data/{index}/{field}",
-                        "source_capture_manifest_sha256": digest,
-                        "source_target_key": entry["target_key"],
-                        "source": row["source"],
-                        "native_field_value_verified": True,
-                    }
-                    edge["edge_id"] = sha256(
-                        json.dumps(edge, sort_keys=True, separators=(",", ":")).encode()
-                    ).hexdigest()
-                    edges.append(edge)
-                    if len(edges) > limits.max_literal_edges:
-                        raise ValueError(
-                            "Taxon ancestry literal edge population exceeds bound"
-                        )
-    expected_seeds = {
-        target["native_id"]
-        for target in header["targets"].values()
-        if target["kind"] == "taxon"
+    legacy = {
+        pin: context.legacy_rosters[pin]
+        for pin in header["authority"]["legacy_roster_sha256s"]
+        if pin in context.legacy_rosters
     }
-    if {row["native_id"] for row in seeds} != expected_seeds:
-        raise ValueError("Taxon ancestry complete declared seed population differs")
-    if capture_snapshot(sources.capture_sources) != before:
-        raise ValueError("Taxon ancestry source captures changed during derivation")
+    operation = object()
+    session = (
+        _LinkedEvidenceSession(
+            source_owner=sources,
+            scope_inputs=context.current_scope_inputs,
+            legacy_rosters=legacy,
+            operation=operation,
+        )
+        if any(
+            control[0]["schema_version"] == SCOPED_LINKED_SCHEMA
+            for control in controls.values()
+        )
+        else None
+    )
+
+    def check_body_permission() -> None:
+        if session is not None:
+            session.check(
+                operation=operation,
+                evidence=sources.evidence,
+                source_facets=sources.source_facets,
+                scope_inputs=context.current_scope_inputs,
+                legacy_rosters=legacy,
+            )
+
+    with session if session is not None else nullcontext():
+        before = capture_snapshot(
+            sources.capture_sources, _before_body_read=check_body_permission
+        )
+        seeds = []
+        edges = []
+        source_counts = {}
+        attempted_targets = received_entities = 0
+        for digest, directory in sorted(sources.capture_sources.items()):
+            manifest, control, plan, recorded = controls[digest]
+            scoped = manifest["schema_version"] == SCOPED_LINKED_SCHEMA
+            predecessors = {
+                key: sources.source_facets[key]
+                for key in plan.source_facet_manifest_sha256s
+            }
+            captured = _replay_linked_resources(
+                directory,
+                expected_manifest_sha256=digest,
+                source_facets=predecessors,
+                scope_inputs=context.current_scope_inputs,
+                evidence=sources.evidence if scoped else None,
+                legacy_rosters=legacy,
+                _session=session,
+                _operation=operation,
+            )
+            for entry in captured.resources:
+                identity = entry["identity"]
+                source_counts[entry["target_key"]] = entry["terminal_status"]
+                attempted_targets += bool(entry["attempts"])
+                received_entities += sum(
+                    "body_file" in attempt for attempt in entry["attempts"]
+                )
+                if identity["kind"] != "taxon":
+                    continue
+                row = {
+                    "native_id": identity["native_id"],
+                    "source_capture_manifest_sha256": digest,
+                    "target_key": entry["target_key"],
+                    "source_terminal_status": entry["terminal_status"],
+                    "source_proof_reference": {
+                        "target_key": entry["target_key"],
+                        "occurrence_count": header["targets"][entry["target_key"]][
+                            "occurrence_count"
+                        ],
+                        "proof_ranges": header["targets"][entry["target_key"]][
+                            "proof_ranges"
+                        ],
+                    },
+                    "literal_record_count": None,
+                    "capture_preget_scope": "not_recorded_legacy_capture"
+                    if manifest["schema_version"] == LINKED_SCHEMA
+                    else "authenticated_complete_source_evidence",
+                }
+                seeds.append(row)
+                if (
+                    entry["terminal_status"]
+                    != "received_complete_unqualified_linked_resource"
+                ):
+                    row["qualification_status"] = "unavailable_source_result"
+                    continue
+                reference = entry["attempts"][-1]
+                receipt_raw = _read(directory / reference["receipt_file"], 1024 * 1024)
+                if sha256(receipt_raw).hexdigest() != reference["receipt_sha256"]:
+                    raise ValueError("Taxon ancestry source receipt identity differs")
+                receipt = _object(receipt_raw)
+                check_body_permission()
+                body = _read(
+                    directory / reference["body_file"], recorded.max_response_bytes
+                )
+                _validate_receipt(
+                    receipt,
+                    request_for(identity, len(entry["attempts"])),
+                    body,
+                    recorded.max_response_bytes,
+                )
+                row["source"] = {
+                    "body_file": reference["body_file"],
+                    "body_sha256": sha256(body).hexdigest(),
+                    "receipt_file": reference["receipt_file"],
+                    "receipt_sha256": reference["receipt_sha256"],
+                    "utc_start": receipt["utc_start"],
+                    "utc_end": receipt["utc_end"],
+                }
+                try:
+                    parsed = parse_neotoma_linked_source(
+                        identity, body, expected_body_sha256=sha256(body).hexdigest()
+                    )
+                except _UnavailableLinkedSource as error:
+                    row.update(
+                        qualification_status="successful_empty_not_absence",
+                        reason=str(error),
+                    )
+                    continue
+                except ValueError as error:
+                    row.update(
+                        qualification_status="refused_source_profile", reason=str(error)
+                    )
+                    continue
+                row["qualification_status"] = "qualified_native_taxon_detail"
+                row["literal_record_count"] = len(parsed.records)
+                for index, record in enumerate(parsed.payload["data"]):
+                    for field, kind, relation in [
+                        ("highertaxonid", "taxon", "taxon_parent"),
+                        ("publicationid", "publication", "taxon_reference_publication"),
+                    ]:
+                        value = record[field]
+                        status = (
+                            "explicit_null"
+                            if value is None
+                            else "self_edge"
+                            if kind == "taxon" and value == identity["native_id"]
+                            else "literal_parent"
+                            if kind == "taxon"
+                            else "literal_citation"
+                        )
+                        edge = {
+                            "child_taxon_id": identity["native_id"],
+                            "native_id": value,
+                            "target_kind": kind,
+                            "relation": relation,
+                            "status": status,
+                            "json_pointer": f"/data/{index}/{field}",
+                            "source_capture_manifest_sha256": digest,
+                            "source_target_key": entry["target_key"],
+                            "source": row["source"],
+                            "native_field_value_verified": True,
+                        }
+                        edge["edge_id"] = sha256(
+                            json.dumps(
+                                edge, sort_keys=True, separators=(",", ":")
+                            ).encode()
+                        ).hexdigest()
+                        edges.append(edge)
+                        if len(edges) > limits.max_literal_edges:
+                            raise ValueError(
+                                "Taxon ancestry literal edge population exceeds bound"
+                            )
+        expected_seeds = {
+            target["native_id"]
+            for target in header["targets"].values()
+            if target["kind"] == "taxon"
+        }
+        if {row["native_id"] for row in seeds} != expected_seeds:
+            raise ValueError("Taxon ancestry complete declared seed population differs")
+        if (
+            capture_snapshot(
+                sources.capture_sources, _before_body_read=check_body_permission
+            )
+            != before
+        ):
+            raise ValueError("Taxon ancestry source captures changed during derivation")
     return {
         "header": header,
         "roots": roots,

@@ -36,6 +36,7 @@ from .models import (
     NeotomaLinkedResourcePlan,
 )
 from .protocol import (
+    _prepare_scoped_targets,
     plan_from_json,
     prepare_scoped_targets,
     prepare_targets,
@@ -125,6 +126,8 @@ def _targets_for_control(
     scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None,
     evidence: NeotomaLinkedEvidence | None,
     legacy_rosters: Mapping[str, Path] | None,
+    _session: Any = None,
+    _operation: object | None = None,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     if manifest["schema_version"] == LINKED_SCHEMA:
         return prepare_targets(plan, source_facets, limits, scope_inputs=scope_inputs)
@@ -142,13 +145,18 @@ def _targets_for_control(
         raise ValueError(
             "Scoped linked evidence reference differs from external anchor"
         )
-    targets, policies, _ = prepare_scoped_targets(
+    prepare = prepare_scoped_targets if _session is None else _prepare_scoped_targets
+    session_options = (
+        {} if _session is None else {"_session": _session, "_operation": _operation}
+    )
+    targets, policies, _ = prepare(
         plan,
         source_facets,
         limits,
         evidence=evidence,
         scope_inputs=scope_inputs,
         legacy_rosters=legacy_rosters,
+        **session_options,
     )
     return targets, policies
 
@@ -164,6 +172,43 @@ def replay_neotoma_linked_resources(
     legacy_rosters: Mapping[str, Path] | None = None,
 ) -> NeotomaLinkedResourceCapture:
     """Original facet identities and every occurrence are recomputed, never trusted."""
+    return _replay_linked_resources(
+        directory,
+        source_facets=source_facets,
+        expected_manifest_sha256=expected_manifest_sha256,
+        limits=limits,
+        scope_inputs=scope_inputs,
+        evidence=evidence,
+        legacy_rosters=legacy_rosters,
+    )
+
+
+def _replay_linked_resources(
+    directory: Path,
+    *,
+    source_facets: Mapping[str, Path],
+    expected_manifest_sha256: str | None = None,
+    limits: NeotomaResourceLimits = DEFAULT_RESOURCE_LIMITS,
+    scope_inputs: Mapping[str, NeotomaFacetScopeInputs] | None = None,
+    evidence: NeotomaLinkedEvidence | None = None,
+    legacy_rosters: Mapping[str, Path] | None = None,
+    _session: Any = None,
+    _operation: object | None = None,
+) -> NeotomaLinkedResourceCapture:
+    """Original facet identities and every occurrence are recomputed, never trusted."""
+    from .evidence_parts.session import _check_session
+
+    session_inputs = {
+        "capture_directory": directory,
+        "capture_manifest_sha256": expected_manifest_sha256,
+        "operation": _operation,
+        "evidence": evidence,
+        "source_facets": source_facets,
+        "scope_inputs": scope_inputs,
+        "legacy_rosters": legacy_rosters,
+    }
+    if _session is not None:
+        _check_session(_session, **session_inputs, full=True)
     root = _safe_root(directory)
     manifest, control, plan, recorded, digest = _control(root, expected_manifest_sha256)
     targets, policies = _targets_for_control(
@@ -175,6 +220,8 @@ def replay_neotoma_linked_resources(
         scope_inputs=scope_inputs,
         evidence=evidence,
         legacy_rosters=legacy_rosters,
+        _session=_session,
+        _operation=_operation,
     )
     if manifest["schema_version"] == SCOPED_LINKED_SCHEMA:
         assert evidence is not None
@@ -201,6 +248,8 @@ def replay_neotoma_linked_resources(
     count = total = 0
     files = {"capture-manifest.json", "request-plan.json"}
     for entry, target in zip(entries, targets, strict=True):
+        if _session is not None:
+            _check_session(_session, **session_inputs)
         if (
             not isinstance(entry, dict)
             or entry.get("target_key") != target["target_key"]
@@ -221,6 +270,8 @@ def replay_neotoma_linked_resources(
                 "reason": target["exposure_role"],
             }
         for index, reference in enumerate(entry["attempts"], 1):
+            if _session is not None:
+                _check_session(_session, **session_inputs)
             count += 1
             if count > maximum_requests or total >= maximum_total:
                 raise ValueError(
@@ -270,6 +321,8 @@ def replay_neotoma_linked_resources(
                 ):
                     raise ValueError("Neotoma linked body reference differs")
                 bound = min(maximum_body, maximum_total - total)
+                if _session is not None:
+                    _check_session(_session, **session_inputs)
                 body = _read(root / name, bound + 1)
                 assessed = assess_http(record, request, body, bound)
                 total += len(body)
@@ -299,6 +352,8 @@ def replay_neotoma_linked_resources(
         or {path.name for path in root.iterdir()} != files
     ):
         raise ValueError("Neotoma linked file inventory differs")
+    if _session is not None:
+        _check_session(_session, **session_inputs, full=True)
     return NeotomaLinkedResourceCapture(
         digest, tuple(entries), count, total, partitions
     )
