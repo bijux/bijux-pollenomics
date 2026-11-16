@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from hashlib import sha256
 import os
 from pathlib import Path
 import re
-import stat
+
+from bijux_pollenomics.core.filesystem import BoundedInputTree
 
 
 @dataclass(frozen=True, slots=True)
@@ -20,11 +20,20 @@ class RaaDatabaseIdentity:
     stat_identity: tuple[int, int, int, int, int]
 
     def verify_unchanged(self) -> None:
+        """Refuse a different physical database attachment after inspection."""
         current = inspect_database_identity(
             self.path, expected_sha256=self.sha256, expected_byte_count=self.byte_count
         )
         if current != self:
             raise ValueError("RAÄ source database changed during inspection")
+
+
+def check_standalone_database(path: Path) -> None:
+    """Refuse auxiliary source state before any immutable native read."""
+    for suffix in ("-wal", "-shm", "-journal"):
+        auxiliary = path.with_name(path.name + suffix)
+        if auxiliary.exists() or auxiliary.is_symlink():
+            raise ValueError("RAÄ source must be a standalone finalized database")
 
 
 def inspect_database_identity(
@@ -44,37 +53,24 @@ def inspect_database_identity(
     for candidate in (normalized, *normalized.parents):
         if candidate.is_symlink():
             raise ValueError("RAÄ source database cannot use symlink paths")
-    for suffix in ("-wal", "-shm", "-journal"):
-        auxiliary = normalized.with_name(normalized.name + suffix)
-        if auxiliary.exists() or auxiliary.is_symlink():
-            raise ValueError("RAÄ source must be a standalone finalized database")
-    before = normalized.stat()
-    if not stat.S_ISREG(before.st_mode) or before.st_size != expected_byte_count:
-        raise ValueError("RAÄ source database type or byte count mismatch")
-    digest = sha256()
-    with normalized.open("rb") as stream:
-        while content := stream.read(1048576):
-            digest.update(content)
-    after = normalized.stat()
-    before_key = (
-        before.st_dev,
-        before.st_ino,
-        before.st_size,
-        before.st_mtime_ns,
-        before.st_ctime_ns,
-    )
-    after_key = (
-        after.st_dev,
-        after.st_ino,
-        after.st_size,
-        after.st_mtime_ns,
-        after.st_ctime_ns,
-    )
-    if before_key != after_key or digest.hexdigest() != expected_sha256:
-        raise ValueError("RAÄ source database SHA256 or snapshot identity mismatch")
-    return RaaDatabaseIdentity(
-        normalized, expected_sha256, expected_byte_count, after_key
-    )
+    check_standalone_database(normalized)
+    with BoundedInputTree(
+        normalized.parent,
+        max_bytes=expected_byte_count,
+        max_files=1,
+        selected=normalized.name,
+    ) as tree:
+        stamp = tree.files[normalized.name]
+        if stamp[4] != expected_byte_count:
+            raise ValueError("RAÄ source database type or byte count mismatch")
+        tree.validate()
+        check_standalone_database(normalized)
+        if tree.digests[normalized.name] != expected_sha256:
+            raise ValueError("RAÄ source database SHA256 or snapshot identity mismatch")
+        key = (stamp[0], stamp[1], stamp[4], stamp[5], stamp[6])
+        return RaaDatabaseIdentity(
+            normalized, expected_sha256, expected_byte_count, key
+        )
 
 
 # Source profile inspected in the national 2026-09-12 GeoPackage.
