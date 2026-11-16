@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#477](https://github.com/bijux/bijux-pollenomics/pull/477) — Source proof selection and recovery diagnostics
+
+- Authenticate each Neotoma capture metadata selection in one bounded pass while
+  retaining current owners, exposure roles, protected contacts and direct proofs.
+- Preserve primary failures across source recovery diagnostics and ordinary
+  refusal-receipt faults without suppressing custody or process interrupts.
+- Distinguish the retained classification account from current producer
+  verification and document its unresolved execution-receipt availability.
+
 ### [#476](https://github.com/bijux/bijux-pollenomics/pull/476) — Response ownership and cleanup error authority
 
 - Close Neotoma metadata response streams and connections deterministically,
