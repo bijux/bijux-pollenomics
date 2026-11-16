@@ -1,16 +1,20 @@
 from __future__ import annotations
 
+from http.client import HTTPResponse, IncompleteRead
 import json
+import math
 import os
 import ssl
 import time
-from typing import cast
+from typing import BinaryIO, cast
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
 
 INSECURE_TLS_ENV_VAR = "BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS"
 HTTP_REQUEST_RETRIES = 3
+BINARY_MAX_BYTES = 32 * 1024 * 1024
+BINARY_SOCKET_TIMEOUT = 30.0
 ALLOWED_URL_SCHEMES = frozenset({"http", "https"})
 
 
@@ -87,26 +91,106 @@ def fetch_binary(
     url: str,
     headers: dict[str, str] | None = None,
     insecure: bool = False,
+    *,
+    max_bytes: int = BINARY_MAX_BYTES,
+    timeout: float = BINARY_SOCKET_TIMEOUT,
 ) -> bytes:
-    """Fetch binary content with optional TLS fallback."""
+    """Fetch bounded bytes with at most three attempts and a socket timeout.
+
+    The timeout applies to socket operations, not the complete download. Larger
+    sources require an explicit byte limit. Browser and authorized certificate
+    retries share the same attempt budget as transient network failures.
+    """
     validate_http_url(url)
+    if type(insecure) is not bool:
+        raise ValueError("insecure must be a boolean")
+    if type(max_bytes) is not int or max_bytes <= 0:
+        raise ValueError("max_bytes must be a positive integer")
+    if isinstance(timeout, bool) or not isinstance(timeout, (int, float)):
+        raise ValueError("timeout must be positive and finite")
+    try:
+        socket_timeout = float(timeout)
+    except (ValueError, OverflowError) as error:
+        raise ValueError("timeout must be positive and finite") from error
+    if not math.isfinite(socket_timeout) or socket_timeout <= 0:
+        raise ValueError("timeout must be positive and finite")
     request = Request(url, headers=headers or {})
     context = build_ssl_context(insecure=insecure)
-    try:
-        with urlopen(request, context=context) as response:  # nosec B310
-            return cast(bytes, response.read())
-    except HTTPError as error:
-        if error.code != 403:
-            raise
-        fallback_headers = dict(headers or {})
-        fallback_headers.setdefault("User-Agent", "Mozilla/5.0")
-        with urlopen(
-            Request(url, headers=fallback_headers),
-            context=build_ssl_context(insecure=True),
-        ) as response:  # nosec B310
-            return cast(bytes, response.read())
-    except (TimeoutError, URLError):
-        return fetch_url_bytes(request, insecure=insecure, timeout=None)
+    browser_retry = False
+    for attempt in range(HTTP_REQUEST_RETRIES):
+        try:
+            manager = urlopen(request, context=context, timeout=socket_timeout)  # nosec B310
+            response = manager.__enter__()
+            try:
+                payload = _read_binary(response, max_bytes=max_bytes)
+            except BaseException as primary:
+                try:
+                    manager.__exit__(type(primary), primary, primary.__traceback__)
+                except BaseException as close_error:
+                    primary.add_note(f"HTTP response close failed: {close_error}")
+                raise
+        except HTTPError as error:
+            try:
+                error.close()
+            except Exception as close_error:
+                error.add_note(f"HTTP error response close failed: {close_error}")
+            if (
+                error.code != 403
+                or browser_retry
+                or attempt + 1 >= HTTP_REQUEST_RETRIES
+            ):
+                raise
+            fallback_headers = dict(request.header_items())
+            fallback_headers.setdefault("User-agent", "Mozilla/5.0")
+            request = Request(url, headers=fallback_headers)
+            browser_retry = True
+        except URLError as error:
+            if should_retry_insecure_tls(error):
+                if (
+                    insecure
+                    or not allow_insecure_tls_fallback()
+                    or attempt + 1 >= HTTP_REQUEST_RETRIES
+                ):
+                    raise
+                context = build_ssl_context(insecure=True)
+                insecure = True
+                continue
+            if attempt + 1 >= HTTP_REQUEST_RETRIES:
+                raise
+            time.sleep(float(attempt + 1))
+        except TimeoutError:
+            if attempt + 1 >= HTTP_REQUEST_RETRIES:
+                raise
+            time.sleep(float(attempt + 1))
+        else:
+            manager.__exit__(None, None, None)
+            return payload
+    raise RuntimeError("HTTP binary request completed without returning bytes")
+
+
+def _read_binary(response: BinaryIO, *, max_bytes: int) -> bytes:
+    """Check declared size and observe only the limit plus an overflow sentinel."""
+    declared = getattr(response, "headers", {}).get("Content-Length")
+    if isinstance(response, HTTPResponse):
+        # Native length accounts for chunked and bodyless HTTP responses.
+        declared = response.length
+    declared_size = None
+    if declared is not None:
+        digits = str(declared).strip()
+        if digits.isascii() and digits.isdecimal():
+            declared_size = 0
+            for digit in digits:
+                declared_size = declared_size * 10 + ord(digit) - ord("0")
+                if declared_size > max_bytes:
+                    raise ValueError("HTTP binary payload exceeds byte limit")
+    payload = bytearray()
+    while block := response.read(min(64 * 1024, max_bytes - len(payload) + 1)):
+        if len(block) > max_bytes - len(payload):
+            raise ValueError("HTTP binary payload exceeds byte limit")
+        payload.extend(block)
+    if declared_size is not None and len(payload) < declared_size:
+        raise IncompleteRead(bytes(payload), declared_size - len(payload))
+    return bytes(payload)
 
 
 def fetch_url_bytes(
