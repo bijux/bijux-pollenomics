@@ -125,6 +125,7 @@ def _marquer_cell_geometries(path: Path) -> dict[str, dict[str, object]]:
         _marquer_grid_floor,
         clean_optional_text,
         grid_geometry_from_center,
+        math,
         parse_coordinate,
         re,
         read_xlsx_sheet_rows,
@@ -138,14 +139,29 @@ def _marquer_cell_geometries(path: Path) -> dict[str, dict[str, object]]:
         latitude = parse_coordinate(row[3]) if len(row) > 3 else None
         longitude = parse_coordinate(row[4]) if len(row) > 4 else None
         if cell_key and latitude is not None and longitude is not None:
+            if (
+                not math.isfinite(longitude)
+                or not math.isfinite(latitude)
+                or not -180 <= longitude <= 180
+                or not -90 <= latitude <= 90
+            ):
+                raise ValueError(
+                    f"Marquer grid {cell_key} coordinates exceed geographic support"
+                )
             grouped_coordinates.setdefault(cell_key, []).append((longitude, latitude))
 
     geometries: dict[str, dict[str, object]] = {}
     for key, coordinates in grouped_coordinates.items():
-        west = _marquer_grid_floor(min(longitude for longitude, _ in coordinates))
-        south = _marquer_grid_floor(min(latitude for _, latitude in coordinates))
-        if any(
-            longitude > west + 1 or latitude > south + 1
+        west = min(179, _marquer_grid_floor(min(lon for lon, _ in coordinates)))
+        south = min(89, _marquer_grid_floor(min(lat for _, lat in coordinates)))
+        if not all(
+            west <= longitude <= west + 1 and south <= latitude <= south + 1
+            for longitude, latitude in coordinates
+        ):
+            west = min(179, math.floor(min(lon for lon, _ in coordinates)))
+            south = min(89, math.floor(min(lat for _, lat in coordinates)))
+        if not all(
+            west <= longitude <= west + 1 and south <= latitude <= south + 1
             for longitude, latitude in coordinates
         ):
             raise ValueError(
