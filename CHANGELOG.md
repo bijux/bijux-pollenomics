@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#458](https://github.com/bijux/bijux-pollenomics/pull/458) — Exact collection identities and bounded preflight
+
+- Share operation-scoped bounded Neotoma metadata preflight without opening
+  selected entities or asserting verified native field values.
+- Preserve exact SEAD native keys and prove paged EOF after server-capped pages,
+  refusing malformed/oversized responses and exhausted finite budgets.
+- Retain occupied RAÄ island cells through representative-point membership
+  across all country features while excluding holes and foreign points.
+
 ### [#457](https://github.com/bijux/bijux-pollenomics/pull/457) — Guarded taxon ancestry and selected source custody
 
 - Preserve literal source-led taxon parent edges, cycle components and fixed-point
