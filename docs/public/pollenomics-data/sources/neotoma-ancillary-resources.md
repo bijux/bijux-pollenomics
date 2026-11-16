@@ -26,6 +26,7 @@ not geographic or global Neotoma completeness.
 
 | Directory under `data/neotoma/ancillary-resources/` | Independent manifest SHA-256 |
 | --- | --- |
+| `country-authority/076f80f077ae128ea2d9ec548db8947c00e162725cafebbe05668fe065266ef8/` | `076f80f077ae128ea2d9ec548db8947c00e162725cafebbe05668fe065266ef8` |
 | `context/` | `6c237ad7b262afe495434ca98430b80b356f444fdc3506e7897f24936b747d46` |
 | `capsules/4dce35d83202e4c8a9f04783056723e2fa2b7c1b88c9eaed42154a9b8c72fd0a/` | `4dce35d83202e4c8a9f04783056723e2fa2b7c1b88c9eaed42154a9b8c72fd0a` |
 | `capsules/e5afd23fed399ab1d0ae5d8970d2cf36e4240fb9c0c083a64df220d11ffcd1aa/` | `e5afd23fed399ab1d0ae5d8970d2cf36e4240fb9c0c083a64df220d11ffcd1aa` |
@@ -36,8 +37,9 @@ not geographic or global Neotoma completeness.
 | `unit-metadata/bde7f113db4f43716ec678a885b02ddb0a6a3af1ff4b4a1f6f8c66b213d654e9/` | `bde7f113db4f43716ec678a885b02ddb0a6a3af1ff4b4a1f6f8c66b213d654e9` |
 | `reference-tables/69176cd69e97efb1df19065eaafa585fb9dd87ab5c53e453555e6a999c68bdf9/` | `69176cd69e97efb1df19065eaafa585fb9dd87ab5c53e453555e6a999c68bdf9` |
 
-The linked-evidence manifest is named `evidence-manifest.json`; the other root
-manifests are named `manifest.json`. Keep independent expected digests rather
+The linked-evidence manifest is named `evidence-manifest.json`; the country
+authority capture uses `capture-manifest.json`. The other root manifests are named
+`manifest.json`. Keep independent expected digests rather
 than trusting a digest read from the product being checked. Capsule resolvers
 map manifest digests to exact directories. Linked-evidence resolvers are
 separate explicit dependencies; readers do not guess sibling locations.
@@ -47,6 +49,40 @@ rosters. Capsules retain original captures, including their recorded source
 epochs. Historical captures without contemporaneous parent-scope attestations
 remain explicitly historical; current metadata cannot reconstruct a missing
 pre-request attestation.
+
+## Country Reference Metadata
+
+The country-authority capture retains four exact-name, rank-1 country responses:
+Denmark (`1061`), Finland (`1411`), Norway (`3307`) and Sweden (`5392`). Each source
+record reports parent `0`. These are reference metadata, separately qualified
+from the unchanged HTTP capture outcomes. They do not establish a complete
+geopolitical dictionary, interpret territorial geometry or assign countries to
+pollen records. The earlier truncated global dictionary is not a complete
+country authority.
+
+Use the maintained country-authority reader with the independent manifest pin:
+
+```python
+from pathlib import Path
+from bijux_pollenomics.collection.sources.neotoma.capture.country_authority import (
+    qualify_neotoma_country_authority,
+    read_neotoma_country_authority_body,
+    replay_neotoma_country_authority,
+)
+
+pin = "076f80f077ae128ea2d9ec548db8947c00e162725cafebbe05668fe065266ef8"
+directory = Path("data/neotoma/ancillary-resources/country-authority") / pin
+capture = replay_neotoma_country_authority(directory, expected_manifest_sha256=pin)
+qualification = qualify_neotoma_country_authority(directory, expected_manifest_sha256=pin)
+denmark = read_neotoma_country_authority_body(
+    directory, expected_manifest_sha256=pin, country="Denmark"
+)
+```
+
+The ten capture files preserve their original bytes. The
+[qualification packet](../../../../reports/science/source-cohorts/neotoma-country-authority-qualification.json)
+records the maintained reader revision and country identities; it makes
+no new provider request or scientific-admission claim.
 
 ## Dataset-Linked Environment Records
 

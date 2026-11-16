@@ -1,0 +1,24 @@
+{
+  "limits": {
+    "max_attempts": 1,
+    "max_requests": 4,
+    "max_response_bytes": 2097151,
+    "max_total_bytes": 8388607,
+    "retry_delay_seconds": 0,
+    "timeout_seconds": 45,
+    "wall_seconds": 120
+  },
+  "metadata_scope": "current exact-name rank1 country records only; no territorial hierarchy, dictionary completeness, country assignment or numerical-resource admission",
+  "plan": {
+    "countries": [
+      "Denmark",
+      "Finland",
+      "Norway",
+      "Sweden"
+    ]
+  },
+  "policy_sources": [
+    "https://www.neotomadb.org/data/data-use-and-embargo-policy"
+  ],
+  "schema_version": "neotoma-country-authority-http-capture.v1"
+}
