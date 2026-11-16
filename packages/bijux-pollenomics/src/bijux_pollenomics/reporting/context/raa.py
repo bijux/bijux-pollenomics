@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import json
 from contextlib import ExitStack
 from dataclasses import dataclass
 from hashlib import sha256
+import json
 from pathlib import Path
 
 from ...collection.sources.raa.authority import (

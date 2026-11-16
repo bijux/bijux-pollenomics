@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from hashlib import sha256
 import os
+from pathlib import Path
 import re
 import stat
-from hashlib import sha256
-from pathlib import Path
 
 from ..repository import RepositoryRootNotFoundError, find_repository_root
 from .anchors import DirectoryAnchor

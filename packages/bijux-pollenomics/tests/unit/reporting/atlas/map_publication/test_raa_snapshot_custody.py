@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any, cast
 
 import pytest
+
 from bijux_pollenomics.reporting.context import artifacts, raa
 from bijux_pollenomics.reporting.context.polygons import (
     build_country_boundary_layer,
@@ -21,7 +22,6 @@ from bijux_pollenomics.reporting.map_document.static_assets.nodes import (
 )
 from bijux_pollenomics.reporting.map_publication import _serialize_layer_contract_row
 from bijux_pollenomics.reporting.scope_policy import resolve_map_scope_policy
-
 from tests.support.context_data.raa import (
     REVIEW_INPUT_PATHS,
     geometry,
