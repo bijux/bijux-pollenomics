@@ -108,7 +108,9 @@ def integer_list(
 
 
 def expect_equal(actual: object, expected: object, label: str) -> None:
-    if actual != expected:
+    if actual != expected or (
+        type(expected) in (int, bool) and type(actual) is not type(expected)
+    ):
         raise ValueError(f"{label} mismatch: expected {expected!r}, got {actual!r}")
 
 
