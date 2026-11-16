@@ -66,10 +66,15 @@ def capture_snapshot(
 
 
 def source_facts(
-    sources: NeotomaTaxonAncestrySources, limits: NeotomaTaxonAncestryLimits
+    sources: NeotomaTaxonAncestrySources,
+    limits: NeotomaTaxonAncestryLimits,
+    *,
+    _before_body_read: Callable[[], None] | None = None,
 ) -> dict[str, Any]:
     """Replay each source capture once, then parse each authenticated buffer once."""
     limits.validate()
+    if _before_body_read is not None:
+        _before_body_read()
     if (
         not isinstance(sources.capture_sources, Mapping)
         or not sources.capture_sources
@@ -215,6 +220,7 @@ def source_facts(
             scope_inputs=context.current_scope_inputs,
             legacy_rosters=legacy,
             operation=operation,
+            _before_body_read=_before_body_read,
         )
         if any(
             control[0]["schema_version"] == SCOPED_LINKED_SCHEMA
@@ -224,6 +230,8 @@ def source_facts(
     )
 
     def check_body_permission() -> None:
+        if _before_body_read is not None:
+            _before_body_read()
         if session is not None:
             session.check(
                 operation=operation,
@@ -257,6 +265,7 @@ def source_facts(
                 legacy_rosters=legacy,
                 _session=session,
                 _operation=operation,
+                _before_body_read=_before_body_read,
             )
             for entry in captured.resources:
                 identity = entry["identity"]
