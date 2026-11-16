@@ -2,6 +2,16 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#469](https://github.com/bijux/bijux-pollenomics/pull/469) — Owned annotation release publication and primary recovery errors
+
+- Preflight finite release metadata and validate complete AADR releases before
+  owned attachment, refusing foreign namespaces and preserving prior releases
+  on acquisition failure.
+- Keep candidates, predecessors and receipts outside the entire collection root;
+  bind manifest callbacks to a bounded held descriptor and document its contract.
+- Preserve native primary publication errors when ordinary recovery operations or
+  receipt writes fail, with honest allocation-identity notes for displaced recovery.
+
 ### [#468](https://github.com/bijux/bijux-pollenomics/pull/468) — Source-verified Neotoma taxon ancestry metadata
 
 - Publish a content-addressed ancestry capsule retaining literal source edges,

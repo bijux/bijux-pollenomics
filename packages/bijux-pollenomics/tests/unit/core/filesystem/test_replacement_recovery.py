@@ -232,3 +232,136 @@ def test_receipt_callback_cannot_make_a_foreign_final_successful(
     assert final.stat().st_ino == foreign[0]
     assert (final / "foreign").read_bytes() == b"user content"
     assert (run / "prior" / "value").read_bytes() == b"prior"
+
+
+@pytest.mark.parametrize("fault", ["restore", "refused_candidate", "prior_check"])
+@pytest.mark.parametrize("primary_type", [OSError, KeyboardInterrupt])
+def test_recovery_fault_preserves_primary_and_all_owned_bytes(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    fault: str,
+    primary_type: type[BaseException],
+) -> None:
+    final, run = tmp_path / "output", tmp_path / "run"
+    final.mkdir()
+    (final / "value").write_bytes(b"prior")
+    run.mkdir()
+    primary = primary_type("primary final validation")
+    secondary = OSError("secondary recovery fault")
+    failed = False
+    primitive = replacement._rename_directory
+
+    def rename(parent: int, source: str, target: str, **kwargs: Any) -> None:
+        if failed and (
+            (fault == "restore" and source == "prior")
+            or (fault == "refused_candidate" and target == "refused-publication")
+        ):
+            raise secondary
+        primitive(parent, source, target, **kwargs)
+
+    def validate(root: Path) -> None:
+        nonlocal failed
+        if root == final:
+            failed = True
+            raise primary
+
+    with (
+        BoundedInputTree(final, max_bytes=100, max_files=2) as prior,
+        DirectoryAnchor(run) as recovery,
+        OwnedTreeWriter(run / "candidate", max_bytes=100, max_files=2) as writer,
+    ):
+        writer.write_bytes("value", b"candidate")
+        original_check = prior.validate
+
+        def check_prior() -> None:
+            if failed and fault == "prior_check":
+                raise secondary
+            original_check()
+
+        monkeypatch.setattr(prior, "validate", check_prior)
+        monkeypatch.setattr(replacement, "_rename_directory", rename)
+        with pytest.raises(primary_type) as caught:
+            replacement.publish_owned_replacement(
+                writer, final=final, prior=prior, recovery=recovery, validate=validate
+            )
+        assert caught.value is primary
+        assert any("secondary recovery fault" in note for note in primary.__notes__)
+        assert (run / "prior/value").read_bytes() == b"prior"
+        candidate = (
+            final if fault == "refused_candidate" else run / "refused-publication"
+        )
+        assert (candidate / "value").read_bytes() == b"candidate"
+
+
+def test_displaced_recovery_keeps_primary_without_claiming_foreign_ownership(
+    tmp_path: Path,
+) -> None:
+    final, run = tmp_path / "output", tmp_path / "run"
+    run.mkdir()
+    primary = OSError("primary final validation")
+    displaced = tmp_path / "displaced-owned-recovery"
+
+    def validate(root: Path) -> None:
+        if root == final:
+            run.rename(displaced)
+            run.mkdir()
+            (run / "foreign").write_bytes(b"user work")
+            raise primary
+
+    with (
+        DirectoryAnchor(run) as recovery,
+        OwnedTreeWriter(run / "candidate", max_bytes=100, max_files=2) as writer,
+    ):
+        writer.write_bytes("value", b"candidate")
+        with pytest.raises(OSError) as caught:
+            replacement.publish_owned_replacement(
+                writer, final=final, prior=None, recovery=recovery, validate=validate
+            )
+        assert caught.value is primary
+        assert (final / "value").read_bytes() == b"candidate"
+        assert (run / "foreign").read_bytes() == b"user work"
+        assert displaced.is_dir()
+        assert any(
+            "recovery originally allocated" in note for note in primary.__notes__
+        )
+        assert any("expected directory identity" in note for note in primary.__notes__)
+
+
+def test_failed_receipt_does_not_claim_its_replaced_recovery_path(
+    tmp_path: Path,
+) -> None:
+    final, run = tmp_path / "output", tmp_path / "run"
+    run.mkdir()
+    primary = OSError("primary validation")
+    displaced = tmp_path / "displaced-owned-recovery"
+
+    def validate(root: Path) -> None:
+        raise primary
+
+    def record(status: str, fields: dict[str, Any]) -> None:
+        run.rename(displaced)
+        run.mkdir()
+        (run / "foreign").write_bytes(b"user work")
+        raise PermissionError("receipt cannot be written")
+
+    with (
+        DirectoryAnchor(run) as recovery,
+        OwnedTreeWriter(run / "candidate", max_bytes=100, max_files=2) as writer,
+    ):
+        writer.write_bytes("value", b"candidate")
+        with pytest.raises(OSError) as caught:
+            replacement.publish_owned_replacement(
+                writer,
+                final=final,
+                prior=None,
+                recovery=recovery,
+                validate=validate,
+                record=record,
+            )
+        assert caught.value is primary
+        assert (displaced / "candidate/value").read_bytes() == b"candidate"
+        assert (run / "foreign").read_bytes() == b"user work"
+        assert any("expected directory identity" in note for note in primary.__notes__)
+        assert not any(
+            f"retained recovery: {run}" in note for note in primary.__notes__
+        )

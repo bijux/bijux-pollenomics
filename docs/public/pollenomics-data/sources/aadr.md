@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-10-01
+last_reviewed: 2026-11-16
 ---
 
 # AADR
@@ -22,6 +22,33 @@ inference, or a claim that the annotation panel is a complete census.
 The current runtime consumes annotation metadata. It does not process AADR
 `.geno`, `.ind`, or `.snp` genotype files and does not claim population-genetic
 analysis.
+
+## Annotation Release Acquisition
+
+`collection.sources.aadr.download_aadr_anno_files` resolves native source file
+identities and verifies TLS, declared sizes and available MD5 checksums before
+publishing a complete release. Annotation files retain the 256 MiB per-member
+ceiling; unknown sizes use the existing binary transport limit. The JSON release
+manifest has a separate 16 MiB control profile.
+
+All selected annotation members and the manifest are staged and validated before
+the release directory is attached. Existing destinations require the exact
+ordinary release namespace and an AADR manifest declaring the same version and
+members. Aliases, special files, hardlinks and unowned entries are refused before
+annotation acquisition. Other releases beneath the collection remain untouched.
+
+Candidates, predecessors and refusal receipts remain outside the entire declared
+collection root, in destination-owned artifact storage or a private same-volume
+sibling. Failed acquisition preserves the prior release. If attachment or final
+validation fails, recovery preserves all recoverable owned state and competing
+foreign destinations; native error notes identify retained state. This contract
+does not assert crash durability or inode compare-and-swap scheduling.
+
+The low-level injected JSON writer retains its two-argument callback shape and
+payload. It receives a verified kernel descriptor capability and must write to
+that supplied path directly. Its basename and suffix are not release filenames;
+callbacks that resolve, rename or derive other paths are outside that callback
+contract. The ordinary SDK writer requires no customization.
 
 ## Checked-In Release
 
