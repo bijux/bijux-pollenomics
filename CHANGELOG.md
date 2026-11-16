@@ -2,6 +2,13 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#486](https://github.com/bijux/bijux-pollenomics/pull/486) — Real measurement admission
+
+- Refuse complex measurements before real conversion across array and scalar
+  validation, including nested object containers and zero imaginary values.
+- Reuse the same refusal in multisite likelihood admission while preserving
+  masked and Boolean input checks, real inputs and existing equations.
+
 ### [#485](https://github.com/bijux/bijux-pollenomics/pull/485) — Explicit parameter reference contracts
 
 - Identify expanded GPM regional fall-speed admission separately from the source
