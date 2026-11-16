@@ -4,6 +4,7 @@ from collections.abc import Callable
 import hashlib
 from pathlib import Path
 
+from ....core.http import BINARY_MAX_BYTES
 from .constants import (
     AADR_DATAVERSE_PERSISTENT_ID,
     AADR_DOWNLOAD_URL_TEMPLATE,
@@ -11,6 +12,9 @@ from .constants import (
 )
 from .models import AadrAnnoDownloadReport, AadrAnnoFile, AadrReleaseResolution
 from .resolution import resolve_aadr_release
+
+# Release metadata cannot raise the operational ceiling for in-memory acquisition.
+AADR_ANNO_MAX_BYTES = 256 * 1024 * 1024
 
 
 def download_aadr_anno_files(
@@ -21,7 +25,7 @@ def download_aadr_anno_files(
     fetch_release_history_metadata_fn: Callable[[], dict[str, object]],
     write_json_fn: Callable[[Path, object], None],
 ) -> AadrAnnoDownloadReport:
-    """Download the public AADR .anno files for one release version."""
+    """Download public .anno files after preflighting the operational byte ceiling."""
     output_root = Path(output_root)
     version_dir = output_root / version
     version_dir.mkdir(parents=True, exist_ok=True)
@@ -29,6 +33,14 @@ def download_aadr_anno_files(
     resolution = resolve_aadr_release(
         version=version, metadata=fetch_release_history_metadata_fn()
     )
+    for anno_file in resolution.anno_files:
+        if type(anno_file.filesize) is not int or anno_file.filesize < 0:
+            raise ValueError("AADR filesize must be a nonnegative integer")
+        if anno_file.filesize > AADR_ANNO_MAX_BYTES:
+            raise ValueError(
+                f"AADR anno operational byte ceiling exceeded for {anno_file.filename}: "
+                f"{anno_file.filesize} > {AADR_ANNO_MAX_BYTES}"
+            )
     downloaded_files: list[Path] = []
     for anno_file in resolution.anno_files:
         dataset_dir = version_dir / anno_file.dataset_name
@@ -37,7 +49,8 @@ def download_aadr_anno_files(
         payload = fetch_binary_fn(
             AADR_DOWNLOAD_URL_TEMPLATE.format(file_id=anno_file.file_id),
             headers=REQUEST_HEADERS,
-            insecure=True,
+            insecure=False,
+            max_bytes=anno_file.filesize or BINARY_MAX_BYTES,
         )
         validate_downloaded_anno_payload(anno_file, payload)
         destination.write_bytes(payload)

@@ -3,12 +3,16 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import tempfile
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
+
+import pytest
 
 from bijux_pollenomics.collection.sources.aadr import (
     dataset_directory_name,
     download_aadr_anno_files,
+    fetch_release_history_metadata,
     is_requested_anno_filename,
     resolve_anno_files,
 )
@@ -234,6 +238,133 @@ class AadrDataTests(unittest.TestCase):
                 self.assertRaisesRegex(ValueError, "checksum mismatch"),
             ):
                 download_aadr_anno_files(output_root, "v62.0")
+
+
+def anno_metadata(size: object) -> dict[str, object]:
+    return {
+        "data": [
+            {
+                "files": [
+                    {
+                        "dataFile": {
+                            "filename": "v66.HO.aadr.PUB.anno",
+                            "id": 12,
+                            "filesize": size,
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+
+
+@pytest.mark.parametrize("size", [True, False, 1.5, -1, "40", 256 * 1024 * 1024 + 1])
+def test_invalid_declared_size_refuses_before_binary_io(
+    size: object, tmp_path: Path
+) -> None:
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.aadr.fetch_release_history_metadata",
+            return_value=anno_metadata(size),
+        ),
+        patch("bijux_pollenomics.collection.sources.aadr.fetch_binary") as binary,
+        pytest.raises(ValueError, match="filesize|ceiling"),
+    ):
+        download_aadr_anno_files(tmp_path, "v66")
+    binary.assert_not_called()
+
+
+@pytest.mark.parametrize(
+    "size,expected",
+    [
+        (None, 32 * 1024 * 1024),
+        (0, 32 * 1024 * 1024),
+        (40 * 1024 * 1024, 40 * 1024 * 1024),
+        (256 * 1024 * 1024, 256 * 1024 * 1024),
+    ],
+)
+def test_valid_declared_size_reaches_verified_binary_boundary(
+    size: int | None, expected: int, tmp_path: Path
+) -> None:
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.aadr.fetch_release_history_metadata",
+            return_value=anno_metadata(size),
+        ),
+        patch(
+            "bijux_pollenomics.collection.sources.aadr.fetch_binary",
+            side_effect=RuntimeError("binary boundary"),
+        ) as binary,
+        pytest.raises(RuntimeError, match="binary boundary"),
+    ):
+        download_aadr_anno_files(tmp_path, "v66")
+    assert binary.call_args.kwargs["max_bytes"] == expected
+    assert binary.call_args.kwargs["insecure"] is False
+
+
+def test_release_preflights_all_sizes_before_first_binary_io(tmp_path: Path) -> None:
+    metadata = {
+        "data": [
+            {
+                "files": [
+                    {
+                        "dataFile": {
+                            "filename": "v66.1240K.aadr.PUB.anno",
+                            "id": 11,
+                            "filesize": 1,
+                        }
+                    },
+                    {
+                        "dataFile": {
+                            "filename": "v66.HO.aadr.PUB.anno",
+                            "id": 12,
+                            "filesize": 256 * 1024 * 1024 + 1,
+                        }
+                    },
+                ]
+            }
+        ]
+    }
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.aadr.fetch_release_history_metadata",
+            return_value=metadata,
+        ),
+        patch("bijux_pollenomics.collection.sources.aadr.fetch_binary") as binary,
+        pytest.raises(ValueError, match="ceiling"),
+    ):
+        download_aadr_anno_files(tmp_path, "v66")
+    binary.assert_not_called()
+
+
+def test_metadata_fetch_uses_verified_tls() -> None:
+    with patch(
+        "bijux_pollenomics.collection.sources.aadr.fetch_text",
+        return_value='{"data": []}',
+    ) as text:
+        assert fetch_release_history_metadata() == {"data": []}
+    assert text.call_args.kwargs["insecure"] is False
+
+
+@pytest.mark.parametrize("size", [True, 1.5, -1])
+def test_download_preflights_injected_invalid_resolved_size(
+    size: object, tmp_path: Path
+) -> None:
+    resolved = SimpleNamespace(anno_files=[SimpleNamespace(filesize=size)])
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.aadr.fetch_release_history_metadata",
+            return_value={},
+        ),
+        patch(
+            "bijux_pollenomics.collection.sources.aadr.download.resolve_aadr_release",
+            return_value=resolved,
+        ),
+        patch("bijux_pollenomics.collection.sources.aadr.fetch_binary") as binary,
+        pytest.raises(ValueError, match="filesize"),
+    ):
+        download_aadr_anno_files(tmp_path, "v66")
+    binary.assert_not_called()
 
 
 if __name__ == "__main__":

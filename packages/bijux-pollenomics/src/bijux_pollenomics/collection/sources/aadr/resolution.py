@@ -54,7 +54,7 @@ def extract_anno_files_from_release(
     *,
     version: str,
 ) -> list[AadrAnnoFile]:
-    """Extract public `.anno` files for one Dataverse dataset version."""
+    """Extract public `.anno` files, retaining missing/None sizes as unknown zero."""
     files = dataset_version.get("files", [])
     if not isinstance(files, list):
         return []
@@ -72,13 +72,18 @@ def extract_anno_files_from_release(
         dataset_name = dataset_directory_name(filename)
         if dataset_name not in CANONICAL_AADR_DATASETS:
             continue
+        filesize = data_file.get("filesize")
+        if filesize is None:
+            filesize = 0
+        if type(filesize) is not int or filesize < 0:
+            raise ValueError("AADR filesize must be a nonnegative integer or unknown")
         matched_files.append(
             AadrAnnoFile(
                 filename=filename,
                 file_id=int(data_file["id"]),
                 dataset_name=dataset_name,
                 md5=str(data_file.get("md5", "")).strip(),
-                filesize=int(data_file.get("filesize", 0) or 0),
+                filesize=filesize,
             )
         )
     return matched_files
@@ -135,7 +140,7 @@ def fetch_release_history_metadata(
         fetch_text_fn(
             AADR_DATAVERSE_VERSIONS_URL,
             headers={"User-Agent": "Mozilla/5.0"},
-            insecure=True,
+            insecure=False,
         )
     )
     mapping = as_mapping(payload)
