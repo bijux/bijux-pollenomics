@@ -39,6 +39,10 @@ from .neotoma_metadata.chronology import (
     chronology_quality_tables,
     chronology_tab,
 )
+from .neotoma_metadata.observations import (
+    OBSERVATION_FIELDS,
+    observation_variable_provenance,
+)
 from .neotoma_metadata.source_issues import source_issue_tables
 from .records import (
     _compact_rows_by_site,
@@ -159,26 +163,9 @@ def _project_neotoma(
         fields=age_fields,
         label="Neotoma age claim",
     )
-    observation_fields = (
-        "observation_id",
-        "sample_id",
-        "variable_id",
-        "source_taxon_id",
-        "source_value",
-        "source_unit",
-        "source_denominator",
-        "denominator_status",
-        "detection_status",
-        "source_context",
-        "source_ecological_group",
-        "source_element",
-        "source_element_type",
-        "aggregation_key",
-        "unit_family",
-        "source_part_number",
-    )
+    observation_fields = OBSERVATION_FIELDS
     observation_rows = _compact_rows_by_site(
-        surfaces["observations"],
+        observation_variable_provenance(surfaces["observations"]),
         fields=observation_fields,
         label="Neotoma observation",
     )
@@ -192,9 +179,11 @@ def _project_neotoma(
     }
     for rows in observation_rows.values():
         for row in rows:
-            row[-1] = observation_part_numbers[
-                _required_text(row[0], "Neotoma observation ID")
-            ]
+            row[observation_fields.index("source_part_number")] = (
+                observation_part_numbers[
+                    _required_text(row[0], "Neotoma observation ID")
+                ]
+            )
     variable_fields = (
         "variable_id",
         "source_taxon_id",

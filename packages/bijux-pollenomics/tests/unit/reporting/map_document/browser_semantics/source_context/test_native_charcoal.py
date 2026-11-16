@@ -98,7 +98,7 @@ callbacks.overview();snapshot('overviewAfterManual');
     initial = output["snapshots"]["initial"]
     assert 'data-pollen-focused-signal="unplottable"' in initial
     assert "Basis: 1 exact native CHAR observation" in initial
-    assert "Choose an exact native source group" in initial
+    assert "Choose a source observation group" in initial
     assert "<svg" not in initial
     for key in ("overview", "overviewAfterManual"):
         html = output["snapshots"][key]

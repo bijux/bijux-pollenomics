@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#481](https://github.com/bijux/bijux-pollenomics/pull/481) — Literal source variable provenance
+
+- Distinguish taxon-derived variable keys from source-reported VariableID,
+  symmetry and taphonomics in compact observations, panels and exports.
+- Preserve absent and null qualifiers, owned nested values and older compact
+  group keys while projecting source rows lazily without changing quantities.
+- Retain escaped literal labels and the existing runtime byte limit, with
+  generated qualifier, chronology, charcoal and public-service coverage.
+
 ### [#480](https://github.com/bijux/bijux-pollenomics/pull/480) — Portable captured ancestry and qualified environment context
 
 - Retain 24 existing direct linked-resource captures in a qualified portable

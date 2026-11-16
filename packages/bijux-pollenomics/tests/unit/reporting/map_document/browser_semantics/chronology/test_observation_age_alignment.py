@@ -330,7 +330,7 @@ def test_age_renderer_keeps_literal_interval_zero_refusal_and_accessible_escapin
         for tree in trees
     )
     assert all(
-        "Native variable semantics:" in " ".join(tree.itertext())
+        "Taxon grouping semantics:" in " ".join(tree.itertext())
         and "pollen" in " ".join(tree.itertext())
         for tree in trees
     )
