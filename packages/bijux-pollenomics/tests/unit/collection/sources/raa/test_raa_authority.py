@@ -9,68 +9,16 @@ import pytest
 from bijux_pollenomics.collection.sources.raa import (
     assess_raa_density_authority,
 )
-
-
-def _write_json(path: Path, value: object) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value), encoding="utf-8")
-
-
-def _write_reconciled_fixture(root: Path, *, reviewer_id: str = "reviewer-1") -> None:
-    raw_features = [
-        {
-            "type": "Feature",
-            "geometry": {"type": "Point", "coordinates": [18.0, 57.0]},
-            "properties": {
-                "lamningsnummer": "A",
-                "antikvariskbedomningtyp_namn": "Fornlämning",
-            },
-        },
-        {
-            "type": "Feature",
-            "geometry": {"type": "Point", "coordinates": [19.0, 58.0]},
-            "properties": {
-                "lamningsnummer": "B",
-                "antikvariskbedomningtyp_namn": "Möjlig fornlämning",
-            },
-        },
-    ]
-    _write_json(
-        root / "raa/raw/publicerade_lamningar_centrumpunkt.geojson",
-        {"type": "FeatureCollection", "features": raw_features, "numberMatched": 2},
-    )
-    _write_json(
-        root / "raa/raw/publicerade_lamningar_centrumpunkt_summary.json",
-        {
-            "archived_feature_count": 2,
-            "heritage_site_count": 1,
-            "number_matched": 2,
-            "identified_feature_count": 2,
-            "heritage_or_possible_site_count": 2,
-        },
-    )
-    _write_json(
-        root / "raa/normalized/sweden_archaeology_layer.json",
-        {
-            "counts": {
-                "fornlamning": 1,
-                "all_published_sites": 2,
-                "fornlamning_or_possible": 2,
-            },
-            "density_feature_count": 1,
-        },
-    )
-    _write_json(
-        root / "raa/normalized/sweden_archaeology_density.geojson",
-        {
-            "type": "FeatureCollection",
-            "features": [{"type": "Feature", "properties": {"count": 1}}],
-        },
-    )
-    _write_json(
-        root / "raa/review/spatiotemporal_review.json",
-        {"release_status": "accepted", "reviewer_id": reviewer_id},
-    )
+from tests.support.context_data.raa import (
+    grid_cell,
+    write_synthetic_review,
+)
+from tests.support.context_data.raa import (
+    write_authority_fixture as _write_reconciled_fixture,
+)
+from tests.support.context_data.raa import (
+    write_json as _write_json,
+)
 
 
 def test_raa_density_authority_requires_every_governing_surface() -> None:
@@ -84,6 +32,12 @@ def test_raa_density_authority_requires_every_governing_surface() -> None:
         "missing_normalized_metadata",
         "missing_density_surface",
         "missing_scientific_review",
+        "missing_density_membership",
+        "missing_boundary_manifest",
+        "missing_sweden_boundary",
+        "missing_norway_boundary",
+        "missing_denmark_boundary",
+        "missing_finland_boundary",
     )
     assert decision.heritage_site_count is None
 
@@ -163,12 +117,13 @@ def test_explicit_zero_density_cell_preserves_complete_total(tmp_path: Path) -> 
     _write_reconciled_fixture(tmp_path)
     path = tmp_path / "raa/normalized/sweden_archaeology_density.geojson"
     density = json.loads(path.read_text())
-    density["features"].append({"type": "Feature", "properties": {"count": 0}})
+    density["features"].append(grid_cell(19, 57, 0))
     _write_json(path, density)
     path = tmp_path / "raa/normalized/sweden_archaeology_layer.json"
     metadata = json.loads(path.read_text())
     metadata["density_feature_count"] = 2
     _write_json(path, metadata)
+    write_synthetic_review(tmp_path)
     decision = assess_raa_density_authority(tmp_path)
     assert decision.admitted
     assert decision.density_site_count == 1
