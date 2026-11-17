@@ -164,3 +164,9 @@ historical numerical Atlas membership and source-use decisions unchanged.
 Its refreshed 105-file presentation has a qualified local-file reader for all
 16 selected targets at 390 and 1,440 pixels. HTTP hosting, downloads and
 scientific admission remain outside that bounded result.
+
+The separate [dated taxonomy reference](neotoma-taxonomy-reference.md) offers
+retained native-ID vocabulary and classification-reference lookup, plus a
+contrast against the explicitly frozen 182-lead ancestry frontier. Its older
+viewer projection is distinct from native detail captures, current roles and
+scientific admission; a successful lookup does not close a capture obligation.

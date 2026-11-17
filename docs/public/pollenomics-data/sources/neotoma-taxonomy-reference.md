@@ -129,3 +129,13 @@ assertions. `contrast-frontier` additionally requires `--chain`, the chain's
 manifest SHA-256 and an absent `--output` directory. All verbs are local source
 consumers: none acquires data, performs current permission decisions, modifies
 the source graph or changes existing Atlas dataset/site/numerical denominators.
+
+## Retained reference and recorded contrast
+
+The [dated reference account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-relations/neotoma/taxonomy-reference/README.md)
+provides the exact three source originals, portable provenance and the
+[182-lead contrast](https://github.com/bijux/bijux-pollenomics/blob/main/data/neotoma/taxonomy-reference/a2c3003d7c71f9f8e69cba4af95c58de97246d7a6041589067c8277ef0ab26f0/frontier/frontier-contrast.json).
+Its archive manifest SHA-256 is `a2c3003d7c71f9f8e69cba4af95c58de97246d7a6041589067c8277ef0ab26f0`.
+The 151 taxon and 31 classification-reference matches concern that explicit
+recorded chain and the older upstream snapshot. They do not qualify live
+responses, current roles, biological/PPE mappings or a revised frontier.
