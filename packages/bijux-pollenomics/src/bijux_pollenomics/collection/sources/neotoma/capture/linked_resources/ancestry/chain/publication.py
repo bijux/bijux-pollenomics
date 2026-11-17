@@ -113,20 +113,26 @@ def publish_neotoma_taxon_ancestry_chain(
     document: dict[str, Any],
     sources: NeotomaTaxonAncestryChainSources,
 ) -> dict[str, Any]:
-    """Retain both trees on refusal and authenticate final output before returning."""
+    """Hold the original output parent during source replay and final readback."""
     final = _safe_root(directory)
     if final.exists():
         raise FileExistsError(f"Ancestry chain already exists: {final}")
-    with ChainOperation(sources) as operation:
+    with (
+        ChainOperation(sources) as operation,
+        DirectoryAnchor(final.parent, create=True) as parent,
+    ):
         expected = _derive(
             operation,
             document["parent_chain_manifest_sha256"],
             tuple(document["new_capture_manifest_sha256s"]),
             NeotomaTaxonAncestryChainLimits(**document["limits"]),
         )
+        parent.check()
         if document != expected:
             raise ValueError("Ancestry chain source projection differs")
-        return _publish_derived_chain(final, operation, expected)
+        manifest = _publish_derived_chain(final, operation, expected)
+        parent.check()
+        return manifest
 
 
 def materialize_neotoma_taxon_ancestry_chain(

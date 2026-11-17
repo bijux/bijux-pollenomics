@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-08-01
+last_reviewed: 2026-11-17
 ---
 
 # SEAD
@@ -90,6 +90,14 @@ The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e`
 
 Site, feature, claim, observation, relation, and event counts are different units. The atlas may display SEAD chronology and source-native detail, but it must not turn the refused event population into migration or propagation evidence.
 <!-- sead-evidence:generated:end -->
+
+The [source-key portability account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-integrity/sead/source-key-portability/README.md)
+retains the identical 61-table / 522,270 table-qualified-key exports from two
+successful maintained CLI reads before and after an exclusive capsule relocation.
+Its exact 188-file input recipe includes the original boundary epoch. This is
+source-key, receipt and country-binding integrity, not a new chronology/event
+reconstruction. Its exported `not_materialized` strings belong to the historical
+raw admission; they do not negate the normalized evidence counts above.
 
 The [source-to-map custody replay](../../../report/source-relations/sead/public-custody/README.md)
 checks every assigned site ID and UUID against its country decision, mapped

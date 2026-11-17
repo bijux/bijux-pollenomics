@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#507](https://github.com/bijux/bijux-pollenomics/pull/507) — Original export parents and SEAD source-key portability
+
+Hold the original parent before standalone ancestry derivation and preserve foreign replacements on refusal. Retain exact accepted SEAD source-key exports, their relative 188-file input index and a reproducible custody account distinguishing historical admission metadata from current derived evidence. Focused generated publication tests, matched host/developer checks and strict documentation pass; no new source acquisition, chronology/event admission or native scientific replay is claimed.
+
 ### [#506](https://github.com/bijux/bijux-pollenomics/pull/506) — Conditional native registry counts and optional Atlas context
 
 Count conditional native single-point registry UUIDs on the declared one-degree grid and expose independently pinned aggregates as optional Atlas context. Keep private identity ledgers separate, validate curated public buffers and native cell order, and distinguish native records from degraded historical WFS display values. Preserve default-off country/time/admission boundaries; generated controls and workflow-matched checks qualify the software without claiming new native collection or scientific accuracy.
