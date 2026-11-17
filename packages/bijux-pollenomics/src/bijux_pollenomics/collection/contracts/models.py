@@ -41,12 +41,16 @@ class SourceProvenanceRecord:
 
 @dataclass(frozen=True)
 class SourceReplacementRule:
-    """Refresh policy for replacing staged or final source outputs."""
+    """Refresh policy for replacing staged or final source outputs.
+
+    Runtime-owned callback candidates have no planning-time staging path. A null
+    path identifies that policy; historical fixed-stage rules retain their text.
+    """
 
     source: str
     refresh_mode: str
     final_output_root: str
-    staging_output_root: str
+    staging_output_root: str | None
     destructive_refresh: bool
     preserves_previous_on_failure: bool
 

@@ -4,7 +4,7 @@ audience: maintainer
 type: reference
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-11-16
+last_reviewed: 2026-11-17
 ---
 
 # Report Publication Ownership
@@ -16,8 +16,8 @@ returning. Country, Atlas and partition publishers retain their logical final
 output paths; the private construction path is not the published report path.
 
 The original candidate root is created exclusively by `OwnedTreeWriter` and
-keeps that physical identity through publication. A report-specific completion
-seal inventories every ordinary file and directory after the callback. It
+keeps that physical identity through publication. The shared core callback
+completion seal inventories every ordinary file and directory after the callback. It
 refuses aliases, multiply linked files and nonregular members, and preserves
 ordinary empty directories and Unicode names. It binds the complete namespace,
 file sizes and physical identities through final attachment. This is explicit
@@ -40,6 +40,11 @@ before attachment and again on final readback. Partition publication uses this
 boundary for its existing path contract, so an invalid partition cannot replace
 a prior complete tree. Successful partition results retain that validated
 inventory rather than starting a fresh inventory after publication.
+
+Collection callbacks use the same core owner through their own wrapper; see
+[collection publication](collection-publication.md) for legacy recovery and
+replacement metadata compatibility. Report replacement and completion injection
+seams continue to delegate at the report wrapper boundary.
 
 ## Recovery And Failure
 
