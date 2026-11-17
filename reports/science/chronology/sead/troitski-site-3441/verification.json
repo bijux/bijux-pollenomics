@@ -1,0 +1,578 @@
+{
+  "schema_version": "sead-unassigned-source-context-account.v1",
+  "scope": "complete selected nineteen-table context profile and internal period correspondence only",
+  "source": {
+    "family": "SEAD",
+    "software_revision": "7df5a6dbbf235361d2969a11b50425a049436c6d",
+    "software_url": "https://github.com/bijux/bijux-pollenomics/tree/7df5a6dbbf235361d2969a11b50425a049436c6d",
+    "manifest_sha256": "24d18d4fa581d1ee9423dec61eb28bb68137d11306d81ad76823dfd7ec94432a",
+    "site_id": 3441,
+    "site_uuid": "12ae88cc-a58f-4093-8afd-8cbdf1d95795",
+    "native_site_name": "Troitski",
+    "native_coordinate_strings": {
+      "latitude_dd": "58.53458",
+      "longitude_dd": "31.284126"
+    },
+    "membership_status": "unassigned"
+  },
+  "retained_country_classification": {
+    "decision_status": "unassigned",
+    "decision_method": "no_boundary_containment",
+    "refusal_reason": "outside_governed_boundaries",
+    "candidate_countries": [],
+    "boundary_version": "natural-earth:5.1.1",
+    "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+    "source_decision_file_sha256": "e08c2fa2f70d9a3491b95a87b81c992ec3902051aa6e30c35dbcb0f86e214528",
+    "UUID_and_coordinate_correspondence": true,
+    "new_polygon_geometry_evaluation": false,
+    "modern_country_assignment": null,
+    "classification_alone_requires_capture_or_admission": false
+  },
+  "acquisition": {
+    "requests": 25,
+    "response_body_bytes": 26016,
+    "attempts_per_request": 1,
+    "graph_rows": 223,
+    "packet_files": 65,
+    "logical_dependency_queries": 16,
+    "empty_dependency_no_query_tables": [
+      "tbl_analysis_dating_ranges",
+      "tbl_age_types",
+      "tbl_dating_uncertainty"
+    ],
+    "previous_closed_request_URLs_reissued": false
+  },
+  "rows_by_table": {
+    "tbl_sites": 1,
+    "tbl_sample_groups": 20,
+    "tbl_physical_samples": 20,
+    "tbl_analysis_entities": 59,
+    "tbl_analysis_entity_ages": 0,
+    "tbl_geochronology": 0,
+    "tbl_dendro_dates": 0,
+    "tbl_analysis_values": 0,
+    "tbl_analysis_dating_ranges": 0,
+    "tbl_relative_dates": 59,
+    "tbl_age_types": 0,
+    "tbl_relative_ages": 3,
+    "tbl_relative_age_refs": 0,
+    "tbl_dating_uncertainty": 0,
+    "tbl_methods": 1,
+    "tbl_datasets": 59,
+    "tbl_site_references": 0,
+    "tbl_sample_group_references": 0,
+    "tbl_biblio": 1
+  },
+  "temporal_context": {
+    "physical_samples": 20,
+    "entity_date_assertions": 59,
+    "period_lookup_records": 3,
+    "one_distinct_period_per_physical_sample": true,
+    "all59_AD_notes_match_1950_arithmetic": true,
+    "periods": [
+      {
+        "relative_age_id": 459,
+        "entity_date_assertions": 9,
+        "source_reported_AD_endpoints": [
+          "1100",
+          "1130"
+        ],
+        "source_numeric_calendar_BP_older_younger": [
+          "850.0",
+          "820.0"
+        ],
+        "native_label_numeric_BP_bounds_older_younger": [
+          "900",
+          "870"
+        ],
+        "label_minus_numeric_years": [
+          "50",
+          "50"
+        ],
+        "source_fields_corrected": false
+      },
+      {
+        "relative_age_id": 463,
+        "entity_date_assertions": 9,
+        "source_reported_AD_endpoints": [
+          "1130",
+          "1170"
+        ],
+        "source_numeric_calendar_BP_older_younger": [
+          "820.0",
+          "780.0"
+        ],
+        "native_label_numeric_BP_bounds_older_younger": [
+          "870",
+          "830"
+        ],
+        "label_minus_numeric_years": [
+          "50",
+          "50"
+        ],
+        "source_fields_corrected": false
+      },
+      {
+        "relative_age_id": 495,
+        "entity_date_assertions": 41,
+        "source_reported_AD_endpoints": [
+          "900",
+          "1000"
+        ],
+        "source_numeric_calendar_BP_older_younger": [
+          "1050.0",
+          "950.0"
+        ],
+        "native_label_numeric_BP_bounds_older_younger": [
+          "1100",
+          "1000"
+        ],
+        "label_minus_numeric_years": [
+          "50",
+          "50"
+        ],
+        "source_fields_corrected": false
+      }
+    ],
+    "source_interpretation": "Observed internal correspondence does not authenticate assigned periods or an intended calendar reference year. No source labels or fields are corrected.",
+    "numeric_calendar_BP_outer_envelope": [
+      "780",
+      "1050"
+    ],
+    "continuous_chronology_across_outer_envelope_established": false,
+    "between_interval_gap_BP": [
+      "850",
+      "950"
+    ],
+    "BOKE_2700_3200_calendar_BP_support_overlap": false,
+    "native_independent_date_count_established": false
+  },
+  "method": {
+    "native_method_id": 128,
+    "native_method_name": "Archaeological period calendar years",
+    "method_abbrev_or_alt_name": "ArchPerCal",
+    "source_description_summary": "pollen-zone comparison",
+    "meaning_status": "ambiguous name/description; dating procedure not authenticated",
+    "full_description_redistributed": false
+  },
+  "bibliography": {
+    "native_biblio_id": 6606,
+    "linked_dataset_records": 59,
+    "captured_DOI": null,
+    "captured_URL": null,
+    "identity_status": "source lead only; exact work/edition unresolved",
+    "full_reference_redistributed": false
+  },
+  "qualification": {
+    "byte_namespace_native_identity_EOF_and_raw_typed_correspondence": true,
+    "source_scalar_types_and_nulls_preserved": true,
+    "returned_lookup_references_resolved": true,
+    "period_arithmetic_checked_assertions": 59,
+    "period_semantic_negative_controls_refused": 5,
+    "period_source_members": [
+      {
+        "byte_count": 283,
+        "path": "payloads/tbl_sites.json",
+        "sha256": "b465759a5ddaef96a2fc285648801293dd8ab40c0bbcd86390bf55f61b6f5866"
+      },
+      {
+        "byte_count": 1640,
+        "path": "payloads/tbl_sample_groups.json",
+        "sha256": "0d26fca1a8990a3cf3958ad2f855e973afb3a3b14d7f70dd919209c61467b725"
+      },
+      {
+        "byte_count": 1143,
+        "path": "payloads/tbl_physical_samples.json",
+        "sha256": "2134f70f8bc855752e6a2307f1f481726931cf7de23c6eab33373e69b8662606"
+      },
+      {
+        "byte_count": 4568,
+        "path": "payloads/tbl_analysis_entities.json",
+        "sha256": "5e012e0ff66f739c35edc3522bbcee9c49d45cfe2e5ed9a9c8e901affdd94773"
+      },
+      {
+        "byte_count": 12158,
+        "path": "payloads/tbl_relative_dates.json",
+        "sha256": "618deebd038cb5703ef29ac82289a425a5164eee31b41b5907c62bfdd98f38da"
+      },
+      {
+        "byte_count": 757,
+        "path": "payloads/tbl_relative_ages.json",
+        "sha256": "84d64e3611da0c9c4cb3619770114b2efa07d813d13337fdc6ccab432569d520"
+      }
+    ],
+    "byte_relation_audit_artifact_sha256": "7c628375789017cbb919c0bfe989ebc484b2fc754b20fe2948864595b7023217",
+    "period_arithmetic_artifact_sha256": "bb925cd6e404a6838e913caee90434163902d72c479b8354764be137c06c7dcd",
+    "retained_country_decision_projection_sha256": "b759fe7074cd573ca2928c5192e1985622aa9d46eb6f57fae2362f48ad937030",
+    "audit_attribution": "Separate saved-output audit by software author; additional period arithmetic qualification separately performed. Not independent software acceptance.",
+    "model_or_R_calls": 0,
+    "new_provider_requests_during_qualification": 0
+  },
+  "scope_limits": {
+    "country_admission": false,
+    "ecological_event_admission": false,
+    "LRA_input_admission": false,
+    "pollen_measurements_or_counts_queried": false,
+    "pollen_denominator_established": false,
+    "independent_dating_validation": false,
+    "source_method_or_exact_bibliographic_identity_verified": false,
+    "full_two_site_completion": false,
+    "public_source_note_or_description_rights_established": false
+  },
+  "closed_prior_attempt": {
+    "status": "refused_partial",
+    "selected_sites": [
+      2,
+      3441
+    ],
+    "requests": 15,
+    "observed_physical_sample_rows": 1004,
+    "physical_source_EOF": false,
+    "unchanged": true
+  },
+  "public_projection": {
+    "includes": [
+      "summaries",
+      "source-native IDs and coordinate strings",
+      "relative file sizes/hashes",
+      "derived period arithmetic"
+    ],
+    "excludes": [
+      "native response pages",
+      "source notes",
+      "full descriptions",
+      "full reference text",
+      "private control paths",
+      "human-inbox material"
+    ],
+    "full_capsule_reconstructible_from_this_summary": false,
+    "replay_requires": "caller-provided authorized complete capsule and exact external manifest pin"
+  },
+  "capsule_members": [
+    {
+      "path": "manifest.json",
+      "byte_count": 22177,
+      "sha256": "24d18d4fa581d1ee9423dec61eb28bb68137d11306d81ad76823dfd7ec94432a"
+    },
+    {
+      "path": "payloads/tbl_age_types.json",
+      "byte_count": 77,
+      "sha256": "d1e5cad5bd96045c0da061bccd573b93e87ba314c0821d41bc1df6aab2a6253e"
+    },
+    {
+      "path": "payloads/tbl_analysis_dating_ranges.json",
+      "byte_count": 90,
+      "sha256": "6fefec651219969cc4b87c3bd2041eb0933ccab6dc514937309bdbf05c1478d1"
+    },
+    {
+      "path": "payloads/tbl_analysis_entities.json",
+      "byte_count": 4568,
+      "sha256": "5e012e0ff66f739c35edc3522bbcee9c49d45cfe2e5ed9a9c8e901affdd94773"
+    },
+    {
+      "path": "payloads/tbl_analysis_entity_ages.json",
+      "byte_count": 88,
+      "sha256": "69d894373eff085278a2f26858bcfa9bcc5062964a961d749caaaf38b8ba2c7a"
+    },
+    {
+      "path": "payloads/tbl_analysis_values.json",
+      "byte_count": 83,
+      "sha256": "d40ebee8485ec6ad3c350df8f3644ffecf035f37f3890845313a954ce3604628"
+    },
+    {
+      "path": "payloads/tbl_biblio.json",
+      "byte_count": 332,
+      "sha256": "ace385aa36339e6f1d7ac8bde95d0e3f5b9df66150312c74a2a6644dc5620d53"
+    },
+    {
+      "path": "payloads/tbl_datasets.json",
+      "byte_count": 4553,
+      "sha256": "f4c519a0adfb554b30ad67dbd5cbb6b2de725e9bd4906c64015c526c2040a441"
+    },
+    {
+      "path": "payloads/tbl_dating_uncertainty.json",
+      "byte_count": 86,
+      "sha256": "ae3cdd46c316235c928a9204ef126a4c6247f71cb834f6b494a75d5970eb91ab"
+    },
+    {
+      "path": "payloads/tbl_dendro_dates.json",
+      "byte_count": 80,
+      "sha256": "78f031155d1a0e22e1dcc53fc1d78126ab156105e7abd192dd86c235d3c2f02b"
+    },
+    {
+      "path": "payloads/tbl_geochronology.json",
+      "byte_count": 81,
+      "sha256": "353e7c009f982e9c141e9d6c9681cb68427f4ec8f2e10ecd03d46a17a1496297"
+    },
+    {
+      "path": "payloads/tbl_methods.json",
+      "byte_count": 568,
+      "sha256": "83ca78c6c11d67aa9885939762aa4b6f29057d59a1d08539bfa609b36474beb0"
+    },
+    {
+      "path": "payloads/tbl_physical_samples.json",
+      "byte_count": 1143,
+      "sha256": "2134f70f8bc855752e6a2307f1f481726931cf7de23c6eab33373e69b8662606"
+    },
+    {
+      "path": "payloads/tbl_relative_age_refs.json",
+      "byte_count": 85,
+      "sha256": "d57878bad1d83eaa3eb59a960f4f0ca90cab910c344ccf71b626c75e008644e0"
+    },
+    {
+      "path": "payloads/tbl_relative_ages.json",
+      "byte_count": 757,
+      "sha256": "84d64e3611da0c9c4cb3619770114b2efa07d813d13337fdc6ccab432569d520"
+    },
+    {
+      "path": "payloads/tbl_relative_dates.json",
+      "byte_count": 12158,
+      "sha256": "618deebd038cb5703ef29ac82289a425a5164eee31b41b5907c62bfdd98f38da"
+    },
+    {
+      "path": "payloads/tbl_sample_group_references.json",
+      "byte_count": 91,
+      "sha256": "73160b509789124dc8dfd1076fd000104955dc2c50f111cf74b61b3ad0d9fc7c"
+    },
+    {
+      "path": "payloads/tbl_sample_groups.json",
+      "byte_count": 1640,
+      "sha256": "0d26fca1a8990a3cf3958ad2f855e973afb3a3b14d7f70dd919209c61467b725"
+    },
+    {
+      "path": "payloads/tbl_site_references.json",
+      "byte_count": 83,
+      "sha256": "1f4b2813a91681d766399e689f896449f47fcb60e8eedc86937e7ccd0dc15f44"
+    },
+    {
+      "path": "payloads/tbl_sites.json",
+      "byte_count": 283,
+      "sha256": "b465759a5ddaef96a2fc285648801293dd8ab40c0bbcd86390bf55f61b6f5866"
+    },
+    {
+      "path": "query-receipts.json",
+      "byte_count": 32945,
+      "sha256": "a69fbdc7666f8100680e986a4a67995b39951e73819be34191ce74bd917f312b"
+    },
+    {
+      "path": "receipts/tbl_age_types.json",
+      "byte_count": 267,
+      "sha256": "ba9647001317e6297fb4a765874d67358f66d51b8eb5466b74f5d48f96805f50"
+    },
+    {
+      "path": "receipts/tbl_analysis_dating_ranges.json",
+      "byte_count": 280,
+      "sha256": "943f9f5008de5db5c43bd77907a7d6953f7149c6f2d0c6c269bcca640d2e6187"
+    },
+    {
+      "path": "receipts/tbl_analysis_entities.json",
+      "byte_count": 2474,
+      "sha256": "bfe243ee5e06b53d7d0943fa4d09857d96dfeb95725353f0f559e0c489313df4"
+    },
+    {
+      "path": "receipts/tbl_analysis_entity_ages.json",
+      "byte_count": 2830,
+      "sha256": "c07d2ad751971e2ff0dbdcf13471e855681bfc264624dc247c2692d2cdd2b105"
+    },
+    {
+      "path": "receipts/tbl_analysis_values.json",
+      "byte_count": 2733,
+      "sha256": "d9ea6ce4db074fed71b455ecbb48939142dac8882ca7679b660a66d7b7a3002f"
+    },
+    {
+      "path": "receipts/tbl_biblio.json",
+      "byte_count": 2327,
+      "sha256": "1b4ee83af18c8bd5edd403c05b13e0bbf9692158fb0f8b9d974d5308bb58f87d"
+    },
+    {
+      "path": "receipts/tbl_datasets.json",
+      "byte_count": 2820,
+      "sha256": "781a4cffa5a56bc3b45a2df05d900b10d3db7ac16b1151ad28d4ab460e03c000"
+    },
+    {
+      "path": "receipts/tbl_dating_uncertainty.json",
+      "byte_count": 276,
+      "sha256": "622a150d8fa300f9068f8c3620d139e4ad48a864f60f4bcd8c009e63d6e34195"
+    },
+    {
+      "path": "receipts/tbl_dendro_dates.json",
+      "byte_count": 2808,
+      "sha256": "7462eb765d645cd4ab2cc89bb0387fa9da4d64f843ebe0d00970fd27ea4c9712"
+    },
+    {
+      "path": "receipts/tbl_geochronology.json",
+      "byte_count": 2792,
+      "sha256": "ff172cf045fc5834bf1506ec7c1d3e7d446193477ba8f234e57f25de65450644"
+    },
+    {
+      "path": "receipts/tbl_methods.json",
+      "byte_count": 2226,
+      "sha256": "cf9a42f9637f61a4238060302b666c43ba4e622f6b57e19f8ed421ad66eb3d36"
+    },
+    {
+      "path": "receipts/tbl_physical_samples.json",
+      "byte_count": 2363,
+      "sha256": "f3ad1910855069ddbcd4e8a91e564bc57fcf3556d28fe7da94cf2727c6e889e0"
+    },
+    {
+      "path": "receipts/tbl_relative_age_refs.json",
+      "byte_count": 1941,
+      "sha256": "6dc33384556d3d313e86f8dd642c3cd097e6c541447a3a79728ce2841c2e72d9"
+    },
+    {
+      "path": "receipts/tbl_relative_ages.json",
+      "byte_count": 2668,
+      "sha256": "d09243d770ed82c2dd808c7e8ee26c0e6ee5dec7af694f4e3fa1cff93e5f0d78"
+    },
+    {
+      "path": "receipts/tbl_relative_dates.json",
+      "byte_count": 3339,
+      "sha256": "8b85932960f0b13b89335fa1d9f455f6598f22431fa7c187054b806fb6f030c5"
+    },
+    {
+      "path": "receipts/tbl_sample_group_references.json",
+      "byte_count": 2193,
+      "sha256": "91e7cc6044c97fff375d802c13df0a7f9b8d6623697526b238213dae91369dbf"
+    },
+    {
+      "path": "receipts/tbl_sample_groups.json",
+      "byte_count": 2178,
+      "sha256": "e81586b67c58e4bfbbf142fba6766e3a555a26939c1aa571cfa8e20fcaa25c88"
+    },
+    {
+      "path": "receipts/tbl_site_references.json",
+      "byte_count": 1883,
+      "sha256": "030386147d6b35c44a46ba66af47c8bab60c4aa84764e936be4f0e9309046e48"
+    },
+    {
+      "path": "receipts/tbl_sites.json",
+      "byte_count": 2574,
+      "sha256": "5b6c1de769fe7df13a2349079eb1798e53f75c06c2f3974da6428acfcc1e0112"
+    },
+    {
+      "path": "responses/0001.json",
+      "byte_count": 221,
+      "sha256": "7213f5b7addcae7cc7f4f257e3b144d82c1f92bb86fd3e03b9f808f2cd50b828"
+    },
+    {
+      "path": "responses/0002.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0003.json",
+      "byte_count": 1618,
+      "sha256": "27b6c682bef72977abc58fd0022155fa9d6e8be19030d6a18b0b6a5c8278c8f5"
+    },
+    {
+      "path": "responses/0004.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0005.json",
+      "byte_count": 1118,
+      "sha256": "86fa9693a19871572716cfff392d47c2e0d41b234d464f45aaa6292a4548ceed"
+    },
+    {
+      "path": "responses/0006.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0007.json",
+      "byte_count": 4659,
+      "sha256": "3d144bb68e5161410019dd9f7b75c8989c98c0581976c2bf19e770a4d2556778"
+    },
+    {
+      "path": "responses/0008.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0009.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0010.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0011.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0012.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0013.json",
+      "byte_count": 12252,
+      "sha256": "0e014db3bc3a36bc26c3d6bff8c09936bce51f4d0e06fb21a1d0114a02e02d02"
+    },
+    {
+      "path": "responses/0014.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0015.json",
+      "byte_count": 708,
+      "sha256": "8a47cfc80b6e2051134227cc6329f67c8c47a0a92fb4e9ca51585950fdb6ee91"
+    },
+    {
+      "path": "responses/0016.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0017.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0018.json",
+      "byte_count": 495,
+      "sha256": "bc2fee4e6af6b41049bac066c94cc02982c77340aeba8a8a990fbbc74f6ab932"
+    },
+    {
+      "path": "responses/0019.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0020.json",
+      "byte_count": 4653,
+      "sha256": "c34a951fc91705dfe8ce1dd0da4b7c20f8fad9ad4d7db7aa42dbf5f8c54d7904"
+    },
+    {
+      "path": "responses/0021.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0022.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0023.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "responses/0024.json",
+      "byte_count": 260,
+      "sha256": "d0ab1c66c5758ad3409deab480f86628ca6d2b584701d2cf0c92caa1132a2aa1"
+    },
+    {
+      "path": "responses/0025.json",
+      "byte_count": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  ]
+}

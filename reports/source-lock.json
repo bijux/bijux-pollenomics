@@ -1318,7 +1318,8 @@
     "reports/science/source-cohorts/neotoma-country-authority-qualification.json": "117f1ba212ad84d305ef458f65097eeaaea2db4c5eb9d00bc9c55a6cd901320d",
     "reports/science/pollen-reconstruction/bokesjon-pilot/parameter-sensitivity/result/report.json": "9c84f5e2225d31d796a0a65d6ca0008915c840699048b6e80314af3accceae41",
     "reports/science/pollen-reconstruction/bokesjon-pilot/parameter-sensitivity/result/source-cases/manifest.json": "4fe9582b664aa6d4e26cd5f0868e788e4f095a96e851bc6126e2ddd65258321e",
-    "reports/science/pollen-reconstruction/bokesjon-pilot/parameter-sensitivity/verification.json": "3146817c9bcb7e1f91bff0446c2c49eb482074ec4d71fa1f5eed162d87d164cb"
+    "reports/science/pollen-reconstruction/bokesjon-pilot/parameter-sensitivity/verification.json": "3146817c9bcb7e1f91bff0446c2c49eb482074ec4d71fa1f5eed162d87d164cb",
+    "reports/science/chronology/sead/troitski-site-3441/verification.json": "157db05517b6abc7620a67f19214d444cdfaa17c9ca9ff43a01e470e1a9894a6"
   },
   "maintained_paths": [
     ".github/workflows/scientific-verification.yml",
@@ -2294,6 +2295,7 @@
     "reports/science/vegetation-reference/smaland-historical-maps/coverage.py",
     "reports/science/vegetation-reference/southern-sweden-figure/compare.py",
     "reports/verify.py",
-    "uv.lock"
+    "uv.lock",
+    "reports/science/chronology/sead/troitski-site-3441/verification.json"
   ]
 }
