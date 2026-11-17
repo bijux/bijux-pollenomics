@@ -4,7 +4,7 @@ audience: developer
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-11-16
+last_reviewed: 2026-11-17
 ---
 
 # Neotoma Ancillary Source Resources
@@ -407,3 +407,23 @@ It offers no ancestry source-body download or acquisition authority. Leaving
 their published metadata. An actual chain must still be separately materialized,
 qualified and explicitly supplied before these software interfaces change a
 published Atlas.
+
+## Retained Parent And Citation Details
+
+The [recorded ancestry account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-integrity/neotoma/ancestry-captures/README.md)
+links 13 captured taxon details and three taxon-reference publication details
+to their unchanged responses, receipts and normalized chain.
+
+- Capture: `taxon-ancestry/captures/20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009/`,
+  expected manifest SHA-256 `20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009`
+  (`capture-manifest.json`; 34 files, 115,852 bytes).
+- Chain: `taxon-ancestry/chains/0e7e37196a8eabc771b336bec25f981bfc6a291148dc519b9ce6c4f8212e2064/`,
+  expected manifest SHA-256 `0e7e37196a8eabc771b336bec25f981bfc6a291148dc519b9ce6c4f8212e2064`
+  (`manifest.json`; five files, 592,574 bytes).
+
+Keep the baseline pin above as a separate explicit metadata resolver. The
+selected SDK/Atlas metadata route does not read the supporting detail bodies,
+revalidate current source roles, authorize GETs or admit a taxon/PPE mapping.
+The chain's `new_GETs` is zero; its summary retains the earlier 16 captured
+HTTP requests. Its frozen frontier has 182 unresolved leads, including three
+newly exposed taxon pointers. Full resource closure remains open.
