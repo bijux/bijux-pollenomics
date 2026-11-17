@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from collections.abc import Callable
 import csv
 import hashlib
+import io
 import json
 from pathlib import Path
 from typing import Any
@@ -15,6 +17,12 @@ from bijux_pollenomics.collection.sources.sead.acquisition.governed import (
 )
 from bijux_pollenomics.collection.sources.sead.evidence.source_keys.validation import (
     validate_sead_source_key_ledger_against_acquisition,
+)
+from bijux_pollenomics.core.filesystem import BoundedInputTree, DirectoryAnchor
+from bijux_pollenomics.core.filesystem.callback_publication import publish_callback_tree
+from bijux_pollenomics.core.filesystem.replacement import (
+    ReplacementCandidate,
+    publish_owned_replacement,
 )
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_ADMISSION_SHA256,
@@ -118,24 +126,65 @@ def source_relation_export(
     return summary, rows
 
 
+def _attach_new_export(
+    writer: ReplacementCandidate,
+    *,
+    final: Path,
+    prior: BoundedInputTree | None,
+    recovery: DirectoryAnchor,
+    validate: Callable[[Path], object],
+) -> object:
+    """Keep the immutable-export contract when another writer wins the name."""
+    if prior is not None:
+        raise ValueError("Source relation export destination already exists")
+    return publish_owned_replacement(
+        writer, final=final, prior=None, recovery=recovery, validate=validate
+    )
+
+
 def write_source_relations(data_root: Path, output: Path) -> dict[str, Any]:
-    """Retain the reconciled denominator export in an unoccupied destination."""
+    """Publish the complete export under the parent held before source replay."""
     output = output.absolute()
     if output.exists() or output.is_symlink():
         raise ValueError("Source relation export destination already exists")
-    summary, rows = reconcile_source_relations(data_root)
-    output.mkdir(parents=True)
-    with (output / "tables.csv").open("w", encoding="utf-8", newline="") as stream:
+    buffers: dict[str, bytes] = {}
+
+    def produce(candidate: Path) -> dict[str, Any]:
+        summary, rows = reconcile_source_relations(data_root)
+        stream = io.StringIO(newline="")
         writer = csv.DictWriter(stream, fieldnames=_TABLE_FIELDS, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
-    summary["tables_csv_sha256"] = hashlib.sha256(
-        (output / "tables.csv").read_bytes()
-    ).hexdigest()
-    (output / "summary.json").write_text(
-        json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        table_text = stream.getvalue()
+        buffers["tables.csv"] = table_text.encode("utf-8")
+        summary["tables_csv_sha256"] = hashlib.sha256(buffers["tables.csv"]).hexdigest()
+        summary_text = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+        buffers["summary.json"] = summary_text.encode("utf-8")
+        (candidate / "tables.csv").write_text(table_text, encoding="utf-8", newline="")
+        (candidate / "summary.json").write_text(
+            summary_text, encoding="utf-8", newline=""
+        )
+        return summary
+
+    def validate(candidate: Path) -> None:
+        with BoundedInputTree(
+            candidate, max_bytes=sum(map(len, buffers.values())), max_files=2
+        ) as tree:
+            if set(tree.files) != set(buffers):
+                raise ValueError("Source relation export inventory changed")
+            for name, expected in buffers.items():
+                if tree.read(candidate / name, max_bytes=len(expected)) != expected:
+                    raise ValueError("Source relation export bytes changed")
+            tree.validate()
+
+    return publish_callback_tree(
+        output,
+        produce,
+        namespace="sead-source-relations",
+        label="SEAD source relations",
+        validate=validate,
+        _replace=_attach_new_export,
     )
-    return summary
 
 
 def main(argv: list[str] | None = None) -> int:
