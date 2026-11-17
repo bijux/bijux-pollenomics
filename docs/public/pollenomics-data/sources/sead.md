@@ -105,6 +105,9 @@ flowchart LR
 ```
 
 The site envelope remains a publication convenience for ranking and overview.
+An open-ended `From` dendrochronological record stays contextual and does not
+add a closed numeric site-envelope interval. Its qualifier and native record
+identities remain available for review.
 The temporal-evidence layer is the appropriate product for chronological
 navigation: each feature keeps one interval and the identifiers of all source
 rows grouped into it. For sample-level reasoning, continue into

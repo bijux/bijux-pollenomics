@@ -5,6 +5,7 @@ from __future__ import annotations
 import re
 
 from bijux_pollenomics.core.bp_time import normalize_bp_interval
+from bijux_pollenomics.core.text import clean_optional_text
 
 from .values import parse_optional_int
 
@@ -30,6 +31,11 @@ _PERIOD_LABEL_PATTERNS = (
     (re.compile(r"\bmedieval\b", re.IGNORECASE), "medieval"),
     (re.compile(r"\bhistoric|modern|present\b", re.IGNORECASE), "historic_or_modern"),
 )
+
+
+def sead_dendro_is_open_ended(uncertainty_label: object) -> bool:
+    """Recognize the source From qualifier without rewriting its retained label."""
+    return clean_optional_text(uncertainty_label).casefold() == "from"
 
 
 def sead_dating_interval(
@@ -216,5 +222,6 @@ def _uncertainty_labels(
 __all__ = [
     "merge_sead_intervals",
     "sead_dating_interval",
+    "sead_dendro_is_open_ended",
     "sead_interval_is_canonical",
 ]

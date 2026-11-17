@@ -2,6 +2,12 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+## Unreleased
+
+- Keep open-ended SEAD dendrochronology out of closed numeric site envelopes,
+  sharing the existing qualifier interpretation with chronology claims while
+  retaining source labels, parent identities and contextual records.
+
 ### [#491](https://github.com/bijux/bijux-pollenomics/pull/491) — Qualified HYDE context and dated provider metadata
 
 - Preserve completed cropland conservation and narrow calendar gates to the

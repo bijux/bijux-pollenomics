@@ -7,6 +7,7 @@ from collections.abc import Mapping
 from ......core.bp_time import normalize_bp_interval
 from ......core.text import clean_optional_text
 from ...acquisition.fetch import parse_optional_int
+from ...catalog.site_inventory.temporal import sead_dendro_is_open_ended
 from .models import SeadAgePolicy
 
 CALIBRATED_BP_AGE_TYPES = frozenset(
@@ -73,10 +74,8 @@ def sead_claim_age_policy(
             reason_code="age_type_not_governed",
         )
 
-    if (
-        kind == "dendrochronology"
-        and clean_optional_text(source_row.get("uncertainty_label")).casefold()
-        == "from"
+    if kind == "dendrochronology" and sead_dendro_is_open_ended(
+        source_row.get("uncertainty_label")
     ):
         return non_comparable_age_policy(
             source_age_type=source_age_type,
