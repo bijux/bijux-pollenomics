@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#489](https://github.com/bijux/bijux-pollenomics/pull/489) — Owned collection callback publication
+
+- Publish collector and report callbacks through one exclusive completed-tree owner,
+  preserving prior and refused candidates outside their public destinations.
+- Refuse legacy recovery, aliases, substitutions and incomplete nested scopes without
+  deleting foreign staging or destination entries.
+- Describe private runtime candidates with an explicitly absent planning-time
+  staging path while retaining historical source replacement records.
+
 ### [#488](https://github.com/bijux/bijux-pollenomics/pull/488) — Declared generated release inputs
 
 - Bind generated publication regressions to frozen mechanical route evidence

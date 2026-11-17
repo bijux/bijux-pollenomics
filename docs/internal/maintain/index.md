@@ -66,6 +66,9 @@ If a change fits more than one row, split independent intents or name the
 causal chain explicitly. A source correction and its required regenerated
 atlas members may be inseparable; an unrelated prose rewrite is not.
 
+The [collection publication contract](collection-publication.md) describes private
+callback candidates, interrupted recovery and historical replacement metadata.
+
 ## Governed State And Build State
 
 | State | Location | Review status |
