@@ -29,7 +29,7 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, down
     || (ordinals.get('index')?.length || 0)!==domain.index_part_ids.length
     || ordinals.get('context')?.length!==1 || !Object.hasOwn(mapping,'context:0')
     || ancillary.kinds.length && domain.ancillary_context_part_id !== 'ancillary_context:0') fail('index or ancillary context part differs');
-  const payloads = new Map(), index = new Map();
+  const payloads = new Map(), index = new Map(), partCounts = new Map();
   let indexRequest = null;
   const clone = value => JSON.parse(JSON.stringify(value));
   const nativeId = value => typeof value === 'string' && /^[1-9][0-9]*$/.test(value);
@@ -99,7 +99,7 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, down
         || [...next.values()].filter(row=>row.entity_type==='ancillary_observations' && row.kind==='facet').length !== count('ancillary_facet_observation_count')
         || [...next.values()].filter(row=>row.entity_type==='ancillary_observations' && row.kind==='linked').length !== count('ancillary_linked_observation_count'))) fail('ancillary observation population differs');
       if (count('version_status_count') !== 2 * count('record_count')) fail('version population differs');
-      next.forEach((value,key)=>index.set(key,value));
+      next.forEach((value,key)=>{index.set(key,value);partCounts.set(value.part_id,(partCounts.get(value.part_id)||0)+1);});
     })();
     indexRequest = indexRequest.catch(error=>{indexRequest=null;throw error;});
     return indexRequest;
@@ -111,6 +111,15 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, down
     if (!reference) return null;
     const payload = await part(reference.part_id);
     if (payload.kind !== kind) fail('record reference has another kind');
+    if (ancillary.kinds.includes(kind)) {
+      if(partCounts.get(payload.part_id)!==payload.records.length)fail('selected ancillary part membership differs');
+      const seen=new Set();
+      for(const member of payload.records) {
+        const projected=ancillary.projection(kind,member,payload.part_id);
+        if(seen.has(projected.record_id) || !ancillary.same(projected,index.get(`${kind}:${projected.record_id}`)))fail('selected ancillary index owner or source posture differs');
+        seen.add(projected.record_id);
+      }
+    }
     const found = payload.records.find(row => rowId(kind, row) === identity);
     if (!found) fail('referenced record is absent');
     return clone(found);
