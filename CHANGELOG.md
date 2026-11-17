@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#502](https://github.com/bijux/bijux-pollenomics/pull/502) — Neotoma session permission inventory reuse
+
+- Check the active operation and original outer guard before resolver validation,
+  retaining the final complete source/permission check after comparisons.
+- Preserve full standalone preflight and refusal before protected source bodies
+  when permissions change while a resolver is inspected.
+- Record the generated inventory reduction without claiming actual-source runtime
+  or acquisition-budget feasibility.
+
 ### [#501](https://github.com/bijux/bijux-pollenomics/pull/501) — Retained RAÄ cell-value interpretation
 
 - Distinguish historical display-cell values from authenticated registry-record
