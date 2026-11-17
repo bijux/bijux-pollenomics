@@ -79,6 +79,15 @@ CC BY 3.0. The [provider DOI record](../../docs/report/source-relations/hyde/pro
 retained on 29 September 2026 says CC BY 4.0 after its September update;
 it has no exact-member binding to the local release.
 
+A separately retained [17 November 2026 DataCite observation](../../docs/report/source-relations/hyde/provider-record/registry-observation-2026-11-17.json)
+also lists CC BY 4.0 for DOI `10.24416/UU01-F45D44`, version `1.0`.
+The 10,609-byte response has SHA-256
+`5468884df7c275e007785e3108c9fc2068eab2b7b1ab5322583fb9735e1a8daa`.
+Its registry update timestamp is 29 October 2026; that timestamp does not prove
+a licence transition or a change to the retained release. It supplies no content
+URL or exact-member checksum inventory. This dated metadata observation neither
+replaces the earlier record nor resolves the local file-specific rights claims.
+
 On 26 October 2026 the user selected the downloaded April snapshot's bundled
 `original/readme_HYDE_3.5.txt`, line 15, **CC BY 3.0** statement as the project's
 documented licence reference. This supersedes the earlier user selection of
@@ -255,6 +264,12 @@ Country partitions and observed-zero versus missing populations matched.
 This qualifies saved conditional arithmetic, not ecological comparability or
 uncertainty coverage. Both terminal receipts recorded unchanged input custody
 and no surviving owned processes.
+
+The terminal and capture receipts for this local comparison are not linked from
+this account. Reusing its execution qualification requires restoring exact links
+to those existing records; the account's narrative is not itself a terminal
+receipt. This evidence connection does not require repeating the native
+calculation or change the historical result and its conditional interpretation.
 
 Nineteen native ASCII members were read through only the required prefixes.
 Their receipts bind actual prefix hashes, literal variable-specific headers,

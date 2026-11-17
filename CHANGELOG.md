@@ -2,6 +2,12 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+## Unreleased
+
+- Preserve completed HYDE cropland conservation while narrowing calendar gates
+  to the selected source labels, and retain a separately dated provider-metadata
+  observation without changing file-specific rights or scientific admission.
+
 ### [#490](https://github.com/bijux/bijux-pollenomics/pull/490) — Conditional fixed-support source cases
 
 - Authenticate retained paired request support and explicit parameter conditioning

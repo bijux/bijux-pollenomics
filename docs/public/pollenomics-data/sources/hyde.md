@@ -268,8 +268,13 @@ Native preparation must preserve the variable and scenario inventories,
 source grid edges and orientation, actual cell and land areas, masks, and
 source-native time labels. Area, population, density and fractions are distinct
 quantities. Lower and upper scenarios are not automatically confidence
-intervals. Calendar conversion must resolve `0AD` and the NetCDF `365_day`
-calendar before producing canonical BP values or matching LRA time windows.
+intervals. Calendar conversion must state the convention for the selected labels
+and calendar before producing canonical BP values or matching LRA time windows.
+Uses involving `0AD` or the NetCDF `365_day` calendar must resolve those specific
+semantics. The [positive-CE contextual comparison](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md#local-cropland-context-for-archived-landclim-agricultural-cover)
+uses neither conversion. Its declared point-to-window rule does not turn a
+source instant into interval-averaged cropland or establish a matched pollen
+comparison.
 
 Native geographical, chronological and scientific admission remains refused
 by the current registration. Qualified review, comparable category mappings,

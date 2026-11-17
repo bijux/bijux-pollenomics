@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2271,
-  "paths_sha256": "8ff18e65887b637a85fa08fd02cc6eed6ab9a05497dbabe6da0ada1b7ba8459f",
+  "path_count": 2272,
+  "paths_sha256": "d5563c062fd567eae51297e18b1f7a72d13f21bd5c6237b5788e5905fd7d98b2",
   "owners": [
     {
       "owner_id": "atlas/frame-url-replay/browser-verification",
@@ -44315,6 +44315,16 @@
       ],
       "role": "maintained_editorial",
       "verification": "Human-maintained reader account; compare its source scopes and numeric statements with the retained provider JSON and HYDE source/rights account. This editorial role does not authenticate source rights, reproduce results, or confer scientific review. Scientific wrapper prose has a shared generated terminal account-route block. After the domain producer or authored body is prepared, use the maintained render_route(raw_bytes, load_routes()[logical_docs_report_path]) for each declared Markdown reader, or publish_scientific_routes(report_tree_root) for a complete layout; the actual portal publisher applies the same postprocessor before path inventory and layout validation. Retain original authored/scientific body bytes and domain machine manifests. Validate declared canonical account paths and complete embedded scientific fields with the maintained scientific_routes and scientific_limits validators; routing is not biological or source-rights admission. The reader-route resource and focused test_scientific_routes.py guard the contract. Each scientific wrapper now has an individual nine-field qualification bound to its exact authored body and public retained evidence in scientific_accounts.json. The maintained postprocessor refuses changed authored/evidence identities, empty/self/cross-wrapper rendered-hash evidence and incomplete fields. Validate the complete candidate through validate_reader_routes(require_individual_qualifications=True); its source/boundary guards are test_scientific_qualifications.py, test_scientific_routes.py and test_runtime_isolation.py. This qualifies the current prose/retained-source account, with zero new model or R runs and no qualified human decision. Preserve negative/scientific/rights/denominator limits; review changed source facts before replacing qualification pins. When comparing generated prose to a tracked wrapper, use verified_authored_reader with the exact authority so malformed, altered or arbitrary trailing HTML cannot be peeled silently. Domain reference/replay and numerical authority remain separate from the shared postprocessor receipt."
+    },
+    {
+      "owner_id": "source-relations/hyde/provider-record/registry-observation",
+      "paths": [
+        "docs/report/source-relations/hyde/provider-record/registry-observation-2026-11-17.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "Retain this exact 17 November 2026 DataCite DOI API observation at https://api.datacite.org/dois/10.24416/uu01-f45d44: 10,609 bytes, SHA-256 5468884df7c275e007785e3108c9fc2068eab2b7b1ab5322583fb9735e1a8daa. This dated metadata record was reused without a new provider request; it is separate from the unchanged 29 September record. It supplies no original response-header custody or exact local-member checksum/version crosswalk, and does not establish a licence transition, native-grid redistribution or scientific admission. Do not reacquire a mutable current response to reproduce this historical observation."
     },
     {
       "owner_id": "source-relations/hyde/provider-record/report-products",

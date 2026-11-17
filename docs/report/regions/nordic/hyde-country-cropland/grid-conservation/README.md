@@ -59,7 +59,7 @@ Named Nordic source/development wrapper; its own source denominator remains sepa
 
 **Consequence.** Native zero cells and source country labels are preserved without converting cell counts to land area or treating scenario bounds as probability intervals.
 
-**Precise next acceptance route.** Replay the seven-year cropland consumer against its22archives and three country tables, then resolve source metadata and rights before a separate scientific comparison.
+**Precise next acceptance route.** Reuse the retained seven-year country/grid replay and independent Decimal reconstruction without repeating native arithmetic. Resolve the exact retained-member rights/provider binding and the spatial, temporal and category requirements of a named downstream comparison before stronger use.
 
 **Negative or refused result.** The2025source label and conflicting release prose remain explicit; no missing/negative selected cell is silently filled.
 
