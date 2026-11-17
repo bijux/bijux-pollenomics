@@ -1,6 +1,7 @@
 """Nominal comparisons keep clipped-away change, units and refusals visible."""
 
 from copy import deepcopy
+from typing import Any
 
 import pytest
 
@@ -9,7 +10,7 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.bokesjon_pilo
 )
 
 
-def cases():
+def cases() -> dict[str, Any]:
     coordinates = [
         {"role": "local", "taxon": taxon, "ring_mean_m": 100, "unit": "fraction"}
         for taxon in ["Betula", "Ulmus"]
@@ -34,7 +35,9 @@ def cases():
     }
 
 
-def test_nominal_difference_keeps_clipped_change_and_does_not_invent_uncertainty():
+def test_nominal_difference_keeps_clipped_change_and_does_not_invent_uncertainty() -> (
+    None
+):
     result = reporting.compare(cases())
     assert result["status"] == "complete_conditional_nominal_comparison"
     assert result["raw_delta_percentage_points"] == pytest.approx([10, -10])
@@ -48,7 +51,7 @@ def test_nominal_difference_keeps_clipped_change_and_does_not_invent_uncertainty
 
 
 @pytest.mark.parametrize("status", ["refused", "not_run"])
-def test_incomplete_case_is_not_zero_or_a_success_only_difference(status):
+def test_incomplete_case_is_not_zero_or_a_success_only_difference(status: str) -> None:
     value = cases()
     value["cases"][1].update(
         status=status,
@@ -69,7 +72,7 @@ def test_incomplete_case_is_not_zero_or_a_success_only_difference(status):
 
 
 @pytest.mark.parametrize("damage", ["axis", "unit", "nan", "duplicate", "missing"])
-def test_comparison_refuses_incompatible_saved_cases(damage):
+def test_comparison_refuses_incompatible_saved_cases(damage: str) -> None:
     value = cases()
     if damage == "axis":
         value["cases"][1]["coordinates"][0]["taxon"] = "Another taxon"

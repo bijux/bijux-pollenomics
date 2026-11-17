@@ -2,6 +2,8 @@
 
 from dataclasses import replace
 import json
+from pathlib import Path
+from typing import NoReturn
 
 import pytest
 
@@ -14,7 +16,7 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.bokesjon_pilo
 from .test_buffer_ownership import generated
 
 
-def test_generated_plan_executes_and_exports_derived_only(tmp_path):
+def test_generated_plan_executes_and_exports_derived_only(tmp_path: Path) -> None:
     inputs, reference, buffers, scope = generated(tmp_path)
     baseline = run_lra_request(
         inputs.request,
@@ -56,7 +58,9 @@ def test_generated_plan_executes_and_exports_derived_only(tmp_path):
     assert report["source_request_sha256"]
 
 
-def test_callback_failure_preserves_prior_and_original_error(tmp_path, monkeypatch):
+def test_callback_failure_preserves_prior_and_original_error(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     inputs, reference, buffers, scope = generated(tmp_path)
     prepared = preparation.prepare(inputs, reference, buffers=buffers, scope=scope)
     destination = tmp_path / "comparison"
@@ -64,7 +68,7 @@ def test_callback_failure_preserves_prior_and_original_error(tmp_path, monkeypat
     (destination / "previous.txt").write_text("PRIOR COMPLETE")
     failure = RuntimeError("generated primary execution failure")
 
-    def broken(*args, **kwargs):
+    def broken(*args: object, **kwargs: object) -> NoReturn:
         raise failure
 
     monkeypatch.setattr(workflow, "run_source_lra_cases", broken)
@@ -79,8 +83,10 @@ def test_callback_failure_preserves_prior_and_original_error(tmp_path, monkeypat
     assert (destination / "previous.txt").read_text() == "PRIOR COMPLETE"
 
 
-def test_source_revision_refuses_before_opening_actual_inputs(tmp_path, monkeypatch):
-    calls = []
+def test_source_revision_refuses_before_opening_actual_inputs(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    calls: list[bool] = []
     monkeypatch.setattr(workflow, "load_inputs", lambda *a, **k: calls.append(True))
     with pytest.raises(ValueError):
         workflow.run(

@@ -10,6 +10,8 @@ Repository changes are recorded by pull request, newest merge first.
   100 km regional extent, source-SD and empirical-accuracy limits.
 - Publish the separately qualified saved output while preserving the original
   late operator audit refusal and private source/child storage boundaries.
+- Type generated comparison fixtures and callbacks for strict developer checks,
+  preserving production behavior and the saved numerical result.
 
 ### [#492](https://github.com/bijux/bijux-pollenomics/pull/492) — Contextual open-ended SEAD chronology
 

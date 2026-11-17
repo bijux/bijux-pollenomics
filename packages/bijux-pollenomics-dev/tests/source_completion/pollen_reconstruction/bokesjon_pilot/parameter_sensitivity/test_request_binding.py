@@ -2,6 +2,8 @@
 
 from dataclasses import replace
 import json
+from pathlib import Path
+from typing import NoReturn
 
 import pytest
 
@@ -17,8 +19,8 @@ from .test_buffer_ownership import generated
     "damage", ["request", "evidence", "provenance", "normalization"]
 )
 def test_context_substitution_refuses_before_workspace_or_executor(
-    tmp_path, monkeypatch, damage
-):
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, damage: str
+) -> None:
     inputs, reference, buffers, scope = generated(tmp_path)
     pins = ({"path": "generated-source-reference.json", "sha256": "a" * 64},)
     inputs = replace(inputs, source_pins=pins)
@@ -40,9 +42,9 @@ def test_context_substitution_refuses_before_workspace_or_executor(
         )
     else:
         prepared = replace(prepared, normalization_json="{}")
-    calls = []
+    calls: list[bool] = []
 
-    def forbidden(*args, **kwargs):
+    def forbidden(*args: object, **kwargs: object) -> NoReturn:
         calls.append(True)
         raise AssertionError("Substituted context reached workspace or executor")
 

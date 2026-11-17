@@ -5,6 +5,8 @@ from hashlib import sha256
 from importlib.util import module_from_spec, spec_from_file_location
 import json
 from pathlib import Path
+from types import ModuleType
+from typing import Any, TypedDict, cast
 
 import pytest
 
@@ -18,23 +20,35 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.bokesjon_pilo
 SOURCE = next(p for p in Path(__file__).parents if (p / "uv.lock").is_file())
 
 
-def load(name, path):
+class CapturedContext(TypedDict, total=False):
+    """The exact two heterogeneous containers captured by real normalization."""
+
+    buffers: dict[str, bytes]
+    scope: dict[str, Any]
+
+
+def load(name: str, path: str) -> ModuleType:
     spec = spec_from_file_location(name, SOURCE / path)
+    assert spec is not None and spec.loader is not None
     module = module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
 
 
-def generated(tmp_path):
+def generated(
+    tmp_path: Path,
+) -> tuple[BaselineInputs, dict[str, Any], dict[str, bytes], dict[str, Any]]:
     fixture = load(
         "generated_normalization_fixture",
         "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/test_normalization.py",
     )
     parts = fixture.fixture()
-    capture = {}
+    capture: CapturedContext = {}
 
-    def retain(scope, buffers, packet):
-        capture.update(scope=scope, buffers=buffers)
+    def retain(
+        scope: dict[str, Any], buffers: dict[str, bytes], packet: bytes
+    ) -> bytes:
+        capture.update({"scope": scope, "buffers": buffers})
         return packet
 
     fixture.bind(parts, retain)  # Real normalization, not a patched product seam.
@@ -80,7 +94,7 @@ def generated(tmp_path):
     return inputs, reference, capture["buffers"], capture["scope"]
 
 
-def test_real_pure_normalization_and_preparation_compose(tmp_path):
+def test_real_pure_normalization_and_preparation_compose(tmp_path: Path) -> None:
     inputs, reference, buffers, scope = generated(tmp_path)
     result = preparation.prepare(inputs, reference, buffers=buffers, scope=scope)
     assert result.plan.payload()["design"] == {"kind": "unweighted_sensitivity"}
@@ -99,15 +113,16 @@ def test_real_pure_normalization_and_preparation_compose(tmp_path):
     assert changed["configuration"] == baseline["configuration"]
 
 
-def test_prepare_refuses_mutable_original_evidence_body(tmp_path):
+def test_prepare_refuses_mutable_original_evidence_body(tmp_path: Path) -> None:
     inputs, reference, buffers, scope = generated(tmp_path)
     name = next(x for x in inputs.evidence if "raw_snapshot" in x)
-    inputs.evidence[name] = bytearray(inputs.evidence[name])
+    # Deliberately violate the bytes contract to exercise its runtime refusal.
+    cast(dict[str, object], inputs.evidence)[name] = bytearray(inputs.evidence[name])
     with pytest.raises(ValueError):
         preparation.prepare(inputs, reference, buffers=buffers, scope=scope)
 
 
-def test_public_prepared_model_owns_borrowed_mapping(tmp_path):
+def test_public_prepared_model_owns_borrowed_mapping(tmp_path: Path) -> None:
     inputs, reference, buffers, scope = generated(tmp_path)
     prepared = preparation.prepare(inputs, reference, buffers=buffers, scope=scope)
     original = dict(prepared.members)

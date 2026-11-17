@@ -1,9 +1,11 @@
 """Generated source-scale controls; no empirical payloads or model calls."""
 
+from collections.abc import Callable
 from copy import deepcopy
 from hashlib import sha256
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -11,12 +13,17 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.bokesjon_pilo
     normalization,
 )
 
+FixtureParts = tuple[
+    dict[str, Any], list[dict[str, Any]], dict[str, Any], dict[str, Any], bytes
+]
+Mutation = Callable[[dict[str, Any], dict[str, bytes], bytes], bytes]
 
-def encode(value):
+
+def encode(value: object) -> bytes:
     return json.dumps(value, sort_keys=True).encode()
 
 
-def fixture():
+def fixture() -> FixtureParts:
     names = ["Betula", "Ulmus", "Poaceae"] + [f"Generated{i}" for i in range(28)]
     (authors, pairs, rows) = ([], [], [])
     for name in names:
@@ -114,8 +121,10 @@ def fixture():
     return (request, docs, reference, {"metadata": metadata}, raw_source)
 
 
-def bind(parts, mutate=None):
+def bind(parts: FixtureParts, mutate: Mutation | None = None) -> dict[str, Any]:
     (request, docs, reference, scope, raw_source) = parts
+    pins: dict[str, dict[str, Any]]
+    buffers: dict[str, bytes]
     (pins, buffers) = ({}, {"reference-source": raw_source})
     for index in (0, 2, 1):
         role = normalization.ROLES[index]
@@ -144,7 +153,7 @@ def bind(parts, mutate=None):
     return normalization.bind(request, packet, reference, buffers, scope)
 
 
-def test_preserves_rounding_sd_and_inputs():
+def test_preserves_rounding_sd_and_inputs() -> None:
     parts = fixture()
     prior = deepcopy(parts)
     result = bind(parts)
@@ -173,7 +182,7 @@ def test_preserves_rounding_sd_and_inputs():
         "reference_pin",
     ],
 )
-def test_incompatible_authenticated_structures_refuse(change):
+def test_incompatible_authenticated_structures_refuse(change: str) -> None:
     p = fixture()
     if change == "request_rounding":
         p[0]["parameters"][0]["ppe"] = 5.10571
@@ -196,9 +205,11 @@ def test_incompatible_authenticated_structures_refuse(change):
 
 
 @pytest.mark.parametrize("change", ["missing", "changed_bytes", "parameter_packet"])
-def test_missing_or_changed_bound_buffers_refuse(change):
+def test_missing_or_changed_bound_buffers_refuse(change: str) -> None:
 
-    def mutate(scope, buffers, packet):
+    def mutate(
+        scope: dict[str, Any], buffers: dict[str, bytes], packet: bytes
+    ) -> bytes:
         if change == "missing":
             del scope["normalization_evidence"][normalization.ROLES[0]]
         if change == "changed_bytes":

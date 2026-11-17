@@ -5,6 +5,7 @@ from hashlib import sha256
 from importlib.util import module_from_spec, spec_from_file_location
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -13,6 +14,7 @@ from bijux_pollenomics_dev.source_completion.pollen_reconstruction.bokesjon_pilo
     BaselineInputs,
 )
 from bijux_pollenomics_dev.source_completion.pollen_reconstruction.bokesjon_pilot.parameter_sensitivity import (
+    normalization,
     preparation,
 )
 
@@ -20,11 +22,12 @@ from .test_normalization import bind as bind_fixture
 from .test_normalization import fixture as normalization_fixture
 
 
-def generated_inputs(tmp_path):
+def generated_inputs(tmp_path: Path) -> BaselineInputs:
     """Construct evidence-labelled source contracts without empirical source access."""
     repository = next(p for p in Path(__file__).parents if (p / "uv.lock").is_file())
     path = repository / "packages/bijux-pollenomics/tests/unit/analysis/lra/support.py"
     spec = spec_from_file_location("generated_host_contract_support", path)
+    assert spec is not None and spec.loader is not None
     module = module_from_spec(spec)
     spec.loader.exec_module(module)
     root = tmp_path / "original"
@@ -48,12 +51,12 @@ def generated_inputs(tmp_path):
     return BaselineInputs(json.dumps(request).encode(), evidence, root, (), b"{}")
 
 
-def arguments(tmp_path, monkeypatch):
+def arguments(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> tuple[BaselineInputs, dict[str, Any]]:
     inputs = generated_inputs(tmp_path)
     binding = bind_fixture(normalization_fixture())
-    monkeypatch.setattr(
-        preparation.normalization, "bind", lambda *a, **k: deepcopy(binding)
-    )
+    monkeypatch.setattr(normalization, "bind", lambda *a, **k: deepcopy(binding))
     selected = {
         "taxon": "Betula",
         "taxonomic_level": "genus",
@@ -75,7 +78,9 @@ def arguments(tmp_path, monkeypatch):
     return inputs, reference
 
 
-def test_prepared_plan_reaches_existing_source_admission(tmp_path, monkeypatch):
+def test_prepared_plan_reaches_existing_source_admission(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     inputs, reference = arguments(tmp_path, monkeypatch)
     original = inputs.request_bytes, deepcopy(inputs.evidence)
     prepared = preparation.prepare(inputs, reference, buffers={}, scope={})
@@ -115,7 +120,9 @@ def test_prepared_plan_reaches_existing_source_admission(tmp_path, monkeypatch):
         "wrong_nominal",
     ],
 )
-def test_parameter_selection_refuses_silent_repairs(tmp_path, monkeypatch, damage):
+def test_parameter_selection_refuses_silent_repairs(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, damage: str
+) -> None:
     inputs, reference = arguments(tmp_path, monkeypatch)
     rows = reference["synthesized_rows"]
     if damage == "missing_ulmus":
@@ -133,8 +140,8 @@ def test_parameter_selection_refuses_silent_repairs(tmp_path, monkeypatch, damag
 
 
 def test_source_evidence_mutation_and_existing_destination_refuse(
-    tmp_path, monkeypatch
-):
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     inputs, reference = arguments(tmp_path, monkeypatch)
     prepared = preparation.prepare(inputs, reference, buffers={}, scope={})
     target = tmp_path / "occupied"
