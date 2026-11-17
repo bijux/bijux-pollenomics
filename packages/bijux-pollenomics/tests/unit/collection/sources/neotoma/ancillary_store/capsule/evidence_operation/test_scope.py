@@ -314,3 +314,70 @@ def test_valid_private_metadata_handoff_uses_its_stored_current_guard(
             assert calls >= 1
             assert work["complete_validations"] == 0
             assert work["detail_body_opens"] == 0
+
+
+@pytest.mark.parametrize("linked_inputs", [2], indirect=True)
+@pytest.mark.parametrize("permission_member", ["roster", "metadata"])
+def test_private_preflight_refuses_drift_before_resolving_evidence(
+    linked_inputs: dict[str, Any], monkeypatch: Any, permission_member: str
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.ancillary_store.linked_evidence import (
+        sources,
+    )
+    from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.evidence_parts.ownership import (
+        _LinkedEvidenceSources,
+    )
+    from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.evidence_parts.session import (
+        _LinkedEvidenceSession,
+    )
+
+    prepared = prepare_capsule_metadata(**linked_inputs)
+    pin = next(iter(prepared.linked_sources))
+    inputs = sources._evidence_inputs(
+        prepared.controls[pin],
+        prepared.context,
+        linked_inputs["evidence_sources"],
+        linked_inputs["predecessor_facets"],
+    )
+    operation = object()
+    session = _LinkedEvidenceSession(
+        source_owner=_LinkedEvidenceSources(
+            evidence=inputs["evidence"],
+            source_facets=inputs["source_facets"],
+            capture_sources=prepared.linked_sources,
+            context_directory=linked_inputs["context_directory"],
+            expected_context_sha256=linked_inputs["expected_context_sha256"],
+            native_archive_directory=linked_inputs["native_archive_directory"],
+            expected_native_archive_sha256=prepared.context.manifest["native_archive"][
+                "manifest_sha256"
+            ],
+        ),
+        scope_inputs=inputs["scope_inputs"],
+        legacy_rosters=inputs["legacy_rosters"],
+        operation=operation,
+    )
+    resolved: list[bool] = []
+    original = sources.resolve_linked_evidence
+
+    def resolve(*args: Any, **kwargs: Any) -> Any:
+        resolved.append(True)
+        return original(*args, **kwargs)
+
+    with pytest.raises(ValueError, match="changed"), session:
+        scope = next(iter(prepared.context.current_scope_inputs.values()))
+        permission = (
+            scope.roster_path
+            if permission_member == "roster"
+            else next(iter(scope.metadata_captures.values())) / "capture-manifest.json"
+        )
+        permission.write_bytes(permission.read_bytes())
+        monkeypatch.setattr(sources, "resolve_linked_evidence", resolve)
+        _full_evidence_inputs(
+            prepared.controls[pin],
+            prepared.context,
+            linked_inputs["evidence_sources"],
+            linked_inputs["predecessor_facets"],
+            _session=session,
+            _operation=operation,
+        )
+    assert resolved == []
