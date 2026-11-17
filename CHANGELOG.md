@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#510](https://github.com/bijux/bijux-pollenomics/pull/510) — Bounded Atlas styles and truthful export feedback
+
+Group identical global stylesheet declarations within the existing byte limit while preserving computed styles and layout. Label selection/source transfers as download requests without claiming browser completion, and preserve immutable manifest membership validation under strict imported typing. Generated presentation/export/custody controls and matched host checks pass; public map bytes, numerical results and source admission remain unchanged.
+
 ### [#509](https://github.com/bijux/bijux-pollenomics/pull/509) — Conditional native registry cell evidence
 
 Retain the exact qualified RAÄ portable cell map, complete count CSV and display footprints with source/exclusion/projection limits and upstream software notices. Preserve whole-cell counts at partial display edges, default-off country/time boundaries and the known retained-interface/browser limitations. Strict documentation and exact public-file correspondence pass without reopening native inputs, recomputing registry membership or claiming archaeological events or area density.

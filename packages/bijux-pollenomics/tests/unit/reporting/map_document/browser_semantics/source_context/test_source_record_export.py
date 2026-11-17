@@ -98,6 +98,8 @@ function loadEvidenceTools(){loadCalls++;return new Promise((resolve,reject)=>{r
         assert observed["clicks"] == 1
         assert observed["models"] == 2
         assert observed["controls"] == 2
+        assert "Download requested" in observed["status"]
+        assert "downloaded" not in observed["status"]
 
 
 def test_download_preserves_native_chronology_models_controls_and_locators(
