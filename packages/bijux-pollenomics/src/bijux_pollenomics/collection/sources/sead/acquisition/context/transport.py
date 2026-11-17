@@ -80,7 +80,7 @@ class ContextTransport:
         if (
             self.clock() - self.started >= self.limits.max_seconds
             or self.request_count >= self.limits.max_requests
-            or self.byte_count >= self.limits.max_bytes
+            or self.byte_count >= self.limits.max_bytes - 1
         ):
             raise ValueError("Context aggregate request/byte/time budget exhausted")
 
@@ -129,7 +129,8 @@ class ContextTransport:
             if response.status not in {200, 206}:
                 raise ValueError("Context response status is not successful")
             limit = min(
-                self.limits.response_bytes, self.limits.max_bytes - self.byte_count
+                self.limits.response_bytes,
+                self.limits.max_bytes - self.byte_count - 1,
             )
             while True:
                 if self.clock() - self.started >= self.limits.max_seconds:

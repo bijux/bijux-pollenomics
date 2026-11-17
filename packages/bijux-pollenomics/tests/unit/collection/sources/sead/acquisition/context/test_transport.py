@@ -81,7 +81,7 @@ def test_sentinel_bound_precedes_json_decoding():
 
 def test_aggregate_exhaustion_prevents_next_opener_call():
     calls = []
-    client = transport(lambda *a, **kw: calls.append(kw) or Response(), max_bytes=2)
+    client = transport(lambda *a, **kw: calls.append(kw) or Response(), max_bytes=3)
     assert request(client) == []
     with pytest.raises(ValueError, match="budget"):
         request(client)
@@ -139,3 +139,12 @@ def test_wall_budget_is_checked_before_opener():
     with pytest.raises(ValueError, match="budget"):
         request(client)
     assert calls == []
+
+
+def test_overflow_sentinel_cannot_overdraw_aggregate_byte_budget():
+    response = Response(b"x" * 20)
+    client = transport(lambda *a, **kw: response, max_bytes=3, response_bytes=8)
+    with pytest.raises(ValueError, match="byte"):
+        request(client)
+    assert client.byte_count <= 3
+    assert sum(response.requested) <= 3
