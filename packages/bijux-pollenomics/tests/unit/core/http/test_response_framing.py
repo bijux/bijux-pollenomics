@@ -288,3 +288,96 @@ def test_native_transfer_refusal_preserves_primary_during_cleanup_failure(
         http.fetch_binary("https://example.test/source", max_bytes=64)
     assert any("cleanup failed" in note for note in caught.value.__notes__)
     assert stream.observed == 0 and stream.closed and calls == [30.0]
+
+
+@pytest.mark.parametrize("following", [b"", b"3\r\nabc\r\n0\r\n\r\n"])
+@pytest.mark.parametrize(
+    "method,status,lengths,encoding",
+    [
+        ("HEAD", 200, ("999999", "bad"), "chunked"),
+        ("GET", 204, ("999999", "bad"), "chunked"),
+        ("GET", 304, ("999999", "bad"), "chunked"),
+        ("GET", 101, ("999999", "bad"), "chunked"),
+        ("HEAD", 200, ("999999", "bad"), "gzip"),
+        ("GET", 304, ("999999", "bad"), "gzip"),
+        ("GET", 200, ("0", "00"), None),
+    ],
+)
+def test_native_effective_zero_never_invokes_entity_or_chunk_reader(
+    monkeypatch: pytest.MonkeyPatch,
+    following: bytes,
+    method: str,
+    status: int,
+    lengths: tuple[str, ...],
+    encoding: str | None,
+) -> None:
+    response, stream, calls = _native(
+        monkeypatch,
+        lengths,
+        following,
+        method=method,
+        status=status,
+        transfer_encoding=encoding,
+    )
+    native_read = response.read
+    reads: list[int | None] = []
+
+    def observed_read(size: int | None = -1) -> bytes:
+        reads.append(size)
+        return native_read(size)
+
+    monkeypatch.setattr(response, "read", observed_read)
+    assert http.fetch_binary("https://example.test/source", max_bytes=4) == b""
+    assert reads == [] and stream.observed == 0
+    assert stream.closed and calls == [30.0]
+
+
+def test_native_effective_zero_still_propagates_close_failure_once(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    primary = TimeoutError("native zero-body close failed")
+    response, stream, calls = _native(
+        monkeypatch, ("0",), b"FOLLOWING", close_error=primary
+    )
+
+    def forbidden_read(_size: int | None = -1) -> bytes:
+        raise AssertionError("No entity read is allowed for an effective zero body")
+
+    monkeypatch.setattr(response, "read", forbidden_read)
+    with pytest.raises(TimeoutError) as caught:
+        http.fetch_binary("https://example.test/source", max_bytes=4)
+    assert caught.value is primary and stream.closed and calls == [30.0]
+    assert stream.observed == 0
+
+
+def test_generic_zero_length_metadata_retains_legacy_stream_contract(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class LegacyStream(BytesIO):
+        headers = {"Content-Length": "0"}
+
+    stream = LegacyStream(b"abc")
+    monkeypatch.setattr(http, "urlopen", lambda *_args, **_kwargs: stream)
+    assert http.fetch_binary("https://example.test/source", max_bytes=3) == b"abc"
+    assert stream.closed
+
+
+@pytest.mark.parametrize(
+    "framed,expected", [(b"0\r\n\r\n", b""), (b"3\r\nabc\r\n0\r\n\r\n", b"abc")]
+)
+def test_native_chunked_overrides_zero_length_metadata_and_reads_its_boundary(
+    monkeypatch: pytest.MonkeyPatch, framed: bytes, expected: bytes
+) -> None:
+    response, stream, calls = _native(
+        monkeypatch, ("0", "0"), framed, transfer_encoding="chunked"
+    )
+    native_read = response.read
+    reads: list[int | None] = []
+
+    def observed_read(size: int | None = -1) -> bytes:
+        reads.append(size)
+        return native_read(size)
+
+    monkeypatch.setattr(response, "read", observed_read)
+    assert http.fetch_binary("https://example.test/source", max_bytes=3) == expected
+    assert reads and stream.closed and calls == [30.0]

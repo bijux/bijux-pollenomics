@@ -241,6 +241,8 @@ def _read_binary(response: BinaryIO, *, max_bytes: int) -> bytes:
     declared_size = None
     if isinstance(response, HTTPResponse):
         declared_size = _native_body_length(response, max_bytes=max_bytes)
+        if declared_size == 0:
+            return b""
         if declared_size is not None and declared_size > max_bytes:
             raise ValueError("HTTP binary payload exceeds byte limit")
     else:
