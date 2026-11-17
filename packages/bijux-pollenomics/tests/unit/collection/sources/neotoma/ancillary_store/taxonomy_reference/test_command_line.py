@@ -130,3 +130,40 @@ def test_retain_cli_uses_independently_pinned_local_source_plan(
     assert (output / "originals/taxa_snapshot.json").read_bytes() == (
         retained[0] / "taxa_snapshot.json"
     ).read_bytes()
+
+
+@pytest.mark.parametrize("kind", [["taxon"], {"kind": "taxon"}, None, True])
+def test_contrast_cli_reports_nonliteral_kind_as_refusal(
+    retained: Retained,
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    kind: Any,
+) -> None:
+    """Malformed authenticated metadata must preserve the CLI refusal contract."""
+    _, directory, _, pin = publish(retained, tmp_path)
+    row = target("taxon", 1)
+    row["target_kind"] = kind
+    chain, chain_pin = frontier(tmp_path, [row])
+    output = tmp_path / "refused-comparison"
+    assert (
+        cli()(
+            [
+                "contrast-frontier",
+                "--archive",
+                str(directory),
+                "--manifest-sha256",
+                pin,
+                "--chain",
+                str(chain),
+                "--chain-manifest-sha256",
+                chain_pin,
+                "--output",
+                str(output),
+            ]
+        )
+        == 1
+    )
+    captured = capsys.readouterr()
+    assert not captured.out
+    assert json.loads(captured.err)["status"] == "refused"
+    assert not output.exists()
