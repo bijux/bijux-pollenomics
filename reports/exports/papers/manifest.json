@@ -14,7 +14,7 @@
     "reports/science/southern-sweden-validation-paper.md": "ba12fdb887f0fe231e33ca61bf5b4ef77b3d74462da684006b41efb392a087b1"
   },
   "inventory_sha256": "7eddabdca98385713acc11224abc2f5355567d44f9277da88a526dfedc622eb2",
-  "library_scope": "Nine canonical paper accounts retain scientific verification and limits. Each retained PDF binds its actual source, producer, build and page-review identities. LandClim alone was rendered and inspected after its canonical conditional-covariance account changed; the other eight exports retain their existing bytes and review epochs. Presentation export does not requalify underlying scientific sources or results.",
+  "library_scope": "Nine canonical paper accounts retain scientific verification and limits. Each retained PDF binds its actual source, producer, build and page-review identities. LandClim alone was rendered and inspected after its canonical covariance and source-qualification statements changed; the other eight exports retain their existing bytes and review epochs. Presentation export does not requalify underlying scientific sources or results.",
   "papers": [
     {
       "account_status": "full_paper_account_scientific_gates_open",
@@ -27,7 +27,7 @@
         {
           "kind": "diagram_pdf",
           "path": "diagram-001.pdf",
-          "sha256": "5744364e867f3a61cc4415e181eea5be09d689c83f64fbdd45e58873ccb959f7"
+          "sha256": "d3a3d49944efdb89c2232cf006682025f5fe9617de6df614662e2fbeac85b001"
         },
         {
           "kind": "code",
@@ -35,20 +35,20 @@
           "sha256": "872d649a3887b234440a4cbb6464230a40067204fcf55a45d47322682ee069df"
         }
       ],
-      "build_receipt_sha256": "ee45c10a684ddb66d35f8f0d1027d79d06496193b8a6cce097776a79bcea89a1",
+      "build_receipt_sha256": "02d88da2f061d6a6f7e57b618978884ab0a4a40e5838c1c94cb387bcf3d3fc5d",
       "canonical_report": "reports/science/landclim-paper.md",
-      "canonical_source_sha256": "d2c610e674bc57dbe951aea362e5b393d3196926c0ae9a0f3b6d49565792161f",
+      "canonical_source_sha256": "ef42e365021e2ed6a6a1283edd63510f948635d8aab173bd1f9820ca52a7b705",
       "citation": "Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene: methodology, mapping and potentials, ESSD 14, 1581\u20131619",
       "code_blocks": 1,
       "diagrams": 1,
       "external_links": 11,
-      "latex_sha256": "5d858a3e7a170742b931baac8197432b2429fa12dcc317603e4552df5cf8d1b4",
-      "local_repository_links": 87,
+      "latex_sha256": "6dc9a65967fcf94b9a642aeffdc51cd011e05e65f21bf66c34906e8ea153b8b9",
+      "local_repository_links": 88,
       "paper_id": "landclim-regional-reconstruction",
       "pdf": "landclim-regional-reconstruction.pdf",
-      "pdf_bytes": 118848,
-      "pdf_sha256": "a25a070433348636686cfb8d45cbcf6713d795566456cb5e7473b67e27a56c2c",
-      "producer_revision": "1539ce1b696cc5bdf1b4c634664ce7e5c222c17e",
+      "pdf_bytes": 119140,
+      "pdf_sha256": "dfeb680dc407fbf022675166204303c7f4303e74d752da7babe5e1cce8b6f693",
+      "producer_revision": "032f759a1613a01735258e9c6d26d5f550f35472",
       "producer_sha256": {
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "9c5fff6795d5b233e128e44e13a682c0ecdcdfcaf2ceed65ea95de5e1df2840f",
@@ -59,8 +59,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/scientific_routes.py": "503c6d24264f3196d35595238e631e9d2f0b6e208ea6a6ada5d15e66bfd2ca0e",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "1610b56fd9569edf6262d910047f89a77b8f5d96a46e3969b240ca29ff8a2c23"
       },
-      "source_revision": "1539ce1b696cc5bdf1b4c634664ce7e5c222c17e",
-      "source_sha256": "d2c610e674bc57dbe951aea362e5b393d3196926c0ae9a0f3b6d49565792161f",
+      "source_revision": "032f759a1613a01735258e9c6d26d5f550f35472",
+      "source_sha256": "ef42e365021e2ed6a6a1283edd63510f948635d8aab173bd1f9820ca52a7b705",
       "tools": {
         "dot": "dot - graphviz version 14.1.2 (0)",
         "latexmk": "Latexmk, John Collins, 9 March 2026. Version 4.88",
@@ -69,7 +69,7 @@
       "python_dependencies": {
         "markdown-it-py": "4.0.0"
       },
-      "source_date_epoch": 1794906445
+      "source_date_epoch": 1794907563
     },
     {
       "account_status": "full_paper_account_simulation_inputs_open",

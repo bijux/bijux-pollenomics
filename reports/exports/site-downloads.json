@@ -1,12 +1,12 @@
 {
   "files": [
     {
-      "bytes": 118848,
+      "bytes": 119140,
       "canonical_source": "reports/science/landclim-paper.md",
       "path": "reports/exports/papers/landclim-regional-reconstruction.pdf",
-      "sha256": "a25a070433348636686cfb8d45cbcf6713d795566456cb5e7473b67e27a56c2c",
+      "sha256": "dfeb680dc407fbf022675166204303c7f4303e74d752da7babe5e1cce8b6f693",
       "site_uri": "assets/science/papers/landclim-regional-reconstruction.pdf",
-      "source_sha256": "d2c610e674bc57dbe951aea362e5b393d3196926c0ae9a0f3b6d49565792161f"
+      "source_sha256": "ef42e365021e2ed6a6a1283edd63510f948635d8aab173bd1f9820ca52a7b705"
     },
     {
       "bytes": 86801,
@@ -95,8 +95,8 @@
     }
   ],
   "inputs": {
-    "reports/exports/papers/manifest.json": "0dfefe793216b20887ed3ae8fa90d6feee98cf5e880d652453eabbf035fe425c",
-    "reports/exports/papers/visual-review.json": "7ee6931513cd825fff6d582f2bb66bd9c4835edcb141489c49452428c05d207a",
+    "reports/exports/papers/manifest.json": "db7d48f3f308502d0c773b81408c429289f1d79e6aaac02f8dee236eb3e4a9bd",
+    "reports/exports/papers/visual-review.json": "ca6693d6e3f654892ab23c7ed8291569a77d9fc1abc216b45ec5f646c4829ccc",
     "reports/science/paper-accounts.csv": "7eddabdca98385713acc11224abc2f5355567d44f9277da88a526dfedc622eb2"
   },
   "schema_version": "scientific-reader-downloads.v1",

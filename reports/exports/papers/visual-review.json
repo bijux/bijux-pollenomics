@@ -9,25 +9,25 @@
     {
       "paper_id": "landclim-regional-reconstruction",
       "input_pdf": "landclim-regional-reconstruction.pdf",
-      "input_pdf_sha256": "a25a070433348636686cfb8d45cbcf6713d795566456cb5e7473b67e27a56c2c",
-      "source_sha256": "d2c610e674bc57dbe951aea362e5b393d3196926c0ae9a0f3b6d49565792161f",
-      "source_revision": "1539ce1b696cc5bdf1b4c634664ce7e5c222c17e",
-      "input_receipt_sha256": "ee45c10a684ddb66d35f8f0d1027d79d06496193b8a6cce097776a79bcea89a1",
+      "input_pdf_sha256": "dfeb680dc407fbf022675166204303c7f4303e74d752da7babe5e1cce8b6f693",
+      "source_sha256": "ef42e365021e2ed6a6a1283edd63510f948635d8aab173bd1f9820ca52a7b705",
+      "source_revision": "032f759a1613a01735258e9c6d26d5f550f35472",
+      "input_receipt_sha256": "02d88da2f061d6a6f7e57b618978884ab0a4a40e5838c1c94cb387bcf3d3fc5d",
       "review_status": "layout_pass",
       "page_count": 12,
       "pages": [
         {
           "page": 1,
           "image": "page-01.png",
-          "png_sha256": "773058a0a49df0e02e473ee565097c683d7873dca0b0dc9214b23b576ad3a4c7",
-          "text_sha256": "1c1c28d4461f87e228c287f5f3cd5e8eef1cf5e409ad835f1c6ec36b0b23564c",
+          "png_sha256": "551511fbb20956cc675e4ceb65da6995156af45dae39c0a96d6d834922cb581b",
+          "text_sha256": "a23ab761ba13644e58ce491950a011f54db7e9e18482e4340d1f2a5700e935bd",
           "nonempty_word_count": 459,
           "width_pt": 595.28,
           "height_pt": 841.89,
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Paper/source identity, independent input and vegetation distinctions, sediment/window definitions."
+          "observation": "Paper/source identity, independent input and vegetation distinctions, sediment/window definitions. Fresh current source-qualification export page inspected."
         },
         {
           "page": 2,
@@ -40,7 +40,7 @@
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Six-node workflow with optional branches; REVEALS/LOVE/PFT/SE definitions."
+          "observation": "Six-node workflow with optional branches; REVEALS/LOVE/PFT/SE definitions. Fresh current source-qualification export page inspected."
         },
         {
           "page": 3,
@@ -53,7 +53,7 @@
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "WHH05 count/taxon normalization and recorded R/native comparison and exact-window archive gaps."
+          "observation": "WHH05 count/taxon normalization and recorded R/native comparison and exact-window archive gaps. Fresh current source-qualification export page inspected."
         },
         {
           "page": 4,
@@ -66,7 +66,7 @@
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Conditional 5611/8031 covariance refusal, separate2467zero andtwo negative-native rows, assets table."
+          "observation": "Conditional 5611/8031 covariance refusal, separate2467zero andtwo negative-native rows, assets table. Fresh current source-qualification export page inspected."
         },
         {
           "page": 5,
@@ -79,7 +79,7 @@
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Asset-table continuation, source workbook distinctions and strict literal-panel coverage table."
+          "observation": "Asset-table continuation, source workbook distinctions and strict literal-panel coverage table. Fresh current source-qualification export page inspected."
         },
         {
           "page": 6,
@@ -92,7 +92,7 @@
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Wider-panel assumptions, denominator/target table and physical/uncertainty assumptions."
+          "observation": "Wider-panel assumptions, denominator/target table and physical/uncertainty assumptions. Fresh current source-qualification export page inspected."
         },
         {
           "page": 7,
@@ -105,7 +105,7 @@
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Chronology and fixed-source alternatives remain conditional; Nordic source support."
+          "observation": "Chronology and fixed-source alternatives remain conditional; Nordic source support. Fresh current source-qualification export page inspected."
         },
         {
           "page": 8,
@@ -118,20 +118,20 @@
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Nordic panel/source table, chronology and independent physical/scalar limits."
+          "observation": "Nordic panel/source table, chronology and independent physical/scalar limits. Fresh current source-qualification export page inspected."
         },
         {
           "page": 9,
           "image": "page-09.png",
-          "png_sha256": "c297e94ccdf0ac4d8ed7b69f196efcce15e871439ab3f3600c7c65b980e97a11",
-          "text_sha256": "c79db9982abdcd62e64b6513a552d9b15e328bda2cd4b3662c7fdf312b7b9f3d",
-          "nonempty_word_count": 521,
+          "png_sha256": "77a34a920e7accad8a22fc7dc92cc0390395afabe2a5150828077d7d4e2ae931",
+          "text_sha256": "e7f7edbc2a3783033d6b0f2c3fedd3f40811eeba018e32dd8eac176c3b7c85d4",
+          "nonempty_word_count": 530,
           "width_pt": 595.28,
           "height_pt": 841.89,
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Four desired-claim/evidence/missing-input rows; original study identity remains open."
+          "observation": "Four-row evidence/required-input table readable, with existing conditional two-taxon BOKE/KRAG LOVE calculations explicitly separate from source/geometry qualification and independently measured vegetation accuracy. Historical-input distinctions below table remain complete."
         },
         {
           "page": 10,
@@ -144,7 +144,7 @@
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Replay instructions retained as text; source/reviewer routes and input requirements."
+          "observation": "Replay instructions retained as text; source/reviewer routes and input requirements. Fresh current source-qualification export page inspected."
         },
         {
           "page": 11,
@@ -157,7 +157,7 @@
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Nine-field scientific verification and limits; conditional covariance result/denominators."
+          "observation": "Nine-field scientific verification and limits; conditional covariance result/denominators. Fresh current source-qualification export page inspected."
         },
         {
           "page": 12,
@@ -170,18 +170,18 @@
           "physical_page_bounds_pass": true,
           "source_footer_visible": true,
           "visual_status": "readable",
-          "observation": "Retained evidence links continue without truncation; explicit no scientific requalification."
+          "observation": "Retained evidence links continue without truncation; explicit no scientific requalification. Fresh current source-qualification export page inspected."
         }
       ],
       "all_fonts_embedded": true,
       "embedded_font_count": 7,
-      "fonts_native_log_sha256": "4f628f0c2707bdd1cf07bb067c00634606a76ca1c8396c95323327896abf070e",
+      "fonts_native_log_sha256": "2c23b592df35f15c0df394f9833cd50350480b07dc9108101e5500eccf6187d2",
       "missing_character_warnings": [],
       "overfull_warnings": [],
-      "citation_annotation_count": 118,
-      "repository_citation_annotation_count": 105,
+      "citation_annotation_count": 119,
+      "repository_citation_annotation_count": 106,
       "citation_scope": "Exact commit/path Git metadata existence and encoded PDF annotations; no linked source-body reads or online availability verification.",
-      "inspection_scope": "Twelve current LandClim rendered pages inspected; eight retained paper exports not newly rendered or visually/scientifically requalified.",
+      "inspection_scope": "Every page of this fresh LandClim source-qualification export was visually inspected. Earlier PDFs/reviews remain separate preserved epochs; no numerical/scientific-source replay.",
       "fonts": [
         {
           "name": "ZNOIMV+STIXTwoText-Regular-Identity-H",

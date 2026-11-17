@@ -91,7 +91,9 @@ existing records and bytes. This publication repair does not qualify original
 study reproduction, human comprehension or tagged accessibility.
 
 The LandClim account was separately re-exported from its current committed
-Markdown after its conditional joint-covariance findings changed. All twelve
+Markdown after its conditional joint-covariance findings changed and its
+existing conditional BOKE/KRAG LOVE calculations were distinguished from
+source/physical qualification and independent vegetation accuracy. All twelve
 new pages passed source, font, text-bounds, citation and visual checks; the
 other eight PDFs keep their existing export and review epochs. Citation
 lookup proves exact Git revision/path existence without opening linked raw
