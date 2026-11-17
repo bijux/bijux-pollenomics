@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#516](https://github.com/bijux/bijux-pollenomics/pull/516) — Qualified recorded Neotoma source reading
+
+Publish the maintained source-metadata presentation with portable hashes, actual mobile/desktop views and qualified native reading of all sixteen selected targets at both widths. Preserve recorded metadata, runtime scripts, original source and chain epochs, while keeping HTTP hosting, downloads, permissions and scientific admission separate. Retain JavaScript refusal diagnostics in the existing native probe. Exact closed-product correspondence, scoped static/typing checks and strict documentation pass without source acquisition, model execution or numerical replay.
+
 ### [#515](https://github.com/bijux/bijux-pollenomics/pull/515) — Contained source-metadata action labels
 
 Wrap complete ancillary metadata identifiers inside their action buttons without widening the reader dialog, preserving preformatted JSON horizontal scrolling. Share identical focus surfaces and retain the unchanged stylesheet budget rather than raising its cap. Generated native mobile/desktop containment checks, the maintained packaging assertion and matched host lint/typing pass; no published static snapshot, source evidence, scientific state or numerical result is regenerated.
