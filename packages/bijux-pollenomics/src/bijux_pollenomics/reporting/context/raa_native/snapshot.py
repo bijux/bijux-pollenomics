@@ -111,7 +111,7 @@ def _read_cells(raw: bytes) -> tuple[tuple[int, int, int], ...]:
             or not 54 <= south <= 69
             or count <= 0
             or cells
-            and (west, south) <= cells[-1][:2]
+            and (south, west) <= (cells[-1][1], cells[-1][0])
         ):
             raise ValueError(
                 "Native registry cells are duplicate, unsorted or unsupported"
