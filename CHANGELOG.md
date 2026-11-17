@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#518](https://github.com/bijux/bijux-pollenomics/pull/518) — Normalized recorded ancestry continuation
+
+Retain the five exact successor-chain files for the previously captured twelve Neotoma details and connect their existing source account to 172 unresolved frontier leads. Preserve all capture bytes, explicit baseline/parent resolvers, the separate 16-target Atlas and fixed 182-lead dated-reference comparison. One fresh normalization completed with zero GETs; cumulative capture history, source interpretation, current permissions and scientific admission remain distinct. Exact byte correspondence, scientific-limit fields, source links and strict documentation pass without another source acquisition, baseline, derivation or model execution for delivery.
+
 ### [#517](https://github.com/bijux/bijux-pollenomics/pull/517) — Dated taxonomy references and recorded lead lookup
 
 Retain the official dated Neotoma vocabulary projections with portable source provenance, immutable native-ID lookup, positional synonym assertions and local recorded-frontier comparison. Publish the exact nine-file archive/contrast and connected source account, preserving all 182 stored leads and separating older lookup outcomes from native captures, current roles, ecological mappings and scientific admission. Mark native Git object hashes with their protocol purpose while keeping independent SHA256 integrity checks. Actual workflow-matched security/lint/typing, strict documentation and exact closed-product correspondence pass; no source acquisition, baseline replay, model execution or revised Atlas/frontier result is claimed for delivery.
