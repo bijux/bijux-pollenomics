@@ -1,0 +1,543 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recorded Neotoma Source Metadata and Selected Ancestry</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="_map_assets/leaflet/leaflet.css">
+    <link rel="stylesheet" href="_map_assets/markercluster/MarkerCluster.css">
+    <link rel="stylesheet" href="_map_assets/markercluster/MarkerCluster.Default.css">
+    <style>:root{--ink: #18253d;--ink-soft: #31425f;--muted: #61708d;--surface: rgba(252, 249, 244, 0.90);--surface-soft: rgba(255, 253, 250, 0.78);--surface-strong: rgba(255, 252, 247, 0.97);--surface-edge: rgba(24, 37, 61, 0.10);--surface-edge-strong: rgba(24, 37, 61, 0.18);--surface-wash: linear-gradient(180deg, rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0));--blue: #1f5ed8;--teal: #0e7a72;--gold: #ad6708;--rose: #b42344;--shadow-lg: 0 32px 96px rgba(24, 37, 61, 0.16);--shadow-md: 0 16px 40px rgba(24, 37, 61, 0.11);--shadow-sm: 0 8px 22px rgba(24, 37, 61, 0.08);--font-body: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;--font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;}*{box-sizing:border-box;}[hidden]{display:none !important;}html, body{margin:0;min-height:100%;background:radial-gradient(circle at top left,rgba(31,94,216,0.18),transparent 32%), radial-gradient(circle at 82% 18%,rgba(14,122,114,0.10),transparent 20%), radial-gradient(circle at right center,rgba(173,103,8,0.12),transparent 24%), linear-gradient(180deg,#f8f3eb 0%,#ece3d7 52%,#e5dacc 100%);color:var(--ink);font-family:var(--font-body);}body{min-height:100vh;}html.atlas-capture-mode *, html.atlas-capture-mode *::before, html.atlas-capture-mode *::after, html.atlas-probe-motion-mode *, html.atlas-probe-motion-mode *::before, html.atlas-probe-motion-mode *::after{animation:none !important;caret-color:transparent !important;scroll-behavior:auto !important;transition:none !important;}html.atlas-capture-mode, html.atlas-capture-mode body{overflow:hidden;}html.atlas-capture-mode .map-topbar, html.atlas-capture-mode .floating-legend, html.atlas-capture-mode .control-panel, html.atlas-capture-mode .map-status, html.atlas-capture-mode .focus-card, html.atlas-capture-mode .empty-state, html.atlas-capture-mode .help-dialog, html.atlas-capture-mode .leaflet-popup, html.atlas-capture-mode .mobile-panel-close, html.atlas-capture-mode .mobile-scrim, html.atlas-capture-mode .leaflet-control-zoom{display:none !important;}.atlas-capture-overlay{display:none;}html.atlas-capture-mode .map-stage, html.atlas-capture-mode .map-stage:has(> .focus-card:not([hidden])){position:fixed;inset:0;min-height:0;height:100vh;grid-template-areas:"map" "footer";grid-template-columns:minmax(0, 1fr);grid-template-rows:minmax(0, 1fr) auto;}html.atlas-capture-mode .atlas-capture-overlay{position:fixed;left:22px;bottom:22px;z-index:1100;display:grid;width:min(650px, calc(100vw - 44px));gap:7px;padding:14px 16px;border:1px solid rgba(24,37,61,0.16);border-radius:18px;background:rgba(255,253,250,0.94);box-shadow:0 12px 34px rgba(24,37,61,0.14);pointer-events:none;}@media (min-width: 1000px){html.atlas-capture-mode .map-stage{padding-left:330px;}html.atlas-capture-mode .atlas-capture-overlay{top:22px;bottom:auto;width:286px;max-height:calc(100vh - 44px);}html.atlas-capture-mode .atlas-capture-heading{display:grid;justify-items:start;gap:4px;}html.atlas-capture-mode .atlas-capture-time{text-align:left;}}.atlas-capture-heading{display:flex;align-items:baseline;justify-content:space-between;gap:14px;min-width:0;}.atlas-capture-role{min-width:0;color:var(--blue);font-size:10px;font-weight:800;letter-spacing:0.09em;text-transform:uppercase;}.atlas-capture-time{flex:0 1 auto;min-width:0;color:var(--ink-soft);font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;text-align:right;}.atlas-capture-title{min-width:0;margin:0;color:var(--ink);font-family:var(--font-display);font-size:20px;line-height:1.08;overflow-wrap:anywhere;}.atlas-capture-counts, .atlas-capture-caveat{min-width:0;margin:0;color:var(--ink-soft);font-size:11px;line-height:1.45;overflow-wrap:anywhere;}.atlas-capture-key{display:flex;flex-wrap:wrap;align-items:center;gap:7px 14px;min-width:0;}.atlas-capture-key-item{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);font-size:10px;font-weight:700;min-width:0;overflow-wrap:anywhere;}.atlas-capture-swatch{width:14px;height:14px;border:1px solid #334155;border-radius:4px;background:#cbd5e1;}.atlas-capture-swatch--point{border-radius:50%;}.atlas-capture-cluster-cue{display:inline-grid;width:20px;height:20px;place-items:center;border:1px solid rgba(24,37,61,0.35);border-radius:50%;background:rgba(255,255,255,0.9);color:var(--ink);font-size:8px;}.atlas-capture-boundary-cue{display:inline-block;width:20px;border-top:2px solid #64748b;}.atlas-capture-caveat{padding-top:6px;border-top:1px solid rgba(24,37,61,0.10);color:#5b3340;font-weight:700;}body.has-mobile-panel-open{overflow:hidden;}.app-shell{position:relative;min-height:100vh;}.mobile-panel-close{display:none;align-items:center;justify-content:center;flex:0 0 auto;min-width:88px;}.mobile-scrim{position:absolute;inset:0;z-index:1180;border:0;background:rgba(20,33,61,0.28);opacity:0;pointer-events:none;transition:opacity 180ms ease;}.mobile-scrim.is-visible{opacity:1;pointer-events:auto;}.help-dialog{position:fixed;inset:0;z-index:1400;display:grid;place-items:center;padding:24px;background:rgba(24,37,61,0.34);}.help-dialog[hidden]{display:none;}.help-dialog-card{width:min(760px, 100%);max-height:min(88vh, 780px);overflow:auto;padding:24px;border-radius:28px;border:1px solid rgba(24,37,61,0.12);background:linear-gradient(180deg,rgba(255,255,255,0.52),rgba(255,255,255,0)), rgba(255,252,247,0.98);box-shadow:var(--shadow-lg);}.help-dialog-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:18px;}.help-dialog-head h2{margin:6px 0 0;font-family:var(--font-display);font-size:30px;line-height:1.02;}.help-dialog-head p{margin:10px 0 0;color:var(--muted);font-size:14px;line-height:1.7;}.help-grid{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:14px;}.help-card{padding:16px;border-radius:18px;border:1px solid rgba(24,37,61,0.10);background:rgba(255,255,255,0.74);}.help-card h3{margin:0 0 10px;font-size:14px;}.help-list{display:grid;gap:10px;}.help-row{display:grid;grid-template-columns:minmax(84px, auto) minmax(0, 1fr);gap:12px;align-items:start;}.help-key{display:inline-flex;justify-content:center;padding:6px 9px;border-radius:12px;border:1px solid rgba(24,37,61,0.14);background:rgba(24,37,61,0.06);color:var(--ink-soft);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}.help-row span:last-child{color:var(--muted);font-size:12px;line-height:1.6;}.map-stage{position:relative;display:grid;grid-template-areas:"toolbar" "map" "reader" "status" "footer";grid-template-columns:minmax(0, 1fr);grid-template-rows:auto minmax(min(260px, 30dvh), 1fr) auto auto auto;height:100vh;height:100dvh;overflow:hidden;}.map-viewport{grid-area:map;position:relative;min-height:0;isolation:isolate;}#map{height:100%;width:100%;}.map-reader-footer{grid-area:footer;display:flex;align-items:flex-end;gap:12px;padding:8px;background:var(--surface);}.map-reader-evidence{display:grid;gap:4px;flex:1;min-width:0;}.map-reader-footer .leaflet-control{float:none;margin:0;}.map-provider-credit .leaflet-control-attribution{max-width:100%;text-align:left;white-space:normal;overflow-wrap:anywhere;}.map-provider-credit a{display:inline-block;max-width:100%;}.map-zoom-controls{flex:0 0 auto;}.map-zoom-controls .leaflet-bar a{width:44px;height:44px;line-height:44px;}.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:rgba(31,94,216,0.10);color:var(--blue);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}.topbar-note{margin:10px 0 0;max-width:720px;color:var(--muted);font-size:13px;line-height:1.6;}.map-topbar .eyebrow, .map-topbar .topbar-note{display:none;}.floating-legend, .map-topbar, .map-status, .focus-card{border:1px solid var(--surface-edge);background:var(--surface);backdrop-filter:blur(16px);box-shadow:var(--shadow-md);}.floating-legend, .map-topbar, .map-status, .focus-card{position:relative;overflow:hidden;}.floating-legend::before, .map-topbar::before, .map-status::before, .focus-card::before, .control-panel-card::before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0.72),rgba(255,255,255,0));pointer-events:none;}.chip-toggle, .toolbar-button, .preset-button, .inline-button, .basemap-button{appearance:none;border:1px solid rgba(20,33,61,0.12);background:linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,244,238,0.92));color:var(--ink);border-radius:999px;font:inherit;cursor:pointer;transition:transform 120ms ease, background 120ms ease, border-color 120ms ease, box-shadow 120ms ease;}.chip-toggle:hover, .toolbar-button:hover, .preset-button:hover, .inline-button:hover, .basemap-button:hover{transform:translateY(-1px);}.chip-toggle.is-active, .toolbar-button.is-primary, .preset-button.is-active, .inline-button.is-primary, .basemap-button.is-active{border-color:rgba(37,99,235,0.28);background:linear-gradient(180deg,rgba(37,99,235,0.16),rgba(14,122,114,0.10));box-shadow:0 8px 20px rgba(37,99,235,0.12);}.chip-toggle{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;}.chip-toggle input{margin:0;}.chip-swatch, .legend-swatch{width:10px;height:10px;border-radius:999px;border:1px solid rgba(24,37,61,0.28);flex:0 0 auto;}.legend-acceptance-cue{width:16px;height:16px;border:1px solid currentColor;border-radius:999px;flex:0 0 auto;}.legend-boundary-cue{width:20px;border-top:2px solid currentColor;flex:0 0 auto;}.legend-cluster-cue{display:inline-grid;width:24px;height:24px;place-items:center;border:2px solid rgba(255,255,255,0.88);border-radius:999px;background:#64748b;color:#fff;font-size:8px;font-weight:700;box-shadow:0 4px 10px rgba(20,33,61,0.12);flex:0 0 auto;}.chip-count{display:inline-flex;align-items:center;justify-content:center;min-width:24px;padding:3px 7px;border-radius:999px;background:rgba(24,37,61,0.08);color:var(--muted);font-size:11px;font-weight:700;}.toolbar-button, .preset-button, .inline-button{min-height:44px;padding:8px 12px;font-size:12px;font-weight:700;}.legend-toggle, .status-pill-action, .time-stepper-status, .search-clear{min-width:44px;min-height:44px;}.chip-grid, .focus-actions, .inline-actions, .preset-row, .topbar-row, .map-actions{display:flex;flex-wrap:wrap;gap:10px;}.basemap-switch{display:grid;grid-template-columns:minmax(0, 1fr);min-width:0;width:100%;gap:8px;}.inline-actions{margin-top:12px;}.source-shortcuts, .time-stepper{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:8px;margin-top:12px;}.source-shortcuts[hidden]{display:none;}.source-shortcuts .inline-button, .time-stepper .inline-button{min-width:0;white-space:normal;}.time-stepper-status{grid-column:1 / -1;padding:8px 10px;border-radius:12px;background:rgba(20,33,61,0.06);color:var(--muted);font-size:11px;font-weight:700;line-height:1.45;text-align:center;}.topbar-time-stepper{grid-template-columns:auto minmax(190px, 1fr) auto auto;align-items:center;margin-top:0;}.topbar-time-stepper .time-stepper-status{grid-column:auto;min-width:0;border:1px solid rgba(20,33,61,0.10);cursor:pointer;}.topbar-time-stepper #time-playback-toggle{min-height:38px;}.basemap-button{display:inline-flex;align-items:center;gap:8px;min-width:0;width:100%;padding:8px 10px;border-radius:999px;text-align:left;}.basemap-copy{display:grid;gap:1px;min-width:0;}.basemap-subtitle{color:var(--muted);font-size:9px;font-weight:600;}.basemap-button.is-active .basemap-subtitle{color:inherit;}.status-pill-action{appearance:none;width:100%;padding:0;border:0;background:transparent;color:inherit;cursor:pointer;font:inherit;text-align:left;text-decoration:underline;text-decoration-color:rgba(20,33,61,0.24);text-underline-offset:3px;}.source-time-density{margin:14px 0 0;padding:12px;border:1px solid rgba(20,33,61,0.10);border-radius:14px;background:rgba(255,255,255,0.72);}.source-time-density figcaption{color:var(--ink);font-size:12px;font-weight:800;}.source-time-density-bars{display:grid;grid-template-columns:repeat(12, minmax(4px, 1fr));align-items:end;gap:3px;height:82px;margin-top:10px;border-bottom:1px solid rgba(20,33,61,0.14);}.source-time-density-bar{min-height:2px;border-radius:4px 4px 0 0;background:linear-gradient(180deg,#0f766e,#14b8a6);}.basemap-preview{width:18px;height:18px;border-radius:999px;border:1px solid rgba(24,37,61,0.10);flex:0 0 auto;}.basemap-preview--street{background:linear-gradient(135deg,rgba(196,228,248,0.96),rgba(210,236,214,0.88)), linear-gradient(90deg,transparent 0 22%,rgba(255,255,255,0.28) 22% 25%,transparent 25% 100%);}.basemap-preview--terrain{background:linear-gradient(135deg,rgba(220,233,213,0.98),rgba(191,208,170,0.90)), linear-gradient(90deg,transparent 0 24%,rgba(110,133,87,0.20) 24% 27%,transparent 27% 100%);}.basemap-title{display:block;font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;}.topbar-context{display:grid;gap:6px;min-width:0;}.topbar-label, .focus-card-kicker{color:var(--muted);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}.topbar-title-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;}.topbar-title{font-size:16px;font-weight:700;}.topbar-state-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(20,33,61,0.08);color:var(--muted);font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;}.inline-button.is-primary, .toolbar-button.is-primary, .preset-button.is-active, .basemap-button.is-active{background:linear-gradient(135deg,#1d4ed8,#2563eb);color:white;border-color:transparent;}.field-label{display:flex;justify-content:space-between;gap:10px;font-size:13px;font-weight:700;margin-bottom:8px;}.range-input, .search-input{width:100%;}.range-input{accent-color:var(--gold);}.time-position-slider{direction:rtl;}.search-shell{position:relative;}.search-input{padding:12px 14px;border-radius:14px;border:1px solid rgba(20,33,61,0.14);background:rgba(255,255,255,0.95);color:var(--ink);font:inherit;padding-right:46px;}.search-clear{position:absolute;top:50%;right:10px;transform:translateY(-50%);appearance:none;border:0;background:rgba(20,33,61,0.08);color:var(--muted);width:28px;height:28px;border-radius:999px;font:inherit;font-size:16px;cursor:pointer;}.search-input:focus{outline:2px solid rgba(37,99,235,0.25);border-color:rgba(37,99,235,0.40);}.search-meta{margin:10px 0 12px;color:var(--muted);font-size:12px;}.time-density{display:grid;gap:10px;margin:14px 0 10px;}.time-density-bars{display:grid;grid-template-columns:repeat(12, minmax(0, 1fr));align-items:end;gap:6px;min-height:84px;}.time-density-bar{min-height:12px;border-radius:999px 999px 4px 4px;background:rgba(24,37,61,0.12);}.time-density-bar.is-active-window{background:linear-gradient(180deg,rgba(31,94,216,0.92),rgba(14,122,114,0.82));}.time-density-labels{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:11px;}.search-results, .summary-list, .legend-list{display:grid;gap:10px;}.search-result, .summary-item{padding:12px 14px;border:1px solid rgba(20,33,61,0.10);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.52),rgba(255,255,255,0)), rgba(255,255,255,0.76);}.search-result{cursor:pointer;width:100%;text-align:left;appearance:none;font:inherit;color:inherit;}.search-result strong{display:block;font-size:14px;}.search-result span, .summary-item span{display:block;color:var(--muted);font-size:12px;line-height:1.55;}.search-result-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}.search-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;background:rgba(20,33,61,0.08);color:var(--muted);font-size:11px;font-weight:700;}.map-topbar{grid-area:toolbar;position:relative;min-width:0;margin:8px;z-index:1100;display:grid;gap:10px;padding:12px;border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,0.56),rgba(255,255,255,0)), var(--surface);overflow:visible;}.map-topbar-main{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px;min-width:0;}.topbar-search{position:relative;display:grid;gap:8px;width:min(460px, 100%);min-width:0;}.topbar-search[hidden]{display:none;}.topbar-search-meta{margin:0;}.search-results--floating{position:absolute;top:calc(100% + 8px);left:0;width:min(360px, 100%);max-height:min(18vh, 140px);overflow:auto;padding:10px;border-radius:18px;border:1px solid var(--surface-edge);background:linear-gradient(180deg,rgba(255,255,255,0.66),rgba(255,255,255,0)), var(--surface-strong);backdrop-filter:blur(16px);box-shadow:var(--shadow-md);}.search-results--floating[hidden]{display:none;}.floating-legend{position:absolute;display:flex;flex-direction:column;right:16px;bottom:12px;z-index:1100;width:min(300px, calc(100vw - 32px));--legend-max-height: min(42vh, 360px);max-height:var(--legend-max-height);overflow:hidden;padding:16px;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,0.50),rgba(255,255,255,0)), var(--surface);}.floating-legend:has(.legend-body.is-collapsed){width:auto;max-height:none;padding:8px 10px;}.floating-legend:has(.legend-body.is-collapsed) .legend-head{margin-bottom:0;}.control-panel{grid-area:map;position:absolute;top:12px;bottom:12px;right:12px;z-index:1200;width:min(288px, calc(100vw - 32px));min-width:0;max-height:none;transition:transform 180ms ease, opacity 180ms ease;}@media (min-width: 901px){.map-stage:has(> .focus-card:not([hidden])){grid-template-areas:"toolbar toolbar" "map reader" "status status" "footer footer";grid-template-columns:minmax(0, 1fr) clamp(288px, 28vw, 360px);grid-template-rows:auto minmax(min(260px, 30dvh), 1fr) auto auto;}.topbar-note{max-width:58ch;}}.control-panel.is-collapsed{transform:translateX(calc(100% + 20px));opacity:0;pointer-events:none;}.control-panel-card{position:relative;overflow:hidden;display:flex;flex-direction:column;min-width:0;width:100%;max-height:100%;padding:12px;border-radius:24px;border:1px solid var(--surface-edge);background:linear-gradient(180deg,rgba(255,255,255,0.50),rgba(255,255,255,0)), var(--surface-strong);backdrop-filter:blur(16px);box-shadow:var(--shadow-md);}.control-panel-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;}.control-panel-head-side{display:grid;justify-items:end;gap:8px;}.control-panel-label, .control-group-label, .legend-group-label, .animal-insight-kicker, .animal-insight-subtitle, .status-pill-label, .popup-kicker, .popup-section-title{color:var(--muted);font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;}.control-panel-title{margin:4px 0 0;font-size:15px;font-weight:700;}.control-panel-summary, .control-group-summary{color:var(--muted);font-size:11px;}.control-panel-body{display:grid;gap:8px;min-width:0;width:100%;overflow-x:hidden;overflow-y:auto;padding-right:2px;}.control-group{display:grid;gap:0;min-width:0;width:100%;border:1px solid rgba(24,37,61,0.08);border-radius:18px;background:rgba(255,255,255,0.68);}.control-group-head{display:flex;justify-content:space-between;gap:10px;align-items:center;min-width:0;padding:10px 12px;cursor:pointer;list-style:none;}.control-group-head::-webkit-details-marker{display:none;}.control-group-head::marker{content:"";}.control-group-head > div, .control-group-summary{min-width:0;}.control-group-summary{overflow-wrap:anywhere;text-align:right;}.control-group-head::after{content:"+";display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:999px;background:rgba(20,33,61,0.06);color:var(--ink-soft);font-size:13px;font-weight:700;flex:0 0 auto;}.control-group[open] .control-group-head::after{content:"−";}.control-group-head h3{margin:4px 0 0;font-size:13px;}.control-group-body{display:grid;gap:10px;min-width:0;width:100%;padding:0 12px 12px;}#lra-controls[hidden]{display:none;}#lra-controls .search-input{min-width:0;padding-right:14px;}#lra-controls .search-meta{margin:0;overflow-wrap:anywhere;}.lra-estimates-scroll{max-height:240px;overflow:auto;}.dock-actions, .dock-presets, .dock-layer-grid, .legend-pill-list, .animal-insight-mix, .popup-badges{display:flex;flex-wrap:wrap;gap:8px;}.dock-layer-grid{align-items:stretch;}.dock-layer-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid rgba(20,33,61,0.12);border-radius:999px;background:rgba(255,255,255,0.82);color:var(--ink-soft);font-size:12px;font-weight:600;}.dock-layer-chip input{margin:0;}.dock-range-stack{display:grid;gap:12px;}.legend-head{display:flex;flex:0 0 auto;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}.legend-title{font-size:13px;font-weight:700;}.legend-toggle{appearance:none;border:1px solid rgba(20,33,61,0.12);background:rgba(255,255,255,0.84);color:var(--muted);border-radius:999px;padding:6px 10px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;}.legend-body.is-collapsed{display:none;}.legend-body{flex:1 1 auto;min-height:0;overflow-x:hidden;overflow-y:auto;}.legend-group{display:grid;gap:8px;}.legend-group + .legend-group{margin-top:12px;}.legend-list{margin-bottom:0;}.legend-item{display:flex;align-items:flex-start;gap:10px;color:var(--muted);font-size:12px;line-height:1.5;}.legend-item--compact{gap:8px;font-size:11px;}.legend-item-copy{display:grid;gap:2px;}.legend-item-title{color:var(--ink-soft);font-weight:700;}.legend-item-meta{color:var(--muted);font-size:11px;}.legend-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid rgba(20,33,61,0.10);border-radius:999px;background:rgba(255,255,255,0.82);color:var(--ink-soft);font-size:11px;font-weight:600;}.legend-pill-note{color:var(--muted);font-weight:500;}.animal-insight-panel{display:grid;gap:14px;padding:14px;border:1px solid rgba(20,33,61,0.10);border-radius:18px;background:linear-gradient(180deg,rgba(255,252,247,0.98),rgba(255,255,255,0.90)), rgba(255,255,255,0.92);}.animal-insight-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}.animal-insight-title{margin:4px 0 0;color:var(--ink-soft);font-size:15px;font-weight:700;}.animal-insight-state{display:inline-flex;align-items:center;justify-content:center;padding:6px 10px;border-radius:999px;background:rgba(20,33,61,0.06);color:var(--ink-soft);font-size:11px;font-weight:700;text-align:center;}.animal-insight-grid{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:10px;}.animal-insight-stat{display:grid;gap:4px;padding:10px 12px;border-radius:14px;border:1px solid rgba(20,33,61,0.08);background:rgba(255,255,255,0.88);}.animal-insight-stat-value{color:var(--ink-soft);font-size:16px;font-weight:800;}.animal-insight-stat-label{color:var(--muted);font-size:11px;line-height:1.4;}.animal-insight-subsection{display:grid;gap:8px;}.animal-insight-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,0.90);border:1px solid rgba(20,33,61,0.08);color:var(--ink-soft);font-size:11px;font-weight:600;}.animal-insight-chip strong{font-size:12px;}.animal-insight-copy{color:var(--muted);font-size:12px;line-height:1.5;}.density-ramp{display:grid;gap:8px;}.density-ramp[hidden]{display:none;}.density-bar{display:grid;grid-template-columns:repeat(6, 1fr);overflow:hidden;border-radius:999px;height:12px;}.density-bar span:nth-child(1){background:#fee2e2;}.density-bar span:nth-child(2){background:#fca5a5;}.density-bar span:nth-child(3){background:#f87171;}.density-bar span:nth-child(4){background:#ef4444;}.density-bar span:nth-child(5){background:#b91c1c;}.density-bar span:nth-child(6){background:#7f1d1d;}.density-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;}.map-status{grid-area:status;position:relative;min-width:0;margin:8px;z-index:1100;display:grid;grid-template-columns:repeat(5, minmax(0, 1fr));gap:16px;padding:12px 16px;border-radius:22px;color:var(--muted);font-size:12px;background:linear-gradient(180deg,rgba(255,255,255,0.46),rgba(255,255,255,0)), var(--surface);}.north-orientation{position:absolute;top:16px;right:16px;z-index:1100;display:inline-flex;align-items:center;gap:5px;height:44px;padding:0 12px;border:1px solid var(--surface-edge);border-radius:999px;background:var(--surface-strong);box-shadow:var(--shadow-sm);color:var(--ink-soft);font-size:14px;font-weight:700;pointer-events:none;user-select:none;}.leaflet-bottom.leaflet-right{top:72px;bottom:auto;right:16px;}.north-orientation-arrow{font-size:23px;line-height:1;}.status-pill{display:grid;gap:3px;min-width:0;overflow-wrap:anywhere;}.status-pill-value{color:var(--ink-soft);font-size:12px;font-weight:700;}.focus-card{grid-area:reader;overflow-wrap:anywhere;position:relative;min-width:0;min-height:0;margin:8px;z-index:1120;width:auto;max-height:100%;overflow:auto;padding:16px;border-radius:22px;}.focus-card[hidden]{display:none;}.focus-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;}.focus-card-title{margin:4px 0 0;font-size:16px;font-weight:700;line-height:1.3;}.focus-card-subtitle{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.5;}.focus-close{flex:0 0 auto;min-width:auto;padding:8px 10px;}.focus-meta{display:grid;gap:8px;margin:12px 0 14px;}.focus-meta-row{display:grid;grid-template-columns:minmax(88px, auto) minmax(0, 1fr);gap:10px;padding:10px 12px;border:1px solid rgba(20,33,61,0.10);border-radius:14px;background:rgba(255,255,255,0.78);}.focus-meta-label{color:var(--muted);font-size:11px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}.focus-meta-value{font-size:12px;line-height:1.5;word-break:break-word;}.focus-tabs{display:flex;gap:6px;overflow-x:auto;margin:0 0 10px;padding-bottom:4px;}.focus-tab{appearance:none;flex:0 0 auto;padding:7px 9px;border:1px solid rgba(20,33,61,0.12);border-radius:999px;background:rgba(255,255,255,0.78);color:var(--ink-soft);font:inherit;font-size:11px;font-weight:700;cursor:pointer;}.focus-tab[aria-selected="true"]{border-color:rgba(37,99,235,0.42);background:rgba(37,99,235,0.10);color:#1d4ed8;}.focus-detail{display:grid;grid-template-columns:minmax(0, 1fr);min-width:0;gap:8px;margin-bottom:12px;padding:12px;border:1px solid rgba(20,33,61,0.10);border-radius:14px;background:rgba(255,255,255,0.78);color:var(--ink-soft);font-size:12px;line-height:1.5;}.focus-detail > *, .focus-detail figure, .focus-detail section{min-width:0;}.focus-detail select{width:100%;min-width:0;}.source-diagram-plot{max-width:100%;overflow-x:auto;}.source-diagram-plot svg{display:block;min-width:640px;}.focus-detail-row{display:grid;grid-template-columns:minmax(105px, 0.35fr) minmax(0, 1fr);gap:10px;}.focus-detail-key{color:var(--muted);font-weight:700;}.focus-detail-table-wrap{min-width:0;overflow-x:auto;border:1px solid rgba(20,33,61,0.10);border-radius:10px;background:rgba(255,255,255,0.66);}.focus-detail-table{width:100%;border-collapse:collapse;font-size:11px;white-space:nowrap;}.focus-detail-table th, .focus-detail-table td{padding:6px 8px;border-bottom:1px solid rgba(20,33,61,0.08);text-align:left;vertical-align:top;}.focus-detail-table th{position:sticky;top:0;background:#f7f9fc;color:var(--muted);font-weight:800;}.focus-detail-table td{max-width:360px;white-space:normal;}.focus-detail-table-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 6px;color:var(--muted);font-size:11px;font-weight:700;}.focus-detail-table-actions{display:inline-flex;gap:6px;}.focus-detail-table-actions button{padding:4px 7px;border:1px solid rgba(20,33,61,0.14);border-radius:7px;background:#fff;color:var(--ink-soft);font:inherit;cursor:pointer;}.focus-detail-table-actions button:disabled{cursor:default;opacity:0.45;}.focus-detail-null{color:var(--muted);font-style:italic;}.scientific-cue{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border:2px solid currentColor;background:rgba(255,255,255,0.82);font-size:12px;font-weight:800;}.scientific-cue[data-cue="circle"], .scientific-cue[data-cue="ring"]{border-radius:999px;}.scientific-cue[data-cue="triangle"]{clip-path:polygon(50% 0, 100% 100%, 0 100%);}.scientific-cue[data-cue="diamond"]{transform:rotate(45deg);}.scientific-cue[data-cue="cross"]{border-style:dashed;}.atlas-scientific-marker{display:flex;align-items:center;gap:2px;width:max-content !important;height:24px !important;margin:-12px 0 0 -12px !important;filter:drop-shadow(0 1px 2px rgba(20,33,61,0.34));}.atlas-scientific-marker.is-focused{transform:scale(1.28);z-index:2;}.atlas-scientific-marker .scientific-cue{background:#fff;}.scientific-status{padding:9px 10px;border-radius:12px;background:rgba(180,83,9,0.08);color:#7c2d12;font-size:11px;line-height:1.45;}.focus-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;}.focus-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;}.empty-state{position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);z-index:1150;width:min(460px, calc(100vw - 48px));padding:18px 20px;border:1px solid var(--surface-edge);border-radius:22px;background:rgba(255,252,247,0.96);box-shadow:var(--shadow-lg);text-align:center;}.empty-state strong{display:block;margin-bottom:8px;font-size:16px;}.empty-state span{display:block;color:var(--muted);font-size:13px;line-height:1.6;}#source-metadata-state{grid-area:reader;position:static;transform:none;display:grid;grid-template-columns:auto minmax(0, 1fr) auto;align-items:center;gap:12px;width:auto;margin:0 8px 8px;padding:10px 12px;border-radius:16px;box-shadow:var(--shadow-md);text-align:left;}#source-metadata-state[hidden]{display:none;}#source-metadata-state strong{margin:0;font-size:13px;}#source-metadata-state span{font-size:12px;line-height:1.4;}@media (max-width: 900px){#source-metadata-state{grid-template-columns:minmax(0, 1fr) auto;gap:6px 10px;}#source-metadata-state span{grid-row:2;}#source-metadata-browse{grid-column:2;grid-row:1 / 3;max-width:155px;}}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0;}button:focus-visible, input:focus-visible, .search-result:focus-visible{outline:3px solid rgba(37,99,235,0.28);outline-offset:2px;}.leaflet-popup-content-wrapper{border-radius:18px;}.leaflet-tooltip.atlas-neighbor-context-label{border:1px solid #475569;border-radius:8px;background:#fff;color:#1e293b;font-weight:700;}.popup-grid{display:grid;gap:6px;font-size:13px;}.popup-grid strong{display:inline-block;min-width:96px;}.popup-card{display:grid;gap:12px;min-width:260px;}.popup-headline{display:grid;gap:4px;}.popup-title{color:var(--ink-soft);font-size:16px;font-weight:800;line-height:1.3;}.popup-subtitle{color:var(--muted);font-size:12px;line-height:1.5;}.popup-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:999px;background:rgba(20,33,61,0.06);color:var(--ink-soft);font-size:11px;font-weight:700;}.popup-badge--warning{background:rgba(180,83,9,0.12);color:#9a3412;}.popup-section{display:grid;gap:8px;padding:10px 12px;border-radius:14px;border:1px solid rgba(20,33,61,0.08);background:rgba(255,255,255,0.92);}.popup-row{display:grid;gap:2px;}.popup-row-label{color:var(--muted);font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;}.popup-row-value{color:var(--ink-soft);font-size:12px;line-height:1.5;word-break:break-word;}.popup-warning-list{display:grid;gap:8px;}.popup-warning{padding:9px 10px;border-radius:12px;background:rgba(180,83,9,0.10);color:#9a3412;font-size:12px;line-height:1.5;}.popup-media-list{display:inline-flex;flex-wrap:wrap;gap:8px;vertical-align:middle;}.popup-media-link{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;border:1px solid rgba(37,99,235,0.18);background:rgba(37,99,235,0.08);color:#1e3a8a;text-decoration:none;font-weight:600;}.popup-media-link:hover{background:rgba(37,99,235,0.14);}.popup-media-link svg{width:14px;height:14px;flex:0 0 auto;}.cluster-pill{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;color:white;border:2px solid rgba(255,255,255,0.88);font-weight:700;box-shadow:0 6px 14px rgba(20,33,61,0.14);}@media (max-width: 1080px){.map-topbar .topbar-state-pill{display:none;}.floating-legend{right:12px;bottom:12px;}.map-status{border-radius:18px;grid-template-columns:repeat(5, minmax(0, 1fr));}}@media (max-width: 900px){.map-stage:has(> .focus-card:not([hidden])){grid-template-rows:auto minmax(min(260px, 30dvh), 1fr) min(22dvh, 224px) auto auto;}body.has-mobile-panel-open .map-topbar, body.has-mobile-panel-open .floating-legend, body.has-mobile-panel-open .map-status{filter:blur(1px);}.control-panel{display:flex;grid-area:auto;position:fixed;left:10px;right:10px;top:auto;bottom:10px;width:auto;max-height:min(72vh, 760px);max-height:min(72dvh, 760px);}.control-panel.is-collapsed{transform:translateY(calc(100% + 24px));}.mobile-panel-close{display:inline-flex;}.map-topbar{padding:10px;border-radius:18px;}.map-topbar-main{align-items:center;gap:10px;}.map-topbar .eyebrow, .map-topbar .topbar-note, .topbar-search-meta{display:none;}.topbar-row, .map-actions{justify-content:space-between;}.search-results--floating{left:auto;right:0;width:min(240px, 46vw);}.floating-legend{right:10px;bottom:12px;width:min(264px, calc(100vw - 20px));--legend-max-height: min(38vh, 300px);padding:12px;border-radius:18px;}.animal-insight-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}.popup-card{min-width:0;}.focus-card{transition:opacity 160ms ease, transform 160ms ease;}.map-status{border-radius:18px;grid-template-columns:repeat(3, minmax(0, 1fr));transition:opacity 160ms ease, transform 160ms ease;}.map-status .status-pill:nth-child(1), .map-status .status-pill:nth-child(3){display:none;}.map-status .status-pill:nth-child(5){grid-column:auto;}}@media (max-width: 640px){.north-orientation{right:8px;}.leaflet-bottom.leaflet-right{top:228px;bottom:auto;right:8px;max-width:calc(100vw - 16px);}.leaflet-bottom.leaflet-right .leaflet-control-attribution{max-width:100%;overflow-wrap:anywhere;border-radius:6px;}.map-topbar{gap:6px;padding:8px;margin-top:max(8px, env(safe-area-inset-top));}.topbar-search{position:relative;width:100%;padding:8px;border:1px solid var(--surface-edge);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.66),rgba(255,255,255,0)), var(--surface-strong);backdrop-filter:blur(16px);box-shadow:var(--shadow-md);}.search-results--floating{position:relative;top:auto;right:auto;width:100%;max-height:min(14vh, 88px);padding:6px;border-radius:12px;}.map-topbar .topbar-context{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0;}.map-topbar-main{align-items:center;gap:6px;}body.has-legend-open .map-topbar-main, body.has-legend-open .map-status{display:none;}.help-grid{grid-template-columns:1fr;}.topbar-title{font-size:14px;}.topbar-state-pill{width:fit-content;}.floating-legend{right:8px;bottom:12px;width:min(180px, calc(50vw - 16px));--legend-max-height: min(24vh, 184px);padding:8px;}.legend-toggle{min-height:44px;}.control-panel{left:8px;right:8px;bottom:max(8px, env(safe-area-inset-bottom));max-height:min(60vh, calc(100dvh - 188px));}.focus-card{padding:12px;}.map-zoom-controls .leaflet-bar{display:flex;}.focus-meta-row{grid-template-columns:1fr;gap:4px;}.legend-title{font-size:12px;margin-bottom:8px;}.legend-item{gap:8px;font-size:11px;}.animal-insight-grid{grid-template-columns:1fr;}.animal-insight-head{flex-direction:column;align-items:flex-start;}.animal-insight-state{width:fit-content;}.popup-title{font-size:15px;}.popup-subtitle, .popup-row-value, .popup-warning{font-size:11px;}.map-status{gap:8px;padding:6px 10px;grid-template-columns:repeat(3, minmax(0, 1fr));font-size:11px;}.map-status .status-pill-action{min-height:44px;}.inline-button, .preset-button, .toolbar-button, .basemap-button{min-height:44px;padding:9px 12px;font-size:12px;}.topbar-time-stepper{grid-template-columns:auto minmax(0, 1fr) auto;gap:6px;}.topbar-time-stepper .time-stepper-status{max-height:44px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}.topbar-time-stepper #time-playback-toggle{grid-column:1 / -1;min-height:44px;}}@media (max-height: 640px){.map-topbar .map-actions{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));width:100%;}.map-topbar .toolbar-button{min-width:0;white-space:normal;padding:8px 6px;}.topbar-time-stepper{grid-template-columns:repeat(3, minmax(0, 1fr));}.topbar-time-stepper .inline-button{padding:8px 6px;}.topbar-time-stepper #time-step-older{grid-column:1;grid-row:1;}.topbar-time-stepper #time-playback-toggle{grid-column:2;grid-row:1;min-height:44px;}.topbar-time-stepper #time-step-newer{grid-column:3;grid-row:1;}.topbar-time-stepper #time-stepper-status{grid-column:1 / -1;grid-row:2;}.topbar-search{position:absolute;top:calc(100% + 8px);right:0;width:min(300px, calc(100vw - 16px));}.map-status{min-height:max-content;}.map-stage:has(> .focus-card:not([hidden])){grid-template-areas:"toolbar" "map" "status" "footer";grid-template-rows:auto minmax(min(260px, 30dvh), 1fr) auto auto;}.focus-card{grid-area:map;align-self:end;z-index:1050;max-height:calc(100% - 16px);}}@media (min-width: 480px) and (max-height: 640px){.map-stage, .map-stage:has(> .focus-card:not([hidden])){grid-template-areas:"toolbar map" "toolbar status" "footer footer";grid-template-columns:clamp(200px, 35vw, 280px) minmax(0, 1fr);grid-template-rows:minmax(min(260px, 30dvh), 1fr) auto auto;}.map-topbar{align-self:start;}.topbar-search{top:0;left:calc(100% + 8px);right:auto;width:min(300px, calc(100vw - 230px));padding:4px;border:1px solid var(--surface-edge);border-radius:16px;background:var(--surface-strong);}.search-results--floating{position:relative;top:auto;left:auto;right:auto;width:100%;max-height:58px;padding:4px;}.map-zoom-controls .leaflet-bar{display:flex;}}</style>
+  </head>
+  <body>
+    <div class="app-shell">
+
+      <main class="map-stage">
+        <div class="map-topbar">
+          <div class="map-topbar-main">
+            <div class="topbar-context">
+              <span class="eyebrow">Recorded Source Metadata</span>
+              <div class="topbar-title-row">
+                <span class="topbar-title">Recorded Neotoma Source Metadata and Selected Ancestry</span>
+                <span id="topbar-state-pill" class="topbar-state-pill">Loading live map state</span>
+              </div>
+              <p class="topbar-note">A reuse of the qualified 1258-resource / 527-site recorded metadata projection, with explicitly selected captured parent and taxonomy-citation metadata. No source permissions, native bodies or numerical pollen results are revalidated here. All source epochs remain distinct. Scientific countries, layers and points remain zero. Missing source metadata is not absence or zero.</p>
+            </div>
+            <div class="map-actions">
+              <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
+              <button id="search-toggle" class="toolbar-button" type="button" aria-controls="topbar-search" aria-expanded="false">Search</button>
+              <button id="panel-toggle" class="toolbar-button" type="button" aria-controls="sidebar" aria-expanded="false">← Show controls</button>
+            </div>
+          </div>
+          <div class="time-stepper topbar-time-stepper" aria-label="Chronology navigation">
+            <button id="time-step-older" class="inline-button" type="button">← Older</button>
+            <button id="time-stepper-status" class="time-stepper-status" type="button" aria-live="polite" aria-controls="source-chronology-controls">Preparing chronological navigation</button>
+            <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
+            <button id="time-playback-toggle" class="inline-button is-primary" type="button" aria-pressed="false">Play oldest → present</button>
+          </div>
+          <div id="topbar-search" class="topbar-search" hidden>
+            <label class="sr-only" for="search-input">Search points and sites</label>
+            <div class="search-shell">
+              <input id="search-input" class="search-input" type="search" placeholder="Search points and sites by sample, locality, source, or country" aria-describedby="search-count">
+              <button id="search-clear" class="search-clear" type="button" aria-label="Clear search" hidden>×</button>
+            </div>
+            <div id="search-count" class="search-meta topbar-search-meta" aria-live="polite">Search points and sites</div>
+            <div id="search-results" class="search-results search-results--floating" hidden></div>
+          </div>
+        </div>
+        <div class="map-viewport">
+        <div id="map" aria-label="Recorded Neotoma Source Metadata and Selected Ancestry"></div>
+        <div id="north-orientation" class="north-orientation" role="img" aria-label="North is up"><span class="north-orientation-arrow" aria-hidden="true">↑</span><span aria-hidden="true">N</span></div>
+        <section id="atlas-capture-overlay" class="atlas-capture-overlay" aria-label="Chronology frame evidence key">
+          <div class="atlas-capture-heading">
+            <span id="atlas-capture-role" class="atlas-capture-role">Preparing governed evidence</span>
+            <span id="atlas-capture-time" class="atlas-capture-time">[0, 0] BP</span>
+          </div>
+          <h1 id="atlas-capture-title" class="atlas-capture-title">Chronology evidence</h1>
+          <p id="atlas-capture-counts" class="atlas-capture-counts">Preparing governed denominators</p>
+          <div id="atlas-capture-key" class="atlas-capture-key"></div>
+          <p id="atlas-capture-caveat" class="atlas-capture-caveat">Evidence role is being resolved.</p>
+        </section>
+        <div id="empty-state" class="empty-state" role="status" aria-live="polite" hidden>
+          <strong>No visible records</strong>
+          <span>Change the country filters, re-enable one or more layers, or restore the default map state.</span>
+        </div>
+        <div id="floating-legend" class="floating-legend">
+          <div class="legend-head">
+            <div class="legend-title">Legend</div>
+            <button id="legend-toggle" class="legend-toggle" type="button" aria-controls="legend-body" aria-expanded="false">Expand</button>
+          </div>
+          <div id="legend-body" class="legend-body is-collapsed">
+            <div id="legend-items" class="legend-list"></div>
+            <div id="density-ramp" class="density-ramp" hidden>
+              <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span id="density-ramp-description">RAÄ density-count posture is loading.</span></div>
+              <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div id="source-metadata-state" class="empty-state" role="status" aria-live="polite" hidden>
+          <strong>Source metadata only</strong>
+          <span>This map has 0 scientific countries, layers and points. Captured source metadata remains separate; optional metadata geometry is off by default.</span>
+          <button id="source-metadata-browse" class="toolbar-button" type="button" aria-haspopup="dialog" aria-controls="source-resources-dialog">Neotoma source resources</button>
+        </div>
+        <button id="mobile-scrim" class="mobile-scrim" type="button" tabindex="-1" aria-label="Close controls" aria-hidden="true"></button>
+        <aside id="sidebar" class="control-panel is-collapsed" aria-label="Map controls" inert>
+          <div class="control-panel-card">
+            <div class="control-panel-head">
+              <div>
+                <span class="control-panel-label">Map controls</span>
+                <h2 class="control-panel-title">Filters</h2>
+              </div>
+              <div class="control-panel-head-side">
+                <span id="control-panel-summary" class="control-panel-summary">Loading view state</span>
+                <button id="mobile-panel-close" class="toolbar-button mobile-panel-close" type="button">Close</button>
+              </div>
+            </div>
+            <div class="control-panel-body">
+
+              <details id="view-controls" class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">View</span>
+                    <h3>Basemap and tools</h3>
+                  </div>
+                  <span class="control-group-summary">Keyless or no-basemap</span>
+                </summary>
+                <div class="control-group-body">
+                  <div id="basemap-switch" class="basemap-switch" aria-label="Basemap selection">
+                    <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-copy"><span class="basemap-title">Street</span><span class="basemap-subtitle">OpenStreetMap · no key</span></span></button>
+                    <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-copy"><span class="basemap-title">Terrain</span><span class="basemap-subtitle">OpenTopoMap · no key</span></span></button>
+                    <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-copy"><span class="basemap-title">No basemap</span><span class="basemap-subtitle">Offline · no tiles</span></span></button>
+                  </div>
+                  <div class="map-actions">
+                    <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
+                    <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
+                    <button id="selection-export" class="toolbar-button" type="button" aria-describedby="selection-export-status">Download selection</button>
+                    <button id="source-resources-open" class="toolbar-button" type="button" aria-live="polite" aria-haspopup="dialog" aria-controls="source-resources-dialog" hidden>Neotoma source resources</button>
+                    <button id="help-toggle" class="toolbar-button" type="button" aria-controls="help-dialog" aria-expanded="false">Help</button>
+                    <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
+                  </div>
+                  <p id="selection-export-status" class="search-meta" role="status" aria-live="polite">Download published map records matching the filters, including records outside the view. Source-series downloads depend on the selected record.</p>
+                </div>
+              </details>
+              <details class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Countries</span>
+                    <h3>Country Filters</h3>
+                  </div>
+                  <span id="country-summary" class="control-group-summary" aria-live="polite">All countries visible</span>
+                </summary>
+                <div class="control-group-body">
+                  <div id="country-filters" class="chip-grid"></div>
+                  <div class="inline-actions">
+                    <button id="countries-all" class="inline-button is-primary" type="button">Show all</button>
+                    <button id="countries-none" class="inline-button" type="button">Hide all</button>
+                    <button id="countries-fit" class="inline-button" type="button">Fit selected</button>
+                  </div>
+                </div>
+              </details>
+              <details id="scientific-controls" class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Scientific resolution</span>
+                    <h3>Evidence Resolution</h3>
+                  </div>
+                  <span id="scientific-summary" class="control-group-summary" aria-live="polite">Checking accepted classifications</span>
+                </summary>
+                <div class="control-group-body">
+                  <div id="scientific-status" class="scientific-status"></div>
+                  <div id="scientific-filters" class="dock-layer-grid" aria-label="Accepted scientific signal comparison"></div>
+                  <div id="scientific-actions" class="inline-actions">
+                    <button id="scientific-whole" class="inline-button is-primary" type="button">Whole pollen</button>
+                    <button id="scientific-clear" class="inline-button" type="button">Clear comparison</button>
+                  </div>
+                  <div id="source-chronology-shortcuts" class="source-shortcuts" aria-label="Open source-native pollen views" hidden>
+                    <button class="inline-button is-primary" type="button" data-source-shortcut="sample">Source sample presence</button>
+                    <button class="inline-button" type="button" data-source-shortcut="TRSH">TRSH</button>
+                    <button class="inline-button" type="button" data-source-shortcut="UPHE">UPHE</button>
+                    <button class="inline-button" type="button" data-source-shortcut="AQVP">AQVP</button>
+                    <button class="inline-button" type="button" data-source-shortcut="taxa">All exact labels</button>
+                    <button class="inline-button" type="button" data-source-preset="avena">Avena labels</button>
+                    <button class="inline-button" type="button" data-source-preset="hordeum">Hordeum labels</button>
+                    <button class="inline-button" type="button" data-source-preset="triticum">Triticum labels</button>
+                    <button class="inline-button" type="button" data-source-preset="secale">Secale labels</button>
+                    <button class="inline-button" type="button" data-source-preset="cerealia">Cerealia labels</button>
+                  </div>
+                </div>
+              </details>
+              <details id="source-chronology-controls" class="control-group" hidden>
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Source chronology</span>
+                    <h3>Neotoma Source Context</h3>
+                  </div>
+                  <span id="source-chronology-summary" class="control-group-summary" aria-live="polite">Checking source facets</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="search-meta">Inspect source-native sample presence, literal ecological codes, or source-reported taxon and pollen-type labels. Dense code and taxon views are opt-in. These records are chronology context only and are not propagation evidence.</div>
+
+                  <label class="field-label" for="source-chronology-level"><span>Source node level</span><span>one layer at a time</span></label>
+                  <select id="source-chronology-level" class="search-input" aria-label="Select a Neotoma source chronology node level"></select>
+                  <div id="source-chronology-code-fields" hidden>
+                    <label class="field-label" for="source-chronology-code"><span>Literal source ecological code</span><span>all by default</span></label>
+                    <select id="source-chronology-code" class="search-input" aria-label="Filter by literal Neotoma ecological code"></select>
+                  </div>
+                  <div id="source-chronology-taxon-fields" hidden>
+                    <div id="source-label-preset-controls" class="source-shortcuts" aria-label="Governed exact-ID source-label presets"></div>
+                    <div id="source-label-preset-state" class="search-meta" aria-live="polite">No source-label preset selected.</div>
+                    <label class="field-label" for="source-chronology-taxon-query"><span>Find source-reported taxon or pollen type</span><span>not a species assertion</span></label>
+                    <input id="source-chronology-taxon-query" class="search-input" type="search" autocomplete="off" placeholder="Search source labels; use | for alternatives" aria-controls="source-chronology-taxon">
+                    <label class="field-label" for="source-chronology-taxon"><span>Exact source label</span><span>all by default</span></label>
+                    <select id="source-chronology-taxon" class="search-input" aria-label="Filter by exact source-reported Neotoma label"></select>
+                    <div id="source-chronology-taxon-shortcuts" class="source-shortcuts" aria-label="Matching exact source labels"></div>
+                  </div>
+                  <div class="inline-actions">
+                    <button id="source-record-concentration-toggle" class="inline-button" type="button" aria-pressed="false" disabled>Show captured source-record concentration</button>
+                  </div>
+                  <div id="source-chronology-state" class="search-meta" aria-live="polite">Source chronology metadata unavailable.</div>
+                  <div id="source-chronology-global-denominator" class="search-meta" aria-live="polite">Global pre-filter denominator unavailable.</div>
+                  <figure id="source-time-density" class="source-time-density" hidden>
+                    <figcaption id="source-time-density-caption">Oldest-to-present source-record density</figcaption>
+                    <div id="source-time-density-bars" class="source-time-density-bars" role="img" aria-labelledby="source-time-density-caption"></div>
+                    <div class="search-meta">Closed BP-interval overlap by governed facet. A record can intersect multiple bins, so bins are not additive and do not imply abundance, interpolation, flow, or propagation.</div>
+                  </figure>
+                  <div class="search-meta">Captured source-record concentration groups admitted records only at the same source site. Symbol size is the raw visible node count. It is not abundance, absence, propagation, flow, or heat, and it never combines source levels or weights reported values.</div>
+                </div>
+              </details>
+              <details id="modeled-context-controls" class="control-group" hidden>
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Modeled context</span>
+                    <h3>REVEALS Metric Reconstruction</h3>
+                  </div>
+                  <span id="modeled-context-summary" class="control-group-summary">PANGAEA 937075</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="search-meta">Discrete REVEALS estimates from PANGAEA 937075. Exact taxa, source PFT codes, and source land-cover types remain separate. This is modeled environmental context, not an observed pollen event, propagation path, or continuous interpolation.</div>
+                  <label class="field-label" for="modeled-context-family"><span>Metric family</span><span>source-evidenced</span></label>
+                  <select id="modeled-context-family" class="search-input" aria-label="Select a PANGAEA 937075 metric family"></select>
+                  <label class="field-label" for="modeled-context-metric"><span>Published metric</span><span>percentage cover</span></label>
+                  <select id="modeled-context-metric" class="search-input" aria-label="Select a PANGAEA 937075 published metric"></select>
+                  <label class="field-label" for="modeled-context-window"><span>Published source window</span><span>oldest → present</span></label>
+                  <select id="modeled-context-window" class="search-input" aria-label="Select a PANGAEA 937075 modeled source window"></select>
+                  <div class="inline-actions">
+                    <button id="modeled-context-toggle" class="inline-button" type="button" aria-pressed="false">Show modeled metric</button>
+                    <button id="modeled-context-playback" class="inline-button" type="button" aria-pressed="false" disabled>Play 25 source windows</button>
+                    <button id="modeled-context-download" class="inline-button" type="button" disabled>Download visible frame</button>
+                  </div>
+                  <div id="modeled-context-state" class="search-meta" aria-live="polite">Context mode is off.</div>
+                  <div id="modeled-context-legend" class="legend-list" aria-label="Modeled percentage-cover scale" hidden></div>
+                  <div class="search-meta"><a href="https://doi.org/10.1594/PANGAEA.937075" target="_blank" rel="noreferrer">PANGAEA 937075</a> · <a href="https://doi.org/10.5194/essd-14-1581-2022" target="_blank" rel="noreferrer">Githumbi et al. (2022)</a> · context only · propagation use: false</div>
+                </div>
+              </details>
+              <details class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Candidate relations</span>
+                    <h3>Scenario, Status and Countries</h3>
+                  </div>
+                  <span id="relation-summary" role="status" aria-live="polite" aria-atomic="true" class="control-group-summary">Checking governed candidates</span>
+                </summary>
+                <div class="control-group-body">
+                  <div id="evidence-display-controls"></div>
+                  <label class="field-label" for="country-pair-filter"><span>Country pair</span><span>Direction-neutral</span></label>
+                  <select id="country-pair-filter" class="search-input" aria-label="Filter candidate relations by country pair"></select>
+                  <label class="field-label" for="relation-scenario-filter">Retained scenario</label>
+                  <select id="relation-scenario-filter" class="search-input"></select>
+                  <label class="field-label" for="relation-event-definition-filter">Supplied event definition</label>
+                  <select id="relation-event-definition-filter" class="search-input" aria-describedby="relation-event-definition-status"></select>
+                  <p id="relation-event-definition-status" role="status" aria-live="polite" class="search-meta"></p>
+                  <label class="field-label" for="relation-status-filter">Native candidate status</label>
+                  <select id="relation-status-filter" class="search-input"></select>
+                  <label class="field-label" for="relation-source-country-filter">Stored source endpoint country</label>
+                  <select id="relation-source-country-filter" class="search-input"></select>
+                  <label class="field-label" for="relation-target-country-filter">Stored target endpoint country</label>
+                  <select id="relation-target-country-filter" class="search-input"></select>
+                  <p class="search-meta">Stored endpoints do not establish direction for indeterminate relations. Candidate status is not scientific admission.</p>
+                  <div id="relation-filter-status" role="status" aria-live="polite" class="search-meta"></div>
+                  <details data-evidence-tools>
+                    <summary>Retained relation country counts</summary>
+                    <div id="relation-country-summary"></div>
+                  </details>
+                  <details data-evidence-tools>
+                    <summary>Retained relation endpoint ages</summary>
+                    <div id="relation-time-summary"></div>
+                  </details>
+                  <label class="chip-toggle">
+                    <input id="cross-border-only" type="checkbox" aria-label="Show cross-border candidate relations only">
+                    <span class="chip-swatch" style="background:rgba(124,58,237,0.18);border-color:#6d28d9;"></span>
+                    <span>Cross-border only</span>
+                  </label>
+                </div>
+              </details>
+              <details class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Evidence</span>
+                    <h3>Layer Selection</h3>
+                  </div>
+                  <span id="dock-layer-summary" class="control-group-summary">Loading enabled layers</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="dock-actions">
+                    <button class="inline-button" type="button" data-layer-preset="evidence">Evidence only</button>
+                    <button class="inline-button" type="button" data-layer-preset="context">Context stack</button>
+                    <button class="inline-button" type="button" data-layer-preset="orientation">Map framing</button>
+                    <button class="inline-button is-primary" type="button" data-layer-preset="all">All layers</button>
+                  </div>
+                  <div id="dock-layer-filters" class="dock-layer-grid"></div>
+                </div>
+              </details>
+              <details class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Animal aDNA</span>
+                    <h3>Animal Evidence</h3>
+                  </div>
+                  <span id="animal-filter-summary" class="control-group-summary">All animal evidence visible</span>
+                </summary>
+                <div class="control-group-body">
+                  <div>
+                    <div class="field-label"><span>Animal Scope</span><span>Domesticated-core or comparator</span></div>
+                    <div id="animal-scope-filters" class="dock-presets"></div>
+                  </div>
+                  <div>
+                    <div class="field-label"><span>Species Focus</span><span>One species at a time if needed</span></div>
+                    <div id="animal-species-filters" class="dock-layer-grid"></div>
+                  </div>
+                  <div>
+                    <div class="field-label"><span>Coordinate Confidence</span><span>Keep point trust visible while filtering</span></div>
+                    <div id="animal-confidence-filters" class="dock-presets"></div>
+                  </div>
+                  <div>
+                    <div class="field-label"><span>Temporal Windows</span><span>Inspect temporal structure without forcing false precision</span></div>
+                    <div id="animal-temporal-window-filters" class="dock-presets"></div>
+                  </div>
+                  <label class="chip-toggle">
+                    <input id="animal-nordic-only" type="checkbox" aria-label="Restrict animal evidence to Nordic leads only">
+                    <span class="chip-swatch" style="background: rgba(8, 145, 178, 0.18); border-color: rgba(14, 116, 144, 0.78);"></span>
+                    <span>Nordic animal leads only</span>
+                  </label>
+                  <section class="animal-insight-panel" aria-live="polite" aria-label="Animal evidence summary">
+                    <div class="animal-insight-head">
+                      <div>
+                        <span class="animal-insight-kicker">Atlas-side summary</span>
+                        <h4 class="animal-insight-title">Visible animal evidence</h4>
+                      </div>
+                      <span id="animal-evidence-state" class="animal-insight-state">Loading evidence posture</span>
+                    </div>
+                    <div id="animal-evidence-metrics" class="animal-insight-grid"></div>
+                    <div class="animal-insight-subsection">
+                      <span class="animal-insight-subtitle">Coordinate trust mix</span>
+                      <div id="animal-evidence-confidence" class="animal-insight-mix"></div>
+                    </div>
+                  </section>
+                </div>
+              </details>
+              <details id="time-controls" class="control-group" open>
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Time</span>
+                    <h3>Date Window</h3>
+                  </div>
+                  <span id="dock-time-summary" class="control-group-summary">Loading BP range</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="dock-range-stack">
+                    <div>
+                      <div class="field-label"><span>Oldest → present position</span><span id="time-start-value">0 BP</span></div>
+                      <label class="sr-only" for="time-start-slider">Move the BP window from oldest evidence toward the present</label>
+                      <input id="time-start-slider" class="range-input time-position-slider" type="range" min="0" max="0" step="1" value="0">
+                    </div>
+                    <div>
+                      <div class="field-label"><span>Window span</span><span id="time-interval-value">100 years</span></div>
+                      <label class="sr-only" for="time-interval-slider">Time window interval in years</label>
+                      <input id="time-interval-slider" class="range-input" type="range" min="1" max="100" step="1" value="100">
+                    </div>
+                  </div>
+                  <div class="dock-presets">
+                    <button class="preset-button" type="button" data-time-interval="100">100 years</button>
+                    <button class="preset-button" type="button" data-time-interval="500">500 years</button>
+                    <button class="preset-button" type="button" data-time-interval="1000">1000 years</button>
+                    <button class="preset-button" type="button" data-time-interval="5000">5000 years</button>
+                    <button class="preset-button" type="button" data-time-interval="10000">10000 years</button>
+                    <button class="preset-button" type="button" data-time-interval="50000">50000 years</button>
+                    <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
+                  </div>
+                  <div class="search-meta">Use the persistent Older, Newer, and Play controls above the map while this panel is closed.</div>
+                  <div class="search-meta">When a Neotoma source level is active, the slider, arrows, and playback use that exact sample, ecological-code, or taxon extent. Disable the source layer to navigate the complete atlas span.</div>
+                  <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
+                </div>
+              </details>
+              <details class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">Distance</span>
+                    <h3>Acceptance Distance</h3>
+                  </div>
+                  <span id="diameter-value" class="control-group-summary">20 km diameter</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="field-label"><span>Search radius around visible point layers</span><span id="radius-value">10.0 km</span></div>
+                  <label class="sr-only" for="diameter-slider">Acceptance diameter in kilometers</label>
+                  <input id="diameter-slider" class="range-input" type="range" min="0" max="100" step="5" value="20" aria-describedby="distance-help">
+                  <div class="dock-presets">
+                    <button class="preset-button" type="button" data-km="0">0 km</button>
+                    <button class="preset-button" type="button" data-km="10">10 km</button>
+                    <button class="preset-button is-active" type="button" data-km="20">20 km</button>
+                    <button class="preset-button" type="button" data-km="30">30 km</button>
+                    <button class="preset-button" type="button" data-km="50">50 km</button>
+                  </div>
+                  <div id="distance-help" class="search-meta">Distance circles are available only for point layers. Set to `0 km` to hide acceptance circles everywhere.</div>
+                  <div class="field-label"><span>Archaeology density opacity</span><span id="density-opacity-value">60%</span></div>
+                  <label class="sr-only" for="density-opacity-slider">Archaeology density opacity</label>
+                  <input id="density-opacity-slider" class="range-input" type="range" min="0" max="100" step="5" value="60">
+                  <div class="inline-actions">
+                    <button id="restore-defaults" class="inline-button" type="button">Restore defaults</button>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </div>
+        </aside>
+        <section id="focus-card" class="focus-card" hidden aria-live="polite" aria-labelledby="focus-title">
+          <div class="focus-card-head">
+            <div>
+              <div class="focus-card-kicker">Focused Record</div>
+              <h2 id="focus-title" class="focus-card-title">No record selected</h2>
+              <p id="focus-subtitle" class="focus-card-subtitle">Choose a point, polygon, or search result to keep its details visible while you continue navigating the map.</p>
+            </div>
+            <button id="focus-close" class="toolbar-button focus-close" type="button">Clear</button>
+          </div>
+          <div id="focus-meta" class="focus-meta"></div>
+          <div id="focus-tabs" class="focus-tabs" role="tablist" aria-label="Evidence detail sections"></div>
+          <div id="focus-detail" class="focus-detail" role="tabpanel" tabindex="0"></div>
+          <div class="focus-nav">
+            <button id="focus-previous" class="toolbar-button" type="button">Previous</button>
+            <button id="focus-next" class="toolbar-button" type="button">Next</button>
+          </div>
+          <div class="focus-actions">
+            <button id="focus-zoom" class="toolbar-button is-primary" type="button">Zoom to record</button>
+            <button id="focus-export" class="toolbar-button" type="button" disabled>Download pollen/time-series records</button>
+            <button id="focus-copy-link" class="toolbar-button" type="button">Copy record link</button>
+            <a id="focus-source-link" class="toolbar-button focus-link" href="#" target="_blank" rel="noreferrer">Open source</a>
+          </div>
+          <p id="focus-export-status" class="search-meta" aria-live="polite"></p>
+        </section>
+        <div class="map-status">
+          <div class="status-pill"><span class="status-pill-label">Zoom</span><span id="zoom-readout" class="status-pill-value">--</span></div>
+          <div class="status-pill"><span class="status-pill-label">Center</span><span id="center-readout" class="status-pill-value">--</span></div>
+          <div class="status-pill"><span class="status-pill-label">Cursor</span><span id="cursor-readout" class="status-pill-value">Move over map</span></div>
+          <div class="status-pill"><span class="status-pill-label">Selection</span><span id="selection-readout" class="status-pill-value">No selection</span></div>
+          <div class="status-pill"><span class="status-pill-label">Basemap</span><button id="basemap-readout" class="status-pill-value status-pill-action" type="button" aria-live="polite" aria-controls="basemap-switch">Starting</button></div>
+        </div>
+        <footer class="map-reader-footer" aria-label="Map attribution and navigation controls">
+          <div class="map-reader-evidence">
+            <div id="map-provider-credit" class="map-provider-credit"></div>
+            <div id="map-distance-scale"></div>
+          </div>
+          <div id="map-zoom-controls" class="map-zoom-controls"></div>
+        </footer>
+</main>
+    </div>
+    <div id="help-dialog" class="help-dialog" hidden>
+      <div class="help-dialog-card" role="dialog" aria-modal="true" aria-labelledby="help-title">
+        <div class="help-dialog-head">
+          <div>
+            <span class="eyebrow">Workspace Guide</span>
+            <h2 id="help-title">How to use this map</h2>
+            <p>This shared map combines ancient DNA, pollen, archaeology, and orientation layers. These controls keep the interface learnable without leaving the map.</p>
+          </div>
+          <button id="help-close" class="toolbar-button" type="button">Close</button>
+        </div>
+        <div class="help-grid">
+          <section class="help-card">
+            <h3>Keyboard shortcuts</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">?</span><span>Open this guide from anywhere in the report.</span></div>
+              <div class="help-row"><span class="help-key">Esc</span><span>Close the guide, or close the mobile filter drawer when it is open.</span></div>
+              <div class="help-row"><span class="help-key">Enter</span><span>Jump to the first visible match from the search field.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Recommended workflow</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">1</span><span>Use the short sidebar only for geography, search, and distance context.</span></div>
+              <div class="help-row"><span class="help-key">2</span><span>Use the map dock above the status bar for frequent layer and BP-window changes.</span></div>
+              <div class="help-row"><span class="help-key">3</span><span>Use the focus card to keep one selected record visible while the map continues moving.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Map dock</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">Layers</span><span>Enable or disable evidence and context sources without reopening the sidebar.</span></div>
+              <div class="help-row"><span class="help-key">Presets</span><span>`Evidence only`, `Context stack`, `Map framing`, and `All layers` reset the active layer stack quickly.</span></div>
+              <div class="help-row"><span class="help-key">Time</span><span>The BP start and span sliders filter layers that carry BP dates or BP coverage ranges.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Basemaps</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">Street</span><span>Keyless OpenStreetMap roads, labels, and place context.</span></div>
+              <div class="help-row"><span class="help-key">Terrain</span><span>Keyless OpenTopoMap relief context for landform reading.</span></div>
+              <div class="help-row"><span class="help-key">No basemap</span><span>Offline mode keeps evidence and orientation controls usable without network tiles.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Sidebar</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">Workspace</span><span>Summarizes the active geography, evidence stack, and BP range without repeating every control on screen.</span></div>
+              <div class="help-row"><span class="help-key">Countries</span><span>Country toggles affect every layer that carries country metadata.</span></div>
+              <div class="help-row"><span class="help-key">Search</span><span>Search only scans currently visible point records, not hidden layers or filtered-out countries.</span></div>
+            </div>
+          </section>
+          <section class="help-card">
+            <h3>Status readout</h3>
+            <div class="help-list">
+              <div class="help-row"><span class="help-key">Zoom</span><span>The live Leaflet zoom level after fit, pan, or wheel interaction.</span></div>
+              <div class="help-row"><span class="help-key">Center</span><span>The current map center in latitude and longitude.</span></div>
+              <div class="help-row"><span class="help-key">Selection</span><span>The visible point and overlay count under the current workspace filters.</span></div>
+            </div>
+          </section>
+        </div>
+        <div class="map-actions">
+          <button id="help-return" class="toolbar-button" type="button">Return to map</button>
+        </div>
+      </div>
+    </div>
+    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"neotoma-recorded-source-context","version":"source-25247099-selected-ancestry","build_id":"atlas-a1c12db18dab286bf3b75c435ee1af4acb8cf7fd37c3288b7db12e306d55100e","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"resource_schema":"atlas-source-resource-chunk.v1","provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v2","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3","search_index_abi":"atlas-substring-postings.v1","search_transport_schema":"atlas-search-documents.v1"},"budgets":{"bootstrap_max_bytes":262144,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"resources":{"schema_version":"atlas-source-resources.v2","source_family":"neotoma","catalogue_manifest_sha256":"5ac1dd118ba97e08d9e52220248049c779db895d094a5f450ab215d5709ec1ec","scientific_admission":"not_asserted","numerical_atlas_denominator_changed":false,"initial_load":false,"payload_encoding":"gzip_base64","record_count":1258,"site_count":527,"version_status_count":2516,"source_descriptor_count":68,"legacy_site_reference_count":0,"part_count":84,"index_part_ids":["index:0","index:1","index:2","index:3","index:4","index:5","index:6","index:7","index:8","index:9","index:10","index:11","index:12","index:13","index:14","index:15","index:16","index:17","index:18","index:19","index:20","index:21","index:22"],"context_part_id":"context:0","ancillary_context_part_id":"ancillary_context:0","ancillary_slot_count":10064,"ancillary_observation_count":12799,"ancillary_facet_observation_count":10064,"ancillary_linked_observation_count":2735,"ancillary_linked_occurrence_count":105018,"supporting_archive_count":6,"supporting_entry_count":531,"status":"available","reason_code":null,"metadata_only":true,"part_asset_keys":{"context:0":"resources:4","sites:0":"resources:5","resources:0":"resources:6","resources:1":"resources:7","resources:2":"resources:8","resources:3":"resources:9","resources:4":"resources:10","resources:5":"resources:11","descriptors:0":"resources:12","ancillary_context:0":"resources:13","facet_slots:0":"resources:14","facet_slots:1":"resources:15","facet_slots:2":"resources:16","ancillary_observations:0":"resources:17","ancillary_observations:1":"resources:18","ancillary_observations:2":"resources:19","ancillary_observations:3":"resources:20","ancillary_observations:4":"resources:21","ancillary_observations:5":"resources:22","ancillary_observations:6":"resources:23","ancillary_observations:7":"resources:24","ancillary_observations:8":"resources:25","ancillary_observations:9":"resources:26","ancillary_observations:10":"resources:27","ancillary_observations:11":"resources:28","ancillary_observations:12":"resources:29","ancillary_observations:13":"resources:30","ancillary_observations:14":"resources:31","ancillary_observations:15":"resources:32","linked_occurrences:0":"resources:33","linked_occurrences:1":"resources:34","linked_occurrences:2":"resources:35","linked_occurrences:3":"resources:36","linked_occurrences:4":"resources:37","linked_occurrences:5":"resources:38","linked_occurrences:6":"resources:39","linked_occurrences:7":"resources:40","linked_occurrences:8":"resources:41","linked_occurrences:9":"resources:42","linked_occurrences:10":"resources:43","linked_occurrences:11":"resources:44","linked_occurrences:12":"resources:45","linked_occurrences:13":"resources:46","linked_occurrences:14":"resources:47","linked_occurrences:15":"resources:48","linked_occurrences:16":"resources:49","linked_occurrences:17":"resources:50","linked_occurrences:18":"resources:51","linked_occurrences:19":"resources:52","linked_occurrences:20":"resources:53","linked_occurrences:21":"resources:54","linked_occurrences:22":"resources:55","linked_occurrences:23":"resources:56","linked_occurrences:24":"resources:57","linked_occurrences:25":"resources:58","linked_occurrences:26":"resources:59","linked_occurrences:27":"resources:60","linked_occurrences:28":"resources:61","linked_occurrences:29":"resources:62","supporting_archives:0":"resources:63","supporting_entries:0":"resources:64","index:0":"resources:65","index:1":"resources:66","index:2":"resources:67","index:3":"resources:68","index:4":"resources:69","index:5":"resources:70","index:6":"resources:71","index:7":"resources:72","index:8":"resources:73","index:9":"resources:74","index:10":"resources:75","index:11":"resources:76","index:12":"resources:77","index:13":"resources:78","index:14":"resources:79","index:15":"resources:80","index:16":"resources:81","index:17":"resources:82","index:18":"resources:83","index:19":"resources:84","index:20":"resources:85","index:21":"resources:86","index:22":"resources:87"},"index_asset_keys":["resources:65","resources:66","resources:67","resources:68","resources:69","resources:70","resources:71","resources:72","resources:73","resources:74","resources:75","resources:76","resources:77","resources:78","resources:79","resources:80","resources:81","resources:82","resources:83","resources:84","resources:85","resources:86","resources:87"]},"nodes":{"status":"available","record_count":0},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":0,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":0}},"assets":{"schema_version":"atlas-static-asset-table.v3","scope_slug":"neotoma-recorded-source-context","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","chronology_absent_record_count","refused_chronology_record_count","contextual_chronology_record_count","scientific_signal_ids"],"record_count":88,"records":[["provenance","35d48f4d547380bce30bed309b20b691557b544d0b977689233b173a2ec4fc90","dc8c4aba43236b521c3ed67f057b4146b25a276c1cb85c3fb565b4935d033886",589,720,0,null,null,null,null,null,null,null,null,null,null,null,null],["edges","ad81e79f262305257f731e47b5cb0faeb699418fed1c18c9a6e06d3452fb89d9","9eb425d4df8570dafddd8983ea0178fcb389699a0d37a8c34821e5d85a430076",384,695,0,null,null,null,null,null,null,null,null,null,null,null,null],["sequences","3317adf729de557aeed1aa8572740cf4ee7ba29668b0e8cf4c8962b61d15e1a3","d51e7fd2afb1f30e1d837b5a23f91a8753f376b40eee1db01fe29e969fe9f659",345,656,0,null,null,null,null,null,null,null,null,null,null,null,null],["indexes","52451735d5459a9ea8cc5b9be16209e4c7a22198e7ce93fe95a6f2e17112f5b9","a4f153007b14dd42f92f9f3fd7822601dd8faeed74a5dd2034df8126bf12592b",2898,3357,0,null,null,null,null,null,null,null,null,null,null,null,null],["resources","5673091287bbb2fd3c81eae7ad55b8d59c14dbbdd190217816d65806f9d103d3","43678cd9f0f714884b6367b854a43c86941e7a3c3425f485796a16e02fce8792",9422,6011,1,null,null,null,null,null,null,null,null,null,null,null,null],["resources","6066645cf510fbf81cdddac3c55cee04f6104634e7342856b01851aca71c2d93","b85850afa8ef12089d086d9dca5153bf224ed7064aeff0c8942c88f1c416ca4f",2136379,198915,527,null,null,null,null,null,null,null,null,null,null,null,null],["resources","2ef91d092929f53ae9788de7d0cc8bfdc5c6e326f34c8fae9d1cfcadb189a141","06d6fc68694866f751172094275b0edb54bcf369e8c7d10947af894c69fec57e",3139467,242395,274,null,null,null,null,null,null,null,null,null,null,null,null],["resources","e8ad24eb3a944c7115f93df252b5b919ac27c1c58790c9464f17d416d91022a9","4b1bdbedddf938c73848dae125f08bc14c219a06d03459752611a3f4152681c8",3126400,138415,161,null,null,null,null,null,null,null,null,null,null,null,null],["resources","6012d159ee1615c162fc6adf4fb64dc5c283d01fa9c2a4b0003b417b197b2c15","97584e1c3409467f6e4d94089e009b4fbdf92b1d2a662ddab5741b6669ad5249",3136673,134675,151,null,null,null,null,null,null,null,null,null,null,null,null],["resources","c8cd4fca1203513d574c1eec1e2e6f9c1c9d4d754a53935604c1748fa57cc8ed","a16d3cffc547ec6e7e2f139d6ec06e0f67a53f7901a9d133930c71a8d13d1599",3135055,200599,260,null,null,null,null,null,null,null,null,null,null,null,null],["resources","71e1b3da617723c3405177b60310e03455c692b7b30038807c9d712d692b472a","4c652a032c807fea9abc6f6b2267d120a2b285e460343f00f6c8ea359a57c399",3126240,222624,268,null,null,null,null,null,null,null,null,null,null,null,null],["resources","67590f6558e5ea22b5246f83389173cdc41c4743a3ff9334691f602807f0ab36","8982ebb46b941aa576710da494942647deb435bc8c81296f49fb09d9032235fa",1649658,125416,144,null,null,null,null,null,null,null,null,null,null,null,null],["resources","58b215f4e290e952b6ef8ad0b54c7c72a96ca59ccfea9748c310a2e5086a1121","24628f6f5856e802850db448ab41a82b4ef2d3833a84e045414294a641d8e96e",930635,336408,68,null,null,null,null,null,null,null,null,null,null,null,null],["resources","763500a3e3483441fc9bfecb5f72fe19a9491d9d1f667fb5f769d1ca17803ce3","613b93d013b997d4032a90b75962fffa0a8e0ee6b7653d936d3f191447bd65f8",74254,48804,1,null,null,null,null,null,null,null,null,null,null,null,null],["resources","dfe350176683132f65db4fac1527b700918f7be7b27becfcc46221bb1c55e604","18a40dc75b5009cb6f40ef7b3871a56a62d6deba3aefba5908ff6773befcae5b",3140321,65016,4275,null,null,null,null,null,null,null,null,null,null,null,null],["resources","13a0fdb586646ba730df2f77ce6ca53bcdd4d478fb310cc0e3c5c6c1324a3622","6daf32f7ca5e693e714d90a7b7909f2af7708e6e68c7ce424c4cdbc866c71209",3140368,63284,4310,null,null,null,null,null,null,null,null,null,null,null,null],["resources","d0a68e30000064d49457dc0f373b770f4852d862c3d989d7961da0c0303b86c9","47efd89085fed2a1d70f2431b048682cc1bed9b0f778987bdd273eb4540018cc",1094902,24500,1479,null,null,null,null,null,null,null,null,null,null,null,null],["resources","2398f997b74d50faed78ca2b5fa55db5e5781bb52023ba74f2e06e5b8196ef05","2df9c6889fbd54d302d76198bc9e480ab6081960940dead3b3af69cbc38b0426",3138952,215816,823,null,null,null,null,null,null,null,null,null,null,null,null],["resources","43d8375eab2cb97fb551e88c5fc8f3712329ae2bb50f459fcb7a6deb53fbea06","10908c981ece1d1312772b898488f1ced9982fa76a2112b67f5a16c6d0310038",3137639,232760,811,null,null,null,null,null,null,null,null,null,null,null,null],["resources","b3232de7382fcdc6efc67d78a434c08c6bfbb8ff4e007f236354f031efbea90b","3724ec01453be4105cd4aea55909ea092a2addbee853cea65870551a2c7e59de",3138186,238660,793,null,null,null,null,null,null,null,null,null,null,null,null],["resources","d4945f38d65f528277e730d0f72f088d3157e825edb44e2c073447096fcb4117","2331801579918c48db007d04e0d6e2e7dd967a6e855ab7c4d7d4bfdecaf5cffa",3140485,245916,785,null,null,null,null,null,null,null,null,null,null,null,null],["resources","b3b7fb9bfc5fe94addcf726393636f38464026b23862f53b5c1756c1e00de4cb","0fa2af44ca0670565b5e4c95229f991f14df0a2caa6d1d512a5222ff63a8244b",3137789,210304,920,null,null,null,null,null,null,null,null,null,null,null,null],["resources","c6442c4b59c6dad8e4e51f6ee8292cbbf11ccda8cca4b5a43ac335907d3585f8","3c2f71045a001b6c6a27750a6bf97fc0be366c662a2e0dd8046643dad3ef02cb",3137918,215168,822,null,null,null,null,null,null,null,null,null,null,null,null],["resources","a6f59f6985105bf7998ed7782fcdfc6aa92a6f71cf38f7a2096ee68b94d22fb1","b9f66588293d2a432cddde0f37f05f38fe682d4ec2931d8826b5bf9a3ad2662c",3137415,235640,752,null,null,null,null,null,null,null,null,null,null,null,null],["resources","c53d99fdaa7576e464eb1d082785b51847275037ad802a98df20cb85bbba66c6","80a82f0598ece1b4a2b7837aff65e5b811382596621d4c407cf0e0f3536e98e1",3138332,218940,806,null,null,null,null,null,null,null,null,null,null,null,null],["resources","17605fd309f254e4d6542b645aebd3a46939ed37011644ae82b28eb45c9c5d49","9b51690a0895ee2bcb9b654c7b04196d3246b1c45b2aa9735e3c5e3df5d89b8f",3137508,224840,795,null,null,null,null,null,null,null,null,null,null,null,null],["resources","bc1df1e0cdbad779769e955d1ffe178abe671efb1e6f3e08fb44f741bca48959","8d234b0fb54539dc61f58f59a4984c41f6700cd407fece78dbf5433f790f26f9",3137267,221812,729,null,null,null,null,null,null,null,null,null,null,null,null],["resources","564af269a95bfc82e9774e39d2ef9e58f6d2f3cae68a7d92ac032dbe2503d424","5003ab96272ea78bd76f87ecc15c72e50651e29e35c4bf2214c869fd9be534a8",3139608,217676,826,null,null,null,null,null,null,null,null,null,null,null,null],["resources","3b7dbb91a82fdb3bacd1fce2c1d7abbca4058fad78370d88a104ab9d224a106c","ba4cccb7ef932a7fc5e6646c0af4aceefceda35f950c95d9255c18183cc5de6c",3140487,207968,848,null,null,null,null,null,null,null,null,null,null,null,null],["resources","46a81af438be3945bcdbd1583855c94e9602842756ce1180b2427d3390f679d4","31c95b2efd7e9338630c84155e84855ad81dec852b8150a1939d7883fabac551",3137113,199104,852,null,null,null,null,null,null,null,null,null,null,null,null],["resources","0e7be457a65a1a9613a030b3d6d52c9f4bbc3c62e4c72422e840f90f69d197ad","51b447e6cc354e21eb62e2367f8b694e5a93f4fef392ffe9a144af2ed84234db",3140041,215068,765,null,null,null,null,null,null,null,null,null,null,null,null],["resources","4631da4db33f388aaa49dd9afdccbc22906ae8b75db91cad2a8995d4b85d9938","8458bbdd701203af60359f3f5e0ed1988f78f980c4552c5b7bfa0ad49f69599d",3140174,235172,792,null,null,null,null,null,null,null,null,null,null,null,null],["resources","b11190ee609d02b8067acf5e2ceb472f2ba3aa86ddbced05026110701fba88bc","29f6899be035d1729e5b926bb1cc1646f2f54a65379b308437151bc22e586657",2543252,177932,680,null,null,null,null,null,null,null,null,null,null,null,null],["resources","0311f0bcc2736801dc13b619707fce9f78826fb371c3b9ea5839339c7f931479","51dedad8896903e6782180555ca05e70b7064f39b16e1f649aada8ada5d0b9f9",3140285,103808,3592,null,null,null,null,null,null,null,null,null,null,null,null],["resources","4e66ef156a10840943cd39d464406946cd838461b9c4ccb8b5194d1559c5807b","d6baf8f6d41691f4b07b4e49233dc42fb10aa14a951bf07c2fe99a81354fc304",3140354,101696,3594,null,null,null,null,null,null,null,null,null,null,null,null],["resources","a41547668bb94dd0bd8c1b854d3ea35776cf8adbb533e2e57bc1ac51d55b8463","e7355882148eea6d7129e52516e5d2cacdfc6aba03586b4242efac0164726368",3140355,56684,3595,null,null,null,null,null,null,null,null,null,null,null,null],["resources","dd6ac18b7403adb69d6db5605c2ff9708083979c7bf8ce660090a37ceac61211","99baac76b799970773fa7e4861b51b2536ad83d46641a442ca1950e3787fbf27",3140337,130192,3590,null,null,null,null,null,null,null,null,null,null,null,null],["resources","c1171330b11f46687bcf98c3623e6ad87b7618709c0a25cb5ff9ae062eb4a875","5eaa49c759eac63ceeeea9c0b2dda096c31ee1f0b9cf0d827ee6acb83b85913d",3139746,114416,3590,null,null,null,null,null,null,null,null,null,null,null,null],["resources","2d7bcc960745039a62e9696842a36f17d01b18e427b20f6b19f748461e5926cd","2c654218fc71aadfd0fbb62b420b7b9998dc3f1704a2246cd3277f48f7f9763f",3139859,125784,3588,null,null,null,null,null,null,null,null,null,null,null,null],["resources","59e1edf1bffdc247fa2546aa5905dd760bc8d1a614ea6ef3ff462958458cf061","be801335bb05b9b5b66e53ac1f3e43ccb98762a0135fd004ef3b0a4ecef12108",3140122,114672,3586,null,null,null,null,null,null,null,null,null,null,null,null],["resources","744b0af2ae005b7e5622c7d09ebb4a5f3663c6c1d5b189f06914876a5b1aaced","37ddce57d37a882298559363cd1d8dbffec982d45eec6db9f87a0ac73267caba",3140306,138532,3588,null,null,null,null,null,null,null,null,null,null,null,null],["resources","e370888e056e897af693136e381e8cd6862ed01c4f5983fed50e6fbf70b25de5","4909d3308334a1209b4561c8e4244e4d99e4b15c15859ad9d1abe3c14115dd9f",3140387,106228,3590,null,null,null,null,null,null,null,null,null,null,null,null],["resources","f54b20fa6b62c7b886df3ce827d2264a9b8b36fb9709354be53c81ed43bc6a18","6d8238215ec5301a5da21c3bd9a757cfcb359bc77eb1c904efa64999b6e90544",3139660,135152,3586,null,null,null,null,null,null,null,null,null,null,null,null],["resources","cf36eb99c95e69ebe27790ea327b674b67e1112b72c4018e978c4e21775ab925","41424b3f5a1e0511efb4d03a2196b65f5bc9f4ea83ebb651afbc2cead1aebd2e",3140278,111060,3589,null,null,null,null,null,null,null,null,null,null,null,null],["resources","4eadc2ef72c188d4af66f8fd96bd3537fb2182169a8507b2d0c9d97e5055c052","85cbd88e6b145095efe26f078af33af226383ce4c98fa8f79288a8fb240f537a",3139726,89932,3589,null,null,null,null,null,null,null,null,null,null,null,null],["resources","2b764ec809cda8d3ce1c130de9351bd94f001bb63813a39dac96dce4d2c54662","dd9f8c05816c105df6aed6ffe13eaac02d6f9378e4a54328232817421fb83266",3140240,88788,3589,null,null,null,null,null,null,null,null,null,null,null,null],["resources","d9058bcafc28881706831c53f8b3b0ce251e9326c4555f6bbd4ac865faa15a4f","7f996fdcb6f8196468b24b33f1910188e53c95e5dad22ce9962080de1d4454a1",3140472,114804,3587,null,null,null,null,null,null,null,null,null,null,null,null],["resources","1a24346f29b1a3fc0736777eed1d201fe09da5b8fee76b92813b2d6892aa3355","0d6c38818efbd335671235e51a0178d816fd9117e2a2ae67635c06db5a551a10",3139868,78232,3594,null,null,null,null,null,null,null,null,null,null,null,null],["resources","57f6338381ba1ebe69f43f3fc58ece0d914ba8d3cc457433f25c41697cafaf7d","b2cbdb6510f152cf77ecdb47c892977ddf828ce65c40cc28d1197d3cbbba3c43",3140172,60988,3586,null,null,null,null,null,null,null,null,null,null,null,null],["resources","bcdc6335400d94f50545b81bbdfec72e124784f8c39c57b2f34b703475bd103d","891cc67c7fb55544d61990ec2ec1d0a843df5490b76c3b1c0cd291a386c22bcd",3139702,49352,3585,null,null,null,null,null,null,null,null,null,null,null,null],["resources","4a842db371502d73f1511b78787b3f679d680892146f9bb4747b18347433b286","72ec565f63a5e022e85808f95b5a2c2611971811131126ccf80927e1c2f47248",3140063,65752,3589,null,null,null,null,null,null,null,null,null,null,null,null],["resources","250895ab33d2b5ce04d89eb8dcd138c0f22a51282dc0487637ccdfd4cb72da63","a4161ae6b0d3072938e504a1b90b0fd56b44404b9752eaf80ba91e127e3096c7",3139823,65672,3591,null,null,null,null,null,null,null,null,null,null,null,null],["resources","8a4065b72f3da1b00aa989015ebaf51a82245c990f8641ab7d315fc52dfe4aa8","d1a28697f999fcd6c8cd08ac4bd1b64d7515c31adac261c9e93e1b6fe18a21a9",3140350,58404,3589,null,null,null,null,null,null,null,null,null,null,null,null],["resources","1ea9964655f59347660e3210a60327a77ddb0500088d8bc3fc83be33f381f9be","edd519a9498b7580a5532758cf36181dc853d38e3ab69f7847305f2260670172",3139820,90764,3587,null,null,null,null,null,null,null,null,null,null,null,null],["resources","1638558a41ab04477d527df20d91d35e7f336f241ac17cb7bea2ae491b7e8bb8","3d4a397841bf2ef46abf29caa90211985ea53dda5295fbeaa0e97d0f556ac3bc",3140342,99356,3587,null,null,null,null,null,null,null,null,null,null,null,null],["resources","84be1b860cec5702603be07993908cdce0b38657f5036163cb4c8a31100cc28d","bda8ce5d9cf26d4ce5d579b20f7abb0c7a5e241ab98e02c82dfe89c41506458b",3140438,105272,3590,null,null,null,null,null,null,null,null,null,null,null,null],["resources","48c832e3ad95559453577892df3f28c9a7967cef9c644d3737a5bd24c7c996ec","3eba43c979933cd7cf4f93a45ecf31cd8ba2ac4ce1c98877e9f41176ecc8c2a2",3140194,110380,3590,null,null,null,null,null,null,null,null,null,null,null,null],["resources","9ef68b1e5fce0300ba0e310baa3867aab0d1b66b832d0c5855c9d4f1a9d63208","2c4b7a7cf357d607de5b7e7da3f0dd649f47aeb340b93398e0b4f43d56f14aa5",3140149,118820,3588,null,null,null,null,null,null,null,null,null,null,null,null],["resources","e5ba9b0bd171833cae565e6c28e7005df1ae9b96cfe0ecaff8bb29a7c6326a8f","71b2fbf27d701bac75e28452b57a112371c74613c6af64865044d54e9c715a16",3139976,128396,3583,null,null,null,null,null,null,null,null,null,null,null,null],["resources","4110a290105526f20a0aef32519dc51861611f08afe99a7bcbc2c417277d2eca","d6c95613a1d8c442a2190fe713b153f774589f86984a1d2c55c05f2d795f0381",3139649,124412,3589,null,null,null,null,null,null,null,null,null,null,null,null],["resources","f4b641f7db2afe2c0807c5cd120a20f4762a0b13dc1b21dd679d3116c0fd573c","88d72b1d3aeb1c10bab21ee1e90d71a17c693d96652743ee1ed976a940d1e666",3139733,130492,3589,null,null,null,null,null,null,null,null,null,null,null,null],["resources","4351a8859bd9508f5b40f3edbb5ed50b8868774a913f782fc7557923f421ff93","c7179e58e8dcdcd99adb41cb11e6dd87cdc2bf8e032ab103f0ff1d65c1556d5b",3139783,142008,3588,null,null,null,null,null,null,null,null,null,null,null,null],["resources","983dbe6c1ea8728842121204d58a9ae3b456c63d00ef821cf2e4e1b07113c15d","40269aebc9b015af6fd0213ae8e50e69af77ab383cb34732187b4e0e2851ef49",822931,37540,940,null,null,null,null,null,null,null,null,null,null,null,null],["resources","7032a5c0ac9c74354bea71d81bf3d0465318cade194967348ac98968f78a4e1f","23a699b0cb07f263babb0054b0dad80cc3927bca166d5197bc182020f45798a1",378553,82360,6,null,null,null,null,null,null,null,null,null,null,null,null],["resources","6741f1cb0a371767dfd52a01dd7c6413fecd56b327b1df4bca6cf360262b0f64","1fac2e064e499c8b8745037611a41cc7a5360945ee4d1d6cd902fdff2dfa412c",647150,66752,531,null,null,null,null,null,null,null,null,null,null,null,null],["resources","1195db05709d09d4c38b57750ce5c407aac3ef27ab3f1e1d3396c7205eb715ad","29eb19da1da73867be319ec9ac9143399c209f885f21fe76af015a0d98770cc9",3140094,106620,7356,null,null,null,null,null,null,null,null,null,null,null,null],["resources","2a1b77874ffb126098b2f22e08081f408e1af4ce76608456f840c19df52dc5e7","f53f6fdfa4ed403018a6f068139bad67f3ab8900f59367a2798b0265a9b8165f",3139958,86368,6228,null,null,null,null,null,null,null,null,null,null,null,null],["resources","72b516f3c114b78a362120b3ace3725765e1b823559f5380c2ced5cff7774668","e279b1f0ddeede432a710012fab35fc90e59a938fa01769e3e1a5b0dfbc10182",3139592,73004,3753,null,null,null,null,null,null,null,null,null,null,null,null],["resources","09eef20c19c1a491220213bb2a241bb585c237ab0261f13ca3adda850d7de641","29248f2302f0704aeaf041881038f5a56974eff6067f77d837b4800117552471",3139591,73240,3679,null,null,null,null,null,null,null,null,null,null,null,null],["resources","587f59fd356c6b7b54e9a87e1ac6f6a51c4582f5aee8bb38079facc5fe510a10","0cf5a5780c573392d026c814bb95824fa4ea8a5b699123356c9e7b8562905450",3139758,72712,3666,null,null,null,null,null,null,null,null,null,null,null,null],["resources","2ed74f83be89985fb14cd3009621b50867e05c98f61d1c6d7ace473ec0bb9641","a022fc7ca8414297e823b05287a315767e4c7c625596ab9ea133b1396584bc1e",3140422,119428,5985,null,null,null,null,null,null,null,null,null,null,null,null],["resources","cfc5dafb7bff305abee2c6bf668088c251568e907ef46143d2961e5b9358f192","4140720cf8048bd0baa1ca16623ca625d7be26efc7d1e63cc3cb580d4f899afd",3140109,76500,6016,null,null,null,null,null,null,null,null,null,null,null,null],["resources","63ec269205f185306418a6bad3393b600aa923c3b2913c07b04d2c8320b229e2","ddb217c00e359218e65cb7e42a7d1f90103e17732435b31fe58c3082fff5180c",3140058,141600,6000,null,null,null,null,null,null,null,null,null,null,null,null],["resources","003331aa53957a28d7378caa6dc46d9375edd23ca22cbf472de65e7b99e8f7bb","d9f9000f89f05b17103c4c71ae48c07ad9822b6c246c104ee58b9e098da378ac",3140082,129628,5994,null,null,null,null,null,null,null,null,null,null,null,null],["resources","805d54f16b9ce65d70d28f128e1e2040dff7d133c7f81dbaf2fdd69e96f7daca","4c1efae1e56cb97b268599caba05d8b8bbe0bf2ae92fa1ec65c7c00a28646da6",3140220,155452,5998,null,null,null,null,null,null,null,null,null,null,null,null],["resources","c99166523ece9a9dab7942ac91d90b99ca19d5ce7e5c121674df826fa76b067b","dfec47a9ca8b4ae3a360906043fa6b3b2eaf8ea48519808d4ad95daa7755c29c",3139942,137276,5996,null,null,null,null,null,null,null,null,null,null,null,null],["resources","26cf834ae9f2ac37aa8cc53023f62f40df80f572b6f6f5d03c8f7ab6f66d8e5f","727c8fa5f87d3813266d93f45d4ad93e6a77e66ebeec84210f91ce403680ff68",3140128,116536,5989,null,null,null,null,null,null,null,null,null,null,null,null],["resources","dd6a3acd5c851cb3be23689139c4c7906051e881398a17deb9a7545a565a37eb","66bafe01160730c48651e67c730e33c7320d98f949013afc0627b5ef4cfc57b6",3140043,108384,5984,null,null,null,null,null,null,null,null,null,null,null,null],["resources","8b4fbff07037c211b2916f2412a9d5b114f4a63a0de2ce58c7e703eb4b98bdad","8450a25a3385f14d7b9f81e60a3e83bb65726d4f01fb34f3041f458c0d3f7b56",3140055,103396,5996,null,null,null,null,null,null,null,null,null,null,null,null],["resources","8d530afe3fa5418751fa03558ddb9e9f6eb28c05194720b6bbe24024a0c87a58","ce3c6816c1ba0f7706f299e2fc08894bc7c5be647a58fabb12a444bd062d0658",3140432,61096,5982,null,null,null,null,null,null,null,null,null,null,null,null],["resources","a79d94c835aa1129815114dd89a8328ce5b68e7659d5cccade9e786c562e7aaa","f9a8d5488df2370d1b2b21c0d0f93f29423e37a8d94782528f1dc12454cf345f",3140281,76760,5988,null,null,null,null,null,null,null,null,null,null,null,null],["resources","ce6d0c8b758a8ccd0d320f39d492dd7b9a73c696d4f3ab740d14414ebc34200c","f454083ec60b3d84604cc7b7e0d8f23597ae12823f9b6507ee97774fdfa353b6",3140199,57780,5989,null,null,null,null,null,null,null,null,null,null,null,null],["resources","a17d708531530f8d9831d221ffa41029429447de54ab3d5daaf2c66d49705555","26e1788d2f336bff6aa9dcd87ccd176f3688b4a20735c602ff5795106aa16a19",3140115,106700,5981,null,null,null,null,null,null,null,null,null,null,null,null],["resources","2f445a4b17e01b1bc04df5d1719e8cfe80f147d894176bf838eb6d19dacf28a3","2c795526c140dc94096fa95f52b08b7d4f316ba52c469a7b3c988a623386079d",3140264,121016,5991,null,null,null,null,null,null,null,null,null,null,null,null],["resources","1fe1c3a6f93cf4609a25a4b9190789841dfdb329f5e0f4654409c408662da3a9","cb97118d9c9babb67ae9c1b1182fe27ac89084b8fad1b859426a6b93a56e5feb",3140223,134532,5988,null,null,null,null,null,null,null,null,null,null,null,null],["resources","26c82d40bd03e6a41b1da336cadf151ec4b0949ffcf12ece0217568e45850f68","5633b9f405a6094ee01c6b483acf6ec23e058733fcc3925674b650adaddf072f",3140260,142296,5984,null,null,null,null,null,null,null,null,null,null,null,null],["resources","2c7ea0b9a9c50d1931dc258b254910b714f2a8e6b2c1d93f5a295eb2e03ac9ff","62106394c1446e7055c5c0c46dbfb02ebe241c254157d5a6c40c4143c8df8668",3140398,154448,5988,null,null,null,null,null,null,null,null,null,null,null,null],["resources","f819a8321f3517445f214750e42cbf55ed967678fb51be27ebc8ce9095ea4ade","7b76b3719ac5bfae682b5cfa2934c210d1fbfc297bfbe73f5aad43f25e1cefdc",1928212,92324,3741,null,null,null,null,null,null,null,null,null,null,null,null]]},"runtime":{"path":"index.atlas-runtime.d157fcdf8fd25f23.js","byte_count":524193,"integrity":"sha256-0Vf834/SXyOL7LnEX4hmD8EZOIBapCMozmqhhieUPbU=","optional_controllers":{"evidence_tools":{"path":"index.atlas-evidence-tools.0eb67122cfbf0a1e.js","byte_count":153776,"integrity":"sha256-DrZxIs+/Ch6wUawu7pVHjaOzvkUU57r1aoyxKlwaCZc="},"index_transport":{"path":"index.atlas-index-transport.591bd382f0d8aed5.js","byte_count":37058,"integrity":"sha256-WRvTgvDYrtUrCbk4sxGqNyG/wxo2lkmhRuIEwmrehZk="}}}}</script>
+    <script src="_map_assets/leaflet/leaflet.js"></script>
+    <script src="_map_assets/markercluster/leaflet.markercluster.js"></script>
+
+
+    <script id="atlas-native-lra-binding" type="application/json">null</script>
+    <script id="atlas-modeled-context-binding" type="application/json">{"schema_version":"modeled-context-manifest.v3","status":"unavailable","reason_code":"pangaea_937075_temporal_grid_not_available","evidence_role":"context_only","propagation_use_allowed":false,"metric_families":[],"windows_oldest_to_present":[]}</script>
+    <script>
+(() => {
+  const fail = () => {
+    const alert = document.createElement('main');
+    alert.setAttribute('role', 'alert');
+    alert.setAttribute('aria-live', 'assertive');
+    alert.textContent = 'Atlas runtime could not be loaded. Keep the complete atlas files together and reload.';
+    document.body.prepend(alert);
+  };
+  try {
+    const runtime = JSON.parse(document.getElementById('atlas-static-bootstrap').textContent).runtime;
+    const script = document.createElement('script');
+    script.src = runtime.path;
+    script.async = false;
+    if (location.protocol === 'http:' || location.protocol === 'https:') {
+      script.integrity = runtime.integrity;
+      script.crossOrigin = 'anonymous';
+    } else if (location.protocol !== 'file:') { throw new Error('Unsupported atlas protocol'); }
+    script.onerror = fail;
+    document.body.append(script);
+  } catch (error) { fail(); }
+})();
+</script>
+  </body>
+</html>

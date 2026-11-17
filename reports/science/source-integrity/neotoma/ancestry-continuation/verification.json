@@ -1,0 +1,387 @@
+{
+  "schema_version": "neotoma-recorded-ancestry-capture-verification.v1",
+  "scope": "Twelve closed native source details; exact canonical copy, without successor-chain derivation or Atlas replacement.",
+  "capture": {
+    "directory": "../../../../../data/neotoma/ancillary-resources/taxon-ancestry/captures/244769f271142c2f11d6f7cd11874d2fa8df6e5328e45ba6ff3851e6a06a402c",
+    "manifest": "capture-manifest.json",
+    "manifest_sha256": "244769f271142c2f11d6f7cd11874d2fa8df6e5328e45ba6ff3851e6a06a402c",
+    "files": 26,
+    "bytes": 83586,
+    "http_body_files": 12,
+    "http_body_bytes": 9457,
+    "member_pins": {
+      "capture-manifest.json": {
+        "bytes": 51682,
+        "sha256": "244769f271142c2f11d6f7cd11874d2fa8df6e5328e45ba6ff3851e6a06a402c"
+      },
+      "publication-10028-current-attempt-1.body": {
+        "bytes": 1213,
+        "sha256": "5186f2d2de22c1cf1ce996ccb3eeedcd89952c9053f2144466bc11fc97c7120e"
+      },
+      "publication-10028-current-attempt-1.receipt.json": {
+        "bytes": 1827,
+        "sha256": "b49c1c3e861ecde1ff087f8722f1eb3b7c27fbc78416d8f6bd7a5e0961113e96"
+      },
+      "publication-10102-current-attempt-1.body": {
+        "bytes": 813,
+        "sha256": "a0a2c54937e633fc0ae39df707f5710a2840f7537ca6da0d45b3b5e14befe195"
+      },
+      "publication-10102-current-attempt-1.receipt.json": {
+        "bytes": 1825,
+        "sha256": "032d9d7faa1cfe69741e07583fc282231a0b331bc9398f3f135a04de266ea428"
+      },
+      "publication-10136-current-attempt-1.body": {
+        "bytes": 1041,
+        "sha256": "62ba39131e4d34e783e7c720e6753279390b1cc23f47d685fb8117aa5ccf86f5"
+      },
+      "publication-10136-current-attempt-1.receipt.json": {
+        "bytes": 1827,
+        "sha256": "fcb007d63d143fa0fc4f21c2e26fd2ceed461edced064830a1193c4d9fc0b751"
+      },
+      "publication-7367-current-attempt-1.body": {
+        "bytes": 1330,
+        "sha256": "6920bdc3a9881b676e70d3dfcf46c58898e2562e09e2783a1fcac7754b84777b"
+      },
+      "publication-7367-current-attempt-1.receipt.json": {
+        "bytes": 1823,
+        "sha256": "630e5d01f35e6cc6f0105e2c9b7626c81ff04ae46f41f3197c33409010b988fd"
+      },
+      "publication-9800-current-attempt-1.body": {
+        "bytes": 1471,
+        "sha256": "9a2a09d83bbd79e0ec0bfd0cebf0b6d452c35a99a4e6659f75d368bbc016e5e9"
+      },
+      "publication-9800-current-attempt-1.receipt.json": {
+        "bytes": 1823,
+        "sha256": "04962ccaff5f34e38b9032097102481d5c36e5c5cf37664c881f2af068be1a69"
+      },
+      "request-plan.json": {
+        "bytes": 819,
+        "sha256": "cc0c1465dfc86694b7cfc093d5d7aa5b3afcdb036556eb352c0217879880b6a5"
+      },
+      "taxon-15532-current-attempt-1.body": {
+        "bytes": 482,
+        "sha256": "34d02993477c34c959bfbc567863b1061afeba352507d3ee3770602ade4110b2"
+      },
+      "taxon-15532-current-attempt-1.receipt.json": {
+        "bytes": 1789,
+        "sha256": "c4fc5d3df4b5788d1601412d9602ada1a2af17eb6cd7333994a274d317e8e887"
+      },
+      "taxon-32874-current-attempt-1.body": {
+        "bytes": 417,
+        "sha256": "9a4f45036c8675a5fe5816cf85cf399e0bc7fbda98e04cdc199daa68fa100baf"
+      },
+      "taxon-32874-current-attempt-1.receipt.json": {
+        "bytes": 1789,
+        "sha256": "7cf54995dd3db95ead1abc81e915e0e28c7237229379ae5a2b7e1ed97f220fa0"
+      },
+      "taxon-9606-current-attempt-1.body": {
+        "bytes": 521,
+        "sha256": "ba5056f9f7db5f2cd6aeae219769e4dadf48defb94149d55a9f72080f74e17ce"
+      },
+      "taxon-9606-current-attempt-1.receipt.json": {
+        "bytes": 1785,
+        "sha256": "91ed22ade359044b91844508e5969886c05504e5a4a3aca339cc8bd6f3d3cf1c"
+      },
+      "taxon-9653-current-attempt-1.body": {
+        "bytes": 492,
+        "sha256": "d52860e8b899ef78dc0a91b4289d81b556de086c837ed5bbcae2b5e5e584b67f"
+      },
+      "taxon-9653-current-attempt-1.receipt.json": {
+        "bytes": 1785,
+        "sha256": "fc5e4401c0f3334a3818056cb84b75232072df92bbb0fba7eadd584d90b27c66"
+      },
+      "taxon-9654-current-attempt-1.body": {
+        "bytes": 495,
+        "sha256": "70dcd346fb2125af0085355884de15d6e974757624826d5a16828d81a218edc9"
+      },
+      "taxon-9654-current-attempt-1.receipt.json": {
+        "bytes": 1785,
+        "sha256": "1c80b7eb1fe5258d4b2ae057469b4bcce62e04f58fcd6c5be1a767f6b115b6c4"
+      },
+      "taxon-9657-current-attempt-1.body": {
+        "bytes": 486,
+        "sha256": "96863c6116937c4468d0402c3b8168816eacc4aef4114e52f82298d4f7f4d5e7"
+      },
+      "taxon-9657-current-attempt-1.receipt.json": {
+        "bytes": 1785,
+        "sha256": "429579e76a6ae8edb755233a933d82a4e0d71fe1d2021085437376552fc90fd8"
+      },
+      "taxon-9959-current-attempt-1.body": {
+        "bytes": 696,
+        "sha256": "57e46827da6d9b9d04c3820d397417f0d4e8a40d568f66013ea661cd5731fa8d"
+      },
+      "taxon-9959-current-attempt-1.receipt.json": {
+        "bytes": 1785,
+        "sha256": "3b06f87871d0fafb6f12585a5e8ff2a6a45bedb7053f52e87ed2557a5abec654"
+      }
+    }
+  },
+  "source": {
+    "producer_revision": "df54b2de1ba76de3edb2fabe7b6bc733e590bb85",
+    "capture_date": "2026-11-17",
+    "individual_response_epochs": true,
+    "targets_in_order": [
+      "taxon-9606",
+      "taxon-9653",
+      "taxon-9654",
+      "taxon-9657",
+      "taxon-15532",
+      "publication-10028",
+      "publication-10102",
+      "taxon-9959",
+      "taxon-32874",
+      "publication-7367",
+      "publication-9800",
+      "publication-10136"
+    ],
+    "taxa": 7,
+    "publications": 5,
+    "literal_fields": [
+      {
+        "target_key": "taxon-9606",
+        "body_sha256": "ba5056f9f7db5f2cd6aeae219769e4dadf48defb94149d55a9f72080f74e17ce",
+        "native_fields": {
+          "taxonname": "Rosidae",
+          "highertaxonid": 9652,
+          "publicationid": 3711,
+          "status": "extant"
+        },
+        "recorded_root_dataset_count": 439,
+        "recorded_hop": 1
+      },
+      {
+        "target_key": "taxon-9653",
+        "body_sha256": "d52860e8b899ef78dc0a91b4289d81b556de086c837ed5bbcae2b5e5e584b67f",
+        "native_fields": {
+          "taxonname": "Gunneridae",
+          "highertaxonid": 2132,
+          "publicationid": 3711,
+          "status": "extant"
+        },
+        "recorded_root_dataset_count": 430,
+        "recorded_hop": 2
+      },
+      {
+        "target_key": "taxon-9654",
+        "body_sha256": "70dcd346fb2125af0085355884de15d6e974757624826d5a16828d81a218edc9",
+        "native_fields": {
+          "taxonname": "Garryidae",
+          "highertaxonid": 9655,
+          "publicationid": 3711,
+          "status": "extinct"
+        },
+        "recorded_root_dataset_count": 296,
+        "recorded_hop": 2
+      },
+      {
+        "target_key": "taxon-9657",
+        "body_sha256": "96863c6116937c4468d0402c3b8168816eacc4aef4114e52f82298d4f7f4d5e7",
+        "native_fields": {
+          "taxonname": "Campanulidae",
+          "highertaxonid": 9655,
+          "publicationid": 3711,
+          "status": "extant"
+        },
+        "recorded_root_dataset_count": 364,
+        "recorded_hop": 2
+      },
+      {
+        "target_key": "taxon-15532",
+        "body_sha256": "34d02993477c34c959bfbc567863b1061afeba352507d3ee3770602ade4110b2",
+        "native_fields": {
+          "taxonname": "Nartheciidae",
+          "highertaxonid": 2131,
+          "publicationid": 3711,
+          "status": "extant"
+        },
+        "recorded_root_dataset_count": 188,
+        "recorded_hop": 1
+      },
+      {
+        "target_key": "publication-10028",
+        "body_sha256": "5186f2d2de22c1cf1ce996ccb3eeedcd89952c9053f2144466bc11fc97c7120e",
+        "native_fields": {
+          "articletitle": "Classification of Compositae",
+          "citation": "Funk, V.A., A. Susanna, T.F. Stuessy, and H. Robinson. 2009. Classification of Compositae. Pages 171-189 in V.A. Funk, A. Susanna, T.F. Stuessy, and R.J. Bayer, editors. Systematics, Evolution, and Biogeography of Compositae. International Association for Plant Taxonomy, Vienna, Austria.",
+          "year": "2009",
+          "doi": null,
+          "datasets": [
+            {
+              "siteid": null,
+              "primary": null,
+              "datasetid": null
+            }
+          ]
+        },
+        "recorded_root_dataset_count": 170,
+        "recorded_hop": null
+      },
+      {
+        "target_key": "publication-10102",
+        "body_sha256": "a0a2c54937e633fc0ae39df707f5710a2840f7537ca6da0d45b3b5e14befe195",
+        "native_fields": {
+          "articletitle": "An outline of a classification scheme for extant flowering plants",
+          "citation": "Reveal, J.L. 2012. An outline of a classification scheme for extant flowering plants. Phytoneuron 2012(37):1-221.",
+          "year": "2012",
+          "doi": null,
+          "datasets": [
+            {
+              "siteid": null,
+              "primary": null,
+              "datasetid": null
+            }
+          ]
+        },
+        "recorded_root_dataset_count": 44,
+        "recorded_hop": null
+      },
+      {
+        "target_key": "taxon-9959",
+        "body_sha256": "57e46827da6d9b9d04c3820d397417f0d4e8a40d568f66013ea661cd5731fa8d",
+        "native_fields": {
+          "taxonname": "Carduoideae",
+          "highertaxonid": 409,
+          "publicationid": 16423,
+          "status": "extant"
+        },
+        "recorded_root_dataset_count": 170,
+        "recorded_hop": 1
+      },
+      {
+        "target_key": "taxon-32874",
+        "body_sha256": "9a4f45036c8675a5fe5816cf85cf399e0bc7fbda98e04cdc199daa68fa100baf",
+        "native_fields": {
+          "taxonname": "Lamiaceae subf. Nepetoideae",
+          "highertaxonid": 460,
+          "publicationid": 1490,
+          "status": "extant"
+        },
+        "recorded_root_dataset_count": 44,
+        "recorded_hop": 1
+      },
+      {
+        "target_key": "publication-7367",
+        "body_sha256": "6920bdc3a9881b676e70d3dfcf46c58898e2562e09e2783a1fcac7754b84777b",
+        "native_fields": {
+          "articletitle": "Anthemideae",
+          "citation": "Oberprieler, C., S. Himmelreich, M. Källersjö, J. Vallès, L.E. Watson, and R. Vogt. 2009. Anthemideae. Pages 631-666 in V.A. Funk, A. Susanna, T.F. Stuessy, and R.J. Bayer, editors. Systematics, evolution, and biogeography of Compositae. International Association for Plant Taxonomy, Vienna, Austria.",
+          "year": "2009",
+          "doi": null,
+          "datasets": [
+            {
+              "siteid": null,
+              "primary": null,
+              "datasetid": null
+            }
+          ]
+        },
+        "recorded_root_dataset_count": 352,
+        "recorded_hop": null
+      },
+      {
+        "target_key": "publication-9800",
+        "body_sha256": "9a2a09d83bbd79e0ec0bfd0cebf0b6d452c35a99a4e6659f75d368bbc016e5e9",
+        "native_fields": {
+          "articletitle": "Urticalean rosids: circumscription, rosid ancestry, and phylogenetics based on BBCL, TRNL-F, and NDHF sequences",
+          "citation": "Sytsma, K.J., J. Morawetz, J.C. Pires, M. Nepokroeff, E. Conti, M. Zjhra, J.C. Hall, and M.W. Chase. 2002. Urticalean rosids: circumscription, rosid ancestry, and phylogenetics based on BBCL, TRNL-F, and NDHF sequences. American Journal of Botany 89(9):1531-1546. [DOI: 10.3732/ajb.89.9.1531]",
+          "year": "2002",
+          "doi": "10.3732/ajb.89.9.1531",
+          "datasets": [
+            {
+              "siteid": null,
+              "primary": null,
+              "datasetid": null
+            }
+          ]
+        },
+        "recorded_root_dataset_count": 319,
+        "recorded_hop": null
+      },
+      {
+        "target_key": "publication-10136",
+        "body_sha256": "62ba39131e4d34e783e7c720e6753279390b1cc23f47d685fb8117aa5ccf86f5",
+        "native_fields": {
+          "articletitle": "What is the taxonomic status of Polygonella? Evidence of floral morphology",
+          "citation": "Ronse De Craene, L.P., S.-P. Hong, and E.F. Smets. 2004. What is the taxonomic status of Polygonella? Evidence of floral morphology. Annals of the Missouri Botanical Garden 91:320-345.",
+          "year": "2004",
+          "doi": null,
+          "datasets": [
+            {
+              "siteid": null,
+              "primary": null,
+              "datasetid": null
+            }
+          ]
+        },
+        "recorded_root_dataset_count": 78,
+        "recorded_hop": null
+      }
+    ]
+  },
+  "qualification": {
+    "all_twelve": "qualified_native_detail",
+    "requests": 12,
+    "attempts_per_target": 1,
+    "statuses": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "TLS": "verified_no_insecure_fallback",
+    "receipt_body_identity_and_native_ids_verified": true,
+    "recorded_all_root_duties_retained": true,
+    "closed_source_lease": true,
+    "fatal_bytes": 0,
+    "unexpected_denials_or_forbidden_events": 0,
+    "elapsed_seconds": 1930.3848846249748,
+    "one_native_baseline_seconds": 1811.1871348749846,
+    "nested_activity_intervals_not_additive": true,
+    "conservative_source_bytes": 3483709525,
+    "source_fd_opens": 135294,
+    "physical_io_measured": false,
+    "source_context_qualification_not_new_model": true
+  },
+  "canonical_promotion": {
+    "files_byte_identical": 26,
+    "GETs": 0,
+    "new_baselines": 0,
+    "new_derivations": 0,
+    "all_staged_git_blobs_match_closed_pins": true
+  },
+  "interpretation": {
+    "scientific_admission": "not_asserted",
+    "biological_synonymy_or_PPE_mapping": "not_asserted",
+    "dataset_primary_publication": "not_established_by_classification_references",
+    "null_publication_dataset_associations": "unknown_not_zero_or_primary_false",
+    "taxon_9654": {
+      "recorded_name": "Garryidae",
+      "recorded_status": "extinct",
+      "parent_id": 9655,
+      "publication_id": 3711,
+      "source_quality_question": "Meaning for this named taxon requires source clarification; preserve literal status without correcting it or deriving biological extinction or automatic pollen exclusion."
+    }
+  },
+  "successor": {
+    "normalized_chain_materialized": false,
+    "new_frontier_total": null,
+    "preceding_chain_manifest_sha256": "0e7e37196a8eabc771b336bec25f981bfc6a291148dc519b9ce6c4f8212e2064",
+    "preceding_chain_frontier": 182,
+    "preceding_atlas_selected_targets": 16,
+    "new_twelve_in_atlas": false
+  },
+  "limits": {
+    "GET_authority_from_this_account": false,
+    "current_roles_revalidated_for_future_use": false,
+    "model_calls": 0,
+    "new_counts_chronology_geometry_or_independent_vegetation": "not_asserted"
+  }
+}

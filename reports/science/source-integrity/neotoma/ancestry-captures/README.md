@@ -92,6 +92,20 @@ The [Atlas input contract](../../../../../docs/public/pollenomics-data/sources/n
 accepts an explicit selection of these targets. Publishing this capture and
 chain does not automatically replace an existing Atlas catalogue.
 
+The separate [recorded source atlas](../recorded-source-atlas/README.md) now
+includes these 16 native target identities alongside the existing resource and
+supporting metadata. It preserves recorded parent and citation fields without
+adding native names, body-download authority or scientific admission. Its
+static publication is qualified; native JSON reachability remains open, and
+the unchanged reader has a measured mobile support-button overflow limitation.
+
+A [further recorded capture](../ancestry-continuation/README.md) adds seven taxon
+details and five classification references at a separate source epoch. Its
+literal fields are available for review, including an unresolved native status
+question. Those twelve responses have not been materialized into a successor
+chain or added to this Atlas selection. The 182-member frontier above describes
+the unchanged `0e7e371…` chain, not a recomputed post-capture total.
+
 ## Execution and verification
 
 The original capture completed 16 HTTP requests. A later maintained

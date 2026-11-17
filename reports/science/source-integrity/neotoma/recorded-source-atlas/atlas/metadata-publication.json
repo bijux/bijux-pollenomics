@@ -1,0 +1,117 @@
+{
+  "actual_provider_GETs": 0,
+  "capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+  "chain_manifest_sha256": "0e7e37196a8eabc771b336bec25f981bfc6a291148dc519b9ce6c4f8212e2064",
+  "current_roles_revalidated": false,
+  "existing_recorded_metadata_provenance_preserved": true,
+  "historical193_membership": "unresolved",
+  "native_baselines": 0,
+  "native_entity_bodies_opened": 0,
+  "native_source_fields_revalidated": false,
+  "new_selected_supporting_entries": 16,
+  "new_supporting_archive_count": 6,
+  "old_population_counts": {
+    "legacy_site_references": 0,
+    "resources": 1258,
+    "sites": 527,
+    "supporting_archives": 5
+  },
+  "reused_compact_projection": {
+    "current_original_source_roles_revalidated": false,
+    "input_files": 89,
+    "input_manifest_sha256": "b16c8d0d3bf77954de3741c2c4c6ce20934144193a9aaad4dc6601470d81768e",
+    "original_rendering_epoch": "81ac70a48cc0476b97bbab1dd62f2ebafcdfa3a9",
+    "original_source_epoch": "source-metadata-25247099"
+  },
+  "scientific_admission": "not_asserted",
+  "scientific_countries_layers_points": 0,
+  "selected_index": {
+    "bytes": 197885,
+    "sha256": "e52805af6e2d145dd5a429202be0481de65f83df3f9a1bb6673dd84c989c0d40"
+  },
+  "selected_targets": [
+    {
+      "kind": "publication",
+      "native_id": 10139,
+      "target_key": "publication-10139"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 7641,
+      "target_key": "taxon-7641"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 9113,
+      "target_key": "taxon-9113"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 9690,
+      "target_key": "taxon-9690"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 33580,
+      "target_key": "taxon-33580"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 9607,
+      "target_key": "taxon-9607"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 9652,
+      "target_key": "taxon-9652"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 9656,
+      "target_key": "taxon-9656"
+    },
+    {
+      "kind": "publication",
+      "native_id": 9494,
+      "target_key": "publication-9494"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 327,
+      "target_key": "taxon-327"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 9112,
+      "target_key": "taxon-9112"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 9608,
+      "target_key": "taxon-9608"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 9658,
+      "target_key": "taxon-9658"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 23965,
+      "target_key": "taxon-23965"
+    },
+    {
+      "kind": "taxon",
+      "native_id": 33808,
+      "target_key": "taxon-33808"
+    },
+    {
+      "kind": "publication",
+      "native_id": 7365,
+      "target_key": "publication-7365"
+    }
+  ],
+  "source_epoch_semantics": "Literal capture epochs, not a synchronized or newly requalified source snapshot.",
+  "source_revision": "df54b2de1ba76de3edb2fabe7b6bc733e590bb85",
+  "status": "recorded_metadata_projection_pending_separate_browser_review"
+}
