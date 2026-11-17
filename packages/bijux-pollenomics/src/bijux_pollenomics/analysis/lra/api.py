@@ -26,6 +26,12 @@ from .regional_components import (
     bind_regional_component_set,
     read_regional_component_set,
 )
+from .source_cases.api import (
+    SourceCasePlan,
+    SourceCaseProduct,
+    read_source_lra_cases,
+    run_source_lra_cases,
+)
 from .uncertainty.api import (
     JointLRAPlan,
     JointLRAProduct,
@@ -46,6 +52,8 @@ __all__ = [
     "NeotomaLraFrontier",
     "RegionalComponentPlan",
     "RegionalComponentSet",
+    "SourceCasePlan",
+    "SourceCaseProduct",
     "ValidatedRequest",
     "VerifiedLRAProduct",
     "benchmark_lra_request",
@@ -55,11 +63,13 @@ __all__ = [
     "read_lra_product",
     "read_multisite_regional_draw_source",
     "read_regional_component_set",
+    "read_source_lra_cases",
     "run_joint_lra_ensemble",
     "run_lra_batch",
     "run_lra_cached",
     "run_lra_request",
     "run_regional_draw_love_request",
+    "run_source_lra_cases",
     "validate_lra_inputs",
     "validate_regional_draw_love_inputs",
 ]

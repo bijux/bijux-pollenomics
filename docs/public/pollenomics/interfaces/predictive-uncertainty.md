@@ -113,3 +113,46 @@ needs appropriate upstream evidence and justified treatment of those omissions.
 This example establishes no calibrated field interval, independent vegetation
 accuracy, chronology calibration, ecological inverse identifiability or complete
 withheld-site uncertainty acceptance.
+
+## Fixed-support conditional source cases
+
+`SourceCasePlan` and `run_source_lra_cases` provide a separate exploratory
+route for retained paired analytical requests. The caller supplies exact byte
+references for the base request, its source evidence, a parameter reference
+scale and domain, and each explicitly conditioned parameter vector. Admission
+preserves pooled-bin identities, count and taxon axes, chronology support,
+stationarity decisions, geometry, exclusions and configuration. A pooled bin
+remains a pooled bin; this route neither invents native observation identifiers
+nor authenticates a caller's empirical origin claim.
+
+Import `SourceCasePlan`, `run_source_lra_cases` and `read_source_lra_cases`
+from `bijux_pollenomics.analysis.lra.api`. A plan uses schema
+`lra-source-cases.v1`, profile `source-fixed-support-analytical-v1` and purpose
+`exploratory`. File references carry a canonical relative path, SHA256 and exact
+byte length. Inputs are captured through selected descriptor-bound reads into
+private analytical storage before the deterministic host is called.
+
+Choose `unweighted_sensitivity` for cases without an explicit probability law;
+its aggregate mean, covariance and probability masses are unavailable. A
+`caller_weighted_finite_design` instead requires a separately pinned law with
+positive rational masses covering exactly the declared cases and summing to
+one. This is a caller-declared conditional design, not an inferred empirical
+uncertainty distribution. Refused cases retain their mass; no successful subset
+is renormalized, and incomplete designs have no full-law mean or covariance.
+Raw and per-case clipped/adjusted cover are different estimands and are
+aggregated separately with the existing population-moment routine. These
+moments describe supplied-design dispersion of conditional point estimates,
+not source standard errors, confidence intervals or full reconstruction
+uncertainty. Existing source SD/SE metadata remains in the retained source
+snapshot; this workflow does not propagate that uncertainty.
+
+The final directory contains only a derived manifest: conditional results,
+source references, code identities, coverage distinctions and design summaries.
+Original source members, private basin cards and complete child request bundles
+remain in separate private analytical recovery storage. Publication grants no
+redistribution permission for those source members. `read_source_lra_cases`
+checks derived internal consistency and an optional independently retained
+manifest digest without opening original external inputs. Source authenticity,
+scientific acceptance and terrestrial-denominator admission remain unevaluated.
+When native full pollen totals lack independent bound evidence, both full and
+excluded totals stay unknown; a design mass of one does not fill that gap.
