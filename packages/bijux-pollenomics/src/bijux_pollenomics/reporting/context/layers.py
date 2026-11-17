@@ -1,3 +1,5 @@
+"""Build explicit source and opt-in aggregate context layers."""
+
 from __future__ import annotations
 
 from collections.abc import Iterable
@@ -17,6 +19,7 @@ from .polygons import (
     build_density_polygon_layer,
     build_external_polygon_layer,
 )
+from .raa_native import NativeRegistryContextSnapshot
 
 __all__ = [
     "build_context_layers",
@@ -32,6 +35,8 @@ def build_context_layers(
     context_root: Path | None,
     geography_scope: GeographicScope | None = None,
     published_output_dir: Path | None = None,
+    *,
+    native_registry_context: NativeRegistryContextSnapshot | None = None,
 ) -> tuple[list[dict[str, object]], list[dict[str, object]], list[tuple[str, str]]]:
     """Build embedded point layers and service-backed overlays for the shared map."""
     scope_key = "custom" if geography_scope is None else geography_scope.key
@@ -50,18 +55,16 @@ def build_context_layers(
     if fieldwork_layer is not None:
         point_layers.append(fieldwork_layer)
 
-    if context_root is None:
-        return point_layers, polygon_layers, extra_artifacts
-
-    context_root = Path(context_root)
-    external_point_layers, point_artifacts = stage_context_point_layers(
-        scope_key=scope_key,
-        context_root=context_root,
-        output_dir=output_dir,
-        build_external_point_layer_fn=build_external_point_layer,
-    )
-    point_layers.extend(external_point_layers)
-    extra_artifacts.extend(point_artifacts)
+    if context_root is not None:
+        context_root = Path(context_root)
+        external_point_layers, point_artifacts = stage_context_point_layers(
+            scope_key=scope_key,
+            context_root=context_root,
+            output_dir=output_dir,
+            build_external_point_layer_fn=build_external_point_layer,
+        )
+        point_layers.extend(external_point_layers)
+        extra_artifacts.extend(point_artifacts)
     external_polygon_layers, polygon_artifacts = stage_context_polygon_layers(
         scope_key=scope_key,
         context_root=context_root,
@@ -69,6 +72,7 @@ def build_context_layers(
         build_country_boundary_layer_fn=build_country_boundary_layer,
         build_density_polygon_layer_fn=build_density_polygon_layer,
         build_external_polygon_layer_fn=build_external_polygon_layer,
+        native_registry_context=native_registry_context,
     )
     polygon_layers.extend(external_polygon_layers)
     extra_artifacts.extend(polygon_artifacts)
