@@ -1611,6 +1611,29 @@
         font-size: 13px;
         line-height: 1.6;
       }
+      #source-metadata-state {
+        grid-area: reader;
+        position: static;
+        transform: none;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 12px;
+        width: auto;
+        margin: 0 8px 8px;
+        padding: 10px 12px;
+        border-radius: 16px;
+        box-shadow: var(--shadow-md);
+        text-align: left;
+      }
+      #source-metadata-state[hidden] { display: none; }
+      #source-metadata-state strong { margin: 0; font-size: 13px; }
+      #source-metadata-state span { font-size: 12px; line-height: 1.4; }
+      @media (max-width: 900px) {
+        #source-metadata-state { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+        #source-metadata-state span { grid-row: 2; }
+        #source-metadata-browse { grid-column: 2; grid-row: 1 / 3; max-width: 155px; }
+      }
       .sr-only {
         position: absolute;
         width: 1px;
@@ -2133,6 +2156,11 @@
           </div>
         </div>
       </div>
+        <div id="source-metadata-state" class="empty-state" role="status" aria-live="polite" hidden>
+          <strong>Source metadata only</strong>
+          <span>This map has 0 scientific countries, layers and points. Captured source metadata remains separate; optional metadata geometry is off by default.</span>
+          <button id="source-metadata-browse" class="toolbar-button" type="button" aria-haspopup="dialog" aria-controls="source-resources-dialog">Neotoma source resources</button>
+        </div>
         <button id="mobile-scrim" class="mobile-scrim" type="button" tabindex="-1" aria-label="Close controls" aria-hidden="true"></button>
         <aside id="sidebar" class="control-panel is-collapsed" aria-label="Map controls" inert>
           <div class="control-panel-card">
@@ -3300,6 +3328,7 @@ __URL_STATE_CONTROLLER__
       const basemapSwitch = document.getElementById('basemap-switch');
       const appShell = document.querySelector('.app-shell');
       const sourceResourcesButton = document.getElementById('source-resources-open');
+      const sourceResourceButtons = [sourceResourcesButton,document.getElementById('source-metadata-browse')];
       const helpToggleButton = document.getElementById('help-toggle');
       const helpDialog = document.getElementById('help-dialog');
       const helpCloseButton = document.getElementById('help-close');
@@ -3387,6 +3416,7 @@ __URL_STATE_CONTROLLER__
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
       const emptyState = document.getElementById('empty-state');
+      const sourceMetadataState = document.getElementById('source-metadata-state');
       const atlasCaptureRole = document.getElementById('atlas-capture-role');
       const atlasCaptureTime = document.getElementById('atlas-capture-time');
       const atlasCaptureTitle = document.getElementById('atlas-capture-title');
@@ -7002,79 +7032,81 @@ __URL_STATE_CONTROLLER__
       __SOURCE_RECORD_EXPORT_FACTORY__
       __SELECTION_EXPORT_CONTROLLER__
       /* atlas-evidence-tools:end */
-      let evidenceTools = null, evidenceToolsRequest = null, evidenceToolsError = null;
-      function currentEvidenceTools() {
-        if (!evidenceTools && typeof relationSummaryData === 'function') {
-          evidenceTools = Object.freeze({countryData: relationSummaryData, countryHtml: renderRelationSummary,
-            timeData: relationTimeSummaryData, timeHtml: renderRelationTimeSummary,
-            pickerCatalog: scientificPickerCatalog, pickerSearch: scientificPickerSearch,
-            pickerInitial: scientificPickerInitialState, pickerAction: scientificPickerAction,
-            pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker, sourceDetails: createSourceRecordDetails,
-            sourceExport: createSourceRecordExport, sourceResources: createSourceResourceBrowser, selectionExport: prepareAtlasSelectionExport});
-        }
-        return evidenceTools;
+let evidenceTools = null, evidenceToolsRequest = null, evidenceToolsError = null;
+function currentEvidenceTools() {
+  if (!evidenceTools && typeof relationSummaryData === 'function') {
+    evidenceTools = Object.freeze({countryData: relationSummaryData, countryHtml: renderRelationSummary,
+      timeData: relationTimeSummaryData, timeHtml: renderRelationTimeSummary,
+      pickerCatalog: scientificPickerCatalog, pickerSearch: scientificPickerSearch,
+      pickerInitial: scientificPickerInitialState, pickerAction: scientificPickerAction,
+      pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker, sourceDetails: createSourceRecordDetails,
+      sourceExport: createSourceRecordExport, sourceResources: createSourceResourceBrowser, selectionExport: prepareAtlasSelectionExport});
+  }
+  return evidenceTools;
+}
+function evidenceToolsDescriptor() {
+  const row = STATIC_ATLAS_BOOTSTRAP.runtime?.optional_controllers?.evidence_tools;
+  if (!row || typeof row !== 'object' || Array.isArray(row)
+    || Object.keys(row).sort().join('|') !== 'byte_count|integrity|path'
+    || typeof row.path !== 'string' || typeof row.integrity !== 'string'
+    || !/^[A-Za-z0-9][A-Za-z0-9._-]*[.]atlas-evidence-tools[.][a-f0-9]{16}[.]js$/.test(row.path)
+    || !/^sha256-[A-Za-z0-9+/]{43}=$/.test(row.integrity)
+    || !Number.isSafeInteger(row.byte_count) || row.byte_count <= 0 || row.byte_count > 524288) {
+    throw new Error('Evidence tools transport identity is unavailable. Keep all atlas files from the same build together.');
+  }
+  return row;
+}
+function loadEvidenceTools() {
+  if (currentEvidenceTools()) return Promise.resolve(evidenceTools);
+  if (evidenceToolsRequest) return evidenceToolsRequest;
+  evidenceToolsRequest = Promise.resolve().then(() => {
+    const row = evidenceToolsDescriptor();
+    if (!['http:', 'https:', 'file:'].includes(window.location.protocol)) throw new Error('Evidence tools require HTTP, HTTPS or a local file.');
+    return new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = `./${row.path}`;
+      if (['http:', 'https:'].includes(window.location.protocol)) {
+        script.integrity = row.integrity;
+        script.crossOrigin = 'anonymous';
       }
-      function evidenceToolsDescriptor() {
-        const row = STATIC_ATLAS_BOOTSTRAP.runtime?.optional_controllers?.evidence_tools;
-        if (!row || typeof row !== 'object' || Array.isArray(row)
-          || Object.keys(row).sort().join('|') !== 'byte_count|integrity|path'
-          || typeof row.path !== 'string' || typeof row.integrity !== 'string'
-          || !/^[A-Za-z0-9][A-Za-z0-9._-]*[.]atlas-evidence-tools[.][a-f0-9]{16}[.]js$/.test(row.path)
-          || !/^sha256-[A-Za-z0-9+/]{43}=$/.test(row.integrity)
-          || !Number.isSafeInteger(row.byte_count) || row.byte_count <= 0 || row.byte_count > 524288) {
-          throw new Error('Evidence tools transport identity is unavailable. Keep all atlas files from the same build together.');
-        }
-        return row;
-      }
-      function loadEvidenceTools() {
-        if (currentEvidenceTools()) return Promise.resolve(evidenceTools);
-        if (evidenceToolsRequest) return evidenceToolsRequest;
-        evidenceToolsRequest = Promise.resolve().then(() => {
-          const row = evidenceToolsDescriptor();
-          if (!['http:', 'https:', 'file:'].includes(window.location.protocol)) throw new Error('Evidence tools require HTTP, HTTPS or a local file.');
-          return new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = `./${row.path}`;
-            if (['http:', 'https:'].includes(window.location.protocol)) {
-              script.integrity = row.integrity;
-              script.crossOrigin = 'anonymous';
-            }
-            // Local-file script transport follows the main runtime policy; SRI is
-            // enforced by the browser for HTTP and HTTPS distributions.
-            script.addEventListener('load', () => {
-              try {
-                if (typeof globalThis.BijuxPollenomicsEvidenceTools !== 'function') throw new Error('Evidence tools did not register.');
-                const tools = globalThis.BijuxPollenomicsEvidenceTools(escapeHtml, scientificCueGlyph);
-                if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount', 'sourceDetails', 'sourceExport', 'selectionExport'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
-                evidenceTools = tools;
-                resolve(tools);
-              } catch (error) { reject(error); }
-            }, {once: true});
-            script.addEventListener('error', () => reject(new Error('Evidence tools could not be loaded. Keep all atlas files together and reload.')), {once: true});
-            document.head.appendChild(script);
-          });
-        }).catch(error => { evidenceToolsError = String(error.message || error); throw error; });
-        return evidenceToolsRequest;
-      }
-      let sourceResourceBrowser = null;
-      async function loadSourceResourceBrowser() {
-        if (sourceResourceBrowser) return sourceResourceBrowser;
-        const tools = await loadEvidenceTools();
-        if (typeof tools?.sourceResources !== 'function') throw Error('Source resource metadata tools are unavailable.');
-        return sourceResourceBrowser ||= tools.sourceResources({manifest: STATIC_ATLAS_BOOTSTRAP,
-          loadAsset: loadStaticAtlasAsset, payloadForAsset: key => STATIC_ATLAS_CHUNKS.resources.find(part => part.asset_key === key),
-          readerContext: {map,leaflet:L,publishQuery:atlasURLState.publishResources,canPublish:atlasURLState.canPublish,countries:()=>[...activeCountries]}});
-      }
-      let resourceOpenGeneration = 0;
-      async function openSourceResources(selection = {}) {
-        const generation = ++resourceOpenGeneration;
-        sourceResourcesButton.textContent='Loading source resources…';
+      // Local-file script transport follows the main runtime policy; SRI is
+      // enforced by the browser for HTTP and HTTPS distributions.
+      script.addEventListener('load', () => {
         try {
-          if (evidenceToolsError) {evidenceToolsRequest=null;evidenceToolsError='';}
-          const browser = await loadSourceResourceBrowser();
-          if (generation === resourceOpenGeneration && atlasURLState.canPublish()) {await browser.open(selection);sourceResourcesButton.textContent='Neotoma source resources';}
-        } catch(error) {if(generation===resourceOpenGeneration)sourceResourcesButton.textContent=`Retry source resources: ${error.message}`;}
-      }
+          if (typeof globalThis.BijuxPollenomicsEvidenceTools !== 'function') throw new Error('Evidence tools did not register.');
+          const tools = globalThis.BijuxPollenomicsEvidenceTools(escapeHtml, scientificCueGlyph);
+          if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount', 'sourceDetails', 'sourceExport', 'selectionExport'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
+          evidenceTools = tools;
+          resolve(tools);
+        } catch (error) { reject(error); }
+      }, {once: true});
+      script.addEventListener('error', () => reject(new Error('Evidence tools could not be loaded. Keep all atlas files together and reload.')), {once: true});
+      document.head.appendChild(script);
+    });
+  }).catch(error => { evidenceToolsError = String(error.message || error); throw error; });
+  return evidenceToolsRequest;
+}
+const standaloneMetadata = STATIC_ATLAS_BOOTSTRAP?.domains?.resources?.metadata_only===true && COUNTRIES.length===0 && ALL_LAYERS.length===0;
+const sourceResourceText = text => sourceResourceButtons.forEach(button=>button.textContent=text);
+let sourceResourceBrowser = null;
+async function loadSourceResourceBrowser() {
+  if (sourceResourceBrowser) return sourceResourceBrowser;
+  const tools = await loadEvidenceTools();
+  if (typeof tools?.sourceResources !== 'function') throw Error('Source resource metadata tools are unavailable.');
+  return sourceResourceBrowser ||= tools.sourceResources({manifest: STATIC_ATLAS_BOOTSTRAP,
+    loadAsset: loadStaticAtlasAsset, payloadForAsset: key => STATIC_ATLAS_CHUNKS.resources.find(part => part.asset_key === key),
+    readerContext: {map,leaflet:L,publishQuery:atlasURLState.publishResources,canPublish:atlasURLState.canPublish,countries:()=>[...activeCountries],standaloneMetadata}});
+}
+let resourceOpenGeneration = 0;
+async function openSourceResources(selection = {}) {
+  const generation = ++resourceOpenGeneration;
+  sourceResourceText('Loading source resources…');
+  try {
+    if (evidenceToolsError) {evidenceToolsRequest=null;evidenceToolsError='';}
+    const browser = await loadSourceResourceBrowser();
+    if (generation === resourceOpenGeneration && atlasURLState.canPublish()) {await browser.open(selection);sourceResourceText('Neotoma source resources');}
+  } catch(error) {if(generation===resourceOpenGeneration)sourceResourceText(`Retry source resources: ${error.message}`);}
+}
       function renderRelationTimeSummaryPanel() {
         const container = document.getElementById('relation-time-summary');
         if (!container) return;
@@ -7447,24 +7479,28 @@ __URL_STATE_CONTROLLER__
           });
         });
       }
-      function renderSelectionEmptyStatePanel(loadStatus = 'ready') {
-        let input = {loadStatus};
-        if (loadStatus === 'ready') {
-          const decision = evidenceDisplayDecision(activeEvidenceDisplay);
-          const narrowedTime = TIME_HAS_DATA && !timeFilterUsesFullExtent();
-          input = {loadStatus, countryCount: activeCountries.size,
-            selectedLayers: ALL_LAYERS.filter(layer => activeLayerKeys.has(layer.key)),
-            scientificSignalCount: SCIENTIFIC_SIGNALS.length, selectedScientificSignalCount: activeScientificSignalIds.size,
-            pointCount: visiblePointEntries.length, polygonLayerCount: renderedPolygonLayers.length,
-            retainedRelationCount: visibleGovernedEdges().length, relationViewportCount: edgeRenderSummary.viewport_count,
-            drawnRelationCount: edgeRenderSummary.shown, drawNodes: decision.drawNodes, drawEdges: decision.drawEdges,
-            timeFilterActive: narrowedTime, untimedExclusion: narrowedTime ? genericUntimedExclusion() : null};
-        }
-        const summary = selectionEmptyState(input);
-        emptyState.hidden = summary.hidden;
-        emptyState.dataset.reason = summary.reason;
-        emptyState.innerHTML = renderSelectionEmptyState(summary);
-      }
+function renderSelectionEmptyStatePanel(loadStatus = 'ready') {
+  sourceMetadataState.hidden = !standaloneMetadata || loadStatus !== 'ready';
+  if (standaloneMetadata && loadStatus === 'ready') {
+    emptyState.hidden=true;emptyState.dataset.reason='source_metadata_only';return;
+  }
+  let input = {loadStatus};
+  if (loadStatus === 'ready') {
+    const decision = evidenceDisplayDecision(activeEvidenceDisplay);
+    const narrowedTime = TIME_HAS_DATA && !timeFilterUsesFullExtent();
+    input = {loadStatus, countryCount: activeCountries.size,
+      selectedLayers: ALL_LAYERS.filter(layer => activeLayerKeys.has(layer.key)),
+      scientificSignalCount: SCIENTIFIC_SIGNALS.length, selectedScientificSignalCount: activeScientificSignalIds.size,
+      pointCount: visiblePointEntries.length, polygonLayerCount: renderedPolygonLayers.length,
+      retainedRelationCount: visibleGovernedEdges().length, relationViewportCount: edgeRenderSummary.viewport_count,
+      drawnRelationCount: edgeRenderSummary.shown, drawNodes: decision.drawNodes, drawEdges: decision.drawEdges,
+      timeFilterActive: narrowedTime, untimedExclusion: narrowedTime ? genericUntimedExclusion() : null};
+  }
+  const summary = selectionEmptyState(input);
+  emptyState.hidden = summary.hidden;
+  emptyState.dataset.reason = summary.reason;
+  emptyState.innerHTML = renderSelectionEmptyState(summary);
+}
       async function renderMapState() {
         if (STATIC_ATLAS_BOOTSTRAP?.domains?.resources) sourceResourceBrowser?.countriesChanged();
         const generation = ++staticAtlasLoadGeneration;
@@ -8163,7 +8199,7 @@ __URL_STATE_CONTROLLER__
       }
       sourceResourcesButton.hidden = !STATIC_ATLAS_BOOTSTRAP?.domains?.resources;
       if (!sourceResourcesButton.hidden) {
-        sourceResourcesButton.addEventListener('click',()=>openSourceResources());
+        sourceResourceButtons.forEach(button=>button.addEventListener('click',()=>openSourceResources()));
         if ([...new URL(window.location.href).searchParams.keys()].some(key=>key.startsWith('neotoma_'))) void openSourceResources({url:window.location.href,write:false});
       }
       document.getElementById('countries-all').addEventListener('click', () => { activeCountries = new Set(COUNTRIES); renderCountryControls(); renderMapState(); });

@@ -44,6 +44,7 @@ def mounted(action: str, **changes: Any) -> dict[str, Any]:
         + json.dumps(payload)
         + r""";
 const original=JSON.stringify(supplied),emptyState={hidden:true,dataset:{},innerHTML:''};
+const standaloneMetadata=false,sourceMetadataState={hidden:true};
 const activeCountries=new Set(supplied.countries),ALL_LAYERS=supplied.layers;
 const activeLayerKeys=new Set(ALL_LAYERS.map(layer=>layer.key));
 const SCIENTIFIC_SIGNALS=Array.from({length:supplied.signalCount},(_,i)=>({signal_id:String(i)}));

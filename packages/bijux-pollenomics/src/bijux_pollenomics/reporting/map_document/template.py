@@ -41,7 +41,11 @@ def load_map_document_template() -> str:
         )
         .replace(
             "__SOURCE_RESOURCE_BROWSER_FACTORY__",
-            package_root.joinpath(
+            package_root.joinpath("assets/source-resources/ancillary.js").read_text(
+                encoding="utf-8"
+            )
+            + "\n"
+            + package_root.joinpath(
                 "assets/source-resource-browser-factory.js"
             ).read_text(encoding="utf-8"),
         )

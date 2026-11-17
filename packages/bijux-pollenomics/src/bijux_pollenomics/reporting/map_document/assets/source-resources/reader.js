@@ -21,7 +21,7 @@ function sourceResourceQualification(row, version) {
 }
 // A shared metadata reader owns its DOM; scientific selections remain independent.
 function createSourceResourceReader({browser, domain, map, leaflet, publishQuery, canPublish,
-  countries = () => [], location = globalThis.location}) {
+  countries = () => [], standaloneMetadata = false, location = globalThis.location}) {
   const element = (tag, text, attributes = {}) => {
     const node = document.createElement(tag);
     if (text !== undefined) node.textContent = text;
@@ -60,6 +60,9 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
     else for (const [value,name] of values) node.append(element('option',name,{value}));
     wrapper.append(node);controls.append(wrapper);return node;
   }
+  const populationLabels={resources:'Native datasets',ancillary_context:'Capture scope and epochs',facet_slots:'Captured facet slots',ancillary_observations:'Captured source observations',linked_occurrences:'Linked source occurrences',supporting_archives:'Supporting metadata archives',supporting_entries:'Supporting metadata entries'};
+  const population=domain.schema_version==='atlas-source-resources.v2'
+    ? input('Metadata population','select',Object.entries(populationLabels)) : {value:'resources'};
   const search = input('Search source metadata','search');
   controls.append(scope,status);
   const country = input('Metadata country','select',[['','All countries'],['DK','Denmark'],['FI','Finland'],['NO','Norway'],['SE','Sweden'],['UNASSIGNED','Unassigned / review']]);
@@ -72,7 +75,9 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
   for (const [node,label] of [[showMetadata,'Show separate metadata geometry (off by default)'],[showUnassigned,'Include unassigned / review metadata geometry']]) {
     const wrapper=element('label');wrapper.append(node,document.createTextNode(label));controls.append(wrapper);
   }
-  controls.append(element('p','Geometry follows the Atlas country switches. Unassigned geometry uses its separate switch; metadata searches include unlocated and country-review sites.'));
+  controls.append(element('p',standaloneMetadata
+    ? 'This source-only map uses the metadata country filter for its separate geometry. Scientific countries, layers and counts remain unchanged.'
+    : 'Geometry follows the Atlas country switches. Unassigned geometry uses its separate switch; metadata searches include unlocated and country-review sites.'));
   const geometryStatus = element('p','Metadata geometry is off. Unlocated resources remain searchable.',{'data-resource-geometry-status':''});controls.append(geometryStatus);
   function authority() { return typeof canPublish !== 'function' || canPublish(); }
   function publish(site = selectedSite, dataset = null) {
@@ -161,28 +166,48 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
         : 'Verified source downloads are unavailable in file mode. Use HTTPS or a local HTTP server.',{'data-download-status':'',role:'status','aria-live':'polite'}));
     } catch(error) {if(token===detailGeneration)message(error);}
   }
+  async function selectAncillary(kind,identity) {
+    const token=++detailGeneration;downloadIntent?.abort();overlay?.cancelZoom();
+    detail.replaceChildren(element('p','Loading the selected captured metadata…'));
+    try {
+      const record=await browser.ancillary(kind,identity);
+      if(token!==detailGeneration || !dialog.open || !authority())return;
+      if(!record)throw Error('The captured metadata record is unavailable.');
+      detail.replaceChildren(element('h3',populationLabels[kind]));
+      detail.append(element('p','Recorded metadata only. Native entity bodies, biological meaning and scientific admission are not verified by this view. No source body download is offered.'));
+      rawSection(detail,'Exact recorded metadata and source identities',record);
+    } catch(error) {if(token===detailGeneration)message(error);}
+  }
   async function ensureOverlay() {
-    overlay ||= createSourceResourceGeography({browser,map,leaflet,countries,onSelect:identity=>open({site:identity}),status:geometryStatus,current:authority});
+    overlay ||= createSourceResourceGeography({browser,map,leaflet,countries:standaloneMetadata?()=>['DK','FI','NO','SE']:countries,onSelect:identity=>open({site:identity}),status:geometryStatus,current:authority});
     return overlay;
   }
   async function updateOverlay() {
     if(!inventory)return;
     await ensureOverlay();
-    await overlay.update({enabled:showMetadata.checked,includeUnassigned:showUnassigned.checked,rows,sites:inventory.sites});
+    await overlay.update({enabled:showMetadata.checked && population.value==='resources',includeUnassigned:showUnassigned.checked,rows:population.value==='resources'?rows:[],sites:inventory.sites});
   }
   async function refresh({write=true}={}) {
     // Initial input values are applied by the opener once its complete index arrives.
     if(initializing)return;
     const token=++generation;
     try {
-      const selected=statusFilter.value ? JSON.parse(statusFilter.value) : null;
-      const found=await browser.search(search.value,{country:country.value,type:type.value,role:role.value,
-        ...(selected ? {version:version.value,statusField:selected[0],status:selected[1]} : {})});
+      const native=population.value==='resources';
+      for(const node of [country,type,role,version,statusFilter,showMetadata,showUnassigned])node.disabled=!native;
+      const selected=native && statusFilter.value ? JSON.parse(statusFilter.value) : null;
+      const found=await browser.search(search.value,native?{country:country.value,type:type.value,role:role.value,
+        ...(selected ? {version:version.value,statusField:selected[0],status:selected[1]} : {})}:{population:population.value});
       if(token!==generation || !dialog.open || !authority())return;
-      rows=found.filter(row=>!selectedSite || row.site_id===selectedSite);
+      rows=found.filter(row=>!native || !selectedSite || row.site_id===selectedSite);
       page=Math.min(page,Math.max(0,Math.ceil(rows.length/25)-1));
       list.replaceChildren();
       for(const row of rows.slice(page*25,page*25+25)) {
+        if(!native) {
+          const item=element('section',undefined,{class:'help-card','data-ancillary-record':row.record_id});
+          addAction(item,`${populationLabels[population.value]} · ${row.record_id}`,()=>selectAncillary(population.value,row.record_id));
+          item.append(element('p','Metadata only; this row is not added to native dataset, site or scientific counts.'));
+          list.append(item);continue;
+        }
         const item=element('section',undefined,{class:'help-card','data-resource-dataset':row.record_id});
         addAction(item,`Dataset ${row.record_id} · site ${row.site_id} · ${text(row.dataset_type)}`,()=>selectDataset(row.record_id));
         item.append(element('p',(inventory.sites.find(site=>site.record_id===row.site_id)?.native_site_names || []).join(' / ')));
@@ -199,12 +224,14 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
       pageLabel.textContent=`Page ${page+1} of ${Math.max(1,Math.ceil(rows.length/25))}`;
       const siteCount=new Set(rows.map(row=>row.site_id)).size;
       const catalogueScope=rows.length===domain.record_count && siteCount===domain.site_count ? '' : ` Catalogue: ${domain.record_count} resources at ${domain.site_count} metadata sites.`;
-      status.textContent=`${rows.length} matching metadata resources at ${siteCount} native sites.${catalogueScope}`;
+      status.textContent=native ? `${rows.length} matching metadata resources at ${siteCount} native sites.${catalogueScope}`
+        : `${rows.length} recorded ${populationLabels[population.value].toLowerCase()}. Native catalogue remains ${domain.record_count} resources at ${domain.site_count} sites. This population uses the catalogue-wide metadata scope.`;
       status.dataset.state='available';
-      if(write)publish();
+      if(write && native)publish();
       await updateOverlay();
     }catch(error){if(token===generation)message(error);}
   }
+  if(typeof population.addEventListener==='function')population.addEventListener('change',()=>{page=0;detailGeneration++;downloadIntent?.abort();overlay?.cancel();detail.replaceChildren();void refresh();});
   for(const node of [search,country,type,role,statusFilter])node.addEventListener(node===search?'input':'change',()=>{page=0;detailGeneration++;downloadIntent?.abort();overlay?.cancel();detail.replaceChildren();void refresh();});
   version.addEventListener('change',()=>{detailGeneration++;downloadIntent?.abort();overlay?.cancel();detail.replaceChildren();page=0;void refresh();});
   previous.addEventListener('click',()=>{overlay?.cancelZoom();page--;void refresh();});next.addEventListener('click',()=>{overlay?.cancelZoom();page++;void refresh();});
@@ -214,8 +241,9 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
     if(write && authority() && typeof publishQuery==='function')publishQuery({neotoma_catalogue:null,neotoma_site:null,neotoma_dataset:null,neotoma_version:null});
     returnFocus?.focus();
   }
-  addAction(controls,'All metadata sites',()=>{overlay?.cancel();selectedSite=null;search.value='';country.value='';type.value='';role.value='';statusFilter.value='';page=0;detailGeneration++;downloadIntent?.abort();detail.replaceChildren();return open();});
+  addAction(controls,'All metadata sites',()=>{population.value='resources';overlay?.cancel();selectedSite=null;search.value='';country.value='';type.value='';role.value='';statusFilter.value='';page=0;detailGeneration++;downloadIntent?.abort();detail.replaceChildren();return open();});
   close.addEventListener('click',()=>hide());
+  dialog.addEventListener('keydown',event=>event.stopPropagation());
   dialog.addEventListener('cancel',event=>{event.preventDefault();hide();});
   async function open(selection = {}) {
     const token=++generation;overlay?.cancel();initializing=true;
@@ -230,6 +258,7 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
       if(selection.catalogue && selection.catalogue!==domain.catalogue_manifest_sha256)throw Error('The shared URL names a different catalogue epoch.');
       if(selection.version && !['current','doi_frozen'].includes(selection.version))throw Error('The shared URL source version is unsupported.');
       if(selection.site && !/^[1-9][0-9]*$/.test(selection.site) || selection.dataset && !/^[1-9][0-9]*$/.test(selection.dataset))throw Error('The shared URL native identity is invalid.');
+      if(selection.site || selection.dataset || selection.record)population.value='resources';
       version.value=selection.version || 'current';
       [inventory,context]=await Promise.all([browser.inventory(),browser.context()]);
       if(token!==generation || !dialog.open || !authority())return;
