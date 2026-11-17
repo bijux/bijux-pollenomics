@@ -1,0 +1,93 @@
+{
+  "Neotoma_API_calls": 0,
+  "attribution": "Neotoma Paleoecology Database contributors; official NeotomaDB/Taxonomy-Viewer derived data at the pinned revision. Retained database-data attribution policy is separate from the viewer program license.",
+  "commit_utc": "2026-11-02T08:54:59Z",
+  "current_roles_revalidated": false,
+  "database_dates_are_sample_ages": false,
+  "git_membership_scope": "independently_pinned_commit_metadata_and_reconstructed_trees_not_signed_commit_verification",
+  "git_metadata": {
+    "commit": {
+      "bytes": 1228,
+      "sha256": "ecefa1dd365a91739964637f70550276e5697b090cf695da6133e8318cf308f3"
+    },
+    "data_tree": {
+      "bytes": 3492,
+      "sha256": "df058d2fc8b1a15b8e218e43392b83bcf9b1d2efddca69cd366777a4a7f6647e"
+    },
+    "root_tree": {
+      "bytes": 3703,
+      "sha256": "029fa21f4246cf2fd76cf592d48cb871d7038dab15b0fac10d58c3bba5d88fae"
+    }
+  },
+  "native_detail_captures_added": 0,
+  "originals": {
+    "all_synonyms.json": {
+      "bytes": 1204538,
+      "git_blob": "54cfaf07241b99edcc8c951a6ae38d1e5e5ecb92",
+      "sha256": "335d90e509570737843ace7923451910d7f67149e9e19caad32a83041d89fdda"
+    },
+    "taxa_snapshot.json": {
+      "bytes": 14780182,
+      "git_blob": "72ed066e01f0f545c6aa616db953ddc3f80fbc22",
+      "sha256": "1f69795ebcd201b6ace019e3334ffae3301b9d4bec677951efa8e009e0dafa33"
+    },
+    "taxon_metadata.json": {
+      "bytes": 28864947,
+      "git_blob": "6d426ba401c51beb350f99ecc2af541955fe1b60",
+      "sha256": "eb1d103425495bb78a6fbecb249ee6f27e4ba43ca8753078234333375ae99907"
+    }
+  },
+  "removed_transport_fields": [
+    "filename_effective",
+    "local_ip",
+    "local_port",
+    "other_unselected_transport_fields"
+  ],
+  "rights_reference": "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "separate_upstream_queries_not_transactionally_asserted",
+  "source_generated_at": "2026-11-02T08:54:54+00:00",
+  "source_protocol": "pinned_official_git_projection",
+  "source_repository": "https://github.com/NeotomaDB/Taxonomy-Viewer",
+  "source_revision": "f72baeb6dbf7a166a5421c80b2873f159e1388f3",
+  "source_status_available": false,
+  "transport": {
+    "all_synonyms.json": {
+      "download_bytes": 1204538,
+      "effective_url": "https://raw.githubusercontent.com/NeotomaDB/Taxonomy-Viewer/f72baeb6dbf7a166a5421c80b2873f159e1388f3/data/all_synonyms.json",
+      "elapsed_seconds": 0.433356,
+      "http_status": 200,
+      "intake_end": "2026-11-17T18:54:06.799733+00:00",
+      "intake_start": "2026-11-17T18:54:06.321260+00:00",
+      "redirect_count": 0,
+      "requested_url": "https://raw.githubusercontent.com/NeotomaDB/Taxonomy-Viewer/f72baeb6dbf7a166a5421c80b2873f159e1388f3/data/all_synonyms.json",
+      "source_record_sha256": "c7f5f3c303aeeebd3fcc9e06859460b1238bc722e41b2c1c4f8a1ac41637d98b",
+      "tls_verify_result": 0
+    },
+    "taxa_snapshot.json": {
+      "download_bytes": 14780182,
+      "effective_url": "https://raw.githubusercontent.com/NeotomaDB/Taxonomy-Viewer/f72baeb6dbf7a166a5421c80b2873f159e1388f3/data/taxa_snapshot.json",
+      "elapsed_seconds": 0.977665,
+      "http_status": 200,
+      "intake_end": "2026-11-17T18:54:04.641239+00:00",
+      "intake_start": "2026-11-17T18:54:03.645846+00:00",
+      "redirect_count": 0,
+      "requested_url": "https://raw.githubusercontent.com/NeotomaDB/Taxonomy-Viewer/f72baeb6dbf7a166a5421c80b2873f159e1388f3/data/taxa_snapshot.json",
+      "source_record_sha256": "731b36c497c3790991ea6dfba2740f2c2c6699c44d207658331a9c8c53402e74",
+      "tls_verify_result": 0
+    },
+    "taxon_metadata.json": {
+      "download_bytes": 28864947,
+      "effective_url": "https://raw.githubusercontent.com/NeotomaDB/Taxonomy-Viewer/f72baeb6dbf7a166a5421c80b2873f159e1388f3/data/taxon_metadata.json",
+      "elapsed_seconds": 1.599998,
+      "http_status": 200,
+      "intake_end": "2026-11-17T18:54:06.271537+00:00",
+      "intake_start": "2026-11-17T18:54:04.657076+00:00",
+      "redirect_count": 0,
+      "requested_url": "https://raw.githubusercontent.com/NeotomaDB/Taxonomy-Viewer/f72baeb6dbf7a166a5421c80b2873f159e1388f3/data/taxon_metadata.json",
+      "source_record_sha256": "39f1cc5e79f8708e98b2308868bec719dc108e6bcc8a8db7797fda5ea1f7a9dc",
+      "tls_verify_result": 0
+    }
+  },
+  "transport_scope": "portable_projection_of_retained_github_transport"
+}
