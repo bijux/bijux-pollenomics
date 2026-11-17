@@ -91,3 +91,8 @@ a canonical source release, assign a country, interpret administrative dates as
 ancient chronology or admit archaeological events. Sparse missing cells are not
 measured zeros for archaeological activity, and counts per degree cell are not
 counts per square kilometre or human-population estimates.
+
+The optional [native registry Atlas context](../publications/raa-native-registry-context.md)
+consumes only independently pinned aggregate buffers. It preserves the native
+cell/count unit while recording a separate approximate WGS84 display operation
+and any partial synthetic footprint; the UUID ledger remains private.
