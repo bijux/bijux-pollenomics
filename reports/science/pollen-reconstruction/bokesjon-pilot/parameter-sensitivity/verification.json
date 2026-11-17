@@ -109,7 +109,7 @@
       "bytes": 12472
     }
   ],
-  "pull_request": "pending_draft_creation",
+  "pull_request": "https://github.com/bijux/bijux-pollenomics/pull/493",
   "result_acceptance_sha256": "6273178707746e4da33f1538163d2a4adcb8c51ba35ba77b116d9562bc793f09",
   "native_full_denominator_bound_to_saved_requests": false
 }
