@@ -3225,7 +3225,7 @@ __URL_STATE_CONTROLLER__
         { key: 'animal-chronology-context', label: 'Animal source chronology' },
         { key: 'candidate-ranking', label: 'Sweden lake ranking' },
         { key: 'environmental-context', label: 'Environmental context' },
-        { key: 'archaeology-context', label: 'Archaeology context' },
+        { key: 'archaeology-context', label: 'Archaeology context' },{key:'registry-context',label:'Registry context'},
         { key: 'orientation', label: 'Orientation layers' },
       ];
       const ANIMAL_EVIDENCE_LAYER_GROUPS = new Set(['animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence']);
@@ -7353,7 +7353,7 @@ async function openSourceResources(selection = {}) {
                 if (modeledContextActive && isModeledContextFeature(layer, properties)) {
                   return { color: '#334155', weight: 0.9, fillColor: modeledContextFillColor(modeledContextEstimate(properties)), fillOpacity: 0.72, opacity: 0.88 };
                 }
-                return { color: layer.style.stroke, weight: 1.1, fillColor: layer.style.fill || 'rgba(100, 116, 139, 0.14)', fillOpacity: 0.28, opacity: 0.85 };
+                return { color: layer.style.stroke, weight: 1.1, fillColor: properties.registry_fill || layer.style.fill || 'rgba(100, 116, 139, 0.14)', fillOpacity: 0.28, opacity: 0.85 };
               },
               onEachFeature(feature, featureLayer) {
                 featureLayer.bindPopup(polygonPopupHtml(layer, feature.properties || {}));

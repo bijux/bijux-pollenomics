@@ -20,6 +20,7 @@ def generated_inputs(root: Path) -> tuple[dict[str, object], bytes]:
         "schema_version": "raa-native-point-grid-v1",
         "source": {"sha256": "a" * 64, "byte_count": 1234},
         "source_CRS": "EPSG:3006",
+        "native_profile_sha256": "c" * 64,
         "selection": {
             "native_owner": "lamning.uuid",
             "native_class_field": "antikvariskbedomning",

@@ -23,6 +23,11 @@ from ..map_publication import map_allows_context_layer
 from .raa import (
     capture_raa_atlas_input_snapshot,
 )
+from .raa_native import NativeRegistryContextSnapshot
+from .raa_native.publication import (
+    build_native_registry_layer,
+    publish_native_registry_context,
+)
 from .raa_staging import stage_raa_publication
 
 __all__ = ["stage_context_point_layers", "stage_context_polygon_layers"]
@@ -80,15 +85,29 @@ def stage_context_point_layers(
 def stage_context_polygon_layers(
     *,
     scope_key: str,
-    context_root: Path,
+    context_root: Path | None,
     output_dir: Path,
     build_country_boundary_layer_fn: Callable[[dict[str, object]], dict[str, object]],
     build_density_polygon_layer_fn: Callable[[dict[str, object]], dict[str, object]],
     build_external_polygon_layer_fn: Callable[..., dict[str, object]],
+    native_registry_context: NativeRegistryContextSnapshot | None = None,
 ) -> tuple[list[dict[str, object]], list[tuple[str, str]]]:
     """Copy external polygon layers into the bundle and return rendered layer configs."""
     polygon_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
+
+    if native_registry_context is not None and map_allows_context_layer(
+        scope_key=scope_key, layer_key="raa-native-registry-cells"
+    ):
+        layer = build_native_registry_layer(native_registry_context)
+        extra_artifacts.extend(
+            publish_native_registry_context(
+                native_registry_context, output_dir=output_dir
+            )
+        )
+        polygon_layers.append(layer)
+    if context_root is None:
+        return polygon_layers, extra_artifacts
 
     boundary_path = BOUNDARY_COLLECTION.path_under(context_root)
     if boundary_path.exists() and map_allows_context_layer(

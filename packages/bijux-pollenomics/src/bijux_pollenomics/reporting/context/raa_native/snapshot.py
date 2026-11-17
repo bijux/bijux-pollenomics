@@ -22,7 +22,7 @@ COUNTS_LIMIT = 16 * 1024
 BUFFER_LIMIT = 1024 * 1024
 
 
-def _digest(value: str) -> bool:
+def _digest(value: object) -> bool:
     return isinstance(value, str) and re.fullmatch("[0-9a-f]{64}", value) is not None
 
 
@@ -69,8 +69,12 @@ class NativeRegistryContextSnapshot:
 
     def __post_init__(self) -> None:
         """Reject mutable buffers and oversized constructed snapshots."""
-        for raw in (self.context_bytes, self.counts_bytes, self.cells_bytes):
-            if type(raw) is not bytes or len(raw) > BUFFER_LIMIT:
+        for raw, limit in (
+            (self.context_bytes, REPORT_LIMIT),
+            (self.counts_bytes, COUNTS_LIMIT),
+            (self.cells_bytes, BUFFER_LIMIT),
+        ):
+            if type(raw) is not bytes or len(raw) > limit:
                 raise ValueError(
                     "Native registry snapshot requires bounded immutable bytes"
                 )
@@ -137,6 +141,8 @@ def _report(raw: bytes, csv: bytes, source: NativeRegistrySource) -> dict[str, A
             raise ValueError(
                 f"Native registry {key} differs from its conditional profile"
             )
+    if not _digest(report.get("native_profile_sha256")):
+        raise ValueError("Native registry producer profile binding is missing")
     selection = {
         "native_owner": "lamning.uuid",
         "native_class_field": "antikvariskbedomning",
@@ -160,6 +166,42 @@ def _report(raw: bytes, csv: bytes, source: NativeRegistrySource) -> dict[str, A
     }:
         raise ValueError("Native registry report does not bind the captured count CSV")
     return cast(dict[str, Any], report)
+
+
+def _conservation(
+    report: dict[str, Any], cells: tuple[tuple[int, int, int], ...]
+) -> tuple[dict[str, int], dict[str, int]]:
+    counts = report.get("counts")
+    dispositions = report.get("dispositions")
+    if (
+        not isinstance(counts, dict)
+        or not isinstance(dispositions, dict)
+        or set(dispositions) != set(DISPOSITIONS)
+    ):
+        raise ValueError("Native registry conservation counts are incomplete")
+    counts = {
+        key: _integer(counts.get(key))
+        for key in (
+            "source_uuids",
+            "selected_class_uuids",
+            "included_uuids",
+            "raw_point_occurrences",
+            "valid_point_occurrences",
+        )
+    }
+    dispositions = {key: _integer(value) for key, value in dispositions.items()}
+    included = counts["included_uuids"]
+    if (
+        sum(dispositions.values()) != counts["source_uuids"]
+        or counts["source_uuids"] - dispositions["unselected_native_class"]
+        != counts["selected_class_uuids"]
+        or dispositions["included"] != included
+        or sum(cell[2] for cell in cells) != included
+        or _integer(report.get("cell_count_total")) != included
+        or counts["valid_point_occurrences"] > counts["raw_point_occurrences"]
+    ):
+        raise ValueError("Native registry source/cell count conservation differs")
+    return counts, dispositions
 
 
 def capture_native_registry_context(
@@ -213,36 +255,7 @@ def capture_native_registry_context(
             tree.check()
     report = _report(buffers["report.json"], buffers["cell-counts.csv"], source)
     cells = _read_cells(buffers["cell-counts.csv"])
-    counts = report.get("counts")
-    dispositions = report.get("dispositions")
-    if (
-        not isinstance(counts, dict)
-        or not isinstance(dispositions, dict)
-        or set(dispositions) != set(DISPOSITIONS)
-    ):
-        raise ValueError("Native registry conservation counts are incomplete")
-    counts = {
-        key: _integer(counts.get(key))
-        for key in (
-            "source_uuids",
-            "selected_class_uuids",
-            "included_uuids",
-            "raw_point_occurrences",
-            "valid_point_occurrences",
-        )
-    }
-    dispositions = {key: _integer(value) for key, value in dispositions.items()}
-    included = counts["included_uuids"]
-    if (
-        sum(dispositions.values()) != counts["source_uuids"]
-        or counts["source_uuids"] - dispositions["unselected_native_class"]
-        != counts["selected_class_uuids"]
-        or dispositions["included"] != included
-        or sum(cell[2] for cell in cells) != included
-        or _integer(report.get("cell_count_total")) != included
-        or counts["valid_point_occurrences"] > counts["raw_point_occurrences"]
-    ):
-        raise ValueError("Native registry source/cell count conservation differs")
+    counts, dispositions = _conservation(report, cells)
     geojson, accounting, operation = project_cells(cells, source.sha256)
     context = {
         "schema_version": "raa-native-registry-context-v1",
@@ -256,11 +269,14 @@ def capture_native_registry_context(
         "boundary": BOUNDARY,
         "counts": counts,
         "dispositions": dispositions,
-        "excluded_uuids": counts["source_uuids"] - included,
+        "excluded_uuids": counts["source_uuids"] - counts["included_uuids"],
         "display_accounting": accounting,
         "display_operation": operation,
         "source_verification": "independently pinned qualified aggregates; no original source replay",
-        "native_profile_binding": "producer binding; not independently reconstructed here",
+        "native_profile_binding": {
+            "sha256": report["native_profile_sha256"],
+            "scope": "producer binding; not independently reconstructed here",
+        },
         "scientific_admission": False,
         "country_assignment": "not_performed",
         "chronology": "unsupported",
