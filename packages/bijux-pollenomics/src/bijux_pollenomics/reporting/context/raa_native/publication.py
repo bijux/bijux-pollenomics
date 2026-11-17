@@ -15,9 +15,15 @@ from ...map_publication_raa_native import NATIVE_REGISTRY_POSTURE
 from .projection import project_cells
 from .snapshot import (
     BUFFER_LIMIT,
+    COUNTS_LIMIT,
+    PROFILE_BINDING_SCOPE,
+    REPORT_LIMIT,
+    SOURCE_VERIFICATION,
     NativeRegistryContextSnapshot,
     NativeRegistrySource,
     _conservation,
+    _digest,
+    _object,
     _read_cells,
     _report,
     canonical_bytes,
@@ -37,7 +43,7 @@ def _payloads(
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     if not isinstance(snapshot, NativeRegistryContextSnapshot):
         raise ValueError("Native registry publication requires a captured snapshot")
-    context = json.loads(snapshot.context_bytes)
+    context = json.loads(snapshot.context_bytes, object_pairs_hook=_object)
     if (
         not isinstance(context, dict)
         or set(context)
@@ -67,6 +73,31 @@ def _payloads(
         or context.get("legacy_WFS_equivalence") is not False
     ):
         raise ValueError("Native registry snapshot posture differs")
+    profile = context["native_profile_binding"]
+    inputs = context["inputs"]
+    if (
+        context["source_verification"] != SOURCE_VERIFICATION
+        or not isinstance(profile, dict)
+        or set(profile) != {"sha256", "scope"}
+        or not _digest(profile["sha256"])
+        or profile["scope"] != PROFILE_BINDING_SCOPE
+        or not isinstance(inputs, dict)
+        or set(inputs) != {"report.json", "cell-counts.csv"}
+    ):
+        raise ValueError("Native registry public provenance scope differs")
+    for name, limit in (
+        ("report.json", REPORT_LIMIT),
+        ("cell-counts.csv", COUNTS_LIMIT),
+    ):
+        record = inputs[name]
+        if (
+            not isinstance(record, dict)
+            or set(record) != {"sha256", "byte_count"}
+            or not _digest(record["sha256"])
+            or type(record["byte_count"]) is not int
+            or not 0 < record["byte_count"] <= limit
+        ):
+            raise ValueError("Native registry public input record differs")
     source = NativeRegistrySource(**context["source"])
     cells = _read_cells(snapshot.counts_bytes)
     _report(
@@ -90,6 +121,8 @@ def _payloads(
     counts, _ = _conservation(
         {**context, "cell_count_total": sum(row[2] for row in cells)}, cells
     )
+    if canonical_bytes(context["counts"]) != canonical_bytes(counts):
+        raise ValueError("Native registry public count fields differ")
     if (
         type(context["excluded_uuids"]) is not int
         or context["excluded_uuids"]
