@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#488](https://github.com/bijux/bijux-pollenomics/pull/488) — Declared generated release inputs
+
+- Bind generated publication regressions to frozen mechanical route evidence
+  and an explicitly declared contextual source root.
+- Exercise real publication and evidence validators while refusing changed or
+  misplaced fixture evidence and preserving prior complete outputs.
+- Detect ambient source-library reads through Path, native descriptor and real
+  registry controls, keeping production qualifications and source data separate.
+
 ### [#487](https://github.com/bijux/bijux-pollenomics/pull/487) — Owned report callback publication
 
 - Construct callback reports in exclusive operation-owned roots and retain prior

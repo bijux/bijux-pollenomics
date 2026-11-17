@@ -13,13 +13,22 @@ from bijux_pollenomics.reporting import (
 )
 
 from ..fixtures.aadr import write_anno
+from ..fixtures.scientific_routes import (
+    assert_generated_route_views,
+    generated_route_authority,
+)
+from ..fixtures.source_library import generated_source_library
 
 pytestmark = pytest.mark.generated_artifacts
 
 
 class CountryReportTests(unittest.TestCase):
     def test_generate_published_reports_preserves_mixed_ownership_tree(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            generated_route_authority(Path(tmp) / "docs" / "report"),
+            generated_source_library(Path(tmp) / "declared-source-data"),
+        ):
             root = Path(tmp) / "v62.0"
             output = Path(tmp) / "docs" / "report"
             governed = output / "pollen-reconstruction" / "manifest.json"
@@ -39,6 +48,7 @@ class CountryReportTests(unittest.TestCase):
                 title="Nordic Evidence Atlas",
                 slug="nordic-atlas",
             )
+            assert_generated_route_views(output)
 
             self.assertEqual(
                 governed.read_text(encoding="utf-8"),
@@ -61,7 +71,11 @@ class CountryReportTests(unittest.TestCase):
             self.assertFalse((output.parent / ".report.staging").exists())
 
     def test_generate_published_reports_removes_stale_bundle_directories(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
+        with (
+            tempfile.TemporaryDirectory() as tmp,
+            generated_route_authority(Path(tmp) / "docs" / "report"),
+            generated_source_library(Path(tmp) / "declared-source-data"),
+        ):
             root = Path(tmp) / "v62.0"
             output = Path(tmp) / "docs" / "report"
             write_anno(
@@ -79,6 +93,7 @@ class CountryReportTests(unittest.TestCase):
                 title="Nordic Evidence Atlas",
                 slug="nordic-atlas",
             )
+            assert_generated_route_views(output)
             self.assertTrue((output / "countries" / "norway").exists())
 
             generate_published_reports(
@@ -88,6 +103,7 @@ class CountryReportTests(unittest.TestCase):
                 title="Nordic Evidence Atlas",
                 slug="nordic-atlas",
             )
+            assert_generated_route_views(output)
 
             self.assertFalse((output / "countries" / "norway").exists())
             self.assertTrue((output / "countries" / "sweden").exists())

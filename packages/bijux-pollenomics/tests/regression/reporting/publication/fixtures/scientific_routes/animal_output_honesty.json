@@ -1,0 +1,11 @@
+{
+  "schema_version": "animal-output-honesty.v2",
+  "totals": {
+    "tracked_sample_count": 0,
+    "mapped_sample_count": 0,
+    "blocked_sample_count": 0,
+    "unresolved_sample_count": 0,
+    "country_published_sample_count": 0
+  },
+  "rows": []
+}
