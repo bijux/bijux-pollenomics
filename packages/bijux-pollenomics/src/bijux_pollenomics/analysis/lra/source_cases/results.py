@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import csv
-import io
 from fractions import Fraction
+import io
 from math import isfinite
 from pathlib import Path
 from typing import Any

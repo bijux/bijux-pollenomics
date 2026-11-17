@@ -1,10 +1,11 @@
 """Source admission keeps pooled support and explicit design authority distinct."""
 
-import json
 from importlib import import_module
+import json
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
 
 from .support import fixture, store
@@ -62,18 +63,22 @@ def test_admission_refuses_source_or_support_changes(tmp_path: Path, damage: str
         original.symlink_to("hidden.json")
     else:
         (root / "base.json").write_bytes(b"changed")
-    with pytest.raises((LRARefusal, ValueError)):
-        with admit(root, plan, tmp_path / "private"):
-            pass
+    with (
+        pytest.raises((LRARefusal, ValueError)),
+        admit(root, plan, tmp_path / "private"),
+    ):
+        pass
 
 
 def test_source_replacement_is_detected_after_admission(tmp_path: Path):
     root = tmp_path / "inputs"
     _, plan = fixture(root)
-    with pytest.raises((LRARefusal, ValueError)):
-        with admit(root, plan, tmp_path / "private") as accepted:
-            (root / "base.json").write_bytes(b"changed")
-            accepted.check()
+    with (
+        pytest.raises((LRARefusal, ValueError)),
+        admit(root, plan, tmp_path / "private") as accepted,
+    ):
+        (root / "base.json").write_bytes(b"changed")
+        accepted.check()
 
 
 @pytest.mark.parametrize("budget", [8, 31])
@@ -85,6 +90,5 @@ def test_covariance_bound_covers_both_full_joint_estimands(tmp_path: Path, budge
     )
     assert 2 * dimension * dimension == 32
     plan["limits"]["max_covariance_cells"] = budget
-    with pytest.raises(LRARefusal):
-        with admit(root, plan, tmp_path / "private"):
-            pass
+    with pytest.raises(LRARefusal), admit(root, plan, tmp_path / "private"):
+        pass

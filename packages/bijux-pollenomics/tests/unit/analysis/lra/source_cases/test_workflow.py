@@ -1,10 +1,11 @@
 """Generated analytical products retain private inputs and publish derived views."""
 
-import json
 from importlib import import_module
+import json
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
 
 from .support import fixture

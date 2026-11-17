@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-import json
-import re
 from dataclasses import dataclass
 from fractions import Fraction
+import json
 from math import fsum, isclose, isfinite
 from pathlib import Path
+import re
 from typing import Any, cast
 
 from ....core.filesystem import BoundedInputTree

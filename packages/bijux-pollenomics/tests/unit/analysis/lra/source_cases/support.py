@@ -1,8 +1,8 @@
 """Generated retained-request contract snapshots, never empirical evidence."""
 
+from copy import deepcopy
 import hashlib
 import json
-from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
@@ -29,7 +29,7 @@ def fixture(
     # This is a generated example of the retained-request declaration type.
     # It certifies neither a provider origin nor scientific authenticity.
     base["data_kind"] = "source_observations"
-    base["versions"] = {key: "generated-contract-snapshot" for key in base["versions"]}
+    base["versions"] = dict.fromkeys(base["versions"], "generated-contract-snapshot")
     for role in ("regional", "local"):
         base[role]["samples"][0]["sample_id"] = "pooled-" + role + "-bin"
     members = []

@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import hashlib
 import json
-import re
-from dataclasses import dataclass
 from pathlib import PurePosixPath
+import re
 from typing import Any, NoReturn
 
 from ..engine.errors import LRARefusal

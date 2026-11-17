@@ -2,14 +2,14 @@
 
 from __future__ import annotations
 
-import json
-from collections.abc import Mapping
+from collections.abc import Iterator, Mapping
 from contextlib import contextmanager
 from dataclasses import dataclass
 from fractions import Fraction
+import json
 from pathlib import Path
 from types import MappingProxyType
-from typing import Any, Iterator, cast
+from typing import Any, cast
 
 from ..inputs.validation import ValidatedRequest, validate_request
 from .contracts import SourceCasePlan, canonical, fields, member, positive, refuse

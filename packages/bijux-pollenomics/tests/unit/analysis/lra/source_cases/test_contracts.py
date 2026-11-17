@@ -5,6 +5,7 @@ from importlib import import_module
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
 
 from .support import fixture

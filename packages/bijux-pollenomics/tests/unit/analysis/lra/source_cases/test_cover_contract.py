@@ -1,10 +1,11 @@
 """Bind the adjusted estimand to clipping without source rounding assumptions."""
 
-import csv
 from copy import deepcopy
+import csv
 from io import StringIO
 
 import pytest
+
 from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
 from bijux_pollenomics.analysis.lra.execution.service import run_lra_request
 from bijux_pollenomics.analysis.lra.source_cases import (
@@ -134,9 +135,9 @@ def test_legacy_source_raw_entrypoint_remains_supported(tmp_path, monkeypatch):
 
 
 def test_saved_reader_requires_no_optional_engine(tmp_path, clipped_manifest):
+    from pathlib import Path
     import subprocess
     import sys
-    from pathlib import Path
 
     product = _read_changed(tmp_path, deepcopy(clipped_manifest))
     source = Path(__file__).parents[7]

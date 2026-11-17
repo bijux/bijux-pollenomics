@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterator
 from contextlib import contextmanager
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 
 from ....core.errors.cleanup import add_cleanup_note
 from ....core.filesystem import OwnedTreeWriter
