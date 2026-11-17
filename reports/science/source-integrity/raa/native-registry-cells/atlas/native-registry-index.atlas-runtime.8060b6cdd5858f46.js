@@ -4548,7 +4548,7 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
       }
       function animalSourceChronologyPopupHtml(feature, layer = null) {
         if (!animalSourceChronologyFeatureIsValid(feature)) return '';
-        const sourceRows = availablePopupRows(Array.isArray(feature.popup_rows) ? feature.popup_rows : []);
+        const sourceRows = availablePopupRows(feature.popup_rows);
         const identityRows = [
           { label: 'Project accession', value: feature.project_accession },
           { label: 'Repository sample', value: feature.repo_stable_sample_id },
@@ -4614,8 +4614,7 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
         return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}${sourceChronologyHtml}${scientificHtml}<div><strong>Coords</strong> ${escapeHtml(coordinateLabel(feature, 6))}</div>${mediaLinksHtml(feature.media_links)}${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
       function polygonPopupHtml(layer, properties) {
-        const rows = Array.isArray(properties.popup_rows) ? properties.popup_rows : [];
-        const rowHtml = availablePopupRows(rows).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value)}</div>`).join('');
+        const rowHtml = availablePopupRows(properties.popup_rows).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value)}</div>`).join('');
         const isPublishedModel = isModeledContextFeature(layer, properties);
         const metric = currentModeledContextMetric();
         const estimate = modeledContextEstimate(properties);
@@ -4643,7 +4642,7 @@ function renderPollenFocusedSignal(tabs, signal, data = pollenFocusedSignalData(
         return value !== null && value !== undefined && !(typeof value === 'string' && !value.trim());
       }
       function availablePopupRows(rows) {
-        return rows.filter((row) => row && valueIsAvailable(row.value));
+        return (Array.isArray(rows) ? rows : []).filter((row) => row && valueIsAvailable(row.value));
       }
       function finiteCoordinateValue(value, minimum, maximum) {
         if (value === null || value === undefined || typeof value === 'boolean') return null;
@@ -5518,7 +5517,7 @@ function selectionEmptyState(input) {
       && split.reduce((sum, value) => sum + value, 0) === untimed.count;
     facts.push(`${untimed.count} records without admitted numeric BP chronology are separately excluded from the active generic time-filter scope${complete ? ` (${split[0]} absent, ${split[1]} refused, ${split[2]} contextual)` : '; the absent/refused/contextual split is unavailable'}. This separate count does not explain the entire empty selection.`);
   }
-  if (input.polygonLayerCount > 0) return result('polygons_only', 'Only polygon layers are displayed', 'Polygon layers remain displayed separately from point and relation drawing. Their count alone does not establish their scientific role or the presence or absence of qualifying observations.', false, facts);
+  if (input.polygonLayerCount > 0) return result('polygons_only', 'Only polygon layers are displayed', 'Polygon context is separate from point observations. Its count does not establish scientific roles or observation availability.', true, facts);
   if (!input.drawNodes && !input.drawEdges) return result('drawing_disabled', 'Evidence drawing is not enabled', 'The drawing decision enables neither points nor relations. Logical entries and retained relations are unchanged; this is not evidence of absent observations.', false, facts);
   if (input.countryCount === 0) return result('empty_countries', 'No countries selected', 'Select a country to inspect country-filtered evidence. This selection is not a finding of absent observations.', false, facts);
   if (input.selectedLayers.length === 0) return result('empty_layers', 'No map layers enabled', 'Enable a layer to inspect its records. Retained relation counts remain separate from endpoint display eligibility.', false, facts);
@@ -5891,7 +5890,7 @@ async function openSourceResources(selection = {}) {
                       { label: 'Layer', value: layer.label },
                       { label: 'Country', value: properties.country || 'Unassigned' },
                       { label: 'Type', value: properties.category || properties.geometry_type || 'Polygon record' },
-                    ].concat(featureTimeDescriptor(properties) ? [featureTimeDescriptor(properties)] : []),
+                    ].concat(featureTimeDescriptor(properties) ? [featureTimeDescriptor(properties)] : [], availablePopupRows(properties.popup_rows)),
                     sourceUrl: properties.source_url || '',
                     bounds: bounds.isValid() ? [[bounds.getSouth(), bounds.getWest()], [bounds.getNorth(), bounds.getEast()]] : null,
                   });
@@ -6314,7 +6313,7 @@ function renderSelectionEmptyStatePanel(loadStatus = 'ready') {
           link.href = url;
           link.download = 'pollenomics-selection.json';
           try {link.click();} finally {window.setTimeout(() => URL.revokeObjectURL(url), 1000);}
-          status.textContent = `${result.counts.selected_public_rows} public map rows and ${result.counts.selected_relation_rows} retained relation rows downloaded with selection metadata. Full source series are separate.`;
+          status.textContent = `Download requested: ${result.counts.selected_public_rows} public map rows and ${result.counts.selected_relation_rows} retained relation rows with selection metadata. Full source series are separate.`;
         } catch (error) {
           status.textContent = error instanceof Error ? error.message : 'Selection download failed; no partial download was produced.';
         } finally {button.disabled = false;}
@@ -7259,7 +7258,7 @@ function renderSelectionEmptyStatePanel(loadStatus = 'ready') {
           link.download = sourcePollenRecordFilename(focusState.recordId);
           link.click();
           window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-          focusExportStatus.textContent = `${payload.pollen_observations.record_count} source observations downloaded with ${payload.chronology_claims.record_count} chronology claims.`;
+          focusExportStatus.textContent = `Download requested: ${payload.pollen_observations.record_count} source observations and ${payload.chronology_claims.record_count} chronology claims.`;
         } catch (error) {
           focusExportStatus.textContent = error instanceof Error ? error.message : 'Source pollen export failed.';
         }
