@@ -72,22 +72,21 @@ def test_foreign_staging_replacement_during_get_retains_owned_candidate(
 def test_foreign_substitution_after_actual_consumer_readback_refuses(
     chain_products: dict[str, Any], tmp_path: Path, monkeypatch: Any, location: str
 ) -> None:
-    from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ancestry.chain import (
-        derive_neotoma_taxon_ancestry_chain,
-    )
     from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ancestry.chain.acquisition import (
         workflow,
     )
+    from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ancestry.chain.publication import (
+        _derive,
+    )
 
-    original = derive_neotoma_taxon_ancestry_chain
+    original = _derive
     destination = tmp_path / "frontier"
     retained = tmp_path / "retained-candidate"
     reads: list[Path] = []
 
-    def readback(**kwargs: Any) -> Any:
-        result = original(**kwargs)
-        pin = kwargs["new_capture_manifest_sha256s"][0]
-        candidate = kwargs["sources"].ancestry_capture_sources[pin]
+    def readback(operation: Any, parent: Any, captures: Any, limits: Any) -> Any:
+        result = original(operation, parent, captures, limits)
+        candidate = operation.sources.ancestry_capture_sources[captures[0]]
         reads.append(candidate)
         matches = candidate == (
             tmp_path / ".frontier.staging" if location == "staging" else destination
@@ -98,7 +97,7 @@ def test_foreign_substitution_after_actual_consumer_readback_refuses(
             (candidate / "foreign.txt").write_bytes(b"foreign bytes")
         return result
 
-    monkeypatch.setattr(workflow, "derive_neotoma_taxon_ancestry_chain", readback)
+    monkeypatch.setattr(workflow, "_derive", readback)
     with pytest.raises(ValueError):
         capture_api()(
             destination,
@@ -125,6 +124,9 @@ def test_cold_import_order_opens_no_retained_data(first: str) -> None:
 import importlib, os, sys
 from pathlib import Path
 data = Path(sys.argv[1]).absolute()
+source = data.parent / 'packages'
+sys.path[:0] = [str(source / name / 'src') for name in
+               ('bijux-pollenomics','bijux-pollenomics-dev','bijux-pollenomics-lra','pollenomics')]
 def audit(event, args):
     if event == 'open' and isinstance(args[0], (str, bytes)):
         path = Path(os.fsdecode(args[0])).absolute().resolve()
@@ -140,6 +142,9 @@ paths = {'session':base + 'evidence_parts.session',
 importlib.import_module(paths[sys.argv[2]])
 module = importlib.import_module(paths['acquisition'])
 assert callable(module.capture_neotoma_taxon_ancestry_frontier)
+for name, loaded in tuple(sys.modules.items()):
+    if name.startswith(('bijux_pollenomics', 'pollenomics')) and getattr(loaded, '__file__', None):
+        assert Path(loaded.__file__).is_relative_to(source), (name, loaded.__file__)
 print(module.__file__)
 """
     result = subprocess.run(

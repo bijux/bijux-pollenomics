@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from contextlib import ExitStack
+from dataclasses import replace
 from hashlib import sha256
 from pathlib import Path
 from typing import Any
@@ -17,14 +18,12 @@ from ....resources.models import DEVELOPMENT_ROLES
 from ...assessment import assess_http
 from ...authority import authenticate_linked_root_metadata
 from ...evidence import (
-    iter_neotoma_linked_evidence_occurrences,
     read_neotoma_linked_evidence_metadata,
 )
 from ...profiles import _UnavailableLinkedSource, parse_neotoma_linked_source
 from ...protocol import request_for
-from ...replay import _control
-from .. import publication as baseline_publication
 from .. import storage
+from .baseline import _BaselineQualification, resolve_baseline
 from .capture_inputs import (
     advance_metadata,
     check_capture,
@@ -39,9 +38,7 @@ from .models import (
     AncestrySourceBudget,
     NeotomaTaxonAncestryChainLimits,
     NeotomaTaxonAncestryChainSources,
-    baseline_limits,
     capture_population,
-    entity_role,
     reconcile_roots,
     strongest_roles,
     validate_sources,
@@ -56,6 +53,10 @@ class ChainOperation:
         """Validate explicit resolvers without opening native source bodies."""
         validate_sources(sources)
         self.sources = sources
+        self._active = False
+        self._closed = False
+        self._qualified_baseline: _BaselineQualification | None = None
+        self._borrowed_baseline: _BaselineQualification | None = None
         self.stack = ExitStack()
         self.trees: dict[Path, BoundedInputTree] = {}
         self.budget = AncestrySourceBudget()
@@ -156,95 +157,8 @@ class ChainOperation:
     def baseline(
         self, limits: NeotomaTaxonAncestryChainLimits, *, native_replay: bool = True
     ) -> tuple[dict[str, Any], dict[str, Any]]:
-        """Replay the externally pinned baseline once, preserving its frozen seeds."""
-        sources, original = self.sources, self.sources.recorded_baseline_sources
-        if not _digest(sources.expected_baseline_projection_sha256):
-            raise ValueError("Ancestry baseline projection anchor is invalid")
-        self.seal(original.context_directory, bound=512 * 1024 * 1024)
-        self.seal(original.native_archive_directory, bound=512 * 1024 * 1024)
-        self.seal(sources.baseline_projection_directory)
-        self.seal(original.evidence.directory)
-        for root in [
-            *original.capture_sources.values(),
-            *original.source_facets.values(),
-        ]:
-            self.seal(root)
-        self.epoch(
-            sources.expected_current_context_sha256,
-            sources.expected_current_native_archive_sha256,
-        )
-        recorded_epoch = self.epoch(
-            original.expected_context_sha256, original.expected_native_archive_sha256
-        )
-        self.history = dict(recorded_epoch["roles"])
-        duties = strongest_roles(*(epoch["roles"] for epoch in self.epochs.values()))
-        recorded = baseline_publication._readback(
-            sources.baseline_projection_directory,
-            sources.expected_baseline_projection_sha256,
-        )
-        direct: dict[str, set[int]] = {}
-        for proof, _ in iter_neotoma_linked_evidence_occurrences(
-            original.evidence.directory,
-            expected_manifest_sha256=original.evidence.manifest_sha256,
-        ):
-            direct.setdefault(
-                f"{proof['target_kind']}-{proof['native_id']}", set()
-            ).add(proof["root_dataset_id"])
-        results = {}
-        for pin, root in sorted(original.capture_sources.items()):
-            manifest, _, _, _, _ = _control(root, pin)
-            for entry in manifest["resources"]:
-                key = entry["target_key"]
-                if key in results or key not in direct:
-                    raise ValueError(
-                        "Ancestry baseline result identity is foreign or duplicated"
-                    )
-                target = entry["identity"]
-                role = entity_role(target, direct[key], duties, self.epochs.values())
-                if entry["attempts"] and role not in DEVELOPMENT_ROLES:
-                    raise ValueError(
-                        "Ancestry protected current baseline duties forbid body access"
-                    )
-                results[key] = {
-                    "source_capture_manifest_sha256": pin,
-                    "source_terminal_status": entry["terminal_status"],
-                    "qualification_status": "retained_direct_result",
-                    "recorded_hop": 0 if target["kind"] == "taxon" else None,
-                    "attempted": bool(entry["attempts"]),
-                }
-        state = {
-            "seed_ids": recorded["authority"]["declared_seed_taxon_ids"],
-            "edges": {row["edge_id"]: row for row in recorded["edges"]},
-            "direct_roots": direct,
-            "results": results,
-            "baseline_sha256": sources.expected_baseline_projection_sha256,
-            "evidence_sha256": original.evidence.manifest_sha256,
-            "new_request_count": 0,
-        }
-        # Inherited restrictions travel through the complete pinned graph before replay.
-        first = project(state, duties, limits)
-        if any(
-            row["current_use_role"] not in DEVELOPMENT_ROLES
-            and row["source_result"] is not None
-            and row["source_result"]["source_terminal_status"]
-            == "received_complete_unqualified_linked_resource"
-            for row in first["nodes"].values()
-        ):
-            raise ValueError(
-                "Ancestry protected incoming root forbids baseline body access"
-            )
-        if native_replay:
-            verified = baseline_publication._load_taxon_ancestry(
-                sources.baseline_projection_directory,
-                expected_manifest_sha256=sources.expected_baseline_projection_sha256,
-                sources=original,
-                _before_body_read=self.check_permissions,
-            )
-            if recorded != verified:
-                raise ValueError("Ancestry baseline changed during source replay")
-        return state, project(
-            state, recorded_epoch["roles"], baseline_limits(recorded["limits"])
-        )
+        """Rebuild metadata and retain live authority for verified baseline facts."""
+        return resolve_baseline(self, limits, native_replay=native_replay)
 
     def captures(
         self,
@@ -459,18 +373,51 @@ class ChainOperation:
             prior = pin
         return state, projected
 
+    def _check_live(self) -> None:
+        if not self._active:
+            raise ValueError("Ancestry baseline source owner is closed")
+        self.validate()
+        self.check_permissions()
+
+    def _capture_child(self, pin: str, directory: Path) -> ChainOperation:
+        """Keep new capture readers separate while borrowing live baseline facts."""
+        self._check_live()
+        if (
+            self._qualified_baseline is None
+            or pin in self.sources.ancestry_capture_sources
+        ):
+            raise ValueError("Ancestry capture requires its live qualified baseline")
+        child = ChainOperation(
+            replace(
+                self.sources,
+                ancestry_capture_sources={
+                    **self.sources.ancestry_capture_sources,
+                    pin: directory,
+                },
+            )
+        )
+        child._borrowed_baseline = self._qualified_baseline
+        return child
+
     def check_permissions(self) -> None:
         """Keep every authenticated epoch live without rescanning unrelated sources."""
+        if self._borrowed_baseline is not None:
+            self._borrowed_baseline.check()
         for guard in self.permission_guards:
             guard.check()
 
     def validate(self) -> None:
         """Recheck every consumed physical source namespace without native rereads."""
+        if self._borrowed_baseline is not None:
+            self._borrowed_baseline.check()
         for tree in self.trees.values():
             tree.check()
 
     def __enter__(self) -> ChainOperation:
         """Enter a fresh source session; never reuse another operation's cache."""
+        if self._active or self._closed:
+            raise ValueError("Ancestry source owner cannot be reentered or reopened")
+        self._active = True
         return self
 
     def __exit__(self, kind: Any, value: Any, traceback: Any) -> None:
@@ -479,4 +426,6 @@ class ChainOperation:
             if kind is None:
                 self.validate()
         finally:
+            self._active = False
+            self._closed = True
             self.stack.close()
