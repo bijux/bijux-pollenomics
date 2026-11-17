@@ -105,6 +105,11 @@ def markdown(result: dict[str, Any]) -> str:
         "Each local result is clipped and renormalized before comparison; raw "
         "signed values remain visible. A zero adjusted change can hide a raw change.",
         "",
+        "The clipping policy follows the discussion with supervisor Anneli Poska "
+        "reported by the project author (personal communication; discussion date "
+        "not recorded). Negatives become zero and surviving positive mass is "
+        "renormalized. A realization with no positive mass fails explicitly.",
+        "",
     ]
     if result["status"] != "complete_conditional_nominal_comparison":
         lines += [
