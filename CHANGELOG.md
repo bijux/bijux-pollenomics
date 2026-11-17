@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#506](https://github.com/bijux/bijux-pollenomics/pull/506) — Conditional native registry counts and optional Atlas context
+
+Count conditional native single-point registry UUIDs on the declared one-degree grid and expose independently pinned aggregates as optional Atlas context. Keep private identity ledgers separate, validate curated public buffers and native cell order, and distinguish native records from degraded historical WFS display values. Preserve default-off country/time/admission boundaries; generated controls and workflow-matched checks qualify the software without claiming new native collection or scientific accuracy.
+
 ### [#505](https://github.com/bijux/bijux-pollenomics/pull/505) — Materialize source exports under live ownership
 
 Materialize ancestry projections under one live source owner while retaining independently checked detached publication, original-parent attachment and staged/final source duties. Publish SEAD source relation CSV and summary as one complete immutable export, preserving foreign arrivals and refused candidates. Generated publication/refusal controls and matched host/developer Make checks pass; no provider, numerical-model or actual-source performance claim is included.
