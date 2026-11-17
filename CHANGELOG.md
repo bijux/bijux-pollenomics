@@ -2,11 +2,14 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-## Unreleased
+### [#491](https://github.com/bijux/bijux-pollenomics/pull/491) — Qualified HYDE context and dated provider metadata
 
-- Preserve completed HYDE cropland conservation while narrowing calendar gates
-  to the selected source labels, and retain a separately dated provider-metadata
-  observation without changing file-specific rights or scientific admission.
+- Preserve completed cropland conservation and narrow calendar gates to the
+  source labels used by the declared contextual comparison.
+- Retain a separately dated provider metadata observation without inferring
+  release-specific rights, licence changes or native-grid admission.
+- Keep historical receipt gaps explicit and qualify the changed reader accounts
+  without repeating native arithmetic or upgrading scientific claims.
 
 ### [#490](https://github.com/bijux/bijux-pollenomics/pull/490) — Conditional fixed-support source cases
 
