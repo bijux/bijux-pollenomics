@@ -69,3 +69,16 @@ forest/open/cereal cover, terrestrial-denominator admission, scientific input
 acceptance and independent measured vegetation accuracy remain outside this
 conditional two-tree comparison. The project's ten-percentage-point accuracy
 criterion cannot be evaluated without a compatible independent reference.
+
+## Qualified saved comparison
+
+The [conditional nominal comparison account](../../../reports/science/pollen-reconstruction/bokesjon-pilot/parameter-sensitivity/README.md)
+records two completed model cases and a separately qualified saved output.
+The original operator refused a late software-identity bootstrap read after
+publication and has no successful terminal receipt. Its failure remains immutable;
+output qualification does not relabel that operator as clean or rerun its models.
+Independent readback checks prior numerical parity, clipping and displayed deltas;
+a separate review binds the two prepared requests and parameter declarations.
+The public account retains the 100 km versus 2025-paper 1000 km distinction and
+unknown full native pollen denominator. Original source members and full child
+bundles remain private; no source-SD law or empirical accuracy is inferred.
