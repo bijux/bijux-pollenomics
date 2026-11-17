@@ -84,6 +84,12 @@ class ContextCollector:
         if not isinstance(rows, list):
             raise ValueError("Context source page is not an array")
         selected = {site.site_id: site.site_uuid for site in self.sites}
+        expanded_fields = {
+            dependency.field
+            for downstream in CONTEXT_PLANS
+            for dependency in downstream.dependencies
+            if dependency.table == plan.table
+        }
         for row in rows:
             if set(row) != set(plan.projection.split(",")):
                 raise ValueError("Context source projection differs from fixed fields")
@@ -97,6 +103,9 @@ class ContextCollector:
                 raise ValueError("Context source key or dependency owner is invalid")
             if key in seen:
                 raise ValueError("Context source contains duplicate primary keys")
+            for field in expanded_fields:
+                if row[field] is not None:
+                    _required_source_id(row, field)
             seen.add(key)
             if plan.table == "tbl_sites" and row["site_uuid"] != selected[key]:
                 raise ValueError("Context source site UUID changed")

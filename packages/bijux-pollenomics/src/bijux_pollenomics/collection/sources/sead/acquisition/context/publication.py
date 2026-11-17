@@ -124,7 +124,10 @@ def acquire_unresolved_sead_context(
                 parent.check()
 
                 def validate(root: Path) -> dict[str, Any]:
-                    return read_sead_context(root, expected_manifest_sha256=pin)
+                    parent.check()
+                    result = read_sead_context(root, expected_manifest_sha256=pin)
+                    parent.check()
+                    return result
 
                 publish_owned_replacement(
                     writer,
