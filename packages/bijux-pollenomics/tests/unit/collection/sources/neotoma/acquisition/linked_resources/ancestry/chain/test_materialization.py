@@ -222,3 +222,34 @@ def test_materialization_preserves_existing_destination_before_source_resolution
             new_capture_manifest_sha256s=(),
         )
     assert (final / "foreign.txt").read_text() == "existing unrelated owner"
+
+
+def test_materialization_holds_destination_parent_before_source_derivation(
+    chain_products: dict[str, Any], tmp_path: Path, monkeypatch: Any
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ancestry.chain import (
+        publication,
+    )
+
+    parent = tmp_path / "exports"
+    parent.mkdir()
+    detached = tmp_path / "detached-exports"
+    original = publication._derive
+
+    def derive(*args: Any, **kwargs: Any) -> Any:
+        document = original(*args, **kwargs)
+        parent.rename(detached)
+        parent.mkdir()
+        (parent / "foreign.txt").write_text("independent output parent")
+        return document
+
+    monkeypatch.setattr(publication, "_derive", derive)
+    with pytest.raises(ValueError, match="identity|attachment|directory"):
+        publication.materialize_neotoma_taxon_ancestry_chain(
+            parent / "final",
+            sources=bindings(chain_products),
+            parent_chain_sha256=None,
+            new_capture_manifest_sha256s=(),
+        )
+    assert (parent / "foreign.txt").read_text() == "independent output parent"
+    assert not (parent / "final").exists() and not (detached / "final").exists()
