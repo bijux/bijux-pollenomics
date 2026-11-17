@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#497](https://github.com/bijux/bijux-pollenomics/pull/497) — Troitski source context and period limits
+
+- Record the selected nineteen-table context for one unassigned native site,
+  distinguishing twenty physical samples from fifty-nine repeated assertions.
+- Preserve the fifty-year numerical label/field discrepancy, separate intervals
+  and retained geographic classification without dating or country admission.
+- Publish only the qualified account and summary/hash provenance, keeping source
+  text, the earlier partial refusal and unresolved method/bibliography meaning distinct.
+
 ### [#496](https://github.com/bijux/bijux-pollenomics/pull/496) — Captured ancillary metadata in the Atlas resource reader
 
 - Read both native and ancillary catalogue transports while validating separate
