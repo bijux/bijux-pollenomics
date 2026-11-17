@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#500](https://github.com/bijux/bijux-pollenomics/pull/500) — Native HTTP response framing boundaries
+
+- Refuse conflicting or malformed native Content-Length declarations before
+  body reads, recovering equivalent decimal duplicate/list values safely.
+- Require actual native chunked decoding for transfer-framed responses and
+  refuse unsupported, layered or repeated transfer declarations.
+- Skip entity reads for native effective-zero bodies while retaining cleanup,
+  genuine chunked boundaries, generic stream behavior and provider retry policy.
+
 ### [#499](https://github.com/bijux/bijux-pollenomics/pull/499) — Filesystem inventory scratch lifetime
 
 - Release the recursive inventory visitor and scratch names on successful
