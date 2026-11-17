@@ -1,0 +1,115 @@
+{
+  "schema_version": "boke-nominal-parameter-verification.v1",
+  "status": "saved_output_qualified_separately_from_refused_operator",
+  "execution_producer_commit": "f1c268c4eff2875712c9e0166dd0023896dc5bd8",
+  "outputs": [
+    {
+      "path": "result/README.md",
+      "bytes": 5556,
+      "sha256": "82d29d4ed1981dac70437897f4d90a5c010d2b1a90ae73d4ef3ed5ca196ff0f8",
+      "source_bytes": 2391,
+      "source_sha256": "ff511d50df6875d16d297cf0b3bffa67b35255a54553e18aa2cea78a151b4849",
+      "transformation": "unchanged_original_markdown_prefix_with_owned_scientific_limits_block"
+    },
+    {
+      "path": "result/report.json",
+      "bytes": 10017,
+      "sha256": "9c84f5e2225d31d796a0a65d6ca0008915c840699048b6e80314af3accceae41",
+      "transformation": "byte_identical_saved_result"
+    },
+    {
+      "path": "result/source-cases/manifest.json",
+      "bytes": 20693,
+      "sha256": "4fe9582b664aa6d4e26cd5f0868e788e4f095a96e851bc6126e2ddd65258321e",
+      "transformation": "byte_identical_saved_result"
+    }
+  ],
+  "original_operator": {
+    "status": "FAILED_LATE_OPAQUE_SOFTWARE_IDENTITY_HASH_PATH",
+    "successful_terminal_receipt": false,
+    "failure_rewritten": false,
+    "clean_success_claimed": false
+  },
+  "independent_output_qualification": {
+    "sha256": "2fa8c5b7ecaa9310ece28b6283016f426ecfdf6d18dc96b2d9a335e5ca0df0bc",
+    "derived_files": 4,
+    "derived_bytes": 38989,
+    "decimal_precision": 60,
+    "prior_vector_comparisons": 24,
+    "maximum_prior_vector_gap_fraction": "1e-16",
+    "fraction_tolerance": "2e-12",
+    "percentage_point_checks": 12,
+    "displayed_scalar_checks": 36,
+    "negative_controls": 5,
+    "model_reexecutions": 0
+  },
+  "separate_request_parameter_qualification": {
+    "sha256": "29260671c0d441b733e24b84e9db227402471bfaf375a48538c7e10e7db58b8a",
+    "derived_files": 4,
+    "derived_bytes": 9232,
+    "other_eight_evidence_references_identical": true,
+    "maximum_closure_error_fraction": "1.13102006329140274165719113920361616799324051e-16",
+    "model_reexecutions": 0,
+    "original_native_body_reads": 0
+  },
+  "separate_postattempt_source_identity": {
+    "members": 2794,
+    "original_scientific_input_attachment_stamps": 43,
+    "all_unchanged": true
+  },
+  "qualification": {
+    "supported_claim": "Two deterministic conditional Betula/Ulmus nominal cases retain pooled support and compare shared Betula PPE 5.106 versus 4.94 with fixed Ulmus 1.27, source SD metadata and fall speeds.",
+    "unsupported_claim": "No full forest/open/cereal cover, binding of full/excluded native pollen denominators to these saved requests, empirical accuracy, source-SD probability law, scientific input admission or 2025 paper reproduction.",
+    "actual_verification_performed": "The maintained consumer produced two cases before a later software audit refused. Separate saved-output and request/parameter-lineage verification established numerical parity and unchanged support; this packet retains exact scopes and byte pins.",
+    "remaining_input_or_review": "Independent applicability, terrestrial denominator, chronology allocation and empirical reference qualification remain open. A clean future operator needs a prospectively corrected identity bootstrap; no model rerun is needed to preserve this accepted saved result.",
+    "cause_category": "Conditional nominal PPE sensitivity with separately qualified saved output after a refused terminal operator.",
+    "consequence": "Outer-ring adjusted Betula changes by +1.233837 percentage points; inner signed Betula changes by +1.587917 points while both adjusted values remain zero.",
+    "precise_next_acceptance_route": "Use the pinned maintained consumer and explicit source-case contracts for future declared contrasts; separately qualify applicability, uncertainty laws and independent accuracy targets before claiming them.",
+    "negative_or_refused_result": "The original operator has no successful terminal receipt: a late opaque software example identity read was guard-refused. That failure remains unchanged; output qualification is separate. Inner adjusted equality does not establish no parameter effect.",
+    "matched_denominator": "Two cases, two taxa, one regional and one local pooled 2700–3200 calendar-BP bin, two local rings, six coordinates per case. Selected modeled panel counts 542 and 675 are not full native N; full/excluded denominators are not bound to these saved requests. Separately audited 2,553 BOKE and 3,973 KRAG full-taxon totals remain distinct without an inferred join or excluded mass. Retained 100 km regional extent differs from the 2025 paper's 1000 km."
+  },
+  "scientific_admission": "not_evaluated",
+  "source_uncertainty_propagated": false,
+  "private_sources_embedded": false,
+  "public_redistribution_of_private_inputs_authorized": false,
+  "production_source_files": [
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/__init__.py",
+      "sha256": "5b3185a29a93ef10d4154f1c5b63d383debfef98a3497327ebaa835a025eb6ed",
+      "bytes": 77
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/__main__.py",
+      "sha256": "9b933fe5e9b4462b7f826558c09eb84a1780369e2c51ef46c504e6bddcf083ae",
+      "bytes": 744
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/normalization.py",
+      "sha256": "575be935de625602648913864852e4278f76941988aea124cb2cd3c0030d9c82",
+      "bytes": 11769
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/preparation.py",
+      "sha256": "bcfe3207c9d78543c1dc7b1ce0bbfc516395966f4310817ea9be084074ae9f53",
+      "bytes": 9020
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/reporting.py",
+      "sha256": "b84c5f1eae121d594015b2a59133180f18ab603da39f1d683a23dc43d5979807",
+      "bytes": 6438
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/source_inputs.py",
+      "sha256": "7cffdeb8bd86fea30c99503c8b3789ff05827694af693708c90dcc437792db2a",
+      "bytes": 4019
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/workflow.py",
+      "sha256": "75a7f300eacb28b219530f8e8c1ab6d96f863820b2b3d82c038d474339c1c32c",
+      "bytes": 12472
+    }
+  ],
+  "pull_request": "pending_draft_creation",
+  "result_acceptance_sha256": "6273178707746e4da33f1538163d2a4adcb8c51ba35ba77b116d9562bc793f09",
+  "native_full_denominator_bound_to_saved_requests": false
+}
