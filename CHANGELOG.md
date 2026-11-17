@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#515](https://github.com/bijux/bijux-pollenomics/pull/515) — Contained source-metadata action labels
+
+Wrap complete ancillary metadata identifiers inside their action buttons without widening the reader dialog, preserving preformatted JSON horizontal scrolling. Share identical focus surfaces and retain the unchanged stylesheet budget rather than raising its cap. Generated native mobile/desktop containment checks, the maintained packaging assertion and matched host lint/typing pass; no published static snapshot, source evidence, scientific state or numerical result is regenerated.
+
 ### [#514](https://github.com/bijux/bijux-pollenomics/pull/514) — Recorded Neotoma source details and static metadata atlas
 
 Retain the exact qualified static metadata atlas, its selected recorded ancestry and portable hash/source accounts, alongside a separate twelve-response taxon/classification capture. Preserve native fields and unresolved source-quality questions while keeping successor normalization, ecological interpretation and scientific admission distinct. Exact product/Git identities, independent closed source reviews and strict documentation pass without new acquisition, baseline replay, derivation or model execution for delivery. Native JSON reachability and measured mobile support-button overflow remain explicitly open; no complete reader or download qualification is claimed.
