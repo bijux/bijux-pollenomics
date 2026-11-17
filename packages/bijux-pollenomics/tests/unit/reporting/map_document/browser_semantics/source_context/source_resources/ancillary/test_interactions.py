@@ -12,7 +12,7 @@ const wait=async(expression)=>{for(let n=0;n<250;n++){if(await evaluate(cdp,expr
 const target=async(selector,click=true)=>{
  let previous,point;
  for(let n=0;n<150;n++){
-  const found=await evaluate(cdp,`(()=>{const node=document.querySelector(${JSON.stringify(selector)});if(!node)return null;node.scrollIntoView({block:'center',inline:'center'});const r=node.getBoundingClientRect(),x=r.x+r.width/2,y=r.y+r.height/2,hit=document.elementFromPoint(x,y);return !node.closest('[inert]')&&r.width>0&&r.height>0&&x>=0&&y>=0&&x<innerWidth&&y<innerHeight&&hit&&node.contains(hit)?{x,y}:null;})()`);
+  const found=await evaluate(cdp,`(()=>{const node=document.querySelector(${JSON.stringify(selector)});if(!node)return null;node.scrollIntoView({block:'nearest',inline:'nearest'});const r=node.getBoundingClientRect(),x=r.x+r.width/2,y=r.y+r.height/2,hit=document.elementFromPoint(x,y);return !node.closest('[inert]')&&r.width>0&&r.height>0&&x>=0&&y>=0&&x<innerWidth&&y<innerHeight&&hit&&node.contains(hit)?{x,y}:null;})()`);
   if(found&&previous&&Math.abs(found.x-previous.x)<.5&&Math.abs(found.y-previous.y)<.5){point=found;break;}
   previous=found;await new Promise(ok=>setTimeout(ok,20));
  }
@@ -155,4 +155,35 @@ return await evaluate(cdp,"({metadataHidden:document.getElementById('source-meta
     assert observed["result"]["reason"] == "empty_countries"
     assert "Select a country" in observed["result"]["text"]
     assert observed["result"]["countries"] == [False] * 4
+    assert observed["failures"] == []
+
+
+@pytest.mark.parametrize("resource_browser", ["source_only_scoped"], indirect=True)
+@pytest.mark.parametrize("width", [390, 1440])
+def test_source_context_does_not_cover_opt_in_metadata_geography(
+    browser_probe: Callable[..., dict[str, Any]], width: int
+) -> None:
+    observed = browser_probe(
+        "",
+        width=width,
+        driver=DRIVER
+        + r"""
+await target('#source-metadata-browse');
+await wait("document.querySelector('[data-resource-status]')?.dataset.state==='available'");
+await target('[aria-label="Show metadata geometry"]');
+await wait("document.querySelector('[data-resource-geometry-status]').textContent.startsWith('Metadata geometry: ')");
+await key('Escape',27);
+await wait("!document.getElementById('source-resources-dialog').open");
+await target('#source-metadata-browse',false);
+return await evaluate(cdp,"(()=>{const c=document.getElementById('source-metadata-state').getBoundingClientRect(),m=document.querySelector('.map-viewport').getBoundingClientRect();return {overlap:Math.max(0,Math.min(c.right,m.right)-Math.max(c.left,m.left))*Math.max(0,Math.min(c.bottom,m.bottom)-Math.max(c.top,m.top)),contextHeight:c.height,mapHeight:m.height,mapLeft:m.left,mapRight:m.right,viewportWidth:innerWidth,scrollLeft:document.querySelector('.map-stage').scrollLeft,geometry:document.querySelectorAll('.neotoma-metadata-geometry').length,focus:document.activeElement.id}})()");
+""",
+    )
+    assert observed["result"]["geometry"] > 0
+    assert observed["result"]["focus"] == "source-metadata-browse"
+    assert observed["result"]["mapHeight"] >= 200
+    assert observed["result"]["mapLeft"] >= 0, observed["result"]
+    assert observed["result"]["mapRight"] <= observed["result"]["viewportWidth"], (
+        observed["result"]
+    )
+    assert observed["result"]["overlap"] == 0
     assert observed["failures"] == []

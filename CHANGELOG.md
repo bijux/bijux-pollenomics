@@ -11,7 +11,8 @@ Repository changes are recorded by pull request, newest merge first.
 - Enable opt-in metadata geometry on source-only maps without introducing
   scientific countries or changing the existing country-filter behavior.
 - Keep native source-dialog keyboard events within the dialog, restore its
-  visible opener on Escape and offer a direct source-only metadata entry point.
+  visible opener on Escape and offer a compact source-only metadata entry point
+  below the plotted geography.
 
 ### [#495](https://github.com/bijux/bijux-pollenomics/pull/495) — Live Neotoma baseline facts during frontier capture
 

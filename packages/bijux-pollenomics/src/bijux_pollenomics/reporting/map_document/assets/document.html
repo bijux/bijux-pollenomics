@@ -1611,6 +1611,29 @@
         font-size: 13px;
         line-height: 1.6;
       }
+      #source-metadata-state {
+        grid-area: reader;
+        position: static;
+        transform: none;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 12px;
+        width: auto;
+        margin: 0 8px 8px;
+        padding: 10px 12px;
+        border-radius: 16px;
+        box-shadow: var(--shadow-md);
+        text-align: left;
+      }
+      #source-metadata-state[hidden] { display: none; }
+      #source-metadata-state strong { margin: 0; font-size: 13px; }
+      #source-metadata-state span { font-size: 12px; line-height: 1.4; }
+      @media (max-width: 900px) {
+        #source-metadata-state { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+        #source-metadata-state span { grid-row: 2; }
+        #source-metadata-browse { grid-column: 2; grid-row: 1 / 3; max-width: 155px; }
+      }
       .sr-only {
         position: absolute;
         width: 1px;
@@ -2118,11 +2141,6 @@
           <strong>No visible records</strong>
           <span>Change the country filters, re-enable one or more layers, or restore the default map state.</span>
         </div>
-        <div id="source-metadata-state" class="empty-state" role="status" aria-live="polite" hidden>
-          <strong>Source metadata only</strong>
-          <span>This map has 0 scientific countries, layers and points. Captured source metadata remains separate; optional metadata geometry is off by default.</span>
-          <button id="source-metadata-browse" class="toolbar-button" type="button" aria-haspopup="dialog" aria-controls="source-resources-dialog">Neotoma source resources</button>
-        </div>
         <div id="floating-legend" class="floating-legend">
           <div class="legend-head">
             <div class="legend-title">Legend</div>
@@ -2138,6 +2156,11 @@
           </div>
         </div>
       </div>
+        <div id="source-metadata-state" class="empty-state" role="status" aria-live="polite" hidden>
+          <strong>Source metadata only</strong>
+          <span>This map has 0 scientific countries, layers and points. Captured source metadata remains separate; optional metadata geometry is off by default.</span>
+          <button id="source-metadata-browse" class="toolbar-button" type="button" aria-haspopup="dialog" aria-controls="source-resources-dialog">Neotoma source resources</button>
+        </div>
         <button id="mobile-scrim" class="mobile-scrim" type="button" tabindex="-1" aria-label="Close controls" aria-hidden="true"></button>
         <aside id="sidebar" class="control-panel is-collapsed" aria-label="Map controls" inert>
           <div class="control-panel-card">
