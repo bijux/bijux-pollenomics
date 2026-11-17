@@ -58,3 +58,23 @@ def test_narrow_search_results_preserve_a_map_grid_row() -> None:
     ]
 
     assert "max-height: min(14vh, 88px);" in results_rule
+
+
+def test_mobile_panel_owns_viewport_height_and_shrinkable_scroll_body() -> None:
+    mobile_css = MAP_DOCUMENT_TEMPLATE.split("@media (max-width: 900px) {", 2)[2].split(
+        "@media", 1
+    )[0]
+    panel_rule = mobile_css.split(".control-panel {", 1)[1].split("}", 1)[0]
+    card_rule = MAP_DOCUMENT_TEMPLATE.split(".control-panel-card {", 1)[1].split(
+        "}", 1
+    )[0]
+    body_rule = MAP_DOCUMENT_TEMPLATE.split(".control-panel-body {", 1)[1].split(
+        "}", 1
+    )[0]
+
+    assert "display: flex;" in panel_rule
+    assert panel_rule.index("72vh") < panel_rule.index("72dvh")
+    assert "display: flex;" in card_rule
+    assert "flex-direction: column;" in card_rule
+    assert "overflow: hidden;" in card_rule
+    assert "overflow-y: auto;" in body_rule
