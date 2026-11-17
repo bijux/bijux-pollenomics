@@ -17,6 +17,13 @@ def template_block(start: str, end: str) -> str:
     ]
 
 
+def edge_rendering_helpers() -> str:
+    """Load edge rendering owners without unrelated page initialization."""
+    return template_block(
+        "function scientificSignalById", "/* atlas-evidence-tools:begin */"
+    ) + template_block("async function openEdgeDetail", "function renderPolygonLayers")
+
+
 def index_transport_helpers(*, common: bool = True, include_search: bool = True) -> str:
     """Execute the packaged index factory with the maintained browser callbacks."""
     source = (
@@ -65,13 +72,16 @@ const staticAtlasMergeIndexShards=staticAtlasIndexTransport.mergeShards;
 def run_node_json(source: str) -> Any:
     node = shutil.which("node")
     assert node is not None, "Node.js is required to verify browser semantics"
-    result = subprocess.run(
-        [node, "-"],
-        input=source,
-        check=True,
-        capture_output=True,
-        text=True,
-    )
+    try:
+        result = subprocess.run(
+            [node, "-"],
+            input=source,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except subprocess.CalledProcessError as error:
+        raise AssertionError(f"Browser semantics failed:\n{error.stderr}") from error
     return json.loads(result.stdout)
 
 
@@ -84,6 +94,7 @@ def check_javascript_syntax(source: str, path: Path) -> None:
 
 __all__ = [
     "check_javascript_syntax",
+    "edge_rendering_helpers",
     "index_transport_helpers",
     "run_node_json",
     "template_block",

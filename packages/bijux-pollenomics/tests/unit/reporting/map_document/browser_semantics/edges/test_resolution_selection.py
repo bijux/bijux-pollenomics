@@ -16,7 +16,7 @@ from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.map_document.evidence import normalize_atlas_evidence
 
 from .....analysis.propagation.network.support import event
-from ..support import run_node_json, template_block
+from ..support import edge_rendering_helpers, run_node_json, template_block
 
 
 class RenderedCandidate(TypedDict):
@@ -158,9 +158,7 @@ function setFocusState(state){focus=state}
         + template_block(
             "function renderRelationControls", "function selectSourceChronologyLevel"
         )
-        + template_block(
-            "function scientificSignalById", "function renderPolygonLayers"
-        )
+        + edge_rendering_helpers()
         + """
 async function inspect(){
  const opposite=initial==='group:cereals'?'taxon:secale_cereale':'group:cereals';

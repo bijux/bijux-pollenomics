@@ -62,7 +62,10 @@ def published(tmp_path_factory: pytest.TempPathFactory) -> dict[str, Any]:
 
 def browser(published: dict[str, Any], action: str) -> dict[str, Any]:
     script = (
-        SOURCE_RECORD_EXPORT_CONTROLLER
+        "const supplied="
+        + json.dumps(published)
+        + ";const original=JSON.stringify(supplied), STATIC_ATLAS_BOOTSTRAP=supplied.manifest;"
+        + SOURCE_RECORD_EXPORT_CONTROLLER
         + template_block("function escapeHtml", "function normalizedMediaLinks")
         + template_block("function detailTableShape", "function renderFocusCard")
         + template_block(
@@ -87,11 +90,7 @@ def browser(published: dict[str, Any], action: str) -> dict[str, Any]:
             "async function restoreDefaults()", "        stopTimePlayback();"
         )
         + "}\n"
-        + "const supplied="
-        + json.dumps(published)
-        + ";"
         + r"""
-const original=JSON.stringify(supplied), STATIC_ATLAS_BOOTSTRAP=supplied.manifest;
 let GOVERNED_EDGE_RECORDS=[supplied.edge];
 const STATIC_ATLAS_INLINE=false,STATIC_ATLAS_CHUNKS={edges:{status:'available'}};
 const SCIENTIFIC_SIGNALS=[{signal_id:supplied.edge.signal_id,label:'Native fixture',non_color_cue:'circle'}];
@@ -124,7 +123,7 @@ function renderFocusCard(){focusCard.hidden=!focusState}
 let staticAtlasLoadGeneration=0;const ALL_LAYERS=[],selectionReadout={dataset:{}};
 const topbarStatePill={textContent:'',setAttribute(key,value){this[key]=value}};
 const mapElement={setAttribute(key,value){this[key]=value},getAttribute(key){return this[key]}};
-const emptyState={hidden:true,dataset:{},innerHTML:''};
+const emptyState={hidden:true,dataset:{},innerHTML:''},sourceMetadataState={hidden:true};
 const searchRefreshes=[];
 function buildSearchResults(){searchRefreshes.push({generation:staticAtlasLoadGeneration,busy:mapElement['aria-busy'],reason:emptyState.dataset.reason})}
 const document={activeElement:null,getElementById(id){return id==='map'?mapElement:{focus(){}}}};

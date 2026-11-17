@@ -16,7 +16,7 @@ from bijux_pollenomics.analysis.propagation.projection import (
 )
 
 from ......analysis.propagation.network.support import event
-from ...support import run_node_json, template_block
+from ...support import edge_rendering_helpers, run_node_json, template_block
 from ..test_scientific_edges import edge_row, normalize_edges
 
 
@@ -99,9 +99,7 @@ async function detailTabsForRecordId(id){requests++;return {overview:{record_id:
 function unavailableDetailTabs(){throw Error('Unexpected missing fixture')}
 function setFocusState(state){focus=state;activeFocusTab='overview'}
 """
-        + template_block(
-            "function scientificSignalById", "function renderPolygonLayers"
-        )
+        + edge_rendering_helpers()
         + """
 renderEdgeLayers();
 (async()=>{
