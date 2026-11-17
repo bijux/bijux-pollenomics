@@ -318,9 +318,16 @@ does not recursively collect newly discovered pointers or rebase their depth.
 | owned output tree | 64 MiB |
 | individual control document | 1 MiB |
 | transport timeout | 60 seconds |
-| cooperative operation budget | 900 seconds |
+| cooperative operation budget | default 900 seconds; explicit selection up to 3,600 seconds |
 
 Smaller request and response budgets must still reserve every selected response.
+The default operation budget remains 900 seconds. Pass an explicit
+`NeotomaTaxonFrontierCaptureLimits(wall_seconds=3600)` from the same acquisition
+module through `capture_limits` to select the larger finite allowance.
+An outer deadline owner must instead pass its current positive remaining
+allowance at invocation, within the same ceiling, and keep its own guard
+authoritative. The SDK starts a separate relative clock after entry; it does
+not inherit the outer absolute deadline.
 The operation budget is checked between stages; it is not a hard interrupt for
 filesystem operations or an arbitrary supplied transport callback. These limits
 do not increase the cumulative chain limits or grant provider quota. Before a
