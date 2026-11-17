@@ -37,14 +37,21 @@ def _native(
     *,
     status: int = 200,
     method: str = "GET",
-    transfer_encoding: str | None = None,
+    transfer_encoding: str | tuple[str, ...] | None = None,
     close_error: Exception | None = None,
 ) -> tuple[HTTPResponse, _WireStream, list[float]]:
     headers = b"".join(
         b"Content-Length: " + value.encode("ascii") + b"\r\n" for value in lengths
     )
     if transfer_encoding is not None:
-        headers += b"Transfer-Encoding: " + transfer_encoding.encode() + b"\r\n"
+        values = (
+            (transfer_encoding,)
+            if isinstance(transfer_encoding, str)
+            else transfer_encoding
+        )
+        headers += b"".join(
+            b"Transfer-Encoding: " + value.encode() + b"\r\n" for value in values
+        )
     stream = _WireStream(
         f"HTTP/1.1 {status} Generated\r\n".encode()
         + headers
@@ -193,3 +200,91 @@ def test_generic_binary_stream_retains_legacy_non_native_header_contract(
     monkeypatch.setattr(http, "urlopen", lambda *_args, **_kwargs: stream)
     assert http.fetch_binary("https://example.test/source", max_bytes=4) == b"abcd"
     assert stream.closed
+
+
+@pytest.mark.parametrize(
+    "encoding",
+    ["", "identity", "gzip", "gzip, chunked", "chunked ", "chunked; unsupported=true"],
+)
+@pytest.mark.parametrize("lengths", [(), ("3",), ("2", "3")])
+def test_native_unsupported_transfer_framing_refuses_before_body(
+    monkeypatch: pytest.MonkeyPatch, encoding: str, lengths: tuple[str, ...]
+) -> None:
+    _, stream, calls = _native(
+        monkeypatch, lengths, b"3\r\nabc\r\n0\r\n\r\n", transfer_encoding=encoding
+    )
+    with pytest.raises(ValueError, match="Transfer-Encoding"):
+        http.fetch_binary("https://example.test/source", max_bytes=64)
+    assert stream.observed == 0 and stream.closed and calls == [30.0]
+
+
+@pytest.mark.parametrize(
+    "encodings",
+    [("chunked", "gzip"), ("chunked", "chunked"), ("gzip", "chunked"), ("chunked", "")],
+)
+def test_native_repeated_transfer_fields_do_not_hide_unsupported_codings(
+    monkeypatch: pytest.MonkeyPatch, encodings: tuple[str, ...]
+) -> None:
+    _, stream, calls = _native(
+        monkeypatch, ("2", "3"), b"3\r\nabc\r\n0\r\n\r\n", transfer_encoding=encodings
+    )
+    with pytest.raises(ValueError, match="Transfer-Encoding"):
+        http.fetch_binary("https://example.test/source", max_bytes=64)
+    assert stream.observed == 0 and stream.closed and calls == [30.0]
+
+
+@pytest.mark.parametrize("encoding", ["chunked", "CHUNKED", "cHuNkEd"])
+@pytest.mark.parametrize("lengths", [(), ("2", "3")])
+def test_native_supported_chunked_decoding_retains_precedence(
+    monkeypatch: pytest.MonkeyPatch, encoding: str, lengths: tuple[str, ...]
+) -> None:
+    _, stream, calls = _native(
+        monkeypatch, lengths, b"3\r\nabc\r\n0\r\n\r\n", transfer_encoding=encoding
+    )
+    assert http.fetch_binary("https://example.test/source", max_bytes=3) == b"abc"
+    assert stream.closed and calls == [30.0]
+
+
+@pytest.mark.parametrize("method,status", [("HEAD", 200), ("GET", 304)])
+@pytest.mark.parametrize("encoding", ["gzip", "identity", ""])
+def test_native_bodyless_response_does_not_require_transfer_decoding(
+    monkeypatch: pytest.MonkeyPatch, method: str, status: int, encoding: str
+) -> None:
+    _, stream, calls = _native(
+        monkeypatch,
+        ("999999", "bad"),
+        b"",
+        method=method,
+        status=status,
+        transfer_encoding=encoding,
+    )
+    assert http.fetch_binary("https://example.test/source", max_bytes=3) == b""
+    assert stream.observed == 0 and stream.closed and calls == [30.0]
+
+
+def test_generic_stream_does_not_acquire_native_transfer_policy(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    class LegacyStream(BytesIO):
+        headers = {"Transfer-Encoding": "opaque legacy metadata"}
+
+    stream = LegacyStream(b"abc")
+    monkeypatch.setattr(http, "urlopen", lambda *_args, **_kwargs: stream)
+    assert http.fetch_binary("https://example.test/source", max_bytes=3) == b"abc"
+    assert stream.closed
+
+
+def test_native_transfer_refusal_preserves_primary_during_cleanup_failure(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    _, stream, calls = _native(
+        monkeypatch,
+        ("2", "3"),
+        b"abc",
+        transfer_encoding="gzip",
+        close_error=OSError("cleanup failed"),
+    )
+    with pytest.raises(ValueError, match="Transfer-Encoding") as caught:
+        http.fetch_binary("https://example.test/source", max_bytes=64)
+    assert any("cleanup failed" in note for note in caught.value.__notes__)
+    assert stream.observed == 0 and stream.closed and calls == [30.0]

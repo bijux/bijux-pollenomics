@@ -198,11 +198,19 @@ def fetch_binary(
 def _native_body_length(response: HTTPResponse, *, max_bytes: int) -> int | None:
     """Reconcile repeated native lengths without overriding framing precedence."""
     if (
-        response.headers.get("Transfer-Encoding") is not None
-        or getattr(response, "_method", None) == "HEAD"
+        getattr(response, "_method", None) == "HEAD"
         or 100 <= response.status < 200
         or response.status in {204, 304}
     ):
+        return response.length
+    transfer = response.headers.get_all("Transfer-Encoding", [])
+    if transfer:
+        if (
+            len(transfer) != 1
+            or transfer[0].strip(" \t").casefold() != "chunked"
+            or not response.chunked
+        ):
+            raise ValueError("HTTP response has unsupported Transfer-Encoding framing")
         return response.length
     canonical: str | None = None
     for field in response.headers.get_all("Content-Length", []):
