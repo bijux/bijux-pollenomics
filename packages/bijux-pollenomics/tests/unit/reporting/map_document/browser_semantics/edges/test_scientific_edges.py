@@ -17,7 +17,7 @@ from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.map_document.evidence import normalize_atlas_evidence
 
 from .....analysis.propagation.network.support import event
-from ..support import run_node_json, template_block
+from ..support import edge_rendering_helpers, run_node_json
 
 
 class EdgeFocus(TypedDict):
@@ -113,9 +113,7 @@ async function detailTabsForRecordId(){return missingDetails ? {overview:{status
 function unavailableDetailTabs(){return Object.fromEntries(['overview','relation','chronology','provenance'].map(key=>[key,{status:'unavailable',reason_code:key+'_evidence_not_available'}]))}
 function setFocusState(state){focus=state}
 """
-        + template_block(
-            "function scientificSignalById", "function renderPolygonLayers"
-        )
+        + edge_rendering_helpers()
         + """
 renderEdgeLayers();
 async function inspect(){

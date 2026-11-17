@@ -9,7 +9,7 @@ import pytest
 
 from ...edges.inspection.test_edge_popup import projected_edge
 from ...edges.test_scientific_edges import normalize_edges
-from ...support import run_node_json, template_block
+from ...support import edge_rendering_helpers, run_node_json, template_block
 
 
 def mounted(
@@ -60,7 +60,8 @@ def mounted(
         + template_block(
             "function pointFeatureVisible", "function polygonFeatureVisible"
         )
-        + template_block("function createClusterGroup", "function renderPolygonLayers")
+        + template_block("function createClusterGroup", "function scientificSignalById")
+        + edge_rendering_helpers()
         + r"""
 let activeEvidenceDisplay=evidenceDisplayFromHash(new URLSearchParams(payload.query));
 const records=payload.edges,activeCountries=new Set(['Sweden']);

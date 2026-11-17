@@ -70,7 +70,9 @@ def relation() -> dict[str, Any]:
 def render(tab: dict[str, Any]) -> tuple[ET.Element, dict[str, Any]]:
     source = (
         template_block("function escapeHtml", "function normalizedMediaLinks")
-        + template_block("function renderRelationDetails", "function renderEdgeLayers")
+        + template_block(
+            "function renderRelationDetails", "function renderEvidenceDisplayPanel"
+        )
         + "\nconst tab="
         + json.dumps(tab)
         + ";const original=JSON.stringify(tab);"
@@ -260,7 +262,9 @@ def test_actual_producer_projection_bridge_and_mounted_relation_drawer() -> None
         template_block("const DETAIL_TAB_DEFINITIONS", "const DEFAULT_COUNTRIES")
         + template_block("function escapeHtml", "function normalizedMediaLinks")
         + template_block("function detailTableShape", "function renderFocusCard")
-        + template_block("function renderRelationDetails", "function renderEdgeLayers")
+        + template_block(
+            "function renderRelationDetails", "function renderEvidenceDisplayPanel"
+        )
         + "const tab="
         + json.dumps(tab)
         + ";const original=JSON.stringify(tab);"

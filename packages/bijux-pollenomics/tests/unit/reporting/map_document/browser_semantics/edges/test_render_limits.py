@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
-from ..support import run_node_json, template_block
+from ..support import edge_rendering_helpers, run_node_json, template_block
 
 CLIPPING_CASES = r"""
 const assert = require('node:assert/strict');
@@ -98,7 +98,7 @@ console.log(JSON.stringify({passed:true}));
 
 def display_source() -> str:
     return template_block(
-        "function atlasEdgeIntersectsViewport", "function renderEdgeLayers"
+        "function atlasEdgeIntersectsViewport", "function edgeEvidencePopupHtml"
     )
 
 
@@ -113,9 +113,7 @@ def test_zoom_limits_are_permutation_stable_without_changing_candidates() -> Non
 def test_leaflet_primitives_and_readout_follow_viewport_and_zoom() -> None:
     source = (
         RENDER_SETUP
-        + template_block(
-            "function scientificSignalById", "function renderPolygonLayers"
-        )
+        + edge_rendering_helpers()
         + template_block(
             "function renderRelationControls", "function selectSourceChronologyLevel"
         )

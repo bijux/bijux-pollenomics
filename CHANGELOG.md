@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#512](https://github.com/bijux/bijux-pollenomics/pull/512) — Persistent polygon source metadata and scoped browser fixtures
+
+Keep existing public polygon counts, bounds, partial-footprint labels, capture context and scientific limits in the persistent reader, with complete identifiers wrapped inside its owner. Isolate generated browser components from unrelated page initialization and export the original ancillary fixtures explicitly without changing their implementations or causal assertions. Generated browser checks, focused delivery controls and matched host lint/typing pass; no existing public map regeneration, source collection, model execution or scientific admission is claimed.
+
 ### [#511](https://github.com/bijux/bijux-pollenomics/pull/511) — Recorded ancestry captures and bounded mobile controls
 
 Retain unchanged taxon/reference captures and their normalized chain with a literal source account, explicit metadata resolver and 182 unresolved leads. Distinguish earlier capture requests from zero-GET materialization and keep taxonomy/PPE/scientific admission separate. Bound mobile controls through the existing scroll owner without changing desktop handlers or public map artifacts. Exact product/Git hashes, source-field checks, generated controls, matched host lint and strict documentation pass; no source or model replay is performed for delivery.

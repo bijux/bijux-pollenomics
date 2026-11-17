@@ -98,7 +98,7 @@ def test_search_and_detail_charge_all_parts_and_helper_before_requests() -> None
         )
         + template_block("function finiteCoordinateValue", "function coordinateLabel")
         + template_block(
-            "function atlasEdgeIntersectsViewport", "function renderEdgeLayers"
+            "function atlasEdgeIntersectsViewport", "function edgeEvidencePopupHtml"
         )
         + r"""
 const STATIC_ATLAS_INLINE=false, ALL_LAYERS=[];
@@ -229,7 +229,7 @@ def test_lazy_planner_preflights_code_and_parts_and_restores_only_latest_selecti
         )
         + template_block("function finiteCoordinateValue", "function coordinateLabel")
         + template_block(
-            "function atlasEdgeIntersectsViewport", "function renderEdgeLayers"
+            "function atlasEdgeIntersectsViewport", "function edgeEvidencePopupHtml"
         )
         + r"""
 const assert=require('node:assert/strict');
