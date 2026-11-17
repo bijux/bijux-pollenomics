@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#505](https://github.com/bijux/bijux-pollenomics/pull/505) — Materialize source exports under live ownership
+
+Materialize ancestry projections under one live source owner while retaining independently checked detached publication, original-parent attachment and staged/final source duties. Publish SEAD source relation CSV and summary as one complete immutable export, preserving foreign arrivals and refused candidates. Generated publication/refusal controls and matched host/developer Make checks pass; no provider, numerical-model or actual-source performance claim is included.
+
 ### [#504](https://github.com/bijux/bijux-pollenomics/pull/504) — Allow explicit bounded ancestry-frontier capture durations
 
 Permit explicitly selected finite ancestry-frontier capture wall budgets up to 3,600 seconds while preserving the 900-second default and every request, response, timeout, source-duty and publication limit. Refuse oversized native time values before float conversion, and document the separate outer remaining-budget/guard obligation. Generated timing and refusal controls, matched actual host lint/types and independent partial-publication checks pass; no actual capture or native execution grant is included.
