@@ -84,7 +84,9 @@ def _html(result: dict[str, Any]) -> str:
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
         "<title>ABBO grouped conditional composition</title>"
         "<style>body{font:17px system-ui;max-width:65rem;margin:2rem auto;padding:0 1rem}"
-        "table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{text-align:left;padding:.5rem;border-bottom:1px solid #bbb}"
+        ".table-scroll{max-width:100%;overflow-x:auto;margin:1rem 0}"
+        ".table-scroll:focus-visible{outline:3px solid currentColor;outline-offset:2px}"
+        "table{border-collapse:collapse;width:100%;margin:0}th,td{text-align:left;padding:.5rem;border-bottom:1px solid #bbb}"
         "code{overflow-wrap:anywhere}caption{text-align:left;font-weight:600}</style>"
         "<h1>ABBO grouped conditional composition</h1>"
         f"<p>{result['complete_draws']:,} of {result['requested_draws']:,} saved joint age states satisfy the complete-panel event; "
@@ -97,15 +99,17 @@ def _html(result: dict[str, Any]) -> str:
         '<a href="report.json">Full grouped covariance (JSON)</a> · '
         '<a href="source-result.json">Exact retained source result</a> · '
         '<a href="manifest.json">File digests</a></p>'
-        "<table><caption>Conditional panel composition</caption><thead><tr><th>Window: calibrated BP [younger, older)</th>"
+        '<div class="table-scroll" role="region" aria-labelledby="composition-caption" tabindex="0">'
+        '<table><caption id="composition-caption">Conditional panel composition</caption><thead><tr><th>Window: calibrated BP [younger, older)</th>'
         "<th>Literal group</th><th>Mean (%)</th><th>SD (percentage points)</th></tr></thead><tbody>"
         + rows
-        + "</tbody></table>"
-        "<table><caption>Older minus younger contrasts; original window IDs retained</caption>"
+        + "</tbody></table></div>"
+        '<div class="table-scroll" role="region" aria-labelledby="contrast-caption" tabindex="0">'
+        '<table><caption id="contrast-caption">Older minus younger contrasts; original window IDs retained</caption>'
         "<thead><tr><th>Window contrast</th><th>Literal group</th><th>Difference (percentage points)</th>"
         "<th>SD (percentage points)</th></tr></thead><tbody>"
         + contrasts
-        + "</tbody></table>"
+        + "</tbody></table></div>"
         "<p>Each covariance component is projected as GΣGᵀ, including cross-window terms. "
         "Age, counting and shared-PPE variances sum to total; mean-gradient PPE plus age/PPE interaction "
         "sum to shared PPE. Those last two are a decomposition, not additional independent sources.</p>"

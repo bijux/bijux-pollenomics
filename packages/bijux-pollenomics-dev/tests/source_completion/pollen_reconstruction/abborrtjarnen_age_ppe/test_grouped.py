@@ -5,6 +5,7 @@ from __future__ import annotations
 import copy
 import csv
 from hashlib import sha256
+from html.parser import HTMLParser
 import importlib
 import json
 from pathlib import Path
@@ -245,6 +246,47 @@ def test_publication_binds_source_export_and_preserves_existing_output(
             source, expected_result_sha256=sha256(raw).hexdigest(), destination=target
         )
     assert {p.name: p.read_bytes() for p in target.iterdir()} == prior
+
+
+def test_table_scroll_regions_keep_caption_names_and_keyboard_focus(
+    tmp_path: Path,
+) -> None:
+    """Wide result tables retain named keyboard access without altering headers."""
+    publication = importlib.import_module(
+        "bijux_pollenomics_dev.source_completion.pollen_reconstruction."
+        "abborrtjarnen_age_ppe.grouped.publication"
+    )
+    source = tmp_path / "result.json"
+    raw = json.dumps(generated_result()).encode()
+    source.write_bytes(raw)
+    target = tmp_path / "grouped"
+    publication.publish_grouped_result(
+        source, expected_result_sha256=sha256(raw).hexdigest(), destination=target
+    )
+
+    class Elements(HTMLParser):
+        """Collect native element attributes without a browser dependency."""
+
+        def __init__(self) -> None:
+            super().__init__()
+            self.tags: list[tuple[str, dict[str, str | None]]] = []
+
+        def handle_starttag(
+            self, tag: str, attrs: list[tuple[str, str | None]]
+        ) -> None:
+            self.tags.append((tag, dict(attrs)))
+
+    document = (target / "index.html").read_text()
+    elements = Elements()
+    elements.feed(document)
+    regions = [attrs for tag, attrs in elements.tags if attrs.get("role") == "region"]
+    assert len(regions) == 2
+    assert all(attrs.get("tabindex") == "0" for attrs in regions)
+    caption_ids = [attrs.get("id") for tag, attrs in elements.tags if tag == "caption"]
+    assert len(set(caption_ids)) == 2 and None not in caption_ids
+    assert [attrs.get("aria-labelledby") for attrs in regions] == caption_ids
+    assert document.count("<table>") == 2 and document.count("<th>") == 8
+    assert "Mean (%)" in document and "SD (percentage points)" in document
 
 
 def test_component_covariance_cannot_vary_a_closed_panel_total() -> None:
