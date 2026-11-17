@@ -419,6 +419,15 @@ permission remain separate; exact-snapshot browser qualification is still pendin
 
 ## Retained Parent And Citation Details
 
+The [recorded ancestry continuation](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-integrity/neotoma/ancestry-continuation/README.md)
+retains a later closed capture of seven taxon details and five classification
+references, pinned by `244769f271142c2f11d6f7cd11874d2fa8df6e5328e45ba6ff3851e6a06a402c`.
+All twelve received details passed native source qualification. The account
+preserves their literal names, parent/citation fields and source-quality limits.
+These responses have not been materialized into a successor chain or included
+in the 16-target Atlas above; no revised frontier count or scientific admission
+is implied.
+
 The [recorded ancestry account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-integrity/neotoma/ancestry-captures/README.md)
 links 13 captured taxon details and three taxon-reference publication details
 to their unchanged responses, receipts and normalized chain.
