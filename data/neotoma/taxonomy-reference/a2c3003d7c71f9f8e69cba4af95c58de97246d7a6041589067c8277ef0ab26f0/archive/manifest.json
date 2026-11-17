@@ -1,0 +1,42 @@
+{
+  "Neotoma_API_calls": 0,
+  "current_roles_revalidated": false,
+  "database_dates_are_sample_ages": false,
+  "files": {
+    "evidence/commit.json": {
+      "bytes": 1228,
+      "sha256": "ecefa1dd365a91739964637f70550276e5697b090cf695da6133e8318cf308f3"
+    },
+    "evidence/data_tree.json": {
+      "bytes": 3492,
+      "sha256": "df058d2fc8b1a15b8e218e43392b83bcf9b1d2efddca69cd366777a4a7f6647e"
+    },
+    "evidence/root_tree.json": {
+      "bytes": 3703,
+      "sha256": "029fa21f4246cf2fd76cf592d48cb871d7038dab15b0fac10d58c3bba5d88fae"
+    },
+    "originals/all_synonyms.json": {
+      "bytes": 1204538,
+      "sha256": "335d90e509570737843ace7923451910d7f67149e9e19caad32a83041d89fdda"
+    },
+    "originals/taxa_snapshot.json": {
+      "bytes": 14780182,
+      "sha256": "1f69795ebcd201b6ace019e3334ffae3301b9d4bec677951efa8e009e0dafa33"
+    },
+    "originals/taxon_metadata.json": {
+      "bytes": 28864947,
+      "sha256": "eb1d103425495bb78a6fbecb249ee6f27e4ba43ca8753078234333375ae99907"
+    },
+    "provenance.json": {
+      "bytes": 4398,
+      "sha256": "9ba45733b440af54609e4330e0c75bce9c64a4e76a477ac17f951a723a631691"
+    }
+  },
+  "native_detail_captures_added": 0,
+  "schema_version": "neotoma-dated-taxonomy-reference.v1",
+  "scientific_admission": "not_asserted",
+  "snapshot_consistency": "separate_upstream_queries_not_transactionally_asserted",
+  "source_bytes": 44862488,
+  "source_protocol": "pinned_official_git_projection",
+  "source_status_available": false
+}

@@ -1,0 +1,177 @@
+{
+  "schema_version": "neotoma-dated-taxonomy-reference-verification.v1",
+  "scope": "Separately dated official Git projection archive and ID/context comparison against exactly the recorded chain frontier. No native capture, live permission or ecological mapping.",
+  "archive": {
+    "directory": "../../../../../data/neotoma/taxonomy-reference/a2c3003d7c71f9f8e69cba4af95c58de97246d7a6041589067c8277ef0ab26f0/archive",
+    "manifest_sha256": "a2c3003d7c71f9f8e69cba4af95c58de97246d7a6041589067c8277ef0ab26f0",
+    "files": 8,
+    "original_files": 3,
+    "original_bytes": 44849667
+  },
+  "contrast": {
+    "path": "../../../../../data/neotoma/taxonomy-reference/a2c3003d7c71f9f8e69cba4af95c58de97246d7a6041589067c8277ef0ab26f0/frontier/frontier-contrast.json",
+    "sha256": "433d3b9aa34fdbce6e1356014cd9ff98dbf6987bde7418f24541c1177dd65734",
+    "chain_manifest_sha256": "0e7e37196a8eabc771b336bec25f981bfc6a291148dc519b9ce6c4f8212e2064",
+    "chain_directory": "../../../../../data/neotoma/ancillary-resources/taxon-ancestry/chains/0e7e37196a8eabc771b336bec25f981bfc6a291148dc519b9ce6c4f8212e2064",
+    "summary": {
+      "frozen_frontier_rows": 182,
+      "taxon_targets": 151,
+      "publication_targets": 31,
+      "dated_taxon_matches": 151,
+      "citation_text_available_targets": 31,
+      "publication_fallback_only_targets": 0,
+      "publication_id_only_targets": 0,
+      "unmatched_targets": 0
+    },
+    "scope": "Explicit stored 182-lead frontier; no inherited delta reconstruction or later continuation materialization."
+  },
+  "reference_source": {
+    "repository": "https://github.com/NeotomaDB/Taxonomy-Viewer",
+    "revision": "f72baeb6dbf7a166a5421c80b2873f159e1388f3",
+    "snapshot_generated_at": "2026-11-02T08:54:54+00:00",
+    "commit_utc": "2026-11-02T08:54:59Z",
+    "intake_intervals": {
+      "all_synonyms.json": [
+        "2026-11-17T18:54:06.321260+00:00",
+        "2026-11-17T18:54:06.799733+00:00"
+      ],
+      "taxa_snapshot.json": [
+        "2026-11-17T18:54:03.645846+00:00",
+        "2026-11-17T18:54:04.641239+00:00"
+      ],
+      "taxon_metadata.json": [
+        "2026-11-17T18:54:04.657076+00:00",
+        "2026-11-17T18:54:06.271537+00:00"
+      ]
+    },
+    "scope": "Global Neotoma vocabulary; not Swedish flora/pollen panel or a sample dataset.",
+    "preserved_inventory": {
+      "taxa": 59201,
+      "matching_metadata_ids": 59201,
+      "synonym_groups": 2573,
+      "synonym_assertions": 2916,
+      "self_parent_taxa": 29,
+      "repeated_synonym_triples": 1,
+      "count_evidence": "Retained source-schema inspection, preserved by exact original byte identity; these are not observations or a new database-wide completeness assessment."
+    },
+    "native_database_record_dates": "Creation, modification and validation metadata; not sample ages or geological validity intervals.",
+    "publication_and_citation": "Separate literal fields; publication may fall back while citation remains null. Differing variants keep source taxon-ID links.",
+    "root_tree_response_query_selector": "f72baeb6dbf7a166a5421c80b2873f159e1388f3",
+    "canonical_root_tree_sha1": "ea8705f403a82eca7ebefd8fce1353fbf3ba95d7",
+    "canonical_data_tree_sha1": "2d0012dfd4f52a884a2b0e128212ea4889e38c83",
+    "source_data_attribution": "Neotoma Paleoecology Database contributors; attribution and rights reference retained in archive provenance. No license assertion for upstream viewer program code."
+  },
+  "actual_publication": {
+    "producer_revision": "ba8d412657921253e6e0da78488170879ddd0ccf",
+    "execution_exit_code": 0,
+    "exit_evidence": "Observed command/process termination, distinct from serialized closed receipt.",
+    "receipt_status": "qualified",
+    "receipt_mode": "actual",
+    "source_phase": "closed",
+    "fatal_bytes": 0,
+    "elapsed_seconds": 91.78996104199905,
+    "payload_and_owned_readback_fd_charges": 59,
+    "conservative_payload_bytes": 182872269,
+    "software_leaf_opens_separate": 35600,
+    "software_conservative_bytes_separate": 224790522,
+    "physical_io_or_all_descriptor_opens_measured": false,
+    "GETs": 0,
+    "models": 0,
+    "native_baseline_replays": 0,
+    "unexpected_denials_or_forbidden_events": 0,
+    "source_scope": "One maintained archive publication and one 182-lead contrast; no original cohort, capture endpoint or upstream program execution.",
+    "closed_inspection": "Exact nine files, three original SHA-256 and Git blob identities, raw Git evidence, canonical tree membership, 182 unique rows and source positions independently checked using closed copies only."
+  },
+  "canonical_promotion": {
+    "files": 9,
+    "bytes": 45355939,
+    "all_staged_git_blobs_equal_closed_pins": true,
+    "new_GETs_or_source_replays": 0
+  },
+  "transport_provenance": {
+    "scope": "Portable projection of genuine retained GitHub transport; not original raw curl transport or Neotoma API receipt.",
+    "removed_local_fields": [
+      "filename_effective",
+      "local_ip",
+      "local_port",
+      "other_unselected_transport_fields"
+    ],
+    "retained_source_record_sha256": true,
+    "new_HTTP_requests_during_publication": 0
+  },
+  "limits": {
+    "current_roles_revalidated": false,
+    "native_source_fields_revalidated": false,
+    "GET_authorized": false,
+    "scientific_admission": "not_asserted",
+    "biological_synonymy_or_PPE_mapping": "not_asserted",
+    "Swedish_occurrence_or_observation_counts": "not_asserted",
+    "dataset_primary_publication": "not_established_by_classification_citations",
+    "later_capture_or_normalized_chain_completion": "not_established_by_reference_ID_presence",
+    "Atlas_dataset_site_or_numerical_counters": "unchanged; no reference-table Atlas embedding",
+    "installed_CLI_qualification": "Not claimed; generated source-main CLI controls and actual maintained API publication are distinct evidence."
+  },
+  "prior_refused_attempt": {
+    "cause": "Commit-addressed root-tree API selector was incorrectly required to equal canonical tree object SHA. Corrected owner reconstructs the pinned commit tree and preserves original evidence.",
+    "original_projection_or_frontier_reads": 0,
+    "failed_output_adopted": false,
+    "separate_failure_epoch_preserved": true
+  },
+  "product": {
+    "directory": "../../../../../data/neotoma/taxonomy-reference/a2c3003d7c71f9f8e69cba4af95c58de97246d7a6041589067c8277ef0ab26f0",
+    "files": 9,
+    "bytes": 45355939,
+    "member_pins": {
+      "archive/evidence/commit.json": {
+        "bytes": 1228,
+        "sha256": "ecefa1dd365a91739964637f70550276e5697b090cf695da6133e8318cf308f3"
+      },
+      "archive/evidence/data_tree.json": {
+        "bytes": 3492,
+        "sha256": "df058d2fc8b1a15b8e218e43392b83bcf9b1d2efddca69cd366777a4a7f6647e"
+      },
+      "archive/evidence/root_tree.json": {
+        "bytes": 3703,
+        "sha256": "029fa21f4246cf2fd76cf592d48cb871d7038dab15b0fac10d58c3bba5d88fae"
+      },
+      "archive/manifest.json": {
+        "bytes": 1491,
+        "sha256": "a2c3003d7c71f9f8e69cba4af95c58de97246d7a6041589067c8277ef0ab26f0"
+      },
+      "archive/originals/all_synonyms.json": {
+        "bytes": 1204538,
+        "sha256": "335d90e509570737843ace7923451910d7f67149e9e19caad32a83041d89fdda"
+      },
+      "archive/originals/taxa_snapshot.json": {
+        "bytes": 14780182,
+        "sha256": "1f69795ebcd201b6ace019e3334ffae3301b9d4bec677951efa8e009e0dafa33"
+      },
+      "archive/originals/taxon_metadata.json": {
+        "bytes": 28864947,
+        "sha256": "eb1d103425495bb78a6fbecb249ee6f27e4ba43ca8753078234333375ae99907"
+      },
+      "archive/provenance.json": {
+        "bytes": 4398,
+        "sha256": "9ba45733b440af54609e4330e0c75bce9c64a4e76a477ac17f951a723a631691"
+      },
+      "frontier/frontier-contrast.json": {
+        "bytes": 491960,
+        "sha256": "433d3b9aa34fdbce6e1356014cd9ff98dbf6987bde7418f24541c1177dd65734"
+      }
+    }
+  },
+  "delivery_source_correspondence": {
+    "actual_producer_revision": "ba8d412657921253e6e0da78488170879ddd0ccf",
+    "recoverable_source_ref": "source/neotoma-taxonomy-reference",
+    "Python_files": 13,
+    "unchanged_actual_producer_Python_blobs": 10,
+    "changed_files": [
+      "taxonomy_reference/contracts.py",
+      "taxonomy_reference/publication.py",
+      "taxonomy_reference/reading.py"
+    ],
+    "change": "Explicit usedforsecurity=False on the three native Git SHA1 object-ID calculations. Required Git digests are unchanged; independent SHA256 source/archive integrity checks remain unchanged.",
+    "saved_product_files_changed": 0,
+    "scientific_or_source_reexecution": false
+  }
+}
