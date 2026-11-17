@@ -366,3 +366,44 @@ detail responses likewise do not certify source absence.
 For LRA, bind counts, taxonomy, pollen denominator, selected chronology, dated
 basin geometry, applicable PPE and fall speeds, uncertainty and permitted use
 separately. Downloaded source context cannot supply a missing qualified decision.
+
+## Selected recorded ancestry in Atlas
+
+`AtlasTaxonAncestryArchiveInput` connects an explicitly pinned ancestry-chain
+archive to the existing Atlas supporting-metadata reader. Supply its directory,
+manifest SHA-256, a `chain_sources` mapping of exact chain and baseline manifest
+pins to their local directories, and a nonempty immutable tuple of
+`("taxon", native_id)` or `("publication", native_id)` targets. Target identities must be unique
+within the selection; IDs must be positive JavaScript-safe integers. Resolver bindings
+are copied into an immutable mapping; local paths are not published.
+
+Configure that input through `AtlasAncillaryArchivesInput.taxon_ancestry` alongside
+any independently configured supporting archives. Each explicit target is read
+through `read_neotoma_taxon_chain_target`; this adapter does not enumerate the
+whole graph, fetch source details or open native entity bodies. Missing targets,
+resolvers, changed manifest pins and foreign selected locators refuse projection.
+
+The existing `supporting_archives` and `supporting_entries` populations use
+`archive_kind="taxon_ancestry"` and `index_population="targets"`. Target selectors
+are `target_key`, `kind` and `native_id`; recorded nodes retain their SDK-native
+`target_kind` field. The selected index has its own projection digest, distinct
+from the independently pinned source-chain manifest. Source header pins, baseline
+identity and capture epochs remain attached. This is a selected subset, not a
+replacement count for all known taxa, publications, source requests or frontier
+leads. Existing resource, site, observation and ancillary populations retain
+their own denominators.
+
+The archive explicitly reports `SELECTED_RECORDED_TARGETS_ONLY`:
+`current_roles_revalidated=False`, `native_source_fields_revalidated=False`,
+`native_entity_bodies_opened=0`, `GET_authorized=False` and
+`scientific_admission="not_asserted"`. A field named current in a recorded node
+belongs to its recorded epoch; this display does not authenticate current use
+permission. Literal parent and citation edges are not biological synonymy,
+applicable reconstruction parameters or admitted scientific observations.
+
+The ordinary lazy indexed reader owns filtering and selected metadata readback.
+It offers no ancestry source-body download or acquisition authority. Leaving
+`taxon_ancestry` unconfigured preserves the other three supporting families and
+their published metadata. An actual chain must still be separately materialized,
+qualified and explicitly supplied before these software interfaces change a
+published Atlas.
