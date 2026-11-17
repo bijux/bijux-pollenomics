@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#504](https://github.com/bijux/bijux-pollenomics/pull/504) — Allow explicit bounded ancestry-frontier capture durations
+
+Permit explicitly selected finite ancestry-frontier capture wall budgets up to 3,600 seconds while preserving the 900-second default and every request, response, timeout, source-duty and publication limit. Refuse oversized native time values before float conversion, and document the separate outer remaining-budget/guard obligation. Generated timing and refusal controls, matched actual host lint/types and independent partial-publication checks pass; no actual capture or native execution grant is included.
+
 ### [#503](https://github.com/bijux/bijux-pollenomics/pull/503) — Preserve conditional report reading and paper-source bindings
 
 Keep conditional BOKE/ABBO/KRAG results readable without changing saved calculations or their scientific denominators. Preserve named keyboard access to narrow grouped tables, connect current and historical result scopes, and distinguish existing conditional LOVE calculations from physical qualification and independent vegetation accuracy. Bind all nine canonical paper sources before developer lint, verify commit-pinned citation paths without linked payload reads, and retain a genuinely rebuilt and inspected LandClim PDF plus corrected repository evidence links. Native strict docs, supported narrow/wide HTTP reading, the full paper verifier, matched developer lint and affected guarded checks pass.

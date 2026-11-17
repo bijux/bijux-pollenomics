@@ -31,12 +31,12 @@ class NeotomaTaxonFrontierCaptureLimits:
             value = getattr(self, name)
             if type(value) is not int or not 0 < value <= maximum:
                 raise ValueError("Frontier capture requires native finite budgets")
-        for name, maximum in (("timeout_seconds", 60), ("wall_seconds", 900)):
+        for name, maximum in (("timeout_seconds", 60), ("wall_seconds", 3600)):
             value = getattr(self, name)
             if (
                 type(value) not in (int, float)
-                or not math.isfinite(value)
                 or not 0 < value <= maximum
+                or not math.isfinite(value)
             ):
                 raise ValueError(
                     "Frontier capture requires finite positive time limits"
