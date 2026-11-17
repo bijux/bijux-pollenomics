@@ -115,7 +115,7 @@ const tick=()=>new Promise(resolve=>setImmediate(resolve));
             False,
         ),
         ({"pointCount": 2, "query": "display_mode=density"}, "drawing_disabled", False),
-        ({"polygonCount": 1}, "polygons_only", False),
+        ({"polygonCount": 1}, "polygons_only", True),
         (
             {"retainedCount": 4, "viewportCount": 0},
             "retained_relations_not_display_eligible",

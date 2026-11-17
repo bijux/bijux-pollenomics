@@ -28,7 +28,7 @@ function selectionEmptyState(input) {
       && split.reduce((sum, value) => sum + value, 0) === untimed.count;
     facts.push(`${untimed.count} records without admitted numeric BP chronology are separately excluded from the active generic time-filter scope${complete ? ` (${split[0]} absent, ${split[1]} refused, ${split[2]} contextual)` : '; the absent/refused/contextual split is unavailable'}. This separate count does not explain the entire empty selection.`);
   }
-  if (input.polygonLayerCount > 0) return result('polygons_only', 'Only polygon layers are displayed', 'Polygon layers remain displayed separately from point and relation drawing. Their count alone does not establish their scientific role or the presence or absence of qualifying observations.', false, facts);
+  if (input.polygonLayerCount > 0) return result('polygons_only', 'Only polygon layers are displayed', 'Polygon context is separate from point observations. Its count does not establish scientific roles or observation availability.', true, facts);
   if (!input.drawNodes && !input.drawEdges) return result('drawing_disabled', 'Evidence drawing is not enabled', 'The drawing decision enables neither points nor relations. Logical entries and retained relations are unchanged; this is not evidence of absent observations.', false, facts);
   if (input.countryCount === 0) return result('empty_countries', 'No countries selected', 'Select a country to inspect country-filtered evidence. This selection is not a finding of absent observations.', false, facts);
   if (input.selectedLayers.length === 0) return result('empty_layers', 'No map layers enabled', 'Enable a layer to inspect its records. Retained relation counts remain separate from endpoint display eligibility.', false, facts);

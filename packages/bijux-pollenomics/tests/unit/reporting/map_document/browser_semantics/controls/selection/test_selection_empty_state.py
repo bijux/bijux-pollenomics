@@ -118,16 +118,17 @@ def test_nodes_only_explains_undrawn_edges_without_discarding_candidates() -> No
 
 
 @pytest.mark.parametrize("draw_nodes", [True, False])
-def test_polygon_layers_do_not_hide_empty_point_relation_explanation(
+def test_polygon_context_preserves_scope_without_covering_the_map(
     draw_nodes: bool,
 ) -> None:
     observed = evaluate(polygonLayerCount=2, drawNodes=draw_nodes)
     assert observed["summary"]["reason"] == "polygons_only"
     assert observed["summary"]["title"] == "Only polygon layers are displayed"
-    assert not observed["summary"]["hidden"]
+    assert observed["summary"]["hidden"]
     assert observed["summary"]["populations"]["polygonLayerCount"] == 2
-    assert "presence or absence" in observed["html"]
-    assert "does not establish their scientific role" in observed["html"]
+    assert "does not establish scientific roles" in observed["summary"]["message"]
+    assert "observation availability" in observed["summary"]["message"]
+    assert observed["html"] == ""
     assert observed["unchanged"]
 
 

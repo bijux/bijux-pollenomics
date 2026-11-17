@@ -13,12 +13,14 @@ SUPPORT_POPULATIONS = {
     "unit_metadata": "units",
     "reference_tables": "tables",
     "context_resources": "resources",
+    "taxon_ancestry": "targets",
 }
 
 
 def ancillary_groups(
     catalogue: AtlasResourceCatalogue,
 ) -> dict[str, list[dict[str, Any]]]:
+    """Partition metadata without changing native resource populations."""
     source = catalogue.ancillary
     if source is None:
         return {}
@@ -71,6 +73,7 @@ def ancillary_groups(
 
 
 def ancillary_counts(groups: dict[str, Any]) -> dict[str, int]:
+    """Count each recorded metadata population independently."""
     observations = groups["ancillary_observations"]
     rows = observations.values() if isinstance(observations, dict) else observations
     kinds = [row["kind"] for row in rows]
@@ -88,6 +91,7 @@ def ancillary_counts(groups: dict[str, Any]) -> dict[str, int]:
 def ancillary_index_entry(
     kind: str, row: Mapping[str, Any], part_id: str, identity: str
 ) -> dict[str, Any]:
+    """Project indexed owner fields for lazy selected metadata validation."""
     result: dict[str, Any] = {
         "entity_type": kind,
         "record_id": identity,
@@ -167,6 +171,8 @@ def ancillary_index_entry(
                 "site_id",
                 "terminal_status",
             }
+            or row["archive_kind"] == "taxon_ancestry"
+            and key in {"target_key", "kind", "native_id"}
         }
         result["scope"] = deepcopy(entry.get("scope"))
     return result

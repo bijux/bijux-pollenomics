@@ -73,12 +73,19 @@ def metadata_only(value: Any) -> None:
                     "native_field_value_verified",
                     "source_assessments_replayed",
                     "related_resource_graph_complete",
+                    "current_roles_revalidated",
+                    "native_source_fields_revalidated",
+                    "GET_authorized",
                 }
                 and member is not False
             ):
                 raise ValueError(
                     "Ancillary metadata cannot assert body/profile verification or complete related graph"
                 )
+            if key == "native_entity_bodies_opened" and (
+                type(member) is not int or member != 0
+            ):
+                raise ValueError("Ancillary metadata cannot open native entity bodies")
             if key == "scientific_admission" and member != "not_asserted":
                 raise ValueError(
                     "Ancillary metadata cannot assert scientific admission"
@@ -98,6 +105,7 @@ def _same(left: object, right: object) -> bool:
 
 
 def archive_id(row: Mapping[str, Any]) -> str:
+    """Identify a supporting family and its independently pinned archive."""
     kind = row.get("archive_kind")
     if not isinstance(kind, str) or kind not in SUPPORT_POPULATIONS:
         raise ValueError("Supporting source archive kind differs")
@@ -105,6 +113,7 @@ def archive_id(row: Mapping[str, Any]) -> str:
 
 
 def ancillary_record_id(kind: str, row: Mapping[str, Any]) -> str:
+    """Validate metadata posture and compute a family-specific literal ID."""
     metadata_only(row)
     required = {
         "ancillary_context": ("source_manifest", "summary", "provenance"),
@@ -185,7 +194,13 @@ def _supporting(groups: Mapping[str, Any]) -> None:
             population: [row["entry"] for row in records],
         }
         raw = encoded_json(index)
-        expected = header["manifest"]["files"]["index.json"]
+        if header["archive_kind"] == "taxon_ancestry":
+            from .ancestry import validate_selected_ancestry
+
+            validate_selected_ancestry(header, records)
+            expected = header["selected_index"]
+        else:
+            expected = header["manifest"]["files"]["index.json"]
         if expected != {"bytes": len(raw), "sha256": sha256(raw).hexdigest()}:
             raise ValueError(
                 "Supporting source index identity differs from its archive manifest"
@@ -247,6 +262,7 @@ def _context_source(manifest: Mapping[str, Any]) -> None:
 def validate_ancillary_groups(
     domain: Mapping[str, Any], groups: Mapping[str, Any], resources: Mapping[str, Any]
 ) -> None:
+    """Reconcile finite source populations, joins, and verification posture."""
     groups = {kind: groups.get(kind, {}) for kind in ANCILLARY_KINDS}
     contexts = groups["ancillary_context"]
     if (
