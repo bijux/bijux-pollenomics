@@ -16,6 +16,9 @@ from bijux_pollenomics.analysis.lra.source_cases.contracts import (
     canonical,
     digest,
 )
+from bijux_pollenomics.analysis.lra.source_cases.contracts import (
+    reference as source_reference,
+)
 from bijux_pollenomics.core.filesystem import OwnedTreeWriter
 
 from ..basin_sensitivity.inputs import BaselineInputs
@@ -54,6 +57,15 @@ class PreparedSourceCases:
     members: Mapping[str, bytes]
     normalization_json: str
 
+    def __post_init__(self) -> None:
+        """Own the caller's mapping and refuse mutable or noncanonical members."""
+        owned = dict(self.members)
+        for name, raw in owned.items():
+            if type(raw) is not bytes:
+                raise ValueError("Prepared source members require immutable bytes")
+            source_reference({"path": name, "bytes": len(raw), "sha256": digest(raw)})
+        object.__setattr__(self, "members", MappingProxyType(owned))
+
     def materialize(self, destination: Path) -> None:
         """Write only an absent bounded private input tree, preserving foreign paths."""
         limits = self.plan.payload()["limits"]
@@ -81,6 +93,11 @@ def prepare(
     scope: dict[str, Any],
 ) -> PreparedSourceCases:
     """Preserve source support and SD metadata in an explicitly unweighted design."""
+    if type(inputs.request_bytes) is not bytes:
+        raise ValueError("Retained request requires immutable original bytes")
+    evidence_buffers = dict(inputs.evidence)
+    if any(type(raw) is not bytes for raw in evidence_buffers.values()):
+        raise ValueError("Original source evidence requires immutable bytes")
     base = inputs.request
     if (
         base["operation"] != "lra"
@@ -107,9 +124,9 @@ def prepare(
     names = [r["path"] for r in refs]
     if (
         len(names) != len(set(names))
-        or set(names) != set(inputs.evidence)
+        or set(names) != set(evidence_buffers)
         or any(Path(name).name != name for name in names)
-        or any(digest(inputs.evidence[r["path"]]) != r["sha256"] for r in refs)
+        or any(digest(evidence_buffers[r["path"]]) != r["sha256"] for r in refs)
     ):
         raise ValueError("Original source evidence differs from its retained request")
     parameters = [r for r in refs if r["role"] == "parameters"]
@@ -117,9 +134,9 @@ def prepare(
         raise ValueError("Exactly one original parameter evidence identity required")
     source_row = selected_betula(reference)
     binding = normalization.bind(
-        base, inputs.evidence[parameters[0]["path"]], reference, buffers, scope
+        base, evidence_buffers[parameters[0]["path"]], reference, buffers, scope
     )
-    members: dict[str, bytes] = dict(inputs.evidence)
+    members: dict[str, bytes] = dict(evidence_buffers)
 
     def store(name: str, value: object, *, raw: bytes | None = None) -> dict[str, Any]:
         if name in members:
