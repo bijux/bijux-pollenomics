@@ -3,11 +3,12 @@
 import ast
 import json
 from pathlib import Path
-import re
 from types import SimpleNamespace
 from typing import Any
 
 import pytest
+
+from bijux_pollenomics_dev.reader_reports.source import exported_content
 
 ROOT = Path(__file__).resolve().parents[4]
 
@@ -24,16 +25,13 @@ def extracted(path: str, names: set[str], values: dict[str, Any]) -> dict[str, A
 
 
 def test_only_renderer_suppressed_hash_comments_are_removed() -> None:
-    api = extracted(
-        "reports/exports/papers/verify.py", {"exported_content"}, {"re": re}
-    )
     original = (
         b"# Scientific source\n\nExact 12/13 denominator and 0.25 factor.\n"
         b"<!-- scientific-claim-semantic-sha256: " + b"a" * 64 + b" -->\n"
         b"<!-- scientific-authored-source-sha256: " + b"b" * 64 + b" -->\n"
         b"<!-- source-data-sha256: retained -->\n"
     )
-    result = api["exported_content"](original)
+    result = exported_content(original)
     assert result == (
         b"# Scientific source\n\nExact 12/13 denominator and 0.25 factor.\n"
         b"<!-- source-data-sha256: retained -->\n"
@@ -42,7 +40,7 @@ def test_only_renderer_suppressed_hash_comments_are_removed() -> None:
     damaged = original.replace(
         b"scientific-authored-source-sha256:", b"unknown-source-sha256:"
     )
-    assert b"unknown-source-sha256" in api["exported_content"](damaged)
+    assert b"unknown-source-sha256" in exported_content(damaged)
 
 
 @pytest.mark.parametrize("damage", [None, "population", "owner_mutation"])

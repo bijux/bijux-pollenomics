@@ -145,6 +145,7 @@ def _source_revision_library(
     row: dict[str, object] = {
         "paper_id": "paper",
         "canonical_report": "reports/science/paper.md",
+        "canonical_source_sha256": digest(source),
         "source_sha256": digest(source),
         "source_revision": export_revision,
         "build_receipt_sha256": "b" * 64,
@@ -201,6 +202,7 @@ def test_library_preserves_legacy_global_source_and_build_binding(
     source.write_text("# Retained account\n")
     row, visual = manifest["papers"][0], review["papers"][0]
     row["source_sha256"] = visual["source_sha256"] = verifier.digest(source)
+    row["canonical_source_sha256"] = verifier.digest(source)
     del row["source_revision"], row["build_receipt_sha256"]
     del visual["source_revision"], visual["input_receipt_sha256"]
     (verifier.HERE / "manifest.json").write_text(json.dumps(manifest))

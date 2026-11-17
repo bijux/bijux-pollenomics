@@ -1,4 +1,5 @@
 import csv
+from hashlib import sha256
 import os
 from pathlib import Path
 import subprocess
@@ -6,6 +7,7 @@ from typing import IO, Any
 
 import pytest
 
+from bijux_pollenomics_dev.reader_reports import source as reader_source
 from bijux_pollenomics_dev.reader_reports.source import (
     SourceError,
     load_inventory,
@@ -255,3 +257,47 @@ def test_report_symlink_is_refused(tmp_path: Path) -> None:
     inventory = _inventory(root, "reports/science/paper.md")
     with pytest.raises(SourceError):
         load_inventory(root, inventory)
+
+
+@pytest.mark.parametrize(
+    "damage", [None, "source", "digest", "missing", "duplicate", "population"]
+)
+def test_retained_source_bindings_require_exact_current_markdown(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, damage: str | None
+) -> None:
+    """The cheap lint check uses declared Markdown bytes, not Git history or PDFs."""
+    root = _repository(tmp_path)
+    report = root / "reports/science/paper.md"
+    inventory = _inventory(root, "reports/science/paper.md")
+    row = {
+        "canonical_report": "reports/science/paper.md",
+        "canonical_source_sha256": sha256(report.read_bytes()).hexdigest(),
+    }
+    manifest = {
+        "schema_version": "canonical-paper-pdf-library.v1",
+        "papers": [row],
+    }
+    if damage == "source":
+        report.write_text("# Changed after the declared export\n")
+    elif damage == "digest":
+        row["canonical_source_sha256"] = "0" * 64
+    elif damage == "missing":
+        row.pop("canonical_source_sha256")
+    elif damage == "duplicate":
+        manifest["papers"] = [row, row]
+    elif damage == "population":
+        row["canonical_report"] = "reports/science/unrelated.md"
+
+    def no_process(*args: object, **kwargs: object) -> None:
+        raise AssertionError("Source binding lint invoked a compiler or Git history")
+
+    monkeypatch.setattr(subprocess, "run", no_process)
+    check = getattr(reader_source, "check_retained_sources", None)
+    assert callable(check), "The retained Markdown-to-export lint check is missing"
+    if damage is None:
+        assert check(root, inventory, manifest) == {
+            "reports/science/paper.md": row["canonical_source_sha256"]
+        }
+    else:
+        with pytest.raises(SourceError):
+            check(root, inventory, manifest)

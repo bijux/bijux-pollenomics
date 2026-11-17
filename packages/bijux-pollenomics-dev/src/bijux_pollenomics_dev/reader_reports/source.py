@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import csv
 from dataclasses import dataclass
 import hashlib
@@ -9,6 +10,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import subprocess
+from typing import Any
 from urllib.parse import unquote, urlsplit
 
 PAPER_ID = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
@@ -62,6 +64,17 @@ class Paper:
 def sha256_bytes(data: bytes) -> str:
     """Return the SHA-256 digest of the exact supplied bytes."""
     return hashlib.sha256(data).hexdigest()
+
+
+def exported_content(source: bytes) -> bytes:
+    """Remove only historical metadata lines suppressed by the paper renderer."""
+    return re.sub(
+        rb"^<!-- scientific-(?:claim-semantic|authored-source)-sha256: "
+        rb"[0-9a-f]{64} -->\n",
+        b"",
+        source,
+        flags=re.MULTILINE,
+    )
 
 
 def file_sha256(path: Path) -> str:
@@ -157,6 +170,38 @@ def load_inventory(root: Path, value: str | Path) -> tuple[Path, str, list[Paper
     if not papers:
         raise SourceError("inventory contains no canonical reports")
     return inventory, sha256_bytes(raw), papers
+
+
+def check_retained_sources(
+    root: Path, inventory_value: str | Path, manifest: Mapping[str, Any]
+) -> dict[str, str]:
+    """Refuse stale canonical accounts without compilers, PDFs or historical Git."""
+    _, _, papers = load_inventory(root, inventory_value)
+    if manifest.get("schema_version") != "canonical-paper-pdf-library.v1":
+        raise SourceError("unknown retained paper manifest")
+    rows = manifest.get("papers")
+    if not isinstance(rows, list) or len(rows) != len(papers):
+        raise SourceError("retained paper source population differs")
+    declared: dict[str, str] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            raise SourceError("retained paper source record must be an object")
+        path, digest = row.get("canonical_report"), row.get("canonical_source_sha256")
+        if (
+            not isinstance(path, str)
+            or path in declared
+            or not isinstance(digest, str)
+            or re.fullmatch(r"[0-9a-f]{64}", digest) is None
+        ):
+            raise SourceError("retained paper needs one exact canonical source digest")
+        declared[path] = digest
+    current = {paper.relative_path.as_posix(): paper.source_sha256 for paper in papers}
+    if set(current) != set(declared):
+        raise SourceError("retained paper canonical source membership differs")
+    for path, digest in current.items():
+        if digest != declared[path]:
+            raise SourceError(f"retained PDF canonical source is stale: {path}")
+    return current
 
 
 def output_directory(root: Path, value: str | Path) -> Path:
