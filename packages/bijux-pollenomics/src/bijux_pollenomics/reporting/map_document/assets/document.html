@@ -1334,6 +1334,7 @@
       }
       .focus-card {
         grid-area: reader;
+        overflow-wrap: anywhere;
         position: relative;
         min-width: 0;
         min-height: 0;
@@ -1427,7 +1428,6 @@
         display: grid;
         grid-template-columns: minmax(0, 1fr);
         min-width: 0;
-        overflow-wrap: anywhere;
         gap: 8px;
         margin-bottom: 12px;
         padding: 12px;
@@ -6408,7 +6408,7 @@ __URL_STATE_CONTROLLER__
       }
       function animalSourceChronologyPopupHtml(feature, layer = null) {
         if (!animalSourceChronologyFeatureIsValid(feature)) return '';
-        const sourceRows = availablePopupRows(Array.isArray(feature.popup_rows) ? feature.popup_rows : []);
+        const sourceRows = availablePopupRows(feature.popup_rows);
         const identityRows = [
           { label: 'Project accession', value: feature.project_accession },
           { label: 'Repository sample', value: feature.repo_stable_sample_id },
@@ -6474,8 +6474,7 @@ __URL_STATE_CONTROLLER__
         return `<div class="popup-grid"><div><strong>Name</strong> ${escapeHtml(feature.title || '')}</div><div><strong>Type</strong> ${escapeHtml(feature.subtitle || '')}</div>${rowHtml}${sourceChronologyHtml}${scientificHtml}<div><strong>Coords</strong> ${escapeHtml(coordinateLabel(feature, 6))}</div>${mediaLinksHtml(feature.media_links)}${feature.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
       function polygonPopupHtml(layer, properties) {
-        const rows = Array.isArray(properties.popup_rows) ? properties.popup_rows : [];
-        const rowHtml = availablePopupRows(rows).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value)}</div>`).join('');
+        const rowHtml = availablePopupRows(properties.popup_rows).map((row) => `<div><strong>${escapeHtml(row.label || '')}</strong> ${escapeHtml(row.value)}</div>`).join('');
         const isPublishedModel = isModeledContextFeature(layer, properties);
         const metric = currentModeledContextMetric();
         const estimate = modeledContextEstimate(properties);
@@ -6503,7 +6502,7 @@ __URL_STATE_CONTROLLER__
         return value !== null && value !== undefined && !(typeof value === 'string' && !value.trim());
       }
       function availablePopupRows(rows) {
-        return rows.filter((row) => row && valueIsAvailable(row.value));
+        return (Array.isArray(rows) ? rows : []).filter((row) => row && valueIsAvailable(row.value));
       }
       function finiteCoordinateValue(value, minimum, maximum) {
         if (value === null || value === undefined || typeof value === 'boolean') return null;
@@ -7337,7 +7336,7 @@ async function openSourceResources(selection = {}) {
                       { label: 'Layer', value: layer.label },
                       { label: 'Country', value: properties.country || 'Unassigned' },
                       { label: 'Type', value: properties.category || properties.geometry_type || 'Polygon record' },
-                    ].concat(featureTimeDescriptor(properties) ? [featureTimeDescriptor(properties)] : []),
+                    ].concat(featureTimeDescriptor(properties) ? [featureTimeDescriptor(properties)] : [], availablePopupRows(properties.popup_rows)),
                     sourceUrl: properties.source_url || '',
                     bounds: bounds.isValid() ? [[bounds.getSouth(), bounds.getWest()], [bounds.getNorth(), bounds.getEast()]] : null,
                   });
