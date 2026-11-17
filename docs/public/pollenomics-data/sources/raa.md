@@ -4,20 +4,27 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-10-01
+last_reviewed: 2026-11-17
 ---
 
 # RAÄ
 
-RAÄ is intended to supply dense, Sweden-specific archaeology context from
-Riksantikvarieämbetet's published Fornsök/Open Data surfaces. The repository
-retains capture metadata and derived density files for audit, but does not
-currently admit them as governed archaeology evidence. Under decision D2-033,
-the exact byte-identical v0.1.8 density pair is visible by default as degraded
-historical context. RAÄ authority remains refused until the raw inventory, raw
-summary, normalized counts, and qualified scientific review reconcile.
+RAÄ supplies Sweden-specific registry context from Riksantikvarieämbetet's
+published Fornsök/Open Data surfaces. Two routes have separate source identities,
+populations and publication contracts:
 
-## Checked-In Evidence
+- The historical WFS aggregates retain the exact v0.1.8 density pair. Decision
+  D2-033 permits its default-visible degraded display. Its record denominator
+  remains unqualified until the original inventory, query summaries and review
+  reconcile.
+- The [native GeoPackage POINT consumer](raa-native-point-grid.md) defines a
+  conditional count of selected native UUIDs in one-degree SWEREF99 cells. Its
+  [optional Atlas route](../publications/raa-native-registry-context.md) requires
+  explicit, independently pinned aggregate inputs and is disabled by default.
+  It carries no country assignment, archaeological chronology or scientific
+  admission.
+
+## Historical WFS Evidence
 
 | Surface | Current state | Meaning |
 | --- | --- | --- |
@@ -40,10 +47,10 @@ values remain display-only and cannot support an analytical RAÄ count.
 
 ```mermaid
 flowchart LR
-    Source["Fornsök and RAÄ Open Data"] --> Capture["partial retained capture"]
-    Capture --> Refusal["authority refused"]
-    Refusal --> Missing["inventory, summary, and review required"]
-    Missing --> Future["future governed density assessment"]
+    Source["Historical WFS queries"] --> Capture["retained query aggregates"]
+    Capture --> Refusal["historical count authority refused"]
+    Refusal --> Missing["original inventory, query summaries, and review required"]
+    Missing --> Future["historical population reconciliation"]
 ```
 
 ## Read A Density Cell
@@ -138,7 +145,7 @@ The families are complementary and must not be merged into one archaeology
 denominator. Their observation units, geographic reach, spatial resolution,
 and capture depth differ.
 
-## Governing Surfaces
+## Historical WFS Publication
 
 - `data/raa/raw/arkreg_v1_0_wfs_capabilities.xml` preserves service capability
   context;
@@ -150,9 +157,11 @@ and capture depth differ.
 - `data/raa/normalized/sweden_archaeology_density.geojson` governs the visible
   density geometry.
 
-Public maps may display only the exact D2-033 historical pair while authority
-remains refused. The layer must remain visibly degraded, display-only,
-chronology-absent and propagation-ineligible; any substituted pair is excluded.
+The historical WFS layer displays only the exact D2-033 pair while its authority
+remains refused. It remains visibly degraded, display-only, chronology-absent
+and propagation-ineligible; any substituted pair is excluded. The separately
+requested native registry layer follows its
+[own aggregate publication contract](../publications/raa-native-registry-context.md).
 Continue to
 [RAÄ exports](../publications/raa-exports.md) for the publication role and
 [source comparison](source-comparison.md) before combining RAÄ with another

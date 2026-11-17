@@ -4,20 +4,26 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-21
+last_reviewed: 2026-11-17
 ---
 
 # RAÄ Exports
 
-RAÄ is intended to provide Sweden-specific archaeology context from
-Riksantikvarieämbetet/Fornsök Open Data. The repository retains capture
-metadata and derived density files for audit, but RAÄ is not currently an
-admitted scientific export. Decision D2-033 publishes only the exact v0.1.8
-normalized pair as default-visible degraded historical context. Source authority
-is refused until the raw inventory, raw summary, normalized counts, and
-qualified scientific review reconcile.
+This page governs the **historical WFS aggregate pair** from
+Riksantikvarieämbetet/Fornsök Open Data. Decision D2-033 permits its exact
+v0.1.8 normalized bytes as default-visible degraded context. Its historical
+record denominator remains unqualified until the original inventory, query
+summaries and qualified review reconcile.
 
-## Current Governed Surface
+The [native POINT consumer](../sources/raa-native-point-grid.md) and
+[optional native registry Atlas layer](raa-native-registry-context.md) have a
+separate conditional UUID-count contract. Their source epoch, selection, grid
+and exclusions travel with explicitly supplied aggregate files. That route is
+disabled by default and carries no archaeological chronology, country
+assignment or scientific admission. It does not reconcile the historical WFS
+population described below.
+
+## Governed Historical WFS Surface
 
 | Measure | Governed value |
 | --- | --- |
@@ -38,10 +44,10 @@ legend, popup and publication contract.
 
 ```mermaid
 flowchart LR
-    OpenData["RAÄ source interface"] --> Capture["partial retained capture"]
-    Capture --> Refusal["authority refused"]
-    Refusal --> Missing["inventory, summary, and review required"]
-    Missing --> Future["future governed export assessment"]
+    OpenData["Historical WFS queries"] --> Capture["retained query aggregates"]
+    Capture --> Refusal["historical count authority refused"]
+    Refusal --> Missing["original inventory, query summaries, and review required"]
+    Missing --> Future["historical population reconciliation"]
 ```
 
 ## Retained Aggregate Semantics
@@ -65,8 +71,9 @@ source population cannot be reconstructed or compared responsibly.
 
 ## Supported Interpretation
 
-No current analytical interpretation is supported. The current public display
-means only that an exact retained cell and value exist in the historical pair.
+No analytical interpretation is supported for these historical WFS files.
+Their public display means only that an exact retained cell and value exist in
+the historical pair.
 After a future authority admission, a regenerated layer may support questions about the
 spatial density of published Swedish archaeology records under a declared
 classification and grid.
