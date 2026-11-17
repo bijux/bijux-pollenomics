@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#509](https://github.com/bijux/bijux-pollenomics/pull/509) — Conditional native registry cell evidence
+
+Retain the exact qualified RAÄ portable cell map, complete count CSV and display footprints with source/exclusion/projection limits and upstream software notices. Preserve whole-cell counts at partial display edges, default-off country/time boundaries and the known retained-interface/browser limitations. Strict documentation and exact public-file correspondence pass without reopening native inputs, recomputing registry membership or claiming archaeological events or area density.
+
 ### [#508](https://github.com/bijux/bijux-pollenomics/pull/508) — Selected recorded ancestry and visible polygon context
 
 Project explicit source-pinned taxon/publication targets into the optional Atlas ancillary reader, preserving selected-index integrity and recorded-role limits. Keep polygon context visible without a covering empty-state alert, retain scope facts and fit generated country configurations within the existing runtime cap. Generated projection/refusal controls, matched typing and strict documentation qualify the software without native body reads, source acquisition or scientific admission.
