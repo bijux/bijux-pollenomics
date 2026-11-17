@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#499](https://github.com/bijux/bijux-pollenomics/pull/499) — Filesystem inventory scratch lifetime
+
+- Release the recursive inventory visitor and scratch names on successful
+  scans and refusals without waiting for cyclic collection.
+- Preserve returned inventories, namespace/size/identity checks and descriptor
+  lifetimes, with generated success and refusal regression controls.
+- Keep measured partial-path memory results separate from whole-process
+  attribution or native-capture feasibility claims.
+
 ### [#498](https://github.com/bijux/bijux-pollenomics/pull/498) — Conditional LandClim covariance limits
 
 - Distinguish passing local SE bounds from the conditional partial joint
