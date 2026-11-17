@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#498](https://github.com/bijux/bijux-pollenomics/pull/498) — Conditional LandClim covariance limits
+
+- Distinguish passing local SE bounds from the conditional partial joint
+  covariance failures while retaining all separate row populations.
+- State exact-decimal, shared-unit, constant-total and unresolved rounding
+  assumptions without inferring historical calculation or ecological errors.
+- Preserve the original evidence links and replace unsupported outreach-status
+  assertions with concrete unresolved production-packet requirements.
+
 ### [#497](https://github.com/bijux/bijux-pollenomics/pull/497) — Troitski source context and period limits
 
 - Record the selected nineteen-table context for one unassigned native site,
