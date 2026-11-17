@@ -344,7 +344,9 @@ def _originals(
     for name in NAMES:
         raw = _read(tree, "originals/" + name, manifest["files"]["originals/" + name])
         if (
-            sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+            sha1(
+                b"blob " + str(len(raw)).encode() + b"\0" + raw, usedforsecurity=False
+            ).hexdigest()
             != provenance["originals"][name]["git_blob"]
         ):
             raise ValueError("Taxonomy reference original Git blob identity differs")

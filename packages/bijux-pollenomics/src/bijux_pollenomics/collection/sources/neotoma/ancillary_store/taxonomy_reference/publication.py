@@ -129,7 +129,9 @@ def write_neotoma_taxonomy_reference_archive(
         for name in NAMES:
             pin = source.files[name]
             raw = read("originals/" + name, pin)
-            blob = sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+            blob = sha1(
+                b"blob " + str(len(raw)).encode() + b"\0" + raw, usedforsecurity=False
+            ).hexdigest()
             if git[name]["size"] != len(raw) or git[name]["sha"] != blob:
                 raise ValueError(
                     "Taxonomy reference original bytes differ from Git membership"

@@ -305,7 +305,9 @@ def checked_tree(
             rows, key=lambda row: row["path"] + ("/" if row["type"] == "tree" else "")
         )
     )
-    pin = sha1(b"tree " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+    pin = sha1(
+        b"tree " + str(len(raw)).encode() + b"\0" + raw, usedforsecurity=False
+    ).hexdigest()
     # A commit-addressed GitHub tree response can retain its query selector.
     # Its entries must still reconstruct the canonical tree bound by that commit.
     selectors = {pin}

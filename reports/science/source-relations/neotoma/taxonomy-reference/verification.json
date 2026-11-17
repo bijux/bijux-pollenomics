@@ -159,5 +159,19 @@
         "sha256": "433d3b9aa34fdbce6e1356014cd9ff98dbf6987bde7418f24541c1177dd65734"
       }
     }
+  },
+  "delivery_source_correspondence": {
+    "actual_producer_revision": "ba8d412657921253e6e0da78488170879ddd0ccf",
+    "recoverable_source_ref": "source/neotoma-taxonomy-reference",
+    "Python_files": 13,
+    "unchanged_actual_producer_Python_blobs": 10,
+    "changed_files": [
+      "taxonomy_reference/contracts.py",
+      "taxonomy_reference/publication.py",
+      "taxonomy_reference/reading.py"
+    ],
+    "change": "Explicit usedforsecurity=False on the three native Git SHA1 object-ID calculations. Required Git digests are unchanged; independent SHA256 source/archive integrity checks remain unchanged.",
+    "saved_product_files_changed": 0,
+    "scientific_or_source_reexecution": false
   }
 }

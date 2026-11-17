@@ -4,7 +4,7 @@ Repository changes are recorded by pull request, newest merge first.
 
 ### [#517](https://github.com/bijux/bijux-pollenomics/pull/517) — Dated taxonomy references and recorded lead lookup
 
-Retain the official dated Neotoma vocabulary projections with portable source provenance, immutable native-ID lookup, positional synonym assertions and local recorded-frontier comparison. Publish the exact nine-file archive/contrast and connected source account, preserving all 182 stored leads and separating older lookup outcomes from native captures, current roles, ecological mappings and scientific admission. Actual workflow-matched lint/typing, strict documentation and exact closed-product correspondence pass; no source acquisition, baseline replay, model execution or revised Atlas/frontier result is claimed for delivery.
+Retain the official dated Neotoma vocabulary projections with portable source provenance, immutable native-ID lookup, positional synonym assertions and local recorded-frontier comparison. Publish the exact nine-file archive/contrast and connected source account, preserving all 182 stored leads and separating older lookup outcomes from native captures, current roles, ecological mappings and scientific admission. Mark native Git object hashes with their protocol purpose while keeping independent SHA256 integrity checks. Actual workflow-matched security/lint/typing, strict documentation and exact closed-product correspondence pass; no source acquisition, baseline replay, model execution or revised Atlas/frontier result is claimed for delivery.
 
 ### [#516](https://github.com/bijux/bijux-pollenomics/pull/516) — Qualified recorded Neotoma source reading
 
