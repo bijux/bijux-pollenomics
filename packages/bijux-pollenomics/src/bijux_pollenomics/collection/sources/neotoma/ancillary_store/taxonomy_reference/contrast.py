@@ -50,6 +50,7 @@ def plain(value: Any) -> Any:
 def _recorded(row: Any) -> dict[str, Any]:
     if (
         not isinstance(row, dict)
+        or type(row.get("target_kind")) is not str
         or row.get("target_kind") not in {"taxon", "publication"}
         or row.get("target_key")
         != f"{row['target_kind']}-{native_id(row.get('native_id'))}"
