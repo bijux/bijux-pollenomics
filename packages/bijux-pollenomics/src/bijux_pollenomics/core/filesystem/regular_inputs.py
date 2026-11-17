@@ -93,6 +93,8 @@ class BoundedInputTree:
 
         def walk(descriptor: int, prefix: str, depth: int) -> None:
             nonlocal total, visited
+            if visit is None:
+                raise RuntimeError("Input inventory traversal is closed")
             with os.scandir(descriptor) as entries:
                 for entry in entries:
                     if (
@@ -112,7 +114,7 @@ class BoundedInputTree:
                             if identity(os.fstat(child)) != identity(node):
                                 raise ValueError("Input directory identity changed")
                             directories[name] = identity(node)
-                            walk(child, name + "/", depth + 1)
+                            visit(child, name + "/", depth + 1)
                         finally:
                             os.close(child)
                     elif stat.S_ISREG(node.st_mode) and node.st_nlink == 1:
@@ -132,23 +134,31 @@ class BoundedInputTree:
                             "Input namespace contains a nonregular or aliased member"
                         )
 
-        if self.selected is not None:
-            if (
-                not self.selected
-                or Path(self.selected).name != self.selected
-                or self.selected in {".", ".."}
-            ):
-                raise ValueError("Selected input member is not a literal filename")
-            node = os.stat(self.selected, dir_fd=self.anchor.fd, follow_symlinks=False)
-            if not stat.S_ISREG(node.st_mode) or node.st_nlink != 1:
-                raise ValueError("Selected input is not a regular unaliased file")
-            if node.st_size > self.max_bytes:
-                raise ValueError("Selected input exceeds its byte bound")
-            files[self.selected] = _stamp(node)
-        else:
-            walk(self.anchor.fd, "", 0)
-        self.anchor.check()
-        return files, directories
+        visit: Callable[[int, str, int], None] | None = walk
+        try:
+            if self.selected is not None:
+                if (
+                    not self.selected
+                    or Path(self.selected).name != self.selected
+                    or self.selected in {".", ".."}
+                ):
+                    raise ValueError("Selected input member is not a literal filename")
+                node = os.stat(
+                    self.selected, dir_fd=self.anchor.fd, follow_symlinks=False
+                )
+                if not stat.S_ISREG(node.st_mode) or node.st_nlink != 1:
+                    raise ValueError("Selected input is not a regular unaliased file")
+                if node.st_size > self.max_bytes:
+                    raise ValueError("Selected input exceeds its byte bound")
+                files[self.selected] = _stamp(node)
+            else:
+                walk(self.anchor.fd, "", 0)
+            self.anchor.check()
+            return files, directories
+        finally:
+            # The recursive visitor cell also owns the scratch inventory.
+            # Close it on success and refusal without waiting for cyclic collection.
+            visit = None
 
     def _parent(self, name: str) -> tuple[int, str]:
         parts = Path(name).parts
