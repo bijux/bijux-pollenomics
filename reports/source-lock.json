@@ -86,7 +86,8 @@
     "reports/science/synthetic-model-selection/README.md",
     "reports/science/synthetic-protocol-metrics/README.md",
     "reports/science/uppakra-landscape-source.md",
-    "reports/science/vegetation-reference.md"
+    "reports/science/vegetation-reference.md",
+    "reports/science/chronology/sead/troitski-site-3441/README.md"
   ],
   "sources": {
     "configs/ci/qualified-report-sources/abbo-age-controls.json": "e9ab75037f69c4fb5939524c3d642f49dfcaad525f61ed30d788edf9bac2e235",
@@ -2296,6 +2297,7 @@
     "reports/science/vegetation-reference/southern-sweden-figure/compare.py",
     "reports/verify.py",
     "uv.lock",
-    "reports/science/chronology/sead/troitski-site-3441/verification.json"
+    "reports/science/chronology/sead/troitski-site-3441/verification.json",
+    "reports/science/chronology/sead/troitski-site-3441/README.md"
   ]
 }
