@@ -20,6 +20,10 @@ from .projection import SUPPORT_BOUNDS, project_cells
 REPORT_LIMIT = 64 * 1024
 COUNTS_LIMIT = 16 * 1024
 BUFFER_LIMIT = 1024 * 1024
+SOURCE_VERIFICATION = (
+    "independently pinned qualified aggregates; no original source replay"
+)
+PROFILE_BINDING_SCOPE = "producer binding; not independently reconstructed here"
 
 
 def _digest(value: object) -> bool:
@@ -272,10 +276,10 @@ def capture_native_registry_context(
         "excluded_uuids": counts["source_uuids"] - counts["included_uuids"],
         "display_accounting": accounting,
         "display_operation": operation,
-        "source_verification": "independently pinned qualified aggregates; no original source replay",
+        "source_verification": SOURCE_VERIFICATION,
         "native_profile_binding": {
             "sha256": report["native_profile_sha256"],
-            "scope": "producer binding; not independently reconstructed here",
+            "scope": PROFILE_BINDING_SCOPE,
         },
         "scientific_admission": False,
         "country_assignment": "not_performed",
