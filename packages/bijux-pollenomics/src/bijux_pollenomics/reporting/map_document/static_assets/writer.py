@@ -483,6 +483,16 @@ def write_static_atlas_assets(
         manifest=manifest,
         asset_paths=tuple(asset_paths),
     )
+    # Detached producer payloads now have files and hash-bound metadata. Release
+    # every resource-record alias before independent readback rebuilds the graph.
+    del (
+        resource_transport,
+        payloads,
+        payload,
+        source_payload,
+        payload_json,
+        script_bytes,
+    )
     validate_static_atlas_assets(result)
     return result
 
