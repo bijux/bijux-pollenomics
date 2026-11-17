@@ -18,27 +18,29 @@ pollen-morphotype equivalence, forest/open-land classes or applicable PPE.
 
 Keep the complete `atlas/` directory together. Its HTML, indexed metadata,
 scripts, styles and images are separate files; copying only `index.html` is
-insufficient. The local index is the intended entry point. Native browser
-qualification is **open**: the local-file attempts refused during selection or
-mobile JSON label/value reachability. A complete 32-visit, two-viewport reading
-result has not been established; failed-test screenshots are not acceptance.
-Completed static publication and transport validation establish the saved
-metadata, not full reader operability or downloads.
+insufficient. The local index is the entry point. The maintained presentation at
+[source revision `4ba3d6b`](https://github.com/bijux/bijux-pollenomics/commit/4ba3d6b8d135bba7038759d235c814d4df394820)
+was qualified in local-file Chromium at **390 and 1,440 pixels**: all 16 selected
+targets were opened at each width. The 32 visits checked designated JSON pointer
+labels and values, native scrolling, complete source-ID button text, and Escape
+focus return and reopening. Preformatted JSON retains its own horizontal scroll
+region; long values can require scrolling rather than fitting simultaneously.
 
-A separate generated check of the same maintained reader and styles measured
-a long support-ID button at 644.875 pixels inside a 276-pixel parent at the
-390-pixel viewport, expanding the dialog's scroll width to 699 pixels against
-350 pixels of client width. This unchanged snapshot retains that mobile
-overflow limitation. Preformatted JSON has its own horizontal scroll region;
-that intended scroll does not establish successful native reachability of all
-labels and values. The [verification record](verification.json) distinguishes
-these open interaction checks from the qualified static product.
+Follow **Neotoma source resources → Metadata population → Supporting metadata
+entries → Search source metadata**. Search for a literal target key such as
+`taxon-327`, then open its indexed row and inspect **Exact recorded metadata and
+source identities**. The selected target table below the search is metadata;
+it does not grant source acquisition or scientific use.
 
-The intended reading route is **Neotoma source resources → Metadata population
-→ Supporting metadata entries → Search source metadata**. Search for a literal
-target key such as `taxon-327`, then inspect its recorded metadata and source
-identities. These interface labels describe the intended route through the
-existing reader; a complete native reading result is not claimed.
+The [verification record](verification.json) separates this completed, bounded
+native reading result from untested HTTP hosting, downloads, other browsers and
+other targets. The earlier selection, scrolling and long-button refusals remain
+historical results; they are not qualifications of the refreshed presentation.
+
+| Actual local-file view | Desktop | Mobile |
+| --- | --- | --- |
+| Taxon 7641 | [Recorded identity](views/desktop-taxon-7641.png) | [Wrapped identity and JSON](views/mobile-taxon-7641.png) |
+| Publication 10139 | [Recorded citation target](views/desktop-publication-10139.png) | [Recorded citation target](views/mobile-publication-10139.png) |
 
 The metadata route offers no ancestry entity-body download or acquisition
 authority. Source-resource download availability is a separate route and is not
@@ -72,7 +74,7 @@ not authorized, and scientific admission is not asserted.
 ## Verify and reuse the portable snapshot
 
 Receive the repository at an independently trusted Git revision. The adjacent
-verification record pins every relative file in the 104-file, 11,975,836-byte
+verification record pins every relative file in the 105-file, 11,976,491-byte
 `atlas/` tree. With the host SDK installed, run this from the repository root:
 
 ```python
@@ -86,7 +88,7 @@ account = Path("reports/science/source-integrity/neotoma/recorded-source-atlas")
 checks = json.loads((account / "verification.json").read_text())
 snapshot = account / "atlas"
 pins = checks["snapshot"]["members"]
-with BoundedInputTree(snapshot, max_bytes=11_975_836, max_files=104) as tree:
+with BoundedInputTree(snapshot, max_bytes=11_976_491, max_files=105) as tree:
     assert set(tree.files) == set(pins)
     for name, pin in pins.items():
         raw = tree.read(snapshot / name, max_bytes=pin["bytes"])
@@ -99,13 +101,22 @@ Retain the [software notices](notices/README.md) when redistributing the map.
 Credit Neotoma, the constituent databases, investigators and appropriate dataset
 publications when reusing the separately governed source evidence.
 
-The completed publication used the existing static-asset writer, HTML renderer
+The original metadata publication used the existing static-asset writer, HTML renderer
 and owned publication boundary at [source revision `df54b2d`](https://github.com/bijux/bijux-pollenomics/commit/df54b2de1ba76de3edb2fabe7b6bc733e590bb85).
 It restored the qualified compact projection and attached selected chain
 metadata, preserving the earlier logical populations. Exact regeneration needs
 those explicitly bound inputs; these rendered files alone are not a public
 inverse-catalogue API. Copying and verifying the snapshot does not require that
 restoration, a provider request or a model run.
+
+The presentation refresh reused 100 exact recorded metadata and vendor files,
+retained the three runtime script files, and re-rendered the HTML through the
+maintained renderer. Its new [presentation record](atlas/presentation.json)
+binds revision `4ba3d6b` while the original [metadata publication record](atlas/metadata-publication.json)
+remains unchanged. The asset version `source-25247099-selected-ancestry` and
+descriptive original epoch `source-metadata-25247099` have distinct meanings.
+Neither the later twelve-detail capture nor a successor normalized chain was
+added by this presentation refresh.
 
 Continue to the [native source archive](../../../../../docs/public/pollenomics-data/sources/neotoma-source-resources.md)
 and [ancillary contracts](../../../../../docs/public/pollenomics-data/sources/neotoma-ancillary-resources.md#selected-recorded-ancestry-in-atlas)
@@ -115,21 +126,21 @@ for the separate source-reader, current-permission and method-input boundaries.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Portable recorded source metadata with 16 explicit ancestry targets; unchanged numerical Atlas scope.
+**Supported claim.** Portable recorded source metadata with 16 explicit ancestry targets, with qualified local-file reading at 390 and 1,440 pixels; unchanged numerical Atlas scope.
 
-**Unsupported claim.** Complete native reader operability or downloads, current permissions, names or publication titles in the selected projection, taxon/PPE equivalence, admitted method inputs or vegetation accuracy.
+**Unsupported claim.** HTTP hosting, downloads, all-browser or all-target operability, current permissions, names or publication titles in the selected projection, taxon/PPE equivalence, admitted method inputs or vegetation accuracy.
 
-**Actual verification performed.** Closed process, exact 104-file hashes, full transport validators and staged/final logical witnesses; no new GET or model.
+**Actual verification performed.** Exact 105-file hashes, full transport validators and staged/final logical witnesses; 32 native visits, 320 designated pointer label/value checks, 780 visible text segments and 32 complete source-button checks; no new GET or model.
 
-**Remaining input or review.** Native JSON label/value reachability remains open, with a measured long support-button mobile overflow in the unchanged reader. Source and method decisions stay separate. Resolver: Source reader and method reviewer. Reopen when: A changed source epoch, selected input or newly qualified browser result.
+**Remaining input or review.** Downloads, HTTP hosting and targets outside the selected sixteen remain unqualified. Source and method decisions stay separate. Resolver: Source reader and method reviewer. Reopen when: A changed presentation, source epoch, selected input or required browser/use route.
 
 **Cause category.** Recorded metadata integrity and scientific eligibility have different owners.
 
 **Consequence.** Metadata can be inspected without upgrading source authority.
 
-**Precise next acceptance route.** Repair and separately qualify native reader interactions on a maintained refresh; bind source and method inputs independently before scientific use.
+**Precise next acceptance route.** Qualify any required additional hosting or download route separately; bind source and method inputs independently before scientific use.
 
-**Negative or refused result.** Local-file browser attempts refused during selection or mobile JSON reachability; no complete 32-visit result. Earlier one-GiB publication refusal is distinct from this successful static snapshot.
+**Negative or refused result.** Earlier local-file attempts refused during selection or mobile JSON reachability, and earlier bounded publications refused separately. They remain distinct from this completed presentation and 32-visit local-file result.
 
 **Matched denominator.** 1,258 dataset identities / 527 sites; six supporting archives, 531 entries, including 16 selected targets.
 

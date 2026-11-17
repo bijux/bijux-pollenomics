@@ -1,42 +1,46 @@
 {
-  "status": "STATIC_PUBLICATION_QUALIFIED_NATIVE_READER_OPEN",
+  "status": "STATIC_PUBLICATION_AND_SELECTED_LOCAL_FILE_READER_QUALIFIED",
   "source_revision": "df54b2de1ba76de3edb2fabe7b6bc733e590bb85",
   "snapshot": {
     "directory": "atlas",
-    "files": 104,
-    "bytes": 11975836,
+    "files": 105,
+    "bytes": 11976491,
     "members": {
-      "_map_assets/leaflet/images/layers-2x.png": {
-        "bytes": 1259,
-        "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf"
+      "neotoma-recorded-source-context.atlas-resources.0055.84be1b860cec5702.js": {
+        "bytes": 105272,
+        "sha256": "84be1b860cec5702603be07993908cdce0b38657f5036163cb4c8a31100cc28d"
       },
-      "_map_assets/leaflet/images/layers.png": {
-        "bytes": 696,
-        "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6"
+      "neotoma-recorded-source-context.atlas-resources.0049.bcdc6335400d94f5.js": {
+        "bytes": 49352,
+        "sha256": "bcdc6335400d94f50545b81bbdfec72e124784f8c39c57b2f34b703475bd103d"
       },
-      "_map_assets/leaflet/images/marker-icon-2x.png": {
-        "bytes": 2464,
-        "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528"
+      "neotoma-recorded-source-context.atlas-resources.0071.cfc5dafb7bff305a.js": {
+        "bytes": 76500,
+        "sha256": "cfc5dafb7bff305abee2c6bf668088c251568e907ef46143d2961e5b9358f192"
       },
-      "_map_assets/leaflet/images/marker-icon.png": {
-        "bytes": 1466,
-        "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437"
+      "neotoma-recorded-source-context.atlas-resources.0004.5673091287bbb2fd.js": {
+        "bytes": 6011,
+        "sha256": "5673091287bbb2fd3c81eae7ad55b8d59c14dbbdd190217816d65806f9d103d3"
       },
-      "_map_assets/leaflet/images/marker-shadow.png": {
-        "bytes": 618,
-        "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da"
+      "neotoma-recorded-source-context.atlas-resources.0057.9ef68b1e5fce0300.js": {
+        "bytes": 118820,
+        "sha256": "9ef68b1e5fce0300ba0e310baa3867aab0d1b66b832d0c5855c9d4f1a9d63208"
       },
-      "_map_assets/leaflet/leaflet.css": {
-        "bytes": 14806,
-        "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6"
+      "neotoma-recorded-source-context.atlas-resources.0038.2d7bcc960745039a.js": {
+        "bytes": 125784,
+        "sha256": "2d7bcc960745039a62e9696842a36f17d01b18e427b20f6b19f748461e5926cd"
       },
-      "_map_assets/leaflet/leaflet.js": {
-        "bytes": 147552,
-        "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
+      "neotoma-recorded-source-context.atlas-resources.0062.983dbe6c1ea87288.js": {
+        "bytes": 37540,
+        "sha256": "983dbe6c1ea8728842121204d58a9ae3b456c63d00ef821cf2e4e1b07113c15d"
       },
-      "_map_assets/markercluster/MarkerCluster.Default.css": {
-        "bytes": 1287,
-        "sha256": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170"
+      "index.atlas-evidence-tools.0eb67122cfbf0a1e.js": {
+        "bytes": 153776,
+        "sha256": "0eb67122cfbf0a1eb051ac2eee95478da3b3be4514e7baf56a8cb12a5c1a0997"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0010.71e1b3da617723c3.js": {
+        "bytes": 222624,
+        "sha256": "71e1b3da617723c3405177b60310e03455c692b7b30038807c9d712d692b472a"
       },
       "_map_assets/markercluster/MarkerCluster.css": {
         "bytes": 872,
@@ -46,261 +50,97 @@
         "bytes": 34136,
         "sha256": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508"
       },
-      "index.atlas-evidence-tools.0eb67122cfbf0a1e.js": {
-        "bytes": 153776,
-        "sha256": "0eb67122cfbf0a1eb051ac2eee95478da3b3be4514e7baf56a8cb12a5c1a0997"
+      "_map_assets/markercluster/MarkerCluster.Default.css": {
+        "bytes": 1287,
+        "sha256": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170"
       },
-      "index.atlas-index-transport.591bd382f0d8aed5.js": {
-        "bytes": 37058,
-        "sha256": "591bd382f0d8aed52b09b938b311aa3721bfc31a369649a146e204c26ade8599"
+      "_map_assets/leaflet/leaflet.js": {
+        "bytes": 147552,
+        "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
       },
-      "index.atlas-runtime.d157fcdf8fd25f23.js": {
-        "bytes": 524193,
-        "sha256": "d157fcdf8fd25f238becb9c45f88660fc11938805aa42328ce6aa18627943db5"
+      "_map_assets/leaflet/images/layers.png": {
+        "bytes": 696,
+        "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6"
       },
-      "index.html": {
-        "bytes": 106841,
-        "sha256": "516a2ba425f337e0ddd81f5deebb5dc3a74700263a0b09c67d406daee2e2cf91"
+      "_map_assets/leaflet/images/marker-icon.png": {
+        "bytes": 1466,
+        "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437"
       },
-      "metadata-publication.json": {
-        "bytes": 3073,
-        "sha256": "db5b844d4be5251553d7993e546692d0c66d4c796c93f66c4eb7faa51ca76999"
+      "_map_assets/leaflet/images/marker-icon-2x.png": {
+        "bytes": 2464,
+        "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528"
       },
-      "neotoma-recorded-source-context.atlas-edges.0001.ad81e79f26230525.js": {
-        "bytes": 695,
-        "sha256": "ad81e79f262305257f731e47b5cb0faeb699418fed1c18c9a6e06d3452fb89d9"
+      "_map_assets/leaflet/images/marker-shadow.png": {
+        "bytes": 618,
+        "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da"
       },
-      "neotoma-recorded-source-context.atlas-indexes.0003.52451735d5459a9e.js": {
-        "bytes": 3357,
-        "sha256": "52451735d5459a9ea8cc5b9be16209e4c7a22198e7ce93fe95a6f2e17112f5b9"
+      "_map_assets/leaflet/images/layers-2x.png": {
+        "bytes": 1259,
+        "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf"
       },
-      "neotoma-recorded-source-context.atlas-provenance.0000.35d48f4d547380bc.js": {
-        "bytes": 720,
-        "sha256": "35d48f4d547380bce30bed309b20b691557b544d0b977689233b173a2ec4fc90"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0004.5673091287bbb2fd.js": {
-        "bytes": 6011,
-        "sha256": "5673091287bbb2fd3c81eae7ad55b8d59c14dbbdd190217816d65806f9d103d3"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0005.6066645cf510fbf8.js": {
-        "bytes": 198915,
-        "sha256": "6066645cf510fbf81cdddac3c55cee04f6104634e7342856b01851aca71c2d93"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0006.2ef91d092929f53a.js": {
-        "bytes": 242395,
-        "sha256": "2ef91d092929f53ae9788de7d0cc8bfdc5c6e326f34c8fae9d1cfcadb189a141"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0007.e8ad24eb3a944c71.js": {
-        "bytes": 138415,
-        "sha256": "e8ad24eb3a944c7115f93df252b5b919ac27c1c58790c9464f17d416d91022a9"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0008.6012d159ee1615c1.js": {
-        "bytes": 134675,
-        "sha256": "6012d159ee1615c162fc6adf4fb64dc5c283d01fa9c2a4b0003b417b197b2c15"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0009.c8cd4fca1203513d.js": {
-        "bytes": 200599,
-        "sha256": "c8cd4fca1203513d574c1eec1e2e6f9c1c9d4d754a53935604c1748fa57cc8ed"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0010.71e1b3da617723c3.js": {
-        "bytes": 222624,
-        "sha256": "71e1b3da617723c3405177b60310e03455c692b7b30038807c9d712d692b472a"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0011.67590f6558e5ea22.js": {
-        "bytes": 125416,
-        "sha256": "67590f6558e5ea22b5246f83389173cdc41c4743a3ff9334691f602807f0ab36"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0012.58b215f4e290e952.js": {
-        "bytes": 336408,
-        "sha256": "58b215f4e290e952b6ef8ad0b54c7c72a96ca59ccfea9748c310a2e5086a1121"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0013.763500a3e3483441.js": {
-        "bytes": 48804,
-        "sha256": "763500a3e3483441fc9bfecb5f72fe19a9491d9d1f667fb5f769d1ca17803ce3"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0014.dfe350176683132f.js": {
-        "bytes": 65016,
-        "sha256": "dfe350176683132f65db4fac1527b700918f7be7b27becfcc46221bb1c55e604"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0015.13a0fdb586646ba7.js": {
-        "bytes": 63284,
-        "sha256": "13a0fdb586646ba730df2f77ce6ca53bcdd4d478fb310cc0e3c5c6c1324a3622"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0016.d0a68e30000064d4.js": {
-        "bytes": 24500,
-        "sha256": "d0a68e30000064d49457dc0f373b770f4852d862c3d989d7961da0c0303b86c9"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0017.2398f997b74d50fa.js": {
-        "bytes": 215816,
-        "sha256": "2398f997b74d50faed78ca2b5fa55db5e5781bb52023ba74f2e06e5b8196ef05"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0018.43d8375eab2cb97f.js": {
-        "bytes": 232760,
-        "sha256": "43d8375eab2cb97fb551e88c5fc8f3712329ae2bb50f459fcb7a6deb53fbea06"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0019.b3232de7382fcdc6.js": {
-        "bytes": 238660,
-        "sha256": "b3232de7382fcdc6efc67d78a434c08c6bfbb8ff4e007f236354f031efbea90b"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0020.d4945f38d65f5282.js": {
-        "bytes": 245916,
-        "sha256": "d4945f38d65f528277e730d0f72f088d3157e825edb44e2c073447096fcb4117"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0021.b3b7fb9bfc5fe94a.js": {
-        "bytes": 210304,
-        "sha256": "b3b7fb9bfc5fe94addcf726393636f38464026b23862f53b5c1756c1e00de4cb"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0022.c6442c4b59c6dad8.js": {
-        "bytes": 215168,
-        "sha256": "c6442c4b59c6dad8e4e51f6ee8292cbbf11ccda8cca4b5a43ac335907d3585f8"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0023.a6f59f6985105bf7.js": {
-        "bytes": 235640,
-        "sha256": "a6f59f6985105bf7998ed7782fcdfc6aa92a6f71cf38f7a2096ee68b94d22fb1"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0024.c53d99fdaa7576e4.js": {
-        "bytes": 218940,
-        "sha256": "c53d99fdaa7576e464eb1d082785b51847275037ad802a98df20cb85bbba66c6"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0025.17605fd309f254e4.js": {
-        "bytes": 224840,
-        "sha256": "17605fd309f254e4d6542b645aebd3a46939ed37011644ae82b28eb45c9c5d49"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0026.bc1df1e0cdbad779.js": {
-        "bytes": 221812,
-        "sha256": "bc1df1e0cdbad779769e955d1ffe178abe671efb1e6f3e08fb44f741bca48959"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0027.564af269a95bfc82.js": {
-        "bytes": 217676,
-        "sha256": "564af269a95bfc82e9774e39d2ef9e58f6d2f3cae68a7d92ac032dbe2503d424"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0028.3b7dbb91a82fdb3b.js": {
-        "bytes": 207968,
-        "sha256": "3b7dbb91a82fdb3bacd1fce2c1d7abbca4058fad78370d88a104ab9d224a106c"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0029.46a81af438be3945.js": {
-        "bytes": 199104,
-        "sha256": "46a81af438be3945bcdbd1583855c94e9602842756ce1180b2427d3390f679d4"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0030.0e7be457a65a1a96.js": {
-        "bytes": 215068,
-        "sha256": "0e7be457a65a1a9613a030b3d6d52c9f4bbc3c62e4c72422e840f90f69d197ad"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0031.4631da4db33f388a.js": {
-        "bytes": 235172,
-        "sha256": "4631da4db33f388aaa49dd9afdccbc22906ae8b75db91cad2a8995d4b85d9938"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0032.b11190ee609d02b8.js": {
-        "bytes": 177932,
-        "sha256": "b11190ee609d02b8067acf5e2ceb472f2ba3aa86ddbced05026110701fba88bc"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0033.0311f0bcc2736801.js": {
-        "bytes": 103808,
-        "sha256": "0311f0bcc2736801dc13b619707fce9f78826fb371c3b9ea5839339c7f931479"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0034.4e66ef156a108409.js": {
-        "bytes": 101696,
-        "sha256": "4e66ef156a10840943cd39d464406946cd838461b9c4ccb8b5194d1559c5807b"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0035.a41547668bb94dd0.js": {
-        "bytes": 56684,
-        "sha256": "a41547668bb94dd0bd8c1b854d3ea35776cf8adbb533e2e57bc1ac51d55b8463"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0036.dd6ac18b7403adb6.js": {
-        "bytes": 130192,
-        "sha256": "dd6ac18b7403adb69d6db5605c2ff9708083979c7bf8ce660090a37ceac61211"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0037.c1171330b11f4668.js": {
-        "bytes": 114416,
-        "sha256": "c1171330b11f46687bcf98c3623e6ad87b7618709c0a25cb5ff9ae062eb4a875"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0038.2d7bcc960745039a.js": {
-        "bytes": 125784,
-        "sha256": "2d7bcc960745039a62e9696842a36f17d01b18e427b20f6b19f748461e5926cd"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0039.59e1edf1bffdc247.js": {
-        "bytes": 114672,
-        "sha256": "59e1edf1bffdc247fa2546aa5905dd760bc8d1a614ea6ef3ff462958458cf061"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0040.744b0af2ae005b7e.js": {
-        "bytes": 138532,
-        "sha256": "744b0af2ae005b7e5622c7d09ebb4a5f3663c6c1d5b189f06914876a5b1aaced"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0041.e370888e056e897a.js": {
-        "bytes": 106228,
-        "sha256": "e370888e056e897af693136e381e8cd6862ed01c4f5983fed50e6fbf70b25de5"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0042.f54b20fa6b62c7b8.js": {
-        "bytes": 135152,
-        "sha256": "f54b20fa6b62c7b886df3ce827d2264a9b8b36fb9709354be53c81ed43bc6a18"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0043.cf36eb99c95e69eb.js": {
-        "bytes": 111060,
-        "sha256": "cf36eb99c95e69ebe27790ea327b674b67e1112b72c4018e978c4e21775ab925"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0044.4eadc2ef72c188d4.js": {
-        "bytes": 89932,
-        "sha256": "4eadc2ef72c188d4af66f8fd96bd3537fb2182169a8507b2d0c9d97e5055c052"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0045.2b764ec809cda8d3.js": {
-        "bytes": 88788,
-        "sha256": "2b764ec809cda8d3ce1c130de9351bd94f001bb63813a39dac96dce4d2c54662"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0046.d9058bcafc288817.js": {
-        "bytes": 114804,
-        "sha256": "d9058bcafc28881706831c53f8b3b0ce251e9326c4555f6bbd4ac865faa15a4f"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0047.1a24346f29b1a3fc.js": {
-        "bytes": 78232,
-        "sha256": "1a24346f29b1a3fc0736777eed1d201fe09da5b8fee76b92813b2d6892aa3355"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0048.57f6338381ba1ebe.js": {
-        "bytes": 60988,
-        "sha256": "57f6338381ba1ebe69f43f3fc58ece0d914ba8d3cc457433f25c41697cafaf7d"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0049.bcdc6335400d94f5.js": {
-        "bytes": 49352,
-        "sha256": "bcdc6335400d94f50545b81bbdfec72e124784f8c39c57b2f34b703475bd103d"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0050.4a842db371502d73.js": {
-        "bytes": 65752,
-        "sha256": "4a842db371502d73f1511b78787b3f679d680892146f9bb4747b18347433b286"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0051.250895ab33d2b5ce.js": {
-        "bytes": 65672,
-        "sha256": "250895ab33d2b5ce04d89eb8dcd138c0f22a51282dc0487637ccdfd4cb72da63"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0052.8a4065b72f3da1b0.js": {
-        "bytes": 58404,
-        "sha256": "8a4065b72f3da1b00aa989015ebaf51a82245c990f8641ab7d315fc52dfe4aa8"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0053.1ea9964655f59347.js": {
-        "bytes": 90764,
-        "sha256": "1ea9964655f59347660e3210a60327a77ddb0500088d8bc3fc83be33f381f9be"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0054.1638558a41ab0447.js": {
-        "bytes": 99356,
-        "sha256": "1638558a41ab04477d527df20d91d35e7f336f241ac17cb7bea2ae491b7e8bb8"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0055.84be1b860cec5702.js": {
-        "bytes": 105272,
-        "sha256": "84be1b860cec5702603be07993908cdce0b38657f5036163cb4c8a31100cc28d"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0056.48c832e3ad955594.js": {
-        "bytes": 110380,
-        "sha256": "48c832e3ad95559453577892df3f28c9a7967cef9c644d3737a5bd24c7c996ec"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0057.9ef68b1e5fce0300.js": {
-        "bytes": 118820,
-        "sha256": "9ef68b1e5fce0300ba0e310baa3867aab0d1b66b832d0c5855c9d4f1a9d63208"
+      "_map_assets/leaflet/leaflet.css": {
+        "bytes": 14806,
+        "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6"
       },
       "neotoma-recorded-source-context.atlas-resources.0058.e5ba9b0bd171833c.js": {
         "bytes": 128396,
         "sha256": "e5ba9b0bd171833cae565e6c28e7005df1ae9b96cfe0ecaff8bb29a7c6326a8f"
       },
-      "neotoma-recorded-source-context.atlas-resources.0059.4110a290105526f2.js": {
-        "bytes": 124412,
-        "sha256": "4110a290105526f20a0aef32519dc51861611f08afe99a7bcbc2c417277d2eca"
+      "neotoma-recorded-source-context.atlas-resources.0019.b3232de7382fcdc6.js": {
+        "bytes": 238660,
+        "sha256": "b3232de7382fcdc6efc67d78a434c08c6bfbb8ff4e007f236354f031efbea90b"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0056.48c832e3ad955594.js": {
+        "bytes": 110380,
+        "sha256": "48c832e3ad95559453577892df3f28c9a7967cef9c644d3737a5bd24c7c996ec"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0068.09eef20c19c1a491.js": {
+        "bytes": 73240,
+        "sha256": "09eef20c19c1a491220213bb2a241bb585c237ab0261f13ca3adda850d7de641"
+      },
+      "index.html": {
+        "bytes": 106754,
+        "sha256": "8dfdb6ca13a99e6699d4cb80e21d80c45102b9c6d8675bed5bb1c8b16447df92"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0018.43d8375eab2cb97f.js": {
+        "bytes": 232760,
+        "sha256": "43d8375eab2cb97fb551e88c5fc8f3712329ae2bb50f459fcb7a6deb53fbea06"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0050.4a842db371502d73.js": {
+        "bytes": 65752,
+        "sha256": "4a842db371502d73f1511b78787b3f679d680892146f9bb4747b18347433b286"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0024.c53d99fdaa7576e4.js": {
+        "bytes": 218940,
+        "sha256": "c53d99fdaa7576e464eb1d082785b51847275037ad802a98df20cb85bbba66c6"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0039.59e1edf1bffdc247.js": {
+        "bytes": 114672,
+        "sha256": "59e1edf1bffdc247fa2546aa5905dd760bc8d1a614ea6ef3ff462958458cf061"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0082.a17d708531530f8d.js": {
+        "bytes": 106700,
+        "sha256": "a17d708531530f8d9831d221ffa41029429447de54ab3d5daaf2c66d49705555"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0075.c99166523ece9a9d.js": {
+        "bytes": 137276,
+        "sha256": "c99166523ece9a9dab7942ac91d90b99ca19d5ce7e5c121674df826fa76b067b"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0023.a6f59f6985105bf7.js": {
+        "bytes": 235640,
+        "sha256": "a6f59f6985105bf7998ed7782fcdfc6aa92a6f71cf38f7a2096ee68b94d22fb1"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0033.0311f0bcc2736801.js": {
+        "bytes": 103808,
+        "sha256": "0311f0bcc2736801dc13b619707fce9f78826fb371c3b9ea5839339c7f931479"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0016.d0a68e30000064d4.js": {
+        "bytes": 24500,
+        "sha256": "d0a68e30000064d49457dc0f373b770f4852d862c3d989d7961da0c0303b86c9"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0034.4e66ef156a108409.js": {
+        "bytes": 101696,
+        "sha256": "4e66ef156a10840943cd39d464406946cd838461b9c4ccb8b5194d1559c5807b"
       },
       "neotoma-recorded-source-context.atlas-resources.0060.f4b641f7db2afe2c.js": {
         "bytes": 130492,
@@ -310,117 +150,281 @@
         "bytes": 142008,
         "sha256": "4351a8859bd9508f5b40f3edbb5ed50b8868774a913f782fc7557923f421ff93"
       },
-      "neotoma-recorded-source-context.atlas-resources.0062.983dbe6c1ea87288.js": {
-        "bytes": 37540,
-        "sha256": "983dbe6c1ea8728842121204d58a9ae3b456c63d00ef821cf2e4e1b07113c15d"
+      "neotoma-recorded-source-context.atlas-resources.0079.8d530afe3fa54187.js": {
+        "bytes": 61096,
+        "sha256": "8d530afe3fa5418751fa03558ddb9e9f6eb28c05194720b6bbe24024a0c87a58"
       },
-      "neotoma-recorded-source-context.atlas-resources.0063.7032a5c0ac9c7435.js": {
-        "bytes": 82360,
-        "sha256": "7032a5c0ac9c74354bea71d81bf3d0465318cade194967348ac98968f78a4e1f"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0064.6741f1cb0a371767.js": {
-        "bytes": 66752,
-        "sha256": "6741f1cb0a371767dfd52a01dd7c6413fecd56b327b1df4bca6cf360262b0f64"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0065.1195db05709d09d4.js": {
-        "bytes": 106620,
-        "sha256": "1195db05709d09d4c38b57750ce5c407aac3ef27ab3f1e1d3396c7205eb715ad"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0066.2a1b77874ffb1260.js": {
-        "bytes": 86368,
-        "sha256": "2a1b77874ffb126098b2f22e08081f408e1af4ce76608456f840c19df52dc5e7"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0067.72b516f3c114b78a.js": {
-        "bytes": 73004,
-        "sha256": "72b516f3c114b78a362120b3ace3725765e1b823559f5380c2ced5cff7774668"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0068.09eef20c19c1a491.js": {
-        "bytes": 73240,
-        "sha256": "09eef20c19c1a491220213bb2a241bb585c237ab0261f13ca3adda850d7de641"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0069.587f59fd356c6b7b.js": {
-        "bytes": 72712,
-        "sha256": "587f59fd356c6b7b54e9a87e1ac6f6a51c4582f5aee8bb38079facc5fe510a10"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0070.2ed74f83be89985f.js": {
-        "bytes": 119428,
-        "sha256": "2ed74f83be89985fb14cd3009621b50867e05c98f61d1c6d7ace473ec0bb9641"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0071.cfc5dafb7bff305a.js": {
-        "bytes": 76500,
-        "sha256": "cfc5dafb7bff305abee2c6bf668088c251568e907ef46143d2961e5b9358f192"
+      "neotoma-recorded-source-context.atlas-resources.0013.763500a3e3483441.js": {
+        "bytes": 48804,
+        "sha256": "763500a3e3483441fc9bfecb5f72fe19a9491d9d1f667fb5f769d1ca17803ce3"
       },
       "neotoma-recorded-source-context.atlas-resources.0072.63ec269205f18530.js": {
         "bytes": 141600,
         "sha256": "63ec269205f185306418a6bad3393b600aa923c3b2913c07b04d2c8320b229e2"
       },
-      "neotoma-recorded-source-context.atlas-resources.0073.003331aa53957a28.js": {
-        "bytes": 129628,
-        "sha256": "003331aa53957a28d7378caa6dc46d9375edd23ca22cbf472de65e7b99e8f7bb"
+      "neotoma-recorded-source-context.atlas-resources.0028.3b7dbb91a82fdb3b.js": {
+        "bytes": 207968,
+        "sha256": "3b7dbb91a82fdb3bacd1fce2c1d7abbca4058fad78370d88a104ab9d224a106c"
       },
-      "neotoma-recorded-source-context.atlas-resources.0074.805d54f16b9ce65d.js": {
-        "bytes": 155452,
-        "sha256": "805d54f16b9ce65d70d28f128e1e2040dff7d133c7f81dbaf2fdd69e96f7daca"
+      "neotoma-recorded-source-context.atlas-resources.0014.dfe350176683132f.js": {
+        "bytes": 65016,
+        "sha256": "dfe350176683132f65db4fac1527b700918f7be7b27becfcc46221bb1c55e604"
       },
-      "neotoma-recorded-source-context.atlas-resources.0075.c99166523ece9a9d.js": {
-        "bytes": 137276,
-        "sha256": "c99166523ece9a9dab7942ac91d90b99ca19d5ce7e5c121674df826fa76b067b"
+      "neotoma-recorded-source-context.atlas-resources.0053.1ea9964655f59347.js": {
+        "bytes": 90764,
+        "sha256": "1ea9964655f59347660e3210a60327a77ddb0500088d8bc3fc83be33f381f9be"
       },
-      "neotoma-recorded-source-context.atlas-resources.0076.26cf834ae9f2ac37.js": {
-        "bytes": 116536,
-        "sha256": "26cf834ae9f2ac37aa8cc53023f62f40df80f572b6f6f5d03c8f7ab6f66d8e5f"
+      "neotoma-recorded-source-context.atlas-resources.0006.2ef91d092929f53a.js": {
+        "bytes": 242395,
+        "sha256": "2ef91d092929f53ae9788de7d0cc8bfdc5c6e326f34c8fae9d1cfcadb189a141"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0043.cf36eb99c95e69eb.js": {
+        "bytes": 111060,
+        "sha256": "cf36eb99c95e69ebe27790ea327b674b67e1112b72c4018e978c4e21775ab925"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0007.e8ad24eb3a944c71.js": {
+        "bytes": 138415,
+        "sha256": "e8ad24eb3a944c7115f93df252b5b919ac27c1c58790c9464f17d416d91022a9"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0009.c8cd4fca1203513d.js": {
+        "bytes": 200599,
+        "sha256": "c8cd4fca1203513d574c1eec1e2e6f9c1c9d4d754a53935604c1748fa57cc8ed"
+      },
+      "index.atlas-index-transport.591bd382f0d8aed5.js": {
+        "bytes": 37058,
+        "sha256": "591bd382f0d8aed52b09b938b311aa3721bfc31a369649a146e204c26ade8599"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0017.2398f997b74d50fa.js": {
+        "bytes": 215816,
+        "sha256": "2398f997b74d50faed78ca2b5fa55db5e5781bb52023ba74f2e06e5b8196ef05"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0021.b3b7fb9bfc5fe94a.js": {
+        "bytes": 210304,
+        "sha256": "b3b7fb9bfc5fe94addcf726393636f38464026b23862f53b5c1756c1e00de4cb"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0025.17605fd309f254e4.js": {
+        "bytes": 224840,
+        "sha256": "17605fd309f254e4d6542b645aebd3a46939ed37011644ae82b28eb45c9c5d49"
       },
       "neotoma-recorded-source-context.atlas-resources.0077.dd6a3acd5c851cb3.js": {
         "bytes": 108384,
         "sha256": "dd6a3acd5c851cb3be23689139c4c7906051e881398a17deb9a7545a565a37eb"
       },
-      "neotoma-recorded-source-context.atlas-resources.0078.8b4fbff07037c211.js": {
-        "bytes": 103396,
-        "sha256": "8b4fbff07037c211b2916f2412a9d5b114f4a63a0de2ce58c7e703eb4b98bdad"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0079.8d530afe3fa54187.js": {
-        "bytes": 61096,
-        "sha256": "8d530afe3fa5418751fa03558ddb9e9f6eb28c05194720b6bbe24024a0c87a58"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0080.a79d94c835aa1129.js": {
-        "bytes": 76760,
-        "sha256": "a79d94c835aa1129815114dd89a8328ce5b68e7659d5cccade9e786c562e7aaa"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0081.ce6d0c8b758a8ccd.js": {
-        "bytes": 57780,
-        "sha256": "ce6d0c8b758a8ccd0d320f39d492dd7b9a73c696d4f3ab740d14414ebc34200c"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0082.a17d708531530f8d.js": {
-        "bytes": 106700,
-        "sha256": "a17d708531530f8d9831d221ffa41029429447de54ab3d5daaf2c66d49705555"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0083.2f445a4b17e01b1b.js": {
-        "bytes": 121016,
-        "sha256": "2f445a4b17e01b1bc04df5d1719e8cfe80f147d894176bf838eb6d19dacf28a3"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0084.1fe1c3a6f93cf460.js": {
-        "bytes": 134532,
-        "sha256": "1fe1c3a6f93cf4609a25a4b9190789841dfdb329f5e0f4654409c408662da3a9"
-      },
-      "neotoma-recorded-source-context.atlas-resources.0085.26c82d40bd03e6a4.js": {
-        "bytes": 142296,
-        "sha256": "26c82d40bd03e6a41b1da336cadf151ec4b0949ffcf12ece0217568e45850f68"
+      "neotoma-recorded-source-context.atlas-resources.0067.72b516f3c114b78a.js": {
+        "bytes": 73004,
+        "sha256": "72b516f3c114b78a362120b3ace3725765e1b823559f5380c2ced5cff7774668"
       },
       "neotoma-recorded-source-context.atlas-resources.0086.2c7ea0b9a9c50d19.js": {
         "bytes": 154448,
         "sha256": "2c7ea0b9a9c50d1931dc258b254910b714f2a8e6b2c1d93f5a295eb2e03ac9ff"
       },
-      "neotoma-recorded-source-context.atlas-resources.0087.f819a8321f351744.js": {
-        "bytes": 92324,
-        "sha256": "f819a8321f3517445f214750e42cbf55ed967678fb51be27ebc8ce9095ea4ade"
+      "neotoma-recorded-source-context.atlas-resources.0040.744b0af2ae005b7e.js": {
+        "bytes": 138532,
+        "sha256": "744b0af2ae005b7e5622c7d09ebb4a5f3663c6c1d5b189f06914876a5b1aaced"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0048.57f6338381ba1ebe.js": {
+        "bytes": 60988,
+        "sha256": "57f6338381ba1ebe69f43f3fc58ece0d914ba8d3cc457433f25c41697cafaf7d"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0015.13a0fdb586646ba7.js": {
+        "bytes": 63284,
+        "sha256": "13a0fdb586646ba730df2f77ce6ca53bcdd4d478fb310cc0e3c5c6c1324a3622"
+      },
+      "metadata-publication.json": {
+        "bytes": 3073,
+        "sha256": "db5b844d4be5251553d7993e546692d0c66d4c796c93f66c4eb7faa51ca76999"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0069.587f59fd356c6b7b.js": {
+        "bytes": 72712,
+        "sha256": "587f59fd356c6b7b54e9a87e1ac6f6a51c4582f5aee8bb38079facc5fe510a10"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0074.805d54f16b9ce65d.js": {
+        "bytes": 155452,
+        "sha256": "805d54f16b9ce65d70d28f128e1e2040dff7d133c7f81dbaf2fdd69e96f7daca"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0083.2f445a4b17e01b1b.js": {
+        "bytes": 121016,
+        "sha256": "2f445a4b17e01b1bc04df5d1719e8cfe80f147d894176bf838eb6d19dacf28a3"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0035.a41547668bb94dd0.js": {
+        "bytes": 56684,
+        "sha256": "a41547668bb94dd0bd8c1b854d3ea35776cf8adbb533e2e57bc1ac51d55b8463"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0044.4eadc2ef72c188d4.js": {
+        "bytes": 89932,
+        "sha256": "4eadc2ef72c188d4af66f8fd96bd3537fb2182169a8507b2d0c9d97e5055c052"
+      },
+      "presentation.json": {
+        "bytes": 742,
+        "sha256": "5e08196a48334d5af9a8bdea6c93cb04d8b4e11d701574c9c3c80e7ba9b6f233"
+      },
+      "neotoma-recorded-source-context.atlas-edges.0001.ad81e79f26230525.js": {
+        "bytes": 695,
+        "sha256": "ad81e79f262305257f731e47b5cb0faeb699418fed1c18c9a6e06d3452fb89d9"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0052.8a4065b72f3da1b0.js": {
+        "bytes": 58404,
+        "sha256": "8a4065b72f3da1b00aa989015ebaf51a82245c990f8641ab7d315fc52dfe4aa8"
+      },
+      "index.atlas-runtime.d157fcdf8fd25f23.js": {
+        "bytes": 524193,
+        "sha256": "d157fcdf8fd25f238becb9c45f88660fc11938805aa42328ce6aa18627943db5"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0037.c1171330b11f4668.js": {
+        "bytes": 114416,
+        "sha256": "c1171330b11f46687bcf98c3623e6ad87b7618709c0a25cb5ff9ae062eb4a875"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0042.f54b20fa6b62c7b8.js": {
+        "bytes": 135152,
+        "sha256": "f54b20fa6b62c7b886df3ce827d2264a9b8b36fb9709354be53c81ed43bc6a18"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0051.250895ab33d2b5ce.js": {
+        "bytes": 65672,
+        "sha256": "250895ab33d2b5ce04d89eb8dcd138c0f22a51282dc0487637ccdfd4cb72da63"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0045.2b764ec809cda8d3.js": {
+        "bytes": 88788,
+        "sha256": "2b764ec809cda8d3ce1c130de9351bd94f001bb63813a39dac96dce4d2c54662"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0081.ce6d0c8b758a8ccd.js": {
+        "bytes": 57780,
+        "sha256": "ce6d0c8b758a8ccd0d320f39d492dd7b9a73c696d4f3ab740d14414ebc34200c"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0064.6741f1cb0a371767.js": {
+        "bytes": 66752,
+        "sha256": "6741f1cb0a371767dfd52a01dd7c6413fecd56b327b1df4bca6cf360262b0f64"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0032.b11190ee609d02b8.js": {
+        "bytes": 177932,
+        "sha256": "b11190ee609d02b8067acf5e2ceb472f2ba3aa86ddbced05026110701fba88bc"
       },
       "neotoma-recorded-source-context.atlas-sequences.0002.3317adf729de557a.js": {
         "bytes": 656,
         "sha256": "3317adf729de557aeed1aa8572740cf4ee7ba29668b0e8cf4c8962b61d15e1a3"
       },
+      "neotoma-recorded-source-context.atlas-resources.0070.2ed74f83be89985f.js": {
+        "bytes": 119428,
+        "sha256": "2ed74f83be89985fb14cd3009621b50867e05c98f61d1c6d7ace473ec0bb9641"
+      },
+      "neotoma-recorded-source-context.atlas-provenance.0000.35d48f4d547380bc.js": {
+        "bytes": 720,
+        "sha256": "35d48f4d547380bce30bed309b20b691557b544d0b977689233b173a2ec4fc90"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0047.1a24346f29b1a3fc.js": {
+        "bytes": 78232,
+        "sha256": "1a24346f29b1a3fc0736777eed1d201fe09da5b8fee76b92813b2d6892aa3355"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0046.d9058bcafc288817.js": {
+        "bytes": 114804,
+        "sha256": "d9058bcafc28881706831c53f8b3b0ce251e9326c4555f6bbd4ac865faa15a4f"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0031.4631da4db33f388a.js": {
+        "bytes": 235172,
+        "sha256": "4631da4db33f388aaa49dd9afdccbc22906ae8b75db91cad2a8995d4b85d9938"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0087.f819a8321f351744.js": {
+        "bytes": 92324,
+        "sha256": "f819a8321f3517445f214750e42cbf55ed967678fb51be27ebc8ce9095ea4ade"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0073.003331aa53957a28.js": {
+        "bytes": 129628,
+        "sha256": "003331aa53957a28d7378caa6dc46d9375edd23ca22cbf472de65e7b99e8f7bb"
+      },
+      "neotoma-recorded-source-context.atlas-indexes.0003.52451735d5459a9e.js": {
+        "bytes": 3357,
+        "sha256": "52451735d5459a9ea8cc5b9be16209e4c7a22198e7ce93fe95a6f2e17112f5b9"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0012.58b215f4e290e952.js": {
+        "bytes": 336408,
+        "sha256": "58b215f4e290e952b6ef8ad0b54c7c72a96ca59ccfea9748c310a2e5086a1121"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0065.1195db05709d09d4.js": {
+        "bytes": 106620,
+        "sha256": "1195db05709d09d4c38b57750ce5c407aac3ef27ab3f1e1d3396c7205eb715ad"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0084.1fe1c3a6f93cf460.js": {
+        "bytes": 134532,
+        "sha256": "1fe1c3a6f93cf4609a25a4b9190789841dfdb329f5e0f4654409c408662da3a9"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0041.e370888e056e897a.js": {
+        "bytes": 106228,
+        "sha256": "e370888e056e897af693136e381e8cd6862ed01c4f5983fed50e6fbf70b25de5"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0026.bc1df1e0cdbad779.js": {
+        "bytes": 221812,
+        "sha256": "bc1df1e0cdbad779769e955d1ffe178abe671efb1e6f3e08fb44f741bca48959"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0076.26cf834ae9f2ac37.js": {
+        "bytes": 116536,
+        "sha256": "26cf834ae9f2ac37aa8cc53023f62f40df80f572b6f6f5d03c8f7ab6f66d8e5f"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0020.d4945f38d65f5282.js": {
+        "bytes": 245916,
+        "sha256": "d4945f38d65f528277e730d0f72f088d3157e825edb44e2c073447096fcb4117"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0036.dd6ac18b7403adb6.js": {
+        "bytes": 130192,
+        "sha256": "dd6ac18b7403adb69d6db5605c2ff9708083979c7bf8ce660090a37ceac61211"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0066.2a1b77874ffb1260.js": {
+        "bytes": 86368,
+        "sha256": "2a1b77874ffb126098b2f22e08081f408e1af4ce76608456f840c19df52dc5e7"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0080.a79d94c835aa1129.js": {
+        "bytes": 76760,
+        "sha256": "a79d94c835aa1129815114dd89a8328ce5b68e7659d5cccade9e786c562e7aaa"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0054.1638558a41ab0447.js": {
+        "bytes": 99356,
+        "sha256": "1638558a41ab04477d527df20d91d35e7f336f241ac17cb7bea2ae491b7e8bb8"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0078.8b4fbff07037c211.js": {
+        "bytes": 103396,
+        "sha256": "8b4fbff07037c211b2916f2412a9d5b114f4a63a0de2ce58c7e703eb4b98bdad"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0027.564af269a95bfc82.js": {
+        "bytes": 217676,
+        "sha256": "564af269a95bfc82e9774e39d2ef9e58f6d2f3cae68a7d92ac032dbe2503d424"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0011.67590f6558e5ea22.js": {
+        "bytes": 125416,
+        "sha256": "67590f6558e5ea22b5246f83389173cdc41c4743a3ff9334691f602807f0ab36"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0005.6066645cf510fbf8.js": {
+        "bytes": 198915,
+        "sha256": "6066645cf510fbf81cdddac3c55cee04f6104634e7342856b01851aca71c2d93"
+      },
       "neotoma-recorded-source-context_map_assets.json": {
         "bytes": 26677,
         "sha256": "bf23b5f5e656ffd874e3d99ab478add9c99c777a85d74422e0a24e9e07b6b17c"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0008.6012d159ee1615c1.js": {
+        "bytes": 134675,
+        "sha256": "6012d159ee1615c162fc6adf4fb64dc5c283d01fa9c2a4b0003b417b197b2c15"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0030.0e7be457a65a1a96.js": {
+        "bytes": 215068,
+        "sha256": "0e7be457a65a1a9613a030b3d6d52c9f4bbc3c62e4c72422e840f90f69d197ad"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0059.4110a290105526f2.js": {
+        "bytes": 124412,
+        "sha256": "4110a290105526f20a0aef32519dc51861611f08afe99a7bcbc2c417277d2eca"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0029.46a81af438be3945.js": {
+        "bytes": 199104,
+        "sha256": "46a81af438be3945bcdbd1583855c94e9602842756ce1180b2427d3390f679d4"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0063.7032a5c0ac9c7435.js": {
+        "bytes": 82360,
+        "sha256": "7032a5c0ac9c74354bea71d81bf3d0465318cade194967348ac98968f78a4e1f"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0085.26c82d40bd03e6a4.js": {
+        "bytes": 142296,
+        "sha256": "26c82d40bd03e6a41b1da336cadf151ec4b0949ffcf12ece0217568e45850f68"
+      },
+      "neotoma-recorded-source-context.atlas-resources.0022.c6442c4b59c6dad8.js": {
+        "bytes": 215168,
+        "sha256": "c6442c4b59c6dad8e4e51f6ee8292cbbf11ccda8cca4b5a43ac335907d3585f8"
       }
     }
   },
@@ -563,7 +567,16 @@
     "native_names_and_publication_titles_exposed": false,
     "selected_index_is_source_chain_identity": false
   },
-  "actual_static_publication": {
+  "reuse": {
+    "portable_view": "Copy the complete atlas directory with its software notices; independently trust the received Git revision and verify the relative file pins.",
+    "regeneration": "Exact restoration used the separately bound 89-file compact projection and seven chain metadata files, then maintained static-asset/rendering/owned-publication owners. The rendered snapshot alone is not a public inverse-catalogue API.",
+    "new_collector_renderer_or_numerical_engine": false,
+    "source_body_download_or_current_use_authority": false,
+    "scientific_or_empirical_accuracy_claim": false,
+    "presentation_refresh": "Maintained HTML rendering from the preserved recorded projection; 100 input files and the three runtime scripts remain byte-identical. This is presentation provenance, not a new numerical or source capture epoch."
+  },
+  "presentation_revision": "4ba3d6b8d135bba7038759d235c814d4df394820",
+  "historical_metadata_publication": {
     "process_exit_code": 0,
     "elapsed_seconds": 133.615697250003,
     "checked_software_origins": 581,
@@ -585,7 +598,7 @@
     "read_accounting": "Reservations include repeated owned readback and are not physical I/O measurements.",
     "earlier_refusal": "A separate one-GiB bounded attempt refused at its observed peak check and retained an incomplete candidate. This successful epoch used an explicitly replanned 1.5-GiB budget; the failed epoch was not relabeled."
   },
-  "closed_review": {
+  "historical_static_closed_review": {
     "independent_output_acceptance_sha256": "676e3429cab6c9766cda5bfeffc98abf2d283df48319fdc2f684a292a424b643",
     "closed_output_freeze_sha256": "a5a2efe82ec3e2a0e4d93ea788a70fa649dc87f673a790ae7c68e6019c8a97df",
     "final_files_hashed": 104,
@@ -594,7 +607,7 @@
     "preserved_original_logical_population": "Maintained producer and staged/final immutable witness comparisons; output review did not repeat original input qualification.",
     "review_original_source_body_or_model_replay": false
   },
-  "browser": {
+  "historical_browser_refusals": {
     "status": "OPEN_NATIVE_READER_QUALIFICATION",
     "accepted_complete_two_viewport_visits": false,
     "actual_navigation_or_download_claims": [],
@@ -621,11 +634,92 @@
     },
     "product_scope": "Saved static metadata and transport integrity are qualified independently of reader interaction completeness."
   },
-  "reuse": {
-    "portable_view": "Copy the complete atlas directory with its software notices; independently trust the received Git revision and verify the relative file pins.",
-    "regeneration": "Exact restoration used the separately bound 89-file compact projection and seven chain metadata files, then maintained static-asset/rendering/owned-publication owners. The rendered snapshot alone is not a public inverse-catalogue API.",
-    "new_collector_renderer_or_numerical_engine": false,
-    "source_body_download_or_current_use_authority": false,
-    "scientific_or_empirical_accuracy_claim": false
+  "actual_presentation_refresh": {
+    "process_exit_code": 0,
+    "elapsed_seconds": 31.5052,
+    "checked_software_origins": 581,
+    "new_provider_requests": 0,
+    "native_baselines": 0,
+    "model_or_numerical_calls": 0,
+    "source_lease_active_at_completion": false,
+    "unexpected_denials_events": 0,
+    "fatal_bytes": 0,
+    "recorded_metadata_vendor_inputs_preserved": 100,
+    "runtime_scripts_preserved": 3,
+    "changed_existing_files": [
+      "index.html"
+    ],
+    "added_files": [
+      "presentation.json"
+    ],
+    "charged_read_opens": 606,
+    "conservative_reserved_read_bytes": 69549695,
+    "read_accounting": "Includes repeated owned-output readback; not physical I/O.",
+    "asset_version": "source-25247099-selected-ancestry",
+    "descriptive_original_epoch": "source-metadata-25247099",
+    "source_revision": "4ba3d6b8d135bba7038759d235c814d4df394820",
+    "full_transport_and_late_logical_validation": true
+  },
+  "presentation_closed_review": {
+    "closed_output_freeze_sha256": "68ef6ccc90154872c1ea2e1fb657c1aa628b9c0af152cd7734d4ab459d741d24",
+    "independent_acceptance_sha256": "eacc2117743ebf1d1a3faa2fc81a1b0dc9ab7daee9fc9272cd73fed3e9706706",
+    "recovery_files": 0,
+    "ordinary_empty_recovery_wrappers": 1,
+    "review_original_source_body_or_model_replay": false
+  },
+  "browser": {
+    "status": "QUALIFIED_SELECTED_LOCAL_FILE_READER",
+    "browser_executable_sha256": "269784d37b2ff5ab227e66f4f027860076bbd35c18558c156f9740e0660cbe2a",
+    "process_exit_code": 0,
+    "elapsed_seconds": 49.296221666,
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1100
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "selected_targets": 16,
+    "native_visits": 32,
+    "designated_pointer_label_value_checks": 320,
+    "native_visible_text_segments": 780,
+    "complete_source_button_checks": 32,
+    "JSON_data_witnesses": 240,
+    "data_witnesses_are_not_all_visually_checked_per_viewport": true,
+    "Escape_focus_return_and_reopen": true,
+    "complete_button_Range_parent_and_dialog_checks": true,
+    "JSON_preformatted_horizontal_scroll": "Intentional; native wheels reach designated label/value segments. Simultaneous whole-value fit is not claimed.",
+    "file_requests": 76,
+    "unique_exact_file_URLs": 38,
+    "requested_file_bytes": 7091442,
+    "unexpected_events": 0,
+    "downloads": 0,
+    "HTTP_qualification": false,
+    "other_browsers_or_targets_qualification": false,
+    "snapshot_unchanged_after_browser": true,
+    "owned_browser_processes_at_close": 0,
+    "closed_output_freeze_sha256": "aff0bc8681a4ba97a9dfc5fb55fc8b6995f18e9a02d448ccd94a5f67e14f65cb",
+    "independent_acceptance_sha256": "eaf99ceff083f7ed9220f5ed12b56e0d5535aa6e90ac99965c30e30f3f8e8ae6",
+    "screenshots": {
+      "views/desktop-publication-10139.png": {
+        "bytes": 240039,
+        "sha256": "8bf70d4285c6d7a25971d9135dd6e08d6946c7f3224b24b0228bde9aa26d2086"
+      },
+      "views/desktop-taxon-7641.png": {
+        "bytes": 239242,
+        "sha256": "18cced8d9827958e92f5f8c40eff6a4f9db9d4415ccdf02f9f89f2e8252e7a7e"
+      },
+      "views/mobile-publication-10139.png": {
+        "bytes": 126070,
+        "sha256": "77e6bbc11dd2af6184feb7400467a2c57065078fe2e020185e651476073d0b1b"
+      },
+      "views/mobile-taxon-7641.png": {
+        "bytes": 125906,
+        "sha256": "81b381090ac8be0f2e01db600ce2270b251659071af2cd41b8f3bec2b6763302"
+      }
+    }
   }
 }
