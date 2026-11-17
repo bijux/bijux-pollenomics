@@ -1,0 +1,1540 @@
+{
+  "file_count": 188,
+  "files": [
+    {
+      "bytes": 1211916,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/country-decisions.json",
+      "git_blob_oid": "a9937d3317aa5952c03f2dffa7dda246a158dc4d",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/country-decisions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "e08c2fa2f70d9a3491b95a87b81c992ec3902051aa6e30c35dbcb0f86e214528"
+    },
+    {
+      "bytes": 19105,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json",
+      "git_blob_oid": "3dccd79e05549c9b920be91a2b29444addefb4d1",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14"
+    },
+    {
+      "bytes": 8801,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/parent-admission.json",
+      "git_blob_oid": "784f541e45137af720b4b9ef4ac08b721f9746fc",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/parent-admission.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1"
+    },
+    {
+      "bytes": 4863,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundance_elements.json",
+      "git_blob_oid": "95e8580ac5966e0c6631522e8040b81a472a123f",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundance_elements.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "ab5d20f666b6d836a151edd8a926fd24bed7ae6ac5052487c7f5eb3796c16959"
+    },
+    {
+      "bytes": 60035,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundance_ident_levels.json",
+      "git_blob_oid": "ad88c833699d549fe131ef4d672de2b5097600a9",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundance_ident_levels.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "d3dc61498188aed216424ba5c7838810a64521e9ad3a87209aba90012ba71c77"
+    },
+    {
+      "bytes": 919964,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundance_modifications.json",
+      "git_blob_oid": "b8d10214e4c41d4b6e4efd688fccae45f85560b2",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundance_modifications.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "1dd4834b3a2895e26c7f7c297d4eb1252c55d20059de5e2b6514bb326e0ec9a7"
+    },
+    {
+      "bytes": 88,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundance_properties.json",
+      "git_blob_oid": "04aa2eadc409e15c5bf33f3ef22c0499c04c2849",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundance_properties.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "bc43124ef418636d111122fdc7655b61ec4e4241d5c001b410826ef031281d62"
+    },
+    {
+      "bytes": 3699555,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
+      "git_blob_oid": "eb9e91e2cd8667b4ac019a246d72bef23a56bdac",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "6eac315bb79f819bcfa9def4a599fe7dc3eea4bb3cacbc3817ebe60c495d6169"
+    },
+    {
+      "bytes": 210,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_age_types.json",
+      "git_blob_oid": "2cab469795c68d4a2ca353446d598833cd13436d",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_age_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "179b64f91c975655d638b6654184f132177c3c6fd7ccf6deb710995d9f3fab4a"
+    },
+    {
+      "bytes": 1065043,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_boolean_values.json",
+      "git_blob_oid": "81c5c850a98b3b553952ace71b7ce383a1563c7b",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_boolean_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "c437d5f5640ed9d700b2f57e59da4344b9771ad5dc98ef7bae744b33acc1878d"
+    },
+    {
+      "bytes": 569474,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_categorical_values.json",
+      "git_blob_oid": "7310998886e61a8f260b1a10b7d74b48d7a7f9b1",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_categorical_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "474d5938376f4721481c0b3c8746cdf0c61e4efbfa6ee33d0fa8f8cacda48a5d"
+    },
+    {
+      "bytes": 1727505,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_dating_ranges.json",
+      "git_blob_oid": "0732751bf64f6281b109cb1927f1b5210fb5800c",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_dating_ranges.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "94d23e550507a99f56dc80c0cefa697c0a8c299537ef55779b1e73756f85d829"
+    },
+    {
+      "bytes": 9601052,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entities.json",
+      "git_blob_oid": "a59d73b759b45f711008b122a51b4ab165e48630",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entities.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "511208fed7e47db0eb166f56857092ab3a47390a03c743f32bce4ec6101705a5"
+    },
+    {
+      "bytes": 123673,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json",
+      "git_blob_oid": "c8b09f24c554c0ace2a290b8b15872ff04ac34de",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "532f8cc2c4e8c95f1943499bdc60b26c566dc1fe4f0647f75ba0c09ef14b685e"
+    },
+    {
+      "bytes": 94,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_dimensions.json",
+      "git_blob_oid": "8d201ff3346e7f172f96a0fbfebbbe9a6e01d6b9",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "33c7edc012916c9899aef3546bf238a19c59486cd8dc97f9ab74db73078f057c"
+    },
+    {
+      "bytes": 2657561,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_integer_values.json",
+      "git_blob_oid": "c813ab3ac3699020e10d75452e5141aa7aa1e332",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_integer_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "ad24276e1f7b6b929b7c44b384dea9ae1d455639dbb9f635acf18623d997ba41"
+    },
+    {
+      "bytes": 6910,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_numerical_values.json",
+      "git_blob_oid": "b8fc84e736797b7a3f6e74e23897b8b979d2ebc4",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_numerical_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "334b12e88fac55148afe5c2ae63d4099ee972daa265c5d47960b0962485ad9f7"
+    },
+    {
+      "bytes": 89,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_taxon_counts.json",
+      "git_blob_oid": "04da360fff2250e77ccb5cb52f7dcc786244a2e2",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_taxon_counts.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "acf697a13120402ffcc9bda0e83f526fa42c80f9730757f8648e4fb40f63b911"
+    },
+    {
+      "bytes": 93,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_value_dimensions.json",
+      "git_blob_oid": "129748cdf84d0051c568d5169037f979024a08bb",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_value_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "714da6242a473ea3a0c23ab658c813e1031d6e5d3ae878ed13a523c358469701"
+    },
+    {
+      "bytes": 16854202,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_values.json",
+      "git_blob_oid": "14d2997428c2737289ecac1169bb19b85ff0a0af",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "4cc48ca1836cd128e303b56920ee826bfb362771d578f8a019e7c8f0a3de4bbf"
+    },
+    {
+      "bytes": 362306,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_biblio.json",
+      "git_blob_oid": "cfb03bbdc1e2fb6ec2182f79734078f5348d67c7",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_biblio.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2ef1e49385185b4aee49edfa46d37b9d05025b3a0afb76e4f36ef12f12231846"
+    },
+    {
+      "bytes": 747,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_contact_types.json",
+      "git_blob_oid": "7a9fcb70c087201edf897a86ebdc42b20bb4fbef",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_contact_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2509d7ffa55224aef4901d9c9f3dfe7ffd5ff84ea131c071605d456570559de8"
+    },
+    {
+      "bytes": 8328,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_contacts.json",
+      "git_blob_oid": "4cc26df0885d51c616e8c1bf95e1ffa6c01d104d",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_contacts.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "8278de2a8569684c08657d160327e7015148f732a1ebd74e2a97b639eb7b5f57"
+    },
+    {
+      "bytes": 2139,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_data_type_groups.json",
+      "git_blob_oid": "420773395a06dd14f76165254caebb2ffbb95cee",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_data_type_groups.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "465e3e652ede50ac3b0f229d9a49792ed4cabc2ecb3600f0ec7555be673133f5"
+    },
+    {
+      "bytes": 4202,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_data_types.json",
+      "git_blob_oid": "b7cb08d82647892da0664972cc50d850e6ebb3c7",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_data_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "6636429710e58bf46576ac5150c44d03b90e944e70f3ab1c6b7e8d2cbdedc38b"
+    },
+    {
+      "bytes": 5315682,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dataset_contacts.json",
+      "git_blob_oid": "2fb68bfbe2a4927220f94dd36787b3575ad096ea",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dataset_contacts.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "7f06c9b6356dee544ad2fa777f98a35a03509628857e81a6e397287732dd2d71"
+    },
+    {
+      "bytes": 1947,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dataset_masters.json",
+      "git_blob_oid": "b7be8456795ef0e42ba863c5c8599cf57f914ada",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dataset_masters.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2665b78b6ed49a41f3609a5ec6d8b08c0351829bea7c5e4aa48b80c8e4cce72a"
+    },
+    {
+      "bytes": 83,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dataset_methods.json",
+      "git_blob_oid": "444ab8e14672da7953455c5845884769e63ccfd6",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dataset_methods.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "c5b14e4769c9797382bba4804de82b6633e259b057411758a78c813315a13832"
+    },
+    {
+      "bytes": 9967120,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_datasets.json",
+      "git_blob_oid": "f75ec0b140d414a9fc8adde762d24988afff21ff",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_datasets.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "c8591339a40fd48134510f4ff2916e14c5abced87aa0f526953035602be0fd63"
+    },
+    {
+      "bytes": 1140,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dating_uncertainty.json",
+      "git_blob_oid": "8b57dcb74f570f0768330023c4af91a4340bfd75",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dating_uncertainty.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "c26d76957028ac747fa26b77c0af6d038cbda10ed08599430f1f0f1a97d33503"
+    },
+    {
+      "bytes": 1371197,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dendro_dates.json",
+      "git_blob_oid": "637451a852c8b254f720cdbca90a02658cc18590",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dendro_dates.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "3ef1c9fd7ce62c7ff6f15524b5d8de70106c71ece825bc0db16061d5fd332ee2"
+    },
+    {
+      "bytes": 4009,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dimensions.json",
+      "git_blob_oid": "405c251d5d29a04dd7e712420bf4a22cfef4de57",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "eae13b68d35da467dfc5e27048dbbd2dfc504a98a844c5d4497985857f2f243f"
+    },
+    {
+      "bytes": 57306,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_definitions.json",
+      "git_blob_oid": "f0bf4382cb878244a1884cce7e2edbdb727cc458",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_definitions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "0541ce2bd6801992b5f2184984d59f521d2d28052c96bb1426613c7e372bc7fc"
+    },
+    {
+      "bytes": 3567,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_groups.json",
+      "git_blob_oid": "caec56eef9459980770b702c706591d6a03f7e89",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_groups.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "a8472b78eefc4884685cf20b5504646703f038072d3b52a6bc8f1f778567f864"
+    },
+    {
+      "bytes": 830,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_systems.json",
+      "git_blob_oid": "59a1d23634cebbf7650629f2ad2810178f03cf72",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_systems.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "322eb8497bad78494adf6c4f2358dbf6f655e80d4f5b915858cd682e7785dfef"
+    },
+    {
+      "bytes": 1062597,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocodes.json",
+      "git_blob_oid": "210c0faed619ea1be812e9f7867e510fe12bc92c",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocodes.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "088c9be5a7a04e905d7624ca34c1608bb4b0df9493d2843cbeb1e4a8af39d81e"
+    },
+    {
+      "bytes": 16905,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
+      "git_blob_oid": "24e83580ca0f14f4f75f760a65a3ef1dfd655924",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2d702ed777d0a5586e0d8d0c3e5a481516c844029023170797fad0a93920659f"
+    },
+    {
+      "bytes": 1073,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_identification_levels.json",
+      "git_blob_oid": "943fd20d3209f0436af26a42b3c0d390c5e52545",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_identification_levels.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "3ba20926af4985ebaaa298ce85446bf15e00caf4d0be863397ba9248e5cf19d9"
+    },
+    {
+      "bytes": 93,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_measured_value_dimensions.json",
+      "git_blob_oid": "80a60f88cd97fa66de55241ed76cd4ec7018d844",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_measured_value_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b1e4b84ae375460c4e26a7aebcbc53efda251317d370cdd8a9982e93a7b65cc9"
+    },
+    {
+      "bytes": 10599472,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_measured_values.json",
+      "git_blob_oid": "b94593f064e5df2adf838e6fcda95b6b9e4c05f5",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_measured_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "ad30f77ff58038c0929298fd80ae91f560ab34a366303401c553c36ac51ee51a"
+    },
+    {
+      "bytes": 10954,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_methods.json",
+      "git_blob_oid": "7a98c9f363400bfb9202e56a0efa088b2c7fe1ba",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_methods.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "a47ab8d9d2952945e5e9ba64173ae31e85497f2a99702ae87b7752c0b3724da6"
+    },
+    {
+      "bytes": 654,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_modification_types.json",
+      "git_blob_oid": "495c319777660236d8d6288a58ec1fad8c47dadc",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_modification_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "024b583c46c019af49b08d3bf3ff95497c8a47d46749fefffcd94bbabc3dadd9"
+    },
+    {
+      "bytes": 1651251,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_physical_samples.json",
+      "git_blob_oid": "3f54f5c987ee99018385db8c12a83d1ef90c84d7",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_physical_samples.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "591d9daa71af52f5772d50d888601ccef95db1a1e4ad87a82d922c85c15fe818"
+    },
+    {
+      "bytes": 82,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_property_types.json",
+      "git_blob_oid": "03199bf0aec3c231f2f31637877b15ff4eea53fe",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_property_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "8e226a199bb890f9ba85467765c7adb25a6a68c0f2f32bf47a67c8a97b92b73d"
+    },
+    {
+      "bytes": 975,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_record_types.json",
+      "git_blob_oid": "cc97e7af85c881169e977dffada4d4abd6f9caa2",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_record_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "f6b1586ef9193259349449815e2c85f21918e221176071772ba4299914617d62"
+    },
+    {
+      "bytes": 604,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_age_refs.json",
+      "git_blob_oid": "7ef5bcb7e7dc7da40a103c47b92d8676da309f87",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_age_refs.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "91231584adc2f570b0376ab32dd7883e45c2bb7a20db59531f43380ca4f7e1a7"
+    },
+    {
+      "bytes": 28561,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_ages.json",
+      "git_blob_oid": "c77bd1c15f91e4b75a924b537d8131c62620488f",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_ages.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "c5346bc1b091d2a738458e5df6d131a52306e55749034a673b6d1ecc4a6bf327"
+    },
+    {
+      "bytes": 1975110,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json",
+      "git_blob_oid": "94f8ae5eb94b8475100ad30f86dbc47d5662fd5e",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "d0f404fee3b0e125c1b7584a901ce4be74d2f4137dc4ac1ec8a3baff29d857eb"
+    },
+    {
+      "bytes": 452041,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_dimensions.json",
+      "git_blob_oid": "7a356a192b121036d36d16ff1534aad9b0a93e81",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "7d4d27d1d06bfc12e830ae8d3095c477961836445a7912fbafae350c6a22d38b"
+    },
+    {
+      "bytes": 22421,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_group_dimensions.json",
+      "git_blob_oid": "8646c3d8bf9e952d2be94fc6df52bd8414f9cb9d",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_group_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "3fafe9fcb0a39cbbeb1bde035df52614765340d46a9045efa8a6049790df6555"
+    },
+    {
+      "bytes": 66286,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_group_references.json",
+      "git_blob_oid": "bfc7ca2dbae10e904a830364a2bbdcc229dfeb17",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_group_references.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "68e55bcac462a9d66d9b1a671baf79e99806c4c4904e3b149b522d7b66c35fcf"
+    },
+    {
+      "bytes": 347108,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json",
+      "git_blob_oid": "e34d78879324b264f45527a54865e0ea177b059e",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "aa7e68c8aaafb2b7499f6b163a4abeba4e5dffccd411a8158fad283b4fb15065"
+    },
+    {
+      "bytes": 43736,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_site_references.json",
+      "git_blob_oid": "795f8582af1da9a771270c186263b808b8216d2f",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_site_references.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "72c7003e749286973d8118247f16ba9f9e679356d600d50143c448b0324b63f8"
+    },
+    {
+      "bytes": 601136,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
+      "git_blob_oid": "545b0860d77cf828d26db6249e6b04047938f2c1",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b5cb28e935fdd2293999ffce7fe72c064571d4f7fc9e98b5e8bc4681a2b93479"
+    },
+    {
+      "bytes": 26018,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_authors.json",
+      "git_blob_oid": "ff35408d9ae58093556e4e19549b6706de57fce7",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_authors.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "c190b68322b792a223a3198c00e2ffdb55de65495a9951d491db63f6ad1b06b3"
+    },
+    {
+      "bytes": 22428,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_families.json",
+      "git_blob_oid": "7fbf02cb8d24ac3187e50ad2dd04e62dd987f810",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_families.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "001bdf28eb25c198a662f00c7c7560359851e4340be45c4654cdfc5e28a6f5f1"
+    },
+    {
+      "bytes": 99907,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_genera.json",
+      "git_blob_oid": "84aa6f722819f12963520dac8a2fb281aade2278",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_genera.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "93cf5d4853236c6ed9ccb4b646e799a62db4c1130cf4a668988c0d2c97a5e6be"
+    },
+    {
+      "bytes": 236683,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_master.json",
+      "git_blob_oid": "d013b0cf51ab6cb1827c2db914583fe9aa3dff2c",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_master.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "384a69f96be5c00f0b943944ca713de9ba0a3de0d996265b52d90953e0f5b4ad"
+    },
+    {
+      "bytes": 3867,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_orders.json",
+      "git_blob_oid": "ac98aad64a054d4972ddaadca5d79e795f1d5cca",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_orders.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "94536f6c4c5629a8319e1087fa1ea96677e45c41ce1c24045e287807e3ea8d32"
+    },
+    {
+      "bytes": 814,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_units.json",
+      "git_blob_oid": "afee25460d6e8747c2c059c8f496e7e5da288fa2",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_units.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "d27ceabc36428d29e915a64547210cb12c7f7f98464e4ecc09c2f39a0208dedb"
+    },
+    {
+      "bytes": 12661,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_classes.json",
+      "git_blob_oid": "089706d5fd57c80f16a31a7b61ccf647afdf7460",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_classes.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "58d4449d884ccafc65487a6e15ccd4f58c659d39e44a3d246cc9f3ae0eaf80e3"
+    },
+    {
+      "bytes": 84,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_qualifiers.json",
+      "git_blob_oid": "904d793faabece9d29abd8547582856fbcb6ae92",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_qualifiers.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "7db781ac8486fa3eef64acea299f6b4426ac63a3238351c20b407077db4a27ec"
+    },
+    {
+      "bytes": 1153,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_type_items.json",
+      "git_blob_oid": "ba3fe8448a78e67698f99400ece8d6b19681c7d1",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_type_items.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "cdc617edf7439e12b8a9d58147adfbc38e48470542fb66129e3654957af74f44"
+    },
+    {
+      "bytes": 3711,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json",
+      "git_blob_oid": "2addb3606d8e511a9c33222780a51085d40d5ef4",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "00842f92cab1c35cd56951ddbca421c67dd4db625572501ea10aa0ae4434b9de"
+    },
+    {
+      "bytes": 5228,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_elements.json",
+      "git_blob_oid": "f0291f82c379eaeec36ab53d1903219aa2a0d820",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_elements.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "18259a763508834cf09c306349b89201658912a9e71163d3d200ab78de853e4b"
+    },
+    {
+      "bytes": 953679,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_ident_levels.json",
+      "git_blob_oid": "814165fe1264e42f06051cad7c0125d672722019",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_ident_levels.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "c0dc148f24d9c56df37d2d0eab8675d64a2752a4510dc625f6a095c1933e01d4"
+    },
+    {
+      "bytes": 956457,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_modifications.json",
+      "git_blob_oid": "91fea31a7c21ec3ae157a01b6a417a57c15b5ddb",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_modifications.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "dcbe466a4b01e7638a4146db7ca570c44e592b586c7dbe9f3351b6e8a780408b"
+    },
+    {
+      "bytes": 922829,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_properties.json",
+      "git_blob_oid": "2fc491776406d6931dd12ba4846c8f7949cdda61",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_properties.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "17ae84b45a1ea33674a9a3371e09426ab4ba572b79d9b8a804b560b58ef53136"
+    },
+    {
+      "bytes": 5659742,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundances.json",
+      "git_blob_oid": "9db67a609510401c726b638267f643a8f34740a5",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundances.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "6cd947dc0e20546e9a48749d1cf300ba4e485240cd1de6bea6faa61ccf6a6093"
+    },
+    {
+      "bytes": 4433,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_age_types.json",
+      "git_blob_oid": "f8cec61ad97a2927c2d229f3d428a190ec5daa90",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_age_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b095abf665372f7061d4aa7e891bf80936355a566b2e1eb740316cf9e104bcb7"
+    },
+    {
+      "bytes": 2908442,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_boolean_values.json",
+      "git_blob_oid": "776f23446672b371c16dbdebcd42f6392cdb4cf8",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_boolean_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "96589fb272d77bf13bdc8d2876c96892e1d0184a6e74827657e27fd377305de3"
+    },
+    {
+      "bytes": 2989422,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_categorical_values.json",
+      "git_blob_oid": "b225ea010cfc1b557676a775a7a399155895ee86",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_categorical_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "391d72c332c5552f5e16c155a7504eeb2f44a1ce1356978667d71275257b87a9"
+    },
+    {
+      "bytes": 3085579,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_dating_ranges.json",
+      "git_blob_oid": "12126a2518eb28a19785d5cbec84df638c447b8a",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_dating_ranges.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "9ca573d70af44e895138cb1b6f56e7f046a48a246ebd5385417eb323427ff758"
+    },
+    {
+      "bytes": 1335007,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_entities.json",
+      "git_blob_oid": "8b453eeeded13d072ba4027750417e53835846a0",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_entities.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "fe8fe886d2d168f2d07ce64ac5fce0c82c33a976af1446f855b5d1f396091519"
+    },
+    {
+      "bytes": 5319466,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_entity_ages.json",
+      "git_blob_oid": "346fb609cd051b86839ee99cae92d6e8302c3d75",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_entity_ages.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "939a5dd14e6360878d533933c072ee7363f8b12773783027c3378226ce00aa3e"
+    },
+    {
+      "bytes": 5319816,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_entity_dimensions.json",
+      "git_blob_oid": "6315fec8fb70890935473cfad53d7b8595bb0314",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_entity_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2814355c9ea4bfb8ee27fc161be7ff4dbb2ede8113bea2ac955badd1441c32b9"
+    },
+    {
+      "bytes": 2972076,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_integer_values.json",
+      "git_blob_oid": "0f5a19acc44265616f828eb69e3fee9a634855a7",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_integer_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "54f84f464c2fa5d0e46d9efea0d64b446bb7dea7a0d77b5d5e2222435d8c69ac"
+    },
+    {
+      "bytes": 2712482,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_numerical_values.json",
+      "git_blob_oid": "c24342e0beaad87cb5d8418e99c31dbdb3f33e9a",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_numerical_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "acf4f81c848cbea11ae0afd72888560abaa6a75c3988fc00c79aa293b15db1fe"
+    },
+    {
+      "bytes": 2688338,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_taxon_counts.json",
+      "git_blob_oid": "724d57ebe23d4421da8d0c703f35a7c3e467c547",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_taxon_counts.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "8557ea901afcabcaf3bac74db231d1880f92ccf4422ed2a4bce5bd78814a831c"
+    },
+    {
+      "bytes": 2704866,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_value_dimensions.json",
+      "git_blob_oid": "f98d54171d469bbdd2898795e8a9f7d18d4c42f6",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_value_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "dbf72d7a02558895358e8f93e851dd22486b3751e53e141465b719fe0e862244"
+    },
+    {
+      "bytes": 5650045,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_values.json",
+      "git_blob_oid": "f2ad41a4d2f9874f73c2702012a104b4cfec03fe",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2a2753a2583d1e01840cf9272ac3f55fa14237c378e160e13b515abb8addac8b"
+    },
+    {
+      "bytes": 48076,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_biblio.json",
+      "git_blob_oid": "cea9171e91cb964df7a2901a8fabe499c83059f7",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_biblio.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "4d1dcdcbef8eadec4840ed7baa87628a21b82b79bf359ed828a53d584d62d754"
+    },
+    {
+      "bytes": 4737,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_contact_types.json",
+      "git_blob_oid": "4339453524fd81a46d6407c8daac8cd504a3f111",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_contact_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "8c267caeb7a10024a3b4c852bcf55cb9b5562c4cdf79a2b15cee252aeac60535"
+    },
+    {
+      "bytes": 6066,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_contacts.json",
+      "git_blob_oid": "b8e597e3d9be6355cec0dbeda6c4900e727f088e",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_contacts.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "157101a111db22fa8d7cff3e6dd2af3eea71ff4aa2483fcc71285535449cc98f"
+    },
+    {
+      "bytes": 4821,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_data_type_groups.json",
+      "git_blob_oid": "cfaaf6954e17aaf16f0cc712a4bac3dab55fb60d",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_data_type_groups.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "9bd5cb6fa9681a34d9f8ccd0547de2b73fb5eea536f1f3e5464b53aac4a6d87b"
+    },
+    {
+      "bytes": 5022,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_data_types.json",
+      "git_blob_oid": "cb7eff5f6555c6773ecfd6b1df80e1d8cc5f1049",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_data_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "3da1c481a18e1040e1f95aff3a69ccbb0f6cfa14a9bd41fdde2ab1030606ba4f"
+    },
+    {
+      "bytes": 1863678,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dataset_contacts.json",
+      "git_blob_oid": "76ec6c4c4ad2e1a2375f2ccd0e7688053160a9a4",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dataset_contacts.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "911d76b899f8e6ed482c3add51aab6ac81a66156b7dfee88a3d1788ed5c62812"
+    },
+    {
+      "bytes": 5453,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dataset_masters.json",
+      "git_blob_oid": "63cacb39d5e7fa12b1683c91b88cf2a5b99a05cd",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dataset_masters.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "3610a12a79553f7124166f71590a417eb98ec0137eddfa4b7c9ed6a04ec8fc75"
+    },
+    {
+      "bytes": 1681390,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dataset_methods.json",
+      "git_blob_oid": "2d756be56354f09d5f8bcea9a7ee5ac640f4a152",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dataset_methods.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "02557098a24aa7d7baa97043570cf6193cb69af92633f004dd61df69a8992009"
+    },
+    {
+      "bytes": 1982987,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_datasets.json",
+      "git_blob_oid": "985be0fa0ac9f28f1208f97a1a4684334e684219",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_datasets.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "894b0ebbe5de62f9982e93dfa77d3a55ab28c2cdd63635482970827c56c9ec93"
+    },
+    {
+      "bytes": 4622,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dating_uncertainty.json",
+      "git_blob_oid": "931d0452d37e8a9f409b4683138f72fca1e42a3a",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dating_uncertainty.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "8c9d8e75ea9ad5eee2df48dfa7e077f02c879ffd96cf4d3c528d29e3b0865b9c"
+    },
+    {
+      "bytes": 5371096,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dendro_dates.json",
+      "git_blob_oid": "5e7895fc313d9a8c7f51bca3635e17faed36d3cf",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dendro_dates.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "575c148734031b98b1ddd5bb35c9f9199bdb38cf9d86b6e50c030a851411c118"
+    },
+    {
+      "bytes": 5237,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dimensions.json",
+      "git_blob_oid": "abc621928e1253ab0960a894cf5751e07a72e15d",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "015034c68d17241356121854950c6a9b426e850acd699b8d9eeae81a2ad9cb2c"
+    },
+    {
+      "bytes": 14218,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocode_definitions.json",
+      "git_blob_oid": "86af766f2e85553259713cc9f0758b7881b9b6bf",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocode_definitions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "594f08377a07ee0e75fa49255930ee4ea89e90806a6e49f1a91ee4cd4c025dd1"
+    },
+    {
+      "bytes": 5251,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocode_groups.json",
+      "git_blob_oid": "66f5da98e62e6075552066d45e724460ead0d57c",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocode_groups.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "c04bed0840a2bba41a7c8ab18308e4aea6ed238923875c86eb54ed9f8e49e130"
+    },
+    {
+      "bytes": 5307,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocode_systems.json",
+      "git_blob_oid": "8110533862f76cd794715f494b3f339e3d55af4c",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocode_systems.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "d786e6cdc8b5273033848240f7e3823cdacc18dad31fca6ea11f5554608c5905"
+    },
+    {
+      "bytes": 85448,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocodes.json",
+      "git_blob_oid": "c33d227523f86feab29ae12ab4a9e6b0eb6e868c",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocodes.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "9a2e6e69bd6454bea3df8420ba5ba01b0f15ffc3ec7f2f61c7f36956c37ec4d7"
+    },
+    {
+      "bytes": 5275364,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_geochronology.json",
+      "git_blob_oid": "f675f51a93550ffbf043dbc75724a9299a603112",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_geochronology.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "232ac2be702b2ae9bdf19f3bda86585f0b09dbd86a0417e56a6a09e0358ca2fb"
+    },
+    {
+      "bytes": 5117,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_identification_levels.json",
+      "git_blob_oid": "eb1d6d9da1efa4499a30a0ba8de2da52c5e6b894",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_identification_levels.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "653eb5be6d9f925ca8fb8d9d328007fd48e856134455e6600360914752ac6b9f"
+    },
+    {
+      "bytes": 3402147,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_measured_value_dimensions.json",
+      "git_blob_oid": "79698d37dcf91a7a23ea8389c4c15cc8df17c1fc",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_measured_value_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "e57a195dedb6d1273bd8ad2f14bc2466157c4bd2462452a9ef696a079ed00f1a"
+    },
+    {
+      "bytes": 5539197,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_measured_values.json",
+      "git_blob_oid": "9ab7f86f3f8e9af44d26063ee7f520ab831df719",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_measured_values.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b222f81a6f09a6640b5dc272709b104e525cc0b3cb4e36eea9ff4bc2605f7b9b"
+    },
+    {
+      "bytes": 5114,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_methods.json",
+      "git_blob_oid": "3e7209aa19869e20803cbb156069f85eb5b3e90b",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_methods.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "7ce2774ce35b38e35ddd6961f14bbdad2a72ebcf47520dae0449db3966f5d175"
+    },
+    {
+      "bytes": 4898,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_modification_types.json",
+      "git_blob_oid": "7641e56a07efb559b4b62095315921ceaa281be8",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_modification_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "bfe4f0bad9e6e241b6fdeb9e68725279cf7e179b55dc1c314ddbebe5cb74287f"
+    },
+    {
+      "bytes": 176342,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_physical_samples.json",
+      "git_blob_oid": "771ffbf6a4da79e76fbd6ee24d202c4a57ff6feb",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_physical_samples.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b6a18a8b6da4710de66dc0dd0ab0d1071bd631c9cf9ef2c29329bdf06bd4dce0"
+    },
+    {
+      "bytes": 1954,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_property_types.json",
+      "git_blob_oid": "39b0dd84ffd81ba6dc8845ce9fceccf1dd7a9dca",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_property_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "04edee55f237765b8ca88df51d1674787e07a1f940d4cb3d9a55eb880536f63f"
+    },
+    {
+      "bytes": 4769,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_record_types.json",
+      "git_blob_oid": "9c751086e3630ea9269e1b60db4cfdba1bf9a947",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_record_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "c60464823caa491d3abebabe3386bbefbad770f1b5b6f8e6f13cce240f300ffb"
+    },
+    {
+      "bytes": 8087,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_relative_age_refs.json",
+      "git_blob_oid": "c9b9fcb55647267359e48270983a35f8f2bfe588",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_relative_age_refs.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "ace48971c8ecfdb34f4f7e3c9e5a903f1c528105879c7f838165b3f605ae5562"
+    },
+    {
+      "bytes": 9914,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_relative_ages.json",
+      "git_blob_oid": "fc618e71533315d68317d43f46d76d6597dd90b6",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_relative_ages.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "242bb653a6ea40a25a40f3586f60ea91699ae9580c53544655f68fad71804306"
+    },
+    {
+      "bytes": 5313006,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_relative_dates.json",
+      "git_blob_oid": "b9f1197db7cb3947d3e0982283be1d8fd129fe75",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_relative_dates.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "533493244e7b772ec8980a4b89b29cfd2362708d41420f0368cef821f4f7edd6"
+    },
+    {
+      "bytes": 1410838,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_dimensions.json",
+      "git_blob_oid": "0ba97a64f5bde400cdcf3d44e1a3304604154a19",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "5ae09626e030c97b144b5a23689f10f52afb0cadaba762db9a68fd0d50df4e21"
+    },
+    {
+      "bytes": 175044,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_group_dimensions.json",
+      "git_blob_oid": "4069cc4d1dfdb3395eb24fc3840d052490c2a253",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_group_dimensions.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "6e6b49f970407de7443ea30b1252b9752e79a52857c4366cdadc4b27ebe04474"
+    },
+    {
+      "bytes": 171548,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_group_references.json",
+      "git_blob_oid": "ced13b5aa6abd56f6e0cdf8d4f72dfd7c5aba4c0",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_group_references.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "5e1941da77da43180e4e4bd39d5010bd9f50b7e58edcb76df32c0abf11d5caab"
+    },
+    {
+      "bytes": 78980,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_groups.json",
+      "git_blob_oid": "ccf849ef5678d21d02b9e2135a9a0dab7d4c8a19",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_groups.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "88025a5b3f1c10686a6a95fc3076d60cafc2c2d18019e08d7d3b9b6cebb42126"
+    },
+    {
+      "bytes": 78333,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_site_references.json",
+      "git_blob_oid": "9244e552cf7fe88ee68d74266690ea344a81fc89",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_site_references.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2c1fa0abccb978e0da8e243b2b965c9b7246b5563d0b33785ca9c7ea591d1087"
+    },
+    {
+      "bytes": 98642,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sites.json",
+      "git_blob_oid": "1fce8f292c796fb09483113a7554520d1677f114",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sites.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2cc201892afd57a148c4a9359228c06e3f3265af6daff6b2669fdac3352361b4"
+    },
+    {
+      "bytes": 13226,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_authors.json",
+      "git_blob_oid": "345915b225194cbc71b7fac289f86d13073ad8e2",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_authors.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "9e4a4a60cd6bd249e49a8450b81a0c644ea134638a18de3e0664a98ffc1c1cf2"
+    },
+    {
+      "bytes": 12325,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_families.json",
+      "git_blob_oid": "f0661b5fe8c3ad783b50b0708231e412b2e01f65",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_families.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "944b6efc7064ed2b0f991b703fffe574cc29e7dd38d6d0919301c14dfdd78ad8"
+    },
+    {
+      "bytes": 41913,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_genera.json",
+      "git_blob_oid": "35a5d739be3e93259e6ddbd72e55a0654ac22ea1",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_genera.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "a882823bd133e603c9c53de637f271e618c8794978f65eb46b7f618878c56711"
+    },
+    {
+      "bytes": 87127,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_master.json",
+      "git_blob_oid": "e0c3728134243b965801bdff1e7eabc13e7d82fa",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_master.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "08715bb0d9f33e6b965619216ca7e3de47c116083941606a75b9f8ccf99000ba"
+    },
+    {
+      "bytes": 5110,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_orders.json",
+      "git_blob_oid": "18eb29271d9f91d0a296c2d5c440a3a8848a4878",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_orders.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "65a65563c5c29d4ff5db55e49fa409c7fe49941aa17e3a6480c360089db87b0e"
+    },
+    {
+      "bytes": 4783,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_units.json",
+      "git_blob_oid": "a12dc10c41fe99f1d4db1b7bc939ce797ed61f24",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_units.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "8d5c8665b67b0632c567b4b167120f1d2ee9eb19b6b7c4268847ce55879026b8"
+    },
+    {
+      "bytes": 5500,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_classes.json",
+      "git_blob_oid": "9f3cc002606679d4c86874bc96d609bf1016d872",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_classes.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "678893d970935685eb1d693d553cedc1e4d0c30e2a916518ccafcaafdb8858f0"
+    },
+    {
+      "bytes": 1913,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_qualifiers.json",
+      "git_blob_oid": "0533aa507663f4005fa7c482d5179e27d3dc7e36",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_qualifiers.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "080b05a754e36762e4c74ea1a5e9519c69c91175b4cec597d6b8371cd2eabc92"
+    },
+    {
+      "bytes": 4827,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_type_items.json",
+      "git_blob_oid": "c979fd08674fd2132af6036f912c37272efbe021",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_type_items.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b8ee0cc40d124c29d2bc743202fd1f7a076eddb1465b8f6ed05172f96e13205e"
+    },
+    {
+      "bytes": 5539,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_types.json",
+      "git_blob_oid": "47acd0cfd8fb2b3f2706f564fb9b8bcbcc9bf38e",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_types.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "5f05c8e66e62f41dde1dd155e8faea634a0c673ef393320959055153a59d1b74"
+    },
+    {
+      "bytes": 1403,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/reconciliation/countries.json",
+      "git_blob_oid": "e8a3e280ab88e0f2d182f009a8591f3f7fcbdbaf",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/reconciliation/countries.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "1b321a672d4eb8f02875068973e6e24e4ee17d3af2a3619ab6dee2484f2e24a8"
+    },
+    {
+      "bytes": 16373638,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/reconciliation/joins.json",
+      "git_blob_oid": "cc0bc4f3535027b3cc386c8f77e606e5473b7243",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/reconciliation/joins.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "e728ecf4462b13561fc2ab9d1a7202a1dc149cacfe5f00ab25364b110c7c155a"
+    },
+    {
+      "bytes": 23049,
+      "capsule_path": "sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+      "git_blob_oid": "71d05f97d755d4d2b69b84d04ac7582780a470d2",
+      "git_path": "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea"
+    },
+    {
+      "bytes": 5509,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json",
+      "git_blob_oid": "8c4f7b0193ef2007e43dcae2c29fe5f1dfdb1dfd",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b9accf421059eebf95b75a8c22fd237f4d51991fbc868e79530d20a694e6cd21"
+    },
+    {
+      "bytes": 12582491,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00001.json",
+      "git_blob_oid": "11dcf02c2e868eaa84e9e9c2f09166e5ef9ca49d",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00001.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "d8f789b05966c07e7435159d96ee30de715133787556f18686f7011cecdba860"
+    },
+    {
+      "bytes": 12581750,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00002.json",
+      "git_blob_oid": "6a68d0b566a2d976ee2bad697b21c846e3d1c052",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00002.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b3d3b749eff439f92e9e39915682522b40d21ee6ae9156ba24a2ac5a42c93cbf"
+    },
+    {
+      "bytes": 12580322,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00003.json",
+      "git_blob_oid": "769acfcbf6cfb2d6e12c6aff9f5f1156db71830e",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00003.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "56aea4298888e1aa74cf8e155b8cf7a2f2e149f06b11451f75177b219aff8bb8"
+    },
+    {
+      "bytes": 12581476,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00004.json",
+      "git_blob_oid": "6090364df4414c2fcdb4653edbcc1e5da0a3b022",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00004.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2202cec94d5d43eaaa91b2366620f41deb325a98b89b086f20b08a687ff3af11"
+    },
+    {
+      "bytes": 12582824,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00005.json",
+      "git_blob_oid": "efd9326d6eee1f1be69517e90a9d66644c1417b8",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00005.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "88272c0f4cea6b6c5123fcb2729abf8498bb451e5f0db36fb8badfdb508b1274"
+    },
+    {
+      "bytes": 8219285,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00006.json",
+      "git_blob_oid": "a14bf81488a7350845a8de94b2866503df1cfe45",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00006.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "6f3d502ec3f1df6d339e7da946bf20e4179b1272ddddb0d68ba87df58295c26a"
+    },
+    {
+      "bytes": 2109,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json",
+      "git_blob_oid": "c986c5a57c028a2bf6199f0e76577d62510ad7f0",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "aacba06cd6d037151d64dcacaf14c24fb5748dc7b80f2507055343584812357e"
+    },
+    {
+      "bytes": 12583043,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00001.json",
+      "git_blob_oid": "ee537a66b8f14cdf54c09a5bc8e7a858c8aff292",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00001.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "346cc48820f5d6670de005a8d949b985c8822a93469816819199ba7ab86b2366"
+    },
+    {
+      "bytes": 12582891,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00002.json",
+      "git_blob_oid": "8390992dafe4f87554e6f6b66cfeaa196a256143",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00002.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "db0288891320903de93ad84345233a07b493014f77f51de605bf4ebc62e11bdd"
+    },
+    {
+      "bytes": 12583076,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00003.json",
+      "git_blob_oid": "1e3cd95acb286660a8440691ca722c336b6579c4",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00003.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "f54daa0a21e7ff269599a0416e228aadfb7c9589ef575af199056aa0d00879ff"
+    },
+    {
+      "bytes": 12583038,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00004.json",
+      "git_blob_oid": "a06763b97448684dc0808de9b7b68c5728721db3",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00004.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "bd30ccd7871ccc9e19ebd4825803f9703dfc6c1fb6323a7a7b59b2f19f2732e9"
+    },
+    {
+      "bytes": 5513682,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00005.json",
+      "git_blob_oid": "cdaf94191da8920989b4c677feb0e453fec3245a",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00005.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "6393cdf8b4933d8c2ce2f7c57f6ce217411da540c21a2936f098d51ced99c723"
+    },
+    {
+      "bytes": 11075,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+      "git_blob_oid": "c8e0cd323850ca47c6616b1e9112dca62bc4c925",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "021bc7a8bb8df16eced86e3e9d1bac315cb05e937eca43e154baed3fdfc14d66"
+    },
+    {
+      "bytes": 12582807,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00001.json",
+      "git_blob_oid": "7f405c273bba53cc55c82f9de737d12823f25242",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00001.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "e0a807ff6384c3842a03246d5384278fde9929d64d879fdb9a6162d6e542cf4f"
+    },
+    {
+      "bytes": 12582650,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00002.json",
+      "git_blob_oid": "7c5df428474d40393d4a867e2e8b8926f5e0a33a",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00002.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "d9d515cf1dd4814c0b667739ab1640aa49a2603781a3a3df5209505ec18a788a"
+    },
+    {
+      "bytes": 9591376,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00003.json",
+      "git_blob_oid": "7efa112897c5a28cbafc65707decf016fac2c610",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00003.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "d42b639d0fbc4c9efc046fa0c4644b70c59d18017783b8450279034eab2bef72"
+    },
+    {
+      "bytes": 1442087,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dimension_relations-00001.json",
+      "git_blob_oid": "cd2aa104e6bd4118cc7b99283c1c08f1d7267396",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dimension_relations-00001.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "cd5b2b9e90f4e9327b0f26c43237e98c09c4bae41e48a1c4d6672bc66ff84a46"
+    },
+    {
+      "bytes": 8644,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dimension_semantics-00001.json",
+      "git_blob_oid": "67013b33b68b6b6e233d461b8441ed8a3c1c5a7d",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dimension_semantics-00001.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "a3070ccffdfc758b6e92b684ff74a7da98b8abdbc8e1791a3033241eaa457879"
+    },
+    {
+      "bytes": 12582831,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00001.json",
+      "git_blob_oid": "0411f244ba558f2e7c96d7fe05ce73a15b25d868",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00001.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "6e7e96bc8fc446b07e49fa648aa5927d16209b1ed80ef808444c721e9c10a581"
+    },
+    {
+      "bytes": 12583017,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00002.json",
+      "git_blob_oid": "76e0dda38135e9e220588fd6406d0e07d7fe6c1b",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00002.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "7c67438cc843e31571abcd54b3962bea18533f1f5a2ec398a419e79efc777dfc"
+    },
+    {
+      "bytes": 12583017,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00003.json",
+      "git_blob_oid": "da4cffd62dd66f438cc3210b2c8fed62b9bbb169",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00003.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "4a431709347e4d396fa82ffc0dd34e4b741e7550a5be1e5c069350bd3c6caecc"
+    },
+    {
+      "bytes": 12582900,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00004.json",
+      "git_blob_oid": "aa626ea962ac0292e1907001d41fb14ffa91a8f6",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00004.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2cececc7bcb6cd476cdb2ec4535d2423431f23c5f58da00b9dac0d9970046cf7"
+    },
+    {
+      "bytes": 2912919,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00005.json",
+      "git_blob_oid": "be4b07f6114c2527065830e1c1ad03837d01da19",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00005.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "fbfd74fce06bafc161ebc44bb0bbe1d4b8dd6e144bd0d03c4c757c5289103164"
+    },
+    {
+      "bytes": 8599877,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/taxon_relations-00001.json",
+      "git_blob_oid": "65fcce09be8196964d00730825cab9c84d3b75f9",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/taxon_relations-00001.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "db645b115bbc66b011d6d0f16fef1f63c19d11a29f10ad08bb25250f70f87a0f"
+    },
+    {
+      "bytes": 37050,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/value_semantics-00001.json",
+      "git_blob_oid": "91f7738655d09224a2202e65f9c2dbbe38a91153",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/value_semantics-00001.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "8edd7884ed6aa7aaa8e5004da9b7a4ee16dbb7ca17e4661e332fe3c76676e177"
+    },
+    {
+      "bytes": 494801,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_key_ledger.json",
+      "git_blob_oid": "403cdc770c653c634cbd101db052f872cb831bcd",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_key_ledger.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b19631362c3e1b8a734157bbbacd417432c2e0c4950056d492ec16a051cfc986"
+    },
+    {
+      "bytes": 14489,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+      "git_blob_oid": "3112ceac0d8b6f844604594a9516850cc2bfc155",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "f059815108ce02e7cb28c49bf2f3d90455a6fbb4d0996a34fe563e0ca7da7d29"
+    },
+    {
+      "bytes": 12582788,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00001.json",
+      "git_blob_oid": "ea270203648cd2568ca621b4e53025b11b5c7807",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00001.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "3b47a1e34882958e5071abed5f2a459ae6d64d9bd3caed6f3bb4daa3a0f26d89"
+    },
+    {
+      "bytes": 12582166,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00002.json",
+      "git_blob_oid": "0a643f7a17a8e9edae1b81dd2bf6f38a8d8aeeaa",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00002.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "edaf884a20659815629eaea6eed3f3624cb3b6eec12e4644de4355c918fe424f"
+    },
+    {
+      "bytes": 12582249,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00003.json",
+      "git_blob_oid": "8d50c7e98531ea0a164327bbe6299bbccbf35aaf",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00003.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "76ebfc949b59752c540b914211a8c59078c74e8ddcbd9727d87cec9859fa880e"
+    },
+    {
+      "bytes": 12581350,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00004.json",
+      "git_blob_oid": "ed41eba6f9973e20598b8050871da33d91843789",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00004.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "652c8f4882c34d32c53957961b581ba57d604adec0f17fff13e5636cb5035a50"
+    },
+    {
+      "bytes": 12583095,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00005.json",
+      "git_blob_oid": "6c63a399b9eba492e4f001770d45bd0c8ced0714",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00005.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "2f922406d02126b6defda19c23b37aa2ae060e346b9231fa191c00df1590e099"
+    },
+    {
+      "bytes": 12582781,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00006.json",
+      "git_blob_oid": "820d54429035b7098d9beec4d6e64253832b50ce",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00006.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "77ec880a7fbb539929e4f017dcd01b39ef0d525ac0cad4ffb5d022b7c1dc5b30"
+    },
+    {
+      "bytes": 12582399,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00007.json",
+      "git_blob_oid": "c8e0fe0286a25a61d793565ab4aba4765ff91c5c",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00007.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b983780ffb11537f4d1119c3c513aa66fa7452402ed8cdd1d744a092fce5d0ec"
+    },
+    {
+      "bytes": 12581779,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00008.json",
+      "git_blob_oid": "84a2b9325e9f82d45e211303919576f89e802161",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00008.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "b34d7c13eff9296ba6a19cb33fc559ec0e70914e8a253a83be04417dd501dd31"
+    },
+    {
+      "bytes": 12581299,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00009.json",
+      "git_blob_oid": "958dc5e0b3ea3ba502d7341a755238e1f5180185",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00009.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "17c828fb599c576189f811e1ebd90aad353dbff5cb3e462f56602badd8a07fd3"
+    },
+    {
+      "bytes": 12582618,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00010.json",
+      "git_blob_oid": "ea63aa4872349762e3c80f803966c3a4473072b2",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00010.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "f600b6cafd1b61a093ccb45d16db1f8cb1c05d8a790b65bad097cbf0b3b2543b"
+    },
+    {
+      "bytes": 12581896,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00011.json",
+      "git_blob_oid": "c39dd63f67ed4eab79a600f0a58b9cb5e6b068dc",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00011.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "0373cc448934dc2337683ba255bd0fef807f7ccab3b9b83d767015cd1b84c37f"
+    },
+    {
+      "bytes": 12582671,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00012.json",
+      "git_blob_oid": "f144cb314998bdea5304be5c6aa7127cb3ba8c90",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00012.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "3855da39d7e208012e234fe2b4ab1cd1eb191bda169485d7f520ce1cfd297813"
+    },
+    {
+      "bytes": 12582891,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00013.json",
+      "git_blob_oid": "97a100b1f45b3b80dec5740b5bdfb4bb37a447d7",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00013.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "be1eabc4c061a650c4e7d8106a2bcd2c3eec08733ebc382d9abf4ba0d4611ab3"
+    },
+    {
+      "bytes": 12582228,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00014.json",
+      "git_blob_oid": "a67de13157b6b0800a4e79670f2397c70707f0aa",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00014.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "204835ce229c8991d252c7a539cc3815ce7b75b4a43a08c3daab974aefcff084"
+    },
+    {
+      "bytes": 12582204,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00015.json",
+      "git_blob_oid": "436e0f35f122fa683dfce779c55656934079180e",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00015.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "844c926d364794e1ca781584a91bc12c8b641d671c6fcc41c3c51cfc2fdd93a5"
+    },
+    {
+      "bytes": 12581596,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00016.json",
+      "git_blob_oid": "c6ae48dbd365e5531d5ca04ba89221a39b6d28ea",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00016.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "d67703dc7206ab9601d2d00e19066e0086f0a3a4caca63b397e94775202f4715"
+    },
+    {
+      "bytes": 12581636,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00017.json",
+      "git_blob_oid": "6b94e669b095be947b70571b988997cf11b5ba70",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00017.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "3ddca72c44a149c26cf96bfc896652cf7e396a4960a3f03fb2a8f94709d85cee"
+    },
+    {
+      "bytes": 12582794,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00018.json",
+      "git_blob_oid": "d4b69a4f7958a4b37d09ffff9229e4a8af015dc6",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00018.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "d8c230890261c51f9d1a371f7822d442006e124d4a6832588d58ff298bbaeb01"
+    },
+    {
+      "bytes": 12582358,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00019.json",
+      "git_blob_oid": "b66fc94eba14205d2048817206c6b069bb101bc9",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00019.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "a35125e246a2dee396fb77eb76ac38099b69ffe9270e96726e195491e0915ec0"
+    },
+    {
+      "bytes": 12581628,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00020.json",
+      "git_blob_oid": "e1617c76c2c5aaefaed7ccffd205d7e8c62ff143",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00020.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "f1a7eee934736368d9faa2b11c65dd1fde11ac2de0845ab472fa6e819175243e"
+    },
+    {
+      "bytes": 12582854,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00021.json",
+      "git_blob_oid": "ebc31ba25171a57811d9ee7a159bccddb5926fa8",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00021.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "438dfce5f2f837c273749336572fb8d99208a9191a2d6ece6dcfcbce61b821c0"
+    },
+    {
+      "bytes": 12582040,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00022.json",
+      "git_blob_oid": "c914a283e7c59f4a36f730cc3c33fd40c428d460",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00022.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "ff9c1fffbd7f02f43cba0c466a575919ad09a328e0916482beb461eaafd47cb8"
+    },
+    {
+      "bytes": 12582657,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00023.json",
+      "git_blob_oid": "e832949d3fbe34aa589faa63f8e2bc99c4ef9a4e",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00023.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "91ccdafc3565e88b5352c75bda0f0ff29acbdcd6857c3b16bf4668acfca409d8"
+    },
+    {
+      "bytes": 12581963,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00024.json",
+      "git_blob_oid": "c74b18be6021c9deb5f98a0d81b64d0341fff60c",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00024.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "811d3feac68f9666f08bd02677c78f4bbbaf4bd961afc5da4e2da8ac6994e591"
+    },
+    {
+      "bytes": 9031279,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00025.json",
+      "git_blob_oid": "9013dc155ef3cd70894fec14a4ffb1687934ffd7",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00025.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "a3fe4917bd1d2e7a3769dd8c44760b7b65eef304b4763dc31cc1f7d9b60c7802"
+    },
+    {
+      "bytes": 12306,
+      "capsule_path": "sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+      "git_blob_oid": "020fceb31db74922cedf81c220f06145eb90e617",
+      "git_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+      "git_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+      "sha256": "383151443d04da5a6e127ea2e4344b4b10bb210137dd1d13b77e50dbfae93508"
+    },
+    {
+      "bytes": 1826,
+      "capsule_path": "boundaries/raw/source_manifest.json",
+      "git_blob_oid": "3a13bae9f051562c9fd44e45243ff4e3580241a1",
+      "git_path": "data/boundaries/raw/source_manifest.json",
+      "git_revision": "4e9b4306ea450e618c370d3d5b7dcc4e0febae0f",
+      "sha256": "3855c31c227b8e9600d4f3956ea2f4f866a62cb55620f39d9e979834528b7373"
+    },
+    {
+      "bytes": 407359,
+      "capsule_path": "boundaries/raw/sweden.geojson",
+      "git_blob_oid": "d1cf5f5fc469b9dbfb8a2fff2e064d2c923a25b9",
+      "git_path": "data/boundaries/raw/sweden.geojson",
+      "git_revision": "4e9b4306ea450e618c370d3d5b7dcc4e0febae0f",
+      "sha256": "20e2ca00f348cddb95a41ca8e8f22a92390a8210618a525e2cef98d3069fc00d"
+    },
+    {
+      "bytes": 1363903,
+      "capsule_path": "boundaries/raw/norway.geojson",
+      "git_blob_oid": "8a69ebfbe6396e72b6d3038daa2e8d636312bf44",
+      "git_path": "data/boundaries/raw/norway.geojson",
+      "git_revision": "4e9b4306ea450e618c370d3d5b7dcc4e0febae0f",
+      "sha256": "c51db9962996c0cd570c1e0b5c9528413b387f80f77a5fe96f8e8c9b57f5317a"
+    },
+    {
+      "bytes": 283889,
+      "capsule_path": "boundaries/raw/finland.geojson",
+      "git_blob_oid": "4de27b39b6b158324ce7591a5d5aa93941a877ea",
+      "git_path": "data/boundaries/raw/finland.geojson",
+      "git_revision": "4e9b4306ea450e618c370d3d5b7dcc4e0febae0f",
+      "sha256": "2aa1b2df5366ac377a6835b3e6667743f9c9c57a077ea79066c187d487104316"
+    },
+    {
+      "bytes": 191930,
+      "capsule_path": "boundaries/raw/denmark.geojson",
+      "git_blob_oid": "5b2f6ee2ab8bc34f1ae13ee8e71e08cc6ae89d41",
+      "git_path": "data/boundaries/raw/denmark.geojson",
+      "git_revision": "4e9b4306ea450e618c370d3d5b7dcc4e0febae0f",
+      "sha256": "90b4fb95c8368020620ccd1e94182304530bc79b4251b115fc496b52a35098b3"
+    },
+    {
+      "bytes": 2228017,
+      "capsule_path": "boundaries/normalized/nordic_country_boundaries.geojson",
+      "git_blob_oid": "03615f3f7fc70d91661e07885fc97f7b5f22fd22",
+      "git_path": "data/boundaries/normalized/nordic_country_boundaries.geojson",
+      "git_revision": "4e9b4306ea450e618c370d3d5b7dcc4e0febae0f",
+      "sha256": "bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f"
+    }
+  ],
+  "groups": [
+    {
+      "bytes": 168540184,
+      "files": 128,
+      "role": "raw_acquisition"
+    },
+    {
+      "bytes": 536608561,
+      "files": 54,
+      "role": "normalized_evidence"
+    },
+    {
+      "bytes": 4476924,
+      "files": 6,
+      "role": "historical_boundary"
+    }
+  ],
+  "historical_boundary_revision": "4e9b4306ea450e618c370d3d5b7dcc4e0febae0f",
+  "input_revision": "5d087b5e1548c26dc4669ba08b03194a8ee672c2",
+  "logical_bytes": 709625669,
+  "producer_revision": "011263729c1b138cc85460090fbb89cdcab4d412",
+  "qualification": {
+    "basis": "Existing Git blob SHA1/SHA256 hydration and closed retained-source qualification; full source closure and identical physical attachments checked before/after exclusive relocation. This account did not reopen native inputs.",
+    "closed_output_freeze_sha256": "b6b9ce5378cf68aae78b7d2349b872622f5b63a6fd993c3f121f91758ef8bfa1",
+    "date_utc": "2026-11-17",
+    "independent_closed_review_sha256": "4f2fff9ab24d31a26d5645b6f0068a644dc5e53ff067f19311c4f92d8944f576",
+    "independent_proof_members_sha256": "8d1525638602a52f5eaac5b116b1a23b90682f760a1ba8fed5d8e04d39799cfe",
+    "interpretation": "Input integrity and source-key/country/receipt portability, not fresh chronology/event reconstruction or ecological eligibility."
+  },
+  "schema_version": "sead-source-key-portability-inputs.v1",
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e"
+}
