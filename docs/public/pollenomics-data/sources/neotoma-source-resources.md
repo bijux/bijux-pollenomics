@@ -161,5 +161,6 @@ The separate [recorded source atlas](https://github.com/bijux/bijux-pollenomics/
 publishes a portable metadata snapshot for the 1,258 resources and 527 sites,
 with six supporting archives and 16 selected ancestry targets. It leaves the
 historical numerical Atlas membership and source-use decisions unchanged.
-Its static publication is qualified; exact-snapshot browser checks remain
-pending in the account's verification record.
+Its refreshed 105-file presentation has a qualified local-file reader for all
+16 selected targets at 390 and 1,440 pixels. HTTP hosting, downloads and
+scientific admission remain outside that bounded result.

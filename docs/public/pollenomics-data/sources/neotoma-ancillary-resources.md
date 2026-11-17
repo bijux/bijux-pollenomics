@@ -411,14 +411,14 @@ published Atlas.
 The [recorded source atlas snapshot](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-integrity/neotoma/recorded-source-atlas/README.md)
 now carries an explicit selection of 16 captured targets from chain
 `0e7e37196a8eabc771b336bec25f981bfc6a291148dc519b9ce6c4f8212e2064`.
-The 104-file static publication preserves the prior 1,258-resource / 527-site
+The refreshed 105-file static publication preserves the prior 1,258-resource / 527-site
 metadata population and five supporting archives, adding one ancestry archive.
 The selected ancestry projection exposes native IDs and literal recorded
 fields, not taxon names or publication titles. Source-body access and current
-permission remain separate. This is a verified static snapshot; native JSON
-reachability remains open, and its unchanged reader has a measured long
-support-button overflow at mobile width. A complete two-viewport reader result
-or download qualification is not claimed.
+permission remain separate. All 16 selected targets were opened at both 390 and 1,440 pixels in the
+qualified local-file reader, with designated native JSON label/value scrolling
+and complete long source-button text. The account preserves earlier refused
+attempts separately. HTTP hosting and downloads remain unqualified.
 
 ## Retained Parent And Citation Details
 

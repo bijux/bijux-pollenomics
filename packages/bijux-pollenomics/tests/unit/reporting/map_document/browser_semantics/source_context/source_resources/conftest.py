@@ -204,13 +204,16 @@ await cdp.send('Page.enable');await cdp.send('Runtime.enable');await cdp.send('F
             + "const downloads=[];for(const name of await readdir(downloadDirectory)){downloads.push({name,bytes:[...await readFile(downloadDirectory+'/'+name)]});}const screenshot=root+'/reader.png';await writeFile(screenshot,Buffer.from((await cdp.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));console.log(JSON.stringify({result,calls,failures,downloads,screenshot}));\n"
             + "}finally{cdp?.close();await runtime.close();await new Promise(ok=>server.close(ok));}\n"
         )
-        completed = subprocess.run(
-            ["node", str(operator)],
-            capture_output=True,
-            text=True,
-            timeout=90,
-            check=True,
-        )
+        try:
+            completed = subprocess.run(
+                ["node", str(operator)],
+                capture_output=True,
+                text=True,
+                timeout=90,
+                check=True,
+            )
+        except subprocess.CalledProcessError as error:
+            raise AssertionError(error.stderr) from error
         return cast(dict[str, Any], json.loads(completed.stdout))
 
     return probe
