@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#491](https://github.com/bijux/bijux-pollenomics/pull/491) — Qualified HYDE context and dated provider metadata
+
+- Preserve completed cropland conservation and narrow calendar gates to the
+  source labels used by the declared contextual comparison.
+- Retain a separately dated provider metadata observation without inferring
+  release-specific rights, licence changes or native-grid admission.
+- Keep historical receipt gaps explicit and qualify the changed reader accounts
+  without repeating native arithmetic or upgrading scientific claims.
+
 ### [#490](https://github.com/bijux/bijux-pollenomics/pull/490) — Conditional fixed-support source cases
 
 - Authenticate retained paired request support and explicit parameter conditioning

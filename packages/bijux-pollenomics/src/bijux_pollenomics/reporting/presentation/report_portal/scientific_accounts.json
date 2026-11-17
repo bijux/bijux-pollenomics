@@ -6267,7 +6267,7 @@
           "remaining_input_or_review": "Source-owner rights, coordinate/time interpretation and intended analytical use remain unresolved; no independent measured vegetation target is supplied.",
           "cause_category": "Numerical source-grid/table conservation on selected modeled variables.",
           "consequence": "Native zero cells and source country labels are preserved without converting cell counts to land area or treating scenario bounds as probability intervals.",
-          "precise_next_acceptance_route": "Replay the seven-year cropland consumer against its22archives and three country tables, then resolve source metadata and rights before a separate scientific comparison.",
+          "precise_next_acceptance_route": "Reuse the retained seven-year country/grid replay and independent Decimal reconstruction without repeating native arithmetic. Resolve the exact retained-member rights/provider binding and the spatial, temporal and category requirements of a named downstream comparison before stronger use.",
           "negative_or_refused_result": "The2025source label and conflicting release prose remain explicit; no missing/negative selected cell is silently filled.",
           "matched_denominator": "84country/year/scenario rows; four countries,sevenCElabels500/1000/1500/1700/1900/2000/2025,three scenarios; each grid2,160×4,320cells, tolerance1e-6km²."
         },
@@ -7273,20 +7273,24 @@
       "scope_reason": "Provider release/rights and modeled cropland estimand; not measured vegetation reference.",
       "qualification": {
         "fields": {
-          "supported_claim": "The retained DataCite record identifies a HYDE provider release and its stated CC BY 4.0 metadata terms.",
+          "supported_claim": "The separately dated retained DataCite records identify a HYDE provider release and its stated CC BY 4.0 metadata terms.",
           "unsupported_claim": "Matching title/version does not license the locally retained HYDE bytes under those terms or authorize derived-cell publication.",
-          "actual_verification_performed": "Read the retained DOI metadata rights/version/date fields and the HYDE primary source account; no provider request or raster consumer rerun.",
+          "actual_verification_performed": "Read the retained 29 September and 17 November 2026 DOI metadata rights/version/date fields and the HYDE primary source account. The newer 10,609-byte response has its own SHA-256; neither record supplies exact local-member checksums. This documentation assembly made no provider request and reran no raster consumer.",
           "remaining_input_or_review": "The provider release must be bound to the exact local metadata, license and NetCDF/README bytes with source-owner rights clarification.",
           "cause_category": "Conflicting release-specific rights statements and unresolved byte identity.",
           "consequence": "Provider metadata cannot silently replace local CC BY-NC 4.0 and CC BY 3.0 statements.",
           "precise_next_acceptance_route": "Obtain an exact-release rights and byte correspondence decision, then qualify matched CRS/calendar/estimand before publishing derivatives.",
           "negative_or_refused_result": "The Yoda landing access refusal and incompatible local/provider terms remain unresolved.",
-          "matched_denominator": "1 retained provider DOI record versus distinct local metadata/license/README/NetCDF claims; 0 qualified new raster cells."
+          "matched_denominator": "2 separately dated retained provider DOI records versus distinct local metadata/license/README/NetCDF claims; 0 qualified new raster cells."
         },
         "evidence_pins": [
           {
             "path": "docs/report/source-relations/hyde/provider-record/datacite-response.json",
             "sha256": "522de6f01689dd8913d8dcde79d7f0f26917ec942bf823bad0f95e63500582d5"
+          },
+          {
+            "path": "docs/report/source-relations/hyde/provider-record/registry-observation-2026-11-17.json",
+            "sha256": "5468884df7c275e007785e3108c9fc2068eab2b7b1ab5322583fb9735e1a8daa"
           },
           {
             "path": "reports/science/hyde-cropland-source-account.md"

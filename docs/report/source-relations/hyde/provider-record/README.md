@@ -29,17 +29,33 @@ owner or repository authority must bind the current metadata and applicable
 rights to this exact release before such publication. Formal CRS, historical
 calendar and matched ecological estimand remain separate scientific gates.
 
+## Dated registry observation
+
+A separate bounded registry request retained the [17 November 2026 response](registry-observation-2026-11-17.json)
+from the same DataCite endpoint: 10,609 bytes, SHA-256
+`5468884df7c275e007785e3108c9fc2068eab2b7b1ab5322583fb9735e1a8daa`.
+It still lists CC BY 4.0 and version 1.0. Its registry `updated` field is
+2026-10-29T14:23:08Z, while the dataset's separate Updated date field is
+2026-09-28T13:12:17. These are distinct metadata fields, not evidence of a
+licence transition or a change to the local release. The response has no content
+URL or member checksum inventory.
+
+The earlier response remains unchanged. Neither observation binds those terms
+to exact local members or overrides the project's separately documented README
+reference. This documentation assembly used the retained metadata and made no
+new provider request, native-grid read or numerical calculation.
+
 
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
 
 Provider release/rights and modeled cropland estimand; not measured vegetation reference.
 
-**Supported claim.** The retained DataCite record identifies a HYDE provider release and its stated CC BY 4.0 metadata terms.
+**Supported claim.** The separately dated retained DataCite records identify a HYDE provider release and its stated CC BY 4.0 metadata terms.
 
 **Unsupported claim.** Matching title/version does not license the locally retained HYDE bytes under those terms or authorize derived-cell publication.
 
-**Actual verification performed.** Read the retained DOI metadata rights/version/date fields and the HYDE primary source account; no provider request or raster consumer rerun.
+**Actual verification performed.** Read the retained 29 September and 17 November 2026 DOI metadata rights/version/date fields and the HYDE primary source account. The newer 10,609-byte response has its own SHA-256; neither record supplies exact local-member checksums. This documentation assembly made no provider request and reran no raster consumer.
 
 **Remaining input or review.** The provider release must be bound to the exact local metadata, license and NetCDF/README bytes with source-owner rights clarification.
 
@@ -51,9 +67,11 @@ Provider release/rights and modeled cropland estimand; not measured vegetation r
 
 **Negative or refused result.** The Yoda landing access refusal and incompatible local/provider terms remain unresolved.
 
-**Matched denominator.** 1 retained provider DOI record versus distinct local metadata/license/README/NetCDF claims; 0 qualified new raster cells.
+**Matched denominator.** 2 separately dated retained provider DOI records versus distinct local metadata/license/README/NetCDF claims; 0 qualified new raster cells.
 
 - [Retained qualification evidence: docs/report/source-relations/hyde/provider-record/datacite-response.json](datacite-response.json) (SHA-256 `522de6f01689dd8913d8dcde79d7f0f26917ec942bf823bad0f95e63500582d5`).
+
+- [Retained qualification evidence: docs/report/source-relations/hyde/provider-record/registry-observation-2026-11-17.json](registry-observation-2026-11-17.json) (SHA-256 `5468884df7c275e007785e3108c9fc2068eab2b7b1ab5322583fb9735e1a8daa`).
 
 - [Retained qualification evidence: reports/science/hyde-cropland-source-account.md](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md).
 
