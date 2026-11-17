@@ -27,6 +27,7 @@ from .source_data.source_tables import SeadInventorySourceRows
 from .temporal import (
     _relative_interval_from_range,
     sead_dating_interval,
+    sead_dendro_is_open_ended,
     sead_interval_is_canonical,
 )
 from .values import parse_optional_int
@@ -146,7 +147,7 @@ def project_site_chronology(
         if (
             interval is not None
             and sead_interval_is_canonical(interval)
-            and uncertainty.get("uncertainty") != "From"
+            and not sead_dendro_is_open_ended(uncertainty.get("label"))
         ):
             numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for relative_date in source.relative_dates:

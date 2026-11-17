@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#492](https://github.com/bijux/bijux-pollenomics/pull/492) — Contextual open-ended SEAD chronology
+
+- Keep source From-qualified dendrochronology rows and labels as context while
+  excluding them from closed numeric site envelopes.
+- Share the existing qualifier predicate with evidence age-policy admission,
+  preserving finite closed rows and source dating counts in mixed examples.
+- Retain generated coverage without inferring actual retained-row impact,
+  source chronology replay or ecological-event admission.
+
 ### [#491](https://github.com/bijux/bijux-pollenomics/pull/491) — Qualified HYDE context and dated provider metadata
 
 - Preserve completed cropland conservation and narrow calendar gates to the
