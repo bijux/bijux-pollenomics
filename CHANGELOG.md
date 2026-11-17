@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#501](https://github.com/bijux/bijux-pollenomics/pull/501) — Retained RAÄ cell-value interpretation
+
+- Distinguish historical display-cell values from authenticated registry-record
+  counts and the separately qualified national source-context inventory.
+- Preserve the unresolved difference between historical query aggregates
+  without assigning it to duplicate or missing records.
+- Keep unavailable context null and retain the existing record-identity, date
+  and scientific-admission boundaries.
+
 ### [#500](https://github.com/bijux/bijux-pollenomics/pull/500) — Native HTTP response framing boundaries
 
 - Refuse conflicting or malformed native Content-Length declarations before
