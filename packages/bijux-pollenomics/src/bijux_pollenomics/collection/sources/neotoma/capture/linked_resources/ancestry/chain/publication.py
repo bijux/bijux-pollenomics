@@ -6,7 +6,7 @@ from hashlib import sha256
 from pathlib import Path
 from typing import Any
 
-from bijux_pollenomics.core.filesystem import OwnedTreeWriter
+from bijux_pollenomics.core.filesystem import DirectoryAnchor, OwnedTreeWriter
 from bijux_pollenomics.core.owned_tree import build_staging_output_dir
 
 from .....publication.ownership import publish_owned_source_tree
@@ -147,11 +147,17 @@ def materialize_neotoma_taxon_ancestry_chain(
     final = _safe_root(directory)
     if final.exists():
         raise FileExistsError(f"Ancestry chain already exists: {final}")
-    with ChainOperation(sources) as operation:
+    with (
+        ChainOperation(sources) as operation,
+        DirectoryAnchor(final.parent, create=True) as parent,
+    ):
         expected = _derive(
             operation, parent_chain_sha256, new_capture_manifest_sha256s, limits
         )
-        return _publish_derived_chain(final, operation, expected)
+        parent.check()
+        manifest = _publish_derived_chain(final, operation, expected)
+        parent.check()
+        return manifest
 
 
 def _publish_derived_chain(
