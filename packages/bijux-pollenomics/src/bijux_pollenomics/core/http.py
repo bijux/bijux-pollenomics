@@ -195,21 +195,56 @@ def fetch_binary(
     raise RuntimeError("HTTP binary request completed without returning bytes")
 
 
+def _native_body_length(response: HTTPResponse, *, max_bytes: int) -> int | None:
+    """Reconcile repeated native lengths without overriding framing precedence."""
+    if (
+        response.headers.get("Transfer-Encoding") is not None
+        or getattr(response, "_method", None) == "HEAD"
+        or 100 <= response.status < 200
+        or response.status in {204, 304}
+    ):
+        return response.length
+    canonical: str | None = None
+    for field in response.headers.get_all("Content-Length", []):
+        for item in field.split(","):
+            digits = item.strip(" \t")
+            if not digits or not digits.isascii() or not digits.isdecimal():
+                raise ValueError("HTTP response has invalid Content-Length framing")
+            normalized = digits.lstrip("0") or "0"
+            if canonical is not None and normalized != canonical:
+                raise ValueError("HTTP response has conflicting Content-Length framing")
+            canonical = normalized
+    if canonical is None:
+        return response.length
+    length = 0
+    for digit in canonical:
+        length = length * 10 + ord(digit) - ord("0")
+        if length > max_bytes:
+            raise ValueError("HTTP binary payload exceeds byte limit")
+    if response.length is None:
+        # Identical comma lists have one entity boundary even if the native
+        # parser treated their unnormalized field as close-delimited.
+        response.length = length
+    return response.length
+
+
 def _read_binary(response: BinaryIO, *, max_bytes: int) -> bytes:
     """Check declared size and observe only the limit plus an overflow sentinel."""
-    declared = getattr(response, "headers", {}).get("Content-Length")
-    if isinstance(response, HTTPResponse):
-        # Native length accounts for chunked and bodyless HTTP responses.
-        declared = response.length
     declared_size = None
-    if declared is not None:
-        digits = str(declared).strip()
-        if digits.isascii() and digits.isdecimal():
-            declared_size = 0
-            for digit in digits:
-                declared_size = declared_size * 10 + ord(digit) - ord("0")
-                if declared_size > max_bytes:
-                    raise ValueError("HTTP binary payload exceeds byte limit")
+    if isinstance(response, HTTPResponse):
+        declared_size = _native_body_length(response, max_bytes=max_bytes)
+        if declared_size is not None and declared_size > max_bytes:
+            raise ValueError("HTTP binary payload exceeds byte limit")
+    else:
+        declared = getattr(response, "headers", {}).get("Content-Length")
+        if declared is not None:
+            digits = str(declared).strip()
+            if digits.isascii() and digits.isdecimal():
+                declared_size = 0
+                for digit in digits:
+                    declared_size = declared_size * 10 + ord(digit) - ord("0")
+                    if declared_size > max_bytes:
+                        raise ValueError("HTTP binary payload exceeds byte limit")
     payload = bytearray()
     while block := response.read(min(64 * 1024, max_bytes - len(payload) + 1)):
         if len(block) > max_bytes - len(payload):
