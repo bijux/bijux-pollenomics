@@ -1,112 +1,99 @@
+"""Collection callbacks preserve complete output and retain private failures."""
+
 from __future__ import annotations
 
 from pathlib import Path
-import tempfile
-import unittest
-from unittest.mock import patch
+from typing import Any
+
+import pytest
 
 from bijux_pollenomics.collection.workflow import (
     build_staging_output_dir,
     collect_into_staging_dir,
 )
+from bijux_pollenomics.core.filesystem import replacement
 
 
-class StagingUnitTests(unittest.TestCase):
-    def test_build_staging_output_dir_uses_hidden_sibling_directory(self) -> None:
-        final_output_root = Path("/tmp/data/neotoma")
+def test_build_staging_output_dir_keeps_historical_sibling_name() -> None:
+    assert build_staging_output_dir(Path("/tmp/data/neotoma")) == Path(
+        "/tmp/data/.neotoma.staging"
+    )
 
-        self.assertEqual(
-            build_staging_output_dir(final_output_root),
-            Path("/tmp/data/.neotoma.staging"),
-        )
 
-    def test_collect_into_staging_dir_swaps_in_completed_output(self) -> None:
-        with tempfile.TemporaryDirectory() as workspace:
-            final_output_root = Path(workspace) / "neotoma"
+def test_collect_into_staging_dir_swaps_in_completed_output(tmp_path: Path) -> None:
+    final = tmp_path / "neotoma"
 
-            def collect(staging_root: Path) -> str:
-                (staging_root / "normalized").mkdir(parents=True, exist_ok=True)
-                (staging_root / "normalized" / "fresh.csv").write_text(
-                    "fresh", encoding="utf-8"
-                )
-                return "ok"
+    def collect(root: Path) -> str:
+        (root / "normalized").mkdir()
+        (root / "normalized/fresh.csv").write_text("fresh", encoding="utf-8")
+        return "ok"
 
-            report = collect_into_staging_dir(final_output_root, collect)
+    assert collect_into_staging_dir(final, collect) == "ok"
+    assert (final / "normalized/fresh.csv").read_text(encoding="utf-8") == "fresh"
+    assert not (tmp_path / ".neotoma.recovery").exists()
 
-            self.assertEqual(report, "ok")
-            self.assertTrue((final_output_root / "normalized" / "fresh.csv").exists())
-            self.assertFalse((Path(workspace) / ".neotoma.recovery").exists())
 
-    def test_collect_into_staging_dir_removes_failed_staging_dir(self) -> None:
-        with tempfile.TemporaryDirectory() as workspace:
-            final_output_root = Path(workspace) / "neotoma"
-            staging_output_root = build_staging_output_dir(final_output_root)
+def test_collect_into_staging_dir_retains_failed_candidate(tmp_path: Path) -> None:
+    final = tmp_path / "neotoma"
+    candidates: list[Path] = []
 
-            def collect(staging_root: Path) -> None:
-                (staging_root / "partial.csv").write_text("partial", encoding="utf-8")
-                raise RuntimeError("boom")
+    def collect(root: Path) -> None:
+        candidates.append(root)
+        (root / "partial.csv").write_text("partial", encoding="utf-8")
+        raise RuntimeError("boom")
 
-            with self.assertRaisesRegex(RuntimeError, "boom"):
-                collect_into_staging_dir(final_output_root, collect)
+    with pytest.raises(RuntimeError, match="boom"):
+        collect_into_staging_dir(final, collect)
+    assert not final.exists()
+    assert (candidates[0] / "partial.csv").read_text(encoding="utf-8") == "partial"
+    assert not build_staging_output_dir(final).exists()
 
-            self.assertFalse(staging_output_root.exists())
 
-    def test_collect_into_staging_dir_restores_prior_tree_on_rename_failure(
-        self,
+def test_collect_into_staging_dir_restores_prior_on_attachment_failure(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    final = tmp_path / "neotoma"
+    final.mkdir()
+    prior = final / "prior.csv"
+    prior.write_text("prior", encoding="utf-8")
+    candidates: list[Path] = []
+    original = replacement._rename_directory
+
+    def fail_candidate(
+        descriptor: int, source: str, target: str, **options: Any
     ) -> None:
-        with tempfile.TemporaryDirectory() as workspace:
-            final_output_root = Path(workspace) / "neotoma"
-            final_output_root.mkdir()
-            prior_file = final_output_root / "prior.csv"
-            prior_file.write_text("prior", encoding="utf-8")
-            staging_output_root = build_staging_output_dir(final_output_root)
-            original_replace = Path.replace
+        if candidates and source == candidates[0].name:
+            raise OSError("candidate rename failed")
+        original(descriptor, source, target, **options)
 
-            def replace_with_candidate_failure(source: Path, target: Path) -> Path:
-                if source == staging_output_root:
-                    raise OSError("candidate rename failed")
-                return original_replace(source, target)
+    def collect(root: Path) -> str:
+        candidates.append(root)
+        (root / "candidate.csv").write_text("candidate", encoding="utf-8")
+        return "unreachable"
 
-            def collect(staging_root: Path) -> str:
-                (staging_root / "candidate.csv").write_text(
-                    "candidate", encoding="utf-8"
-                )
-                return "unreachable"
+    monkeypatch.setattr(replacement, "_rename_directory", fail_candidate)
+    with pytest.raises(OSError, match="candidate rename failed"):
+        collect_into_staging_dir(final, collect)
+    assert prior.read_text(encoding="utf-8") == "prior"
+    assert (candidates[0] / "candidate.csv").read_text(encoding="utf-8") == "candidate"
+    assert not build_staging_output_dir(final).exists()
 
-            with (
-                patch.object(Path, "replace", replace_with_candidate_failure),
-                self.assertRaisesRegex(OSError, "candidate rename failed"),
-            ):
-                collect_into_staging_dir(final_output_root, collect)
 
-            self.assertEqual(prior_file.read_text(encoding="utf-8"), "prior")
-            self.assertFalse(staging_output_root.exists())
-
-    def test_collect_into_staging_dir_preserves_interrupted_recovery(self) -> None:
-        for final_present in (False, True):
-            with (
-                self.subTest(final_present=final_present),
-                tempfile.TemporaryDirectory() as workspace,
-            ):
-                final_root = Path(workspace) / "neotoma"
-                recovery_root = Path(workspace) / ".neotoma.recovery"
-                recovery_root.mkdir()
-                prior = recovery_root / "prior.csv"
-                prior.write_text("prior", encoding="utf-8")
-                if final_present:
-                    final_root.mkdir()
-                    (final_root / "current.csv").write_text("current", encoding="utf-8")
-
-                def collect(staging_root: Path) -> None:
-                    (staging_root / "candidate.csv").write_text(
-                        "candidate", encoding="utf-8"
-                    )
-
-                with self.assertRaisesRegex(
-                    FileExistsError, "recovery requires review"
-                ):
-                    collect_into_staging_dir(final_root, collect)
-
-                self.assertEqual(prior.read_text(encoding="utf-8"), "prior")
-                self.assertEqual(final_root.exists(), final_present)
-                self.assertFalse((Path(workspace) / ".neotoma.staging").exists())
+@pytest.mark.parametrize("prior_present", [False, True])
+def test_collect_into_staging_dir_preserves_interrupted_recovery(
+    tmp_path: Path, prior_present: bool
+) -> None:
+    final = tmp_path / "neotoma"
+    recovery = tmp_path / ".neotoma.recovery"
+    recovery.mkdir()
+    prior = recovery / "prior.csv"
+    prior.write_text("prior", encoding="utf-8")
+    if prior_present:
+        final.mkdir()
+        (final / "current.csv").write_text("current", encoding="utf-8")
+    calls: list[Path] = []
+    with pytest.raises(FileExistsError, match="recovery requires review"):
+        collect_into_staging_dir(final, lambda root: calls.append(root))
+    assert calls == []
+    assert prior.read_text(encoding="utf-8") == "prior"
+    assert final.exists() is prior_present
