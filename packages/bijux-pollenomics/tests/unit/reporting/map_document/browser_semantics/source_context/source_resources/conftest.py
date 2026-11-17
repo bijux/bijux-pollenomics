@@ -41,6 +41,7 @@ def resource_browser(
     tmp_path: Path,
     request: pytest.FixtureRequest,
 ) -> dict[str, Any]:
+    """Publish generated source archives through the maintained renderer."""
     catalogue, digest, archive, archive_pin = (
         wide_metadata_archive(tmp_path)
         if getattr(request, "param", None) == "wide"
@@ -143,6 +144,7 @@ def browser_probe(
         width: int = 390,
         height: int = 844,
         transport_mode: str = "ordinary",
+        driver: str | None = None,
     ) -> dict[str, Any]:
         profile = tmp_path / "chrome-profile"
         profile.mkdir(exist_ok=True)
@@ -194,9 +196,12 @@ await cdp.send('Page.enable');await cdp.send('Runtime.enable');await cdp.send('F
             + "const loaded=cdp.waitFor('Page.loadEventFired',15000);await cdp.send('Page.navigate',{url:origin+'/index.html' + "
             + json.dumps(query)
             + " + '#basemap=none'});if(transportMode!=='hold_tools')await loaded;else for(let n=0;n<200;n++){if(await evaluate(cdp,\"Boolean(document.getElementById('source-resources-open'))\"))break;await new Promise(ok=>setTimeout(ok,10));}\n"
-            + "const result=await evaluate(cdp,"
-            + json.dumps(expression)
-            + ");const downloads=[];for(const name of await readdir(downloadDirectory)){downloads.push({name,bytes:[...await readFile(downloadDirectory+'/'+name)]});}const screenshot=root+'/reader.png';await writeFile(screenshot,Buffer.from((await cdp.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));console.log(JSON.stringify({result,calls,failures,downloads,screenshot}));\n"
+            + (
+                "const result=await(async()=>{" + driver + "})();"
+                if driver is not None
+                else "const result=await evaluate(cdp," + json.dumps(expression) + ");"
+            )
+            + "const downloads=[];for(const name of await readdir(downloadDirectory)){downloads.push({name,bytes:[...await readFile(downloadDirectory+'/'+name)]});}const screenshot=root+'/reader.png';await writeFile(screenshot,Buffer.from((await cdp.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));console.log(JSON.stringify({result,calls,failures,downloads,screenshot}));\n"
             + "}finally{cdp?.close();await runtime.close();await new Promise(ok=>server.close(ok));}\n"
         )
         completed = subprocess.run(

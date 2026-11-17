@@ -226,6 +226,13 @@ country controls, metadata geometry continues to follow those controls.
 Unassigned geometry requires its separate switch; an unavailable location is
 never replaced with an invented point.
 
+A source-only map keeps its scientific countries, layers and points at zero.
+Its visible **Neotoma source resources** button opens the metadata reader
+without opening the map tools. The tools retain their own reader button.
+Escape closes the reader and restores focus to the button that opened it; on
+mobile, another Escape can then close the tools. Search accepts literal `?`
+without opening the map help behind the reader.
+
 ## Recorded Taxon Ancestry
 
 The immutable `taxon-ancestry/` baseline above derives from 2,735 retained direct

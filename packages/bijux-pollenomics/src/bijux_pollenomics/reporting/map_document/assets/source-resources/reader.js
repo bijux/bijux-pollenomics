@@ -243,6 +243,7 @@ function createSourceResourceReader({browser, domain, map, leaflet, publishQuery
   }
   addAction(controls,'All metadata sites',()=>{population.value='resources';overlay?.cancel();selectedSite=null;search.value='';country.value='';type.value='';role.value='';statusFilter.value='';page=0;detailGeneration++;downloadIntent?.abort();detail.replaceChildren();return open();});
   close.addEventListener('click',()=>hide());
+  dialog.addEventListener('keydown',event=>event.stopPropagation());
   dialog.addEventListener('cancel',event=>{event.preventDefault();hide();});
   async function open(selection = {}) {
     const token=++generation;overlay?.cancel();initializing=true;

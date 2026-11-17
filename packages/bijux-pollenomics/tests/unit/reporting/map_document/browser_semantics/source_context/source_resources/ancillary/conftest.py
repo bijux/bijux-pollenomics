@@ -22,12 +22,13 @@ def resource_browser(request: pytest.FixtureRequest, tmp_path: Path) -> dict[str
         "scoped": "scoped_catalogue",
         "supporting": "supporting_catalogue",
         "source_only": "legacy_catalogue",
+        "source_only_scoped": "scoped_catalogue",
     }
     return publish(
         request.getfixturevalue(names[kind]),
         tmp_path / "browser",
         ancillary=kind != "source_only",
         countries=()
-        if kind == "source_only"
+        if kind in {"source_only", "source_only_scoped"}
         else ("Sweden", "Norway", "Denmark", "Finland"),
     )
