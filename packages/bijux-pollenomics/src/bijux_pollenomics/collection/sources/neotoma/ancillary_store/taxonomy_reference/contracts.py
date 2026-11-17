@@ -268,7 +268,9 @@ class NeotomaTaxonomyReferenceContrast:
         )
 
 
-def checked_tree(value: Any) -> dict[str, Any]:
+def checked_tree(
+    value: Any, *, expected_tree: str | None = None, query_commit: str | None = None
+) -> dict[str, Any]:
     """Reconstruct a retained Git tree rather than trust a file listing label."""
     if (
         not isinstance(value, dict)
@@ -304,7 +306,24 @@ def checked_tree(value: Any) -> dict[str, Any]:
         )
     )
     pin = sha1(b"tree " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
-    if value.get("sha") != pin or value.get("url") != API + "trees/" + pin:
+    # A commit-addressed GitHub tree response can retain its query selector.
+    # Its entries must still reconstruct the canonical tree bound by that commit.
+    selectors = {pin}
+    if query_commit is not None:
+        if not digest(query_commit, 40) or expected_tree is None:
+            raise ValueError(
+                "Taxonomy reference Git tree identity lacks commit context"
+            )
+        selectors.add(query_commit)
+    if expected_tree is not None and expected_tree != pin:
+        raise ValueError(
+            "Taxonomy reference Git tree identity differs from retained commit membership"
+        )
+    if (
+        not digest(value.get("sha"), 40)
+        or value["sha"] not in selectors
+        or value.get("url") != API + "trees/" + value["sha"]
+    ):
         raise ValueError("Taxonomy reference Git tree identity differs")
     return value
 
@@ -318,17 +337,22 @@ def git_membership(
     object, and no live GitHub or native permission verification is implied.
     """
     commit = decode(evidence["commit"])
-    root, data = (
-        checked_tree(decode(evidence["root_tree"])),
-        checked_tree(decode(evidence["data_tree"])),
-    )
     if (
         not isinstance(commit, dict)
         or commit.get("sha") != revision
         or commit.get("url") != API + "commits/" + revision
-        or commit.get("tree") != {"sha": root["sha"], "url": root["url"]}
+        or not isinstance(commit.get("tree"), dict)
+        or set(commit["tree"]) != {"sha", "url"}
+        or not digest(commit["tree"].get("sha"), 40)
+        or commit["tree"].get("url") != API + "trees/" + commit["tree"]["sha"]
     ):
         raise ValueError("Taxonomy reference retained commit membership differs")
+    root = checked_tree(
+        decode(evidence["root_tree"]),
+        expected_tree=commit["tree"]["sha"],
+        query_commit=revision,
+    )
+    data = checked_tree(decode(evidence["data_tree"]))
     utc(commit["committer"]["date"])
     links = [row for row in root["tree"] if row["path"] == "data"]
     if len(links) != 1 or links[0]["type"] != "tree" or links[0]["sha"] != data["sha"]:
