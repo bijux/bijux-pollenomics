@@ -68,13 +68,22 @@ deep digital record.
 
 ## Why RAÄ Does Not Supply Missing Sites Or Dates
 
-The RAÄ artifact in this repository is a one-degree density surface. It can
-answer “how many published RAÄ records fall in this coarse cell?” It cannot
-identify which RAÄ records coincide with a SEAD point, establish a site's
-registry identity, or date that site.
+The retained RAÄ display is an exact historical one-degree surface. A cell
+preserves a value from earlier WFS queries, but does not establish how many
+distinct registry records fall within that area. The 106 cell values sum to
+339,412, while a separate national query declared 318,265 `Fornlämning` hits.
+Without a jointly bound record inventory and source epoch, the 21,147 difference
+cannot be assigned to duplicate or missing records. The separately qualified
+national native source-context inventory does not reconcile or replace this
+historical display. See [RAÄ source guidance](../sources/raa.md) for these
+distinct populations.
+The historical surface cannot identify which RAÄ records coincide with a SEAD
+point, establish a site's registry identity, or date that site.
 
-Each discovery-registry row therefore carries the local RAÄ cell count only as
-`raa_density_context_count`. That field:
+Each discovery-registry row retains the nullable field
+`raa_density_context_count`. When present, it is a retained historical cell
+value for orientation, not a reconciled registry-record count. An unavailable
+value remains null rather than becoming zero. This field:
 
 - never changes discovery rank;
 - never creates a site;
