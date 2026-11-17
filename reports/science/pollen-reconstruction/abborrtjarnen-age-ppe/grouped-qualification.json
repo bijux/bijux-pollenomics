@@ -105,7 +105,7 @@
   "qualification_utc_date": "2026-11-16",
   "presentation_refresh": {
     "scope": "HTML-only rendering of the unchanged saved grouped report; no numerical projection or model replay",
-    "renderer_commit": "8c9102251863fded538b5972dea2f834fce35692",
+    "renderer_commit": "dd768aa2bf8d44fa293fdc8ffe27de60f4d6b152",
     "renderer_source": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/abborrtjarnen_age_ppe/grouped/publication.py",
     "renderer_sha256": "347b4dee119125aaf9cb9691c59179420513773120c32f0f97beefad5e1afa3d",
     "input_grouped_report_sha256": "34ffe7287d7240f233900c2d22502f6cfb8d1a1fc597fbc7719bb2716c4a356a",
