@@ -408,6 +408,15 @@ their published metadata. An actual chain must still be separately materialized,
 qualified and explicitly supplied before these software interfaces change a
 published Atlas.
 
+The [recorded source atlas snapshot](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-integrity/neotoma/recorded-source-atlas/README.md)
+now carries an explicit selection of 16 captured targets from chain
+`0e7e37196a8eabc771b336bec25f981bfc6a291148dc519b9ce6c4f8212e2064`.
+The 104-file static publication preserves the prior 1,258-resource / 527-site
+metadata population and five supporting archives, adding one ancestry archive.
+The selected ancestry projection exposes native IDs and literal recorded
+fields, not taxon names or publication titles. Source-body access and current
+permission remain separate; exact-snapshot browser qualification is still pending.
+
 ## Retained Parent And Citation Details
 
 The [recorded ancestry account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-integrity/neotoma/ancestry-captures/README.md)

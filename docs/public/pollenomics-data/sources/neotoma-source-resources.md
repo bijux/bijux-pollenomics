@@ -156,3 +156,10 @@ The [ancillary source products](neotoma-ancillary-resources.md) preserve the
 separate eight-endpoint census, native reference relationships, unit metadata
 and complete or partial reference responses. Their original/current scope and
 selected-reader contracts are independent of this native archive.
+
+The separate [recorded source atlas](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-integrity/neotoma/recorded-source-atlas/README.md)
+publishes a portable metadata snapshot for the 1,258 resources and 527 sites,
+with six supporting archives and 16 selected ancestry targets. It leaves the
+historical numerical Atlas membership and source-use decisions unchanged.
+Its static publication is qualified; exact-snapshot browser checks remain
+pending in the account's verification record.

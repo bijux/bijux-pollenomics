@@ -92,6 +92,12 @@ The [Atlas input contract](../../../../../docs/public/pollenomics-data/sources/n
 accepts an explicit selection of these targets. Publishing this capture and
 chain does not automatically replace an existing Atlas catalogue.
 
+The separate [recorded source atlas](../recorded-source-atlas/README.md) now
+includes these 16 native target identities alongside the existing resource and
+supporting metadata. It preserves recorded parent and citation fields without
+adding native names, body-download authority or scientific admission. Its
+static publication is qualified; browser interactions remain separately pending.
+
 ## Execution and verification
 
 The original capture completed 16 HTTP requests. A later maintained
