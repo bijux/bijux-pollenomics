@@ -282,14 +282,18 @@ class _LinkedEvidenceSession:
             self._close()
             raise
 
-    def _check_operation(self, *, operation: object) -> None:
-        """Require this active operation and its live permissions before metadata reads."""
+    def _check_lifetime(self, *, operation: object) -> None:
+        """Require the active operation and its original outer body guard."""
         if not self._active or self._header is None or operation is not self._operation:
             raise ValueError(
                 "Evidence session is inactive or belongs to another operation"
             )
         if self._before_body_read is not None:
             self._before_body_read()
+
+    def _check_operation(self, *, operation: object) -> None:
+        """Keep standalone preflight permissions fresh before metadata resolution."""
+        self._check_lifetime(operation=operation)
         self._check_trees(full=False)
 
     def _check_complete_sources(
@@ -341,7 +345,7 @@ class _LinkedEvidenceSession:
         capture_manifest_sha256: str | None = None,
     ) -> None:
         """Reject stale operations, changed resolvers and permission drift before bodies."""
-        self._check_operation(operation=operation)
+        self._check_lifetime(operation=operation)
         owner = self._source_owner
         if capture_directory is not None or capture_manifest_sha256 is not None:
             declared = (
