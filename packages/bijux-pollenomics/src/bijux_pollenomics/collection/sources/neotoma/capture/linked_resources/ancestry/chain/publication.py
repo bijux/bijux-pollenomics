@@ -126,30 +126,59 @@ def publish_neotoma_taxon_ancestry_chain(
         )
         if document != expected:
             raise ValueError("Ancestry chain source projection differs")
-        manifest, buffers = storage._pack(
-            expected, collections=COLLECTIONS, schema=SCHEMA
+        return _publish_derived_chain(final, operation, expected)
+
+
+def materialize_neotoma_taxon_ancestry_chain(
+    directory: Path,
+    *,
+    sources: NeotomaTaxonAncestryChainSources,
+    parent_chain_sha256: str | None,
+    new_capture_manifest_sha256s: tuple[str, ...],
+    limits: NeotomaTaxonAncestryChainLimits = DEFAULT_LIMITS,
+) -> dict[str, Any]:
+    """Derive and publish a chain while its original source authority stays live.
+
+    Native baseline qualification occurs once within this operation. Staged and
+    final output validation retain the same source seals and permission duties;
+    no qualification is reusable after the operation closes.
+    """
+    limits.validate()
+    final = _safe_root(directory)
+    if final.exists():
+        raise FileExistsError(f"Ancestry chain already exists: {final}")
+    with ChainOperation(sources) as operation:
+        expected = _derive(
+            operation, parent_chain_sha256, new_capture_manifest_sha256s, limits
         )
-        raw = encoded_json(manifest)
-        pin = sha256(raw).hexdigest()
-        staging = build_staging_output_dir(final)
+        return _publish_derived_chain(final, operation, expected)
 
-        def validate(path: Path) -> dict[str, Any]:
-            operation.validate()
-            retained = storage._readback(
-                path, pin, collections=COLLECTIONS, schema=SCHEMA
-            )
-            if retained != expected:
-                raise ValueError("Ancestry staged/final source projection differs")
-            operation.validate()
-            return retained
 
-        with OwnedTreeWriter(
-            staging, max_bytes=MAX_BYTES, max_files=MAX_PARTS + 1
-        ) as writer:
-            for name, content in buffers.items():
-                writer.write_bytes(name, content)
-            writer.write_bytes("manifest.json", raw)
-            publish_owned_source_tree(
-                writer, staging=staging, final=final, validate=validate
-            )
+def _publish_derived_chain(
+    final: Path, operation: ChainOperation, expected: dict[str, Any]
+) -> dict[str, Any]:
+    """Publish only the projection derived under this still-live source owner."""
+    operation._check_live()
+    manifest, buffers = storage._pack(expected, collections=COLLECTIONS, schema=SCHEMA)
+    raw = encoded_json(manifest)
+    pin = sha256(raw).hexdigest()
+    staging = build_staging_output_dir(final)
+
+    def validate(path: Path) -> dict[str, Any]:
+        operation.validate()
+        retained = storage._readback(path, pin, collections=COLLECTIONS, schema=SCHEMA)
+        if retained != expected:
+            raise ValueError("Ancestry staged/final source projection differs")
+        operation.validate()
+        return retained
+
+    with OwnedTreeWriter(
+        staging, max_bytes=MAX_BYTES, max_files=MAX_PARTS + 1
+    ) as writer:
+        for name, content in buffers.items():
+            writer.write_bytes(name, content)
+        writer.write_bytes("manifest.json", raw)
+        publish_owned_source_tree(
+            writer, staging=staging, final=final, validate=validate
+        )
     return manifest
