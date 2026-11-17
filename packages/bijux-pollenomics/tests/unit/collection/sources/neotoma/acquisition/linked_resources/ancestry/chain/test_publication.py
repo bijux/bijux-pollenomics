@@ -28,6 +28,38 @@ def test_zero_capture_delta_owns_no_source_copies(
     )
 
 
+def test_standalone_publisher_holds_parent_during_fresh_derivation(
+    chain_products: dict[str, Any], tmp_path: Path, monkeypatch: Any
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.capture.linked_resources.ancestry.chain import (
+        publication,
+    )
+
+    sources = bindings(chain_products)
+    document = publication.derive_neotoma_taxon_ancestry_chain(
+        sources=sources, parent_chain_sha256=None, new_capture_manifest_sha256s=()
+    )
+    parent = tmp_path / "exports"
+    parent.mkdir()
+    detached = tmp_path / "detached-exports"
+    original = publication._derive
+
+    def derive(*args: Any, **kwargs: Any) -> Any:
+        result = original(*args, **kwargs)
+        parent.rename(detached)
+        parent.mkdir()
+        (parent / "foreign.txt").write_text("separate parent owner")
+        return result
+
+    monkeypatch.setattr(publication, "_derive", derive)
+    with pytest.raises(ValueError, match="identity|attachment|directory"):
+        publication.publish_neotoma_taxon_ancestry_chain(
+            parent / "final", document=document, sources=sources
+        )
+    assert (parent / "foreign.txt").read_text() == "separate parent owner"
+    assert not (parent / "final").exists() and not (detached / "final").exists()
+
+
 def test_source_equal_byte_swap_during_write_refuses_before_final(
     chain_products: dict[str, Any], tmp_path: Path, monkeypatch: Any
 ) -> None:
