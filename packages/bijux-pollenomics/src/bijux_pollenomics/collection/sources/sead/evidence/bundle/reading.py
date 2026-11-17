@@ -179,7 +179,7 @@ def open_evidence_files(
             for relative in sorted(_LOGICAL_DOCUMENT_NAMES):
                 read_record(relative)
             parts = _part_names(manifest, records, contents)
-            if set(records) != _LOGICAL_DOCUMENT_NAMES | parts:
+            if frozenset(records) != _LOGICAL_DOCUMENT_NAMES | parts:
                 raise ValueError("SEAD evidence contains missing or unreferenced parts")
             for relative in sorted(parts):
                 read_record(relative)
