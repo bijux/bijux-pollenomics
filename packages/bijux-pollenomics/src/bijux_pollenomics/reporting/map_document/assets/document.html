@@ -7592,7 +7592,7 @@ function renderSelectionEmptyStatePanel(loadStatus = 'ready') {
           link.href = url;
           link.download = 'pollenomics-selection.json';
           try {link.click();} finally {window.setTimeout(() => URL.revokeObjectURL(url), 1000);}
-          status.textContent = `${result.counts.selected_public_rows} public map rows and ${result.counts.selected_relation_rows} retained relation rows downloaded with selection metadata. Full source series are separate.`;
+          status.textContent = `Download requested: ${result.counts.selected_public_rows} public map rows and ${result.counts.selected_relation_rows} retained relation rows with selection metadata. Full source series are separate.`;
         } catch (error) {
           status.textContent = error instanceof Error ? error.message : 'Selection download failed; no partial download was produced.';
         } finally {button.disabled = false;}
@@ -8537,7 +8537,7 @@ function renderSelectionEmptyStatePanel(loadStatus = 'ready') {
           link.download = sourcePollenRecordFilename(focusState.recordId);
           link.click();
           window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-          focusExportStatus.textContent = `${payload.pollen_observations.record_count} source observations downloaded with ${payload.chronology_claims.record_count} chronology claims.`;
+          focusExportStatus.textContent = `Download requested: ${payload.pollen_observations.record_count} source observations and ${payload.chronology_claims.record_count} chronology claims.`;
         } catch (error) {
           focusExportStatus.textContent = error instanceof Error ? error.message : 'Source pollen export failed.';
         }

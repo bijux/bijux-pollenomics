@@ -83,6 +83,8 @@ def test_actual_download_loads_complete_public_rows_through_shared_owner() -> No
     assert actual["downloads"][0]["name"] == "pollenomics-selection.json"
     assert actual["revoked"] == ["blob:selection"]
     assert not actual["disabled"]
+    assert "Download requested" in actual["status"]
+    assert "downloaded" not in actual["status"]
 
 
 def test_download_waits_for_complete_assets_before_creating_one_blob() -> None:
