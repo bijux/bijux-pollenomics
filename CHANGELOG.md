@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#513](https://github.com/bijux/bijux-pollenomics/pull/513) — Bounded Atlas publication and qualified registry reading
+
+Hash canonical build identities incrementally and release detached producer buffers before the unchanged final asset validator, preserving exact output identities and caller inputs. Bind the async-consumer fixture to its declared page scope. Retain the qualified native registry reader and actual desktop/mobile evidence, distinguishing public-buffer interface reuse from native reconstruction and local-file checks from the unexecuted HTTP recipe. Correct-rootdir generated static-asset checks, matched typing, strict docs and exact public-file correspondence pass; representative generated memory measurements do not claim actual-input fit or scientific admission.
+
 ### [#512](https://github.com/bijux/bijux-pollenomics/pull/512) — Persistent polygon source metadata and scoped browser fixtures
 
 Keep existing public polygon counts, bounds, partial-footprint labels, capture context and scientific limits in the persistent reader, with complete identifiers wrapped inside its owner. Isolate generated browser components from unrelated page initialization and export the original ancillary fixtures explicitly without changing their implementations or causal assertions. Generated browser checks, focused delivery controls and matched host lint/typing pass; no existing public map regeneration, source collection, model execution or scientific admission is claimed.
