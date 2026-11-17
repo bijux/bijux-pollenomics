@@ -1,6 +1,6 @@
 {
   "schema_version": "neotoma-recorded-ancestry-capture-verification.v1",
-  "scope": "Twelve closed native source details; exact canonical copy, without successor-chain derivation or Atlas replacement.",
+  "scope": "Twelve closed native source details and an exact normalized successor-chain publication; no Atlas replacement or scientific admission.",
   "capture": {
     "directory": "../../../../../data/neotoma/ancillary-resources/taxon-ancestry/captures/244769f271142c2f11d6f7cd11874d2fa8df6e5328e45ba6ff3851e6a06a402c",
     "manifest": "capture-manifest.json",
@@ -355,7 +355,9 @@
     "GETs": 0,
     "new_baselines": 0,
     "new_derivations": 0,
-    "all_staged_git_blobs_match_closed_pins": true
+    "all_staged_git_blobs_match_closed_pins": true,
+    "normalized_chain_files_byte_identical": 5,
+    "already_published_capture_files_unchanged": 26
   },
   "interpretation": {
     "scientific_admission": "not_asserted",
@@ -371,17 +373,92 @@
     }
   },
   "successor": {
-    "normalized_chain_materialized": false,
-    "new_frontier_total": null,
+    "normalized_chain_materialized": true,
+    "new_frontier_total": 172,
     "preceding_chain_manifest_sha256": "0e7e37196a8eabc771b336bec25f981bfc6a291148dc519b9ce6c4f8212e2064",
     "preceding_chain_frontier": 182,
     "preceding_atlas_selected_targets": 16,
-    "new_twelve_in_atlas": false
+    "new_twelve_in_atlas": false,
+    "manifest_sha256": "cf525a56c96f57f4aab43894326500b8ca080800544a3e0fea288296b393db0d",
+    "directory": "../../../../../data/neotoma/ancillary-resources/taxon-ancestry/chains/cf525a56c96f57f4aab43894326500b8ca080800544a3e0fea288296b393db0d",
+    "files": 5,
+    "bytes": 467732,
+    "member_pins": {
+      "manifest.json": {
+        "bytes": 44430,
+        "sha256": "cf525a56c96f57f4aab43894326500b8ca080800544a3e0fea288296b393db0d"
+      },
+      "parts/edges/b5738f8823d8078cef4aac99528e04411518767fcff7b4b3c1be056738812dae.json": {
+        "bytes": 13421,
+        "sha256": "b5738f8823d8078cef4aac99528e04411518767fcff7b4b3c1be056738812dae"
+      },
+      "parts/frontier/6023f26caefe3040e03c5efe59280497177101e56df578b3059407572ded18e4.json": {
+        "bytes": 274552,
+        "sha256": "6023f26caefe3040e03c5efe59280497177101e56df578b3059407572ded18e4"
+      },
+      "parts/publications/ab780e2c5c3d22697596e6782a82fa5a7eed0ba5bb6d858f08d0e397735e3ebe.json": {
+        "bytes": 59853,
+        "sha256": "ab780e2c5c3d22697596e6782a82fa5a7eed0ba5bb6d858f08d0e397735e3ebe"
+      },
+      "parts/taxa/21aa4c02f5cd139336b1b2ead92317435f69a27f852d0aafb8d5f5b2f2cfb6be.json": {
+        "bytes": 75476,
+        "sha256": "21aa4c02f5cd139336b1b2ead92317435f69a27f852d0aafb8d5f5b2f2cfb6be"
+      }
+    },
+    "part_rows": {
+      "edges": 14,
+      "frontier": 172,
+      "publications": 8,
+      "taxa": 13
+    },
+    "cumulative_recorded_summary": {
+      "declared_seed_taxa": 2190,
+      "known_entity_results": 2763,
+      "known_publication_nodes": 175,
+      "known_taxon_nodes": 2355,
+      "literal_field_occurrences": 4422,
+      "new_HTTP_requests": 28,
+      "new_parent_taxa": 165
+    },
+    "historical_HTTP_requests": 28,
+    "current_normalization_GETs": 0,
+    "baseline_manifest_sha256": "84a831c05c7d018392293747925a4229faf4be935a1552ef6bdbf4587d1d0662"
   },
   "limits": {
     "GET_authority_from_this_account": false,
     "current_roles_revalidated_for_future_use": false,
     "model_calls": 0,
     "new_counts_chronology_geometry_or_independent_vegetation": "not_asserted"
+  },
+  "normalization": {
+    "producer_revision": "df54b2de1ba76de3edb2fabe7b6bc733e590bb85",
+    "tool_observed_exit_code": 0,
+    "process_exit_is_separate_from_serialized_receipt": true,
+    "status": "qualified",
+    "native_baseline_qualifications": 1,
+    "normalized_derivations": 1,
+    "source_validation_locations": [
+      "stage",
+      "final"
+    ],
+    "elapsed_seconds": 2409.080224291014,
+    "source_fd_opens": 109624,
+    "conservative_source_bytes": 2489475599,
+    "physical_io_measured": false,
+    "provider_GETs": 0,
+    "closed_source_lease": true,
+    "fatal_bytes": 0,
+    "unexpected_denials_or_forbidden_events": 0,
+    "software_origins": 461,
+    "closed_bundle_files": 31,
+    "closed_bundle_bytes": 551318,
+    "isolated_source_inputs_content_identity_preserved": true,
+    "future_permission_from_stored_metadata": false,
+    "selected_metadata_reader_flags": {
+      "current_roles_revalidated": false,
+      "native_source_fields_revalidated": false,
+      "GET_authorized": false
+    },
+    "scientific_admission": "not_asserted"
   }
 }

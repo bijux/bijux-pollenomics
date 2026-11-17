@@ -427,9 +427,13 @@ retains a later closed capture of seven taxon details and five classification
 references, pinned by `244769f271142c2f11d6f7cd11874d2fa8df6e5328e45ba6ff3851e6a06a402c`.
 All twelve received details passed native source qualification. The account
 preserves their literal names, parent/citation fields and source-quality limits.
-These responses have not been materialized into a successor chain or included
-in the 16-target Atlas above; no revised frontier count or scientific admission
-is implied.
+These responses now have a separately qualified normalized successor,
+`cf525a56c96f57f4aab43894326500b8ca080800544a3e0fea288296b393db0d`,
+with 172 unresolved frontier leads and zero GETs during normalization. The
+16-target Atlas above still selects the preceding `0e7e371…` chain; the dated
+reference contrast remains bound to that preceding chain's fixed 182-lead set.
+Neither has been refreshed by this normalization, and scientific admission is
+not implied.
 
 The [recorded ancestry account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-integrity/neotoma/ancestry-captures/README.md)
 links 13 captured taxon details and three taxon-reference publication details
