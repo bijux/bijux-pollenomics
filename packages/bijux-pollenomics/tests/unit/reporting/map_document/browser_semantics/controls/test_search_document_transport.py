@@ -680,6 +680,7 @@ console.log(JSON.stringify({values,saturated,arity:helper.length,frozen:Object.i
         "acceptPart",
         "consume",
         "mergeShards",
+        "planNodeAssets",
         "searchGrams",
         "validatePayload",
     ]
