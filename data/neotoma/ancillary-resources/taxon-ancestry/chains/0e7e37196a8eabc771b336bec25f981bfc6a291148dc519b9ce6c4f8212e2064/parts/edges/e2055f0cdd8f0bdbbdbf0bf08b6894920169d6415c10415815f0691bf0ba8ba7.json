@@ -1,0 +1,526 @@
+{
+  "collection": "edges",
+  "rows": [
+    {
+      "child_taxon_id": 9607,
+      "edge_id": "03a07e4fbf41095a0e60dcbda64cd5f94288ffb13bc5042b5f9265bd6b5bb600",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 9606,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-9607-current-attempt-1.body",
+        "body_sha256": "a626baa6cc773af6a211340c66a09f7cc75ddb849a2ca704f6d898c38124e33f",
+        "receipt_file": "taxon-9607-current-attempt-1.receipt.json",
+        "receipt_sha256": "1e374c801bc2e5c3c4152b73d4567eceef5536e157efda3f50f092d3e72fd834",
+        "utc_end": "2026-11-17T11:09:44.767401+00:00",
+        "utc_start": "2026-11-17T11:09:42.750538+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9607",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 23965,
+      "edge_id": "135335f534cc38890f52232627905545b8779db9bc3c092b5042ac499173d4fc",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 1078,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-23965-current-attempt-1.body",
+        "body_sha256": "a84dccac21db75e323661dd4f242ab96155cf14b2b60b6bc9fc6a57e4182072b",
+        "receipt_file": "taxon-23965-current-attempt-1.receipt.json",
+        "receipt_sha256": "930b4f39381ba974bcdb519e4dbbdc0c490a2314ea0d55501cf5b18bc6cf781f",
+        "utc_end": "2026-11-17T11:10:02.432905+00:00",
+        "utc_start": "2026-11-17T11:10:00.357510+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-23965",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 33580,
+      "edge_id": "21622a0d1058d2bdaf0c2b6cfc4c659e063999b6cf27b9485fee06af58226127",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 1490,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-33580-current-attempt-1.body",
+        "body_sha256": "b6b322e70abebe9dd348c77b03ceaf04a41add77fd3b4007633359cac0c65255",
+        "receipt_file": "taxon-33580-current-attempt-1.receipt.json",
+        "receipt_sha256": "ff46cde918440ea562f4b54675366c718d1321e1f627d6fbff73deb05e3f07c0",
+        "utc_end": "2026-11-17T11:09:42.548975+00:00",
+        "utc_start": "2026-11-17T11:09:40.560886+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-33580",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 9608,
+      "edge_id": "234595795bb5ee05fb1885ce1a34366e57e991751d37c8249f96bc2f925d564e",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 3711,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-9608-current-attempt-1.body",
+        "body_sha256": "39f6cd1fc061675423900bf117ca96cdc3dc499a02afd068b7a41d56a9845c09",
+        "receipt_file": "taxon-9608-current-attempt-1.receipt.json",
+        "receipt_sha256": "467f89d291d22957536f596de24922b00ced5f7be09891c0e3568aed176f08a3",
+        "utc_end": "2026-11-17T11:09:58.005956+00:00",
+        "utc_start": "2026-11-17T11:09:55.979952+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9608",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 9658,
+      "edge_id": "25287182353fa9a1ea60f785a6715b709235960e7f010417debd3aac4fa0368d",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 9657,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-9658-current-attempt-1.body",
+        "body_sha256": "3011012db5800c412c247ca656d8810c1de257ba598c087bd72d386193359664",
+        "receipt_file": "taxon-9658-current-attempt-1.receipt.json",
+        "receipt_sha256": "3327c59e8535a1bd6f7b9acef65fbae5c7ae936fbd061f67e85b73bfae2d4b82",
+        "utc_end": "2026-11-17T11:10:00.169171+00:00",
+        "utc_start": "2026-11-17T11:09:58.187412+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9658",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 9112,
+      "edge_id": "273cc7764c07bfb71d603056118561b9db202d81876d57be379788f6f2f1acb9",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 1490,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-9112-current-attempt-1.body",
+        "body_sha256": "26dc75bd08395006575fe887a8f32f404a1c25dad1f41fe805aaf7f3e30aec36",
+        "receipt_file": "taxon-9112-current-attempt-1.receipt.json",
+        "receipt_sha256": "6f10b0b073d88ca9d9e736d928fd293c04f9cda6696dea9b80d18f2a2d65e140",
+        "utc_end": "2026-11-17T11:09:55.783787+00:00",
+        "utc_start": "2026-11-17T11:09:53.739155+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9112",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 9652,
+      "edge_id": "2bea5dc393d82c2d579622d37d96bda882450e32459d31272e3fc312ee4370c5",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 9653,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-9652-current-attempt-1.body",
+        "body_sha256": "b7c443e62ce8da40debe59acba2dc32b0991cfa4302909d7b804231dc0fbdfc2",
+        "receipt_file": "taxon-9652-current-attempt-1.receipt.json",
+        "receipt_sha256": "4e27c2c9a66f21952efc079910ba8e57f468936e588fbf9a06b455e8c561cd25",
+        "utc_end": "2026-11-17T11:09:47.014520+00:00",
+        "utc_start": "2026-11-17T11:09:44.974496+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9652",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 9113,
+      "edge_id": "3e74127d51842e79ce3339e728c442cd4bf7cf537ae567f2e3d0cd8e2009364a",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 9607,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-9113-current-attempt-1.body",
+        "body_sha256": "a585368b64c4d35a6263ea117c6ba032d52868ca72add9aca1a91ec90189de4b",
+        "receipt_file": "taxon-9113-current-attempt-1.receipt.json",
+        "receipt_sha256": "28c05f8e985320a1f6338273755c05ee8189d9c242536e57b4eab234caa20e13",
+        "utc_end": "2026-11-17T11:09:38.314250+00:00",
+        "utc_start": "2026-11-17T11:09:36.319716+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9113",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 9656,
+      "edge_id": "409022b884a3a79063349cf0e73c6a1fefb7fb5cc43bb5bff404f8e2e4e7fbc5",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 9654,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-9656-current-attempt-1.body",
+        "body_sha256": "bd1684ad017cd222f7cbc905073227292594e8a2fce1d04a6d3b74fb392749ed",
+        "receipt_file": "taxon-9656-current-attempt-1.receipt.json",
+        "receipt_sha256": "cab541dbeee70139ee37ab101d81128ab8241677fd29231b71d4756f52f494ba",
+        "utc_end": "2026-11-17T11:09:49.298857+00:00",
+        "utc_start": "2026-11-17T11:09:47.223560+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9656",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 23965,
+      "edge_id": "51174c1768aeefbfccef19aa936c5a3f269dbffa804862237385a26deb3aeb95",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 9494,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-23965-current-attempt-1.body",
+        "body_sha256": "a84dccac21db75e323661dd4f242ab96155cf14b2b60b6bc9fc6a57e4182072b",
+        "receipt_file": "taxon-23965-current-attempt-1.receipt.json",
+        "receipt_sha256": "930b4f39381ba974bcdb519e4dbbdc0c490a2314ea0d55501cf5b18bc6cf781f",
+        "utc_end": "2026-11-17T11:10:02.432905+00:00",
+        "utc_start": "2026-11-17T11:10:00.357510+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-23965",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 33808,
+      "edge_id": "52a6c56fb9951922e614a511bdfe51057c4f36049a7cd35e5d77304a2841105f",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 483,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-33808-current-attempt-1.body",
+        "body_sha256": "fdaa2a9bc8a9cf563145fe69d85de4ab8f8cfa85232c6baefe6b411ab6bce6d8",
+        "receipt_file": "taxon-33808-current-attempt-1.receipt.json",
+        "receipt_sha256": "cb76245379375e4055904ea75670045b49dbd1faf649344475b233fb9bd3caed",
+        "utc_end": "2026-11-17T11:10:04.755139+00:00",
+        "utc_start": "2026-11-17T11:10:02.650922+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-33808",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 327,
+      "edge_id": "5c75c72435a337f6481580a9ab9e0153ebbf435e9f2d185a623f0f4b9b426cbb",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 1881,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-327-current-attempt-1.body",
+        "body_sha256": "894c8a7f5b959cb73841baebb579d2cdfec81aae2aa68e26d7c87b362bc7ea49",
+        "receipt_file": "taxon-327-current-attempt-1.receipt.json",
+        "receipt_sha256": "2893afd779ddeead85bfb2256e2bba174ec82026795559a416029412956a00ae",
+        "utc_end": "2026-11-17T11:09:53.554746+00:00",
+        "utc_start": "2026-11-17T11:09:51.596069+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-327",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 7641,
+      "edge_id": "6622f2e08293c1814e7d7af92f99377eb02c5f5137fd79e54c4e30c2742b5c9c",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 1490,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-7641-current-attempt-1.body",
+        "body_sha256": "0bd61ce87d2a9c4eb7e9bb176d1674fffdcb5ac60ef334380bc0a8c8b38ffd8d",
+        "receipt_file": "taxon-7641-current-attempt-1.receipt.json",
+        "receipt_sha256": "39d139527327656a622b5dcbb8b13f3a543c972c980455b7f06d30a2f9c01851",
+        "utc_end": "2026-11-17T11:09:36.114752+00:00",
+        "utc_start": "2026-11-17T11:09:34.084332+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-7641",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 9658,
+      "edge_id": "67659819673a01acf34b7f32c6fda72ef4b0824a89f1332ca3a14146f06d60c1",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 3711,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-9658-current-attempt-1.body",
+        "body_sha256": "3011012db5800c412c247ca656d8810c1de257ba598c087bd72d386193359664",
+        "receipt_file": "taxon-9658-current-attempt-1.receipt.json",
+        "receipt_sha256": "3327c59e8535a1bd6f7b9acef65fbae5c7ae936fbd061f67e85b73bfae2d4b82",
+        "utc_end": "2026-11-17T11:10:00.169171+00:00",
+        "utc_start": "2026-11-17T11:09:58.187412+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9658",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 33580,
+      "edge_id": "7b35957a3f512d69fedee27e6aba5f571ef36a30f74208c3704ce7be3a6a5ed9",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 702,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-33580-current-attempt-1.body",
+        "body_sha256": "b6b322e70abebe9dd348c77b03ceaf04a41add77fd3b4007633359cac0c65255",
+        "receipt_file": "taxon-33580-current-attempt-1.receipt.json",
+        "receipt_sha256": "ff46cde918440ea562f4b54675366c718d1321e1f627d6fbff73deb05e3f07c0",
+        "utc_end": "2026-11-17T11:09:42.548975+00:00",
+        "utc_start": "2026-11-17T11:09:40.560886+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-33580",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 9652,
+      "edge_id": "8cf96edf70712df9bf782e6c71556672297f28f48d8b367bde6092b380122d65",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 3711,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-9652-current-attempt-1.body",
+        "body_sha256": "b7c443e62ce8da40debe59acba2dc32b0991cfa4302909d7b804231dc0fbdfc2",
+        "receipt_file": "taxon-9652-current-attempt-1.receipt.json",
+        "receipt_sha256": "4e27c2c9a66f21952efc079910ba8e57f468936e588fbf9a06b455e8c561cd25",
+        "utc_end": "2026-11-17T11:09:47.014520+00:00",
+        "utc_start": "2026-11-17T11:09:44.974496+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9652",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 9690,
+      "edge_id": "90e16704c90ba411537fd6a8fc9cf4f341fa937f9e63533ae5683608215a9d40",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 346,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-9690-current-attempt-1.body",
+        "body_sha256": "efbfa5286df5973f30aa3c250174c47a7f6afb95ba7b9de693ca1af87ff78eb8",
+        "receipt_file": "taxon-9690-current-attempt-1.receipt.json",
+        "receipt_sha256": "723008c21a560587fb67e947e8fed2a798dd47df6d52e12effabfb82e7a146ab",
+        "utc_end": "2026-11-17T11:09:40.352273+00:00",
+        "utc_start": "2026-11-17T11:09:38.482731+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9690",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 9690,
+      "edge_id": "91a2b8b41a90884041d2535784681994f3ff08631ab05a8b427c55af658108c4",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 1490,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-9690-current-attempt-1.body",
+        "body_sha256": "efbfa5286df5973f30aa3c250174c47a7f6afb95ba7b9de693ca1af87ff78eb8",
+        "receipt_file": "taxon-9690-current-attempt-1.receipt.json",
+        "receipt_sha256": "723008c21a560587fb67e947e8fed2a798dd47df6d52e12effabfb82e7a146ab",
+        "utc_end": "2026-11-17T11:09:40.352273+00:00",
+        "utc_start": "2026-11-17T11:09:38.482731+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9690",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 9113,
+      "edge_id": "9d585050f5a43e03aae57927f4f8d4375853dd122d00334b8169a0a91641ae5a",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 1490,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-9113-current-attempt-1.body",
+        "body_sha256": "a585368b64c4d35a6263ea117c6ba032d52868ca72add9aca1a91ec90189de4b",
+        "receipt_file": "taxon-9113-current-attempt-1.receipt.json",
+        "receipt_sha256": "28c05f8e985320a1f6338273755c05ee8189d9c242536e57b4eab234caa20e13",
+        "utc_end": "2026-11-17T11:09:38.314250+00:00",
+        "utc_start": "2026-11-17T11:09:36.319716+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9113",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 7641,
+      "edge_id": "a653f5f8cd5429e7a3b8a79301547962e7ca18d683312973bdc1e4cc2e0b16a0",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 15532,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-7641-current-attempt-1.body",
+        "body_sha256": "0bd61ce87d2a9c4eb7e9bb176d1674fffdcb5ac60ef334380bc0a8c8b38ffd8d",
+        "receipt_file": "taxon-7641-current-attempt-1.receipt.json",
+        "receipt_sha256": "39d139527327656a622b5dcbb8b13f3a543c972c980455b7f06d30a2f9c01851",
+        "utc_end": "2026-11-17T11:09:36.114752+00:00",
+        "utc_start": "2026-11-17T11:09:34.084332+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-7641",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 327,
+      "edge_id": "d7277fb8f5ea690ed019aa6016dfc8a28d35984c50b4cb6467ce024df97909e0",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 1490,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-327-current-attempt-1.body",
+        "body_sha256": "894c8a7f5b959cb73841baebb579d2cdfec81aae2aa68e26d7c87b362bc7ea49",
+        "receipt_file": "taxon-327-current-attempt-1.receipt.json",
+        "receipt_sha256": "2893afd779ddeead85bfb2256e2bba174ec82026795559a416029412956a00ae",
+        "utc_end": "2026-11-17T11:09:53.554746+00:00",
+        "utc_start": "2026-11-17T11:09:51.596069+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-327",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 9608,
+      "edge_id": "d81ce55767e22cde44d36d87bf6da306157a0ef94ad6b31322334bded0eeca60",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 9606,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-9608-current-attempt-1.body",
+        "body_sha256": "39f6cd1fc061675423900bf117ca96cdc3dc499a02afd068b7a41d56a9845c09",
+        "receipt_file": "taxon-9608-current-attempt-1.receipt.json",
+        "receipt_sha256": "467f89d291d22957536f596de24922b00ced5f7be09891c0e3568aed176f08a3",
+        "utc_end": "2026-11-17T11:09:58.005956+00:00",
+        "utc_start": "2026-11-17T11:09:55.979952+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9608",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    },
+    {
+      "child_taxon_id": 9607,
+      "edge_id": "dd6321f6fa60b1ef6b20c6d8881ccd9fec3dd96653a1749daa71b094b768171e",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 3711,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-9607-current-attempt-1.body",
+        "body_sha256": "a626baa6cc773af6a211340c66a09f7cc75ddb849a2ca704f6d898c38124e33f",
+        "receipt_file": "taxon-9607-current-attempt-1.receipt.json",
+        "receipt_sha256": "1e374c801bc2e5c3c4152b73d4567eceef5536e157efda3f50f092d3e72fd834",
+        "utc_end": "2026-11-17T11:09:44.767401+00:00",
+        "utc_start": "2026-11-17T11:09:42.750538+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9607",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 9656,
+      "edge_id": "e68eab72474c2118e1b6ee8d248a9eacded22115a9047729d3e8502fba7b75fb",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 3711,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-9656-current-attempt-1.body",
+        "body_sha256": "bd1684ad017cd222f7cbc905073227292594e8a2fce1d04a6d3b74fb392749ed",
+        "receipt_file": "taxon-9656-current-attempt-1.receipt.json",
+        "receipt_sha256": "cab541dbeee70139ee37ab101d81128ab8241677fd29231b71d4756f52f494ba",
+        "utc_end": "2026-11-17T11:09:49.298857+00:00",
+        "utc_start": "2026-11-17T11:09:47.223560+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9656",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 33808,
+      "edge_id": "edf4e2f0c23a4136b763f4a1872077a313aa24438b6313a6b18065592ac26f38",
+      "json_pointer": "/data/0/publicationid",
+      "native_field_value_verified": true,
+      "native_id": 1490,
+      "relation": "taxon_reference_publication",
+      "source": {
+        "body_file": "taxon-33808-current-attempt-1.body",
+        "body_sha256": "fdaa2a9bc8a9cf563145fe69d85de4ab8f8cfa85232c6baefe6b411ab6bce6d8",
+        "receipt_file": "taxon-33808-current-attempt-1.receipt.json",
+        "receipt_sha256": "cb76245379375e4055904ea75670045b49dbd1faf649344475b233fb9bd3caed",
+        "utc_end": "2026-11-17T11:10:04.755139+00:00",
+        "utc_start": "2026-11-17T11:10:02.650922+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-33808",
+      "status": "literal_citation",
+      "target_kind": "publication"
+    },
+    {
+      "child_taxon_id": 9112,
+      "edge_id": "fb08e6d50368b190ad2a540f03b63f2840559e45d3281a1655b6ecc801faf1f1",
+      "json_pointer": "/data/0/highertaxonid",
+      "native_field_value_verified": true,
+      "native_id": 9658,
+      "relation": "taxon_parent",
+      "source": {
+        "body_file": "taxon-9112-current-attempt-1.body",
+        "body_sha256": "26dc75bd08395006575fe887a8f32f404a1c25dad1f41fe805aaf7f3e30aec36",
+        "receipt_file": "taxon-9112-current-attempt-1.receipt.json",
+        "receipt_sha256": "6f10b0b073d88ca9d9e736d928fd293c04f9cda6696dea9b80d18f2a2d65e140",
+        "utc_end": "2026-11-17T11:09:55.783787+00:00",
+        "utc_start": "2026-11-17T11:09:53.739155+00:00"
+      },
+      "source_capture_manifest_sha256": "20b13b13b7eab2cc6f932ac49fd249b0d6ea8d86b4e81824f5f7e7faf59a9009",
+      "source_target_key": "taxon-9112",
+      "status": "literal_parent",
+      "target_kind": "taxon"
+    }
+  ],
+  "schema_version": "neotoma-taxon-ancestry-chain.v1"
+}

@@ -1,0 +1,31 @@
+{
+  "current_context_manifest_sha256": "6c237ad7b262afe495434ca98430b80b356f444fdc3506e7897f24936b747d46",
+  "current_native_archive_manifest_sha256": "d34559cf88a41c45deadcb4e3def5a5fdf765d51092063bd29d033615cdaeaff",
+  "frontier_target_keys": [
+    "publication-10139",
+    "taxon-7641",
+    "taxon-9113",
+    "taxon-9690",
+    "taxon-33580",
+    "taxon-9607",
+    "taxon-9652",
+    "taxon-9656",
+    "publication-9494",
+    "taxon-327",
+    "taxon-9112",
+    "taxon-9608",
+    "taxon-9658",
+    "taxon-23965",
+    "taxon-33808",
+    "publication-7365"
+  ],
+  "limits": {
+    "max_attempts": 1,
+    "max_response_bytes": 2097152
+  },
+  "schema_version": "neotoma-taxonomy-ancestry-http-capture.v1",
+  "source_ancestry": {
+    "manifest_sha256": "84a831c05c7d018392293747925a4229faf4be935a1552ef6bdbf4587d1d0662",
+    "schema_version": "neotoma-taxon-source-ancestry.v1"
+  }
+}
