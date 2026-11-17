@@ -302,10 +302,17 @@ run, account for provider limits and reserve capacity for other collection work.
 The official [API reference](https://api.neotomadb.org/api-docs/) describes native
 taxon and publication detail routes. The producer retains source HTTP failures,
 empty responses and refused source formats without retrying them or claiming
-source absence. A closed capture is checked through a fresh chain consumer
-before and after publication. Its destination must be a new canonical literal
-path outside every consumed source tree. Existing and competing entries are
-preserved; failed owned candidates remain available for investigation.
+source absence. A closed capture is checked through fresh chain readers before
+and after publication. Within that invocation, those readers borrow immutable
+baseline facts already authenticated by its still-live original source owner.
+They reconstruct current all-root and PI duties and replay each new capture's
+receipts and bodies; physical or permission changes refuse continued use. No
+native response bodies or cross-invocation qualifications are cached. Public
+standalone chain derivation and loading still replay their complete sources.
+
+Its destination must be a new canonical literal path outside every consumed
+source tree. Existing and competing entries are preserved; failed owned
+candidates remain available for investigation.
 
 Preserve source identifiers, literal parent/citation fields, receipts and reuse
 attribution. Neotoma's [data-use policy](https://www.neotomadb.org/data/data-use-and-embargo-policy)

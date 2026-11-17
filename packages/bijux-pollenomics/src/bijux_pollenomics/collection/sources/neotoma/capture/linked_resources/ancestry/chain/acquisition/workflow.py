@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from collections.abc import Callable
-from dataclasses import replace
 from datetime import UTC, datetime
 from pathlib import Path
 import time
@@ -33,7 +32,7 @@ from ..models import (
     NeotomaTaxonAncestryChainLimits,
     NeotomaTaxonAncestryChainSources,
 )
-from ..publication import derive_neotoma_taxon_ancestry_chain
+from ..publication import _derive
 from .models import (
     DEFAULT_CAPTURE_LIMITS,
     MAX_CONTROL_BYTES,
@@ -162,7 +161,7 @@ def capture_neotoma_taxon_ancestry_frontier(
                 raise TimeoutError("Frontier capture wall budget exhausted")
             if source_signature(sources) != identity:
                 raise ValueError("Frontier source resolver bindings changed")
-            operation.validate()
+            operation._check_live()
 
         check_sources()
         verified_targets, verified_plan = prepare_targets(
@@ -233,19 +232,9 @@ def capture_neotoma_taxon_ancestry_frontier(
 
                 def validate(path: Path) -> NeotomaTaxonFrontierCapture:
                     check_sources()
-                    bound = replace(
-                        sources,
-                        ancestry_capture_sources={
-                            **sources.ancestry_capture_sources,
-                            pin: path,
-                        },
-                    )
-                    derive_neotoma_taxon_ancestry_chain(
-                        sources=bound,
-                        parent_chain_sha256=parent_chain_sha256,
-                        new_capture_manifest_sha256s=(pin,),
-                        limits=limits,
-                    )
+                    with operation._capture_child(pin, path) as child:
+                        _derive(child, parent_chain_sha256, (pin,), limits)
+                        child._check_live()
                     check_sources()
                     return NeotomaTaxonFrontierCapture(
                         path, pin, count, total, target_keys
