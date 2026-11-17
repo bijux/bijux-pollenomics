@@ -140,8 +140,14 @@ one. This is a caller-declared conditional design, not an inferred empirical
 uncertainty distribution. Refused cases retain their mass; no successful subset
 is renormalized, and incomplete designs have no full-law mean or covariance.
 Raw and per-case clipped/adjusted cover are different estimands and are
-aggregated separately with the existing population-moment routine. These
-moments describe supplied-design dispersion of conditional point estimates,
+aggregated separately with the existing population-moment routine. This profile
+requires `clip-and-renormalize` (including the existing engine default); explicit
+`source-raw` is refused before child execution. Readback requires identical
+regional values and checks each local adjusted vector against the stable
+positive-part closure of its raw vector, with absolute tolerance `2e-12`.
+Zero surviving positive mass is refused. Neither raw local sums nor source-rounded
+regional sums are forced to equal one. The legacy `source-raw` API remains
+available separately. These moments describe supplied-design dispersion of conditional point estimates,
 not source standard errors, confidence intervals or full reconstruction
 uncertainty. Existing source SD/SE metadata remains in the retained source
 snapshot; this workflow does not propagate that uncertainty.

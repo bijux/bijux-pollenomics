@@ -62,6 +62,11 @@ def _analytical(request: dict[str, Any]) -> None:
         positive(part.get(count), 64)
     if config["love"].get("method") != "analytical":
         refuse("Source cases require analytical LOVE")
+    if (
+        config["love"].get("analytical_cover_policy", "clip-and-renormalize")
+        != "clip-and-renormalize"
+    ):
+        refuse("Source-case adjusted cover requires clip-and-renormalize")
     positive(config["love"].get("max_ring"), len(request["rings"]))
     for role in ("regional", "local"):
         if len(request[role]["samples"]) != 1:

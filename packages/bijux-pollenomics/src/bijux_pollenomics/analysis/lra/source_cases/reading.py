@@ -6,7 +6,7 @@ import json
 import re
 from dataclasses import dataclass
 from fractions import Fraction
-from math import isfinite
+from math import fsum, isclose, isfinite
 from pathlib import Path
 from typing import Any, cast
 
@@ -23,6 +23,9 @@ from .contracts import (
     refuse,
 )
 from .results import design_summaries
+
+# Saved decimal tables may differ by roundoff after stable positive-part closure.
+COVER_RELATION_ABS_TOL = 2e-12
 
 
 def _hash(value: object) -> None:
@@ -139,6 +142,30 @@ def _coordinates(coords: list[Any]) -> None:
         refuse("Coordinate groups must retain one common ordered taxon axis")
 
 
+def _cover_relation(row: dict[str, Any]) -> None:
+    """Check adjusted local estimands without an engine or false raw-sum closure."""
+    raw, adjusted = row["raw_values"], row["adjusted_values"]
+    groups: dict[float, list[int]] = {}
+    for index, coordinate in enumerate(row["coordinates"]):
+        if coordinate["role"] == "regional":
+            if raw[index] != adjusted[index]:
+                refuse("Regional values must remain identical across estimands")
+        else:
+            groups.setdefault(coordinate["ring_mean_m"], []).append(index)
+    for indices in groups.values():
+        largest = max(raw[index] for index in indices)
+        if largest <= 0:
+            refuse("Adjusted local cover requires surviving positive raw mass")
+        scaled = [max(raw[index], 0) / largest for index in indices]
+        total = fsum(scaled)
+        for index, value in zip(indices, scaled, strict=True):
+            actual = adjusted[index]
+            if not 0 <= actual <= 1 or not isclose(
+                actual, value / total, rel_tol=0, abs_tol=COVER_RELATION_ABS_TOL
+            ):
+                refuse("Adjusted local cover differs from positive-part raw closure")
+
+
 def _outcomes(rows: object, *, weighted: bool) -> list[dict[str, Any]]:
     if not isinstance(rows, list) or not 1 <= len(rows) <= 16:
         refuse("Derived case inventory is ambiguous")
@@ -220,6 +247,7 @@ def _outcomes(rows: object, *, weighted: bool) -> list[dict[str, Any]]:
                     refuse(
                         "Success requires finite complete raw and adjusted derived vectors"
                     )
+            _cover_relation(row)
         else:
             refuse("Unknown outcomes cannot silently remove design cases")
     if ids != sorted(set(ids)):
