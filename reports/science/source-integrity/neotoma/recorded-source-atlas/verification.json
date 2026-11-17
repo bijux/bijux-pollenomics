@@ -1,5 +1,5 @@
 {
-  "status": "STATIC_PUBLICATION_QUALIFIED_BROWSER_PENDING",
+  "status": "STATIC_PUBLICATION_QUALIFIED_NATIVE_READER_OPEN",
   "source_revision": "df54b2de1ba76de3edb2fabe7b6bc733e590bb85",
   "snapshot": {
     "directory": "atlas",
@@ -595,10 +595,31 @@
     "review_original_source_body_or_model_replay": false
   },
   "browser": {
-    "status": "PENDING_EXACT_SNAPSHOT_QUALIFICATION",
+    "status": "OPEN_NATIVE_READER_QUALIFICATION",
+    "accepted_complete_two_viewport_visits": false,
     "actual_navigation_or_download_claims": [],
-    "local_file_mode": "Not yet qualified for this exact snapshot.",
-    "http_mode": "No HTTP interaction qualification claimed."
+    "local_file_mode": "Attempts refused during native selection or mobile JSON label/value reachability. No complete 32-visit result; failed-test screenshots are not acceptance.",
+    "http_mode": "No HTTP interaction qualification claimed.",
+    "latest_closed_attempt": {
+      "outcome": "refused",
+      "elapsed_seconds": 17.319,
+      "structured_complete_viewport_records": 0,
+      "requests": 76,
+      "unexpected_events": 0,
+      "downloads": 0,
+      "snapshot_bytes_changed": false
+    },
+    "known_mobile_layout_limitation": {
+      "evidence_scope": "Generated two-record case with exact maintained reader and styles; not a successful full 104-file browser qualification.",
+      "viewport_width_px": 390,
+      "support_button_width_px": 644.875,
+      "parent_width_px": 276,
+      "dialog_client_width_px": 350,
+      "dialog_scroll_width_px": 699,
+      "snapshot_contains_repair": false,
+      "JSON_preformatted_horizontal_scroll": "Intentional independent scroll region; does not establish native label/value reachability."
+    },
+    "product_scope": "Saved static metadata and transport integrity are qualified independently of reader interaction completeness."
   },
   "reuse": {
     "portable_view": "Copy the complete atlas directory with its software notices; independently trust the received Git revision and verify the relative file pins.",

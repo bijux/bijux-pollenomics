@@ -96,7 +96,8 @@ The separate [recorded source atlas](../recorded-source-atlas/README.md) now
 includes these 16 native target identities alongside the existing resource and
 supporting metadata. It preserves recorded parent and citation fields without
 adding native names, body-download authority or scientific admission. Its
-static publication is qualified; browser interactions remain separately pending.
+static publication is qualified; native JSON reachability remains open, and
+the unchanged reader has a measured mobile support-button overflow limitation.
 
 A [further recorded capture](../ancestry-continuation/README.md) adds seven taxon
 details and five classification references at a separate source epoch. Its

@@ -1,6 +1,6 @@
 # Recorded Neotoma source atlas
 
-This portable [source atlas](atlas/index.html) brings together the recorded
+This portable static [source atlas](atlas/index.html) brings together the recorded
 metadata for **1,258 dataset identities and 527 sites**, five supporting source
 archives, and a sixth archive containing **16 selected ancestry targets**.
 It lets a reader follow native identifiers and literal parent or citation links
@@ -18,17 +18,27 @@ pollen-morphotype equivalence, forest/open-land classes or applicable PPE.
 
 Keep the complete `atlas/` directory together. Its HTML, indexed metadata,
 scripts, styles and images are separate files; copying only `index.html` is
-insufficient. Open that index from a local checkout to inspect the snapshot.
-The exact snapshot's browser qualification is **pending**; completed static
-publication and transport validation do not establish working interactions or
-downloads. The [verification record](verification.json) keeps that distinction
-explicit.
+insufficient. The local index is the intended entry point. Native browser
+qualification is **open**: the local-file attempts refused during selection or
+mobile JSON label/value reachability. A complete 32-visit, two-viewport reading
+result has not been established; failed-test screenshots are not acceptance.
+Completed static publication and transport validation establish the saved
+metadata, not full reader operability or downloads.
+
+A separate generated check of the same maintained reader and styles measured
+a long support-ID button at 644.875 pixels inside a 276-pixel parent at the
+390-pixel viewport, expanding the dialog's scroll width to 699 pixels against
+350 pixels of client width. This unchanged snapshot retains that mobile
+overflow limitation. Preformatted JSON has its own horizontal scroll region;
+that intended scroll does not establish successful native reachability of all
+labels and values. The [verification record](verification.json) distinguishes
+these open interaction checks from the qualified static product.
 
 The intended reading route is **Neotoma source resources → Metadata population
 → Supporting metadata entries → Search source metadata**. Search for a literal
 target key such as `taxon-327`, then inspect its recorded metadata and source
-identities. These interface labels describe the existing reader; this account
-does not yet claim they were exercised on this snapshot.
+identities. These interface labels describe the intended route through the
+existing reader; a complete native reading result is not claimed.
 
 The metadata route offers no ancestry entity-body download or acquisition
 authority. Source-resource download availability is a separate route and is not
@@ -107,19 +117,19 @@ for the separate source-reader, current-permission and method-input boundaries.
 
 **Supported claim.** Portable recorded source metadata with 16 explicit ancestry targets; unchanged numerical Atlas scope.
 
-**Unsupported claim.** Current permissions, names or publication titles in the selected projection, taxon/PPE equivalence, admitted method inputs or vegetation accuracy.
+**Unsupported claim.** Complete native reader operability or downloads, current permissions, names or publication titles in the selected projection, taxon/PPE equivalence, admitted method inputs or vegetation accuracy.
 
 **Actual verification performed.** Closed process, exact 104-file hashes, full transport validators and staged/final logical witnesses; no new GET or model.
 
-**Remaining input or review.** Exact-snapshot browser checks remain pending; scientific source and method decisions stay separate. Resolver: Source reader and method reviewer. Reopen when: A changed source epoch, selected input or newly qualified browser result.
+**Remaining input or review.** Native JSON label/value reachability remains open, with a measured long support-button mobile overflow in the unchanged reader. Source and method decisions stay separate. Resolver: Source reader and method reviewer. Reopen when: A changed source epoch, selected input or newly qualified browser result.
 
 **Cause category.** Recorded metadata integrity and scientific eligibility have different owners.
 
 **Consequence.** Metadata can be inspected without upgrading source authority.
 
-**Precise next acceptance route.** Qualify the exact browser route; bind source and method inputs separately before scientific use.
+**Precise next acceptance route.** Repair and separately qualify native reader interactions on a maintained refresh; bind source and method inputs independently before scientific use.
 
-**Negative or refused result.** Earlier one-GiB publication attempt refused; its incomplete candidate remains distinct from this successful snapshot.
+**Negative or refused result.** Local-file browser attempts refused during selection or mobile JSON reachability; no complete 32-visit result. Earlier one-GiB publication refusal is distinct from this successful static snapshot.
 
 **Matched denominator.** 1,258 dataset identities / 527 sites; six supporting archives, 531 entries, including 16 selected targets.
 

@@ -93,7 +93,7 @@ describes the explicit qualification and acquisition boundaries.
 
 **Consequence.** Inspect literal source fields while retaining unknown associations and the preceding Atlas/chain epoch.
 
-**Precise next acceptance route.** Clarify the native status question and qualify any successor chain before claiming updated graph coverage or scientific use.
+**Precise next acceptance route.** Qualify a successor derivation before claiming revised graph coverage. Resolve native status interpretation and applicable mapping before ecological use.
 
 **Negative or refused result.** Taxon9654 reports extinct; biological interpretation unresolved. No successor-frontier or Atlas-update result is claimed.
 

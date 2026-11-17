@@ -415,7 +415,10 @@ The 104-file static publication preserves the prior 1,258-resource / 527-site
 metadata population and five supporting archives, adding one ancestry archive.
 The selected ancestry projection exposes native IDs and literal recorded
 fields, not taxon names or publication titles. Source-body access and current
-permission remain separate; exact-snapshot browser qualification is still pending.
+permission remain separate. This is a verified static snapshot; native JSON
+reachability remains open, and its unchanged reader has a measured long
+support-button overflow at mobile width. A complete two-viewport reader result
+or download qualification is not claimed.
 
 ## Retained Parent And Citation Details
 
