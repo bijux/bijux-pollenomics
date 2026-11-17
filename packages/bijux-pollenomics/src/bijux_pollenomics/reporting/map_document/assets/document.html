@@ -45,7 +45,10 @@
       body { min-height: 100vh; }
       html.atlas-capture-mode *,
       html.atlas-capture-mode *::before,
-      html.atlas-capture-mode *::after {
+      html.atlas-capture-mode *::after,
+      html.atlas-probe-motion-mode *,
+      html.atlas-probe-motion-mode *::before,
+      html.atlas-probe-motion-mode *::after {
         animation: none !important;
         caret-color: transparent !important;
         scroll-behavior: auto !important;
@@ -54,14 +57,6 @@
       html.atlas-capture-mode,
       html.atlas-capture-mode body {
         overflow: hidden;
-      }
-      html.atlas-probe-motion-mode *,
-      html.atlas-probe-motion-mode *::before,
-      html.atlas-probe-motion-mode *::after {
-        animation: none !important;
-        caret-color: transparent !important;
-        scroll-behavior: auto !important;
-        transition: none !important;
       }
       html.atlas-capture-mode .map-topbar,
       html.atlas-capture-mode .floating-legend,
@@ -416,7 +411,8 @@
       .floating-legend::before,
       .map-topbar::before,
       .map-status::before,
-      .focus-card::before {
+      .focus-card::before,
+      .control-panel-card::before {
         content: "";
         position: absolute;
         inset: 0 0 auto;
@@ -424,7 +420,6 @@
         background: linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0));
         pointer-events: none;
       }
-      .chip-grid { display: flex; flex-wrap: wrap; gap: 10px; }
       .chip-toggle,
       .toolbar-button,
       .preset-button,
@@ -523,6 +518,8 @@
         min-width: 44px;
         min-height: 44px;
       }
+      .chip-grid,
+      .focus-actions,
       .inline-actions,
       .preset-row,
       .topbar-row,
@@ -669,7 +666,8 @@
         gap: 6px;
         min-width: 0;
       }
-      .topbar-label {
+      .topbar-label,
+      .focus-card-kicker {
         color: var(--muted);
         font-size: 11px;
         font-weight: 700;
@@ -955,14 +953,6 @@
         backdrop-filter: blur(16px);
         box-shadow: var(--shadow-md);
       }
-      .control-panel-card::before {
-        content: "";
-        position: absolute;
-        inset: 0 0 auto;
-        height: 1px;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0));
-        pointer-events: none;
-      }
       .control-panel-head {
         display: flex;
         justify-content: space-between;
@@ -1075,7 +1065,10 @@
       .lra-estimates-scroll { max-height: 240px; overflow: auto; }
       .dock-actions,
       .dock-presets,
-      .dock-layer-grid {
+      .dock-layer-grid,
+      .legend-pill-list,
+      .animal-insight-mix,
+      .popup-badges {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
@@ -1164,11 +1157,6 @@
         color: var(--muted);
         font-size: 11px;
       }
-      .legend-pill-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
       .legend-pill {
         display: inline-flex;
         align-items: center;
@@ -1244,11 +1232,6 @@
       }
       .animal-insight-subsection {
         display: grid;
-        gap: 8px;
-      }
-      .animal-insight-mix {
-        display: flex;
-        flex-wrap: wrap;
         gap: 8px;
       }
       .animal-insight-chip {
@@ -1372,13 +1355,6 @@
         gap: 12px;
         margin-bottom: 10px;
       }
-      .focus-card-kicker {
-        color: var(--muted);
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
       .focus-card-title {
         margin: 4px 0 0;
         font-size: 16px;
@@ -1421,11 +1397,6 @@
         font-size: 12px;
         line-height: 1.5;
         word-break: break-word;
-      }
-      .focus-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
       }
       .focus-tabs {
         display: flex;
@@ -1680,11 +1651,6 @@
         color: var(--muted);
         font-size: 12px;
         line-height: 1.5;
-      }
-      .popup-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
       }
       .popup-badge {
         display: inline-flex;
