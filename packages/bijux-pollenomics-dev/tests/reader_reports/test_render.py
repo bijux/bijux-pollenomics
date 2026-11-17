@@ -1,4 +1,5 @@
 from pathlib import Path
+import subprocess
 
 import pytest
 
@@ -42,7 +43,29 @@ Skåne **α** and `x_y` cite [data](../../docs/report/evidence.csv) and
 printf '\end{Verbatim}\input{outside}'
 ```
 """
-    result = ReportRenderer(root, report, "a" * 40).render(source)
+    for arguments in (
+        ["init", "--quiet"],
+        ["add", "--", "reports/science/paper.md", "docs/report/evidence.csv"],
+        [
+            "-c",
+            "user.name=Bijux",
+            "-c",
+            "user.email=checks@bijux.io",
+            "-c",
+            "commit.gpgsign=false",
+            "-c",
+            "core.hooksPath=/dev/null",
+            "commit",
+            "--quiet",
+            "-m",
+            "test(science): bind generated report citations",
+        ],
+    ):
+        subprocess.run(["git", *arguments], cwd=root, check=True)
+    revision = subprocess.check_output(
+        ["git", "rev-parse", "HEAD"], cwd=root, text=True
+    ).strip()
+    result = ReportRenderer(root, report, revision).render(source)
     assert "Skåne" in result.latex
     assert r"\textbf{α}" in result.latex
     assert r"\texttt{x\_y}" in result.latex

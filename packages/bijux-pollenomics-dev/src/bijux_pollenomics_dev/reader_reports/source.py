@@ -8,6 +8,7 @@ import hashlib
 import os
 from pathlib import Path, PurePosixPath
 import re
+import subprocess
 from urllib.parse import unquote, urlsplit
 
 PAPER_ID = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
@@ -179,8 +180,46 @@ def output_directory(root: Path, value: str | Path) -> Path:
     return candidate
 
 
+def _committed_target(root: Path, relative: str, revision: str) -> str:
+    """Identify a citation's Git mode without opening its referenced payload."""
+    if not re.fullmatch(r"[0-9a-f]{40}", revision):
+        raise SourceError("citation requires an exact commit revision")
+    base = ["git", "--no-replace-objects", "--literal-pathspecs", "-C", str(root)]
+    try:
+        kind = subprocess.run(
+            [*base, "cat-file", "-t", revision],
+            capture_output=True,
+            check=True,
+            timeout=5,
+        ).stdout
+        if kind != b"commit\n":
+            raise SourceError("citation revision must identify a commit")
+        if not relative:
+            return "tree"
+        records = subprocess.run(
+            [*base, "ls-tree", "-z", "--full-tree", revision, "--", relative],
+            capture_output=True,
+            check=True,
+            timeout=5,
+        ).stdout.split(b"\0")
+    except (OSError, subprocess.SubprocessError) as error:
+        raise SourceError("committed citation metadata is unavailable") from error
+    entries = [record for record in records if record]
+    if len(entries) != 1:
+        raise SourceError("citation path is absent from its declared commit")
+    metadata, name = entries[0].split(b"\t", 1)
+    mode, object_kind, _ = metadata.split()
+    if name.decode("utf-8") != relative or (mode, object_kind) not in {
+        (b"100644", b"blob"),
+        (b"100755", b"blob"),
+        (b"040000", b"tree"),
+    }:
+        raise SourceError("citation requires a regular committed file or tree")
+    return "tree" if object_kind == b"tree" else "blob"
+
+
 def portable_link(root: Path, source: Path, destination: str, revision: str) -> str:
-    """Resolve a report link to its pinned portable repository destination."""
+    """Bind a portable URL to committed path metadata, not source-body intake."""
     if any(ord(char) < 32 for char in destination):
         raise SourceError("control character in Markdown link")
     parsed = urlsplit(destination)
@@ -194,16 +233,40 @@ def portable_link(root: Path, source: Path, destination: str, revision: str) -> 
         raise SourceError(f"absolute local link is unsupported: {destination}")
     if parsed.query:
         raise SourceError(f"local query link has no portable meaning: {destination}")
-    target = source if not parsed.path else source.parent / unquote(parsed.path)
-    resolved = _require_plain_path(root, target)
-    if not _inside(resolved, root):
-        raise SourceError(f"link leaves repository: {destination}")
-    if not resolved.exists():
-        raise SourceError(f"local link target is missing: {destination}")
+    decoded = unquote(parsed.path)
+    if (
+        decoded.startswith("/")
+        or "\\" in decoded
+        or any(ord(character) < 32 for character in decoded)
+    ):
+        raise SourceError("local citation path must be literal and relative")
+    try:
+        parts = list(source.relative_to(root).parent.parts)
+    except ValueError as error:
+        raise SourceError("citation source leaves repository") from error
+    components = decoded.split("/") if decoded else [source.name]
+    intermediate: set[str] = set()
+    for index, component in enumerate(components):
+        if component == "..":
+            if not parts:
+                raise SourceError(f"link leaves repository: {destination}")
+            parts.pop()
+        elif component not in {"", "."}:
+            parts.append(component)
+            if index < len(components) - 1:
+                intermediate.add(PurePosixPath(*parts).as_posix())
+        if root.joinpath(*parts).is_symlink():
+            raise SourceError(f"symlink in citation path: {destination}")
+    relative = PurePosixPath(*parts).as_posix() if parts else ""
+    for prefix in sorted(intermediate):
+        if _committed_target(root, prefix, revision) != "tree":
+            raise SourceError("citation traverses a non-tree Git path")
+    for depth in range(1, len(parts) + 1):
+        if root.joinpath(*parts[:depth]).is_symlink():
+            raise SourceError(f"symlink in citation path: {destination}")
+    route = _committed_target(root, relative, revision)
     from urllib.parse import quote
 
-    route = "tree" if resolved.is_dir() else "blob"
-    relative = resolved.relative_to(root).as_posix()
     url = f"https://github.com/bijux/bijux-pollenomics/{route}/{revision}/{quote(relative)}"
     if parsed.fragment:
         url += "#" + quote(parsed.fragment, safe="-._~")
