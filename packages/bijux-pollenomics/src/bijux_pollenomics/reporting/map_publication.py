@@ -1,9 +1,12 @@
+"""Declare map scope, layer posture and traceable publication contracts."""
+
 from __future__ import annotations
 
 from typing import cast
 
 from ..collection.contracts.cardinality import resolve_declared_count
 from .map_publication_raa import _raa_context_posture
+from .map_publication_raa_native import native_registry_posture
 from .models import MultiCountryMapReport
 from .presentation.text import escape_pipes
 from .scope_policy import (
@@ -39,6 +42,7 @@ _LAYER_SCOPE_RULES = {
     "landclim-reveals-grid": NORDIC_SCOPE_KEYS,
     "landclim-reveals-temporal-grid": NORDIC_SCOPE_KEYS,
     "raa-archaeology": NORDIC_SCOPE_KEYS,
+    "raa-native-registry-cells": {"nordic", "custom"},
     "raa-layer-metadata": NORDIC_SCOPE_KEYS,
 }
 
@@ -362,6 +366,7 @@ def _serialize_layer_contract_row(
     layer_group = str(layer.get("group", "")).strip()
     animal_chronology_context = _animal_chronology_context_posture(layer)
     raa_context = _raa_context_posture(layer)
+    native_context = native_registry_posture(layer)
     features = layer.get("features")
     feature_count = len(features) if isinstance(features, list) else 0
     count = resolve_declared_count(
@@ -397,6 +402,8 @@ def _serialize_layer_contract_row(
         row.update(animal_chronology_context)
     if raa_context is not None:
         row.update(raa_context)
+    if native_context is not None:
+        row.update(native_context)
     return row
 
 
@@ -506,6 +513,8 @@ def _scope_caveat_for(
     layer_group: str,
     policy: MapScopePolicy,
 ) -> str:
+    if layer_key == "raa-native-registry-cells":
+        return "Opt-in conditional native registry UUID cell counts; country unassigned and chronology unsupported."
     if layer_group == "animal-chronology-context":
         return (
             "Shared display-only source chronology across governed scopes; excluded "
