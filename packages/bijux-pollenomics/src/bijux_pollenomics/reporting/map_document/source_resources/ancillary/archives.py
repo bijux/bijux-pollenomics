@@ -17,6 +17,7 @@ from bijux_pollenomics.collection.sources.neotoma.ancillary_store.unit_metadata 
 )
 
 from ..models import AtlasResourceCatalogueInput
+from .ancestry import load_taxon_ancestry_metadata
 from .models import AtlasContextArchiveInput
 
 
@@ -114,4 +115,8 @@ def load_supporting_archive_metadata(
                     "native_dataset_version": "not_applicable_supporting_source_surface",
                 }
             )
+    result.extend(
+        load_taxon_ancestry_metadata(reference)
+        for reference in dependency.archives.taxon_ancestry
+    )
     return tuple(result)

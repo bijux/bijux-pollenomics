@@ -7,6 +7,7 @@ from .models import (
     AtlasAncillarySupportingMetadata,
     AtlasContextArchiveInput,
     AtlasSourceArchiveInput,
+    AtlasTaxonAncestryArchiveInput,
 )
 
 __all__ = [
@@ -16,4 +17,5 @@ __all__ = [
     "AtlasAncillarySupportingMetadata",
     "AtlasContextArchiveInput",
     "AtlasSourceArchiveInput",
+    "AtlasTaxonAncestryArchiveInput",
 ]

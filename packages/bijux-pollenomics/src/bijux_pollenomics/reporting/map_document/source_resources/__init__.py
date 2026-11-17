@@ -7,6 +7,7 @@ from .ancillary.models import (
     AtlasAncillarySupportingMetadata,
     AtlasContextArchiveInput,
     AtlasSourceArchiveInput,
+    AtlasTaxonAncestryArchiveInput,
 )
 from .catalogue import load_atlas_resource_catalogue
 from .models import (
@@ -20,6 +21,7 @@ __all__ = [
     "AtlasAncillarySupportingMetadata",
     "AtlasContextArchiveInput",
     "AtlasSourceArchiveInput",
+    "AtlasTaxonAncestryArchiveInput",
     "AtlasAncillaryFederationInput",
     "AtlasAncillaryMetadata",
     "AtlasResourceArchiveInput",
