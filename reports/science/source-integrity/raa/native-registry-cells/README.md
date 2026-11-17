@@ -10,15 +10,16 @@ This closed publication contains **212,516 qualifying retained registry UUIDs in
 121 original one-degree SWEREF 99 cells**. Its unit is a conditional registry UUID
 count per cell. It makes no archaeological-event, ancient-population, vegetation
 accuracy or area-density claim. It assigns no country and has no supported
-ancient chronology. The 24-file portable tree is byte-identical to the accepted
-17 November 2026 static publication; copying it did not render or reproject data.
+ancient chronology. The 24-file portable tree retains the same 20 public data,
+context and vendored-software files as the original publication. Its interface
+was regenerated from those closed files and qualified through native browser
+interaction; counts and display geometry were not recomputed.
 
-**Retained UI limitation.** Generated browser checks of the retained map interface found
-that a centered polygon-context notice can obscure cells. This byte-preserved
-map may require ordinary map dragging to move cells out from behind the notice.
-The CSV and GeoJSON expose the complete counts directly. A separately repaired
-interface does not change these retained bytes; actual browser qualification of
-this publication remains pending.
+**Qualified local reader.** Clicking a cell opens its persistent metadata reader.
+The count, original native bounds, full or partial display footprint, source
+capture date, scientific limits and approximate display operation remain
+readable through ordinary scrolling. Complete cell identifiers wrap without
+truncation. The mobile controls also scroll to expose the layer checkbox.
 
 ## Use the local map
 
@@ -40,11 +41,28 @@ python -m http.server 8765 --bind 127.0.0.1 \
 
 Then visit `http://127.0.0.1:8765/native-registry-index.html`. The directory contains
 no GeoPackage, private UUID ledger or source store. Static bytes, publication
-integrity and aggregate conservation are qualified. Actual browser interactions,
-mobile behavior and current-selection downloads remain pending their separate
-qualification; this account did not execute a browser. The direct CSV link above
-already identifies the complete original aggregate. This publication does not
-automatically enable a layer in the current full Nordic Atlas.
+integrity and aggregate conservation are qualified. Chromium qualification used
+local-file loading (`file://` URLs); the supplied localhost HTTP recipe was not
+executed by this qualification. The map was checked at desktop (1440 × 1100) and
+mobile (390 × 844) sizes, with network access denied and the basemap disabled.
+Native controls enabled the
+initially disabled layer, fitted its bounds, opened full and partial cell readers,
+scrolled their metadata, and cleared and reopened the reader.
+
+The current-selection JSON button in **Basemap / tools** completed an actual
+browser download at both sizes. Each retained download contained all 121 unique
+cells and 212,516 UUIDs, including the five partial footprints with their 96
+whole-cell UUIDs; it contained zero scientific points or relations. These are
+checks of this standalone map and these interactions, not every browser or the
+current full Nordic Atlas. The direct CSV link above remains the complete
+original aggregate. This publication does not automatically enable a layer in
+the current full Nordic Atlas.
+
+[Desktop cell reader](figures/native-registry-desktop-reader.png) and
+[mobile cell reader](figures/native-registry-mobile-reader.png) show the actual
+partial cell with original bounds `[10, 58, 11, 59]` and full-cell count 14. The
+mobile screenshot shows one scroll position; the other fields remain reachable
+through the same reader. The grey map reflects the deliberately disabled basemap.
 
 ## Population and conserved exclusions
 
@@ -137,25 +155,39 @@ reconstruction of the native SQL profile, UUID membership or source accuracy.
 The original 6,749-byte report remains private audit metadata. Its hash in
 `context.json` is provenance, not a public file or a dependency to download here.
 
-The actual static publication used source revision
+The original aggregate publication used source revision
 `a60fe253baf28d8c5d6c52ee1fc8595c39478d4a`. It exited successfully after 15.3757
-seconds, recording four aggregate opens and 16,048 conservative reserved bytes,
-with no unexpected denials or forbidden events. Reserved bytes are accounting,
-not measured physical I/O. The frozen public tree contains 24 files and
-1,114,838 bytes. The closed freeze SHA-256 is
-`842cbbce48eae5c222624ad852f46e1785aee796a7efea626a905a31cc148004`;
-the separate closed-result review SHA-256 is
-`aabee286c4c5e768f5ec8ad433c56200de89af6bf958828b557b6e65003485cb`.
-That review independently reconciled the public buffers and static transport
-without running JavaScript or repeating the national computation.
+seconds, recording four aggregate opens and 16,048 conservative reserved bytes.
+The current interface was generated with source revision
+[`e6f0b6817bcdc097f78aed2cc38e38ac6410b1d0`](https://github.com/bijux/bijux-pollenomics/commit/e6f0b6817bcdc097f78aed2cc38e38ac6410b1d0)
+from only the 20 closed public files, totalling 317,162 bytes. This derivative
+publication exited successfully after 14.6609 seconds, with 20 public-input opens,
+605 checked software origins and no unexpected denials or forbidden events.
+Reserved source bytes are accounting, not measured physical I/O. The corrected
+portable tree contains 24 files and 1,115,356 bytes. Its closed freeze SHA-256 is
+`a43cc5588899edfd48d332d3595ab420b507f70ebd3da3064a43b65f07f329a8`;
+the independent closed-result review SHA-256 is
+`22b6d19244bc5eb590fd50b04e2455e1d0d1c343418bb6252877a1183175b822`.
+That review reconciled the unchanged public buffers and decoded static transport
+without repeating the national computation. The separate native browser run
+exited successfully after 9.4936 seconds with 28 local-file requests, two completed
+selection downloads and no console or runtime errors. Browser shutdown completed
+before the final bounded output check and terminal receipt. These checks did not
+reopen the original aggregates, source GeoPackage or private ledger, run SQL or
+models, contact the provider, or perform another projection.
 
 ## Reuse the maintained workflow
 
 For viewing, copying the complete byte-qualified `atlas/` tree is sufficient.
-Regeneration requires separately qualified native inputs or the independently
-pinned aggregate pair; the public buffers alone cannot recreate the private
-source profile or national UUID ledger. A fresh national reconstruction starts
-from the declared source identity and the maintained
+The interface can be regenerated from the 20 qualified closed public files
+through the maintained static-map owner, as this publication demonstrates.
+That presentation reuse preserves the existing counts, display geometry, source
+metadata and scientific limits without reconstructing the native aggregate.
+
+Reconstructing native UUID membership, aggregates, the private source profile or
+the national UUID ledger requires the declared native inputs and their separate
+qualification; the public buffers cannot recreate that private evidence. A fresh
+national reconstruction starts from the declared source identity and the maintained
 [native POINT consumer and finite profile](../../../../../docs/public/pollenomics-data/sources/raa-native-point-grid.md).
 Its explicit source hash, byte count and limits remain necessary.
 

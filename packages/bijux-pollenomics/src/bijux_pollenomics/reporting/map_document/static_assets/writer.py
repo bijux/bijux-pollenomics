@@ -42,6 +42,7 @@ from .nodes import (
 )
 from .search.transport import SEARCH_DOCUMENTS_SCHEMA
 from .serialization import (
+    _canonical_json_sha256,
     canonical_json,
     chunk_script_bytes,
     validate_decoded_payload_size,
@@ -138,35 +139,30 @@ def write_static_atlas_assets(
         if source_resources is not None
         else None
     )
-    build_id = (
-        "atlas-"
-        + hashlib.sha256(
-            canonical_json(
+    build_id = "atlas-" + _canonical_json_sha256(
+        {
+            **profile_fields,
+            **view_binding,
+            "scope_slug": slug,
+            "version": version,
+            "layer_metadata": layer_metadata,
+            "node_payloads": node_payloads,
+            "indexes": indexes,
+            "detail_records": evidence.detail_records,
+            "scientific_signals": evidence.scientific_signals,
+            "edge_records": evidence.edge_records,
+            "sequence_records": evidence.sequence_records,
+            **(
                 {
-                    **profile_fields,
-                    **view_binding,
-                    "scope_slug": slug,
-                    "version": version,
-                    "layer_metadata": layer_metadata,
-                    "node_payloads": node_payloads,
-                    "indexes": indexes,
-                    "detail_records": evidence.detail_records,
-                    "scientific_signals": evidence.scientific_signals,
-                    "edge_records": evidence.edge_records,
-                    "sequence_records": evidence.sequence_records,
-                    **(
-                        {
-                            "source_resources": {
-                                "domain": resource_transport.domain,
-                                "payloads": resource_transport.payloads,
-                            }
-                        }
-                        if resource_transport is not None
-                        else {}
-                    ),
+                    "source_resources": {
+                        "domain": resource_transport.domain,
+                        "payloads": resource_transport.payloads,
+                    }
                 }
-            ).encode("utf-8")
-        ).hexdigest()
+                if resource_transport is not None
+                else {}
+            ),
+        }
     )
     payloads: list[tuple[str, int, dict[str, object]]] = [
         (
@@ -486,6 +482,16 @@ def write_static_atlas_assets(
         manifest_path=manifest_path,
         manifest=manifest,
         asset_paths=tuple(asset_paths),
+    )
+    # Detached producer payloads now have files and hash-bound metadata. Release
+    # every resource-record alias before independent readback rebuilds the graph.
+    del (
+        resource_transport,
+        payloads,
+        payload,
+        source_payload,
+        payload_json,
+        script_bytes,
     )
     validate_static_atlas_assets(result)
     return result

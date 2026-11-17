@@ -359,6 +359,8 @@ def test_resource_envelopes_use_common_async_consumer(
             "async function staticAtlasSha256", "function indexTransportDescriptor"
         )
         + source("function validateStaticAtlasPayload", "function loadStaticAtlasAsset")
+        + "const COUNTRIES=['Sweden'],ALL_LAYERS=[];\n"
+        + source("const standaloneMetadata =", "const sourceResourceText")
         + source(
             "let sourceResourceBrowser = null;",
             "function renderRelationTimeSummaryPanel",
