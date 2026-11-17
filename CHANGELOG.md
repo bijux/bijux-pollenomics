@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#511](https://github.com/bijux/bijux-pollenomics/pull/511) — Recorded ancestry captures and bounded mobile controls
+
+Retain unchanged taxon/reference captures and their normalized chain with a literal source account, explicit metadata resolver and 182 unresolved leads. Distinguish earlier capture requests from zero-GET materialization and keep taxonomy/PPE/scientific admission separate. Bound mobile controls through the existing scroll owner without changing desktop handlers or public map artifacts. Exact product/Git hashes, source-field checks, generated controls, matched host lint and strict documentation pass; no source or model replay is performed for delivery.
+
 ### [#510](https://github.com/bijux/bijux-pollenomics/pull/510) — Bounded Atlas styles and truthful export feedback
 
 Group identical global stylesheet declarations within the existing byte limit while preserving computed styles and layout. Label selection/source transfers as download requests without claiming browser completion, and preserve immutable manifest membership validation under strict imported typing. Generated presentation/export/custody controls and matched host checks pass; public map bytes, numerical results and source admission remain unchanged.
