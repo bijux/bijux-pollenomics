@@ -1,0 +1,14 @@
+{
+  "input_publication_acceptance": "e9a4c343f99369f7785f53ebd35cd52b301056457c85d3286827a1eaf63e7dfb",
+  "metadata_asset_publication_version": "source-25247099-selected-ancestry",
+  "metadata_manifest_sha256": "bf23b5f5e656ffd874e3d99ab478add9c99c777a85d74422e0a24e9e07b6b17c",
+  "metadata_publication_sha256": "db5b844d4be5251553d7993e546692d0c66d4c796c93f66c4eb7faa51ca76999",
+  "native_entity_bodies_opened": 0,
+  "original_metadata_source_epoch": "source-metadata-25247099",
+  "presentation_revision": "4ba3d6b8d135bba7038759d235c814d4df394820",
+  "provider_requests": 0,
+  "reused_file_count": 100,
+  "schema_version": "recorded-atlas-presentation.v1",
+  "scientific_admission": "not_asserted",
+  "source_metadata_revalidated": false
+}
