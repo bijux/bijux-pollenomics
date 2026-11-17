@@ -116,7 +116,7 @@ for generated archive, relational publication or evidence-session controls.
 
 ## Ancestry Source Qualification
 
-The [recorded taxonomy source qualification](../../../../reports/science/source-cohorts/neotoma-taxonomy-source-qualification.json)
+The [recorded taxonomy source qualification](https://github.com/bijux/bijux-pollenomics/blob/d461e34b80bfca71f1f4b7d16e4db228aeed0bd9/reports/science/source-cohorts/neotoma-taxonomy-source-qualification.json)
 binds one offline maintained derivation to an exact source revision and its
 complete input closure: 236 roots, 34,310 files and 2,735 previously received
 entities. The result matches the existing twelve-file ancestry baseline.
