@@ -207,6 +207,25 @@ direct contact, publication and taxon targets, including explicitly requested
 source-reported higher taxa. That state establishes source links; it does not
 mean every global detail entity or every transitive ancestor was collected.
 
+## Browse Captured Metadata
+
+Regenerate a map with the current reader to browse the captured metadata;
+previously generated maps retain their packaged reader. **Native datasets**
+remains the default listing. **Metadata population** also offers capture scope,
+facet slots, captured observations, linked occurrences and supporting archive
+entries. These populations have their own paged counts and literal search;
+they are never added to native dataset, site or scientific totals. Global
+linked metadata is not silently restricted by a native-country filter.
+
+Selected metadata details retain source identities, epochs and qualification
+limits as text. They neither load nor offer downloads of ancillary entity
+bodies, and they supply no new biological, ecological or scientific admission.
+On a source-only map with no scientific country controls, **Metadata country**
+controls the separate, opt-in metadata geometry. On maps with scientific
+country controls, metadata geometry continues to follow those controls.
+Unassigned geometry requires its separate switch; an unavailable location is
+never replaced with an invented point.
+
 ## Recorded Taxon Ancestry
 
 The immutable `taxon-ancestry/` baseline above derives from 2,735 retained direct

@@ -7063,7 +7063,7 @@ __URL_STATE_CONTROLLER__
         if (typeof tools?.sourceResources !== 'function') throw Error('Source resource metadata tools are unavailable.');
         return sourceResourceBrowser ||= tools.sourceResources({manifest: STATIC_ATLAS_BOOTSTRAP,
           loadAsset: loadStaticAtlasAsset, payloadForAsset: key => STATIC_ATLAS_CHUNKS.resources.find(part => part.asset_key === key),
-          readerContext: {map,leaflet:L,publishQuery:atlasURLState.publishResources,canPublish:atlasURLState.canPublish,countries:()=>[...activeCountries]}});
+          readerContext: {map,leaflet:L,publishQuery:atlasURLState.publishResources,canPublish:atlasURLState.canPublish,countries:()=>[...activeCountries],standaloneMetadata:COUNTRIES.length===0 && ALL_LAYERS.length===0}});
       }
       let resourceOpenGeneration = 0;
       async function openSourceResources(selection = {}) {

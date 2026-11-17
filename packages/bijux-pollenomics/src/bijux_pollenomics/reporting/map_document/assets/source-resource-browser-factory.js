@@ -2,19 +2,39 @@
 function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, downloadTransport = {}, readerContext = {}}) {
   const domain = manifest?.domains?.resources;
   const fail = message => { throw Error(`Source resource metadata: ${message}`); };
-  if (!domain || domain.schema_version !== 'atlas-source-resources.v1'
+  if (!domain || !['atlas-source-resources.v1','atlas-source-resources.v2'].includes(domain.schema_version)
     || !/^[a-f0-9]{64}$/.test(domain.catalogue_manifest_sha256 || '')
-    || domain.scientific_admission !== 'not_asserted'
+    || domain.source_family !== 'neotoma' || domain.scientific_admission !== 'not_asserted'
+    || domain.numerical_atlas_denominator_changed !== false || domain.initial_load !== false
+    || domain.payload_encoding !== 'gzip_base64' || domain.metadata_only !== true
+    || !Array.isArray(manifest.assets)
     || typeof loadAsset !== 'function' || typeof payloadForAsset !== 'function') fail('catalogue or loader unavailable');
+  const ancillary = createSourceResourceAncillaryContract(domain, fail);
+  const populations = {resources:'record_count',sites:'site_count',descriptors:'source_descriptor_count',...ancillary.counts};
   const mapping = domain.part_asset_keys;
   if (!mapping || Array.isArray(mapping) || typeof mapping !== 'object'
     || !Array.isArray(domain.index_part_ids)
-    || Object.keys(mapping).length !== domain.part_count) fail('part inventory differs');
+    || !Number.isSafeInteger(domain.part_count) || Object.keys(mapping).length !== domain.part_count
+    || new Set(Object.values(mapping)).size !== domain.part_count
+    || new Set(domain.index_part_ids).size !== domain.index_part_ids.length) fail('part inventory differs');
+  const allowedKinds=['context','index',...Object.keys(populations)], ordinals=new Map();
+  for (const [partId,key] of Object.entries(mapping)) {
+    const [kind,number,...extra]=partId.split(':');
+    if (!allowedKinds.includes(kind) || !/^(0|[1-9][0-9]*)$/.test(number || '') || extra.length
+      || typeof key !== 'string' || !key || !manifest.assets.some(row=>row.asset_key===key && row.domain==='resources')) fail('part kind or binding differs');
+    if(!ordinals.has(kind))ordinals.set(kind,[]);ordinals.get(kind).push(Number(number));
+  }
+  for(const values of ordinals.values())if(values.sort((a,b)=>a-b).some((value,number)=>value!==number))fail('part sequence differs');
+  if (domain.index_part_ids.some((id,number)=>id!==`index:${number}` || !Object.hasOwn(mapping,id))
+    || (ordinals.get('index')?.length || 0)!==domain.index_part_ids.length
+    || ordinals.get('context')?.length!==1 || !Object.hasOwn(mapping,'context:0')
+    || ancillary.kinds.length && domain.ancillary_context_part_id !== 'ancillary_context:0') fail('index or ancillary context part differs');
   const payloads = new Map(), index = new Map();
   let indexRequest = null;
   const clone = value => JSON.parse(JSON.stringify(value));
   const nativeId = value => typeof value === 'string' && /^[1-9][0-9]*$/.test(value);
-  const rowId = (kind, row) => kind === 'resources' ? row.dataset_id : kind === 'sites' ? row.site_id : row.record_id;
+  const rowId = (kind, row) => ancillary.kinds.includes(kind) ? ancillary.identity(kind,row)
+    : kind === 'resources' ? row.dataset_id : kind === 'sites' ? row.site_id : row.record_id;
   const count = name => {
     if (!Number.isSafeInteger(domain[name]) || domain[name] < 0) fail(`invalid ${name}`);
     return domain[name];
@@ -23,7 +43,7 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, down
     if (row?.domain !== 'resources' || payload?.schema_version !== 'atlas-source-resource-chunk.v1'
       || payload.source_family !== 'neotoma' || payload.catalogue_manifest_sha256 !== domain.catalogue_manifest_sha256
       || payload.scientific_admission !== 'not_asserted'
-      || !['context','sites','resources','descriptors','index'].includes(payload.kind)
+      || !['context','sites','resources','descriptors','index',...ancillary.kinds].includes(payload.kind)
       || mapping[payload.part_id] !== row.asset_key || payload.asset_key !== row.asset_key
       || !Array.isArray(payload.records) || !payload.records.length || row.record_count !== payload.records.length) fail('part identity differs');
     const seen = new Set();
@@ -62,16 +82,22 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, down
         if (payload.kind !== 'index') fail('index part has another kind');
         for (const record of payload.records) {
           const kind = record.entity_type, identity = record.record_id, key = `${kind}:${identity}`;
-          if (!['sites','resources','descriptors'].includes(kind)
-            || (kind === 'descriptors' ? !/^[a-f0-9]{64}$/.test(identity || '') : !nativeId(identity))
+          if (!Object.hasOwn(populations,kind)
+            || (ancillary.kinds.includes(kind) ? !ancillary.valid(kind,identity) : kind === 'descriptors' ? !/^[a-f0-9]{64}$/.test(identity || '') : !nativeId(identity))
             || typeof record.part_id !== 'string' || !record.part_id.startsWith(`${kind}:`)
             || !mapping[record.part_id] || next.has(key)) fail('index identity repeats or dangles');
+          if (ancillary.kinds.includes(kind)) ancillary.index(record);
           next.set(key, record);
         }
       }
-      for (const [kind, field] of [['resources','record_count'],['sites','site_count'],['descriptors','source_descriptor_count']]) {
-        if ([...next.values()].filter(row => row.entity_type === kind).length !== count(field)) fail('index population differs');
+      const referenced=new Set([...next.values()].map(row=>row.part_id));
+      if(Object.keys(mapping).some(id=>!id.startsWith('index:') && id!=='context:0' && !referenced.has(id)))fail('metadata part has no index membership');
+      for (const [kind, field] of Object.entries(populations)) {
+        if ([...next.values()].filter(row => row.entity_type === kind).length !== (field === null ? 1 : count(field))) fail('index population differs');
       }
+      if (ancillary.kinds.length && (count('ancillary_facet_observation_count') + count('ancillary_linked_observation_count') !== count('ancillary_observation_count')
+        || [...next.values()].filter(row=>row.entity_type==='ancillary_observations' && row.kind==='facet').length !== count('ancillary_facet_observation_count')
+        || [...next.values()].filter(row=>row.entity_type==='ancillary_observations' && row.kind==='linked').length !== count('ancillary_linked_observation_count'))) fail('ancillary observation population differs');
       if (count('version_status_count') !== 2 * count('record_count')) fail('version population differs');
       next.forEach((value,key)=>index.set(key,value));
     })();
@@ -79,7 +105,7 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, down
     return indexRequest;
   }
   async function record(kind, identity) {
-    if (!nativeId(identity) && kind !== 'descriptors') fail('native identity is invalid');
+    if (!Object.hasOwn(populations,kind) || (ancillary.kinds.includes(kind) ? !ancillary.valid(kind,identity) : !nativeId(identity) && kind !== 'descriptors')) fail('native identity is invalid');
     await loadIndex();
     const reference = index.get(`${kind}:${identity}`);
     if (!reference) return null;
@@ -90,10 +116,14 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, down
     return clone(found);
   }
   async function search(query = '', filters = {}) {
+    const population=filters.population || 'resources';
+    if (!Object.hasOwn(populations,population) || ['sites','descriptors'].includes(population)) fail('unsupported search population');
+    if (population !== 'resources' && Object.keys(filters).some(key=>key!=='population')) fail('native filters do not apply to the catalogue-wide ancillary population');
     await loadIndex();
     const text = String(query).trim().toLocaleLowerCase();
     return [...index.values()].filter(row => {
-      if (row.entity_type !== 'resources') return false;
+      if (row.entity_type !== population) return false;
+      if (population !== 'resources') return !text || JSON.stringify(row).toLocaleLowerCase().includes(text);
       const site = index.get(`sites:${row.site_id}`), names = site?.native_site_names || [];
       return (!filters.country || (row.country_code ?? 'UNASSIGNED') === filters.country)
         && (!filters.type || row.dataset_type === filters.type)
@@ -105,7 +135,7 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, down
   }
   async function inventory() {
     await loadIndex();
-    return Object.fromEntries(['resources','sites','descriptors'].map(kind => [kind,
+    return Object.fromEntries(Object.keys(populations).map(kind => [kind,
       [...index.values()].filter(row => row.entity_type === kind).map(clone)]));
   }
   async function context() {
@@ -115,7 +145,7 @@ function createSourceResourceBrowser({manifest, loadAsset, payloadForAsset, down
     return clone(payload.records[0]);
   }
   let reader = null;
-  const api = {consume, loadIndex, search, inventory, context, site: identity => record('sites', identity), resource: identity => record('resources', identity)};
+  const api = {consume, loadIndex, search, inventory, context, site: identity => record('sites', identity), resource: identity => record('resources', identity), ancillary:(kind,identity)=>{if(!ancillary.kinds.includes(kind))fail('unknown ancillary kind');return record(kind,identity);}};
   let downloads = null;
   function downloadManager() {
     return downloads ||= createSourceResourceDownloads({domain, context, resource: identity => record('resources', identity),

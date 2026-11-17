@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### Unreleased — Captured ancillary metadata in the Atlas resource reader
+
+- Read both native and ancillary catalogue transports while validating separate
+  source identities, part membership, populations and metadata-only boundaries.
+- Browse captured metadata in bounded pages without changing native dataset,
+  site or scientific counts, or adding ancillary body-download routes.
+- Enable opt-in metadata geometry on source-only maps without introducing
+  scientific countries or changing the existing country-filter behavior.
+
 ### [#495](https://github.com/bijux/bijux-pollenomics/pull/495) — Live Neotoma baseline facts during frontier capture
 
 - Borrow immutable, source-bound baseline facts only while their original
