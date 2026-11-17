@@ -60,3 +60,6 @@ class SeadContextLimits:
                 raise ValueError(
                     f"Context budget is outside the reviewed profile: {field.name}"
                 )
+
+
+DEFAULT_CONTEXT_LIMITS = SeadContextLimits()

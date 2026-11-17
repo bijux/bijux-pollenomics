@@ -9,6 +9,50 @@ last_reviewed: 2026-08-01
 
 # SEAD
 
+## Unresolved source context API
+
+The separately named
+`bijux_pollenomics.collection.sources.sead.acquisition.context` API can prepare a
+private source-context packet for one or two explicitly selected native site IDs
+and retained UUIDs. `SeadContextSite` requires membership status `review` or
+`unassigned`; it has no assigned-country field. `acquire_unresolved_sead_context`
+uses the existing nineteen chronology-context table plans and dependency filters.
+It requests only identity and owner fields from `tbl_analysis_values`, not its
+measurement values. Native age fields, nulls, source notes and reference IDs remain
+literal context; they do not establish a dated ecological event.
+
+The historical low-level receipt field `country_scope = [SE, DK, NO, FI]` records
+**regional request intent only** in this API. It is not evidence that any returned
+site belongs to those countries. The separate context manifest explicitly records
+`country_admission: false` and `ecological_event_admission: false`. It cannot replace
+governed country reconciliation or be consumed as a country-assigned acquisition.
+Chronology, dating-laboratory, dendro-lookup and season foreign keys remain
+explicitly unexpanded; nineteen completed table queries do not imply complete
+native reference closure or coverage of unqueried sites.
+
+`SeadContextLimits` may narrow the finite profile: at most 256 opener calls, one
+attempt each, 16 MiB aggregate response bytes, 1 MiB per response, 20,000 rows,
+100 IDs per batch, 1,000 dependency IDs per table and eleven pages including EOF.
+The byte transport reserves its one-byte overflow sentinel inside the aggregate
+budget, so an exhausted budget can refuse a response before using its final byte
+as payload; a refused response cannot overdraw that aggregate cap.
+The wall limit is 900 seconds cooperatively checked between reads, with a maximum
+30-second socket timeout. The required injected byte-response opener must disable
+redirects and retries; the API has no default network operation. It constructs
+literal dependency-filtered URLs and checks final response identity before reading.
+That check cannot undo extra requests made by a misconfigured opener. An empty
+dependency set makes no request; a completed empty query differs from an absent,
+partial or unqueried source population.
+
+Output is a private immutable epoch. Existing destinations and aliased namespaces
+refuse before transport. A separate owned recovery directory retains partial
+responses and receipts after refusal; automatic retry or resumption is unavailable.
+`read_sead_context` requires an independently recorded manifest SHA-256 and verifies
+all packet members through bounded ordinary descriptors. It reads the packet's raw
+context bodies, so it is not a metadata-only reader. Source notes and references
+are not thereby approved for public redistribution. This API's generated checks
+do not establish that either pending pilot site has been queried or admitted.
+
 SEAD contributes environmental-archaeology sites to the Nordic evidence
 atlas. Those sites are not static. Many are connected to dating ranges or
 relative periods in SEAD's relational database, while others still have no
