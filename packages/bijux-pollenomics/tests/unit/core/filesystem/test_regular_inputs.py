@@ -128,3 +128,75 @@ def test_copied_callback_context_cannot_reuse_a_completed_verified_buffer(
         assert tree.read_with(source, callback) == b"first"
     source.write_bytes(b"other")
     assert contexts[0].run(read_regular_file, source, max_bytes=5) == b"other"
+
+
+@pytest.mark.parametrize("refused", [False, True])
+def test_completed_inventory_releases_scratch_without_cyclic_collection(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, refused: bool
+) -> None:
+    from collections.abc import Iterator
+    from contextlib import contextmanager
+    import gc
+    import weakref
+
+    source = tmp_path / "body"
+    source.write_bytes(b"retained")
+    (tmp_path / "metadata").write_bytes(b"{}")
+    names: list[weakref.ReferenceType[str]] = []
+    scanning = os.scandir
+    opening = os.open
+    body_descriptors: list[int] = []
+
+    class ObservedName(str):
+        def __new__(cls, value: str) -> "ObservedName":
+            name = super().__new__(cls, value)
+            names.append(weakref.ref(name))
+            return name
+
+        def __radd__(self, prefix: str) -> "ObservedName":
+            return type(self)(prefix + str(self))
+
+    class ObservedEntry:
+        def __init__(self, entry: os.DirEntry[str]) -> None:
+            self.original = entry
+            self.name = ObservedName(entry.name)
+
+        def stat(self, *, follow_symlinks: bool = True) -> os.stat_result:
+            return self.original.stat(follow_symlinks=follow_symlinks)
+
+    @contextmanager
+    def observed_scan(descriptor: int) -> Iterator[Iterator[ObservedEntry]]:
+        with scanning(descriptor) as entries:
+            yield (ObservedEntry(entry) for entry in entries)
+
+    def counted_open(path: Any, flags: int, *args: Any, **kwargs: Any) -> int:
+        descriptor = opening(path, flags, *args, **kwargs)
+        if str(path) == "body" and not flags & os.O_DIRECTORY:
+            body_descriptors.append(descriptor)
+        return descriptor
+
+    with BoundedInputTree(tmp_path, max_bytes=10, max_files=2) as tree:
+        if refused:
+            (tmp_path / "unexpected").write_bytes(b"foreign")
+        monkeypatch.setattr(os, "scandir", observed_scan)
+        monkeypatch.setattr(os, "open", counted_open)
+        enabled = gc.isenabled()
+        gc.disable()
+        try:
+            for _ in range(32):
+                if refused:
+                    with pytest.raises(ValueError, match="budget"):
+                        tree.check()
+                else:
+                    tree.check()
+                    assert tree.read(source, max_bytes=8) == b"retained"
+                    tree.check()
+            assert names
+            assert all(reference() is None for reference in names)
+        finally:
+            if enabled:
+                gc.enable()
+    assert len(body_descriptors) == (0 if refused else 32)
+    for descriptor in body_descriptors:
+        with pytest.raises(OSError):
+            os.fstat(descriptor)
