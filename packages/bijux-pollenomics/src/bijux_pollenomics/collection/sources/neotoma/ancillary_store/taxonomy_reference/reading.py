@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Iterator, Mapping
 from contextlib import contextmanager
+from datetime import datetime
 from hashlib import sha1, sha256
 from pathlib import Path
 from typing import Any
@@ -131,8 +132,10 @@ def _provenance(value: Any) -> dict[str, Any]:
             or not 0 <= row["elapsed_seconds"] <= 3600
         ):
             raise ValueError("Taxonomy reference portable transport differs")
-        utc(row["intake_start"])
-        utc(row["intake_end"])
+        start = datetime.fromisoformat(utc(row["intake_start"]).replace("Z", "+00:00"))
+        end = datetime.fromisoformat(utc(row["intake_end"]).replace("Z", "+00:00"))
+        if start > end:
+            raise ValueError("Taxonomy reference intake interval is reversed")
     return value
 
 
@@ -193,6 +196,8 @@ def _archive(
             for name in EVIDENCE
         }
         git = git_membership(evidence, provenance["source_revision"])
+        if provenance["commit_utc"] != decode(evidence["commit"])["committer"]["date"]:
+            raise ValueError("Taxonomy reference retained commit timestamp differs")
         for name in EVIDENCE:
             if (
                 provenance["git_metadata"][name]
