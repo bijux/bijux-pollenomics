@@ -11,9 +11,13 @@ The new [capture manifest](../../../../../data/neotoma/ancillary-resources/taxon
 and its responses are separate from the normalized chain and the
 [recorded source atlas](../recorded-source-atlas/README.md). That Atlas still
 contains the preceding selection of **16** targets from chain `0e7e371…`.
-These twelve new responses have **not** been materialized into a successor chain
-or added to the Atlas. No revised unresolved-frontier count is established:
-newly received records can themselves expose further parent or citation leads.
+These twelve responses now form the separately qualified
+[normalized successor chain](../../../../../data/neotoma/ancillary-resources/taxon-ancestry/chains/cf525a56c96f57f4aab43894326500b8ca080800544a3e0fea288296b393db0d/manifest.json)
+`cf525a56…`, whose frozen frontier contains **172 unresolved leads**. They have
+not been added to the Atlas. The earlier 16-target Atlas and the dated-reference
+comparison against the preceding chain's fixed 182-lead set retain their own
+epochs. A smaller frontier is not complete graph coverage: newly received records
+can themselves expose further parent or citation leads.
 
 ## Literal taxon fields
 
@@ -71,6 +75,42 @@ all product hashes, issued order, body/receipt/native-ID correspondence,
 recorded root ownership and software origins without replaying that baseline.
 Canonical promotion copied exact bytes and made no requests or derivation.
 
+## Normalized continuation
+
+The successor retains the capture above and its explicit parent chain
+`0e7e37196a8eabc771b336bec25f981bfc6a291148dc519b9ce6c4f8212e2064`,
+with baseline `84a831c05c7d018392293747925a4229faf4be935a1552ef6bdbf4587d1d0662`.
+The five new chain files total **467,732 bytes**; their manifest SHA-256 is
+`cf525a56c96f57f4aab43894326500b8ca080800544a3e0fea288296b393db0d`.
+The existing 26 capture files remain byte-identical. The saved 31-file bundle
+therefore totals **551,318 bytes**, without duplicating capture bytes here.
+
+One maintained normalization at the same `df54b2d…` source revision completed
+one fresh native-baseline qualification and one derivation, with source checks
+at both staged and final publication. It made **zero new GETs** and closed its
+source lease. The observed process exited 0 after **2,409.080 seconds**, charging
+109,624 source descriptor opens and 2,489,475,599 conservative source bytes;
+that byte reservation is not measured physical I/O. Closed controls contain no
+unexpected denials, forbidden events or fatal diagnostic bytes. Previously
+retained inputs were isolated with unchanged content hashes rather than adopting
+changed live-worktree attachments or reusing an expired permission lease.
+
+The manifest's summary records 2,355 known taxon nodes, 175 publication nodes,
+2,763 known entity results and 4,422 literal field occurrences. These are distinct
+source-graph units, not pollen observations, sites or biological groups. Its
+**28 historical HTTP requests** combine the preceding 16 and later 12 captures;
+they are not requests made by this normalization. The new parts contain 13 taxon
+rows, eight publication rows, 14 edge rows and the **172-row unresolved frontier**.
+They do not replace the baseline or parent chain's explicit resolver obligations.
+
+Garryidae's recorded status and unknown publication dataset associations remain
+as above. Successful normalization does not depend on resolving their biological
+interpretation, and it does not resolve it. The selected metadata reader's
+`current_roles_revalidated`, `native_source_fields_revalidated` and
+`GET_authorized` remain false: an anchored stored view does not authorize future
+source use. The separately published Atlas still selects the preceding 16 targets;
+no Atlas refresh or new ecological/PPE mapping was performed.
+
 This is source-context progress. Counts, pollen denominators, chronology,
 geometry, biological equivalence, parameter choice and independent vegetation
 validation retain their separate requirements. The
@@ -81,25 +121,25 @@ describes the explicit qualification and acquisition boundaries.
 <!-- scientific-verification-and-limits:begin -->
 ## Scientific verification and limits
 
-**Supported claim.** Seven taxon details and five classification-reference details captured and qualified at their recorded source epochs.
+**Supported claim.** Seven taxon details and five classification-reference details at their recorded epochs, plus one separately qualified normalized successor with 172 unresolved frontier leads.
 
-**Unsupported claim.** A normalized successor chain, revised frontier count, inclusion in the Atlas, biological equivalence, PPE selection or scientific admission.
+**Unsupported claim.** Complete graph coverage, refreshed Atlas membership, biological equivalence, PPE selection, current permission or scientific admission.
 
-**Actual verification performed.** Closed26-file hashes, twelve issued requests and receipts, verified TLS/HTTP200, literal native IDs/fields, recorded root duties and source software pins.
+**Actual verification performed.** Closed capture and five normalized chain-file hashes; one fresh baseline and derivation; stage/final source validation; observed process exit 0; zero new GETs and a closed lease.
 
-**Remaining input or review.** Source interpretation and a separately qualified successor derivation remain open. Resolver: Source reader and taxonomic/method reviewer. Reopen when: A source clarification, changed capture epoch or separately qualified successor chain.
+**Remaining input or review.** Source interpretation and unresolved graph leads remain open; the Atlas and dated-reference comparison retain their earlier epochs. Resolver: Source reader and taxonomic/method reviewer. Reopen when: A changed source epoch, source clarification or separately qualified graph/Atlas publication.
 
-**Cause category.** Native source quality, graph normalization and scientific eligibility have different owners.
+**Cause category.** Native source quality, graph coverage and scientific eligibility have distinct requirements.
 
-**Consequence.** Inspect literal source fields while retaining unknown associations and the preceding Atlas/chain epoch.
+**Consequence.** Use literal source fields and the explicit normalized chain without promoting unknown associations or changing the existing Atlas denominator.
 
-**Precise next acceptance route.** Qualify a successor derivation before claiming revised graph coverage. Resolve native status interpretation and applicable mapping before ecological use.
+**Precise next acceptance route.** Resolve the relevant source leads before claiming broader graph coverage. Resolve native status interpretation and applicable mapping before ecological use. Any future source access needs fresh permission checks.
 
-**Negative or refused result.** Taxon9654 reports extinct; biological interpretation unresolved. No successor-frontier or Atlas-update result is claimed.
+**Negative or refused result.** Taxon 9654 reports extinct; biological interpretation unresolved. The successor retains 172 unresolved leads; no complete graph or Atlas update is claimed.
 
-**Matched denominator.** Twelve details: seven taxa and five classification references; 26 files / 83,586 bytes, including 9,457 HTTP body bytes.
+**Matched denominator.** Twelve captured details: seven taxa and five classification references; 26 unchanged capture files / 83,586 bytes plus five normalized chain files / 467,732 bytes. The cumulative 28 HTTP requests are historical; this normalization issued zero.
 
-Retained evidence: [reports/science/source-integrity/neotoma/ancestry-continuation/verification.json](verification.json), [data/neotoma/ancillary-resources/taxon-ancestry/captures/244769f271142c2f11d6f7cd11874d2fa8df6e5328e45ba6ff3851e6a06a402c/capture-manifest.json](../../../../../data/neotoma/ancillary-resources/taxon-ancestry/captures/244769f271142c2f11d6f7cd11874d2fa8df6e5328e45ba6ff3851e6a06a402c/capture-manifest.json).
+Retained evidence: [reports/science/source-integrity/neotoma/ancestry-continuation/verification.json](verification.json), [data/neotoma/ancillary-resources/taxon-ancestry/chains/cf525a56c96f57f4aab43894326500b8ca080800544a3e0fea288296b393db0d/manifest.json](../../../../../data/neotoma/ancillary-resources/taxon-ancestry/chains/cf525a56c96f57f4aab43894326500b8ca080800544a3e0fea288296b393db0d/manifest.json).
 
 This account preserves the verification scope and source limitations; rendering these statements does not rerun or qualify the underlying science.
 
