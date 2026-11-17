@@ -231,6 +231,43 @@ class NeotomaTaxonomyReferenceTaxon:
         object.__setattr__(self, "synonyms", tuple(self.synonyms))
 
 
+@dataclass(frozen=True)
+class NeotomaTaxonomyReferenceContrast:
+    """A frozen recorded-frontier contrast does not qualify source capture duties."""
+
+    reference_manifest_sha256: str
+    chain_manifest_sha256: str
+    source_revision: str
+    source_generated_at: str
+    rows: tuple[Mapping[str, Any], ...]
+    summary: Mapping[str, int]
+    recorded_new_capture_manifest_sha256s: tuple[str, ...]
+    reference_commit_utc: str
+    reference_intake_intervals: Mapping[str, tuple[str, str]]
+    current_roles_revalidated: bool = field(default=False, init=False)
+    native_source_fields_revalidated: bool = field(default=False, init=False)
+    GET_authorized: bool = field(default=False, init=False)
+    scientific_admission: str = field(default="not_asserted", init=False)
+    integrity_scope: str = field(
+        default="explicit_stored_frontier_parts_and_dated_reference_only", init=False
+    )
+
+    def __post_init__(self) -> None:
+        """Own source positions and every literal outcome without a live input lease."""
+        object.__setattr__(self, "rows", immutable(self.rows))
+        object.__setattr__(self, "summary", immutable(self.summary))
+        object.__setattr__(
+            self,
+            "reference_intake_intervals",
+            immutable(self.reference_intake_intervals),
+        )
+        object.__setattr__(
+            self,
+            "recorded_new_capture_manifest_sha256s",
+            tuple(self.recorded_new_capture_manifest_sha256s),
+        )
+
+
 def checked_tree(value: Any) -> dict[str, Any]:
     """Reconstruct a retained Git tree rather than trust a file listing label."""
     if (
