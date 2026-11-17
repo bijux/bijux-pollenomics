@@ -47,6 +47,31 @@ clipping makes all three Betula fractions zero. That zero is not evidence of
 vegetation absence. This is conditional two-tree sensitivity, not forest/open
 cover or measured accuracy. [Results, assumptions and independent proof](basin-sensitivity/README.md).
 
+## What the nominal PPE comparison shows
+
+The maintained two-case comparison changes shared Betula PPE from **5.106 to
+4.94**, keeping Ulmus at 1.27 because the selected European reference has no
+Ulmus RPP. Source SD metadata, fall speeds, pooled counts, chronology and physical
+assumptions remain fixed; no source-SD law or weighted uncertainty is inferred.
+
+Outer-ring adjusted Betula increases by **1.233837 percentage points**. Inner-ring
+signed Betula increases by **1.587917 points**, while both adjusted Betula values
+remain zero after per-case clipping. That masked change is not evidence of taxon
+absence or parameter irrelevance. The selected two-tree panel is not full native
+pollen NISP or forest/open/cereal cover. Full/excluded native denominators are not
+bound to these saved pooled-bin requests; the separately audited 2,553 BOKE and
+3,973 KRAG totals above remain distinct, without an inferred allocation or excluded
+mass. The retained **100 km** regional extent differs from the 2025
+paper's **1000 km** extent; this is not paper reproduction or measured accuracy.
+
+The [conditional nominal comparison account](parameter-sensitivity/README.md) has
+[separate output qualification](parameter-sensitivity/verification.json). Two model
+cases and publication completed, but the original operator subsequently refused
+during a late software-identity bootstrap check and has no successful terminal
+receipt. Its failure remains immutable; read-only output and parameter-lineage
+checks qualify the saved result separately, without rerunning models. Original
+sources and full child bundles remain private.
+
 ## What closes the pilot
 
 1. Select and justify a complete taxon/denominator/PPE profile and its uncertainty.

@@ -2,6 +2,17 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#493](https://github.com/bijux/bijux-pollenomics/pull/493) — Retained nominal parameter comparisons
+
+- Connect retained source and parameter evidence to two fixed-support analytical
+  cases, preserving the baseline and keeping nominal sensitivity unweighted.
+- Retain raw and clipped two-tree results with explicit pooled-denominator,
+  100 km regional extent, source-SD and empirical-accuracy limits.
+- Publish the separately qualified saved output while preserving the original
+  late operator audit refusal and private source/child storage boundaries.
+- Type generated comparison fixtures and callbacks for strict developer checks,
+  preserving production behavior and the saved numerical result.
+
 ### [#492](https://github.com/bijux/bijux-pollenomics/pull/492) — Contextual open-ended SEAD chronology
 
 - Keep source From-qualified dendrochronology rows and labels as context while

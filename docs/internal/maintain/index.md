@@ -69,6 +69,9 @@ atlas members may be inseparable; an unrelated prose rewrite is not.
 The [collection publication contract](collection-publication.md) describes private
 callback candidates, interrupted recovery and historical replacement metadata.
 
+The [BOKE parameter comparison](boke-parameter-comparison.md) connects retained
+source evidence to conditional paired cases and their raw/adjusted reports.
+
 ## Governed State And Build State
 
 | State | Location | Review status |
