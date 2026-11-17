@@ -74,3 +74,17 @@ def test_source_replacement_is_detected_after_admission(tmp_path: Path):
         with admit(root, plan, tmp_path / "private") as accepted:
             (root / "base.json").write_bytes(b"changed")
             accepted.check()
+
+
+@pytest.mark.parametrize("budget", [8, 31])
+def test_covariance_bound_covers_both_full_joint_estimands(tmp_path: Path, budget: int):
+    root = tmp_path / "inputs"
+    request, plan = fixture(root)
+    dimension = len(request["taxa"]) * (
+        1 + request["configuration"]["love"]["max_ring"]
+    )
+    assert 2 * dimension * dimension == 32
+    plan["limits"]["max_covariance_cells"] = budget
+    with pytest.raises(LRARefusal):
+        with admit(root, plan, tmp_path / "private"):
+            pass

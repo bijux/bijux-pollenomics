@@ -216,7 +216,8 @@ def admit_source_cases(
         validate_request(base, input_root=inputs.snapshot)
         _analytical(base)
         coverage = _coverage(inputs, base, envelope["records"])
-        if 2 * len(base["taxa"]) ** 2 > value["limits"]["max_covariance_cells"]:
+        dimension = len(base["taxa"]) * (1 + base["configuration"]["love"]["max_ring"])
+        if 2 * dimension**2 > value["limits"]["max_covariance_cells"]:
             refuse("Result covariance exceeds its declared finite cell budget")
         requests = {}
         for case in value["cases"]:
