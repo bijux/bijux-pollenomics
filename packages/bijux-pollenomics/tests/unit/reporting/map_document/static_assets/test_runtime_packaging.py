@@ -25,6 +25,9 @@ from bijux_pollenomics.reporting.map_document.static_assets import (
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
     normalize_asset_inventory,
 )
+from bijux_pollenomics.reporting.map_document.static_assets.budgets import (
+    ATLAS_DOCUMENT_MAX_BYTES,
+)
 from bijux_pollenomics.reporting.scope_policy import MAP_SCOPE_POLICIES
 
 from ..browser_semantics.support import check_javascript_syntax, run_node_json
@@ -60,6 +63,21 @@ def bootstrap(document: str) -> dict[str, Any]:
     )
     assert match is not None
     return cast(dict[str, Any], json.loads(match.group(1)))
+
+
+@pytest.mark.parametrize(
+    "countries",
+    [(), ("Sweden", "Norway"), ("Sweden", "Norway", "Denmark", "Finland")],
+)
+def test_runtime_publishes_country_controls_within_existing_budget(
+    tmp_path: Path, request_args: dict[str, Any], countries: tuple[str, ...]
+) -> None:
+    """Country selection must fit without raising the static runtime cap."""
+    document, runtime = subject.write_static_map_document(
+        tmp_path / "countries.html", **{**request_args, "countries": countries}
+    )
+    assert runtime.stat().st_size <= ATLAS_DOCUMENT_MAX_BYTES
+    assert document.stat().st_size <= ATLAS_DOCUMENT_MAX_BYTES
 
 
 def test_runtime_separates_exact_helpers_without_changing_scientific_inventory(
