@@ -2,6 +2,16 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#490](https://github.com/bijux/bijux-pollenomics/pull/490) — Conditional fixed-support source cases
+
+- Authenticate retained paired request support and explicit parameter conditioning
+  before reusing deterministic LRA execution and private analytical evidence.
+- Keep unweighted sensitivity separate from caller-weighted rational design laws,
+  preserving failed mass and raw versus per-case adjusted population moments.
+- Publish derived references and results without embedding original source members;
+  verify clipping relations without importing the optional engine or granting
+  native denominator, empirical uncertainty or scientific admission claims.
+
 ### [#489](https://github.com/bijux/bijux-pollenomics/pull/489) — Owned collection callback publication
 
 - Publish collector and report callbacks through one exclusive completed-tree owner,
