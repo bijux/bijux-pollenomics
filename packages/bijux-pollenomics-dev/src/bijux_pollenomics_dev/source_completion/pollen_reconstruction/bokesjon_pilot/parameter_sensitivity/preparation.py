@@ -156,6 +156,7 @@ def prepare(
             "parameter_domain": "Conditional two-tree nominal comparison; source applicability unevaluated",
             "citation": "Retained LandClim profile and doi:10.5194/essd-17-2007-2025, Europe Betula G6",
             "source_scale_binding": binding,
+            "source_input_pins": list(inputs.source_pins),
             "selected_betula_source_row": source_row,
             "uncertainty": "No probability law; original source SD retained, no source-SD propagation",
             "native_vg_used": False,

@@ -16,6 +16,9 @@ from bijux_pollenomics.analysis.lra.api import (
     run_source_lra_cases,
 )
 from bijux_pollenomics.analysis.lra.source_cases.contracts import canonical, digest
+from bijux_pollenomics.analysis.lra.source_cases.contracts import (
+    reference as source_reference,
+)
 from bijux_pollenomics.analysis.lra.source_cases.results import child_vectors
 from bijux_pollenomics.core.filesystem import BoundedInputTree, DirectoryAnchor
 from bijux_pollenomics.core.filesystem.recovery_storage import (
@@ -96,6 +99,43 @@ def frozen_code_revision(expected: str) -> str:
     return head
 
 
+def _bound_snapshot(
+    prepared: PreparedSourceCases, inputs: BaselineInputs
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Bind separately supplied context to the immutable prepared source snapshot."""
+
+    def body(value: object) -> bytes:
+        ref = source_reference(value)
+        raw = prepared.members[ref["path"]]
+        if len(raw) != ref["bytes"] or digest(raw) != ref["sha256"]:
+            raise ValueError(
+                "Prepared source snapshot differs from its bound reference"
+            )
+        return raw
+
+    envelope = json.loads(body(prepared.plan.payload()["envelope_ref"]))
+    original = body(envelope["base_request_ref"])
+    if type(inputs.request_bytes) is not bytes or inputs.request_bytes != original:
+        raise ValueError("Supplied request differs from the prepared source snapshot")
+    request = json.loads(original)
+    evidence = {r["path"]: prepared.members[r["path"]] for r in request["evidence"]}
+    supplied = dict(inputs.evidence)
+    if any(type(raw) is not bytes for raw in supplied.values()) or supplied != evidence:
+        raise ValueError("Supplied evidence differs from the prepared source snapshot")
+    basis = json.loads(body(envelope["parameter_basis_ref"]))
+    if canonical(basis["source_scale_binding"]).decode() != prepared.normalization_json:
+        raise ValueError(
+            "Prepared normalization differs from its bound parameter basis"
+        )
+    if "source_input_pins" not in basis or canonical(
+        basis["source_input_pins"]
+    ) != canonical(list(inputs.source_pins)):
+        raise ValueError(
+            "Supplied provenance differs from the prepared source snapshot"
+        )
+    return request, basis
+
+
 def execute_prepared(
     prepared: PreparedSourceCases,
     inputs: BaselineInputs,
@@ -105,6 +145,7 @@ def execute_prepared(
     code_validator: Callable[[], object] | None = None,
 ) -> dict[str, Any]:
     """Keep input and child storage private while publishing a complete derived view."""
+    base, basis = _bound_snapshot(prepared, inputs)
     target = destination.absolute()
     recovery_parent = resolve_publication_workspace_parent(
         target, namespace="boke-parameter-sensitivity"
@@ -131,7 +172,7 @@ def execute_prepared(
             baseline_match = None
             if baseline["status"] == "success":
                 original = child_vectors(
-                    inputs.directory, inputs.request, max_bytes=8 * 1024 * 1024
+                    inputs.directory, base, max_bytes=8 * 1024 * 1024
                 )
                 baseline_match = all(
                     baseline[key] == original[key]
@@ -141,7 +182,6 @@ def execute_prepared(
                     raise ValueError(
                         "Source-case baseline differs from the retained numerical result"
                     )
-            base = inputs.request
             report.update(
                 schema_version="boke-nominal-ppe-comparison.v1",
                 code_revision=source_revision,
@@ -149,8 +189,8 @@ def execute_prepared(
                 source_case_manifest_sha256=product.manifest_sha256,
                 source_case_plan_sha256=prepared.plan.sha256,
                 baseline_exact_numeric_match=baseline_match,
-                source_pins=list(inputs.source_pins),
-                source_scale_binding=json.loads(prepared.normalization_json),
+                source_pins=basis["source_input_pins"],
+                source_scale_binding=basis["source_scale_binding"],
                 cover_policy={
                     "method": "clip-and-renormalize",
                     "realization": "Set negatives to zero, then normalize surviving positive mass",
