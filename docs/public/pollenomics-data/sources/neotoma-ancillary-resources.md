@@ -95,7 +95,7 @@ denmark = read_neotoma_country_authority_body(
 ```
 
 The ten capture files preserve their original bytes. The
-[qualification packet](../../../../reports/science/source-cohorts/neotoma-country-authority-qualification.json)
+[qualification packet](https://github.com/bijux/bijux-pollenomics/blob/d461e34b80bfca71f1f4b7d16e4db228aeed0bd9/reports/science/source-cohorts/neotoma-country-authority-qualification.json)
 records the maintained reader revision and country identities; it makes
 no new provider request or scientific-admission claim.
 
@@ -125,7 +125,7 @@ On 16 November 2026 the maintained context reader requalified all five archives
 against their original and current native owner bindings: 515 response bodies,
 113,238 source bytes and 1,225 owner rows. The 157 null environment labels remain
 null. This was an offline readback with no new requests or refetches. The
-[qualification account](../../../../reports/science/source-cohorts/neotoma-environment-qualification.json)
+[qualification account](https://github.com/bijux/bijux-pollenomics/blob/d461e34b80bfca71f1f4b7d16e4db228aeed0bd9/reports/science/source-cohorts/neotoma-environment-qualification.json)
 binds the source and reader identities; it admits source context, not dated basin
 geometry or reconstruction suitability.
 

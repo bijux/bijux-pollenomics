@@ -4,10 +4,45 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-10-28
+last_reviewed: 2026-11-17
 ---
 
 # Results and model use
+
+## Conditional reconstruction results
+
+These studies answer different questions. Their taxon panels, conditioning
+events and score denominators must remain attached to any exported result.
+
+**How does shared age and parameter uncertainty affect a panel contrast?**
+The [Abborrtjärnen grouped study](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-reconstruction/abborrtjarnen-age-ppe/README.md#grouped-strict-native-panel-shares)
+projects the saved full covariance into three explicit five-taxon-panel groups.
+Betula plus Pinus increases by 10.1851 percentage points from the youngest to
+oldest window, with conditional SD 2.0354 points. This uses the 29,332 jointly
+defined states out of 32,000; the other 2,668 remain undefined. It is a panel
+share, not whole forest cover. The account links a locally usable HTML report,
+component and contrast CSVs, and all six grouped covariance matrices. The
+separate recorded-zero profile is not substituted into those exports.
+
+**How much does a nominal PPE choice change the same reconstruction?**
+The [BOKE/KRAG parameter comparison](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-reconstruction/bokesjon-pilot/parameter-sensitivity/README.md)
+changes shared Betula PPE from 5.106 to 4.94 while retaining Ulmus 1.27.
+Outer-ring adjusted Betula increases by 1.233837 percentage points. Inner-ring
+signed cover changes even though both clipped Betula values remain zero;
+adjusted equality does not establish vegetation absence. Two unweighted
+nominal scenarios supply no probability law or confidence interval. The
+account links the saved report and exact source-case manifest.
+
+**How does adjusted LOVE compare with direct pollen on the same targets?**
+The [six-window KRAG comparison](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/pollen-reconstruction/krageholm-regional-coupled/README.md#complete-six-window-comparison-and-uncertainty)
+scores all 54 requested method cells on a closed Betula/Ulmus pollen panel.
+Its 18 target-period folds repeat three physical places. Shared count/PPE
+uncertainty covers all 55,296 method/draw slots after draw-wise clipping and
+renormalization. The account links every matched score, the protocol and
+independent verification. Average gains coexist with worse results for all
+three methods in 5200–5700 cal BP. These are exposed pollen development
+scores; they do not evaluate reconstructed vegetation accuracy. Historical
+signed-profile and geographic-transfer results retain their own refusals.
 
 ## Implementation correspondence and archive differences
 
@@ -65,6 +100,17 @@ errors satisfy necessary component-error bounds, but the archive does not
 expose the covariance needed to reproduce its aggregation. We keep the
 paper/archive classification difference and the unresolved `ISTS` meaning
 visible; numerical agreement does not authorize a taxon relabeling.
+
+The stronger [partial joint covariance check](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/publication-correspondence/pft-crosswalk/README.md#can-the-groups-share-one-closed-total-covariance)
+assesses 20 leaves and five measured groups under a constant-total assumption,
+treating the recorded SE decimals as exact on one common scale. Of 8,031
+assessed rows, 2,420 admit that partial covariance and 5,611 do not. All-zero
+rows and rows with negative native means remain separate. This does not
+contradict the necessary local bounds above: passing each local bound does
+not establish joint feasibility. Source rounding and the historical covariance
+producer remain unknown; 22 other taxon uncertainties are outside this check.
+The result does not identify a historical author error or an ecological
+accuracy failure.
 
 ## HYDE as modeled context
 

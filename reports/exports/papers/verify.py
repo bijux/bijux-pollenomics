@@ -11,6 +11,10 @@ import subprocess
 from typing import Any
 
 from bijux_pollenomics_dev.ci.report_rebuild.retained_source import source_revision
+from bijux_pollenomics_dev.reader_reports.source import (
+    check_retained_sources,
+    exported_content,
+)
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -40,17 +44,6 @@ def committed_bytes(revision: str, relative: str) -> bytes:
 
 def committed_digest(revision: str, relative: str) -> str:
     return hashlib.sha256(committed_bytes(revision, relative)).hexdigest()
-
-
-def exported_content(source: bytes) -> bytes:
-    """Remove only historical metadata lines suppressed by the paper renderer."""
-    return re.sub(
-        rb"^<!-- scientific-(?:claim-semantic|authored-source)-sha256: "
-        rb"[0-9a-f]{64} -->\n",
-        b"",
-        source,
-        flags=re.MULTILINE,
-    )
 
 
 def verify_producer(manifest: dict[str, Any], paper: dict[str, Any]) -> None:
@@ -106,6 +99,7 @@ def main() -> None:
     if manifest["schema_version"] != "canonical-paper-pdf-library.v1":
         raise ValueError("Unexpected PDF library schema")
     inventory_path = ROOT / manifest["inventory"]
+    check_retained_sources(ROOT, inventory_path, manifest)
     if digest(inventory_path) != manifest["inventory_sha256"]:
         raise ValueError("Canonical paper inventory changed; rebuild affected PDFs")
     if (
@@ -152,6 +146,13 @@ def main() -> None:
         ):
             raise ValueError("Paper layout review belongs to another export revision")
         historical_source = committed_bytes(source_revision, row["canonical_report"])
+        if (
+            hashlib.sha256(exported_content(historical_source)).hexdigest()
+            != row["canonical_source_sha256"]
+        ):
+            raise ValueError(
+                "Canonical source digest differs from actual export source"
+            )
         if hashlib.sha256(historical_source).hexdigest() != row[
             "source_sha256"
         ] or source.read_bytes() != exported_content(historical_source):

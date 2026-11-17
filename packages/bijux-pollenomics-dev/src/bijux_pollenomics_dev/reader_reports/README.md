@@ -29,10 +29,24 @@ SOURCE_DATE_EPOCH=1790812800 PYTHONDONTWRITEBYTECODE=1 \
 The inventory and all canonical reports must match the identified committed
 revision. `--paper-id` selects one paper while still checking the complete
 inventory. Local citation targets are resolved inside the repository and
-converted to commit-pinned GitHub URLs. The command validates their local
-existence; remote availability is explicitly unverified. Publisher and DOI
+converted to commit-pinned GitHub URLs. The command validates exact revision
+and path existence from Git metadata, refusing symlinks and submodules without
+opening linked evidence payloads. This establishes neither source contents nor
+remote availability. Publisher and DOI
 URLs remain direct. Offline reading includes the complete report and diagrams;
 linked raw evidence requires a separate copy or network access.
+
+Developer lint first checks all nine canonical Markdown bindings against the
+retained export manifest. This read-only check requires no PDF compiler and
+does not open raw evidence or PDF files:
+
+```sh
+python -B -m bijux_pollenomics_dev.reader_reports --repository . \
+  --inventory reports/science/paper-accounts.csv --check-retained-sources
+```
+
+A changed canonical report must have a newly rendered and qualified export;
+the complete paper verifier still checks the retained PDF and its provenance.
 
 Every export has a receipt recording source, producer, TeX, diagram and PDF
 hashes, tool versions and the deterministic clock. Logs and intermediate files

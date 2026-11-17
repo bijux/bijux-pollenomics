@@ -72,7 +72,7 @@ criterion cannot be evaluated without a compatible independent reference.
 
 ## Qualified saved comparison
 
-The [conditional nominal comparison account](../../../reports/science/pollen-reconstruction/bokesjon-pilot/parameter-sensitivity/README.md)
+The [conditional nominal comparison account](https://github.com/bijux/bijux-pollenomics/blob/d461e34b80bfca71f1f4b7d16e4db228aeed0bd9/reports/science/pollen-reconstruction/bokesjon-pilot/parameter-sensitivity/README.md)
 records two completed model cases and a separately qualified saved output.
 The original operator refused a late software-identity bootstrap read after
 publication and has no successful terminal receipt. Its failure remains immutable;

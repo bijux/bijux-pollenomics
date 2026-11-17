@@ -73,9 +73,12 @@ qualified without rerunning either model. The [separate verification](verificati
 records numerical parity with the prior accepted comparison, clipping, exact
 request/parameter lineage, source identity and their distinct review scopes.
 
-The [saved report](result/report.json), [original numerical tables](result/README.md)
-and [source-case manifest](result/source-cases/manifest.json) remain byte-identical
-to that saved epoch. Original source members and full child bundles remain private.
+The [saved report](result/report.json) and
+[source-case manifest](result/source-cases/manifest.json) remain byte-identical
+to that saved epoch. The [published numerical tables](result/README.md) preserve
+the original Markdown prefix unchanged and append a verification and limits block;
+the separate verification records both source and published hashes. Original
+source members and full child bundles remain private.
 The public projection grants neither their redistribution nor empirical source
 accuracy. Future uncertainty or accuracy claims require separate prospective
 source, design-law and independent-target qualification.

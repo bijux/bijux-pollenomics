@@ -72,8 +72,8 @@
   },
   "files": {
     "index.html": {
-      "sha256": "b46ce156f82d1ed9ec262542ef84ce6c2efc5e24d185d7a8804a74471a0b3d36",
-      "bytes": 5634
+      "sha256": "ecf9e45037be89d4d686f812a7663863da03e3413357dc4419b035096a98cc60",
+      "bytes": 6004
     },
     "report.json": {
       "sha256": "34ffe7287d7240f233900c2d22502f6cfb8d1a1fc597fbc7719bb2716c4a356a",
@@ -88,7 +88,7 @@
       "bytes": 113333
     },
     "manifest.json": {
-      "sha256": "fbe94288b2a1119d4918125f152a0287f56f5acf3de4894baf6c1d1da256d720",
+      "sha256": "0e89b3657adade079af1e37b77f69a3ced951582e0d753d4a4b406f54bae0fc0",
       "bytes": 664
     },
     "contrasts.csv": {
@@ -102,5 +102,37 @@
     "Source-compatible mixture and conditional SD do not imply calibrated confidence intervals.",
     "No fresh installed-package or historical-reference-R qualification is inferred from this projection."
   ],
-  "qualification_utc_date": "2026-11-16"
+  "qualification_utc_date": "2026-11-16",
+  "presentation_refresh": {
+    "scope": "HTML-only rendering of the unchanged saved grouped report; no numerical projection or model replay",
+    "renderer_commit": "dd768aa2bf8d44fa293fdc8ffe27de60f4d6b152",
+    "renderer_source": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/abborrtjarnen_age_ppe/grouped/publication.py",
+    "renderer_sha256": "347b4dee119125aaf9cb9691c59179420513773120c32f0f97beefad5e1afa3d",
+    "input_grouped_report_sha256": "34ffe7287d7240f233900c2d22502f6cfb8d1a1fc597fbc7719bb2716c4a356a",
+    "prior_html_sha256": "b46ce156f82d1ed9ec262542ef84ce6c2efc5e24d185d7a8804a74471a0b3d36",
+    "published_html_sha256": "ecf9e45037be89d4d686f812a7663863da03e3413357dc4419b035096a98cc60",
+    "original_execution_record": "actual_execution retains the original numerical publication epoch; its output manifest is historical",
+    "unchanged_numerical_members": [
+      "source-result.json",
+      "report.json",
+      "components.csv",
+      "contrasts.csv"
+    ],
+    "keyboard_contract": "Two caption-named, focusable horizontal table regions with visible focus; all original headers and units retained",
+    "browser_verification": {
+      "browser": "Chrome headless 157.0.8103.78",
+      "network": "denied by operating system sandbox; CDP pipe only",
+      "viewports": [
+        1440,
+        390
+      ],
+      "whole_page_horizontal_overflow": false,
+      "focusable_named_regions": 2,
+      "both_mobile_regions_arrow_key_scroll": true,
+      "visible_focus_outline_px": 3,
+      "scope": "Standalone retained-result view, not a MkDocs site or full accessibility certification",
+      "table_body_cells_preserved": 120,
+      "displayed_mean_spread_numeric_cells": 60
+    }
+  }
 }

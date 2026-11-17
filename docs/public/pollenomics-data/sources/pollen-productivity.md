@@ -16,8 +16,8 @@ model and basin assumptions.
 
 | Reference | Retained evidence | Interpretation |
 | --- | --- | --- |
-| [Wieczorek and Herzschuh 2020](../../../../data/validation/pollen-productivity/wieczorek-herzschuh-2020/README.md) | 110 European rows across two deposited versions, with source-cell locators | Compiled uncertainty is labelled SE; missing European Ulmus productivity remains missing |
-| [Schild et al. 2025](../../../../data/validation/pollen-productivity/legacyvegetation-2025/README.md) | Two publisher workbooks, receipts, 369 original estimates and 524 regional synthesis rows | Original SE and synthesized SD remain distinct labels; duplicated source rows and coverage discrepancies remain explicit |
+| [Wieczorek and Herzschuh 2020](https://github.com/bijux/bijux-pollenomics/blob/d461e34b80bfca71f1f4b7d16e4db228aeed0bd9/data/validation/pollen-productivity/wieczorek-herzschuh-2020/README.md) | 110 European rows across two deposited versions, with source-cell locators | Compiled uncertainty is labelled SE; missing European Ulmus productivity remains missing |
+| [Schild et al. 2025](https://github.com/bijux/bijux-pollenomics/blob/d461e34b80bfca71f1f4b7d16e4db228aeed0bd9/data/validation/pollen-productivity/legacyvegetation-2025/README.md) | Two publisher workbooks, receipts, 369 original estimates and 524 regional synthesis rows | Original SE and synthesized SD remain distinct labels; duplicated source rows and coverage discrepancies remain explicit |
 
 Each reference has a `source.json` with attribution, exact file hashes, column
 mapping and limitations. The 2025 compilation overlaps earlier studies and is

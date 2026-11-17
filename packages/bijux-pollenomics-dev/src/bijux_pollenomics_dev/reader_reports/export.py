@@ -13,6 +13,7 @@ from typing import Any
 from .render import ReportRenderer, document_latex
 from .source import (
     Paper,
+    exported_content,
     file_sha256,
     load_inventory,
     output_directory,
@@ -179,6 +180,7 @@ def _compile_paper(
     return {
         "paper_id": paper.paper_id,
         "canonical_report": paper.relative_path.as_posix(),
+        "canonical_source_sha256": sha256_bytes(exported_content(source_bytes)),
         "source_sha256": paper.source_sha256,
         "citation": paper.citation,
         "account_status": paper.account_status,
@@ -266,7 +268,7 @@ def export_reports(
         "repository_revision": revision,
         "repository_link_base": f"https://github.com/bijux/bijux-pollenomics/blob/{revision}/",
         "repository_links_verified_online": False,
-        "repository_link_status": "Local source paths are resolved and encoded; remote availability awaits authorized publication.",
+        "repository_link_status": "Exact committed paths are verified from Git metadata without linked payload reads; source contents and remote availability are not verified by citation lookup.",
         "diagram_layout": "Source flowchart edges and labels retained; layout reflowed top-to-bottom for A4 readability.",
         "inventory": inventory.relative_to(root).as_posix(),
         "inventory_sha256": inventory_hash,

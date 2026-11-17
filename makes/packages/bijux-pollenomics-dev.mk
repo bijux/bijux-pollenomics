@@ -9,6 +9,7 @@ TEST_SOURCE_PATHS := src
 INTERROGATE_PATHS := src
 QUALITY_INTERROGATE_FLAGS = --config "$(MONOREPO_ROOT)/pyproject.toml"
 QUALITY_PATHS := src tests
+LINT_PRE_TARGETS += verify-retained-paper-sources
 # Audit qualified installed workspace scopes and every frozen registry fork.
 # Scoped installation constraints and exhaustive optional coverage are complementary.
 SECURITY_EXTRA_TARGETS := security-locked-dependencies
@@ -45,6 +46,14 @@ test-all-plus-run-time: test
 .PHONY: test-all-plus-run-time
 
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
+
+verify-retained-paper-sources: ## Refuse canonical Markdown changes without qualified exports.
+	@PYTHONPATH="$(MONOREPO_ROOT)/packages/bijux-pollenomics-dev/src$${PYTHONPATH:+:$$PYTHONPATH}" \
+	PYTHONDONTWRITEBYTECODE=1 "$(VENV_PYTHON)" -B \
+		-m bijux_pollenomics_dev.reader_reports \
+		--repository "$(MONOREPO_ROOT)" \
+		--inventory reports/science/paper-accounts.csv --check-retained-sources
+.PHONY: verify-retained-paper-sources
 
 security-locked-dependencies: ## Audit every frozen optional and platform registry version.
 	@PYTHONPATH="$(MONOREPO_ROOT)/packages/bijux-pollenomics-dev/src$${PYTHONPATH:+:$$PYTHONPATH}" "$(VENV_PYTHON)" -m bijux_pollenomics_dev.security.locked_dependencies

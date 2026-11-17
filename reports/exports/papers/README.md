@@ -23,11 +23,11 @@ The [manifest](manifest.json) binds each PDF to its canonical source and
 committed renderer, compiler versions, deterministic clock and build receipts.
 The [layout record](visual-review.json) records model inspection of every page,
 font embedding, representative Unicode, extractable text order and citations.
-The library contains **nine PDFs and 53 pages**. Every paper includes its
+The library contains **nine PDFs and 54 pages**. Every paper includes its
 nine-field scientific verification and limits account. The five Sugita, Hellman
 and Namibia exports reflect their supplied full primary sources; their **29
 pages** were individually inspected after native text, font, citation and
-physical-bounds checks. Four other PDFs retain their exact historical bytes,
+physical-bounds checks. Three other PDFs retain their exact historical bytes,
 source/producer/build identities and page-review records. Three inherited
 historical source/receipt identities are now explicit in the manifest because
 the shared inventory has changed.
@@ -89,3 +89,14 @@ source, producer and build receipt; all ten new pages passed font/text-bound
 checks and model layout inspection. The other seven paper exports keep their
 existing records and bytes. This publication repair does not qualify original
 study reproduction, human comprehension or tagged accessibility.
+
+The LandClim account was separately re-exported from its current committed
+Markdown after its conditional joint-covariance findings changed and its
+existing conditional BOKE/KRAG LOVE calculations were distinguished from
+source/physical qualification and independent vegetation accuracy. All twelve
+new pages passed source, font, text-bounds, citation and visual checks; the
+other eight PDFs keep their existing export and review epochs. Citation
+lookup proves exact Git revision/path existence without opening linked raw
+payloads. It does not verify their contents or online availability. Developer
+lint now refuses stale canonical Markdown bindings before its Python checks;
+the full paper verifier remains authoritative for the PDF and provenance.
