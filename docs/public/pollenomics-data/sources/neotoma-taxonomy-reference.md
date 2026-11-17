@@ -82,3 +82,50 @@ attribution under the
 The viewer repository's code license and database data policy are separate
 questions. This interface retains source data and provenance; it does not copy
 or execute upstream viewer code or infer dataset associations from citations.
+
+## Recorded-frontier comparison and local commands
+
+`contrast_neotoma_taxonomy_reference_frontier` joins an independently anchored
+chain's explicitly stored frontier parts to the dated reference. It authenticates
+the chain manifest and selected parts through the existing content-addressed
+reader. It opens no native capture bodies, replays no baseline, and does not
+reconstruct an inherited delta frontier. A chain delta with no explicit frontier
+parts is refused rather than interpreted as zero outstanding context.
+
+Every recorded target is retained, including reference misses. A miss means that
+the ID was not observed in this older projection; it is not proof of absence from
+current Neotoma. Taxon IDs and classification-publication IDs are distinct join
+domains. A non-null publication pointer with no citation or fallback text remains
+an observed ID only. When text is available, all differing literal
+publication/citation/year variants retain their source taxon-ID links; no
+representative biological authority is selected.
+
+The result binds both input manifest hashes, the reference Git revision, its
+snapshot refresh timestamp, the retained commit timestamp and separate intake
+intervals. Recorded new-capture manifest pointers remain pointers, not inferred
+capture datetimes. Root/use-role and capture-status fields are labeled recorded
+context; current roles and native source fields are not revalidated. A contrast
+of the frozen 182-lead snapshot does not update that frontier, discharge a native
+capture obligation or materialize the later captured continuation.
+
+`write_neotoma_taxonomy_reference_contrast` writes one bounded
+`frontier-contrast.json` through the existing owned source publisher while input
+and output seals remain live. The same interfaces are available locally:
+
+```text
+python -m bijux_pollenomics.collection.sources.neotoma.ancillary_store.taxonomy_reference.command_line --help
+```
+
+The module offers `retain`, `lookup` and `contrast-frontier`. `retain` requires an
+independently SHA-256-pinned local source plan with `revision`, `files`,
+`git_metadata`, `transport`, `intake_intervals` and `attribution`. Each file record
+has a local `path`, finite `bytes` and `sha256`; source-plan paths are not copied
+into public provenance. `git_metadata` binds `commit`, `root_tree` and `data_tree`;
+the projection/transport maps use the three exact supported filenames.
+
+`lookup` takes an archive, its manifest SHA-256 and repeated `--taxon-id` values.
+Its JSON output retains the archive pin, literal nulls and positional synonym
+assertions. `contrast-frontier` additionally requires `--chain`, the chain's
+manifest SHA-256 and an absent `--output` directory. All verbs are local source
+consumers: none acquires data, performs current permission decisions, modifies
+the source graph or changes existing Atlas dataset/site/numerical denominators.
