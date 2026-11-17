@@ -2,6 +2,15 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#495](https://github.com/bijux/bijux-pollenomics/pull/495) — Live Neotoma baseline facts during frontier capture
+
+- Borrow immutable, source-bound baseline facts only while their original
+  capture owner remains live, refusing changed resolver scopes or limits.
+- Reconstruct current and historical source duties and validate new capture
+  receipts and bodies through separate candidate and final child readers.
+- Preserve full fresh public standalone replay and generated custody regressions
+  without claiming actual frontier runtime, provider grants or scientific admission.
+
 ### [#494](https://github.com/bijux/bijux-pollenomics/pull/494) — Unresolved SEAD source context
 
 - Add a separately named finite context workflow that reuses nineteen maintained
