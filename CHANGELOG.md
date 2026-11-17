@@ -2,7 +2,7 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
-### Unreleased — Captured ancillary metadata in the Atlas resource reader
+### [#496](https://github.com/bijux/bijux-pollenomics/pull/496) — Captured ancillary metadata in the Atlas resource reader
 
 - Read both native and ancillary catalogue transports while validating separate
   source identities, part membership, populations and metadata-only boundaries.
