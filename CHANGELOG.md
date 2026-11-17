@@ -2,6 +2,17 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#494](https://github.com/bijux/bijux-pollenomics/pull/494) — Unresolved SEAD source context
+
+- Add a separately named finite context workflow that reuses nineteen maintained
+  dependency plans while preserving selected UUIDs and unresolved membership.
+- Bound raw response bytes before decoding, reject foreign and invalid expanded
+  dependency keys before another page, and retain partial private evidence.
+- Carry original destination-parent authority through owned publication and
+  externally pinned readback without country or ecological-event admission.
+- Preserve generated causal regressions; no actual provider capture or retained
+  native-table replay is claimed.
+
 ### [#493](https://github.com/bijux/bijux-pollenomics/pull/493) — Retained nominal parameter comparisons
 
 - Connect retained source and parameter evidence to two fixed-support analytical
