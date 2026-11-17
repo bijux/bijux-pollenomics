@@ -25,6 +25,24 @@ def canonical_json(value: Any) -> str:
     )
 
 
+def _canonical_json_sha256(value: Any) -> str:
+    """Hash the same canonical bytes without retaining the complete encoding.
+
+    Individual encoded strings, dictionary sorting and nesting still require
+    workspace; the aggregate JSON text and UTF-8 buffer are not materialized.
+    """
+    digest = hashlib.sha256()
+    encoder = json.JSONEncoder(
+        ensure_ascii=True,
+        allow_nan=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    for fragment in encoder.iterencode(value):
+        digest.update(fragment.encode("utf-8"))
+    return digest.hexdigest()
+
+
 def chunk_script_bytes(
     *,
     asset_key: str,
