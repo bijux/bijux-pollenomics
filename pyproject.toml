@@ -6,7 +6,7 @@ dev = [
     "bijux-pollenomics-dev[dev,reports]",
     "mkdocs-redirects>=1.2.1,<2.0",
     "PyYAML>=6.0,<7.0",
-    "prance>=23.6.21.0",
+    "prance>=26.7.19.0",
     "openapi-spec-validator>=0.7.1",
 ]
 
