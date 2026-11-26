@@ -2,6 +2,21 @@
 
 The [country counts](countries.csv) and [site ledger](sites.csv) reconcile the current governed 61-table SEAD capture from boundary discovery through retained `tbl_sites` retrieval to the normalized public site consumer. [report.json](report.json) pins every input byte identity. The runnable producer is `bijux_pollenomics_dev.source_completion.sead_country_retrieval`; invoke it from the repository root with `--repository . --output <absent-directory>`.
 
+The default replay requires the original pinned review ledger and original
+site CSV. A historical refresh can instead provide all three options:
+`--historical-review-ledger`, `--historical-site-sha256`, and
+`--historical-lineage-sha256`. The producer verifies the exact retained ledger,
+the caller-pinned site and v2 lineage bytes, and the lineage's declared
+historical country authority and source admission. It reconciles site identity
+and country; the caller's digest pins do not independently establish the
+producer of those bytes or validate their temporal values. The ledger can be recovered offline from Git
+commit `28ffb5dd71fa03ec159f6a50a142c12402114593` at
+`data/boundaries/review/country-decisions/sead.json`; its SHA-256 is
+`5f74c5b8eeb02e28e0ff0b5abdb96a8fb0dc7fa32427055dce0c1967e07ad643`.
+The historical replay writes a v2 report and preserves the 126 exclusions;
+it does not update this retained report, replace the current boundary review,
+or establish an admission under the current boundary authority.
+
 The bounding-box discovery contains **2,195 site identities**. Boundary review assigns 2,069 of them to Sweden (1,925), Denmark (59), Norway (45), or Finland (40). The same 2,069 site IDs and UUIDs occur in the completed source retrieval and normalized site consumer. The remaining **103 review** and **23 unassigned** identities occur only in the discovery/decision ledger; they are absent from both admitted products. The country table keeps these 126 in separate rows. Candidate countries on review decisions are retained in the site ledger but never counted as assigned countries.
 
 The provider site records contain no source-reported country field for this scoped discovery. The `discovered_with_governed_country` column therefore groups the discovered rows by their later boundary decision; it is **not a source-native per-country discovery count**. For each assigned row the site ledger checks decision status, boundary authority, coordinates, site ID, UUID, country code, source retrieval, and normalized consumer country. For excluded rows it checks the pending qualified-review status and the absence of retrieved/normalized records. The retained source admission says coordinate validation of the excluded preflight payload was not independently verified; this report does not resolve those 126 coordinates or grant them a country.
