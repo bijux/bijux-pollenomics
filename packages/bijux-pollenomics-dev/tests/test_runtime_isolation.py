@@ -1515,6 +1515,9 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
     },
     "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/preparation.py": {
         "bijux_pollenomics.core.filesystem": frozenset({"OwnedTreeWriter"}),
+        "bijux_pollenomics.analysis.lra.source_cases.contracts": frozenset(
+            {"LIMITS", "PROFILE", "SourceCasePlan", "canonical", "digest", "reference"}
+        ),
     },
     "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/source_inputs.py": {
         "bijux_pollenomics.core.filesystem": frozenset(
@@ -1522,6 +1525,18 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/workflow.py": {
+        "bijux_pollenomics.analysis.lra.source_cases.contracts": frozenset(
+            {"canonical", "digest", "reference"}
+        ),
+        "bijux_pollenomics.analysis.lra.source_cases.results": frozenset(
+            {"child_vectors"}
+        ),
+        "bijux_pollenomics.core.filesystem.recovery_storage": frozenset(
+            {"resolve_publication_workspace_parent"}
+        ),
+        "bijux_pollenomics.reporting.bundles.staging": frozenset(
+            {"publish_into_staging_dir"}
+        ),
         "bijux_pollenomics.analysis.lra.api": frozenset(
             {"read_source_lra_cases", "run_source_lra_cases"}
         ),
@@ -1875,6 +1890,48 @@ def test_sead_relations_publication_uses_only_its_callback_contract() -> None:
         assert host_import_violations(statement + ", unreviewed", owner)
         assert host_import_violations(f"from {module} import *", owner)
         assert host_import_violations(f"__import__({module!r})", owner)
+
+
+def test_parameter_sensitivity_uses_only_its_source_case_and_publication_contracts() -> (
+    None
+):
+    root = "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/"
+    contracts = "bijux_pollenomics.analysis.lra.source_cases.contracts"
+    expected = {
+        "preparation.py": {
+            contracts: {
+                "LIMITS",
+                "PROFILE",
+                "SourceCasePlan",
+                "canonical",
+                "digest",
+                "reference",
+            },
+        },
+        "workflow.py": {
+            contracts: {"canonical", "digest", "reference"},
+            "bijux_pollenomics.analysis.lra.source_cases.results": {"child_vectors"},
+            "bijux_pollenomics.core.filesystem.recovery_storage": {
+                "resolve_publication_workspace_parent"
+            },
+            "bijux_pollenomics.reporting.bundles.staging": {"publish_into_staging_dir"},
+        },
+    }
+    for filename, modules in expected.items():
+        owner = root + filename
+        source = (DEV_SRC / owner).read_text(encoding="utf-8")
+        found = {module: set() for module in modules}
+        for node in ast.walk(ast.parse(source)):
+            if isinstance(node, ast.ImportFrom) and node.module in modules:
+                found[node.module].update(alias.name for alias in node.names)
+        assert found == modules
+        for module, names in modules.items():
+            statement = f"from {module} import {', '.join(sorted(names))}"
+            assert not host_import_violations(statement, owner)
+            assert host_import_violations(statement, root + "other.py")
+            assert host_import_violations(statement + ", unreviewed", owner)
+            assert host_import_violations(f"from {module} import *", owner)
+            assert host_import_violations(f"__import__({module!r})", owner)
 
 
 def test_new_host_bindings_remain_file_and_symbol_specific() -> None:

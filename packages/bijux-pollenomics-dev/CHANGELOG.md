@@ -17,6 +17,7 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ### Changed
 
+- Review the nominal source-case consumer’s exact calculation and publication bindings.
 - Review SEAD relation publication bindings and use the filesystem facade.
 - Review the chronology report’s exact validated-evidence and quality bindings.
 - Use the filesystem facade for grouped source-result publication.
