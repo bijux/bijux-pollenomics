@@ -29,6 +29,7 @@ def build_map_evidence_projection(
     *,
     publication_capture_root: Path | None = None,
     historical_chronology: HistoricalChronologyRequest | None = None,
+    neotoma_manifest_sha256: str | None = None,
 ) -> MapEvidenceProjection:
     """Bind governed source evidence to map features through stable record IDs.
 
@@ -47,12 +48,22 @@ def build_map_evidence_projection(
     projected_point_layers: list[dict[str, object]] = []
 
     neotoma_layer = selected_layers.get(_NEOTOMA_LAYER_KEY)
+    if neotoma_manifest_sha256 is not None and neotoma_layer is None:
+        raise ValueError("Neotoma binding requires a selected Neotoma layer")
     if neotoma_layer is not None:
         (
             neotoma_records,
             neotoma_accounting,
             neotoma_source_layers,
-        ) = _project_neotoma(root, neotoma_layer)
+        ) = _project_neotoma(
+            root,
+            neotoma_layer,
+            **(
+                {"expected_manifest_sha256": neotoma_manifest_sha256}
+                if neotoma_manifest_sha256 is not None
+                else {}
+            ),
+        )
         if publication_capture_root is not None:
             attach_publication_capture(neotoma_records, publication_capture_root)
         # Source-site links belong to the map publication, not node identity.
@@ -164,3 +175,20 @@ def _assemble_evidence_projection(
         reconciliation=reconciliation,
         point_layers=tuple(projected_point_layers),
     )
+
+
+def selected_projection_options(
+    neotoma_manifest_sha256: str | None,
+    historical_chronology: HistoricalChronologyRequest | None,
+    publication_capture_root: Path | None,
+) -> dict[str, object]:
+    """Forward only explicitly requested source projection inputs."""
+    return {
+        key: value
+        for key, value in (
+            ("neotoma_manifest_sha256", neotoma_manifest_sha256),
+            ("historical_chronology", historical_chronology),
+            ("publication_capture_root", publication_capture_root),
+        )
+        if value is not None
+    }

@@ -230,3 +230,253 @@ def test_bound_projection_does_not_mutate_any_feature_when_later_site_is_invalid
     with pytest.raises(ValueError):
         _project_neotoma(tmp_path, layer, expected_manifest_sha256=pin)
     assert layer == original
+
+
+def test_public_projection_opt_in_and_missing_selected_layer(tmp_path: Path) -> None:
+    from bijux_pollenomics.reporting.map_document.evidence_projection import (
+        build_map_evidence_projection,
+    )
+
+    (tmp_path / "neotoma").mkdir()
+    _, pin, _ = fixture(tmp_path / "neotoma")
+    point = {
+        "evidence_row_id": "20",
+        "longitude": 1.0,
+        "latitude": 1.0,
+        "country": "Sweden",
+        "title": "Ageröds Mosse",
+    }
+    result = build_map_evidence_projection(
+        tmp_path,
+        [{"key": "neotoma-pollen", "features": [point]}],
+        neotoma_manifest_sha256=pin,
+    )
+    assert (
+        cast(dict[str, Any], result.reconciliation["sources"])["neotoma"][
+            "site_binding"
+        ]["manifest_sha256"]
+        == pin
+    )
+    with pytest.raises(ValueError, match="requires.*Neotoma"):
+        build_map_evidence_projection(tmp_path, [], neotoma_manifest_sha256=pin)
+
+
+def test_public_map_requires_held_point_capture_for_neotoma_binding(
+    tmp_path: Path,
+) -> None:
+    from bijux_pollenomics.reporting.service import generate_multi_country_map
+
+    output = tmp_path / "map"
+    output.mkdir()
+    (output / "prior").write_text("untouched")
+    with pytest.raises(ValueError, match="point capture"):
+        generate_multi_country_map(
+            tmp_path / "v66",
+            ("Sweden",),
+            output,
+            "Nordic",
+            "nordic",
+            context_root=tmp_path,
+            neotoma_manifest_sha256="0" * 64,
+        )
+    assert (output / "prior").read_text() == "untouched"
+
+
+def test_bound_map_refuses_projection_owner_substitution(tmp_path: Path) -> None:
+    from types import SimpleNamespace
+
+    from bijux_pollenomics.reporting.bundles.atlas_bundle.layers import prepare_layers
+    from bijux_pollenomics.reporting.context.nordic_point_inputs import (
+        capture_nordic_point_inputs,
+    )
+    from tests.unit.reporting.context.test_nordic_point_inputs import source_inputs
+
+    root = tmp_path / "source"
+    point = capture_nordic_point_inputs(root, source_inputs(root))
+    with pytest.raises(ValueError, match="maintained source projection"):
+        prepare_layers(
+            tmp_path / "stage",
+            report=SimpleNamespace(),
+            version="v66",
+            all_samples=(),
+            context_root=root,
+            geography_scope=None,
+            build_atlas_bundle_paths_fn=lambda **_: None,
+            build_context_layers_fn=lambda **_: ([], [], []),
+            build_samples_geojson_fn=lambda _: {},
+            atlas_detail_records=None,
+            atlas_scientific_signals=None,
+            atlas_edge_records=None,
+            atlas_sequence_records=None,
+            surface=SimpleNamespace(
+                build_map_evidence_projection=lambda *_args, **_kwargs: None
+            ),
+            nordic_point_inputs=point,
+            neotoma_manifest_sha256="0" * 64,
+        )
+    assert not (tmp_path / "stage").exists()
+
+
+@pytest.mark.parametrize("wrong_point", [False, True])
+def test_full_map_uses_bound_neotoma_projection(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, wrong_point: bool
+) -> None:
+    import json
+    from types import SimpleNamespace
+
+    from bijux_pollenomics.reporting import service
+    from bijux_pollenomics.reporting.bundles import atlas_bundle
+    from bijux_pollenomics.reporting.bundles.sweden_lake_inputs import SwedenLakeInputs
+    from bijux_pollenomics.reporting.context.nordic_point_inputs import (
+        capture_nordic_point_inputs,
+    )
+    from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS
+    from bijux_pollenomics.reporting.map_document.evidence_projection import (
+        service as projection,
+    )
+    from tests.unit.reporting.context.test_nordic_point_inputs import (
+        POINTS,
+        source_inputs,
+    )
+
+    root = tmp_path / "data"
+    pins = source_inputs(root)
+    for role, member in POINTS.items():
+        native = "20" if role == "neotoma-pollen" else "synthetic"
+        lon = 2.0 if wrong_point and role == "neotoma-pollen" else 1.0
+        feature = {
+            "type": "Feature",
+            "geometry": {"type": "Point", "coordinates": [lon, 1.0]},
+            "properties": {
+                "layer_key": role,
+                "layer_label": role,
+                "record_id": native,
+                "name": "Ageröds Mosse" if role == "neotoma-pollen" else "synthetic",
+                "country": "Sweden",
+            },
+        }
+        body = json.dumps({"type": "FeatureCollection", "features": [feature]}).encode()
+        (root / member).write_bytes(body)
+        pins[role] = hashlib.sha256(body).hexdigest()
+    held = capture_nordic_point_inputs(root, pins)
+    if not wrong_point:
+        (root / POINTS["neotoma-pollen"]).write_bytes(b"source replaced after capture")
+    (root / "neotoma").mkdir(exist_ok=True)
+    _, pin, _ = fixture(root / "neotoma")
+
+    def fake_sead(
+        _root: Path, layers: Any
+    ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+        for layer in layers:
+            for feature in layer["features"]:
+                feature["record_id"] = "sead:site:synthetic"
+        return (
+            [
+                {
+                    "record_id": "sead:site:synthetic",
+                    "tabs": {key: {"status": "unavailable"} for key in DETAIL_TAB_KEYS},
+                }
+            ],
+            {},
+        )
+
+    monkeypatch.setattr(projection, "_project_sead", fake_sead)
+    monkeypatch.setattr(
+        service, "build_homo_sapiens_runtime_manifest_for_version_dir", lambda _: None
+    )
+    monkeypatch.setattr(
+        service,
+        "load_multi_country_map_inputs",
+        lambda **_: SimpleNamespace(
+            country_sample_counts={"Sweden": 0}, all_samples=()
+        ),
+    )
+    monkeypatch.setattr(
+        atlas_bundle,
+        "build_tracked_animal_atlas_bundle",
+        lambda **_: SimpleNamespace(
+            point_layers=(),
+            extra_artifacts=(),
+            localities=(),
+            coordinate_review=SimpleNamespace(
+                direct_coordinate_feature_count=0,
+                named_site_geocoded_feature_count=0,
+                weaker_geography_feature_count=0,
+            ),
+        ),
+    )
+    monkeypatch.setattr(
+        atlas_bundle, "animal_sample_chronology_context_available", lambda _: False
+    )
+    out = tmp_path / "map"
+    out.mkdir()
+    (out / "prior").write_text("preserved")
+    kwargs: dict[str, Any] = {
+        "context_root": root,
+        "lake_inputs": SwedenLakeInputs(),
+        "nordic_point_inputs": held,
+        "neotoma_manifest_sha256": pin,
+    }
+    if wrong_point:
+        with pytest.raises(ValueError, match="coordinates"):
+            service.generate_multi_country_map(
+                tmp_path / "v66", ("Sweden",), out, "Nordic", "nordic", **kwargs
+            )
+        assert (out / "prior").read_text() == "preserved"
+    else:
+        service.generate_multi_country_map(
+            tmp_path / "v66", ("Sweden",), out, "Nordic", "nordic", **kwargs
+        )
+        contract = json.loads(
+            (out / "nordic_map_publication_contract.json").read_bytes()
+        )
+        assert (
+            contract["detail_projection"]["sources"]["neotoma"]["site_binding"][
+                "manifest_sha256"
+            ]
+            == pin
+        )
+        assert contract["nordic_selected_point_inputs"] == held.identity()
+        import re
+
+        from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+            normalize_asset_inventory,
+        )
+        from bijux_pollenomics.reporting.map_document.static_assets.serialization import (
+            decode_chunk_script,
+        )
+
+        match = re.search(
+            r'<script id="atlas-static-bootstrap" type="application/json">(.*?)</script>',
+            (out / "nordic_map.html").read_text(),
+            re.S,
+        )
+        assert match is not None
+        inventory = cast(
+            list[dict[str, Any]],
+            normalize_asset_inventory(json.loads(match.group(1))["assets"]),
+        )
+        asset = next(
+            x
+            for x in inventory
+            if x["domain"] == "nodes" and x.get("layer_key") == "neotoma-pollen"
+        )
+        node = cast(
+            dict[str, Any],
+            decode_chunk_script(
+                (out / asset["path"]).read_bytes(),
+                expected_asset_key=asset["asset_key"],
+                expected_payload_sha256=asset["payload_sha256"],
+                expected_payload_encoding=asset["payload_encoding"],
+                expected_decoded_byte_count=asset.get("decoded_byte_count"),
+            ),
+        )
+        assert len(node["features"]) == 1
+        feature = node["features"][0]
+        assert (
+            feature["record_id"],
+            feature["longitude"],
+            feature["latitude"],
+            feature["country"],
+            feature["title"],
+        ) == ("neotoma:site:20", 1.0, 1.0, "Sweden", "Ageröds Mosse")

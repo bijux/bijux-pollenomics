@@ -90,6 +90,7 @@ class _MapSourceOptions(_SourceResourceOptions, total=False):
     nordic_polygon_inputs: NordicPolygonInputs
     animal_point_inputs: AnimalPointInputs
     animal_chronology_inputs: AnimalChronologyInputs
+    neotoma_manifest_sha256: str
     aadr_map_snapshot: AadrMapSnapshot
     historical_chronology: HistoricalChronologyRequest
     lake_inputs: SwedenLakeInputs
@@ -171,6 +172,7 @@ def generate_multi_country_map(
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
+    neotoma_manifest_sha256: str | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
@@ -203,6 +205,11 @@ def generate_multi_country_map(
         or Path(context_root).absolute() != animal_chronology_inputs.context_root
     ):
         raise ValueError("animal chronology capture requires its bound context")
+    if (
+        neotoma_manifest_sha256 is not None
+        and type(nordic_point_inputs) is not NordicPointInputs
+    ):
+        raise ValueError("Neotoma binding requires the captured Nordic point capture")
     if historical_chronology is not None and context_root is None:
         raise ValueError("SEAD historical chronology requires context")
     version_dir = Path(version_dir)
@@ -226,6 +233,8 @@ def generate_multi_country_map(
         source_resource_options["animal_point_inputs"] = animal_point_inputs
     if animal_chronology_inputs is not None:
         source_resource_options["animal_chronology_inputs"] = animal_chronology_inputs
+    if neotoma_manifest_sha256 is not None:
+        source_resource_options["neotoma_manifest_sha256"] = neotoma_manifest_sha256
     if lake_inputs is not None:
         source_resource_options["lake_inputs"] = lake_inputs
     if aadr_map_snapshot is not None:

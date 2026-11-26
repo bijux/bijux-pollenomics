@@ -36,6 +36,7 @@ class _OptionalInputs(TypedDict, total=False):
     nordic_polygon_inputs: NordicPolygonInputs
     animal_point_inputs: AnimalPointInputs
     animal_chronology_inputs: AnimalChronologyInputs
+    neotoma_manifest_sha256: str
 
 
 def publish_bundle(
@@ -72,6 +73,7 @@ def publish_bundle(
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
+    neotoma_manifest_sha256: str | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> None:
     """Publish atlas layers, evidence, playback, and inventoried static documents."""
@@ -94,6 +96,8 @@ def publish_bundle(
         optional_inputs["animal_point_inputs"] = animal_point_inputs
     if animal_chronology_inputs is not None:
         optional_inputs["animal_chronology_inputs"] = animal_chronology_inputs
+    if neotoma_manifest_sha256 is not None:
+        optional_inputs["neotoma_manifest_sha256"] = neotoma_manifest_sha256
     (
         bundle_paths,
         point_layers,

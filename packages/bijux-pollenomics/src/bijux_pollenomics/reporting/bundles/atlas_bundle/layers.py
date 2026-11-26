@@ -16,9 +16,13 @@ from ...context.layers import require_capture_owner, selected_capture_options
 from ...context.nordic_point_inputs import NordicPointInputs
 from ...context.nordic_polygon_inputs import NordicPolygonInputs
 from ...map_document.evidence_projection import HistoricalChronologyRequest
+from ...map_document.evidence_projection.neotoma_site_binding import (
+    require_neotoma_binding_owner,
+)
 from ...map_document.evidence_projection.sead.site_custody import (
     validate_staged_site_copy,
 )
+from ...map_document.evidence_projection.service import selected_projection_options
 from ...map_document.source_resources import (
     AtlasResourceCatalogueInput,
     load_atlas_resource_catalogue,
@@ -81,8 +85,15 @@ def prepare_layers(
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
+    neotoma_manifest_sha256: str | None = None,
 ) -> tuple[Any, ...]:
     """Prepare atlas layers and traceable assets with optional publication metadata."""
+    require_neotoma_binding_owner(
+        neotoma_manifest_sha256,
+        nordic_point_inputs,
+        getattr(surface, "build_map_evidence_projection", None),
+        atlas_detail_records,
+    )
     require_capture_owner(
         context_root,
         build_context_layers_fn,
@@ -144,15 +155,8 @@ def prepare_layers(
         detail_projection = surface.build_map_evidence_projection(
             context_root,
             point_layers,
-            **(
-                {"historical_chronology": historical_chronology}
-                if historical_chronology is not None
-                else {}
-            ),
-            **(
-                {"publication_capture_root": publication_capture_root}
-                if publication_capture_root is not None
-                else {}
+            **selected_projection_options(
+                neotoma_manifest_sha256, historical_chronology, publication_capture_root
             ),
         )
         atlas_detail_records = detail_projection.detail_records

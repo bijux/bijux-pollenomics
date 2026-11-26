@@ -227,6 +227,19 @@ object used for the queries; it does not identify the bytes of the release
 manifest file from which that object was constructed. This option does not bind
 other Atlas sources or establish source or scientific admission.
 
+### Bind Neotoma site projection to relational evidence
+
+`generate_multi_country_map` accepts an optional `neotoma_manifest_sha256`
+when `nordic_point_inputs` is supplied. Set it to the SHA-256 of the selected
+Neotoma relational `manifest.json`. The projection checks that the pinned
+manifest matches the validated relational materialization and that every
+selected point matches the source site's representative coordinates, name and
+governed country assignment. It requires the complete governed site set and
+refuses missing geometry or mismatches. Country assignment retains the epoch
+and authority of the relational materialization; this check does not admit a
+new boundary, establish geographic or scientific truth, or bind other Atlas
+inputs. Omitting the option retains the existing identity-only join.
+
 ## Interpret Completion
 
 | Operation | Completion signal | Remaining scientific question |

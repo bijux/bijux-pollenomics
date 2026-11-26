@@ -83,3 +83,22 @@ def validate_neotoma_site_binding(
             or value != expected
         ):
             raise ValueError("Neotoma site coordinates differ")
+
+
+def require_neotoma_binding_owner(
+    pin: str | None, point_capture: object, projection: object, details: object
+) -> None:
+    """Require held point bytes and maintained source projection for this opt-in."""
+    if pin is None:
+        return
+    from bijux_pollenomics.reporting.context.nordic_point_inputs import (
+        NordicPointInputs,
+    )
+    from bijux_pollenomics.reporting.map_document.evidence_projection.service import (
+        build_map_evidence_projection,
+    )
+
+    if type(point_capture) is not NordicPointInputs:
+        raise ValueError("Neotoma binding requires the captured Nordic point inputs")
+    if projection is not build_map_evidence_projection or details is not None:
+        raise ValueError("Neotoma binding requires the maintained source projection")
