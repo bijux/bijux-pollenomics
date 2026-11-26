@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#527](https://github.com/bijux/bijux-pollenomics/pull/527) — Neotoma conflict scalar types
+
+Preserve decoded JSON scalar distinctions when registering conflicting Neotoma records, using the same canonical representation as conflict variant selection. A chronology regression checks arrival-order invariance and materialization; it does not assert that the retained corpus contains such a conflict.
+
 ### [#526](https://github.com/bijux/bijux-pollenomics/pull/526) — Qualified RAÄ and SEAD source guidance
 
 Connect the RAÄ source guide to the qualified standalone map reader and the SEAD guide to the retained Troitski source-context capture. Preserve their country, chronology and scientific admission limits.

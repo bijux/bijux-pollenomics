@@ -27,7 +27,7 @@ def register_record(
     if existing is None:
         table[record_id] = record
         return
-    if existing == record:
+    if _canonical_record_key(existing) == _canonical_record_key(record):
         return
     variants = merge_conflict_variants(
         conflicts,
