@@ -40,6 +40,10 @@ from .bundles.summary_builders import (
 )
 from .context import build_context_layers
 from .geography import GeographicScope, infer_publication_scope
+from .map_document.evidence_projection import HistoricalChronologyRequest
+from .map_document.evidence_projection.sead.site_custody import (
+    validate_staged_site_copy,
+)
 from .map_document.render import write_static_map_document
 from .map_document.source_resources import AtlasResourceCatalogueInput
 from .models import (
@@ -68,6 +72,10 @@ from .review.sustainability_outputs import (
 
 class _SourceResourceOptions(TypedDict, total=False):
     source_resource_catalogue: AtlasResourceCatalogueInput
+
+
+class _MapSourceOptions(_SourceResourceOptions, total=False):
+    historical_chronology: HistoricalChronologyRequest
 
 
 def generate_country_report(
@@ -140,19 +148,24 @@ def generate_multi_country_map(
     *,
     publication_capture_root: Path | None = None,
     source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
+    historical_chronology: HistoricalChronologyRequest | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
+    if historical_chronology is not None and context_root is None:
+        raise ValueError("SEAD historical chronology requires context")
     version_dir = Path(version_dir)
     output_dir = Path(output_dir)
     published_output_dir = (
         Path(published_output_dir) if published_output_dir is not None else output_dir
     )
 
-    source_resource_options: _SourceResourceOptions = (
+    source_resource_options: _MapSourceOptions = (
         {"source_resource_catalogue": source_resource_catalogue}
         if source_resource_catalogue is not None
         else {}
     )
+    if historical_chronology is not None:
+        source_resource_options["historical_chronology"] = historical_chronology
     normalized_countries = normalize_requested_countries(countries)
     if not normalized_countries:
         raise ValueError(
@@ -215,7 +228,18 @@ def generate_multi_country_map(
             **source_resource_options,
         )
 
-    publish_into_staging_dir(output_dir, publish_map_bundle)
+    if historical_chronology is None:
+        publish_into_staging_dir(output_dir, publish_map_bundle)
+    else:
+        if context_root is None:
+            raise ValueError("SEAD historical chronology requires context")
+
+        def validate_map(output: Path) -> None:
+            validate_staged_site_copy(
+                context_root, output, historical_chronology.lineage_sha256
+            )
+
+        publish_into_staging_dir(output_dir, publish_map_bundle, validate=validate_map)
     return map_report
 
 

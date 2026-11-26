@@ -6,13 +6,14 @@ from collections.abc import Callable, Iterable, Sequence
 import importlib
 from pathlib import Path
 from types import ModuleType
-from typing import cast
+from typing import TypedDict, cast
 
 from ....adna import AdnaLocalitySummary
 from ....collection.contracts.models import ContextPointRecord
 from ....core.geospatial.geojson import JsonObject
 from ....evidence import AnimalCoordinateVisibilityReview
 from ...geography import GeographicScope
+from ...map_document.evidence_projection import HistoricalChronologyRequest
 from ...map_document.source_resources import AtlasResourceCatalogueInput
 from ...models import MultiCountryMapReport, SampleRecord
 from ..paths import AtlasBundlePaths
@@ -24,6 +25,11 @@ from .context import (
     layer_features,
 )
 from .workflow import publish_bundle
+
+
+class _OptionalInputs(TypedDict, total=False):
+    source_resource_catalogue: AtlasResourceCatalogueInput
+    historical_chronology: HistoricalChronologyRequest
 
 
 def _surface() -> ModuleType:
@@ -60,8 +66,14 @@ def publish_multi_country_map_bundle(
     atlas_sequence_records: Sequence[JsonObject] | None = None,
     publication_capture_root: Path | None = None,
     source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
+    historical_chronology: HistoricalChronologyRequest | None = None,
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
+    optional_inputs: _OptionalInputs = {}
+    if source_resource_catalogue is not None:
+        optional_inputs["source_resource_catalogue"] = source_resource_catalogue
+    if historical_chronology is not None:
+        optional_inputs["historical_chronology"] = historical_chronology
     publish_bundle(
         staging_output_dir,
         report=report,
@@ -88,11 +100,7 @@ def publish_multi_country_map_bundle(
         atlas_sequence_records=atlas_sequence_records,
         surface=_surface(),
         publication_capture_root=publication_capture_root,
-        **(
-            {"source_resource_catalogue": source_resource_catalogue}
-            if source_resource_catalogue is not None
-            else {}
-        ),
+        **optional_inputs,
     )
 
 

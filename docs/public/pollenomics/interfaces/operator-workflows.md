@@ -156,6 +156,21 @@ and reuse permission require their own evidence. The
 [atlas walkthrough](atlas-walkthrough.md#read-a-neotoma-source-observation)
 explains how to read the source views.
 
+### Select historical SEAD chronology for a map
+
+`generate_multi_country_map` accepts an optional `historical_chronology` request
+constructed with `HistoricalChronologyRequest(country_authority_root, lineage_sha256)`
+from `bijux_pollenomics.reporting.map_document.evidence_projection`. Supply an
+absolute authority root and the SHA-256 of the selected lineage. This path
+recomputes the derived chronology overlay against the pinned historical SEAD
+admission, checks the selected site layer and its staged copy against the lineage,
+and records separate derived chronology provenance. The retained source evidence,
+relation fields, and eligibility decisions remain the source of record.
+
+A caller that persists or shares a map must separately record the executed code
+identity and qualify the complete Atlas input closure. This option does not admit a
+new country authority or establish corrected-site browser verification.
+
 ## Interpret Completion
 
 | Operation | Completion signal | Remaining scientific question |

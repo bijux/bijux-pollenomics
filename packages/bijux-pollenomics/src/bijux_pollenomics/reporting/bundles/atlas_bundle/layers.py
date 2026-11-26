@@ -5,6 +5,10 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from ...map_document.evidence_projection import HistoricalChronologyRequest
+from ...map_document.evidence_projection.sead.site_custody import (
+    validate_staged_site_copy,
+)
 from ...map_document.source_resources import (
     AtlasResourceCatalogueInput,
     load_atlas_resource_catalogue,
@@ -59,8 +63,15 @@ def prepare_layers(
     surface: Any,
     publication_capture_root: Path | None = None,
     source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
+    historical_chronology: HistoricalChronologyRequest | None = None,
 ) -> tuple[Any, ...]:
     """Prepare atlas layers and traceable assets with optional publication metadata."""
+    if historical_chronology is not None and (
+        context_root is None or atlas_detail_records is not None
+    ):
+        raise ValueError(
+            "SEAD historical chronology requires source-projected atlas details"
+        )
     if publication_capture_root is not None and (
         context_root is None or atlas_detail_records is not None
     ):
@@ -121,6 +132,11 @@ def prepare_layers(
             context_root,
             point_layers,
             **(
+                {"historical_chronology": historical_chronology}
+                if historical_chronology is not None
+                else {}
+            ),
+            **(
                 {"publication_capture_root": publication_capture_root}
                 if publication_capture_root is not None
                 else {}
@@ -129,6 +145,12 @@ def prepare_layers(
         atlas_detail_records = detail_projection.detail_records
         detail_projection_reconciliation = detail_projection.reconciliation
         point_layers.extend(detail_projection.point_layers)
+    if historical_chronology is not None:
+        if context_root is None:
+            raise ValueError("SEAD historical chronology requires context")
+        validate_staged_site_copy(
+            context_root, staging_output_dir, historical_chronology.lineage_sha256
+        )
     source_resources = None
     if source_resource_catalogue is not None:
         neotoma_records = [

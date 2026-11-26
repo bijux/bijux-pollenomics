@@ -20,6 +20,7 @@ def test_projection_package_has_intent_named_bounded_modules() -> None:
         "accounting.py",
         "admission.py",
         "chronology.py",
+        "chronology_overlay.py",
         "detail_records.py",
         "models.py",
         "observations.py",
@@ -27,6 +28,7 @@ def test_projection_package_has_intent_named_bounded_modules() -> None:
         "provenance.py",
         "relations.py",
         "sites.py",
+        "site_custody.py",
     }
     assert max(modules.values()) <= 260
     assert modules["__init__.py"] <= 45
@@ -43,6 +45,8 @@ def test_projection_workflow_has_one_coordinator_and_distinct_stage_owners() -> 
 
     assert function_owners["project_sead"] == ["projection.py"]
     assert function_owners["load_evidence_bundle"] == ["admission.py"]
+    assert function_owners["apply_overlay"] == ["chronology_overlay.py"]
+    assert function_owners["validate_site_binding"] == ["site_custody.py"]
     assert function_owners["index_claims"] == ["chronology.py"]
     assert function_owners["index_relations"] == ["relations.py"]
     assert function_owners["index_observations"] == ["observations.py"]
