@@ -11,6 +11,12 @@ last_reviewed: 2026-11-17
 
 ## Unresolved source context API
 
+The site-inventory API reader requires filtered query projections to be `*` or
+comma-separated literal field names without spaces. Unfiltered `all_rows`
+passes spaced field lists through; filtered `rows_by_ids` refuses that spelling
+before making a request. This restriction keeps the internally requested filter
+owner unambiguous and does not establish provider support for spaced fields.
+
 The separately named
 `bijux_pollenomics.collection.sources.sead.acquisition.context` API can prepare a
 private source-context packet for one or two explicitly selected native site IDs

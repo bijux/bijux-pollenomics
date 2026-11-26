@@ -40,11 +40,21 @@ def callback(tables: dict[str, list[dict[str, object]]], calls: list[str]) -> An
     def fetch(
         url: str, *, params: object, headers: dict[str, str], timeout: float
     ) -> object:
-        del params, timeout
+        del timeout
         table = url.rsplit("/", 1)[-1]
         calls.append(table)
+        assert isinstance(params, list)
+        rows = deepcopy(tables.get(table, []))
+        for field, value in params:
+            if value.startswith("in.("):
+                selected = {int(item) for item in value[4:-1].split(",")}
+                rows = [
+                    row
+                    for row in rows
+                    if row.get(field) is not None and int(row[field]) in selected
+                ]
         start = int(headers["Range"].split("-", 1)[0])
-        return deepcopy(tables.get(table, [])) if start == 0 else []
+        return rows[start : start + 1000]
 
     return fetch
 
@@ -258,9 +268,16 @@ def test_explicit_owner_projection_never_skips_missing_or_invalid_keys(
     assert rows == before
 
 
-@pytest.mark.parametrize("mode", ["all", "selected"])
-@pytest.mark.parametrize("select", ["*", " dataset_id , site_id "])
-def test_api_wildcard_or_spaced_owner_projection_retains_owner_validation(
+@pytest.mark.parametrize(
+    ("mode", "select"),
+    [
+        ("all", "*"),
+        ("all", " dataset_id , site_id "),
+        ("selected", "*"),
+        ("selected", "dataset_id,site_id"),
+    ],
+)
+def test_api_supported_owner_projection_retains_owner_validation(
     mode: str,
     select: str,
 ) -> None:
