@@ -17,6 +17,7 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ### Changed
 
+- Review the Bokesjon workbook audit’s pinned optional decoder binding.
 - Review the exact modeled-context dependencies pinned by Swedish LandClim
   history calculations.
 - Use the Neotoma selected-source facade for shared pollen identity and

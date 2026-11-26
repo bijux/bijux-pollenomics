@@ -675,6 +675,11 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"distance_km"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/taxa/workbook.py": {
+        "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
+            {"parser"}
+        ),
+    },
     "bijux_pollenomics_dev/source_completion/bokesjon_native_counts.py": {
         "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
             {"parser"}
@@ -1754,6 +1759,30 @@ def test_landclim_history_uses_only_its_pinned_modeled_context_dependencies() ->
             assert host_import_violations(statement + ", unreviewed", owner)
             assert host_import_violations(f"from {module} import *", owner)
             assert host_import_violations(f"__import__({module!r})", owner)
+
+
+def test_bokesjon_workbook_uses_only_pinned_optional_decoder() -> None:
+    owner = (
+        "bijux_pollenomics_dev/source_completion/pollen_reconstruction/"
+        "bokesjon_pilot/taxa/workbook.py"
+    )
+    module = "bijux_pollenomics.collection.sources.rootsi.cells.decoding"
+    code = (DEV_SRC / owner).read_text(encoding="utf-8")
+    imports = [
+        {alias.name for alias in node.names}
+        for node in ast.walk(ast.parse(code))
+        if isinstance(node, ast.ImportFrom) and node.module == module
+    ]
+    assert imports == [{"parser"}]
+    assert not host_import_violations(f"from {module} import parser", owner)
+    assert host_import_violations(
+        f"from {module} import parser", owner.replace("workbook.py", "other.py")
+    )
+    assert host_import_violations(
+        f"from {module} import parser, workbook_records", owner
+    )
+    assert host_import_violations(f"from {module} import *", owner)
+    assert host_import_violations(f"__import__({module!r})", owner)
 
 
 def test_new_host_bindings_remain_file_and_symbol_specific() -> None:
