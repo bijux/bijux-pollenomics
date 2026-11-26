@@ -1,12 +1,14 @@
 """Historical country coverage requires a source-bound retrieval report."""
 
+from copy import deepcopy
 import hashlib
 import json
-import shutil
-from copy import deepcopy
 from pathlib import Path
+import shutil
+from typing import Any
 
 import pytest
+
 from bijux_pollenomics_dev.source_completion import sead_country_coverage as owner
 
 
@@ -19,7 +21,7 @@ def test_historical_retrieval_rejects_identity_and_refusal_changes(
         root / "docs/report/source-relations/sead-country-retrieval/sites.csv"
     ).read_bytes()
     site_sha, lineage_sha = "a" * 64, "b" * 64
-    report = {
+    report: dict[str, Any] = {
         "schema_version": "sead-country-retrieval.v2",
         "run_id": owner.RUN,
         "admission": {
@@ -135,7 +137,7 @@ def test_historical_site_lineage_requires_original_authority_and_admission() -> 
         "acquisition_bundle_sha256": "bundle",
     }
     site_sha = "a" * 64
-    lineage = {
+    lineage: dict[str, Any] = {
         "schema_version": "sead-normalized-surface-lineage.v2",
         "source_run_id": owner.RUN,
         **{k: v for k, v in admission.items() if k != "run_id"},
