@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import hashlib
 import inspect
+from pathlib import Path
+import shutil
 
 import pytest
 
@@ -19,6 +21,8 @@ from bijux_pollenomics.collection.sources.landclim.study_inventory.reading impor
 
 from .support import RAW_ROOT, cell, rows, source_path
 
+PREDECESSOR = RAW_ROOT.parent / "provenance/landclim-raw-predecessor.json"
+
 RECEIPT_SHA256 = "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
 WORKBOOK_SHA256 = "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
 
@@ -32,7 +36,7 @@ def _from_rows(source_rows: list[list[str]]) -> LandClimStudyMetadataInventory:
 
 
 def test_exact_governed_workbook_builds_refusal_only_inventory() -> None:
-    product = read_landclim_study_inventory(RAW_ROOT)
+    product = read_landclim_study_inventory(RAW_ROOT, predecessor_receipt=PREDECESSOR)
     assert product.metadata_record_count == product.expected_record_count == 1128
     assert product.records[0].worksheet_row == 2
     assert product.records[-1].worksheet_row == 1129
@@ -68,11 +72,9 @@ def test_pinned_workbook_defines_site_radius_in_metres() -> None:
 def test_public_reader_has_no_caller_supplied_identity_or_schema() -> None:
     assert tuple(inspect.signature(read_landclim_study_inventory).parameters) == (
         "raw_dir",
+        "predecessor_receipt",
     )
-    assert (
-        hashlib.sha256(source_path("landclim_sources.json").read_bytes()).hexdigest()
-        == RECEIPT_SHA256
-    )
+    assert hashlib.sha256(PREDECESSOR.read_bytes()).hexdigest() == RECEIPT_SHA256
     assert (
         hashlib.sha256(
             source_path("landclim_ii_site_metadata.xlsx").read_bytes()
@@ -82,8 +84,10 @@ def test_public_reader_has_no_caller_supplied_identity_or_schema() -> None:
 
 
 def test_canonical_reopen_reconstructs_from_the_same_raw_closure() -> None:
-    product = read_landclim_study_inventory(RAW_ROOT)
-    reopened = reopen_landclim_study_inventory(product.canonical_bytes, RAW_ROOT)
+    product = read_landclim_study_inventory(RAW_ROOT, predecessor_receipt=PREDECESSOR)
+    reopened = reopen_landclim_study_inventory(
+        product.canonical_bytes, RAW_ROOT, predecessor_receipt=PREDECESSOR
+    )
     assert reopened == product
     assert reopened.canonical_bytes == product.canonical_bytes
 
@@ -97,7 +101,11 @@ def test_canonical_reopen_refuses_nonidentical_or_nonexact_bytes(
     payload: object,
 ) -> None:
     with pytest.raises(LandClimStudyInventoryRefusal):
-        reopen_landclim_study_inventory(payload, RAW_ROOT)  # type: ignore[arg-type]
+        reopen_landclim_study_inventory(
+            payload,  # type: ignore[arg-type]
+            RAW_ROOT,
+            predecessor_receipt=PREDECESSOR,
+        )
 
 
 @pytest.mark.parametrize(
@@ -106,11 +114,15 @@ def test_canonical_reopen_refuses_nonidentical_or_nonexact_bytes(
     ids=["receipt", "workbook"],
 )
 def test_changed_source_identity_is_refused_before_parsing(
-    receipt_sha256: str, workbook_sha256: str
+    receipt_sha256: str, workbook_sha256: str, tmp_path: Path
 ) -> None:
+    root = tmp_path / "raw"
+    shutil.copytree(RAW_ROOT, root)
+    (root / "landclim_ii_contributors.xlsx").unlink()
+    (root / "landclim_sources.json").write_bytes(PREDECESSOR.read_bytes())
     with pytest.raises(LandClimStudyInventoryRefusal):
         _read_landclim_study_inventory(
-            RAW_ROOT,
+            root,
             expected_receipt_sha256=receipt_sha256,
             expected_workbook_sha256=workbook_sha256,
         )

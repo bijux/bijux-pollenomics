@@ -264,6 +264,17 @@ identity and the successful verified-TLS retrieval on 15 November 2026. The
 raw inventory receipt was regenerated for the added asset; its date does not
 redate the seven previously retained downloads.
 
+The earlier seven-asset receipt is retained at
+`provenance/landclim-raw-predecessor.json`. The study and published-inventory
+readers accept it through the explicit `predecessor_receipt` keyword when
+reading the current raw directory. This selection checks the pinned earlier
+receipt, the pinned current receipt and every current asset before parsing
+captured workbook or archive bytes. The resulting inventory retains the earlier
+receipt identity and reproduces the historical product; it is not a receipt
+for the current eight-asset execution or the contributor workbook. The default
+reader still requires the historical seven-asset raw closure. Other consumers
+do not automatically select the predecessor.
+
 Contributor attribution helps trace sequence ownership and shared data
 lineage. It does not establish sequence-specific reuse permission, qualify an
 LRA input profile or provide an independent vegetation reference. The existing

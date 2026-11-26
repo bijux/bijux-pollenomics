@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#550](https://github.com/bijux/bijux-pollenomics/pull/550) — Historical LandClim source receipt
+
+Retain the exact predecessor receipt and explicitly select it against authenticated current source bytes for historical inventory readers. Historical product identities remain unchanged; the selection does not attest current-epoch execution or scientific admission.
+
 ### [#549](https://github.com/bijux/bijux-pollenomics/pull/549) — Neotoma parent identifier refusals
 
 Refuse object and list identifiers at required Neotoma parent gates while preserving native payload and descendant accounting. Existing scalar handling remains unchanged; other identifier types remain separate.

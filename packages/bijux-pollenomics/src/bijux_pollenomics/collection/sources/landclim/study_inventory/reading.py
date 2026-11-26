@@ -6,8 +6,9 @@ from decimal import Decimal, InvalidOperation
 import hashlib
 from pathlib import Path
 
-from ....intake.workbooks import read_xlsx_sheet_rows
+from ....intake.workbooks import read_xlsx_sheet_rows, read_xlsx_sheet_rows_bytes
 from ..catalog import LANDCLIM_DATASET_METADATA
+from ..collection.receipt.predecessor import capture_predecessor_assets
 from ..collection.receipt.validation import validate_landclim_raw_receipt
 from .contracts import (
     LandClimStudyInventoryRefusal,
@@ -85,8 +86,21 @@ _NUMERIC_COLUMNS = frozenset(
 )
 
 
-def read_landclim_study_inventory(raw_dir: Path) -> LandClimStudyMetadataInventory:
+def read_landclim_study_inventory(
+    raw_dir: Path, *, predecessor_receipt: Path | None = None
+) -> LandClimStudyMetadataInventory:
     """Authenticate and retain the pinned 1,128-row publication metadata sheet."""
+    if predecessor_receipt is not None:
+        try:
+            captured = capture_predecessor_assets(raw_dir, predecessor_receipt)
+            rows = read_xlsx_sheet_rows_bytes(captured[_WORKBOOK], _SHEET)
+        except (OSError, ValueError) as error:
+            raise LandClimStudyInventoryRefusal(
+                f"LandClim historical study source refused: {error}"
+            ) from error
+        return _inventory_from_rows(
+            rows, receipt_sha256=_RECEIPT_SHA256, workbook_sha256=_WORKBOOK_SHA256
+        )
     return _read_landclim_study_inventory(
         raw_dir,
         expected_receipt_sha256=_RECEIPT_SHA256,
@@ -109,14 +123,16 @@ def require_landclim_site_radius_metres(raw_dir: Path) -> None:
 
 
 def reopen_landclim_study_inventory(
-    canonical_bytes: bytes, raw_dir: Path
+    canonical_bytes: bytes, raw_dir: Path, *, predecessor_receipt: Path | None = None
 ) -> LandClimStudyMetadataInventory:
     """Reconstruct an inventory and require an exact canonical-byte match."""
     if type(canonical_bytes) is not bytes:
         raise LandClimStudyInventoryRefusal(
             "LandClim study inventory canonical payload must be exact bytes"
         )
-    product = read_landclim_study_inventory(raw_dir)
+    product = read_landclim_study_inventory(
+        raw_dir, predecessor_receipt=predecessor_receipt
+    )
     if product.canonical_bytes != canonical_bytes:
         raise LandClimStudyInventoryRefusal(
             "LandClim study inventory canonical payload does not match raw inputs"

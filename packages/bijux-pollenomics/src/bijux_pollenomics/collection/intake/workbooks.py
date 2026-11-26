@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from io import BytesIO
 from pathlib import Path
 import re
 from typing import cast
@@ -34,24 +35,38 @@ def read_xlsx_sheet_rows(path: Path, sheet_name: str) -> list[list[str]]:
     """Read one worksheet from an XLSX file into row-oriented string values."""
     path = Path(path)
     with ZipFile(path) as workbook:
-        shared_strings = load_shared_strings(workbook)
-        sheet_targets = load_sheet_targets(workbook)
-        target = sheet_targets.get(sheet_name)
-        if target is None:
-            raise KeyError(f"Worksheet not found in {path.name}: {sheet_name}")
+        return _read_sheet_rows(workbook, sheet_name, path.name)
 
-        worksheet = ET.fromstring(workbook.read(target))
-        rows: list[list[str]] = []
-        for row in worksheet.findall("main:sheetData/main:row", SPREADSHEET_NS):
-            row_values: list[str] = []
-            for cell in row.findall("main:c", SPREADSHEET_NS):
-                reference = cell.get("r", "")
-                column_index = column_index_from_reference(reference)
-                while len(row_values) <= column_index:
-                    row_values.append("")
-                row_values[column_index] = cell_value(cell, shared_strings)
-            rows.append(trim_trailing_empty_values(row_values))
-        return rows
+
+def read_xlsx_sheet_rows_bytes(payload: bytes, sheet_name: str) -> list[list[str]]:
+    """Read a worksheet from already authenticated immutable workbook bytes."""
+    if type(payload) is not bytes:
+        raise ValueError("Workbook payload must be immutable bytes")
+    with ZipFile(BytesIO(payload)) as workbook:
+        return _read_sheet_rows(workbook, sheet_name, "captured workbook")
+
+
+def _read_sheet_rows(
+    workbook: ZipFile, sheet_name: str, source: str
+) -> list[list[str]]:
+    shared_strings = load_shared_strings(workbook)
+    sheet_targets = load_sheet_targets(workbook)
+    target = sheet_targets.get(sheet_name)
+    if target is None:
+        raise KeyError(f"Worksheet not found in {source}: {sheet_name}")
+
+    worksheet = ET.fromstring(workbook.read(target))
+    rows: list[list[str]] = []
+    for row in worksheet.findall("main:sheetData/main:row", SPREADSHEET_NS):
+        row_values: list[str] = []
+        for cell in row.findall("main:c", SPREADSHEET_NS):
+            reference = cell.get("r", "")
+            column_index = column_index_from_reference(reference)
+            while len(row_values) <= column_index:
+                row_values.append("")
+            row_values[column_index] = cell_value(cell, shared_strings)
+        rows.append(trim_trailing_empty_values(row_values))
+    return rows
 
 
 def load_shared_strings(workbook: ZipFile) -> list[str]:
@@ -137,4 +152,8 @@ def trim_trailing_empty_values(values: list[str]) -> list[str]:
     return values[: last_nonempty_index + 1]
 
 
-__all__ = ["list_xlsx_sheet_names", "read_xlsx_sheet_rows"]
+__all__ = [
+    "list_xlsx_sheet_names",
+    "read_xlsx_sheet_rows",
+    "read_xlsx_sheet_rows_bytes",
+]

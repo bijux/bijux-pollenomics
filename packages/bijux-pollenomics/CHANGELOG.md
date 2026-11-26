@@ -6,6 +6,7 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Added
 
+- Support explicit historical LandClim inventory selection against pinned current source bytes ([#550](https://github.com/bijux/bijux-pollenomics/pull/550)).
 - Construct whole-cell bounds from half-open declared HYDE grid index ranges,
   retaining strict refusal of arbitrary partial-cell transfers.
 - Add source-preserving Nordic pollen windows, explicit same-core chronology

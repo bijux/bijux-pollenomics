@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from decimal import Decimal, InvalidOperation
 import hashlib
+from io import BytesIO
 from pathlib import Path
 from zipfile import BadZipFile, ZipFile
 
@@ -15,6 +16,7 @@ from ..catalog import (
     time_window_sort_key,
 )
 from ..collection.model import LandClimRawReceiptError
+from ..collection.receipt.predecessor import capture_predecessor_assets
 from ..collection.receipt.validation import validate_landclim_raw_receipt
 from ..time_windows.landclim_ii_rows import (
     _read_landclim_ii_standard_errors,
@@ -81,8 +83,21 @@ _EXPECTED_NEGATIVE_MEAN_ROWS = 2
 
 def read_landclim_published_inventory(
     raw_dir: Path,
+    *,
+    predecessor_receipt: Path | None = None,
 ) -> LandClimPublishedEstimateInventory:
     """Authenticate every paired published estimate and uncertainty value."""
+    if predecessor_receipt is not None:
+        try:
+            captured = capture_predecessor_assets(raw_dir, predecessor_receipt)
+            with ZipFile(BytesIO(captured[_ARCHIVE])) as archive:
+                return _inventory_from_archive(
+                    archive, _RECEIPT_SHA256, _ARCHIVE_SHA256
+                )
+        except (BadZipFile, OSError, ValueError) as error:
+            raise LandClimPublishedInventoryRefusal(
+                f"LandClim published inventory source refused: {error}"
+            ) from error
     return _read_landclim_published_inventory(
         raw_dir,
         expected_receipt_sha256=_RECEIPT_SHA256,
@@ -91,14 +106,16 @@ def read_landclim_published_inventory(
 
 
 def reopen_landclim_published_inventory(
-    canonical_bytes: bytes, raw_dir: Path
+    canonical_bytes: bytes, raw_dir: Path, *, predecessor_receipt: Path | None = None
 ) -> LandClimPublishedEstimateInventory:
     """Reconstruct from pinned raw parents and require exact canonical bytes."""
     if type(canonical_bytes) is not bytes:
         raise LandClimPublishedInventoryRefusal(
             "LandClim published inventory canonical payload must be exact bytes"
         )
-    product = read_landclim_published_inventory(raw_dir)
+    product = read_landclim_published_inventory(
+        raw_dir, predecessor_receipt=predecessor_receipt
+    )
     if product.canonical_bytes != canonical_bytes:
         raise LandClimPublishedInventoryRefusal(
             "LandClim published inventory does not match its raw inputs"
@@ -122,28 +139,7 @@ def _read_landclim_published_inventory(
     try:
         validate_landclim_raw_receipt(raw_dir)
         with ZipFile(archive_path) as archive:
-            parsed_standard_errors = _read_landclim_ii_standard_errors(archive)
-            means = _read_source_table(
-                archive,
-                prefix=LANDCLIM_II_MEANS_DIRECTORY,
-                value_kind="mean",
-                require_nonnegative=False,
-            )
-            standard_errors = _read_source_table(
-                archive,
-                prefix=LANDCLIM_II_STANDARD_ERRORS_DIRECTORY,
-                value_kind="standard-error",
-                require_nonnegative=True,
-            )
-            _require_existing_standard_error_parser(
-                standard_errors, parsed_standard_errors
-            )
-            product = _build_inventory(
-                means,
-                standard_errors,
-                receipt_sha256=before_receipt,
-                archive_sha256=before_archive,
-            )
+            product = _inventory_from_archive(archive, before_receipt, before_archive)
     except LandClimPublishedInventoryRefusal:
         raise
     except (BadZipFile, LandClimRawReceiptError, OSError, ValueError) as error:
@@ -162,6 +158,31 @@ def _read_landclim_published_inventory(
             "LandClim published archive changed while reading"
         )
     return product
+
+
+def _inventory_from_archive(
+    archive: ZipFile, receipt_sha256: str, archive_sha256: str
+) -> LandClimPublishedEstimateInventory:
+    parsed_standard_errors = _read_landclim_ii_standard_errors(archive)
+    means = _read_source_table(
+        archive,
+        prefix=LANDCLIM_II_MEANS_DIRECTORY,
+        value_kind="mean",
+        require_nonnegative=False,
+    )
+    standard_errors = _read_source_table(
+        archive,
+        prefix=LANDCLIM_II_STANDARD_ERRORS_DIRECTORY,
+        value_kind="standard-error",
+        require_nonnegative=True,
+    )
+    _require_existing_standard_error_parser(standard_errors, parsed_standard_errors)
+    return _build_inventory(
+        means,
+        standard_errors,
+        receipt_sha256=receipt_sha256,
+        archive_sha256=archive_sha256,
+    )
 
 
 def _build_inventory(
