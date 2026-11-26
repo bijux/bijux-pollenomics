@@ -4,11 +4,11 @@ import os
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.adna import AdnaSampleQuery, load_species_samples
 from bijux_pollenomics.adna.species.homo_sapiens import (
     build_homo_sapiens_runtime_manifest_for_version_dir,
 )
-
 from tests.support.aadr import write_anno_file
 
 

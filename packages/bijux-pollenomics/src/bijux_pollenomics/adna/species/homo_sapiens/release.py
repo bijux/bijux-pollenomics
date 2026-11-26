@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from hashlib import sha256
 import json
 import os
-import stat
-from hashlib import sha256
 from pathlib import Path
+import stat
 
 from bijux_pollenomics.adna.workflow.runtime import AdnaSourceBundle
 from bijux_pollenomics.core.filesystem.anchors import DirectoryAnchor
