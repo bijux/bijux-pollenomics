@@ -202,6 +202,21 @@ def test_report_keeps_all_profiles_claims_and_unaged_flags_reproducibly(
         report["implementation_identity"]["producer_sha256"]
         == hashlib.sha256(Path(str(owner().__file__)).read_bytes()).hexdigest()
     )
+    from bijux_pollenomics.collection.sources.neotoma.chronology import (
+        quality as host_quality,
+    )
+
+    host_identity = report["implementation_identity"]["host"]
+    assert host_identity["scope"] == "bijux_pollenomics_python_package"
+    quality_path = Path(host_quality.__file__)
+    quality_pin = next(
+        record
+        for record in host_identity["files"]
+        if record["path"].endswith("collection/sources/neotoma/chronology/quality.py")
+    )
+    assert (
+        quality_pin["sha256"] == hashlib.sha256(quality_path.read_bytes()).hexdigest()
+    )
     assert oldscreen.read_bytes() == original
     assert not list(first.parent.glob("*.stage"))
 

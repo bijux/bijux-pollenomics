@@ -28,14 +28,10 @@ from bijux_pollenomics.analysis.lra_validation.spatial import (
     half_count_composition,
 )
 from bijux_pollenomics.analysis.lra_validation.spatial.configuration import distance_km
-from bijux_pollenomics.collection.sources.neotoma.client import (
-    validate_neotoma_selected_download,
-)
-from bijux_pollenomics.collection.sources.neotoma.relational.chronology import (
-    require_neotoma_point_age,
-)
-from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
+from bijux_pollenomics.collection.sources.neotoma import (
     is_native_pollen,
+    require_neotoma_point_age,
+    validate_neotoma_selected_download,
 )
 
 from .swedish_direct_pollen import DATASETS as SWEDISH_SOURCE_DATASETS

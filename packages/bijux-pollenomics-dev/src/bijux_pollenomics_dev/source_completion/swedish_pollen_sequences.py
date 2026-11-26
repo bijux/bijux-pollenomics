@@ -8,14 +8,10 @@ import json
 from pathlib import Path
 from typing import Any
 
-from bijux_pollenomics.collection.sources.neotoma.client import (
-    validate_neotoma_selected_download,
-)
-from bijux_pollenomics.collection.sources.neotoma.relational.chronology import (
-    require_neotoma_point_age,
-)
-from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
+from bijux_pollenomics.collection.sources.neotoma import (
     is_native_pollen,
+    require_neotoma_point_age,
+    validate_neotoma_selected_download,
 )
 from bijux_pollenomics_dev.source_completion.swedish_direct_pollen import DATASETS
 

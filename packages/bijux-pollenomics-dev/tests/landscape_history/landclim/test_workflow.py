@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 from pathlib import Path
 
@@ -12,6 +13,7 @@ from .support import means
 
 
 def test_workflow_preserves_deterministic_source_bound_outputs(tmp_path: Path) -> None:
+    from bijux_pollenomics.reporting.modeled_context import contracts, metric_families
     from bijux_pollenomics.reporting.modeled_context.metric_families import (
         PANGAEA_METRIC_KEYS,
     )
@@ -84,6 +86,12 @@ def test_workflow_preserves_deterministic_source_bound_outputs(tmp_path: Path) -
         ]
     )
     summary = json.loads((out / "summary.json").read_text())
+    pins = {item["path"]: item["sha256"] for item in summary["calculation_source_pins"]}
+    for module in (contracts, metric_families):
+        assert module.__file__ is not None
+        module_path = Path(module.__file__)
+        label = f"packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/{module_path.name}"
+        assert pins[label] == hashlib.sha256(module_path.read_bytes()).hexdigest()
     assert summary["cell_status_counts"] == {"eligible": 650}
     assert summary["input_pins"]
     assert summary["calculation_source_pins"]

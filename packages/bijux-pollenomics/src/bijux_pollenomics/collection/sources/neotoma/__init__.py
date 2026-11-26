@@ -20,6 +20,7 @@ if _typing.TYPE_CHECKING:
         fetch_neotoma_dataset_inventory_rows,
         neotoma_download_dataset_id,
         validate_neotoma_download_coverage,
+        validate_neotoma_selected_download,
     )
     from .context_points import normalize_neotoma_rows
     from .country import (
@@ -29,6 +30,8 @@ if _typing.TYPE_CHECKING:
     )
     from .materialization import materialize_neotoma_relational_snapshot
     from .relational import build_neotoma_relational_snapshot
+    from .relational.chronology import require_neotoma_point_age
+    from .relational.variables import is_native_pollen
     from .review import (
         build_neotoma_temporal_review,
         render_neotoma_temporal_review_markdown,
@@ -54,12 +57,15 @@ __all__ = [
     "fetch_neotoma_dataset_download_row",
     "fetch_neotoma_dataset_download_rows",
     "fetch_neotoma_dataset_inventory_rows",
+    "is_native_pollen",
     "materialize_neotoma_relational_snapshot",
     "neotoma_download_dataset_id",
     "neotoma_site_raw_country",
     "normalize_neotoma_rows",
+    "require_neotoma_point_age",
     "render_neotoma_temporal_review_markdown",
     "validate_neotoma_download_coverage",
+    "validate_neotoma_selected_download",
     "write_neotoma_download_archive",
     "write_neotoma_review_outputs",
 ]
@@ -76,6 +82,9 @@ _EXPORT_MODULES = {
     "fetch_neotoma_dataset_inventory_rows": ".client",
     "neotoma_download_dataset_id": ".client",
     "validate_neotoma_download_coverage": ".client",
+    "validate_neotoma_selected_download": ".client",
+    "require_neotoma_point_age": ".relational.chronology",
+    "is_native_pollen": ".relational.variables",
     "normalize_neotoma_rows": ".context_points",
     "build_neotoma_site_country_decisions": ".country",
     "classify_neotoma_site_country": ".country",

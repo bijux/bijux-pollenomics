@@ -17,6 +17,17 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ### Changed
 
+- Review the nominal source-case consumer’s exact calculation and publication bindings.
+- Review SEAD relation publication bindings and use the filesystem facade.
+- Review the chronology report’s exact validated-evidence and quality bindings.
+- Use the filesystem facade for grouped source-result publication.
+- Review the Bokesjon workbook audit’s pinned optional decoder binding.
+- Review the exact modeled-context dependencies pinned by Swedish LandClim
+  history calculations.
+- Use the Neotoma selected-source facade for shared pollen identity and
+  chronology guards in direct study consumers.
+- Review exact host-facade imports used by pollen source studies and SEAD
+  relation exports without broadening neighboring development clients.
 - Preserve numerical operands and TeX escaping while offering safe breaks in long
   formulas and repository paths. Actual export/layout checks remain separate
   from human comprehension and scientific review.

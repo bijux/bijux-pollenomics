@@ -16,8 +16,8 @@ from bijux_pollenomics.core.filesystem import (
     BoundedInputTree,
     DirectoryAnchor,
     OwnedTreeWriter,
+    publish_owned_replacement,
 )
-from bijux_pollenomics.core.filesystem.replacement import publish_owned_replacement
 
 from .projection import project_retained_result
 
