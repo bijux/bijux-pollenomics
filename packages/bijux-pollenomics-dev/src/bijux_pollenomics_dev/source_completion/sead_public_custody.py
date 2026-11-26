@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import csv
 import hashlib
 import io
 import json
-from collections import Counter
 from pathlib import Path
 from typing import Any
 

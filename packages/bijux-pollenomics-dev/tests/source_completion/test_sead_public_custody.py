@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 import csv
 import hashlib
 import json
-from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics_dev.source_completion.sead_public_custody import reconcile
 
 
