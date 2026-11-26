@@ -143,9 +143,12 @@ def test_scoped_evidence_requires_its_explicit_exact_physical_anchor(
         alias.symlink_to(directory, target_is_directory=True)
         evidence = {digest: alias}
     source = replace(source, ancillary=replace(dependency, evidence_sources=evidence))
-    with pytest.raises(
-        ValueError, match="evidence|identity|source|anchor|redirect|symlink"
-    ):
+    expected = (
+        "absent from the closed namespace"
+        if resolver == "wrong_directory"
+        else "evidence|identity|source|anchor|redirect|symlink"
+    )
+    with pytest.raises(ValueError, match=expected):
         owner.load_atlas_resource_catalogue(source)
 
 
