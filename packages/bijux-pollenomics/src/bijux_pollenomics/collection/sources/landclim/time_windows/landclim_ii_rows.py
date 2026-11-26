@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping, Sequence
 import csv
 from dataclasses import dataclass
+from decimal import Decimal
 from io import TextIOWrapper
 import math
 from zipfile import ZipFile
@@ -25,6 +26,7 @@ class _LandClimIIPublishedRow:
     longitude: float | None
     latitude: float | None
     values: dict[str, float]
+    source_coordinates: tuple[Decimal | None, Decimal | None]
 
 
 @dataclass(frozen=True)
@@ -78,6 +80,17 @@ def _published_identity(
     return cell_id, longitude, latitude
 
 
+def _source_coordinate_pair(
+    row: Mapping[str, object],
+) -> tuple[Decimal | None, Decimal | None]:
+    """Compare published coordinate values before any float rounding."""
+    longitude = clean_optional_text(row.get("lonDD"))
+    latitude = clean_optional_text(row.get("latDD"))
+    if longitude == latitude == "#N/A":
+        return None, None
+    return Decimal(longitude), Decimal(latitude)
+
+
 def _require_exact_tokens(
     row: Mapping[str, object],
     headers: tuple[str, ...],
@@ -125,6 +138,7 @@ def _read_landclim_ii_standard_errors(
                 values[key] = _LandClimIIPublishedRow(
                     longitude=longitude,
                     latitude=latitude,
+                    source_coordinates=_source_coordinate_pair(row),
                     values=_required_numeric_mapping(
                         row,
                         variables=variables,

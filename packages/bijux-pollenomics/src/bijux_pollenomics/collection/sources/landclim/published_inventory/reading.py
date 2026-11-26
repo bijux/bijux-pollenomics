@@ -18,6 +18,7 @@ from ..collection.model import LandClimRawReceiptError
 from ..collection.receipt.validation import validate_landclim_raw_receipt
 from ..time_windows.landclim_ii_rows import (
     _read_landclim_ii_standard_errors,
+    _source_coordinate_pair,
 )
 from ..time_windows.values import _require_uncertainty_pair
 from .contracts import (
@@ -243,9 +244,13 @@ def _paired_row(
         raise LandClimPublishedInventoryRefusal(
             f"LandClim paired row identity differs: {key}"
         )
-    if (
-        mean_row.longitude_float != standard_error_row.longitude_float
-        or mean_row.latitude_float != standard_error_row.latitude_float
+    if _source_coordinate_pair(
+        {"lonDD": mean_row.longitude_token, "latDD": mean_row.latitude_token}
+    ) != _source_coordinate_pair(
+        {
+            "lonDD": standard_error_row.longitude_token,
+            "latDD": standard_error_row.latitude_token,
+        }
     ):
         raise LandClimPublishedInventoryRefusal(
             f"LandClim paired coordinate tokens differ: {key}"
