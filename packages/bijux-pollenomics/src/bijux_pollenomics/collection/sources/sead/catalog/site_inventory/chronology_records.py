@@ -149,7 +149,17 @@ def _build_analysis_entity_age_row(
 
 def _geochronology_interval(
     geochronology_row: dict[str, object],
+    *,
+    uncertainty_label: object = None,
 ) -> tuple[int, int] | None:
+    # A one-sided source limit cannot supply a closed BP interval.
+    if (
+        clean_optional_text(
+            uncertainty_label or geochronology_row.get("uncertainty_label")
+        )
+        == ">"
+    ):
+        return None
     age = parse_optional_int(geochronology_row.get("age"))
     if age is None:
         return None

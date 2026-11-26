@@ -94,18 +94,21 @@ def project_site_chronology(
             geochronology_row.get("analysis_entity_id")
         )
         site_id = relations.site_by_analysis_entity.get(analysis_entity_id, 0)
-        interval = _geochronology_interval(geochronology_row)
+        uncertainty = lookup_optional_reference(
+            lookups.uncertainty_by_id,
+            geochronology_row.get("dating_uncertainty_id"),
+            {},
+        )
+        interval = _geochronology_interval(
+            geochronology_row, uncertainty_label=uncertainty.get("label")
+        )
         if not site_id:
             continue
         geochronology_rows_by_site.setdefault(site_id, []).append(
             _build_geochronology_row(
                 geochronology_row,
                 interval=interval,
-                uncertainty=lookup_optional_reference(
-                    lookups.uncertainty_by_id,
-                    geochronology_row.get("dating_uncertainty_id"),
-                    {},
-                ),
+                uncertainty=uncertainty,
                 relation_identity=_analysis_entity_relation_identity(
                     analysis_entity_id,
                     physical_sample_id_by_analysis_entity_id=relations.physical_sample_by_analysis_entity,

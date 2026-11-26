@@ -73,6 +73,15 @@ products when auditing its source. The discovery surface keeps every Swedish
 site, preserves each eligible linked interval, and represents missing numeric
 chronology explicitly rather than as a static or timeless point.
 
+The site-inventory reader preserves a radiometric `>` qualifier as a one-sided
+source age and does not turn it into a closed numeric interval. This does not
+interpret possible source pairs or admit the date for comparison. The retained
+historical inventory predates this reader behavior: its 11 `>` geochronology
+rows at sites 4301, 4433, 5379 and 5527 contain derived point intervals, and
+their historical site spans may include those values. The checked-in site
+products have not been rebuilt with the revised reader. The separately typed
+geochronology claims remain context-only, with no comparable BP bounds.
+
 ## Current Evidence State
 
 <!-- sead-evidence:generated:start -->
