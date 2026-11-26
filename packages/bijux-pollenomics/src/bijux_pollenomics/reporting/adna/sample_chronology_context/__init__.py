@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from ...geography import GeographicScope
+from .captured_inputs import AnimalChronologyInputs
 from .contracts import (
     AnimalChronologyInputIdentity,
     AnimalSampleChronologyContextProjection,
@@ -24,8 +25,17 @@ __all__ = [
 ]
 
 
-def animal_sample_chronology_context_available(data_root: Path) -> bool:
+def animal_sample_chronology_context_available(
+    data_root: Path, *, chronology_inputs: AnimalChronologyInputs | None = None
+) -> bool:
     """Return whether the governed chronology corpus is declared in this data root."""
+    if chronology_inputs is not None:
+        if (
+            type(chronology_inputs) is not AnimalChronologyInputs
+            or Path(data_root).absolute() != chronology_inputs.context_root
+        ):
+            raise ValueError("animal chronology capture requires its bound context")
+        return chronology_inputs.buffers is not None
     registry_path = (
         Path(data_root)
         / "adna"
@@ -40,9 +50,16 @@ def build_animal_sample_chronology_context(
     data_root: Path,
     *,
     geography_scope: GeographicScope | None = None,
+    chronology_inputs: AnimalChronologyInputs | None = None,
 ) -> AnimalSampleChronologyContextProjection:
     """Build a display-only projection from exact governed sample joins."""
-    corpus = load_animal_sample_chronology_corpus(Path(data_root))
+    corpus = (
+        load_animal_sample_chronology_corpus(
+            Path(data_root), chronology_inputs=chronology_inputs
+        )
+        if chronology_inputs is not None
+        else load_animal_sample_chronology_corpus(Path(data_root))
+    )
     return project_animal_sample_chronology_context(
         corpus,
         geography_scope=geography_scope,

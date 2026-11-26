@@ -7,6 +7,9 @@ from typing import Any
 from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
     AnimalPointInputs,
 )
+from bijux_pollenomics.reporting.adna.sample_chronology_context.captured_inputs import (
+    AnimalChronologyInputs,
+)
 
 from ....adna.species.homo_sapiens.map_snapshot import AadrMapSnapshot
 from ...context.nordic_point_inputs import NordicPointInputs
@@ -35,6 +38,7 @@ def publish_contracts(
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
+    animal_chronology_inputs: AnimalChronologyInputs | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> tuple[Any, dict[str, object]]:
     map_policy = surface.resolve_map_scope_policy(geography_scope)
@@ -63,6 +67,10 @@ def publish_contracts(
     if nordic_point_inputs is not None:
         map_publication_contract["nordic_selected_point_inputs"] = (
             nordic_point_inputs.identity()
+        )
+    if animal_chronology_inputs is not None:
+        map_publication_contract["animal_chronology_inputs"] = (
+            animal_chronology_inputs.identity()
         )
     if animal_point_inputs is not None:
         map_publication_contract["animal_selected_point_inputs"] = (

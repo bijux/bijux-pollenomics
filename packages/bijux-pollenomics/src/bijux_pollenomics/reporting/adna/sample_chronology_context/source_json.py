@@ -10,13 +10,24 @@ from typing import cast
 _Row = dict[str, object]
 
 
-def _read_object(path: Path, *, captured_inputs: dict[Path, bytes]) -> _Row:
-    if not path.is_file() or path.is_symlink():
+def _read_object(
+    path: Path,
+    *,
+    captured_inputs: dict[Path, bytes],
+    held: Mapping[str, bytes] | None = None,
+    source_root: Path | None = None,
+) -> _Row:
+    if held is None and (not path.is_file() or path.is_symlink()):
         raise ValueError(f"governed animal chronology input is unavailable: {path}")
     try:
-        content = path.read_bytes()
+        if held is None:
+            content = path.read_bytes()
+        else:
+            if source_root is None:
+                raise ValueError("animal chronology captured root differs")
+            content = held[path.relative_to(source_root).as_posix()]
         value = json.loads(content.decode("utf-8"))
-    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, KeyError) as exc:
         raise ValueError(f"invalid governed animal chronology JSON: {path}") from exc
     if not isinstance(value, dict):
         raise ValueError(f"governed animal chronology root must be an object: {path}")

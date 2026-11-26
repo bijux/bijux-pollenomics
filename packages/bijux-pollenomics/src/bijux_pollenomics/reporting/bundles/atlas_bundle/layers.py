@@ -8,6 +8,9 @@ from typing import Any
 from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
     AnimalPointInputs,
 )
+from bijux_pollenomics.reporting.adna.sample_chronology_context.captured_inputs import (
+    AnimalChronologyInputs,
+)
 
 from ...context.layers import require_capture_owner, selected_capture_options
 from ...context.nordic_point_inputs import NordicPointInputs
@@ -77,6 +80,7 @@ def prepare_layers(
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
+    animal_chronology_inputs: AnimalChronologyInputs | None = None,
 ) -> tuple[Any, ...]:
     """Prepare atlas layers and traceable assets with optional publication metadata."""
     require_capture_owner(
@@ -85,7 +89,9 @@ def prepare_layers(
         nordic_point_inputs,
         nordic_polygon_inputs,
     )
-    require_animal_capture_owner(context_root, surface, animal_point_inputs)
+    require_animal_capture_owner(
+        context_root, surface, animal_point_inputs, animal_chronology_inputs
+    )
     if historical_chronology is not None and (
         context_root is None or atlas_detail_records is not None
     ):
@@ -122,6 +128,7 @@ def prepare_layers(
             extra_artifacts=extra_artifacts,
             surface=surface,
             inputs=animal_point_inputs,
+            chronology_inputs=animal_chronology_inputs,
         )
     )
     point_layers.extend(

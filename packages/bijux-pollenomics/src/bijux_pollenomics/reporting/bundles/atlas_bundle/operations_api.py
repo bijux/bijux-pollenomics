@@ -11,6 +11,9 @@ from typing import TypedDict, cast
 from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
     AnimalPointInputs,
 )
+from bijux_pollenomics.reporting.adna.sample_chronology_context.captured_inputs import (
+    AnimalChronologyInputs,
+)
 
 from ....adna import AdnaLocalitySummary
 from ....adna.species.homo_sapiens.map_snapshot import AadrMapSnapshot
@@ -42,6 +45,7 @@ class _OptionalInputs(TypedDict, total=False):
     nordic_point_inputs: NordicPointInputs
     nordic_polygon_inputs: NordicPolygonInputs
     animal_point_inputs: AnimalPointInputs
+    animal_chronology_inputs: AnimalChronologyInputs
     aadr_map_snapshot: AadrMapSnapshot
 
 
@@ -84,6 +88,7 @@ def publish_multi_country_map_bundle(
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
+    animal_chronology_inputs: AnimalChronologyInputs | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
@@ -100,6 +105,8 @@ def publish_multi_country_map_bundle(
         optional_inputs["nordic_polygon_inputs"] = nordic_polygon_inputs
     if animal_point_inputs is not None:
         optional_inputs["animal_point_inputs"] = animal_point_inputs
+    if animal_chronology_inputs is not None:
+        optional_inputs["animal_chronology_inputs"] = animal_chronology_inputs
     if aadr_map_snapshot is not None:
         optional_inputs["aadr_map_snapshot"] = aadr_map_snapshot
     publish_bundle(
