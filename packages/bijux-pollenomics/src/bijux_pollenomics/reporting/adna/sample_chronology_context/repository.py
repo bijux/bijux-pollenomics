@@ -27,6 +27,7 @@ from ....adna.projects.sample_master.models import (
     ADNA_SAMPLE_IDENTITY_RESOLUTIONS,
     ADNA_SOURCE_NATIVE_IDENTITY_KINDS,
 )
+from .captured_inputs import AnimalChronologyInputs
 from .contracts import (
     AnimalSampleChronologyCorpus,
     AnimalSampleChronologyNode,
@@ -78,18 +79,38 @@ _SampleKey = tuple[str, str]
 
 def load_animal_sample_chronology_corpus(
     data_root: Path,
+    *,
+    chronology_inputs: AnimalChronologyInputs | None = None,
 ) -> AnimalSampleChronologyCorpus:
     """Read, validate, and exclusively classify every governed master identity."""
     data_root = Path(data_root)
     source_root = data_root / "adna" / "governance" / "source_library"
     registry_path = source_root / "project_registry.json"
     captured_inputs: dict[Path, bytes] = {}
-    registry = _read_object(registry_path, captured_inputs=captured_inputs)
+    if chronology_inputs is not None and (
+        type(chronology_inputs) is not AnimalChronologyInputs
+        or data_root.absolute() != chronology_inputs.context_root
+        or chronology_inputs.buffers is None
+    ):
+        raise ValueError("animal chronology capture requires a present bound context")
+
+    def read(path: Path) -> dict[str, object]:
+        if chronology_inputs is None:
+            return _read_object(path, captured_inputs=captured_inputs)
+        return _read_object(
+            path,
+            captured_inputs=captured_inputs,
+            held=chronology_inputs.buffers,
+            source_root=source_root,
+        )
+
+    registry = read(registry_path)
     _require_equal(registry.get("schema_version"), _REGISTRY_SCHEMA, "registry schema")
     registry_rows = _rows(registry, "registry")
     projects = _project_inventory(registry_rows)
     project_root = source_root / "projects"
-    _validate_project_directories(project_root, set(projects))
+    if chronology_inputs is None:
+        _validate_project_directories(project_root, set(projects))
 
     surfaces: dict[str, dict[_SampleKey, _Row]] = {
         filename: {} for filename in _SURFACE_SCHEMAS
@@ -97,7 +118,7 @@ def load_animal_sample_chronology_corpus(
     for accession, registry_row in sorted(projects.items()):
         for filename, schema in _SURFACE_SCHEMAS.items():
             path = project_root / accession / filename
-            payload = _read_object(path, captured_inputs=captured_inputs)
+            payload = read(path)
             _validate_surface_root(
                 payload,
                 filename=filename,

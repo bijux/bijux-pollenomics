@@ -8,6 +8,9 @@ from typing import Any, TypedDict
 from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
     AnimalPointInputs,
 )
+from bijux_pollenomics.reporting.adna.sample_chronology_context.captured_inputs import (
+    AnimalChronologyInputs,
+)
 
 from ....adna.species.homo_sapiens.map_snapshot import (
     AadrMapSnapshot,
@@ -32,6 +35,7 @@ class _OptionalInputs(TypedDict, total=False):
     nordic_point_inputs: NordicPointInputs
     nordic_polygon_inputs: NordicPolygonInputs
     animal_point_inputs: AnimalPointInputs
+    animal_chronology_inputs: AnimalChronologyInputs
 
 
 def publish_bundle(
@@ -67,6 +71,7 @@ def publish_bundle(
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
+    animal_chronology_inputs: AnimalChronologyInputs | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> None:
     """Publish atlas layers, evidence, playback, and inventoried static documents."""
@@ -87,6 +92,8 @@ def publish_bundle(
         optional_inputs["nordic_polygon_inputs"] = nordic_polygon_inputs
     if animal_point_inputs is not None:
         optional_inputs["animal_point_inputs"] = animal_point_inputs
+    if animal_chronology_inputs is not None:
+        optional_inputs["animal_chronology_inputs"] = animal_chronology_inputs
     (
         bundle_paths,
         point_layers,
@@ -132,6 +139,7 @@ def publish_bundle(
         nordic_point_inputs=nordic_point_inputs,
         nordic_polygon_inputs=nordic_polygon_inputs,
         animal_point_inputs=animal_point_inputs,
+        animal_chronology_inputs=animal_chronology_inputs,
         aadr_map_snapshot=aadr_map_snapshot,
         static_assets=static_assets,
         animal_chronology_context=animal_chronology_context,

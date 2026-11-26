@@ -11,10 +11,18 @@ from ....adna.animal_localities import build_tracked_animal_atlas_bundle
 from ....adna.animal_localities.assembly import (
     build_tracked_animal_atlas_bundle_from_inputs,
 )
+from ....adna.sample_chronology_context import (
+    animal_sample_chronology_context_available,
+    build_animal_sample_chronology_context,
+)
+from ....adna.sample_chronology_context.captured_inputs import AnimalChronologyInputs
 
 
 def require_animal_capture_owner(
-    context_root: Path | None, surface: Any, inputs: AnimalPointInputs | None
+    context_root: Path | None,
+    surface: Any,
+    inputs: AnimalPointInputs | None,
+    chronology_inputs: AnimalChronologyInputs | None = None,
 ) -> None:
     """Refuse a substituted owner or a context different from the held inputs."""
     if inputs is not None and (
@@ -24,6 +32,18 @@ def require_animal_capture_owner(
         is not build_tracked_animal_atlas_bundle
     ):
         raise ValueError("animal point capture requires the maintained animal owner")
+    if chronology_inputs is not None and (
+        type(chronology_inputs) is not AnimalChronologyInputs
+        or context_root is None
+        or Path(context_root).absolute() != chronology_inputs.context_root
+        or surface.animal_sample_chronology_context_available
+        is not animal_sample_chronology_context_available
+        or surface.build_animal_sample_chronology_context
+        is not build_animal_sample_chronology_context
+    ):
+        raise ValueError(
+            "animal chronology capture requires the maintained chronology owner"
+        )
 
 
 def prepare_animal_layers(
@@ -36,6 +56,7 @@ def prepare_animal_layers(
     extra_artifacts: list[tuple[str, str]],
     surface: Any,
     inputs: AnimalPointInputs | None,
+    chronology_inputs: AnimalChronologyInputs | None = None,
 ) -> tuple[Any, Any, Any]:
     """Build point layers from held inputs when selected; chronology remains separate."""
     localities: Any = ()
@@ -63,10 +84,23 @@ def prepare_animal_layers(
             )
         point_layers.extend(bundle.point_layers)
         extra_artifacts.extend(bundle.extra_artifacts)
-        if surface.animal_sample_chronology_context_available(context_root):
-            chronology = surface.build_animal_sample_chronology_context(
-                data_root=context_root, geography_scope=geography_scope
+        if chronology_inputs is None:
+            available = surface.animal_sample_chronology_context_available(context_root)
+        else:
+            available = animal_sample_chronology_context_available(
+                context_root, chronology_inputs=chronology_inputs
             )
+        if available:
+            if chronology_inputs is None:
+                chronology = surface.build_animal_sample_chronology_context(
+                    data_root=context_root, geography_scope=geography_scope
+                )
+            else:
+                chronology = build_animal_sample_chronology_context(
+                    data_root=context_root,
+                    geography_scope=geography_scope,
+                    chronology_inputs=chronology_inputs,
+                )
             point_layers.extend(chronology.point_layers)
         localities = bundle.localities
         review = surface.AnimalCoordinateVisibilityReview(

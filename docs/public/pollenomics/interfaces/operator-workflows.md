@@ -259,3 +259,22 @@ GiB or 50,000 files, and more than 256 MiB of selected bodies. It does not bind
 the separate animal sample chronology registry or its projects, other Atlas
 inputs, source rights, or scientific admission. Absence does not assert that a
 species is scientifically excluded.
+
+### Bind animal sample chronology inputs
+
+`generate_multi_country_map` accepts an optional `animal_chronology_inputs`
+produced by `capture_animal_chronology_inputs` in
+`bijux_pollenomics.reporting.adna.sample_chronology_context.captured_inputs`.
+Pass `None` as the expected inventory only when the registry is absent. Otherwise
+supply SHA-256 values for the registry and the three required sample surfaces for
+every project in it. Capture verifies the project directory set and selected
+bytes; the chronology owner reads those held bytes and records their identity.
+An absent capture remains absent even if a registry appears later. The capture
+is sequential, not an atomic snapshot.
+
+This opt-in check inventories the whole project tree, rejects symlinks and
+aliased members, and limits the registry plus tree to 128 MiB and 10,000 files;
+its pins cover only the registry and three required JSON surfaces per project.
+It does not bind other animal, AADR or Atlas inputs, establish source rights, or
+convey scientific admission. Registry absence is a recorded observation, not a
+scientific exclusion.

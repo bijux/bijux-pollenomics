@@ -10,6 +10,9 @@ from typing import TypedDict
 from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
     AnimalPointInputs,
 )
+from bijux_pollenomics.reporting.adna.sample_chronology_context.captured_inputs import (
+    AnimalChronologyInputs,
+)
 
 from ..adna import (
     AdnaSampleQuery,
@@ -86,6 +89,7 @@ class _MapSourceOptions(_SourceResourceOptions, total=False):
     nordic_point_inputs: NordicPointInputs
     nordic_polygon_inputs: NordicPolygonInputs
     animal_point_inputs: AnimalPointInputs
+    animal_chronology_inputs: AnimalChronologyInputs
     aadr_map_snapshot: AadrMapSnapshot
     historical_chronology: HistoricalChronologyRequest
     lake_inputs: SwedenLakeInputs
@@ -166,6 +170,7 @@ def generate_multi_country_map(
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
+    animal_chronology_inputs: AnimalChronologyInputs | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
@@ -192,6 +197,12 @@ def generate_multi_country_map(
         != Path(aadr_map_snapshot.manifest.source_bundles[0].tracked_root).absolute()
     ):
         raise ValueError("AADR snapshot requires its bound release directory")
+    if animal_chronology_inputs is not None and (
+        type(animal_chronology_inputs) is not AnimalChronologyInputs
+        or context_root is None
+        or Path(context_root).absolute() != animal_chronology_inputs.context_root
+    ):
+        raise ValueError("animal chronology capture requires its bound context")
     if historical_chronology is not None and context_root is None:
         raise ValueError("SEAD historical chronology requires context")
     version_dir = Path(version_dir)
@@ -213,6 +224,8 @@ def generate_multi_country_map(
         source_resource_options["nordic_polygon_inputs"] = nordic_polygon_inputs
     if animal_point_inputs is not None:
         source_resource_options["animal_point_inputs"] = animal_point_inputs
+    if animal_chronology_inputs is not None:
+        source_resource_options["animal_chronology_inputs"] = animal_chronology_inputs
     if lake_inputs is not None:
         source_resource_options["lake_inputs"] = lake_inputs
     if aadr_map_snapshot is not None:
