@@ -90,6 +90,44 @@ def test_all_numerical_failures_keep_the_entire_design(tmp_path: Path, monkeypat
         assert summary["mean"] is None and summary["population_covariance"] is None
 
 
+@pytest.mark.parametrize("code", ["zero_positive_love_cover", "nonfinite_love_cover"])
+def test_love_cover_refusal_preserves_partial_design_mass(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, code: str
+) -> None:
+    root = tmp_path / "inputs"
+    _, value = fixture(root)
+    workflow = import_module("bijux_pollenomics.analysis.lra.source_cases.workflow")
+    original = workflow.run_lra_request
+    calls = 0
+
+    def child(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        if calls == 1:
+            raise LRARefusal(code, "controlled LOVE cover refusal")
+        return original(*args, **kwargs)
+
+    monkeypatch.setattr(workflow, "run_lra_request", child)
+    result = api().run_source_lra_cases(
+        api().SourceCasePlan.from_dict(value),
+        input_root=root,
+        destination=tmp_path / "product",
+    )
+    manifest = (
+        api()
+        .read_source_lra_cases(
+            result.directory, expected_manifest_sha256=result.manifest_sha256
+        )
+        .manifest()
+    )
+    assert [row["status"] for row in manifest["cases"]] == ["refused", "success"]
+    assert manifest["cases"][0]["reason_code"] == code
+    for summary in manifest["summaries"].values():
+        assert summary["failed_mass"] == {"numerator": 3, "denominator": 4}
+        assert summary["successful_mass"] == {"numerator": 1, "denominator": 4}
+        assert summary["mean"] is None and summary["population_covariance"] is None
+
+
 def test_one_atom_matches_existing_deterministic_child(tmp_path: Path):
     from bijux_pollenomics.analysis.lra.execution.service import run_lra_request
     from bijux_pollenomics.analysis.lra.source_cases.results import child_vectors

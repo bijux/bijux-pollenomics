@@ -17,6 +17,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 - Preserve distinct JSON scalar representations in repeated Neotoma native
   records and canonicalize their conflict diagnostics independently of arrival order.
+- Retain failed probability mass when LOVE cover normalization refuses a
+  nonfinite draw or a draw without positive cover in supplied-law workflows.
 - Preserve source-age epoch and scale as separate requirements. Animal records
   with an undocumented age origin retain their raw source fields and no qualified
   calendar-BP interval; publication year supplies no inferred origin.

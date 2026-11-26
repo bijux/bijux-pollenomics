@@ -102,6 +102,39 @@ def test_numerical_diagnostic_and_mass_retained(
     assert m["summaries"]["target"]["mean"] is None
 
 
+@pytest.mark.parametrize("code", ["zero_positive_love_cover", "nonfinite_love_cover"])
+@requires_engine
+def test_love_cover_refusal_preserves_partial_joint_mass(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, code: str
+) -> None:
+    source = tmp_path / "source"
+    _, p = fixture(source)
+    original = workflow.run_lra_request
+    calls = 0
+
+    def child(*args: Any, **kwargs: Any) -> Any:
+        nonlocal calls
+        calls += 1
+        if calls == 1:
+            raise LRARefusal(code, "controlled LOVE cover refusal")
+        return original(*args, **kwargs)
+
+    monkeypatch.setattr(workflow, "run_lra_request", child)
+    result = run_joint_lra_ensemble(
+        JointLRAPlan.from_dict(p), input_root=source, destination=tmp_path / "product"
+    )
+    manifest = workflow.read_joint_lra_ensemble(
+        result.directory, expected_manifest_sha256=result.manifest_sha256
+    ).manifest()
+    assert manifest["denominators"]["refused_draw_bins"] == 1
+    assert manifest["denominators"]["successful_draw_bins"] == 3
+    assert manifest["rows"][0]["error"]["reason_code"] == code
+    summary = manifest["summaries"]["target"]
+    assert summary["failed_mass"] == {"numerator": 1, "denominator": 4}
+    assert summary["successful_mass"] == {"numerator": 3, "denominator": 4}
+    assert summary["mean"] is None and summary["population_covariance"] is None
+
+
 @requires_engine
 def test_interrupted_partial_staging_not_in_product(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
