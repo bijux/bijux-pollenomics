@@ -15,6 +15,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Account for conflicting chronology model ownership, age basis and reliable
+  bounds in Neotoma quality diagnostics without changing scientific eligibility.
 - Preserve distinct JSON scalar representations in repeated Neotoma native
   records and canonicalize their conflict diagnostics independently of arrival order.
 - Retain failed probability mass when LOVE cover normalization refuses a
