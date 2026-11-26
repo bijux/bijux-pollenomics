@@ -14,6 +14,7 @@ from .landclim_ii_rows import (
     _published_identity,
     _read_landclim_ii_standard_errors,
     _require_exact_tokens,
+    _source_coordinate_pair,
 )
 from .values import _required_numeric_mapping
 
@@ -94,15 +95,12 @@ def _merge_landclim_ii_time_windows(
                         raise ValueError(
                             f"LandClim II standard-error row is missing for {record_id}"
                         )
-                    if (longitude, latitude) != (
-                        error_row.longitude,
-                        error_row.latitude,
-                    ):
+                    if _source_coordinate_pair(row) != error_row.source_coordinates:
                         raise ValueError(
                             "LandClim II mean/standard-error coordinates differ for "
-                            f"{record_id}: means={(longitude, latitude)}, "
+                            f"{record_id}: means={_source_coordinate_pair(row)}, "
                             "standard_errors="
-                            f"{(error_row.longitude, error_row.latitude)}"
+                            f"{error_row.source_coordinates}"
                         )
                     _require_uncertainty_pair(
                         estimates,

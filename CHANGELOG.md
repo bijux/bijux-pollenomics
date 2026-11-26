@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#548](https://github.com/bijux/bijux-pollenomics/pull/548) — LandClim uncertainty cell identity
+
+Pair published mean and standard-error rows using their native decimal coordinates before conversion to floats. Equivalent decimal spellings remain valid; no mismatch was found in the retained paired rows.
+
 ### [#547](https://github.com/bijux/bijux-pollenomics/pull/547) — Neotoma literal source comparison
 
 Expose the existing source-owned literal JSON comparator for Atlas metadata joins and migrate two private imports while retaining exact comparison and exception behavior. The broader reporting-to-collection boundary remains open.
