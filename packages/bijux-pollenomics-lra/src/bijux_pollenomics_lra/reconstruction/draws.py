@@ -6,6 +6,7 @@ import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
+    _reject_complex_values,
     _reject_masked_values,
     integer,
     rng_from,
@@ -30,14 +31,17 @@ def rnorm_reveals(
     generator = rng_from(rng)
     _reject_masked_values(mean, "mean")
     _reject_masked_values(sds, "sds")
-    means = np.broadcast_to(
-        np.asarray(np.ones(n) if mean is None else mean, dtype=float),
-        (n,),
-    )
-    errors = np.broadcast_to(
-        np.asarray(np.ones(n) if sds is None else sds, dtype=float),
-        (n,),
-    )
+    captured = []
+    for value, name in ((mean, "mean"), (sds, "sds")):
+        if value is None:
+            raw = np.ones(n)
+        else:
+            _reject_complex_values(value, name)
+            raw = np.asarray(value).copy()
+            _reject_complex_values(raw, name)
+        captured.append(raw)
+    means = np.broadcast_to(np.asarray(captured[0], dtype=float), (n,))
+    errors = np.broadcast_to(np.asarray(captured[1], dtype=float), (n,))
     if not np.isfinite(means).all() or not np.isfinite(errors).all():
         raise ValidationError("PPE normal parameters must be finite")
     if np.any(errors < 0):
