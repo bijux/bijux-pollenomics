@@ -3,9 +3,13 @@
 from __future__ import annotations
 
 from collections.abc import Mapping, MutableMapping, Sequence
+import hashlib
 from typing import cast
 
+from bijux_pollenomics.core.filesystem import read_regular_file
+
 from ..io import (
+    _decode_json_object,
     _identifier_text,
     _mapping,
     _numeric_text_key,
@@ -88,10 +92,26 @@ def index_sites(
     )
 
 
+def _read_bound_parent(
+    bundle: EvidenceBundle, relative: str, expected: object
+) -> dict[str, object]:
+    """Decode only the exact parent bytes named by the pinned claim bundle."""
+    if not isinstance(expected, str):
+        raise ValueError("SEAD parent digest is missing")
+    payload = read_regular_file(
+        bundle.acquisition_root / relative, max_bytes=64 * 1024 * 1024
+    )
+    if hashlib.sha256(payload).hexdigest() != expected:
+        raise ValueError("SEAD parent digest changed")
+    return _decode_json_object(payload, "SEAD admitted parent")
+
+
 def _admitted_site_uuids(bundle: EvidenceBundle) -> dict[str, str]:
-    payload = _read_json_object(
-        bundle.acquisition_root / "payloads" / "tbl_sites.json",
-        "SEAD admitted sites",
+    table_hashes = _mapping(
+        bundle.claims.get("table_payload_sha256"), "SEAD table payload hashes"
+    )
+    payload = _read_bound_parent(
+        bundle, "payloads/tbl_sites.json", table_hashes.get("tbl_sites")
     )
     rows = payload.get("rows")
     if not isinstance(rows, list) or any(not isinstance(row, Mapping) for row in rows):
@@ -113,8 +133,8 @@ def _admitted_site_uuids(bundle: EvidenceBundle) -> dict[str, str]:
 def _country_decisions(
     bundle: EvidenceBundle,
 ) -> tuple[list[Mapping[str, object]], set[str]]:
-    document = _read_json_object(
-        bundle.acquisition_root / "country-decisions.json", "SEAD country decisions"
+    document = _read_bound_parent(
+        bundle, "country-decisions.json", bundle.claims.get("country_decisions_sha256")
     )
     rows = document.get("decisions")
     if not isinstance(rows, list) or any(not isinstance(row, Mapping) for row in rows):

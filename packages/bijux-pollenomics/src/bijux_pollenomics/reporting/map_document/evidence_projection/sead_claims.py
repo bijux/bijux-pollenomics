@@ -7,6 +7,8 @@ import hashlib
 from pathlib import Path
 from typing import cast
 
+from bijux_pollenomics.core.filesystem import read_regular_file
+
 from .constants import (
     _SEAD_CLAIM_COMMON_FIELDS,
     _SEAD_CLAIM_FIELDS,
@@ -16,10 +18,10 @@ from .constants import (
     _SEAD_SOURCE_AGE_INHERITED_FIELDS,
 )
 from .io import (
+    _decode_json_object,
     _identifier_text,
     _mapping,
     _read_json_object,
-    _read_regular_bytes,
     _regular_absolute_directory,
     _required_text,
     _safe_relative_path,
@@ -239,10 +241,17 @@ def _sead_claim_table(rows: Sequence[Mapping[str, object]]) -> dict[str, object]
 
 
 def _validate_sead_claim_parents(
-    acquisition_root: Path, claims_bundle: Mapping[str, object]
+    acquisition_root: Path,
+    claims_bundle: Mapping[str, object],
+    *,
+    admission_bytes: bytes | None = None,
 ) -> Mapping[str, object]:
     root = _regular_absolute_directory(acquisition_root, "SEAD acquisition root")
-    admission = _read_json_object(root / "admission.json", "SEAD admission")
+    admission = (
+        _decode_json_object(admission_bytes, "SEAD admission")
+        if admission_bytes is not None
+        else _read_json_object(root / "admission.json", "SEAD admission")
+    )
     if admission.get("schema_version") != "sead-acquisition-admission.v1":
         raise ValueError("SEAD admission schema is unsupported")
     for field, claim_field in (
@@ -285,7 +294,7 @@ def _validate_sead_claim_parents(
         copied_row = copied.get(relative_path)
         if copied_row is None or copied_row.get("sha256") != expected_digest:
             raise ValueError(f"SEAD admitted parent is not declared: {relative_path}")
-        payload = _read_regular_bytes(root / relative_path, relative_path)
+        payload = read_regular_file(root / relative_path, max_bytes=64 * 1024 * 1024)
         if copied_row.get("byte_count") != len(payload):
             raise ValueError(f"SEAD admitted byte count changed: {relative_path}")
         if hashlib.sha256(payload).hexdigest() != expected_digest:

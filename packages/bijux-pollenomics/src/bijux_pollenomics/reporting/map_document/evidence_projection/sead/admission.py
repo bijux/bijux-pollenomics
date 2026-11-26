@@ -7,13 +7,14 @@ import hashlib
 from pathlib import Path
 from typing import cast
 
+from bijux_pollenomics.core.filesystem import read_regular_file
 from bijux_pollenomics.evidence.sources.sead import (
     governed_sead_evidence_root,
     read_validated_sead_evidence_documents,
 )
 
 from ..constants import _SEAD_EVIDENCE_DOCUMENTS
-from ..io import _read_json_object, _read_regular_bytes, _required_text
+from ..io import _decode_json_object, _required_text
 from ..sead_claims import _validate_sead_claim_parents
 from .models import EvidenceBundle
 
@@ -40,10 +41,22 @@ def load_evidence_bundle(
     validate_evidence_headers(claims, observations, relations, events)
     run_id = _required_text(claims.get("source_run_id"), "SEAD source run ID")
     acquisition_root = context_root / "sead" / "raw" / "acquisitions" / run_id
-    admission = _validate_sead_claim_parents(acquisition_root, claims)
-    manifest = _read_json_object(
+    admission_bytes = read_regular_file(
+        acquisition_root / "admission.json", max_bytes=8 * 1024 * 1024
+    )
+    if hashlib.sha256(admission_bytes).hexdigest() != expected_admission_sha256:
+        raise ValueError("SEAD governed admission digest changed")
+    admission = _validate_sead_claim_parents(
+        acquisition_root, claims, admission_bytes=admission_bytes
+    )
+    manifest_bytes = read_regular_file(
         evidence_root / "evidence_materialization_manifest.json",
-        "SEAD evidence materialization manifest",
+        max_bytes=8 * 1024 * 1024,
+    )
+    if hashlib.sha256(manifest_bytes).hexdigest() != expected_manifest_sha256:
+        raise ValueError("SEAD evidence manifest digest changed")
+    manifest = _decode_json_object(
+        manifest_bytes, "SEAD evidence materialization manifest"
     )
     file_set_sha256 = _required_text(
         manifest.get("file_set_sha256"), "SEAD evidence file-set SHA-256"
@@ -65,11 +78,6 @@ def load_evidence_bundle(
         raise ValueError("SEAD evidence manifest acquisition identity diverges")
     if admission.get("parent_admission_sha256") != parent_admission_sha256:
         raise ValueError("SEAD evidence parent admission identity diverges")
-    admission_sha256 = hashlib.sha256(
-        _read_regular_bytes(acquisition_root / "admission.json", "SEAD admission")
-    ).hexdigest()
-    if admission_sha256 != expected_admission_sha256:
-        raise ValueError("SEAD governed admission digest changed")
     return EvidenceBundle(
         context_root=context_root,
         acquisition_root=acquisition_root,
