@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#552](https://github.com/bijux/bijux-pollenomics/pull/552) — Nordic Atlas source publication epochs
+
+Reconcile retained chronology layers separately from the later charcoal source context and verify current charcoal records against their physical source. No historical Atlas product was regenerated.
+
 ### [#551](https://github.com/bijux/bijux-pollenomics/pull/551) — Neotoma chronology reference refusals
 
 Preserve malformed chronology reference evidence while refusing its use for model selection and event admission, separately from numeric age comparability. Legacy reference validity and taxon identifiers remain distinct open concerns.

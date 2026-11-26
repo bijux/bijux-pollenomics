@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import base64
+from collections import Counter
 from collections.abc import Mapping
 from copy import deepcopy
 import hashlib
@@ -244,10 +245,119 @@ def test_committed_source_nodes_reconcile() -> None:
         for feature in cast(list[dict[str, object]], layer["features"])
     } <= detail_ids
 
+    current_chronology = {
+        str(layer["key"]): layer
+        for layer in source_layers
+        if layer.get("semantic_role") == "source_chronology_context"
+    }
+    charcoal_layers = [
+        layer
+        for layer in source_layers
+        if layer.get("semantic_role") == "native_charcoal_source_context"
+    ]
+    assert len(current_chronology) == 3
+    assert len(charcoal_layers) == 1
+    assert len(current_chronology) + len(charcoal_layers) == len(source_layers)
+    charcoal = charcoal_layers[0]
+    charcoal_features = cast(list[dict[str, object]], charcoal["features"])
+    assert charcoal["key"] == "neotoma-native-charcoal-context"
+    assert charcoal["source_name"] == "Neotoma"
+    assert charcoal["contribution_role"] == "display_only"
+    assert charcoal["count"] == len(charcoal_features) == 2_900
+    assert charcoal["default_enabled"] is False
+    assert charcoal["candidate_ranking_eligible"] is False
+    assert charcoal["scientific_classification_eligible"] is False
+    assert charcoal["scientific_selection_enabled"] is False
+    assert charcoal["propagation_status"] == "refused"
+    assert charcoal["edge_count"] == 0
+    assert all(
+        row["candidate_generation_status"] == "refused"
+        and row["candidate_refusal_reason"]
+        == "literal_source_observation_not_scientific_event"
+        and row["propagation_eligible"] is False
+        and row["source_family"] == "neotoma"
+        and row["source_ecological_group"] == "CHAR"
+        and row["source_snapshot_id"] == accounting["source_snapshot_id"]
+        and row["build_id"] == accounting["build_id"]
+        and row["node_id"] == f"neotoma:native-charcoal:{row['observation_id']}"
+        and row["source_observation_locator"]
+        == f"surfaces/observations/part-{row['source_part_number']:05d}.json#observation_id={row['observation_id']}"
+        for row in charcoal_features
+    )
+    charcoal_account = cast(dict[str, object], accounting["native_charcoal"])
+    assert charcoal_account["source_snapshot_id"] == accounting["source_snapshot_id"]
+    assert charcoal_account["build_id"] == accounting["build_id"]
+    assert charcoal_account["published_observation_count"] == len(charcoal_features)
+    assert charcoal_account["scientific_event_count"] == 0
+    assert charcoal_account["propagation_eligible_event_count"] == 0
+    source_charcoal = {}
+    observation_parts = ROOT / "data/neotoma/relational/surfaces/observations"
+    for path in sorted(observation_parts.glob("part-*.json")):
+        part = json.loads(path.read_bytes())
+        actual_part_number = int(path.stem.removeprefix("part-"))
+        assert part["part_number"] == actual_part_number
+        for row in part["rows"]:
+            if row.get("source_ecological_group") == "CHAR":
+                assert row["observation_id"] not in source_charcoal
+                source_charcoal[row["observation_id"]] = (row, actual_part_number)
+    exclusions = cast(
+        list[dict[str, object]], charcoal_account["excluded_observations"]
+    )
+    assert len(source_charcoal) == charcoal_account["native_charcoal_observation_count"]
+    feature_ids = {row["observation_id"] for row in charcoal_features}
+    excluded_ids = {row["observation_id"] for row in exclusions}
+    assert len(feature_ids) == len(charcoal_features)
+    assert len(excluded_ids) == len(exclusions)
+    assert charcoal_account["excluded_observation_count"] == len(exclusions)
+    assert all(
+        isinstance(row["reason_code"], str) and row["reason_code"] for row in exclusions
+    )
+    assert charcoal_account["excluded_reason_counts"] == dict(
+        sorted(Counter(str(row["reason_code"]) for row in exclusions).items())
+    )
+    assert not feature_ids & excluded_ids
+    assert feature_ids | excluded_ids == set(source_charcoal)
+    assert all(
+        feature["source_part_number"] == source_charcoal[feature["observation_id"]][1]
+        for feature in charcoal_features
+    )
+    assert all(
+        all(
+            json.dumps(feature[field], sort_keys=True, allow_nan=False)
+            == json.dumps(
+                source_charcoal[feature["observation_id"]][0].get(field),
+                sort_keys=True,
+                allow_nan=False,
+            )
+            for field in (
+                "observation_id",
+                "sample_id",
+                "variable_id",
+                "source_taxon_id",
+                "source_reported_name",
+                "source_ecological_group",
+                "source_element",
+                "source_element_type",
+                "source_value",
+                "source_unit",
+                "source_denominator",
+                "denominator_status",
+                "detection_status",
+                "unit_family",
+                "source_context",
+            )
+        )
+        for feature in charcoal_features
+    )
     layer_counts = {
-        str(layer["key"]): cast(int, layer["count"]) for layer in source_layers
+        key: cast(int, layer["count"]) for key, layer in current_chronology.items()
     }
     existing_points = committed_nordic_inputs(ROOT)[0]
+    assert not any(
+        layer.get("semantic_role") == "native_charcoal_source_context"
+        or layer.get("key") == "neotoma-native-charcoal-context"
+        for layer in existing_points
+    )
     committed_source_layers = {
         str(layer["key"]): layer
         for layer in existing_points
