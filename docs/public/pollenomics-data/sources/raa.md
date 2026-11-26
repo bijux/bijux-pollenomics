@@ -27,8 +27,10 @@ populations and publication contracts:
 The [closed native-cell map and account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/source-integrity/raa/native-registry-cells/README.md)
 retain 121 cells and 212,516 conditional UUID counts in a portable, default-off
 publication. Its five partial display footprints preserve 96 full-cell UUID
-counts without prorating. Static bytes and aggregate conservation are accepted;
-actual browser interaction remains separately pending. The account preserves
+counts without prorating. Static bytes and aggregate conservation are accepted.
+The standalone map's local-file reader and selection download were checked in
+Chromium at desktop and mobile sizes; the linked account describes the tested
+interactions and their limits. The account preserves
 country-unassigned, untimed and accuracy-unknown posture, and does not adopt the
 source canonically or replace the historical WFS population.
 

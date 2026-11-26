@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#526](https://github.com/bijux/bijux-pollenomics/pull/526) — Qualified RAÄ and SEAD source guidance
+
+Connect the RAÄ source guide to the qualified standalone map reader and the SEAD guide to the retained Troitski source-context capture. Preserve their country, chronology and scientific admission limits.
+
 ### [#518](https://github.com/bijux/bijux-pollenomics/pull/518) — Normalized recorded ancestry continuation
 
 Retain the five exact successor-chain files for the previously captured twelve Neotoma details and connect their existing source account to 172 unresolved frontier leads. Preserve all capture bytes, explicit baseline/parent resolvers, the separate 16-target Atlas and fixed 182-lead dated-reference comparison. One fresh normalization completed with zero GETs; cumulative capture history, source interpretation, current permissions and scientific admission remain distinct. Exact byte correspondence, scientific-limit fields, source links and strict documentation pass without another source acquisition, baseline, derivation or model execution for delivery.
