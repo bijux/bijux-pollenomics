@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import hashlib
 import os
-import tempfile
-from dataclasses import dataclass
 from pathlib import Path
+import tempfile
 
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_COUNTRY_AUTHORITY_DIGEST,

@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.collection.sources.sead.acquisition.governed import (
     governed_sead_expected_identity,
 )

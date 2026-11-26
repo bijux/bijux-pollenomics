@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-import json
-import tempfile
 from collections.abc import Mapping
 from datetime import UTC, date, datetime
+import json
 from pathlib import Path
+import tempfile
 
 from bijux_pollenomics.collection.contracts.artifacts import (
     SEAD_POINT_CSV,

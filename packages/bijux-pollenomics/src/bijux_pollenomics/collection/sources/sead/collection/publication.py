@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from datetime import date
 import hashlib
 import json
-from datetime import date
 from pathlib import Path
 
 from bijux_pollenomics.collection.contracts.artifacts import (
