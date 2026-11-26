@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#565](https://github.com/bijux/bijux-pollenomics/pull/565) — Captured animal Atlas point inputs
+
+Offer explicit animal point input presence and byte capture for Atlas generation and align chronology tests with sample-owned versus locality display dates. Animal chronology and complete Atlas closure remain separate.
+
 ### [#564](https://github.com/bijux/bijux-pollenomics/pull/564) — Selected Nordic polygon inputs
 
 Offer an explicit captured display boundary and temporal LandClim grid for Nordic Atlas generation. This selected-input control does not establish complete Atlas closure or scientific admission.
