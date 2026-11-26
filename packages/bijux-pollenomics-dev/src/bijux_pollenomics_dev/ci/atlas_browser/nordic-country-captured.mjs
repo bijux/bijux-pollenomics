@@ -124,8 +124,24 @@ try {
     await waitFor('BijuxPollenomicsAtlasCapture.snapshot().visible_point_count === 0');
     assert.equal(await evaluate("document.getElementById('focus-card').hidden"),true);
     await evaluate("document.getElementById('countries-all').click()");
+    await waitFor('BijuxPollenomicsAtlasCapture.snapshot().visible_point_count > 0');
+    // Fit uses loaded points only; require the entire candidate identity set afterwards.
+    await evaluate("document.getElementById('countries-fit').click()");
     await waitFor('BijuxPollenomicsAtlasCapture.snapshot().visible_point_count === 8');
-    receipt.country_filters.push({width,selection:'none_then_all',zero_visible:true,all_visible:8});
+    const fitted=await evaluate('BijuxPollenomicsAtlasCapture.snapshot()');
+    assert.deepEqual(fitted.countries,[...generation.countries].sort());
+    assert.equal(fitted.visible_governed_candidate_count,0);
+    const fittedIds=[];
+    for(let i=0;i<generation.source_records.length;i++) {
+      const id=await evaluate("new URLSearchParams(location.hash.slice(1)).get('focus_record')");
+      assert.equal(typeof id,'string');
+      fittedIds.push(id);
+      await evaluate("document.getElementById('focus-next').click()");
+      await waitFor(`new URLSearchParams(location.hash.slice(1)).get('focus_record') !== ${JSON.stringify(id)}`);
+    }
+    requireExactSourceIds(fittedIds,generation.source_records.map(record=>record.record_id));
+    assert.equal(await evaluate("new URLSearchParams(location.hash.slice(1)).get('focus_record')"),fittedIds[0]);
+    receipt.country_filters.push({width,selection:'none_then_all',zero_visible:true,all_visible:8,fit:'loaded_visible_points',visible_source_record_ids:fittedIds});
   }
   while(pendingRequests.size)await Promise.all([...pendingRequests]);
   assert.equal(foreignRequests.length,0,'browser attempted a nonlocal request');
@@ -143,6 +159,11 @@ finally {
   await rm(join(output,'browser-profile'),{recursive:true,force:true});
 }
 
+function requireExactSourceIds(actual, expected) {
+  assert.equal(actual.length,expected.length,'fitted source record count differs');
+  assert.equal(new Set(actual).size,expected.length,'fitted source record identities repeat');
+  assert.deepEqual([...actual].sort(),[...expected].sort(),'fitted source record identities differ');
+}
 function chronologyClaimPage(clickNext = false) {
   const buttons=document.querySelectorAll('#focus-detail [data-detail-table-page="chronology"][data-page-direction="next"]');
   if(buttons.length!==1)throw Error('chronology claim pagination identity differs');

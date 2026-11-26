@@ -342,3 +342,31 @@ button.disabled=true;assert.equal(read().hasNext,false);assert.throws(()=>read(t
         text=True,
         timeout=10,
     )
+
+
+def test_fitted_navigation_requires_exact_distinct_source_identities() -> None:
+    root = Path(__file__).resolve().parents[4]
+    script_path = (
+        root
+        / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic-country-captured.mjs"
+    )
+    program = r"""
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const source=readFileSync(process.argv[1],'utf8');
+const match=source.match(/function requireExactSourceIds\(actual, expected\) \{[\s\S]*?\n\}/);
+assert.ok(match, 'source identity check must exist');
+const check=(new Function('assert',match[0]+'; return requireExactSourceIds;'))(assert);
+const expected=Array.from({length:8},(_,i)=>`record-${i}`);
+check([...expected].reverse(),expected);
+assert.throws(()=>check([...expected.slice(0,7),expected[0]],expected));
+assert.throws(()=>check([...expected.slice(0,7),'foreign'],expected));
+assert.throws(()=>check(expected.slice(0,7),expected));
+"""
+    subprocess.run(
+        ["node", "--input-type=module", "-e", program, str(script_path)],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
