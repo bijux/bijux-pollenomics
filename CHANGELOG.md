@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#530](https://github.com/bijux/bijux-pollenomics/pull/530) — LandClim cereal cover interpretation
+
+Describe the selected LandClim II cereal and rye values as pollen-based reconstructed vegetation percentage cover, preserving v2 field names and values. Historical outputs and receipts remain unchanged; an isolated replay also showed unrelated human-aDNA count differences.
+
 ### [#529](https://github.com/bijux/bijux-pollenomics/pull/529) — Conflicting chronology model support
 
 Qualify Neotoma chronology quality diagnostics against retained model variants, distinguishing disputed ownership, age basis and reliable bounds from unrelated metadata differences. Generated tests exercise conflicts without asserting their occurrence in the retained corpus or changing scientific eligibility.

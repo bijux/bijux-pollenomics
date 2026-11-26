@@ -16,6 +16,13 @@ def _digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def test_cereal_column_labels_name_reconstructed_cover() -> None:
+    markdown = render_sweden_land_use_synthesis_markdown(representative_payload())
+    assert "Cerealia-type vegetation cover (%)" in markdown
+    assert "Rye vegetation cover (%)" in markdown
+    assert "Cerealia-type pollen | Rye pollen" not in markdown
+
+
 def test_serialized_output_bytes_match_the_monolith_contract(tmp_path: Path) -> None:
     payload = representative_payload()
     json_path = tmp_path / "representative.json"
@@ -44,6 +51,6 @@ def test_serialized_output_bytes_match_the_monolith_contract(tmp_path: Path) -> 
         428,
     )
     assert (_digest(markdown_path), len(markdown_path.read_bytes())) == (
-        "2e8a02a01022d9b8f7f7fbaaf1d964cc9dfe658b887b03cf8ab1d528cfe174f4",
-        1919,
+        "fd934e2fbef6ad717e6265710ed63908ddf2fb5e9a3f6686acc1a9377e45aa6a",
+        1947,
     )

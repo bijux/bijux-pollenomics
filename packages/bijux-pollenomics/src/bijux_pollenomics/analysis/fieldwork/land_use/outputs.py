@@ -93,7 +93,7 @@ context. They are excluded only from the lake-sampling ranking.
 
 ## Most Recent Modeled Window
 
-| Target | Window | Quality | Forest | Open land | Agricultural land | Cerealia-type pollen | Rye pollen | SEAD sites | Human aDNA localities | Animal aDNA localities | Posture |
+| Target | Window | Quality | Forest | Open land | Agricultural land | Cerealia-type vegetation cover (%) | Rye vegetation cover (%) | SEAD sites | Human aDNA localities | Animal aDNA localities | Posture |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 {synthesis_rows}
 
