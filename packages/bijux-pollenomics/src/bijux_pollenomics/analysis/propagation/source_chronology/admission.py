@@ -12,6 +12,9 @@ from bijux_pollenomics.core.temporal_semantics import (
     InvalidBpIntervalError,
     canonical_bp_interval,
 )
+from bijux_pollenomics.evidence.sources.neotoma.chronology import (
+    invalid_chronology_reference,
+)
 
 from .constants import COUNTRY_CODES
 from .identity import finite_number, optional_text
@@ -139,6 +142,8 @@ def source_chronology_refusal_reason(
     """Validate the selected chronology after observation eligibility is proven."""
     if claim is None:
         return "missing_source_default_chronology", None
+    if invalid_chronology_reference(claim):
+        return "invalid_source_chronology_reference", None
     if sample is None or site is None:
         raise AssertionError("chronology validation requires source relations")
     sample_id = optional_text(observation.get("sample_id"))

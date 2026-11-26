@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#551](https://github.com/bijux/bijux-pollenomics/pull/551) — Neotoma chronology reference refusals
+
+Preserve malformed chronology reference evidence while refusing its use for model selection and event admission, separately from numeric age comparability. Legacy reference validity and taxon identifiers remain distinct open concerns.
+
 ### [#550](https://github.com/bijux/bijux-pollenomics/pull/550) — Historical LandClim source receipt
 
 Retain the exact predecessor receipt and explicitly select it against authenticated current source bytes for historical inventory readers. Historical product identities remain unchanged; the selection does not attest current-epoch execution or scientific admission.

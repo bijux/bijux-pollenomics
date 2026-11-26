@@ -347,3 +347,18 @@ def test_ambiguous_identity_or_transport_locator_refuses_projection(
         )
     with pytest.raises(ValueError, match="charcoal"):
         project(loaded)
+
+
+@pytest.mark.parametrize("damage", ["invalid_model", "invalid_reference"])
+def test_invalid_chronology_identity_keeps_charcoal_untimed(damage: str) -> None:
+    loaded = source()
+    if damage == "invalid_model":
+        loaded["chronologies"][0][0]["source_chronology_id"] = {"bad": 1}
+    else:
+        loaded["age_claims"][0][0]["chronology_reference_status"] = (
+            "invalid_source_reference"
+        )
+    feature = project(loaded).point_layers[0]["features"][0]
+    assert feature["time_start_bp"] is feature["time_end_bp"] is None
+    assert feature["chronology_claim_id"] is None
+    assert feature["chronology_selection_posture"].startswith("refused_")

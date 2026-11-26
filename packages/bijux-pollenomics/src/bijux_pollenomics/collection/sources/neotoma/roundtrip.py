@@ -104,7 +104,12 @@ def native_hierarchy(rows: Iterable[Mapping[str, object]]) -> dict[str, Counter[
         for wrapper_value in _array(unit.get("chronologies"), "chronologies"):
             wrapper = _object(wrapper_value, "chronology wrapper")
             chronology = _object(wrapper.get("chronology"), "chronology")
-            chronology_source_id = optional_source_id(chronology.get("chronologyid"))
+            raw_chronology_id = chronology.get("chronologyid")
+            chronology_source_id = (
+                None
+                if isinstance(raw_chronology_id, (dict, list))
+                else optional_source_id(raw_chronology_id)
+            )
             chronology_key = chronology_source_id or (
                 f"unidentified:{_digest(dict(chronology))[:20]}"
             )

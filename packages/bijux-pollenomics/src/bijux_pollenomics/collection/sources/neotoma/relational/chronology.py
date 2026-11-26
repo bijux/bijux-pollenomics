@@ -8,7 +8,7 @@ import math
 
 from .....core.text import clean_optional_text
 from .diagnostics import add_orphan
-from .identifiers import digest, optional_source_id
+from .identifiers import digest, invalid_source_reference, optional_source_id
 
 
 def build_age_claim(
@@ -26,7 +26,18 @@ def build_age_claim(
     build_id: str,
     orphans: list[dict[str, object]],
 ) -> dict[str, object]:
-    chronology_source_id = optional_source_id(age.get("chronologyid"))
+    invalid_reference = invalid_source_reference(age.get("chronologyid"))
+    chronology_source_id = (
+        None if invalid_reference else optional_source_id(age.get("chronologyid"))
+    )
+    if invalid_reference:
+        add_orphan(
+            orphans,
+            "age_claim",
+            sample_id,
+            "invalid_chronology_reference",
+            source_value=age.get("chronologyid"),
+        )
     chronology_id = (
         chronology_ids_by_source.get(chronology_source_id)
         if chronology_source_id is not None
@@ -51,7 +62,7 @@ def build_age_claim(
             "source_payload": dict(age),
         }
     )
-    return {
+    result: dict[str, object] = {
         "chronology_claim_id": f"neotoma:age-claim:{claim_digest[:24]}:{occurrence}",
         "source_family": "neotoma",
         "source_record_id": sample_id,
@@ -89,6 +100,10 @@ def build_age_claim(
         "source_snapshot_id": source_snapshot_id,
         "build_id": build_id,
     }
+    if invalid_reference:
+        result["is_default_chronology"] = None
+        result["chronology_reference_status"] = "invalid_source_reference"
+    return result
 
 
 def age_temporal_posture(age: Mapping[str, object]) -> dict[str, object]:

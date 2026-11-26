@@ -366,3 +366,18 @@ console.log(JSON.stringify({overview,samples,next,returnedOverview,returnedSampl
     assert 'data-source-record-details="unavailable"' in output["foreign"]
     assert 'data-source-record-details="matched"' not in output["foreign"]
     assert output["unchanged"]
+
+
+@pytest.mark.parametrize("value", ["invalid_source_reference", "unknown"])
+def test_invalid_chronology_reference_does_not_render_matched(
+    source: tuple[dict[str, Any], dict[str, Any]], value: str
+) -> None:
+    expression = (
+        "(()=>{const t=tabs.chronology;t.fields.push('chronology_reference_status');t.records=t.records.map(r=>[...r,"
+        + json.dumps(value)
+        + "]);return renderSelectedSourceOverview(tabs,feature);})()"
+    )
+    rendered = observe(source, expression)["extra"]
+    assert ET.fromstring(rendered).get("data-source-record-details") == "refused"
+    assert value in rendered
+    assert "chronology reference is refused" in rendered

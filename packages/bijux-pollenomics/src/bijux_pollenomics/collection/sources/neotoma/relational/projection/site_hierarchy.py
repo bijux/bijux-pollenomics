@@ -11,6 +11,7 @@ from ..country import (
     with_source_country,
 )
 from ..diagnostics import add_orphan, register_record
+from ..identifiers import invalid_source_reference
 from ..source_payloads import copy_source_payload_excluding
 from ..state import RelationalBuildState
 from .chronologies import project_chronologies
@@ -204,5 +205,8 @@ def project_download_row(
         site_id=site_id,
         country_code=country_code,
         default_source_id=default_source_id,
+        invalid_default_reference=invalid_source_reference(
+            unit.get("defaultchronology")
+        ),
         chronology_ids_by_source=chronology_ids_by_source,
     )

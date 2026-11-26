@@ -60,6 +60,16 @@ and build
 The manifest validates row counts, stable IDs, country partitions, part hashes,
 and the complete materialization digest.
 
+When a newly built source record has a non-scalar chronology identifier or
+default reference, the literal source value remains in its retained payload or
+orphan diagnostic. Affected age claims carry an invalid reference status and
+cannot be selected as a default or an alternative chronology; their numerical
+age comparability remains a separate source property. Compact detail tables use
+`not_recorded` for other rows when that status column is present. Older
+materializations without the status do not establish that their unit-default
+references were valid. Rebuilding published products and validating their
+source custody are separate operations.
+
 ### Current sample-level pollen screen
 
 The [governed prerequisite screen](../../../report/source-relations/neotoma/pollen-screen/README.md)

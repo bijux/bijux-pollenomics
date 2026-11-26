@@ -24,6 +24,7 @@ def project_samples(
     site_id: str,
     country_code: str,
     default_source_id: str | None,
+    invalid_default_reference: bool,
     chronology_ids_by_source: Mapping[str, str],
 ) -> None:
     samples = native_rows(
@@ -91,6 +92,7 @@ def project_samples(
             site_id=site_id,
             country_code=country_code,
             default_source_id=default_source_id,
+            invalid_default_reference=invalid_default_reference,
             chronology_ids_by_source=chronology_ids_by_source,
         )
         project_observations(
@@ -115,6 +117,7 @@ def project_age_claims(
     site_id: str,
     country_code: str,
     default_source_id: str | None,
+    invalid_default_reference: bool,
     chronology_ids_by_source: Mapping[str, str],
 ) -> None:
     ages = native_rows(state, sample, "ages", entity_type="sample", parent_id=sample_id)
@@ -148,6 +151,9 @@ def project_age_claims(
             build_id=state.build_id,
             orphans=state.orphans,
         )
+        if invalid_default_reference:
+            age_record["is_default_chronology"] = None
+            age_record["chronology_reference_status"] = "invalid_source_reference"
         state.age_postures[str(age_record["comparability_status"])] += 1
         state.country_counts[country_code][
             f"age_{age_record['comparability_status']}"

@@ -6,6 +6,10 @@ from collections import defaultdict
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 
+from bijux_pollenomics.evidence.sources.neotoma.chronology import (
+    invalid_chronology_reference,
+)
+
 from .admission import canonical_claim_interval, chronology_reason
 from .identity import canonical, optional_text
 
@@ -66,6 +70,12 @@ def select_source_chronology(
             claim=None,
             selection_posture="refused_conflicting_claim_representation",
             refusal_reason="conflicting_source_chronology_claim",
+        )
+    if any(invalid_chronology_reference(claim) for claim in claims):
+        return SourceChronologySelection(
+            claim=None,
+            selection_posture="refused_invalid_source_chronology_reference",
+            refusal_reason="invalid_source_chronology_reference",
         )
     usable_defaults = tuple(
         claim
