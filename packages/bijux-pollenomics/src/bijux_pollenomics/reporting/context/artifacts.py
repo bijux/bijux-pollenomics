@@ -21,6 +21,7 @@ from ...collection.sources.raa.inventory import decode_source_object
 from ...core.geospatial.geojson import as_mapping
 from ..map_publication import map_allows_context_layer
 from .nordic_point_inputs import NordicPointInputs
+from .nordic_polygon_inputs import NordicPolygonInputs
 from .raa import (
     capture_raa_atlas_input_snapshot,
 )
@@ -115,10 +116,57 @@ def stage_context_polygon_layers(
     build_density_polygon_layer_fn: Callable[[dict[str, object]], dict[str, object]],
     build_external_polygon_layer_fn: Callable[..., dict[str, object]],
     native_registry_context: NativeRegistryContextSnapshot | None = None,
+    nordic_polygon_inputs: NordicPolygonInputs | None = None,
 ) -> tuple[list[dict[str, object]], list[tuple[str, str]]]:
     """Copy external polygon layers into the bundle and return rendered layer configs."""
     polygon_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
+    if nordic_polygon_inputs is not None and (
+        context_root is None
+        or scope_key != "nordic"
+        or Path(context_root).absolute() != nordic_polygon_inputs.context_root
+    ):
+        raise ValueError("Nordic polygon capture requires its bound Nordic context")
+
+    if context_root is None:
+        if native_registry_context is not None and map_allows_context_layer(
+            scope_key=scope_key, layer_key="raa-native-registry-cells"
+        ):
+            layer = build_native_registry_layer(native_registry_context)
+            extra_artifacts.extend(
+                publish_native_registry_context(
+                    native_registry_context, output_dir=output_dir
+                )
+            )
+            polygon_layers.append(layer)
+        return polygon_layers, extra_artifacts
+
+    if nordic_polygon_inputs is not None:
+        selected = (
+            ("country-boundaries", BOUNDARY_COLLECTION),
+            ("landclim-reveals-temporal-grid", LANDCLIM_TEMPORAL_GRID_GEOJSON),
+        )
+        prepared = []
+        for role, contract in selected:
+            if not map_allows_context_layer(scope_key=scope_key, layer_key=role):
+                raise ValueError("Nordic selected polygon layer is not allowed")
+            destination_path = output_dir / contract.filename
+            geojson = nordic_polygon_inputs.decode(role)
+            layer = (
+                build_country_boundary_layer_fn(geojson)
+                if role == "country-boundaries"
+                else build_external_polygon_layer_fn(
+                    geojson, source_path=destination_path
+                )
+            )
+            if layer.get("key") != role:
+                raise ValueError("Nordic captured polygon layer identity differs")
+            prepared.append((role, contract, layer))
+        for role, contract, layer in prepared:
+            destination_path = nordic_polygon_inputs.stage(role, output_dir)
+            polygon_layers.append(layer)
+            extra_artifacts.append((contract.label, destination_path.name))
+        nordic_polygon_inputs.validate_staged(output_dir)
 
     if native_registry_context is not None and map_allows_context_layer(
         scope_key=scope_key, layer_key="raa-native-registry-cells"
@@ -130,13 +178,14 @@ def stage_context_polygon_layers(
             )
         )
         polygon_layers.append(layer)
-    if context_root is None:
-        return polygon_layers, extra_artifacts
-
     boundary_path = BOUNDARY_COLLECTION.path_under(context_root)
-    if boundary_path.exists() and map_allows_context_layer(
-        scope_key=scope_key,
-        layer_key="country-boundaries",
+    if (
+        nordic_polygon_inputs is None
+        and boundary_path.exists()
+        and map_allows_context_layer(
+            scope_key=scope_key,
+            layer_key="country-boundaries",
+        )
     ):
         destination_path = stage_context_artifact(
             source_path=boundary_path, output_dir=output_dir
@@ -160,9 +209,13 @@ def stage_context_polygon_layers(
         if landclim_grid_contract is LANDCLIM_TEMPORAL_GRID_GEOJSON
         else "landclim-reveals-grid"
     )
-    if landclim_grid_path.exists() and map_allows_context_layer(
-        scope_key=scope_key,
-        layer_key=landclim_layer_key,
+    if (
+        nordic_polygon_inputs is None
+        and landclim_grid_path.exists()
+        and map_allows_context_layer(
+            scope_key=scope_key,
+            layer_key=landclim_layer_key,
+        )
     ):
         destination_path = stage_context_artifact(
             source_path=landclim_grid_path, output_dir=output_dir

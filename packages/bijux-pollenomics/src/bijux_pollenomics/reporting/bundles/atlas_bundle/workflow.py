@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any, TypedDict
 
 from ...context.nordic_point_inputs import NordicPointInputs
+from ...context.nordic_polygon_inputs import NordicPolygonInputs
 from ...map_document.evidence_projection import HistoricalChronologyRequest
 from ...map_document.source_resources import AtlasResourceCatalogueInput
 from ..sweden_lake_inputs import SwedenLakeInputs
@@ -21,6 +22,7 @@ class _OptionalInputs(TypedDict, total=False):
     historical_chronology: HistoricalChronologyRequest
     lake_inputs: SwedenLakeInputs
     nordic_point_inputs: NordicPointInputs
+    nordic_polygon_inputs: NordicPolygonInputs
 
 
 def publish_bundle(
@@ -54,6 +56,7 @@ def publish_bundle(
     historical_chronology: HistoricalChronologyRequest | None = None,
     lake_inputs: SwedenLakeInputs | None = None,
     nordic_point_inputs: NordicPointInputs | None = None,
+    nordic_polygon_inputs: NordicPolygonInputs | None = None,
 ) -> None:
     """Publish atlas layers, evidence, playback, and inventoried static documents."""
     optional_inputs: _OptionalInputs = {}
@@ -65,6 +68,8 @@ def publish_bundle(
         optional_inputs["lake_inputs"] = lake_inputs
     if nordic_point_inputs is not None:
         optional_inputs["nordic_point_inputs"] = nordic_point_inputs
+    if nordic_polygon_inputs is not None:
+        optional_inputs["nordic_polygon_inputs"] = nordic_polygon_inputs
     (
         bundle_paths,
         point_layers,
@@ -108,6 +113,7 @@ def publish_bundle(
         detail_projection_reconciliation=detail_projection_reconciliation,
         lake_inputs=lake_inputs,
         nordic_point_inputs=nordic_point_inputs,
+        nordic_polygon_inputs=nordic_polygon_inputs,
         static_assets=static_assets,
         animal_chronology_context=animal_chronology_context,
         extra_artifacts=extra_artifacts,
