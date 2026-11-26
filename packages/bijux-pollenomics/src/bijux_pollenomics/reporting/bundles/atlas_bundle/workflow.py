@@ -3,14 +3,20 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
 
+from ...map_document.evidence_projection import HistoricalChronologyRequest
 from ...map_document.source_resources import AtlasResourceCatalogueInput
 from .contracts import publish_contracts
 from .evidence import publish_evidence_and_rankings
 from .finalization import finalize_bundle
 from .layers import prepare_layers
 from .playback import publish_playback_storyboards
+
+
+class _OptionalInputs(TypedDict, total=False):
+    source_resource_catalogue: AtlasResourceCatalogueInput
+    historical_chronology: HistoricalChronologyRequest
 
 
 def publish_bundle(
@@ -41,8 +47,14 @@ def publish_bundle(
     surface: Any,
     publication_capture_root: Path | None = None,
     source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
+    historical_chronology: HistoricalChronologyRequest | None = None,
 ) -> None:
     """Publish atlas layers, evidence, playback, and inventoried static documents."""
+    optional_inputs: _OptionalInputs = {}
+    if source_resource_catalogue is not None:
+        optional_inputs["source_resource_catalogue"] = source_resource_catalogue
+    if historical_chronology is not None:
+        optional_inputs["historical_chronology"] = historical_chronology
     (
         bundle_paths,
         point_layers,
@@ -69,11 +81,7 @@ def publish_bundle(
         atlas_sequence_records=atlas_sequence_records,
         surface=surface,
         publication_capture_root=publication_capture_root,
-        **(
-            {"source_resource_catalogue": source_resource_catalogue}
-            if source_resource_catalogue is not None
-            else {}
-        ),
+        **optional_inputs,
     )
     animal_atlas_summary = surface._build_animal_atlas_summary(
         point_layers,

@@ -5,6 +5,11 @@ from __future__ import annotations
 from collections.abc import Mapping, MutableMapping, Sequence
 from pathlib import Path
 
+from bijux_pollenomics.evidence.sources.sead import (
+    SEAD_GOVERNED_ADMISSION_SHA256,
+    SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+    SEAD_GOVERNED_EVIDENCE_RUN_ID,
+)
 from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS
 
 from .constants import _NEOTOMA_LAYER_KEY, _SEAD_LAYER_KEYS, PROJECTION_SCHEMA_VERSION
@@ -14,6 +19,8 @@ from .neotoma import _project_neotoma
 from .neotoma_metadata.publications import attach_publication_capture
 from .records import _features, _is_unavailable, _tabs
 from .sead import _project_sead
+from .sead.chronology_overlay import HistoricalChronologyRequest
+from .sead.projection import project_sead
 
 
 def build_map_evidence_projection(
@@ -21,6 +28,7 @@ def build_map_evidence_projection(
     point_layers: Sequence[MutableMapping[str, object]],
     *,
     publication_capture_root: Path | None = None,
+    historical_chronology: HistoricalChronologyRequest | None = None,
 ) -> MapEvidenceProjection:
     """Bind governed source evidence to map features through stable record IDs.
 
@@ -70,8 +78,20 @@ def build_map_evidence_projection(
         selected_layers[key]
         for key in sorted(_SEAD_LAYER_KEYS & selected_layers.keys())
     ]
+    if historical_chronology is not None and not sead_layers:
+        raise ValueError("SEAD historical chronology requires SEAD map layers")
     if sead_layers:
-        sead_records, sead_accounting = _project_sead(root, sead_layers)
+        if historical_chronology is None:
+            sead_records, sead_accounting = _project_sead(root, sead_layers)
+        else:
+            sead_records, sead_accounting = project_sead(
+                root,
+                sead_layers,
+                expected_run_id=SEAD_GOVERNED_EVIDENCE_RUN_ID,
+                expected_manifest_sha256=SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+                expected_admission_sha256=SEAD_GOVERNED_ADMISSION_SHA256,
+                historical_chronology=historical_chronology,
+            )
         records.extend(sead_records)
         source_accounting["sead"] = sead_accounting
 

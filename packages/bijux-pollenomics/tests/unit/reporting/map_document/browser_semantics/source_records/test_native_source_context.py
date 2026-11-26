@@ -421,3 +421,18 @@ def test_multiple_valid_datasets_have_separate_contextual_provider_links(
     assert "for neotoma:dataset:201" in "".join(document.itertext())
     assert "for neotoma:dataset:202" in "".join(document.itertext())
     assert output["unchanged"]
+
+
+def test_sead_reader_accepts_explicit_derived_chronology_provenance(
+    sead_tabs: dict[str, Any],
+) -> None:
+    sead_tabs["provenance"]["derived_chronology"] = {
+        "schema_version": "sead-atlas-derived-chronology.v1",
+        "overlay_sha256": "a" * 64,
+        "source_locator_posture": "original evidence locator precedes the derived overlay",
+    }
+    output = observe(sead_tabs)
+    assert "derived chronology" in output["identity"]
+    assert "sead-atlas-derived-chronology.v1" in output["identity"]
+    assert "a" * 64 in output["identity"]
+    assert output["unchanged"]
