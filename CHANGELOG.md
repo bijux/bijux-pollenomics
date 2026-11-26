@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#534](https://github.com/bijux/bijux-pollenomics/pull/534) — Historical SEAD boundary custody
+
+Allow a SEAD refresh to bind and stage its historical country authority and record that identity in versioned lineage, while retaining legacy lineage readability. The separate current boundary review and downstream publication remain outside this historical-cohort capability.
+
 ### [#533](https://github.com/bijux/bijux-pollenomics/pull/533) — Indexed HYDE grid bounds
 
 Construct whole-cell bounds from declared grid indices so callers can select decimal-sized cells using the grid's exact computed edges. Arbitrary partial-cell bounds remain refused; no native source admission is implied.
