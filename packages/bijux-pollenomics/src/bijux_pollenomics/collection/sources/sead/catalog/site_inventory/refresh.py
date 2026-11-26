@@ -62,8 +62,8 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
             geochronology_row["time_end_bp"] = (
                 interval[1] if interval is not None else None
             )
-            if interval is not None and sead_interval_is_canonical(interval):
-                numeric_intervals.append(interval)
+            # Geochronology retains source-unit bounds but lacks an admitted
+            # calibration basis for the calendar-BP site envelope.
         for dendro_date_row in dendro_date_rows:
             interval = _dendro_date_interval(
                 dendro_date_row,

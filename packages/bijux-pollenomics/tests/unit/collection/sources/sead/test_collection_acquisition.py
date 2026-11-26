@@ -227,7 +227,9 @@ class SeadAcquisitionTests(unittest.TestCase):
         self.assertEqual(rows[0]["geochronology_count"], 1)
         self.assertEqual(rows[0]["dendro_date_count"], 1)
         self.assertEqual(rows[0]["time_start_bp"], 200)
-        self.assertEqual(rows[0]["time_end_bp"], 1250)
+        self.assertEqual(rows[0]["time_end_bp"], 800)
+        self.assertEqual(rows[0]["numeric_time_start_bp"], 200)
+        self.assertEqual(rows[0]["numeric_time_end_bp"], 800)
         temporal_summary = cast(dict[str, object], rows[0]["temporal_summary"])
         analysis_entity_age_rows = cast(
             list[dict[str, object]], rows[0]["analysis_entity_age_rows"]

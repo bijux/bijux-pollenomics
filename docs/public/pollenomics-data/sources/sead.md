@@ -87,6 +87,15 @@ rows at sites 4301, 4433, 5379 and 5527 contain derived point intervals, and
 their historical site spans may include those values. The checked-in site
 products have not been rebuilt with the revised reader. The separately typed
 geochronology claims remain context-only, with no comparable BP bounds.
+Geochronology ages and uncertainties retain their source values and legacy
+row-level `time_start_bp`/`time_end_bp` fields, but their calibration basis is
+unspecified. The site-inventory reader therefore excludes these rows from numeric
+calendar-BP site envelopes. The legacy row fields describe source-age context and
+do not establish calibrated BP bounds. The checked-in site products and prior scratch
+replays predate this reader correction and require a controlled rebuild and
+validation before publication. The separate record-level temporal discovery
+product and its context-only geochronology claims are not changed by this rule.
+
 For dendrochronology, inventory refresh applies the same `From` qualifier
 rule as the source-table projection: it retains the source row but does not add
 its one-sided date to the numeric site span. This reader correction does not

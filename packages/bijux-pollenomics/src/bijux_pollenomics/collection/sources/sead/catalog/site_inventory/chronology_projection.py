@@ -84,6 +84,8 @@ def project_site_chronology(
                 ),
             )
         )
+    # Geochronology age calibration is unspecified; its source-unit
+    # interval cannot establish a calendar-BP site envelope.
     for geochronology_row in source.geochronology_rows:
         analysis_entity_id = required_sead_identifier(
             geochronology_row.get("analysis_entity_id")
@@ -112,8 +114,6 @@ def project_site_chronology(
                 ),
             )
         )
-        if interval is not None and sead_interval_is_canonical(interval):
-            numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for dendro_date in source.dendro_dates:
         analysis_entity_id = required_sead_identifier(
             dendro_date.get("analysis_entity_id")
