@@ -63,6 +63,126 @@ def test_atomic_report_receipt_and_deterministic_membership(tmp_path: Path) -> N
     assert second.manifest_sha256 == first.manifest_sha256
 
 
+def test_legacy_child_policy_is_bound_to_verified_contract(tmp_path: Path) -> None:
+    product, checksum = joint_fixture(tmp_path / "fixture")
+    report = render_joint_lra_report(
+        product, expected_manifest_sha256=checksum, destination=tmp_path / "report"
+    )
+    summary = json.loads((report.directory / "joint-summary.json").read_bytes())
+    band = summary["bins"][0]
+    assert band["local_cover_policy"] == "source-raw"
+    for item in band["local_cover_policy_evidence"]:
+        source = report.directory / "product" / item["source_member"]
+        assert item["source_member_sha256"] == digest(source.read_bytes())
+        assert "analytical_cover_policy" not in json.loads(source.read_bytes())
+    with (report.directory / "means.csv").open(newline="") as stream:
+        means = list(csv.DictReader(stream))
+    assert {r["estimand"] for r in means if r["role"] == "local"} == {"love:source-raw"}
+    with (report.directory / "covariance.csv").open(newline="") as stream:
+        covariance = list(csv.DictReader(stream))
+    assert any(r["row_estimand"] == "love:source-raw" for r in covariance)
+    assert any(r["column_estimand"] == "reveals:regional-cover" for r in covariance)
+    assert "source-raw" in (report.directory / "index.html").read_text()
+
+
+def test_policy_binding_refuses_changed_contract_or_mixed_policies(
+    tmp_path: Path,
+) -> None:
+    from bijux_pollenomics.analysis.lra.uncertainty.contracts import canonical
+    from bijux_pollenomics.reporting.lra_products.joint.downloads import (
+        capture_joint_product,
+    )
+    from bijux_pollenomics.reporting.lra_products.joint.estimands import bind_estimands
+    from bijux_pollenomics.reporting.lra_products.joint.projection import (
+        project_joint_product,
+    )
+
+    product, checksum = joint_fixture(tmp_path / "fixture")
+    manifest, files = capture_joint_product(product, checksum)
+    plan = JointLRAPlan(files["plan.json"].decode()).payload()
+    path = manifest["rows"][0]["child"] + "/numerical/local_love/result_contract.json"
+    contract = json.loads(files[path])
+    contract["analytical_cover_policy"] = "clip-and-renormalize"
+    files[path] = canonical(contract)
+    projection = project_joint_product(manifest, plan, product_manifest_sha256=checksum)
+    with pytest.raises(ValueError, match="retained product identity"):
+        bind_estimands(projection, manifest, files)
+    manifest["files"][path] = digest(files[path])
+    with pytest.raises(ValueError, match="different LOVE cover policies"):
+        bind_estimands(projection, manifest, files)
+
+
+@requires_engine
+def test_all_failed_bin_has_unknown_actual_policy(tmp_path: Path, monkeypatch) -> None:
+    from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
+    from bijux_pollenomics.analysis.lra.uncertainty import workflow
+
+    source = tmp_path / "source"
+    _, plan = joint_source_fixture(source)
+
+    def refuse(*args, **kwargs):
+        raise LRARefusal("no_valid_local_rings", "generated refusal")
+
+    monkeypatch.setattr(workflow, "run_lra_request", refuse)
+    product = run_joint_lra_ensemble(
+        JointLRAPlan.from_dict(plan),
+        input_root=source,
+        destination=tmp_path / "product",
+    )
+    report = render_joint_lra_report(
+        product.directory,
+        expected_manifest_sha256=product.manifest_sha256,
+        destination=tmp_path / "report",
+    )
+    summary = json.loads((report.directory / "joint-summary.json").read_bytes())
+    band = summary["bins"][0]
+    assert band["local_cover_policy"] is None
+    assert band["local_cover_policy_evidence"] == []
+    assert band["mean"] is None and band["population_covariance"] is None
+
+
+@pytest.mark.parametrize("policy", ["source-raw", "clip-and-renormalize"])
+@requires_engine
+def test_actual_joint_report_labels_local_policy_and_values(
+    tmp_path: Path, policy: str
+) -> None:
+    from tests.unit.analysis.lra.uncertainty.test_contracts import update_base
+
+    source = tmp_path / "source"
+    base, plan = joint_source_fixture(source)
+    for sample in base["local"]["samples"]:
+        sample["counts"] = [0, 4]
+    base["configuration"]["love"]["analytical_cover_policy"] = policy
+    plan["realizations"] = plan["realizations"][:1]
+    atom = plan["realizations"][0]
+    atom["mass"] = {"numerator": 1, "denominator": 1}
+    for sample_id in ("local1", "local2"):
+        atom["counts_by_sample_id"][sample_id] = [0, 4]
+    update_base(source, base, plan)
+    product = run_joint_lra_ensemble(
+        JointLRAPlan.from_dict(plan),
+        input_root=source,
+        destination=tmp_path / "product",
+    )
+    report = render_joint_lra_report(
+        product.directory,
+        expected_manifest_sha256=product.manifest_sha256,
+        destination=tmp_path / "report",
+    )
+    summary = json.loads((report.directory / "joint-summary.json").read_bytes())
+    assert summary["bins"][0]["local_cover_policy"] == policy
+    values = summary["bins"][0]["mean"]
+    if policy == "source-raw":
+        assert values[2] < 0 and values[3] > 1
+    else:
+        assert values[2:] == [0, 1]
+    with (report.directory / "means.csv").open(newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    assert {row["estimand"] for row in rows if row["role"] == "local"} == {
+        f"love:{policy}"
+    }
+
+
 def test_existing_nested_and_ancestor_destinations_refuse(tmp_path: Path) -> None:
     product, checksum = joint_fixture(tmp_path / "fixture")
     destination = tmp_path / "report"

@@ -14,6 +14,7 @@ from bijux_pollenomics.reporting.lra_products.joint.downloads import (
     capture_joint_product,
     write_joint_downloads,
 )
+from bijux_pollenomics.reporting.lra_products.joint.estimands import bind_estimands
 from bijux_pollenomics.reporting.lra_products.joint.projection import (
     project_joint_product,
 )
@@ -29,6 +30,7 @@ def test_downloads_preserve_product_and_full_ordered_tables(tmp_path: Path) -> N
         JointLRAPlan(files["plan.json"].decode("utf-8")).payload(),
         product_manifest_sha256=checksum,
     )
+    bind_estimands(projection, manifest, files)
     stage = tmp_path / "downloads"
     stage.mkdir()
     write_joint_downloads(stage, files, projection)
@@ -66,6 +68,7 @@ def test_incomplete_downloads_keep_empty_moments_and_partitioned_mass(
         JointLRAPlan(files["plan.json"].decode("utf-8")).payload(),
         product_manifest_sha256=checksum,
     )
+    bind_estimands(projection, manifest, files)
     stage = tmp_path / "downloads"
     stage.mkdir()
     write_joint_downloads(stage, files, projection)
@@ -96,6 +99,7 @@ def test_csv_downloads_keep_source_labels_inert_and_reversible(
         JointLRAPlan(files["plan.json"].decode("utf-8")).payload(),
         product_manifest_sha256=checksum,
     )
+    bind_estimands(projection, manifest, files)
     stage = tmp_path / "downloads"
     stage.mkdir()
     write_joint_downloads(stage, files, projection)

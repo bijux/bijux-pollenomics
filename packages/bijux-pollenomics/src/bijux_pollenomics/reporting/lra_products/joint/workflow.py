@@ -19,6 +19,7 @@ from ..contracts import (
 )
 from .contracts import JointLRAPresentation, JointProductStatus
 from .downloads import capture_joint_product, generated_hashes, write_joint_downloads
+from .estimands import bind_estimands
 from .projection import project_joint_product
 from .rendering import render_report
 
@@ -77,6 +78,7 @@ def render_joint_lra_report(
             plan,
             product_manifest_sha256=expected_manifest_sha256,
         )
+        bind_estimands(projection, manifest, product)
         destination.parent.mkdir(parents=True, exist_ok=True)
         if destination.exists() or destination.is_symlink():
             raise FileExistsError(destination)
