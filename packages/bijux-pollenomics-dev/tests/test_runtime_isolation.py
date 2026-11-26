@@ -1218,7 +1218,13 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
     },
     "bijux_pollenomics_dev/source_completion/sead_relations/workflow.py": {
         "bijux_pollenomics.core.filesystem": frozenset(
-            {"BoundedInputTree", "DirectoryAnchor"}
+            {"BoundedInputTree", "DirectoryAnchor", "publish_owned_replacement"}
+        ),
+        "bijux_pollenomics.core.filesystem.callback_publication": frozenset(
+            {"publish_callback_tree"}
+        ),
+        "bijux_pollenomics.core.filesystem.replacement": frozenset(
+            {"ReplacementCandidate"}
         ),
         "bijux_pollenomics.collection.sources.sead.acquisition.governed": frozenset(
             {"governed_sead_expected_identity"}
@@ -1673,6 +1679,7 @@ def test_scientific_clients_have_only_their_named_public_facade_bindings() -> No
             "bijux_pollenomics.core.filesystem": {
                 "BoundedInputTree",
                 "DirectoryAnchor",
+                "publish_owned_replacement",
             },
         },
     }
@@ -1823,6 +1830,47 @@ def test_neotoma_chronology_uses_exact_evidence_and_quality_bindings() -> None:
         assert not host_import_violations(statement, owner)
         assert host_import_violations(
             statement, owner.replace("chronology_quality.py", "other.py")
+        )
+        assert host_import_violations(statement + ", unreviewed", owner)
+        assert host_import_violations(f"from {module} import *", owner)
+        assert host_import_violations(f"__import__({module!r})", owner)
+
+
+def test_sead_relations_publication_uses_only_its_callback_contract() -> None:
+    owner = "bijux_pollenomics_dev/source_completion/sead_relations/workflow.py"
+    expected = {
+        "bijux_pollenomics.core.filesystem.callback_publication": {
+            "publish_callback_tree"
+        },
+        "bijux_pollenomics.core.filesystem.replacement": {"ReplacementCandidate"},
+    }
+    callback_path = (
+        REPO_ROOT
+        / "packages/bijux-pollenomics/src/bijux_pollenomics/core/filesystem/callback_publication.py"
+    )
+    callback_tree = ast.parse(callback_path.read_text(encoding="utf-8"))
+    exports = next(
+        ast.literal_eval(node.value)
+        for node in callback_tree.body
+        if isinstance(node, ast.Assign)
+        and any(
+            isinstance(target, ast.Name) and target.id == "__all__"
+            for target in node.targets
+        )
+    )
+    assert "publish_callback_tree" in exports
+    source = (DEV_SRC / owner).read_text(encoding="utf-8")
+    imports = {
+        node.module: {alias.name for alias in node.names}
+        for node in ast.walk(ast.parse(source))
+        if isinstance(node, ast.ImportFrom) and node.module in expected
+    }
+    assert imports == expected
+    for module, names in expected.items():
+        statement = f"from {module} import {', '.join(sorted(names))}"
+        assert not host_import_violations(statement, owner)
+        assert host_import_violations(
+            statement, owner.replace("workflow.py", "other.py")
         )
         assert host_import_violations(statement + ", unreviewed", owner)
         assert host_import_violations(f"from {module} import *", owner)
