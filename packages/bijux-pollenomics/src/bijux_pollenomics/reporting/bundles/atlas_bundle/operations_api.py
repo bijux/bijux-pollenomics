@@ -46,6 +46,7 @@ class _OptionalInputs(TypedDict, total=False):
     nordic_polygon_inputs: NordicPolygonInputs
     animal_point_inputs: AnimalPointInputs
     animal_chronology_inputs: AnimalChronologyInputs
+    neotoma_manifest_sha256: str
     aadr_map_snapshot: AadrMapSnapshot
 
 
@@ -89,6 +90,7 @@ def publish_multi_country_map_bundle(
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
+    neotoma_manifest_sha256: str | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
@@ -107,6 +109,8 @@ def publish_multi_country_map_bundle(
         optional_inputs["animal_point_inputs"] = animal_point_inputs
     if animal_chronology_inputs is not None:
         optional_inputs["animal_chronology_inputs"] = animal_chronology_inputs
+    if neotoma_manifest_sha256 is not None:
+        optional_inputs["neotoma_manifest_sha256"] = neotoma_manifest_sha256
     if aadr_map_snapshot is not None:
         optional_inputs["aadr_map_snapshot"] = aadr_map_snapshot
     publish_bundle(

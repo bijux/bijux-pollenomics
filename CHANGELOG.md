@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#568](https://github.com/bijux/bijux-pollenomics/pull/568) — Neotoma Atlas site binding
+
+Offer an explicit binding between held Nordic map points and the pinned Neotoma relational site identities, representative coordinates, names and governed countries. This does not establish new geographic or scientific admission.
+
 ### [#567](https://github.com/bijux/bijux-pollenomics/pull/567) — Captured animal chronology inputs
 
 Offer an explicit registry-presence decision and captured project chronology inputs for Atlas generation. Capture is sequential and does not establish complete Atlas closure or scientific admission.
