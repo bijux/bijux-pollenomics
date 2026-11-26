@@ -28,6 +28,7 @@ from .raa import (
     RAA_ATLAS_INPUT_STATUS_LABEL,
     RAA_CONTEXT_RELATIVE_DIRECTORY,
     RaaAtlasInputSnapshot,
+    validate_pinned_raa_snapshot,
 )
 
 _MANIFEST = "publication_manifest.json"
@@ -77,7 +78,12 @@ def _buffers(snapshot: RaaAtlasInputSnapshot) -> dict[str, bytes]:
     return result
 
 
-def _validate_output(root: Path, expected: Mapping[str, bytes] | None = None) -> None:
+def _validate_output(
+    root: Path,
+    expected: Mapping[str, bytes] | None = None,
+    *,
+    expected_status_sha256: str | None = None,
+) -> None:
     with BoundedInputTree(
         root, max_bytes=_TREE_MAX_BYTES, max_files=4, member_limits=_LIMITS
     ) as tree:
@@ -120,12 +126,30 @@ def _validate_output(root: Path, expected: Mapping[str, bytes] | None = None) ->
         status = decode_source_object(
             buffers[RAA_ATLAS_INPUT_STATUS_FILENAME].decode("utf-8")
         )
+        status_inputs = status.get("inputs")
+        manifest_inputs = manifest.get("inputs")
         if (
             status.get("schema_version") != "raa-atlas-input-status.v1"
             or status.get("source_family") != "raa"
-            or status.get("inputs") != manifest["inputs"]
+            or not isinstance(status_inputs, dict)
+            or not isinstance(manifest_inputs, dict)
+            or semantic_payload_sha256(status_inputs)
+            != semantic_payload_sha256(manifest_inputs)
         ):
             raise ValueError("RAÄ prior publication status is unrecognized")
+        if expected_status_sha256 is not None:
+            geometry = status.get("geometry_publication")
+            enabled = (
+                isinstance(geometry, dict) and geometry.get("default_enabled") is True
+            )
+            if bool(set(buffers).intersection(normalized)) != enabled:
+                raise ValueError("RAÄ staged geometry does not match status")
+            snapshot = RaaAtlasInputSnapshot(
+                buffers[RAA_ATLAS_INPUT_STATUS_FILENAME],
+                buffers.get(RAA_LAYER_METADATA.filename),
+                buffers.get(RAA_DENSITY_GEOJSON.filename),
+            )
+            validate_pinned_raa_snapshot(snapshot, expected_status_sha256)
         if expected is not None and (
             set(buffers) != set(expected)
             or any(raw != expected[name] for name, raw in buffers.items())
@@ -308,3 +332,13 @@ def stage_raa_publication(
                 error, lambda: f"RAÄ retained operation receipt: {receipt_path}"
             )
             raise
+
+
+def validate_pinned_raa_publication(
+    output_dir: Path, expected_status_sha256: str
+) -> None:
+    """Validate the closed staged RAÄ subtree against its selected status."""
+    _validate_output(
+        Path(output_dir) / RAA_CONTEXT_RELATIVE_DIRECTORY,
+        expected_status_sha256=expected_status_sha256,
+    )

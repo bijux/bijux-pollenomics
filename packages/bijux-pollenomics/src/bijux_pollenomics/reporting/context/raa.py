@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from hashlib import sha256
 import json
 from pathlib import Path
+import re
 
 from ...collection.sources.raa.authority import (
     RaaDensityAuthorityDecision,
@@ -55,8 +56,15 @@ def build_raa_atlas_input_status(context_root: Path) -> dict[str, object]:
     return capture_raa_atlas_input_snapshot(context_root).status()
 
 
-def capture_raa_atlas_input_snapshot(context_root: Path) -> RaaAtlasInputSnapshot:
+def capture_raa_atlas_input_snapshot(
+    context_root: Path, *, expected_status_sha256: str | None = None
+) -> RaaAtlasInputSnapshot:
     """Capture authority payloads or a separate bounded historical display pair."""
+    if expected_status_sha256 is not None and (
+        not isinstance(expected_status_sha256, str)
+        or re.fullmatch(r"[0-9a-f]{64}", expected_status_sha256) is None
+    ):
+        raise ValueError("RAÄ status digest pin differs")
     context_root = Path(context_root).absolute()
     captured = capture_raa_authority_snapshot(context_root)
     authority = captured.decision
@@ -78,11 +86,17 @@ def capture_raa_atlas_input_snapshot(context_root: Path) -> RaaAtlasInputSnapsho
         for name, relative in _AUTHORITY_INPUTS.items()
     }
     status = _build_status(authority, inputs, metadata_bytes, density_bytes)
-    return RaaAtlasInputSnapshot(
+    snapshot = RaaAtlasInputSnapshot(
         json.dumps(status, indent=2, ensure_ascii=False).encode("utf-8"),
         metadata_bytes,
         density_bytes,
     )
+    if (
+        expected_status_sha256 is not None
+        and sha256(snapshot.status_bytes).hexdigest() != expected_status_sha256
+    ):
+        raise ValueError("RAÄ status digest differs")
+    return snapshot
 
 
 def _capture_normalized_pair(
@@ -338,3 +352,36 @@ __all__ = [
     "build_raa_atlas_input_status",
     "capture_raa_atlas_input_snapshot",
 ]
+
+
+def validate_pinned_raa_snapshot(
+    snapshot: RaaAtlasInputSnapshot, expected_sha256: str
+) -> None:
+    """Check the selected status and every held normalized buffer it identifies."""
+    if (
+        type(snapshot) is not RaaAtlasInputSnapshot
+        or not isinstance(expected_sha256, str)
+        or re.fullmatch(r"[0-9a-f]{64}", expected_sha256) is None
+        or sha256(snapshot.status_bytes).hexdigest() != expected_sha256
+    ):
+        raise ValueError("RAÄ status digest differs")
+    status = snapshot.status()
+    inputs = as_mapping(status.get("inputs"))
+    geometry = as_mapping(status.get("geometry_publication"))
+    if inputs is None or geometry is None:
+        raise ValueError("RAÄ captured status is invalid")
+    for role, raw in [
+        ("normalized_metadata", snapshot.metadata_bytes),
+        ("normalized_density", snapshot.density_bytes),
+    ]:
+        record = as_mapping(inputs.get(role))
+        if record is None:
+            raise ValueError("RAÄ captured input record differs")
+        if raw is not None and (
+            record.get("receipt_status") != "captured_bytes"
+            or record.get("sha256") != sha256(raw).hexdigest()
+            or record.get("byte_count") != len(raw)
+        ):
+            raise ValueError("RAÄ captured buffer digest differs")
+        if geometry.get("default_enabled") is True and raw is None:
+            raise ValueError("RAÄ captured buffer is missing")
