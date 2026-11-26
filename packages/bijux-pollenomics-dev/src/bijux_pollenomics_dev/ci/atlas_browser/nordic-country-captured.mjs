@@ -91,13 +91,12 @@ try {
         const table=sourceDetails.get(record.record_id).tabs.chronology;
         if(table.records) {
           const expected=decodedChronology(table),actual=[];
-          const headings=await evaluate("[...document.querySelectorAll('#focus-detail .focus-detail-table thead th')].map(cell=>cell.textContent)");
-          assert.deepEqual(headings,Object.keys(expected[0]).map(field=>field.replaceAll('_',' ')));
           while(true) {
-            actual.push(...await evaluate("[...document.querySelectorAll('#focus-detail .focus-detail-table tbody tr')].map(row=>[...row.cells].map(cell=>cell.textContent))"));
-            const next=await evaluate("document.querySelector('#focus-detail [data-page-direction=next]')?.disabled === false");
-            if(!next)break;
-            await evaluate("document.querySelector('#focus-detail [data-page-direction=next]').click()");
+            const page=await evaluate(`(${chronologyClaimPage})()`);
+            assert.deepEqual(page.headings,Object.keys(expected[0]).map(field=>field.replaceAll('_',' ')));
+            actual.push(...page.rows);
+            if(!page.hasNext)break;
+            await evaluate(`(${chronologyClaimPage})(true)`);
           }
           assert.deepEqual(actual,expected.map(row=>Object.values(row).map(displayText)),'chronology cells must equal all retained source claims');
           const statuses={};for(const row of expected){const key=JSON.stringify([row.calibration_status,row.comparability_status,row.chronology_eligibility??null]);statuses[key]=(statuses[key]||0)+1;}
@@ -144,6 +143,19 @@ finally {
   await rm(join(output,'browser-profile'),{recursive:true,force:true});
 }
 
+function chronologyClaimPage(clickNext = false) {
+  const buttons=document.querySelectorAll('#focus-detail [data-detail-table-page="chronology"][data-page-direction="next"]');
+  if(buttons.length!==1)throw Error('chronology claim pagination identity differs');
+  const next=buttons[0];
+  const table=next.closest('.focus-detail-table-meta')?.nextElementSibling?.querySelector('table.focus-detail-table');
+  if(!table)throw Error('chronology claim table is unavailable');
+  if(clickNext) {if(next.disabled)throw Error('chronology claim next page unavailable');next.click();}
+  return {
+    headings:[...table.querySelectorAll('thead th')].map(cell=>cell.textContent),
+    rows:[...table.querySelectorAll('tbody tr')].map(row=>[...row.cells].map(cell=>cell.textContent)),
+    hasNext:!next.disabled,
+  };
+}
 function displayText(value){if(value===null)return 'null (source null)';if(value===undefined||value==='')return 'Unavailable';return typeof value==='object'?JSON.stringify(value):String(value);}
 function decodedChronology(table) {
   return table.records.map(encoded=>{
