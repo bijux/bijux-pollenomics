@@ -11,6 +11,10 @@ import pytest
 from bijux_pollenomics.collection.sources.neotoma.chronology.quality import (
     assess_neotoma_chronology_quality,
 )
+from bijux_pollenomics.collection.sources.neotoma.relational import (
+    build_neotoma_relational_snapshot,
+)
+from tests.support.neotoma import download_row
 
 
 def source() -> dict[str, list[dict[str, Any]]]:
@@ -145,6 +149,193 @@ def test_chronology_alternatives_remain_separate_profiles() -> None:
     assert by_model["model:other"]["point_age_order_status"] == "ordered_source_points"
     assert by_model["model:other"]["maximum_positive_adjacent_point_age_gap_bp"] == 100
     assert by_model["model:one"]["point_age_order_status"] == "source_point_reversal"
+
+
+def test_generated_model_conflict_cannot_select_one_reliable_bound() -> None:
+    source_row = download_row(201)
+    chronologies = source_row["site"]["collectionunit"]["chronologies"]
+    first = chronologies[0]
+    first["chronology"]["chronology"]["agerange"] = {
+        "ageboundyounger": 0,
+        "ageboundolder": 1000,
+    }
+    second = deepcopy(first)
+    second["chronology"]["chronology"]["agerange"] = {
+        "ageboundyounger": 1150,
+        "ageboundolder": 1250,
+    }
+    chronologies.insert(1, second)
+    outputs = []
+    for reverse in (False, True):
+        candidate = deepcopy(source_row)
+        models = candidate["site"]["collectionunit"]["chronologies"]
+        if reverse:
+            models[:2] = models[1::-1]
+        snapshot = build_neotoma_relational_snapshot(
+            [candidate], source_snapshot_id="sha256:fixture", build_id="fixture"
+        )
+        assert (
+            sum(
+                c["conflict_kind"] == "chronology_payload_conflict"
+                for c in snapshot["conflicts"]
+            )
+            == 1
+        )
+        quality = assess_neotoma_chronology_quality(
+            **{
+                name: snapshot[name]
+                for name in (
+                    "samples",
+                    "age_claims",
+                    "chronologies",
+                    "chronology_controls",
+                    "conflicts",
+                )
+            }
+        )
+        profile = next(
+            p for p in quality["profiles"] if p["chronology_id"].endswith(":7001")
+        )
+        assert (
+            profile["reliable_age_bounds_status"]
+            == "unavailable_conflicting_source_reliable_age_bounds"
+        )
+        assert profile["point_claim_ids_outside_reliable_age_bounds"] == []
+        assert quality["source_profile"]["eligibility_changed"] is False
+        unconflicted = assess_neotoma_chronology_quality(
+            **{
+                name: snapshot[name]
+                for name in (
+                    "samples",
+                    "age_claims",
+                    "chronologies",
+                    "chronology_controls",
+                )
+            },
+            conflicts=[
+                row
+                for row in snapshot["conflicts"]
+                if row["conflict_kind"] != "chronology_payload_conflict"
+            ],
+        )
+        assert next(
+            p for p in quality["profiles"] if p["chronology_id"].endswith(":7002")
+        ) == next(
+            p for p in unconflicted["profiles"] if p["chronology_id"].endswith(":7002")
+        )
+        outputs.append(profile)
+    assert outputs[0] == outputs[1]
+
+
+@pytest.mark.parametrize(
+    "change",
+    [
+        "benign",
+        "bounds",
+        "missing_bounds",
+        "reversed_bounds",
+        "basis",
+        "owner",
+        "malformed",
+        "incomplete",
+    ],
+)
+def test_model_conflicts_affect_only_supported_quality_fields(change: str) -> None:
+    data = source()
+    baseline = assess_neotoma_chronology_quality(**data)["profiles"][0]
+    model = data["chronologies"][0]
+    other = deepcopy(model)
+    if change == "benign":
+        other["source_payload"]["chronology"]["chronologyname"] = "alternate note"
+    elif change == "bounds":
+        other["source_payload"]["chronology"]["agerange"] = {
+            "ageboundyounger": 0,
+            "ageboundolder": 1000,
+        }
+    elif change == "missing_bounds":
+        other["source_payload"]["chronology"].pop("agerange")
+    elif change == "reversed_bounds":
+        other["source_payload"]["chronology"]["agerange"] = {
+            "ageboundyounger": 450,
+            "ageboundolder": 150,
+        }
+    elif change == "basis":
+        other["source_payload"]["chronology"]["modelagetype"] = "Radiocarbon years BP"
+    elif change == "owner":
+        other["collection_unit_id"] = "core:foreign"
+    variants = [model, other]
+    if change == "malformed":
+        variants = [model, None]
+    elif change == "incomplete":
+        variants = [model]
+    data["conflicts"] = [
+        {
+            "conflict_kind": "chronology_payload_conflict",
+            "subject_id": "model:one",
+            "detail": {"variants": variants},
+        }
+    ]
+    profile = assess_neotoma_chronology_quality(**data)["profiles"][0]
+    if change == "benign":
+        assert profile == baseline
+    elif change in {"bounds", "missing_bounds", "reversed_bounds"}:
+        assert (
+            profile["reliable_age_bounds_status"]
+            == "unavailable_conflicting_source_reliable_age_bounds"
+        )
+        assert profile["point_claim_ids_outside_reliable_age_bounds"] == []
+        assert profile["point_age_order_status"] == baseline["point_age_order_status"]
+        assert profile["control_envelope_status"] == baseline["control_envelope_status"]
+    else:
+        assert (
+            profile["reliable_age_bounds_status"]
+            != "source_declared_reliable_age_bounds"
+        )
+        assert (
+            profile["point_age_order_status"] == "unavailable_source_chronology_model"
+        )
+        assert (
+            profile["control_envelope_status"] == "unavailable_source_chronology_model"
+        )
+        assert profile["point_claim_ids_outside_reliable_age_bounds"] == []
+
+
+def test_model_conflict_with_agreeing_missing_bounds_stays_missing() -> None:
+    data = source()
+    model = data["chronologies"][0]
+    model["source_payload"]["chronology"].pop("agerange")
+    other = deepcopy(model)
+    other["source_payload"]["chronology"]["chronologyname"] = "another name"
+    data["conflicts"] = [
+        {
+            "conflict_kind": "chronology_payload_conflict",
+            "subject_id": "model:one",
+            "detail": {"variants": [model, other]},
+        }
+    ]
+    profile = assess_neotoma_chronology_quality(**data)["profiles"][0]
+    assert (
+        profile["reliable_age_bounds_status"]
+        == "unavailable_source_reliable_age_bounds"
+    )
+    assert "conflicting_source_reliable_age_bounds" not in profile["flags"]
+
+
+def test_benign_conflict_does_not_invent_an_age_basis_disagreement() -> None:
+    data = source()
+    model = data["chronologies"][0]
+    model["source_payload"]["chronology"]["modelagetype"] = "Radiocarbon years BP"
+    baseline = assess_neotoma_chronology_quality(**data)["profiles"][0]
+    other = deepcopy(model)
+    other["source_payload"]["chronology"]["chronologyname"] = "another name"
+    data["conflicts"] = [
+        {
+            "conflict_kind": "chronology_payload_conflict",
+            "subject_id": "model:one",
+            "detail": {"variants": [model, other]},
+        }
+    ]
+    assert assess_neotoma_chronology_quality(**data)["profiles"][0] == baseline
 
 
 @pytest.mark.parametrize(

@@ -379,6 +379,12 @@ Units and interval semantics also matter. A numeric label is not accepted for
 comparison merely because it contains “BP”; the review posture records whether
 the value is compatible with repository temporal rules.
 
+Chronology-quality diagnostics compare retained variants of a conflicting model
+before relying on its owner, age basis, or reliable age bounds. Conflicting
+bounds make that bounds comparison unavailable; differences in unrelated
+metadata do not by themselves invalidate it. These diagnostics describe source
+support and do not change scientific eligibility.
+
 The [sample-level first-observed readiness screen](../../../report/propagation/source-first-observed/README.md)
 checked complete native records and source exports for sites 12 and 3009. Its
 128 source variables were each assessed under two named chronology profiles:

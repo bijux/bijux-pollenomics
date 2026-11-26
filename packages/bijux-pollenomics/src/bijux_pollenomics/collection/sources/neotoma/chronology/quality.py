@@ -175,14 +175,24 @@ def assess_neotoma_chronology_quality(
     for control in chronology_controls:
         control_groups[control["chronology_id"]].append(control)
     conflict_index: dict[str, Row] = {}
+    model_conflicts: dict[str, Row] = {}
     for conflict in conflicts:
-        if conflict.get("conflict_kind") == "chronology_control_payload_conflict":
+        kind = conflict.get("conflict_kind")
+        if kind in {
+            "chronology_control_payload_conflict",
+            "chronology_payload_conflict",
+        }:
             subject = conflict.get("subject_id")
             if not isinstance(subject, str):
-                raise ValueError("Neotoma control conflict subject must be named")
-            if subject in conflict_index:
-                raise ValueError("Duplicate Neotoma control conflict subject")
-            conflict_index[subject] = conflict
+                raise ValueError("Neotoma chronology conflict subject must be named")
+            index = (
+                conflict_index
+                if kind == "chronology_control_payload_conflict"
+                else model_conflicts
+            )
+            if subject in index:
+                raise ValueError("Duplicate Neotoma chronology conflict subject")
+            index[subject] = conflict
     groups: dict[tuple[Any, ...], list[tuple[Row, Row]]] = defaultdict(list)
     sample_flags: dict[str, set[str]] = {
         identity: {"explicit_depth_unit_contradiction"}
@@ -233,6 +243,56 @@ def assess_neotoma_chronology_quality(
             and first.get("source_age_unit") == "year"
             and metadata.get("modelagetype") == first.get("source_age_type")
         )
+        conflicting_bounds = False
+        conflict = model_conflicts.get(model_id) if isinstance(model_id, str) else None
+        if conflict is not None:
+            detail = conflict.get("detail")
+            variants = detail.get("variants") if isinstance(detail, Mapping) else None
+            if not isinstance(variants, list) or len(variants) < 2:
+                variants = [None]
+            source_range = metadata.get("agerange")
+            source_range = source_range if isinstance(source_range, Mapping) else {}
+            baseline_bounds = (
+                _number(
+                    source_range.get("ageboundyounger"), "source_reliable_age_bound"
+                ),
+                _number(source_range.get("ageboundolder"), "source_reliable_age_bound"),
+            )
+            for variant in variants:
+                if (
+                    not isinstance(variant, Mapping)
+                    or variant.get("chronology_id") != model_id
+                    or not _owned(variant, owner)
+                ):
+                    model_valid = False
+                    flags.add("conflicting_chronology_model_ownership")
+                    continue
+                payload = variant.get("source_payload")
+                variant_metadata = (
+                    payload.get("chronology") if isinstance(payload, Mapping) else None
+                )
+                if not isinstance(variant_metadata, Mapping):
+                    model_valid = False
+                    flags.add("conflicting_chronology_model_metadata")
+                    continue
+                if variant_metadata.get("modelagetype") != metadata.get("modelagetype"):
+                    basis_matches = False
+                    flags.add("conflicting_chronology_model_age_basis")
+                variant_range = variant_metadata.get("agerange")
+                variant_range = (
+                    variant_range if isinstance(variant_range, Mapping) else {}
+                )
+                variant_bounds = (
+                    _number(
+                        variant_range.get("ageboundyounger"),
+                        "source_reliable_age_bound",
+                    ),
+                    _number(
+                        variant_range.get("ageboundolder"), "source_reliable_age_bound"
+                    ),
+                )
+                if variant_bounds != baseline_bounds:
+                    conflicting_bounds = True
         if model_valid and not basis_matches:
             flags.add("model_age_basis_mismatch")
         source_bounds = metadata.get("agerange")
@@ -247,6 +307,9 @@ def assess_neotoma_chronology_quality(
             bound_status = "unavailable_source_chronology_model"
         elif not basis_matches:
             bound_status = "unavailable_model_age_basis_mismatch"
+        elif conflicting_bounds:
+            bound_status = "unavailable_conflicting_source_reliable_age_bounds"
+            flags.add("conflicting_source_reliable_age_bounds")
         elif younger_reason or older_reason:
             bound_status = "unavailable_source_reliable_age_bounds"
             flags.update(reason for reason in (younger_reason, older_reason) if reason)
