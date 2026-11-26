@@ -11,6 +11,12 @@ last_reviewed: 2026-11-17
 
 ## Unresolved source context API
 
+The site-inventory API reader requires filtered query projections to be `*` or
+comma-separated literal field names without spaces. Unfiltered `all_rows`
+passes spaced field lists through; filtered `rows_by_ids` refuses that spelling
+before making a request. This restriction keeps the internally requested filter
+owner unambiguous and does not establish provider support for spaced fields.
+
 The separately named
 `bijux_pollenomics.collection.sources.sead.acquisition.context` API can prepare a
 private source-context packet for one or two explicitly selected native site IDs
@@ -72,6 +78,28 @@ Nordic Atlas, then return to the normalized temporal-evidence and site-inventory
 products when auditing its source. The discovery surface keeps every Swedish
 site, preserves each eligible linked interval, and represents missing numeric
 chronology explicitly rather than as a static or timeless point.
+
+The site-inventory reader preserves a radiometric `>` qualifier as a one-sided
+source age and does not turn it into a closed numeric interval. This does not
+interpret possible source pairs or admit the date for comparison. The retained
+historical inventory predates this reader behavior: its 11 `>` geochronology
+rows at sites 4301, 4433, 5379 and 5527 contain derived point intervals, and
+their historical site spans may include those values. The checked-in site
+products have not been rebuilt with the revised reader. The separately typed
+geochronology claims remain context-only, with no comparable BP bounds.
+For dendrochronology, inventory refresh applies the same `From` qualifier
+rule as the source-table projection: it retains the source row but does not add
+its one-sided date to the numeric site span. This reader correction does not
+rebuild the historical site products or establish a newly measured date.
+
+Analysis-entity ages retain their source age fields, range, chronology reference
+and record count, but the site-inventory reader does not assign them a BP basis
+or include them in numeric site spans. The checked-in historical site products
+predate this correction and may display these source values as BP coverage;
+for example, sites 4465, 4645 and 4999 have such historical labels. Their
+typed analysis-age claims remain unresolved. The optional site-inventory layer
+is spatial context, excluded from time-matched counts; this reader change does
+not rebuild that layer or change the record-level temporal discovery product.
 
 ## Current Evidence State
 

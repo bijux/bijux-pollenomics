@@ -10,6 +10,9 @@ import pytest
 from bijux_pollenomics.collection.sources.sead import (
     populate_sead_site_inventory_fields,
 )
+from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.refresh import (
+    refresh_sead_repository_rows,
+)
 from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.service import (
     populate_sead_site_inventory_from_reader,
 )
@@ -124,3 +127,30 @@ def test_missing_dates_stay_unavailable_with_source_record_retained(
     assert site["numeric_time_end_bp"] is None
     assert site["time_start_bp"] is None and site["time_end_bp"] is None
     assert summary["numeric_interval_row_count"] == 0
+
+
+@pytest.mark.parametrize("label", ["From", "from", None, "?", "Ca."])
+def test_refresh_preserves_dendro_site_admission_posture(label: str | None) -> None:
+    site, _ = enrich(source_tables(label, dated=True), "mapping")
+    row = deepcopy(site["dendro_date_rows"][0])
+    expected = (None, None) if label in {"From", "from"} else (196, 196)
+    assert (site["numeric_time_start_bp"], site["numeric_time_end_bp"]) == expected
+    refresh_sead_repository_rows([site])
+    assert (site["numeric_time_start_bp"], site["numeric_time_end_bp"]) == expected
+    assert site["dendro_date_rows"][0] == row
+
+
+def test_refresh_retains_other_finite_dendro_interval() -> None:
+    tables = source_tables("From", dated=True)
+    finite = deepcopy(tables["tbl_dendro_dates"][0])
+    finite.update(dendro_date_id=98, age_older=1700, dating_uncertainty_id=None)
+    tables["tbl_dendro_dates"].append(finite)
+    sites = deepcopy(tables["tbl_sites"])
+    populate_sead_site_inventory_from_reader(
+        sites, reader=MappingSeadTableReader(tables)
+    )
+    site = sites[0]
+    assert site["dendro_date_count"] == 2
+    assert (site["numeric_time_start_bp"], site["numeric_time_end_bp"]) == (250, 250)
+    refresh_sead_repository_rows(sites)
+    assert (site["numeric_time_start_bp"], site["numeric_time_end_bp"]) == (250, 250)

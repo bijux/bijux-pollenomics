@@ -201,6 +201,7 @@ def test_explicit_native_owner_and_wildcard_preserve_source_spelling(
 @pytest.mark.parametrize(
     "projection,field",
     [
+        (" dataset_id , site_id ", "site_id"),
         ("dataset_id,", "site_id"),
         ("owner:site_id", "site_id"),
         ("dataset_id", "site_id,foreign"),
@@ -210,6 +211,7 @@ def test_explicit_native_owner_and_wildcard_preserve_source_spelling(
 def test_nonliteral_verification_projection_refuses_before_callback(
     projection: str, field: str
 ) -> None:
+    """Filtered queries require unspaced literal fields, including explicit owners."""
     calls = []
 
     def fetch(_url: str, **kwargs: Any) -> object:

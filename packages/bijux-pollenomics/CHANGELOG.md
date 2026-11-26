@@ -15,10 +15,16 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Retain SEAD analysis-entity ages without assigning an unqualified BP basis or
+  including them in numeric site spans.
 - Account for conflicting chronology model ownership, age basis and reliable
   bounds in Neotoma quality diagnostics without changing scientific eligibility.
 - Describe LandClim cereal and rye values as reconstructed vegetation cover
   while retaining the existing synthesis field names.
+- Keep open-ended SEAD dendrochronology dates out of refreshed numeric site
+  spans, consistent with source-table projection.
+- Keep SEAD radiometric `>` ages as one-sided source context when building or
+  refreshing site inventories, without synthesizing closed point intervals.
 - Preserve distinct JSON scalar representations in repeated Neotoma native
   records and canonicalize their conflict diagnostics independently of arrival order.
 - Retain failed probability mass when LOVE cover normalization refuses a

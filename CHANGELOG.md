@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#531](https://github.com/bijux/bijux-pollenomics/pull/531) — SEAD site chronology bounds
+
+Keep open-ended radiometric and dendrochronology records and unspecified-basis analysis ages from creating closed BP site spans, while preserving their source fields and independently supported ranges. Align ownership test fixtures with filtered query contracts. Historical source-derived site products remain unchanged and require a controlled rebuild.
+
 ### [#530](https://github.com/bijux/bijux-pollenomics/pull/530) — LandClim cereal cover interpretation
 
 Describe the selected LandClim II cereal and rye values as pollen-based reconstructed vegetation percentage cover, preserving v2 field names and values. Historical outputs and receipts remain unchanged; an isolated replay also showed unrelated human-aDNA count differences.
