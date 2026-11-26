@@ -18,6 +18,7 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Reconcile retained Nordic chronology layers separately from later charcoal context.
 - Expose the source-owned Neotoma JSON comparison for Atlas metadata joins ([#547](https://github.com/bijux/bijux-pollenomics/pull/547)).
 - Use the supported strict Neotoma decoder for Atlas archive metadata.
 - Bind optional Nordic point layers to four caller-pinned source buffers ([#544](https://github.com/bijux/bijux-pollenomics/pull/544)).
