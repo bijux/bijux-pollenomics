@@ -28,6 +28,18 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"contracts", "metric_families"}
         ),
     },
+    # The source report validates evidence and records the complete host identity.
+    "bijux_pollenomics_dev/source_completion/neotoma/chronology_quality.py": {
+        "bijux_pollenomics.analysis.lra.materialization.models": frozenset(
+            {"canonical_bytes", "producer_identity"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.reading": frozenset(
+            {"NeotomaEvidence", "json_object", "read_neotoma_evidence"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.chronology.quality": frozenset(
+            {"assess_neotoma_chronology_quality"}
+        ),
+    },
     "bijux_pollenomics_dev/source_completion/neotoma/exhult_cells.py": {
         "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
             {"Sheet"}
@@ -1781,6 +1793,40 @@ def test_bokesjon_workbook_uses_only_pinned_optional_decoder() -> None:
     )
     assert host_import_violations(f"from {module} import *", owner)
     assert host_import_violations(f"__import__({module!r})", owner)
+
+
+def test_neotoma_chronology_uses_exact_evidence_and_quality_bindings() -> None:
+    owner = "bijux_pollenomics_dev/source_completion/neotoma/chronology_quality.py"
+    expected = {
+        "bijux_pollenomics.analysis.lra.materialization.models": {
+            "canonical_bytes",
+            "producer_identity",
+        },
+        "bijux_pollenomics.analysis.lra.materialization.reading": {
+            "NeotomaEvidence",
+            "json_object",
+            "read_neotoma_evidence",
+        },
+        "bijux_pollenomics.collection.sources.neotoma.chronology.quality": {
+            "assess_neotoma_chronology_quality"
+        },
+    }
+    source = (DEV_SRC / owner).read_text(encoding="utf-8")
+    imports = {
+        node.module: {alias.name for alias in node.names}
+        for node in ast.walk(ast.parse(source))
+        if isinstance(node, ast.ImportFrom) and node.module in expected
+    }
+    assert imports == expected
+    for module, names in expected.items():
+        statement = f"from {module} import {', '.join(sorted(names))}"
+        assert not host_import_violations(statement, owner)
+        assert host_import_violations(
+            statement, owner.replace("chronology_quality.py", "other.py")
+        )
+        assert host_import_violations(statement + ", unreviewed", owner)
+        assert host_import_violations(f"from {module} import *", owner)
+        assert host_import_violations(f"__import__({module!r})", owner)
 
 
 def test_new_host_bindings_remain_file_and_symbol_specific() -> None:
