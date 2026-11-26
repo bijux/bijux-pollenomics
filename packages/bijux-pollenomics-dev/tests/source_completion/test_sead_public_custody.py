@@ -2,16 +2,44 @@
 
 from __future__ import annotations
 
-from copy import deepcopy
 import csv
 import hashlib
 import json
+from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
 import pytest
-
 from bijux_pollenomics_dev.source_completion.sead_public_custody import reconcile
+
+
+def test_public_custody_cli_accepts_historical_boundary_root(monkeypatch, tmp_path):
+    from bijux_pollenomics_dev.source_completion import sead_public_custody
+
+    calls = []
+    monkeypatch.setattr(
+        sead_public_custody, "run", lambda *args, **kwargs: calls.append((args, kwargs))
+    )
+    monkeypatch.setattr(
+        "sys.argv",
+        [
+            "sead-public-custody",
+            "--repository",
+            str(tmp_path),
+            "--output",
+            str(tmp_path / "out"),
+            "--historical-country-authority-root",
+            str(tmp_path / "old"),
+        ],
+    )
+    assert sead_public_custody.main() == 0
+    assert calls == [
+        (
+            (tmp_path, tmp_path / "out"),
+            {"historical_country_authority_root": tmp_path / "old"},
+        )
+    ]
+
 
 ROOT = Path(__file__).resolve().parents[4]
 RAW = ROOT / "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e"

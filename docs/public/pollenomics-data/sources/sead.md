@@ -136,6 +136,16 @@ checks every assigned site ID and UUID against its country decision, mapped
 site feature and Nordic map traceability record. It keeps the 126 review and
 unassigned decisions outside the published site set.
 
+An offline historical-cohort refresh can supply the retained original boundary
+directory as `historical_country_authority_root` to the SEAD repository
+materializer and to the source-to-map custody replay. It validates the
+original admission against that authority and uses the same geometry for both
+site and temporal projections. Its `sead-normalized-surface-lineage.v2` records
+the historical authority and captured context digests; legacy v1 lineage remains
+readable. This does not admit sites under the current boundary profile or grant
+qualified review. Refreshing the checked-in products also requires their map
+copies and source-custody reports to be reconciled before publication.
+
 The [country discovery and retrieval ledger](../../../report/source-relations/sead-country-retrieval/README.md)
 also reconciles all 2,195 discovered IDs to source retrieval and normalized
 site rows. The source supplied no country field, so its per-country counts are

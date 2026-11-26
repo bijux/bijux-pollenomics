@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from datetime import date
 import hashlib
 import json
+from datetime import date
 from pathlib import Path
 
 from bijux_pollenomics.collection.contracts.artifacts import (
@@ -29,6 +29,7 @@ from bijux_pollenomics.core.files import write_json
 from .repository_surfaces.contract import (
     SEAD_NORMALIZED_LINEAGE_INPUTS,
     SEAD_NORMALIZED_LINEAGE_PATH,
+    historical_country_membership,
 )
 
 
@@ -68,6 +69,7 @@ def write_repository_surfaces(
     temporal_records: list[ContextPointRecord],
     admission: dict[str, object],
     generated_on: date,
+    historical_refresh_inputs: dict[str, str | None] | None = None,
 ) -> tuple[Path, Path]:
     output_root = output_data_root / "sead"
     normalized_csv_path = SEAD_POINT_CSV.path_under(output_data_root)
@@ -94,9 +96,21 @@ def write_repository_surfaces(
     write_json(
         output_data_root / SEAD_NORMALIZED_LINEAGE_PATH,
         {
-            "schema_version": "sead-normalized-surface-lineage.v1",
+            "schema_version": (
+                "sead-normalized-surface-lineage.v2"
+                if historical_refresh_inputs is not None
+                else "sead-normalized-surface-lineage.v1"
+            ),
             **lineage,
             "acquisition_bundle_sha256": admission["acquisition_bundle_sha256"],
+            **(
+                {
+                    "country_membership": historical_country_membership(),
+                    "refresh_input_sha256": historical_refresh_inputs,
+                }
+                if historical_refresh_inputs is not None
+                else {}
+            ),
             "normalized_surface_sha256": {
                 str(path.relative_to("sead")): hashlib.sha256(
                     (output_data_root / path).read_bytes()
