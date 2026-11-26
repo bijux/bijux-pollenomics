@@ -17,6 +17,7 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Bind optional Nordic point layers to four caller-pinned source buffers.
 - Expose selected Neotoma source identity, point-age and native pollen guards
   through the source facade for bounded study consumers.
 - Retain SEAD analysis-entity ages without assigning an unqualified BP basis or
