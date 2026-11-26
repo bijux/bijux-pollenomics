@@ -14,10 +14,12 @@ import pytest
 from bijux_pollenomics_dev.source_completion.sead_public_custody import reconcile
 
 
-def test_public_custody_cli_accepts_historical_boundary_root(monkeypatch, tmp_path):
+def test_public_custody_cli_accepts_historical_boundary_root(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
     from bijux_pollenomics_dev.source_completion import sead_public_custody
 
-    calls = []
+    calls: list[tuple[tuple[Any, ...], dict[str, Any]]] = []
     monkeypatch.setattr(
         sead_public_custody, "run", lambda *args, **kwargs: calls.append((args, kwargs))
     )
