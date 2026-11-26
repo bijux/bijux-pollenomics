@@ -929,6 +929,28 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"project_modeled_context_layers"}
         ),
     },
+    "bijux_pollenomics_dev/ci/atlas_browser/nordic_candidate_custody.py": {
+        "bijux_pollenomics.core.filesystem": frozenset(
+            {
+                "BoundedInputTree",
+                "DirectoryAnchor",
+                "OwnedTreeWriter",
+                "read_regular_file",
+            }
+        ),
+        "bijux_pollenomics.core.filesystem.replacement": frozenset(
+            {"publish_owned_replacement"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.asset_inventory": frozenset(
+            {"normalize_asset_inventory"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.index_transport": frozenset(
+            {"decode_index_payloads"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.serialization": frozenset(
+            {"decode_chunk_script"}
+        ),
+    },
     "bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py": {
         "bijux_pollenomics.core.geospatial.geojson": frozenset({"JsonObject"}),
         "bijux_pollenomics.reporting.geography": frozenset(

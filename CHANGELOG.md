@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#539](https://github.com/bijux/bijux-pollenomics/pull/539) — Candidate-bound Nordic browser verification
+
+Capture and verify Nordic candidate assets before serving them to a versioned browser verifier, binding the receipt to source, generation and served bytes. Existing v1 behavior remains; no corrected Atlas or real v2 browser run is claimed.
+
 ### [#538](https://github.com/bijux/bijux-pollenomics/pull/538) — Historical SEAD map correspondence audit
 
 Add a versioned audit that compares each selected SEAD site with its bound historical source and requires candidate-bound browser evidence. Existing v1 behavior remains; no corrected Atlas or v2 browser run is claimed.
