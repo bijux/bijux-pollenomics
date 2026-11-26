@@ -1487,10 +1487,12 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
     },
     "bijux_pollenomics_dev/source_completion/pollen_reconstruction/abborrtjarnen_age_ppe/grouped/publication.py": {
         "bijux_pollenomics.core.filesystem": frozenset(
-            {"BoundedInputTree", "DirectoryAnchor", "OwnedTreeWriter"}
-        ),
-        "bijux_pollenomics.core.filesystem.replacement": frozenset(
-            {"publish_owned_replacement"}
+            {
+                "BoundedInputTree",
+                "DirectoryAnchor",
+                "OwnedTreeWriter",
+                "publish_owned_replacement",
+            }
         ),
     },
     "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/preparation.py": {
@@ -1595,8 +1597,6 @@ def test_scientific_clients_have_only_their_named_public_facade_bindings() -> No
     facade_files = {
         "bijux_pollenomics.analysis.lra.api": host / "analysis/lra/api.py",
         "bijux_pollenomics.core.filesystem": host / "core/filesystem/__init__.py",
-        "bijux_pollenomics.core.filesystem.replacement": host
-        / "core/filesystem/__init__.py",
     }
     facade_exports = {}
     for module, path in facade_files.items():
@@ -1629,9 +1629,7 @@ def test_scientific_clients_have_only_their_named_public_facade_bindings() -> No
                 "BoundedInputTree",
                 "DirectoryAnchor",
                 "OwnedTreeWriter",
-            },
-            "bijux_pollenomics.core.filesystem.replacement": {
-                "publish_owned_replacement"
+                "publish_owned_replacement",
             },
         },
         "pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/preparation.py": {

@@ -17,6 +17,7 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ### Changed
 
+- Use the filesystem facade for grouped source-result publication.
 - Review the Bokesjon workbook audit’s pinned optional decoder binding.
 - Review the exact modeled-context dependencies pinned by Swedish LandClim
   history calculations.
