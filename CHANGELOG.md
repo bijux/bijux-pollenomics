@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#529](https://github.com/bijux/bijux-pollenomics/pull/529) — Conflicting chronology model support
+
+Qualify Neotoma chronology quality diagnostics against retained model variants, distinguishing disputed ownership, age basis and reliable bounds from unrelated metadata differences. Generated tests exercise conflicts without asserting their occurrence in the retained corpus or changing scientific eligibility.
+
 ### [#528](https://github.com/bijux/bijux-pollenomics/pull/528) — LOVE cover refusal mass
 
 Retain failed case or atom mass when LOVE cover is nonfinite or has no positive mass, and keep full-law moments unavailable. Generated mixed-outcome tests exercise both refusal codes without claiming they occur in a retained source result.
