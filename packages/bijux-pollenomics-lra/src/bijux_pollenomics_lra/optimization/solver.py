@@ -13,6 +13,7 @@ from scipy.optimize import Bounds, LinearConstraint, differential_evolution, min
 
 from bijux_pollenomics_lra.models.errors import NativeOptimizerWarning, ValidationError
 from bijux_pollenomics_lra.models.validation import (
+    _float_array,
     finite_number,
     integer,
     rng_from,
@@ -60,7 +61,7 @@ class ReplayOptimizer:
     candidates: np.ndarray
 
     def __post_init__(self) -> None:
-        candidates = np.array(self.candidates, dtype=float, copy=True)
+        candidates = _float_array(self.candidates, "replay_candidates").copy()
         if candidates.ndim != 2 or 0 in candidates.shape:
             raise ValidationError("Replay candidates must be a non-empty matrix")
         if not np.isfinite(candidates).all():

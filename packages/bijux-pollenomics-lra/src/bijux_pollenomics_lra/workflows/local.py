@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import replace
-from typing import Any
+from typing import Any, cast
 
 import numpy as np
 import pandas as pd
@@ -21,6 +21,7 @@ from bijux_pollenomics_lra.models.results import (
 )
 from bijux_pollenomics_lra.models.validation import (
     LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+    _float_array,
     frame,
     normalise_parameters,
     sample_counts,
@@ -156,7 +157,7 @@ def run_love(
                 reason_code="draw_only_ppe_axis_mismatch",
             )
     if regional_cover_draws is not None:
-        draws = np.asarray(regional_cover_draws, dtype=float)
+        draws = _float_array(regional_cover_draws, "regional_cover_draws")
         if draws.shape != (config.repeats, len(taxa)):
             raise ValidationError(
                 "regional_cover_draws must have shape (repeats, taxa)"
@@ -329,7 +330,7 @@ def run_love(
             "Candidate replay cannot select another optimizer backend"
         )
     optimizer = (
-        ReplayOptimizer(np.asarray(replay_candidates, dtype=float))
+        ReplayOptimizer(cast(np.ndarray, replay_candidates))
         if replay_candidates is not None
         else SimplexSLSQPOptimizer()
         if config.optimizer_backend == "scipy.slsqp-simplex-uniform"
