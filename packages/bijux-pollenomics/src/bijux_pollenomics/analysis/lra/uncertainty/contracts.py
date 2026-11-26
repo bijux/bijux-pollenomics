@@ -45,8 +45,10 @@ NUMERICAL_REASONS = frozenset(
     {
         "invalid_input",
         "no_valid_local_rings",
+        "nonfinite_love_cover",
         "unsupported_source_taxon_dimensions",
         "lra_numerical_refusal",
+        "zero_positive_love_cover",
     }
 )
 
