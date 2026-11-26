@@ -124,8 +124,17 @@ compatibility notes; the host must choose this profile explicitly.
 Optimized LOVE refuses supplied local PPE draws because this source profile does
 not consume them. Analytical LOVE refuses optimizer candidates. Supplied arrays
 are hashed in run provenance; seeds control NumPy streams and do not reproduce R
-streams. Direct translated helper functions are private implementation/testing
-surfaces and do not broaden these facade contracts.
+streams. The four seeded configuration types preserve accepted integer seeds
+exactly, including values above the binary64 exact-integer range. Existing
+singleton seed sequences accepted by NumPy retain their representation and
+provenance. A mutable sequence remains caller-owned; changing it after config
+construction changes the later entropy and can make it invalid. Previously
+accepted integral float, numeric-string, or singleton values that NumPy could not use are normalized to their exact nonnegative
+integer value at construction; a string whose exact value is fractional is
+refused even if binary64 rounding would hide the fraction. This normalization
+changes the recorded representation for those formerly non-executable inputs.
+Direct translated helper functions are private implementation/testing surfaces
+and do not broaden these facade contracts.
 
 ## Paired regional extent
 
