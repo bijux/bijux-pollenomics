@@ -51,12 +51,19 @@ The synthesis retains the source codes rather than inventing new categories:
 | open land | `OL` | total open-land cover |
 | grassland | `GL` | grassland and herb plant-functional type |
 | agricultural land | `AL` | agricultural-land/cereal plant-functional type |
-| Cerealia-type pollen | `Cerealia.t` | modeled cereal-type pollen cover |
-| rye pollen | `Secale` | modeled rye pollen cover |
+| Cerealia-type vegetation cover | `Cerealia.t` | pollen-based reconstructed cereal-type vegetation cover |
+| rye vegetation cover | `Secale` | pollen-based reconstructed rye vegetation cover |
 
 `Cerealia.t`, `Secale`, and `AL` are valuable land-use indicators, but none is
 an observed field boundary or proof that cultivation occurred at the named
 target. They describe the containing model cell for one published time window.
+
+The v2 JSON and CSV retain the legacy field names `cereal_type_pollen_cover`
+and `rye_pollen_cover`. Both hold reconstructed vegetation cover percentages,
+not measured pollen percentages. The retained historical reader report and its
+machine data use the earlier pollen-cover wording; read those labels according
+to this source definition. Their retained replay receipts document the original
+product and do not establish an updated producer run.
 
 ## A Worked Reading: Finjasjön
 
@@ -67,8 +74,8 @@ For the 100–350 BP window around Finjasjön, the published model cell reports:
 | forest | 29.224 |
 | open land | 70.776 |
 | agricultural land | 22.139 |
-| Cerealia-type pollen | 1.319 |
-| rye pollen | 20.820 |
+| Cerealia-type vegetation cover | 1.319 |
+| rye vegetation cover | 20.820 |
 
 Seven SEAD sites have at least one numeric source-record interval that both lies
 within 20 km and overlaps this window. The correct reading is that modeled
@@ -77,9 +84,9 @@ declared cell and window. It is not evidence that those seven sites caused the
 vegetation estimate or cultivated the shore of Finjasjön.
 
 Now compare 0–100 BP: forest is 44.300, open land 55.700, agricultural land
-5.950, Cerealia-type pollen 2.131, and rye pollen 3.819. The change is a model
-comparison between two published windows. Explaining why it changed requires
-additional historical and ecological evidence.
+5.950, Cerealia-type vegetation cover 2.131, and rye vegetation cover 3.819.
+The change is a model comparison between two published windows. Explaining why
+it changed requires additional historical and ecological evidence.
 
 ## What Counts As Temporal Agreement
 
@@ -131,7 +138,7 @@ not proposed coring coordinates.
 
 - proximity proves association;
 - interval overlap proves contemporaneity at fine resolution;
-- cereal-type pollen equals cultivated acreage;
+- reconstructed cereal-type vegetation cover equals cultivated acreage;
 - an archaeological wetland is a lake candidate;
 - a high lake rank authorizes coring;
 - absence from an overlap count means absence from the historical landscape.

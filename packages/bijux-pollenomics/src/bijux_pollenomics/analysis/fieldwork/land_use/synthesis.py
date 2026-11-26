@@ -114,7 +114,7 @@ def build_synthesis(
                 )
                 cereal_posture = (
                     "The source quality class reports no pollen data for this cell and "
-                    "window; modeled pollen-cover values are unavailable."
+                    "window; reconstructed vegetation cover values are unavailable."
                 )
             else:
                 proxy_posture = cross_proxy_posture(
@@ -123,7 +123,8 @@ def build_synthesis(
                     animal_count=animal_context["locality_count"],
                 )
                 cereal_posture = (
-                    "Cerealia.t and Secale are modeled pollen-cover estimates; they are "
+                    "Cerealia.t and Secale are pollen-based reconstructed vegetation "
+                    "cover estimates; they are "
                     "not observed crop acreage or proof of cultivation at the target"
                 )
             rows.append(
@@ -193,8 +194,11 @@ def build_synthesis(
             ),
             "cereal_rule": (
                 "High- and low-quality rows retain published Cerealia.t and Secale "
-                "modeled pollen-cover values; no_pollen_data retains nulls. These are "
-                "not observed crop acreage or proof of cultivation at the target."
+                "pollen-based reconstructed vegetation cover in percent; "
+                "no_pollen_data retains nulls. Legacy v2 fields "
+                "cereal_type_pollen_cover and rye_pollen_cover name these modeled "
+                "vegetation values, not pollen percentages. They are not observed "
+                "crop acreage or proof of cultivation at the target."
             ),
             "temporal_join_rule": (
                 "SEAD and aDNA context counts require both spatial proximity within 20 "

@@ -119,6 +119,22 @@ def test_available_quality_preserves_legitimate_zeroes(quality_class: str) -> No
     assert row["cross_proxy_posture"] == "pollen_archaeology_human_animal_context"
 
 
+def test_legacy_cereal_keys_mean_reconstructed_vegetation() -> None:
+    feature = _feature(quality_class="high", time_start_bp=0)
+    properties = require_mapping(feature["properties"])
+    values = require_mapping(properties["reconstruction_values"])
+    values.update({"Cerealia.t": 3.25, "Secale": 1.5})
+    payload = _build([feature])
+    row = require_rows(payload["rows"])[0]
+    assert payload["schema_version"] == "sweden-land-use-synthesis.v2"
+    assert row["cereal_type_pollen_cover"] == 3.25
+    assert row["rye_pollen_cover"] == 1.5
+    assert "reconstructed vegetation cover" in row["cereal_interpretation_posture"]
+    methodology = require_mapping(payload["methodology"])
+    assert "reconstructed vegetation cover" in methodology["cereal_rule"]
+    assert "not pollen percentages" in methodology["cereal_rule"]
+
+
 @pytest.mark.parametrize("missing_value", (None, False, float("nan")))
 def test_available_quality_refuses_missing_or_nonfinite_modeled_values(
     missing_value: object,
