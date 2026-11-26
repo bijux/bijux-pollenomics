@@ -19,6 +19,7 @@ from ..adna import (
     summarize_sample_localities,
 )
 from ..adna.sources.library import build_project_registry, refresh_source_library
+from ..adna.species.homo_sapiens.map_snapshot import AadrMapSnapshot
 from ..adna.species.tracked_data import materialize_tracked_species_adna
 from ..adna.species.tracked_data.governance import (
     _materialize_cross_species_adna_artifacts,
@@ -85,6 +86,7 @@ class _MapSourceOptions(_SourceResourceOptions, total=False):
     nordic_point_inputs: NordicPointInputs
     nordic_polygon_inputs: NordicPolygonInputs
     animal_point_inputs: AnimalPointInputs
+    aadr_map_snapshot: AadrMapSnapshot
     historical_chronology: HistoricalChronologyRequest
     lake_inputs: SwedenLakeInputs
 
@@ -164,6 +166,7 @@ def generate_multi_country_map(
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
+    aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     if nordic_point_inputs is not None and (
@@ -181,6 +184,14 @@ def generate_multi_country_map(
         or Path(context_root).absolute() != animal_point_inputs.context_root
     ):
         raise ValueError("animal point capture requires its bound context")
+    if aadr_map_snapshot is not None and type(aadr_map_snapshot) is not AadrMapSnapshot:
+        raise ValueError("AADR snapshot must be an exact captured snapshot")
+    if (
+        aadr_map_snapshot is not None
+        and Path(version_dir).absolute()
+        != Path(aadr_map_snapshot.manifest.source_bundles[0].tracked_root).absolute()
+    ):
+        raise ValueError("AADR snapshot requires its bound release directory")
     if historical_chronology is not None and context_root is None:
         raise ValueError("SEAD historical chronology requires context")
     version_dir = Path(version_dir)
@@ -204,6 +215,8 @@ def generate_multi_country_map(
         source_resource_options["animal_point_inputs"] = animal_point_inputs
     if lake_inputs is not None:
         source_resource_options["lake_inputs"] = lake_inputs
+    if aadr_map_snapshot is not None:
+        source_resource_options["aadr_map_snapshot"] = aadr_map_snapshot
     normalized_countries = normalize_requested_countries(countries)
     if not normalized_countries:
         raise ValueError(
@@ -214,14 +227,21 @@ def generate_multi_country_map(
         if geography_scope is not None
         else infer_publication_scope(normalized_countries)
     )
-    manifest = build_homo_sapiens_runtime_manifest_for_version_dir(version_dir)
+    manifest = (
+        aadr_map_snapshot.manifest
+        if aadr_map_snapshot is not None
+        else build_homo_sapiens_runtime_manifest_for_version_dir(version_dir)
+    )
 
     map_inputs = load_multi_country_map_inputs(
         version_dir=version_dir,
         countries=normalized_countries,
-        load_country_samples_fn=lambda **kwargs: load_species_samples(
-            manifest,
-            query=AdnaSampleQuery(political_entity=kwargs["country"]),
+        load_country_samples_fn=lambda **kwargs: (
+            aadr_map_snapshot.load_country(kwargs["country"])
+            if aadr_map_snapshot is not None
+            else load_species_samples(
+                manifest, query=AdnaSampleQuery(political_entity=kwargs["country"])
+            )
         ),
     )
     version = version_dir.name

@@ -9,6 +9,10 @@ from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
     AnimalPointInputs,
 )
 
+from ....adna.species.homo_sapiens.map_snapshot import (
+    AadrMapSnapshot,
+    validate_aadr_map_inputs,
+)
 from ...context.nordic_point_inputs import NordicPointInputs
 from ...context.nordic_polygon_inputs import NordicPolygonInputs
 from ...map_document.evidence_projection import HistoricalChronologyRequest
@@ -63,8 +67,13 @@ def publish_bundle(
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
+    aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> None:
     """Publish atlas layers, evidence, playback, and inventoried static documents."""
+    if aadr_map_snapshot is not None:
+        validate_aadr_map_inputs(
+            aadr_map_snapshot, version, countries, all_samples, country_sample_counts
+        )
     optional_inputs: _OptionalInputs = {}
     if source_resource_catalogue is not None:
         optional_inputs["source_resource_catalogue"] = source_resource_catalogue
@@ -123,6 +132,7 @@ def publish_bundle(
         nordic_point_inputs=nordic_point_inputs,
         nordic_polygon_inputs=nordic_polygon_inputs,
         animal_point_inputs=animal_point_inputs,
+        aadr_map_snapshot=aadr_map_snapshot,
         static_assets=static_assets,
         animal_chronology_context=animal_chronology_context,
         extra_artifacts=extra_artifacts,
