@@ -97,36 +97,13 @@ def test_historical_mode_requires_all_explicit_inputs(
 
 
 @pytest.mark.parametrize("site_id", [3447, 3457, 3528, 3652])
-def test_historical_reconciliation_refuses_excluded_sites(site_id: int) -> None:
+def test_historical_reconciliation_refuses_excluded_sites(
+    site_id: int, synthetic_historical_sead_review: dict
+) -> None:
     root = Path(__file__).resolve().parents[4]
     raw = root / owner.RAW
     decisions = json.loads((raw / "country-decisions.json").read_bytes())
-    boundary = json.loads((root / owner.BOUNDARY).read_bytes())
-    by_id = {int(row["site_id"]): row for row in decisions["decisions"]}
-    for row in boundary["decisions"]:
-        prior = by_id[int(row["source_record_id"].removeprefix("sead:site:"))]
-        detail = prior["decision"]
-        assigned = detail["decision_status"] == "assigned"
-        row.update(
-            {
-                "country_decision_status": detail["decision_status"],
-                "boundary_decision_status": detail["decision_status"],
-                "decision_method": detail["decision_method"],
-                "candidate_countries": detail["candidate_countries"],
-                "boundary_artifact_digest": detail["boundary_artifact_digest"],
-                "prior_country_decision_comparison": "agrees",
-                "published_country": prior["governed_country_code"]
-                if assigned
-                else None,
-                "derived_country_code": prior["governed_country_code"]
-                if assigned
-                else None,
-                "review_requirement": "no_point_review_required"
-                if assigned
-                else "qualified_review_required",
-                "qualified_review_status": "not_required" if assigned else "pending",
-            }
-        )
+    boundary = synthetic_historical_sead_review
     receipt = json.loads((raw / "receipts/tbl_sites.json").read_bytes())
     payload = json.loads((raw / "payloads/tbl_sites.json").read_bytes())
     with (root / owner.PUBLIC).open(encoding="utf-8", newline="") as handle:
