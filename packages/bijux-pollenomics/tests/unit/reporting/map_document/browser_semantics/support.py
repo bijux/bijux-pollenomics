@@ -19,9 +19,15 @@ def template_block(start: str, end: str) -> str:
 
 def edge_rendering_helpers() -> str:
     """Load edge rendering owners without unrelated page initialization."""
-    return template_block(
-        "function scientificSignalById", "/* atlas-evidence-tools:begin */"
-    ) + template_block("async function openEdgeDetail", "function renderPolygonLayers")
+    return (
+        "function loadEvidenceTools(){return new Promise(()=>{})}\n"
+        + template_block(
+            "function scientificSignalById", "/* atlas-evidence-tools:begin */"
+        )
+        + template_block(
+            "async function openEdgeDetail", "function renderPolygonLayers"
+        )
+    )
 
 
 def index_transport_helpers(*, common: bool = True, include_search: bool = True) -> str:

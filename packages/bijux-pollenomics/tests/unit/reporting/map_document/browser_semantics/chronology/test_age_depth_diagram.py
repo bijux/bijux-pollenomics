@@ -12,6 +12,7 @@ from xml.etree import ElementTree as ET
 
 import pytest
 
+from bijux_pollenomics.reporting.map_document import template
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     neotoma as projection,
 )
@@ -74,12 +75,23 @@ def diagram_script() -> str:
         template_block("const DETAIL_TAB_DEFINITIONS", "const DEFAULT_COUNTRIES")
         + template_block("function escapeHtml", "function normalizedMediaLinks")
         + template_block("function detailTableShape", "function renderFocusCard")
+        + template_block("function createSourceDiagrams", "// Counts describe supplied")
+        + "\n".join(
+            (Path(template.__file__).parent / "assets" / name).read_text()
+            for name in (
+                "chronology-diagram.js",
+                "pollen-diagram.js",
+                "pollen-age-axis.js",
+                "pollen-small-multiples.js",
+                "focused-source-signal.js",
+            )
+        )
         + template_block(
             "function createSourceRecordDetails", "/* atlas-evidence-tools:end */"
         )
         + """
-const evidenceToolsError=null;
-function currentEvidenceTools(){return {sourceDetails:createSourceRecordDetails}}
+let evidenceToolsError=null;
+function currentEvidenceTools(){return {sourceDetails:createSourceRecordDetails,sourceDiagrams:createSourceDiagrams}}
 const boundSourceDetails=createSourceRecordDetails({detailTableShape,decodeDetailTableRow,detailTableText,
  renderDetailTable:(...args)=>renderDetailTable(...args),escapeHtml});
 const {overview:renderSelectedSourceOverview,samples:renderSourceSampleObservations,
@@ -89,12 +101,29 @@ const {overview:renderSelectedSourceOverview,samples:renderSourceSampleObservati
 
 
 def render_drawer(
-    tabs: dict[str, object], active: str = "chronology"
+    tabs: dict[str, object], active: str = "chronology", state: str = "ready"
 ) -> dict[str, object]:
+    script = diagram_script()
+    if state != "ready":
+        script = script.replace(
+            "let evidenceToolsError=null;",
+            "let evidenceToolsError="
+            + json.dumps("Diagram transport failed" if state == "failed" else None)
+            + ";",
+        ).replace(
+            "function currentEvidenceTools(){return {sourceDetails:createSourceRecordDetails,sourceDiagrams:createSourceDiagrams}}",
+            "function currentEvidenceTools(){return "
+            + (
+                "{sourceDetails:createSourceRecordDetails,sourceDiagrams:()=>({})}"
+                if state == "malformed"
+                else "null"
+            )
+            + "}",
+        )
     return cast(
         dict[str, object],
         run_node_json(
-            diagram_script()
+            script
             + """
 const focusTabs={innerHTML:'',contains(){return false;},querySelectorAll(){return [];}};
 const focusDetail={innerHTML:'',dataset:{},contains(){return false;},setAttribute(k,v){this[k]=v;},querySelectorAll(){return [];}};
@@ -111,6 +140,32 @@ const tabs="""
             + ";renderFocusDetail();console.log(JSON.stringify({html:focusDetail.innerHTML,data:ageDepthDiagramData(tabs),unchanged:original===JSON.stringify(tabs),label:focusDetail['aria-labelledby']}));"
         ),
     )
+
+
+@pytest.mark.parametrize("active", ["chronology", "pollen_composition"])
+@pytest.mark.parametrize("state", ["pending", "failed"])
+def test_drawer_retains_source_tables_when_diagram_tools_are_unavailable(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, active: str, state: str
+) -> None:
+    tabs = projected_tabs(tmp_path, monkeypatch)
+    output = render_drawer(tabs, active, state)
+    html = cast(str, output["html"])
+    assert 'role="status"' in html
+    assert (
+        "Diagram transport failed" if state == "failed" else "Loading source diagrams"
+    ) in html
+    assert "Original source tables remain available below" in html
+    assert "<table" in html
+
+
+def test_malformed_inline_diagram_factory_retains_source_tables(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    output = render_drawer(projected_tabs(tmp_path, monkeypatch), state="malformed")
+    html = cast(str, output["html"])
+    assert "Source diagram interface is incomplete" in html
+    assert "Original source tables remain available below" in html
+    assert "<table" in html
 
 
 def decoded(tabs: dict[str, object]) -> dict[str, object]:
