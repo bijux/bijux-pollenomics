@@ -17,6 +17,8 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ### Changed
 
+- Fit the Nordic control view and verify all selected source identities after restoring countries.
+- Bind Nordic browser chronology checks to the claim table and its own paging controls.
 - Review the nominal source-case consumer’s exact calculation and publication bindings.
 - Review SEAD relation publication bindings and use the filesystem facade.
 - Review the chronology report’s exact validated-evidence and quality bindings.

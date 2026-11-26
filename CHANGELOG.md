@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#541](https://github.com/bijux/bijux-pollenomics/pull/541) — Nordic browser chronology and fitted identities
+
+Scope browser chronology checks to the claim table and verify the exact selected site identities after fitting the loaded view. The qualified control covers the retained eight-record candidate, not a corrected Atlas.
+
 ### [#540](https://github.com/bijux/bijux-pollenomics/pull/540) — Historical SEAD derived chronology overlay
 
 Reconcile corrected derived chronology fields against the pinned historical evidence and validated admission through an explicit in-memory overlay. Retained source values, relation fields and eligibility remain unchanged; no Atlas integration or publication is claimed.

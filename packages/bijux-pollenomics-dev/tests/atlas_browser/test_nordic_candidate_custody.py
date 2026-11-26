@@ -303,3 +303,70 @@ def test_completed_result_is_attached_without_replacing_existing_output(
     with pytest.raises((FileExistsError, ValueError)):
         owner.publish_result(result, other, b"replacement", b"replacement")
     assert (result / "receipt.json").read_bytes() == b"receipt"
+
+
+def test_claim_table_reader_ignores_other_chronology_tables() -> None:
+    root = Path(__file__).resolve().parents[4]
+    script_path = (
+        root
+        / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic-country-captured.mjs"
+    )
+    program = r"""
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const source=readFileSync(process.argv[1],'utf8');
+const match=source.match(/function chronologyClaimPage\(clickNext = false\) \{[\s\S]*?\n\}/);
+assert.ok(match, 'claim table reader must exist');
+const claim={querySelectorAll(selector){
+  if(selector==='thead th')return [{textContent:'claim id'}];
+  if(selector==='tbody tr')return [{cells:[{textContent:'claim-1'}]}];
+  throw Error('unexpected claim selector '+selector);
+}};
+const wrong={querySelectorAll(){throw Error('control or model table read');}};
+let clicked=0;
+const button={disabled:false,click(){clicked++;},closest(selector){assert.equal(selector,'.focus-detail-table-meta');return {nextElementSibling:{querySelector(selector){assert.equal(selector,'table.focus-detail-table');return claim;}}};}};
+globalThis.document={querySelectorAll(selector){
+  if(selector==='#focus-detail [data-detail-table-page="chronology"][data-page-direction="next"]')return [button];
+  if(selector.includes('.focus-detail-table'))return [claim,wrong,wrong];
+  throw Error('unexpected selector '+selector);
+}};
+const read=(new Function(match[0]+'; return chronologyClaimPage;'))();
+assert.deepEqual(read(),{headings:['claim id'],rows:[['claim-1']],hasNext:true});
+read(true);assert.equal(clicked,1);
+button.disabled=true;assert.equal(read().hasNext,false);assert.throws(()=>read(true),/next page unavailable/);
+"""
+    subprocess.run(
+        ["node", "--input-type=module", "-e", program, str(script_path)],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+
+
+def test_fitted_navigation_requires_exact_distinct_source_identities() -> None:
+    root = Path(__file__).resolve().parents[4]
+    script_path = (
+        root
+        / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic-country-captured.mjs"
+    )
+    program = r"""
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const source=readFileSync(process.argv[1],'utf8');
+const match=source.match(/function requireExactSourceIds\(actual, expected\) \{[\s\S]*?\n\}/);
+assert.ok(match, 'source identity check must exist');
+const check=(new Function('assert',match[0]+'; return requireExactSourceIds;'))(assert);
+const expected=Array.from({length:8},(_,i)=>`record-${i}`);
+check([...expected].reverse(),expected);
+assert.throws(()=>check([...expected.slice(0,7),expected[0]],expected));
+assert.throws(()=>check([...expected.slice(0,7),'foreign'],expected));
+assert.throws(()=>check(expected.slice(0,7),expected));
+"""
+    subprocess.run(
+        ["node", "--input-type=module", "-e", program, str(script_path)],
+        check=True,
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
