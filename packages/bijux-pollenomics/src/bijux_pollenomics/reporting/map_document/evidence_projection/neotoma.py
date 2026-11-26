@@ -48,6 +48,10 @@ from .neotoma_metadata.observations import (
     observation_variable_provenance,
 )
 from .neotoma_metadata.source_issues import source_issue_tables
+from .neotoma_site_binding import (
+    read_bound_neotoma_manifest,
+    validate_neotoma_site_binding,
+)
 from .records import (
     _compact_rows_by_site,
     _features,
@@ -63,13 +67,21 @@ _GOVERNED_NEOTOMA_COUNTRY_CODES = frozenset({"DK", "FI", "NO", "SE"})
 def _project_neotoma(
     context_root: Path,
     layer: MutableMapping[str, object],
+    *,
+    expected_manifest_sha256: str | None = None,
 ) -> tuple[
     list[dict[str, object]],
     dict[str, object],
     list[dict[str, object]],
 ]:
     relational_root = context_root / "neotoma" / "relational"
-    manifest = read_validated_neotoma_relational_manifest(relational_root.absolute())
+    manifest = (
+        read_bound_neotoma_manifest(
+            relational_root.absolute(), expected_manifest_sha256
+        )
+        if expected_manifest_sha256 is not None
+        else read_validated_neotoma_relational_manifest(relational_root.absolute())
+    )
     loaded_surfaces = {
         name: _load_neotoma_surface(relational_root, manifest, name)
         for name in (
@@ -252,6 +264,26 @@ def _project_neotoma(
     records: list[dict[str, object]] = []
     observed_sites: set[str] = set()
     features = _features(layer)
+    if expected_manifest_sha256 is not None:
+        bound_ids: set[str] = set()
+        for feature in features:
+            source_id = _required_text(
+                feature.get("evidence_row_id"), "Neotoma feature evidence_row_id"
+            )
+            site_id = f"neotoma:site:{source_id}"
+            site = governed_sites.get(site_id)
+            if site is None:
+                raise ValueError(
+                    f"Neotoma map feature has no governed-country relational site: {site_id}"
+                )
+            if site_id in bound_ids:
+                raise ValueError(
+                    f"Neotoma map features duplicate site identity: {site_id}"
+                )
+            bound_ids.add(site_id)
+            validate_neotoma_site_binding(feature, site)
+        if bound_ids != set(governed_sites):
+            raise ValueError("Neotoma bound site coverage differs")
     for feature in features:
         source_site_id = _required_text(
             feature.get("evidence_row_id"), "Neotoma feature evidence_row_id"
@@ -491,6 +523,11 @@ def _project_neotoma(
         "native_charcoal": charcoal_projection.reconciliation,
         "source_issues": issue_accounting,
     }
+    if expected_manifest_sha256 is not None:
+        accounting["site_binding"] = {
+            "manifest_sha256": expected_manifest_sha256,
+            "posture": "source_geometry_name_and_governed_country_only",
+        }
     return (
         records,
         accounting,
