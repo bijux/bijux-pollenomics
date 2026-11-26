@@ -18,7 +18,7 @@ from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive.ind
     build_download_index,
 )
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.source_projection import (
-    _same,
+    same_source_json,
 )
 from bijux_pollenomics.core.filesystem import BoundedInputTree, DirectoryAnchor
 
@@ -111,7 +111,7 @@ def load_archive_reference(
             expected_size=member["bytes"],
         )
         anchor.check()
-        if size != member["bytes"] or not _same(
+        if size != member["bytes"] or not same_source_json(
             index, build_download_index(catalogue, catalogue_manifest_sha256)
         ):
             raise ValueError(

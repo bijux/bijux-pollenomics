@@ -10,7 +10,7 @@ from bijux_pollenomics.collection.sources.neotoma.ancillary_store.federation imp
     load_neotoma_ancillary_federation,
 )
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.source_projection import (
-    _same,
+    same_source_json,
 )
 
 from ..archive_reference import _pinned
@@ -82,7 +82,9 @@ def load_atlas_ancillary_metadata(
             resource is None
             or identity in seen
             or slot["facet"] not in facets
-            or not _same(owner, {key: resource[key] for key in _OWNER_FIELDS})
+            or not same_source_json(
+                owner, {key: resource[key] for key in _OWNER_FIELDS}
+            )
         ):
             raise ValueError(
                 "Atlas ancillary exact native owner or facet membership differs"

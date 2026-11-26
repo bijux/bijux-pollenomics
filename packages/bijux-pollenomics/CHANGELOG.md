@@ -17,6 +17,7 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Expose the source-owned Neotoma JSON comparison for Atlas metadata joins ([#547](https://github.com/bijux/bijux-pollenomics/pull/547)).
 - Use the supported strict Neotoma decoder for Atlas archive metadata.
 - Bind optional Nordic point layers to four caller-pinned source buffers ([#544](https://github.com/bijux/bijux-pollenomics/pull/544)).
 - Expose selected Neotoma source identity, point-age and native pollen guards
