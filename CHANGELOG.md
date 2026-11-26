@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#557](https://github.com/bijux/bijux-pollenomics/pull/557) — Real-valued optimized LOVE inputs
+
+Refuse nonreal local count draws, replay candidates and related optimized inputs before float conversion. Generated witnesses demonstrated the loss; no retained scientific result impact is claimed.
+
 ### [#556](https://github.com/bijux/bijux-pollenomics/pull/556) — Atlas source diagram loading
 
 Load source diagram controllers through the optional evidence-tools factory with guarded focus, failure and retry behavior, retaining source tables and inline mode. Two-site browser controls do not qualify the full Atlas.
