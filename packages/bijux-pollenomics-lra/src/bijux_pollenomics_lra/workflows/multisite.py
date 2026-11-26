@@ -19,6 +19,7 @@ from bijux_pollenomics_lra.models.publication import (
     PublicationRevealsConfig,
 )
 from bijux_pollenomics_lra.models.results import MultisiteRevealsResult
+from bijux_pollenomics_lra.models.validation import _reject_masked_values
 from bijux_pollenomics_lra.provenance.manifest import build_manifest
 from bijux_pollenomics_lra.reconstruction.publication import (
     bootstrap_cover_variance_with_draws,
@@ -48,16 +49,23 @@ def _bootstrap_draws(
         if name not in required:
             continue
         eligible = np.flatnonzero(inputs.availability[:, position])
-        values = np.asarray(supplied[name])
+        source = supplied[name]
+        if np.ma.isMaskedArray(source):
+            source = np.ma.array(source, copy=True)
+        _reject_masked_values(source, "bootstrap indices")
+        values = np.asarray(source)
         if values.dtype.kind not in "iu" or values.shape != (1000, len(eligible)):
             raise ValidationError(
                 "Bootstrap indices must be integer [1000,eligible_sites] matrices"
             )
-        if not np.isin(values, eligible).all():
+        owned = np.array(values, copy=True)
+        if owned.shape != (1000, len(eligible)) or owned.dtype.kind not in "iu":
+            raise ValidationError("Bootstrap indices must remain an integer matrix")
+        if not np.isin(owned, eligible).all():
             raise ValidationError(
                 "Bootstrap draw references an unavailable or unknown site"
             )
-        owned = np.array(values, dtype=np.intp, copy=True)
+        owned = owned.astype(np.intp, copy=False)
         owned.setflags(write=False)
         draws[name] = owned
     return draws
@@ -76,6 +84,22 @@ def run_reveals_multisite(
     before individual geometry correction. This profile preserves known source
     uncertainty defects; it is unsuitable for claiming corrected uncertainty.
     """
+    if type(inputs) is not MultisiteRevealsInput:
+        raise ValidationError(
+            "Multisite input requires the standard MultisiteRevealsInput"
+        )
+    inputs = replace(inputs)
+    if any(
+        type(value) not in (str, np.str_)
+        for axis in (inputs.site_ids, inputs.bin_ids, inputs.taxon_ids)
+        for value in axis
+    ):
+        raise ValidationError("Multisite identifiers require immutable strings")
+    if any(
+        value is not None and type(value) not in (str, np.str_)
+        for value in inputs.basin_type.flat
+    ):
+        raise ValidationError("Multisite basin types require immutable strings")
     if not inputs.availability.any():
         raise ValidationError(
             "No site/bin has pollen support", reason_code="no_supported_bins"
