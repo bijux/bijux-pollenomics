@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#561](https://github.com/bijux/bijux-pollenomics/pull/561) — REVEALS owned input snapshot
+
+Offer an opt-in bounded input snapshot used by both REVEALS calculation and legacy manifest hashing. Capture is sequential and does not establish typed-label identity or source-byte custody.
+
 ### [#560](https://github.com/bijux/bijux-pollenomics/pull/560) — Legacy LRA manifest label identity
 
 Document and demonstrate that v1 manifest canonicalization stringifies tabular labels. Existing hashes remain unchanged; a typed-label identity needs a separate versioned contract.
