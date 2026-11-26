@@ -294,9 +294,11 @@ def _score_pollen_observation_coverage(
     for entry, item in zip(plan.entries, retained, strict=True):
         if item["status"] == "generated":
             try:
-                result = binding.api.PollenObservationDraws(
+                saved_result = binding.api.PollenObservationDraws(
                     item["engine_result_canonical_json"], item["engine_result_sha256"]
-                ).as_dict()
+                )
+                saved_result.validate_predictive_intervals()
+                result = saved_result.as_dict()
             except (ValueError, TypeError, AttributeError) as exc:
                 raise ValidationRefusal("invalid_observation_draws", str(exc)) from exc
             if result != item["engine_result"]:

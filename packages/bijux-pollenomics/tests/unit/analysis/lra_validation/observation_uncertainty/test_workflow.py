@@ -3,6 +3,7 @@
 from dataclasses import replace
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -242,3 +243,36 @@ def test_missing_optional_engine_has_explicit_refusal(
         )
     assert error.value.reason_code == "lra_extension_missing"
     assert not (tmp_path / "result").exists()
+
+
+def test_old_engine_output_is_recorded_as_refused(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from types import SimpleNamespace
+
+    from bijux_pollenomics_lra import api
+
+    product, plan, _ = fixture(tmp_path)
+    original = api.sample_pollen_observations
+
+    def legacy(*args: Any, **kwargs: Any) -> object:
+        result = original(*args, **kwargs)
+        return SimpleNamespace(
+            as_dict=result.as_dict,
+            result_sha256=result.result_sha256,
+            canonical_result_json=result.canonical_result_json,
+        )
+
+    monkeypatch.setattr(api, "sample_pollen_observations", legacy)
+    output = generate_pollen_observation_uncertainty(
+        product.directory,
+        plan,
+        evidence_root=tmp_path / "effort",
+        destination=tmp_path / "result",
+    )
+    rows = json.loads((output.directory / "uncertainty.json").read_text())
+    assert all(row["status"] == "sampler_refused" for row in rows)
+    assert all(
+        "lacks predictive interval verification" in row["detail"] for row in rows
+    )
+    assert all(row["engine_result"] is None for row in rows)

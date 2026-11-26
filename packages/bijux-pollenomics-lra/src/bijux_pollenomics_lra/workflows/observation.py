@@ -253,4 +253,6 @@ def sample_pollen_observations(
         "scientific_acceptance": "not_evaluated",
         "r_source_parity_claimed": False,
     }
-    return PollenObservationDraws(canonical_json(result), sha256_object(result))
+    saved = PollenObservationDraws(canonical_json(result), sha256_object(result))
+    saved.validate_predictive_intervals()
+    return saved

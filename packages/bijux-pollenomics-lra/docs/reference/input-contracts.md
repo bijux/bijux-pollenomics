@@ -158,3 +158,17 @@ REVEALS cutoff, LOVE background source and cutoff, and either the historical
 analytical deposition cutoff or the optimized ring boundaries and local ring
 count. The latter identifies the changing local/regional ring partition for
 each evaluated local extent; it does not invent a common fixed ring cutoff.
+
+## Conditional observation interval verification
+
+`PollenObservationDraws` checks its canonical identity and structural constraints
+when read. Those checks alone do not establish that saved predictive interval
+bounds match the declared equal-tail binomial profile. Call
+`validate_predictive_intervals()` to check that relationship before interpreting
+the intervals. Small supports use exact binary64 probability arithmetic; larger
+nondegenerate supports require the recorded SciPy version to match the installed
+version and refuse unresolved numerical boundaries. Matching version strings do
+not authenticate a provider build. Degenerate zero/one probabilities are checked
+exactly without SciPy. The host coverage readers require this verification; an
+older engine without the method cannot qualify their intervals. Verification does
+not authenticate the result, replay random draws, or establish empirical coverage.
