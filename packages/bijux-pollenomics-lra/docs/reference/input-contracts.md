@@ -164,6 +164,19 @@ external execution attestation. The legacy canonical hashes still stringify
 labels and do not attest original source bytes or typed label identity. The
 default `input_ownership="borrowed"` retains the existing behavior.
 
+## Multisite input capture
+
+The historical multisite REVEALS workflow revalidates and copies its standard
+`MultisiteRevealsInput` at operation entry, then uses the captured values for
+calculation and its run manifest. Bootstrap site indices are validated after
+copying. Capture is sequential and does not establish an atomic instant across
+caller-owned inputs; callers must keep them stable during capture and keep
+the configuration stable throughout the run. The workflow requires the standard
+input class and ordinary Python or NumPy string values for site, bin, taxon and
+basin identities. Subclasses and custom string-like objects
+previously accepted by construction are refused at operation entry. These checks
+do not establish source-byte custody or scientific accuracy.
+
 ## Paired regional extent
 
 `LRAConfig` requires `reveals.region_cutoff_m=100000` for analytical LOVE,
