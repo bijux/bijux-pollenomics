@@ -464,6 +464,15 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py": {
+        "bijux_pollenomics.collection.sources.neotoma.client": frozenset(
+            {"validate_neotoma_selected_download"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.relational.chronology": frozenset(
+            {"require_neotoma_point_age"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.relational.variables": frozenset(
+            {"is_native_pollen"}
+        ),
         "bijux_pollenomics.analysis.lra.materialization.api": frozenset(
             {"inspect_neotoma_lra_pollen_screen"}
         ),
@@ -628,6 +637,15 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py": {
+        "bijux_pollenomics.collection.sources.neotoma.client": frozenset(
+            {"validate_neotoma_selected_download"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.relational.chronology": frozenset(
+            {"require_neotoma_point_age"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.relational.variables": frozenset(
+            {"is_native_pollen"}
+        ),
         "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
             {"predict_spatial_baseline"}
         ),
@@ -1481,6 +1499,27 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"BoundedInputTree", "DirectoryAnchor"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/swedish_pollen_sequences.py": {
+        "bijux_pollenomics.collection.sources.neotoma.client": frozenset(
+            {"validate_neotoma_selected_download"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.relational.chronology": frozenset(
+            {"require_neotoma_point_age"}
+        ),
+        "bijux_pollenomics.collection.sources.neotoma.relational.variables": frozenset(
+            {"is_native_pollen"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py": {
+        "bijux_pollenomics.collection.sources.neotoma.relational.chronology": frozenset(
+            {"require_neotoma_point_age"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py": {
+        "bijux_pollenomics.collection.sources.neotoma.relational.chronology": frozenset(
+            {"require_neotoma_point_age"}
+        ),
+    },
 }
 
 
@@ -1636,6 +1675,41 @@ def test_scientific_clients_have_only_their_named_public_facade_bindings() -> No
             assert host_import_violations(f"import {module}", owner)
             assert host_import_violations(f"__import__({module!r})", owner)
             assert host_import_violations(f"importlib.import_module({module!r})", owner)
+
+
+def test_selected_pollen_clients_keep_exact_source_guard_bindings() -> None:
+    root = "bijux_pollenomics_dev/source_completion/"
+    client = "bijux_pollenomics.collection.sources.neotoma.client"
+    chronology = "bijux_pollenomics.collection.sources.neotoma.relational.chronology"
+    variables = "bijux_pollenomics.collection.sources.neotoma.relational.variables"
+    all_guards = {
+        client: {"validate_neotoma_selected_download"},
+        chronology: {"require_neotoma_point_age"},
+        variables: {"is_native_pollen"},
+    }
+    owners = {
+        "nordic_direct_pollen.py": all_guards,
+        "swedish_direct_pollen.py": all_guards,
+        "swedish_pollen_sequences.py": all_guards,
+        "swedish_lake_transfer.py": {chronology: {"require_neotoma_point_age"}},
+        "swedish_neotoma_holdout.py": {chronology: {"require_neotoma_point_age"}},
+    }
+    for relative, modules in owners.items():
+        owner = root + relative
+        imports = {
+            node.module: {alias.name for alias in node.names}
+            for node in ast.walk(ast.parse((DEV_SRC / owner).read_text()))
+            if isinstance(node, ast.ImportFrom) and node.module in modules
+        }
+        assert imports == modules
+        for module, names in modules.items():
+            statement = f"from {module} import {', '.join(sorted(names))}"
+            assert not host_import_violations(statement, owner)
+            assert host_import_violations(statement + ", unreviewed", owner)
+            assert host_import_violations(statement, root + "unreviewed.py")
+            assert host_import_violations(f"from {module} import *", owner)
+            assert host_import_violations(f"import {module}", owner)
+            assert host_import_violations(f"__import__({module!r})", owner)
 
 
 def test_new_host_bindings_remain_file_and_symbol_specific() -> None:

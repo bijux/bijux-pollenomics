@@ -17,6 +17,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Expose selected Neotoma source identity, point-age and native pollen guards
+  through the source facade for bounded study consumers.
 - Retain SEAD analysis-entity ages without assigning an unqualified BP basis or
   including them in numeric site spans.
 - Account for conflicting chronology model ownership, age basis and reliable
