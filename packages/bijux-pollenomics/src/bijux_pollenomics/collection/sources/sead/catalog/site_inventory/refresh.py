@@ -17,6 +17,7 @@ from .temporal import (
     _uncertainty_labels,
     merge_sead_intervals,
     sead_dating_interval,
+    sead_dendro_is_open_ended,
     sead_interval_is_canonical,
 )
 from .values import parse_optional_int, parse_required_int
@@ -81,7 +82,13 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
             dendro_date_row["time_end_bp"] = (
                 interval[1] if interval is not None else None
             )
-            if interval is not None and sead_interval_is_canonical(interval):
+            if (
+                interval is not None
+                and sead_interval_is_canonical(interval)
+                and not sead_dendro_is_open_ended(
+                    dendro_date_row.get("uncertainty_label")
+                )
+            ):
                 numeric_intervals.append(interval)
         contextual_intervals: list[tuple[int, int]] = []
         for relative_row in relative_rows:

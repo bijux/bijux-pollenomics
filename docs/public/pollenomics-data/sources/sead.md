@@ -81,6 +81,10 @@ rows at sites 4301, 4433, 5379 and 5527 contain derived point intervals, and
 their historical site spans may include those values. The checked-in site
 products have not been rebuilt with the revised reader. The separately typed
 geochronology claims remain context-only, with no comparable BP bounds.
+For dendrochronology, inventory refresh applies the same `From` qualifier
+rule as the source-table projection: it retains the source row but does not add
+its one-sided date to the numeric site span. This reader correction does not
+rebuild the historical site products or establish a newly measured date.
 
 ## Current Evidence State
 

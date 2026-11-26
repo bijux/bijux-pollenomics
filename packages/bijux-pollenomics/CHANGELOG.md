@@ -19,6 +19,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
   bounds in Neotoma quality diagnostics without changing scientific eligibility.
 - Describe LandClim cereal and rye values as reconstructed vegetation cover
   while retaining the existing synthesis field names.
+- Keep open-ended SEAD dendrochronology dates out of refreshed numeric site
+  spans, consistent with source-table projection.
 - Keep SEAD radiometric `>` ages as one-sided source context when building or
   refreshing site inventories, without synthesizing closed point intervals.
 - Preserve distinct JSON scalar representations in repeated Neotoma native
