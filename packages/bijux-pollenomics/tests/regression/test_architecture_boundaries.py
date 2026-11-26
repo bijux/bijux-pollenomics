@@ -48,8 +48,8 @@ def test_collection_and_publication_import_boundaries_are_separate() -> None:
     )
 
 
-def test_source_resource_publication_avoids_private_capture_reader() -> None:
-    """Atlas source readers use the supported strict JSON decoder."""
+def test_source_resource_publication_avoids_private_collection_helpers() -> None:
+    """Atlas source readers use collection owners' public functions."""
     roots = REPORTING_SRC / "map_document" / "source_resources"
     violations = []
     for source in roots.rglob("*.py"):
@@ -57,9 +57,8 @@ def test_source_resource_publication_avoids_private_capture_reader() -> None:
             if (
                 isinstance(node, ast.ImportFrom)
                 and node.module
-                and node.module
-                == "bijux_pollenomics.collection.sources.neotoma.capture.receipts"
-                and any(alias.name == "_object" for alias in node.names)
+                and node.module.startswith("bijux_pollenomics.collection.")
+                and any(alias.name.startswith("_") for alias in node.names)
             ):
                 violations.append(str(source.relative_to(REPO_ROOT)))
     assert not violations, violations

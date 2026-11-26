@@ -25,10 +25,18 @@ _CAPABILITIES = {
 }
 
 
-def _same(left: object, right: object) -> bool:
+def same_source_json(left: object, right: object) -> bool:
+    """Compare source JSON by its finite, sorted, ASCII-escaped representation.
+
+    This preserves JSON numeric and string distinctions for source ownership;
+    it does not establish scientific equivalence or original wire-byte identity.
+    """
     return json.dumps(left, sort_keys=True, allow_nan=False) == json.dumps(
         right, sort_keys=True, allow_nan=False
     )
+
+
+_same = same_source_json
 
 
 def method_capability(

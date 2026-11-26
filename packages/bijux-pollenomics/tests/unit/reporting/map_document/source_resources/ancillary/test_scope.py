@@ -70,7 +70,14 @@ def test_independent_anchor_mismatch_refuses(
 
 @pytest.mark.parametrize(
     "field",
-    ["site_id", "collection_unit_id", "dataset_type", "database", "missing_resource"],
+    [
+        "site_id",
+        "numeric_type",
+        "collection_unit_id",
+        "dataset_type",
+        "database",
+        "missing_resource",
+    ],
 )
 def test_exact_five_field_native_owner_is_required(
     ancillary_sources: dict[str, Any], field: str
@@ -82,6 +89,10 @@ def test_exact_five_field_native_owner_is_required(
     changed = deepcopy(raw)
     if field == "missing_resource":
         changed["resources"].pop()
+    elif field == "numeric_type":
+        original = changed["resources"][0]["site_id"]
+        assert type(original) is int
+        changed["resources"][0]["site_id"] = float(original)
     else:
         changed["resources"][0][field] = "different literal owner"
     with pytest.raises(ValueError, match="owner|resource|membership"):
