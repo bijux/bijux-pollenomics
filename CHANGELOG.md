@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#544](https://github.com/bijux/bijux-pollenomics/pull/544) — Selected Nordic point input custody
+
+Bind four selected Nordic point layers to caller-pinned bytes used for both parsing and staging, with recorded identities and temporal precedence. Other Atlas inputs and scientific admission remain outside this control.
+
 ### [#543](https://github.com/bijux/bijux-pollenomics/pull/543) — Explicit Sweden lake Atlas inputs
 
 Allow Atlas callers to bind captured Sweden lake source bytes and explicit absence independently of the output directory. Default discovery remains available; input identity does not establish source admission or complete Atlas closure.
