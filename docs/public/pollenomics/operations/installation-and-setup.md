@@ -151,6 +151,13 @@ The effective default AADR input is `data/aadr/v66/`: `data/aadr/` is the
 different release is selected; a path without its release identity is
 insufficient provenance.
 
+The human-sample runtime captures the selected annotation files for each query
+and uses their content identities for its in-process caches. Memory used by the
+capture grows with the total annotation size; repeated queries read the files
+again. Each query has its own capture, so multiple country queries do not by
+themselves establish a single frozen release for a map build. Resolved source
+paths and content identities are not source-admission or publication evidence.
+
 Run repository workflows from the checkout root, or pass every relevant root
 explicitly. Otherwise a valid command can read or write a different tree than
 the one you intended.

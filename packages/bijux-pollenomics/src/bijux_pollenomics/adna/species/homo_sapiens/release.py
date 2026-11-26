@@ -2,10 +2,14 @@
 
 from __future__ import annotations
 
+from hashlib import sha256
 import json
+import os
 from pathlib import Path
+import stat
 
 from bijux_pollenomics.adna.workflow.runtime import AdnaSourceBundle
+from bijux_pollenomics.core.filesystem.anchors import DirectoryAnchor
 
 from .release_manifest import (
     validate_release_manifest_identity as validate_release_manifest_identity,
@@ -17,7 +21,7 @@ ReleaseCacheKey = tuple[
     str,
     str,
     str,
-    tuple[tuple[str, int, int], ...],
+    tuple[tuple[str, str], ...],
 ]
 
 
@@ -56,13 +60,68 @@ def release_dataset_names(
     return tuple(sorted(names))
 
 
-def release_cache_key(bundle: AdnaSourceBundle) -> ReleaseCacheKey:
-    """Fingerprint the release inputs that invalidate normalized row caches."""
-    release_dir = Path(bundle.tracked_root)
-    file_rows = tuple(
-        (str(path), path.stat().st_mtime_ns, path.stat().st_size)
-        for path in discover_homo_sapiens_anno_files(release_dir)
-    )
+def _read_annotation(path: Path) -> bytes:
+    """Capture a regular annotation while retaining supported hard links."""
+    if not all(hasattr(os, flag) for flag in ("O_NOFOLLOW", "O_NONBLOCK")):
+        raise ValueError("Safe AADR source reads are unsupported")
+    with DirectoryAnchor(path.parent) as anchor:
+        before = os.stat(path.name, dir_fd=anchor.fd, follow_symlinks=False)
+        if not stat.S_ISREG(before.st_mode):
+            raise ValueError("AADR annotation is not a regular file")
+        fd = os.open(
+            path.name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=anchor.fd
+        )
+        try:
+
+            def stamp(node: os.stat_result) -> tuple[int, ...]:
+                return (
+                    node.st_dev,
+                    node.st_ino,
+                    node.st_mode,
+                    node.st_nlink,
+                    node.st_size,
+                    node.st_mtime_ns,
+                    node.st_ctime_ns,
+                )
+
+            if stamp(os.fstat(fd)) != stamp(before):
+                raise ValueError("AADR annotation changed while opening")
+            chunks = []
+            remaining = before.st_size
+            while remaining:
+                block = os.read(fd, min(remaining, 1024 * 1024))
+                if not block:
+                    raise ValueError("AADR annotation changed while reading")
+                chunks.append(block)
+                remaining -= len(block)
+            if stamp(os.fstat(fd)) != stamp(before) or stamp(
+                os.stat(path.name, dir_fd=anchor.fd, follow_symlinks=False)
+            ) != stamp(before):
+                raise ValueError("AADR annotation changed while reading")
+            anchor.check()
+            return b"".join(chunks)
+        finally:
+            os.close(fd)
+
+
+def capture_release_inputs(bundle: AdnaSourceBundle) -> tuple[tuple[str, bytes], ...]:
+    """Capture ordered bodies from resolved paths, with each read size-bound."""
+    paths = discover_homo_sapiens_anno_files(Path(bundle.tracked_root))
+    captured = []
+    for path in paths:
+        resolved = path.resolve(strict=True)
+        raw = _read_annotation(resolved)
+        captured.append((str(path), raw))
+    return tuple(captured)
+
+
+def release_cache_key(
+    bundle: AdnaSourceBundle, captured: tuple[tuple[str, bytes], ...] | None = None
+) -> ReleaseCacheKey:
+    """Identify the exact captured bodies and all parsing-relevant bundle fields."""
+    if captured is None:
+        captured = capture_release_inputs(bundle)
+    file_rows = tuple((path, sha256(raw).hexdigest()) for path, raw in captured)
     return (
         bundle.source_release,
         bundle.source_family,
