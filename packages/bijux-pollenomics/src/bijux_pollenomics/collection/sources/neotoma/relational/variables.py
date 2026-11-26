@@ -12,7 +12,7 @@ import copy
 
 from .....core.text import clean_optional_text
 from .diagnostics import merge_conflict_variants
-from .identifiers import digest, optional_source_id
+from .identifiers import digest, invalid_source_reference, optional_source_id
 
 
 def is_native_pollen(element: object, element_type: object) -> bool:
@@ -68,6 +68,10 @@ def register_variable(
             "source_snapshot_id": source_snapshot_id,
             "build_id": build_id,
         }
+        if invalid_source_reference(datum.get("taxonid")):
+            variables[variable_id]["source_taxon_identifier_status"] = (
+                "invalid_source_identifier"
+            )
         return
     existing_identity = {field: record.get(field) for field in identity}
     if digest(existing_identity) != digest(identity):
@@ -101,8 +105,13 @@ def finalize_variables(variables: list[dict[str, object]]) -> None:
 
 def variable_id(datum: Mapping[str, object]) -> str:
     """Use the native taxon key or an explicit unidentified-name key."""
-    taxon_id = optional_source_id(datum.get("taxonid"))
     name = clean_optional_text(datum.get("variablename"))
+    if invalid_source_reference(datum.get("taxonid")):
+        token = digest({"invalid_taxon_id": datum.get("taxonid"), "source_name": name})[
+            :20
+        ]
+        return f"neotoma:invalid-variable:{token}"
+    taxon_id = optional_source_id(datum.get("taxonid"))
     if taxon_id is not None:
         return f"neotoma:variable:{taxon_id}"
     return f"neotoma:variable:unidentified:{digest({'name': name})[:20]}"

@@ -7,6 +7,9 @@ from collections.abc import Mapping
 from bijux_pollenomics.collection.sources.neotoma.relational.variables import (
     is_native_pollen,
 )
+from bijux_pollenomics.evidence.sources.neotoma.taxon_identity import (
+    invalid_source_taxon_identifier,
+)
 
 
 def _source_concept_identity(
@@ -15,6 +18,11 @@ def _source_concept_identity(
     from . import _required_text, copy
 
     return {
+        **(
+            {"source_taxon_identifier_status": "invalid_source_identifier"}
+            if invalid_source_taxon_identifier(observation)
+            else {}
+        ),
         "source_family": "neotoma",
         "source_variable_id": _required_text(observation, "variable_id"),
         "source_taxon_id": copy.deepcopy(observation.get("source_taxon_id")),
@@ -57,6 +65,8 @@ def _mapping_posture(identity: Mapping[str, object]) -> tuple[str, str]:
         or taxon_group in _ADMINISTRATIVE_TAXON_GROUPS
     ):
         return "not_applicable", "source_declares_administrative_variable"
+    if invalid_source_taxon_identifier(identity):
+        return "unmapped", "invalid_source_taxon_identifier"
     return "unmapped", "mapping_evidence_and_human_review_required"
 
 

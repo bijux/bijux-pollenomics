@@ -311,3 +311,34 @@ def test_compact_claims_keep_invalid_and_unmarked_reference_distinct(
         )["is_default_chronology"]
         is None
     )
+
+
+def test_invalid_taxon_and_scalar_survive_materialized_compact_tables(
+    tmp_path: Path,
+) -> None:
+    source = native_source()
+    unit = nested(source, "site", "collectionunit")
+    sample = rows(nested(unit, "dataset")["samples"])[0]
+    invalid = deepcopy(rows(sample["datum"])[0])
+    scalar = deepcopy(invalid)
+    invalid["taxonid"] = [99]
+    scalar["taxonid"] = "[99]"
+    sample["datum"] = [invalid, scalar]
+    tabs, _ = materialized(tmp_path, source)
+    result = run_node_json(
+        diagram_script()
+        + "const tabs="
+        + json.dumps(tabs)
+        + ";const o=tabs.pollen_composition,v=o.variables;console.log(JSON.stringify({observations:o.records.map(r=>decodeDetailTableRow(o,r)),variables:v.records.map(r=>decodeDetailTableRow(v,r))}));"
+    )
+    observations = result["observations"]
+    variables = result["variables"]
+    bad = next(row for row in observations if row["source_taxon_id"] == [99])
+    good = next(row for row in observations if row["source_taxon_id"] == "[99]")
+    assert bad["variable_id"] != good["variable_id"]
+    assert bad["source_taxon_identifier_status"] == "invalid_source_identifier"
+    assert good["source_taxon_identifier_status"] == "not_recorded"
+    assert {row["variable_id"] for row in variables} == {
+        bad["variable_id"],
+        good["variable_id"],
+    }

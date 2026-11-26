@@ -6,9 +6,14 @@ from collections import defaultdict
 from collections.abc import Mapping, Sequence
 from typing import cast
 
+from bijux_pollenomics.evidence.sources.neotoma.taxon_identity import (
+    invalid_source_taxon_identifier,
+)
+
 from .admission import canonical_claim_interval, source_coordinate
 from .identity import digest, optional_text
 from .models import SourceChronologyNode, SourceNodeContext, SourceNodeFacetRefusal
+from .source_identity import _taxon_id as _source_taxon_id
 
 _Feature = tuple[str, str, int | str | None, str | None, str | None]
 _Admitted = tuple[
@@ -18,14 +23,6 @@ _Admitted = tuple[
     Mapping[str, object],
     str,
 ]
-
-
-def _source_taxon_id(value: object) -> int | str | None:
-    if isinstance(value, bool):
-        return None
-    if isinstance(value, int) and value >= 0:
-        return value
-    return optional_text(value)
 
 
 def _features(
@@ -57,7 +54,9 @@ def _features(
                 code,
             )
         )
-    if taxon_id is None or taxon_name is None or variable_id is None:
+    if invalid_source_taxon_identifier(observation):
+        refusals.append(("source_taxon", "invalid_source_taxon_identifier"))
+    elif taxon_id is None or taxon_name is None or variable_id is None:
         refusals.append(("source_taxon", "source_taxon_identity_incomplete"))
     else:
         features.append(
