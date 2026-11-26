@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#542](https://github.com/bijux/bijux-pollenomics/pull/542) — Historical SEAD chronology in Atlas
+
+Project reconciled chronology onto copied Atlas claims through an explicit historical request, binding consumed evidence and site bytes to their sources. Existing source eligibility remains unchanged; no corrected Atlas publication or browser qualification is claimed.
+
 ### [#541](https://github.com/bijux/bijux-pollenomics/pull/541) — Nordic browser chronology and fitted identities
 
 Scope browser chronology checks to the claim table and verify the exact selected site identities after fitting the loaded view. The qualified control covers the retained eight-record candidate, not a corrected Atlas.
