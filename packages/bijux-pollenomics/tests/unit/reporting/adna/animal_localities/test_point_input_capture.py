@@ -245,9 +245,14 @@ def test_public_atlas_uses_held_animal_point_inputs(
     import json
     import re
     import shutil
-    from types import SimpleNamespace
     from typing import Any, cast
 
+    from bijux_pollenomics.adna.species.homo_sapiens import (
+        build_homo_sapiens_runtime_manifest_for_version_dir,
+    )
+    from bijux_pollenomics.adna.species.homo_sapiens.map_snapshot import (
+        capture_aadr_map_snapshot,
+    )
     from bijux_pollenomics.core.repository import repository_data_root
     from bijux_pollenomics.reporting import service
     from bijux_pollenomics.reporting.adna.animal_localities import (
@@ -261,6 +266,7 @@ def test_public_atlas_uses_held_animal_point_inputs(
     from bijux_pollenomics.reporting.map_document.static_assets.serialization import (
         decode_chunk_script,
     )
+    from tests.support.aadr import write_anno_file
 
     retained = repository_data_root(__file__) / "adna" / "species"
     root = tmp_path / "data"
@@ -301,19 +307,18 @@ def test_public_atlas_uses_held_animal_point_inputs(
     }
     assert expected_features
     shutil.rmtree(species_root)
-    monkeypatch.setattr(
-        service, "build_homo_sapiens_runtime_manifest_for_version_dir", lambda _: None
+    annotation = tmp_path / "v66" / "ho" / "fixture.anno"
+    write_anno_file(
+        annotation,
+        ["G1\tM1\tX\tKanaljorden\tSweden\t58.5\t15.1\tPaper\t2020\t\t500\tAG\tM"],
     )
-    monkeypatch.setattr(
-        service,
-        "load_multi_country_map_inputs",
-        lambda **_: SimpleNamespace(
-            country_sample_counts=dict.fromkeys(
-                ("Denmark", "Finland", "Norway", "Sweden"), 0
-            ),
-            all_samples=(),
-        ),
+    manifest = build_homo_sapiens_runtime_manifest_for_version_dir(
+        annotation.parent.parent
     )
+    aadr = capture_aadr_map_snapshot(
+        manifest, {"ho/fixture.anno": sha256(annotation.read_bytes()).hexdigest()}
+    )
+    annotation.write_bytes(annotation.read_bytes().replace(b"Sweden", b"Norway"))
     output = tmp_path / "map"
     service.generate_multi_country_map(
         tmp_path / "v66",
@@ -324,6 +329,7 @@ def test_public_atlas_uses_held_animal_point_inputs(
         context_root=root,
         lake_inputs=SwedenLakeInputs(),
         animal_point_inputs=capture,
+        aadr_map_snapshot=aadr,
     )
     html = (output / "nordic_map.html").read_text()
     match = re.search(
@@ -337,9 +343,11 @@ def test_public_atlas_uses_held_animal_point_inputs(
         normalize_asset_inventory(json.loads(match.group(1))["assets"]),
     )
     observed: dict[str, list[Any]] = {}
+    human: list[Any] = []
     for row in rows:
-        if row["domain"] != "nodes" or not row.get("layer_key", "").startswith(
-            "animal-"
+        if row["domain"] != "nodes" or not (
+            row.get("layer_key", "").startswith("animal-")
+            or row.get("layer_key") == "aadr"
         ):
             continue
         chunk = decode_chunk_script(
@@ -349,14 +357,27 @@ def test_public_atlas_uses_held_animal_point_inputs(
             expected_payload_encoding=row["payload_encoding"],
             expected_decoded_byte_count=row.get("decoded_byte_count"),
         )
-        observed.setdefault(row["layer_key"], []).extend(
-            cast(list[Any], chunk["features"])
-        )
+        if row["layer_key"] == "aadr":
+            human.extend(cast(list[Any], chunk["features"]))
+        else:
+            observed.setdefault(row["layer_key"], []).extend(
+                cast(list[Any], chunk["features"])
+            )
     assert observed == expected_features
+    assert len(human) == 1
+    assert (human[0]["country"], human[0]["latitude"], human[0]["longitude"]) == (
+        "Sweden",
+        58.5,
+        15.1,
+    )
+    assert {item["label"]: item["value"] for item in human[0]["popup_rows"]}[
+        "Genetic ID"
+    ] == "G1"
     contract = json.loads(
         (output / "nordic_map_publication_contract.json").read_bytes()
     )
     assert contract["animal_selected_point_inputs"] == capture.identity()
+    assert contract["aadr_map_annotation_inputs"] == aadr.identity()
 
 
 def test_public_atlas_rejects_animal_owner_bypass_and_preserves_output(

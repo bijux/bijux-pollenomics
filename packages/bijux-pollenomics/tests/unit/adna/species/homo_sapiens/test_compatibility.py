@@ -45,6 +45,7 @@ def test_runtime_is_grouped_by_intent_with_bounded_modules() -> None:
         "constants.py",
         "loading.py",
         "manifest.py",
+        "map_snapshot.py",
         "records.py",
         "release.py",
         "release_manifest.py",

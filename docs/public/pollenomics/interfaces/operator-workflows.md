@@ -213,6 +213,20 @@ is sequential, not an atomic snapshot. These display inputs do not bind the
 historical SEAD country authority or other sources, establish source admission,
 or constitute complete Atlas source closure.
 
+### Bind AADR map country queries
+
+`generate_multi_country_map` accepts an optional `aadr_map_snapshot` created by
+`capture_aadr_map_snapshot(runtime_manifest, expected_sha256)` from
+`bijux_pollenomics.adna.species.homo_sapiens.map_snapshot`. Supply the exact
+SHA-256 for every discovered annotation file, keyed by its release-relative path.
+All country queries use the held annotation bytes and the captured runtime
+manifest; the publication contract records both identities. Missing, extra or
+mismatched files are refused during capture. Capturing files is sequential and
+is not an atomic release snapshot. The runtime-manifest identity describes the
+object used for the queries; it does not identify the bytes of the release
+manifest file from which that object was constructed. This option does not bind
+other Atlas sources or establish source or scientific admission.
+
 ## Interpret Completion
 
 | Operation | Completion signal | Remaining scientific question |

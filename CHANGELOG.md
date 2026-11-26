@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#566](https://github.com/bijux/bijux-pollenomics/pull/566) — Cross-country AADR input capture
+
+Offer one explicit captured annotation set for multi-country Atlas queries while preserving per-country deduplication. Capture is sequential and does not establish release-manifest byte custody or complete Atlas closure.
+
 ### [#565](https://github.com/bijux/bijux-pollenomics/pull/565) — Captured animal Atlas point inputs
 
 Offer explicit animal point input presence and byte capture for Atlas generation and align chronology tests with sample-owned versus locality display dates. Animal chronology and complete Atlas closure remain separate.

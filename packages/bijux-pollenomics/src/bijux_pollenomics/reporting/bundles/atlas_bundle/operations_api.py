@@ -13,6 +13,7 @@ from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
 )
 
 from ....adna import AdnaLocalitySummary
+from ....adna.species.homo_sapiens.map_snapshot import AadrMapSnapshot
 from ....collection.contracts.models import ContextPointRecord
 from ....core.geospatial.geojson import JsonObject
 from ....evidence import AnimalCoordinateVisibilityReview
@@ -41,6 +42,7 @@ class _OptionalInputs(TypedDict, total=False):
     nordic_point_inputs: NordicPointInputs
     nordic_polygon_inputs: NordicPolygonInputs
     animal_point_inputs: AnimalPointInputs
+    aadr_map_snapshot: AadrMapSnapshot
 
 
 def _surface() -> ModuleType:
@@ -82,6 +84,7 @@ def publish_multi_country_map_bundle(
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     animal_point_inputs: AnimalPointInputs | None = None,
+    aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
     optional_inputs: _OptionalInputs = {}
@@ -97,6 +100,8 @@ def publish_multi_country_map_bundle(
         optional_inputs["nordic_polygon_inputs"] = nordic_polygon_inputs
     if animal_point_inputs is not None:
         optional_inputs["animal_point_inputs"] = animal_point_inputs
+    if aadr_map_snapshot is not None:
+        optional_inputs["aadr_map_snapshot"] = aadr_map_snapshot
     publish_bundle(
         staging_output_dir,
         report=report,
