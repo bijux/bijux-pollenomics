@@ -69,6 +69,18 @@ The reference package/version/archive fields identify equation and kernel
 ancestry; they do not certify original-wrapper acceptance of the expanded input.
 The default regional manifest keeps its existing compatibility identity.
 
+Run manifest input hashes use the existing canonical object representation, not
+a byte-for-byte serialization of the original input. DataFrame column and index
+labels, Series index labels and names, and mapping keys are converted to strings
+for that representation. Consequently, distinct source labels with the same
+string form, such as integer `0` and string `"0"` as DataFrame index labels,
+can have the same input hash. This does not imply that their source records are
+identical. Preserve and authenticate original source bytes separately when label
+types matter; do not use the engine input digest alone as evidence of typed label
+identity. The current run manifest does not provide a typed-label hash profile.
+Introducing one requires an explicitly versioned identity contract and continued
+interpretation of historical manifests under their original representation.
+
 The [generated R control](../../tests/reference/regional_profiles/landclim_gpm_neutral.R)
 and [retained expectations](../../tests/reference/regional_profiles/landclim_gpm_neutral.json)
 identify the exact two upstream source programs, generator hash and native R
