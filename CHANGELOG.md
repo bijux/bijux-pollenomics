@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#540](https://github.com/bijux/bijux-pollenomics/pull/540) — Historical SEAD derived chronology overlay
+
+Reconcile corrected derived chronology fields against the pinned historical evidence and validated admission through an explicit in-memory overlay. Retained source values, relation fields and eligibility remain unchanged; no Atlas integration or publication is claimed.
+
 ### [#539](https://github.com/bijux/bijux-pollenomics/pull/539) — Candidate-bound Nordic browser verification
 
 Capture and verify Nordic candidate assets before serving them to a versioned browser verifier, binding the receipt to source, generation and served bytes. Existing v1 behavior remains; no corrected Atlas or real v2 browser run is claimed.
