@@ -139,3 +139,26 @@ class GridSpec:
             self.west + (column + 1) * self.longitude_step,
             self.south + (geographic_row + 1) * self.latitude_step,
         )
+
+    def window_bounds(
+        self, row_start: int, row_stop: int, column_start: int, column_stop: int
+    ) -> Bounds:
+        """Return cell-aligned bounds for nonempty half-open source-index ranges.
+
+        Rows follow this grid's declared row order. No geographic snapping or
+        native HYDE source admission is implied.
+        """
+        indices = (row_start, row_stop, column_start, column_stop)
+        if not all(type(index) is int for index in indices) or not (
+            0 <= row_start < row_stop <= self.rows
+            and 0 <= column_start < column_stop <= self.columns
+        ):
+            raise IntakeRefusal("hyde_grid_window_invalid", repr(indices))
+        first = self.cell_bounds(row_start, column_start)
+        last = self.cell_bounds(row_stop - 1, column_stop - 1)
+        return Bounds(
+            first.west,
+            min(first.south, last.south),
+            last.east,
+            max(first.north, last.north),
+        )
