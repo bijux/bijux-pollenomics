@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#555](https://github.com/bijux/bijux-pollenomics/pull/555) — Exact LRA seed entropy
+
+Normalize previously accepted non-executable integral seeds exactly while preserving working singleton sequence entropy and manifest representation. Caller-owned mutable seed sequences retain their existing behavior.
+
 ### [#554](https://github.com/bijux/bijux-pollenomics/pull/554) — Real-valued PPE sampling
 
 Reject complex means and deviations in the direct PPE sampler before conversion or random generator advancement. The high-level REVEALS parameter path already refused complex PPE.
