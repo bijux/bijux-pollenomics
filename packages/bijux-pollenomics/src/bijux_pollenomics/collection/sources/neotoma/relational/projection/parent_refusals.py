@@ -79,14 +79,18 @@ def required_parent_id(
     The caller has already counted this parent. Descendant counters are added
     here only on refusal, because their normal projection will not be reached.
     """
-    source_id = optional_source_id(record.get(id_field))
+    source_value = record.get(id_field)
+    invalid_container = isinstance(source_value, (Mapping, list))
+    source_id = None if invalid_container else optional_source_id(source_value)
     if source_id is None:
         counts = parent_source_counts(record, level)
         add_orphan(
             state.orphans,
             level,
             parent_id,
-            "missing_source_identifier",
+            "invalid_source_identifier"
+            if invalid_container
+            else "missing_source_identifier",
             source_value=record,
             excluded_source_row_counts=counts,
         )

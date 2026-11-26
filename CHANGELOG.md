@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#549](https://github.com/bijux/bijux-pollenomics/pull/549) — Neotoma parent identifier refusals
+
+Refuse object and list identifiers at required Neotoma parent gates while preserving native payload and descendant accounting. Existing scalar handling remains unchanged; other identifier types remain separate.
+
 ### [#548](https://github.com/bijux/bijux-pollenomics/pull/548) — LandClim uncertainty cell identity
 
 Pair published mean and standard-error rows using their native decimal coordinates before conversion to floats. Equivalent decimal spellings remain valid; no mismatch was found in the retained paired rows.
