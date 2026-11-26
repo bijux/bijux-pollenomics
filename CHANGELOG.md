@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#545](https://github.com/bijux/bijux-pollenomics/pull/545) — Content-bound AADR sample caches
+
+Key sample caches by captured annotation content and parse those same bytes, preventing stale results when source bytes change without a size or timestamp change. Each query remains separate; this does not establish a frozen Atlas input snapshot.
+
 ### [#544](https://github.com/bijux/bijux-pollenomics/pull/544) — Selected Nordic point input custody
 
 Bind four selected Nordic point layers to caller-pinned bytes used for both parsing and staging, with recorded identities and temporal precedence. Other Atlas inputs and scientific admission remain outside this control.
