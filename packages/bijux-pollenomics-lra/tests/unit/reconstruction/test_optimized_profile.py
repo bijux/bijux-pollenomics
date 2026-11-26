@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import NoReturn
+from typing import Any, NoReturn
 
 import numpy as np
 import pandas as pd
@@ -575,6 +575,7 @@ def test_supplied_local_draw_masks_preserve_profile_and_full_public_results(
         for key in left:
             pd.testing.assert_frame_equal(left[key], right[key], check_exact=True)
     assert actual.objective_values is not None and expected.objective_values is not None
+    assert actual.objective_values is not None and expected.objective_values is not None
     pd.testing.assert_frame_equal(
         actual.objective_values, expected.objective_values, check_exact=True
     )
@@ -600,3 +601,116 @@ def test_supplied_local_draw_masks_preserve_profile_and_full_public_results(
     assert (
         actual.manifest.scientific_identity() == expected.manifest.scientific_identity()
     )
+
+
+@pytest.mark.parametrize(
+    "profile,maximum,fractions",
+    [
+        (OptimizedLoveProfile.DISQOVER_SOURCE.value, 2, [0.0, 0.7, 0.9, 0.6]),
+        (OptimizedLoveProfile.RING_TAXON_PRESERVING.value, 1, [1.0, 0.7, 0.9, 0.6]),
+    ],
+)
+@pytest.mark.parametrize(
+    "counts",
+    [
+        np.array([[30 + 9j, 50, 20]]),
+        np.array([[30 + 9j, 50, 20]], dtype=object),
+        [[True, 50, 20]],
+    ],
+)
+def test_supplied_optimized_counts_refuse_nonreal_or_boolean_values(
+    profile: str, maximum: int, fractions: list[float], counts: object
+) -> None:
+    with pytest.raises(ValidationError, match="local_count_draws"):
+        run_love(
+            *_inputs(fractions),
+            _config(maximum, optimized_profile=profile),
+            local_count_draws=counts,
+            regional_cover_draws=np.array([[0.89448, 0.04771, 0.05781]]),
+            replay_candidates=np.array([[0.2, 0.5, 0.3]]),
+        )
+
+
+@pytest.mark.parametrize("field", ["regional_cover_draws", "replay_candidates"])
+@pytest.mark.parametrize("kind", ["complex", "boolean"])
+@pytest.mark.parametrize(
+    "profile,maximum,fractions",
+    [
+        (OptimizedLoveProfile.DISQOVER_SOURCE.value, 2, [0.0, 0.7, 0.9, 0.6]),
+        (OptimizedLoveProfile.RING_TAXON_PRESERVING.value, 1, [1.0, 0.7, 0.9, 0.6]),
+    ],
+)
+def test_supplied_optimized_vectors_refuse_nonreal_or_boolean(
+    field: str, kind: str, profile: str, maximum: int, fractions: list[float]
+) -> None:
+    supplied: dict[str, Any] = {
+        "regional_cover_draws": np.array([[0.89448, 0.04771, 0.05781]]),
+        "replay_candidates": np.array([[0.2, 0.5, 0.3]]),
+        "local_count_draws": np.array([[30.0, 50.0, 20.0]]),
+    }
+    if kind == "complex":
+        supplied[field] = supplied[field].astype(complex)
+        supplied[field][0, 0] += 2j
+    else:
+        supplied[field] = [[True, 0.0, 0.0]]
+    with pytest.raises(ValidationError):
+        run_love(
+            *_inputs(fractions), _config(maximum, optimized_profile=profile), **supplied
+        )
+
+
+@pytest.mark.parametrize("field", ["mKlocal", "vSampleLocPro"])
+@pytest.mark.parametrize("prepared", [False, True])
+def test_objective_refuses_complex_measurements(field: str, prepared: bool) -> None:
+    regional, kernels, fractions, observed, ppe = _objective_inputs()
+    if field == "mKlocal":
+        kernels = kernels.astype(complex)
+        kernels[0, 0] += 2j
+    else:
+        observed = observed.astype(complex)
+        observed[0] += 2j
+    with pytest.raises(ValidationError, match=field):
+        if prepared:
+            optimized._prepare_objective(regional, kernels, fractions, observed, ppe)
+        else:
+            optimized.tf([0.2, 0.5, 0.3], regional, kernels, fractions, observed, ppe)
+
+
+def test_fractional_count_draws_keep_real_results() -> None:
+    kwargs: dict[str, Any] = {
+        "regional_cover_draws": np.array([[0.89448, 0.04771, 0.05781]]),
+        "replay_candidates": np.array([[0.2, 0.5, 0.3]]),
+    }
+    inputs = _inputs([0.0, 0.7, 0.9, 0.6])
+    expected = run_love(
+        *inputs, _config(2), local_count_draws=np.array([[30.5, 50, 20]]), **kwargs
+    )
+    actual = run_love(*inputs, _config(2), local_count_draws=[[30.5, 50, 20]], **kwargs)
+    pd.testing.assert_frame_equal(
+        actual.cover["mean"], expected.cover["mean"], check_exact=True
+    )
+    assert actual.objective_values is not None and expected.objective_values is not None
+    pd.testing.assert_frame_equal(
+        actual.objective_values, expected.objective_values, check_exact=True
+    )
+
+
+def test_nonfinite_optimized_counts_remain_refused() -> None:
+    with pytest.raises(ValidationError, match="local counts"):
+        run_love(
+            *_inputs([0.0, 0.7, 0.9, 0.6]),
+            _config(2),
+            local_count_draws=[[float("nan"), 50, 20]],
+            regional_cover_draws=[[0.89448, 0.04771, 0.05781]],
+            replay_candidates=[[0.2, 0.5, 0.3]],
+        )
+
+
+@pytest.mark.parametrize("candidates", [np.array([[0.2 + 3j, 0.8]]), [[True, 0.5]]])
+def test_replay_optimizer_refuses_nonreal_or_boolean_candidates(
+    candidates: Any,
+) -> None:
+    from bijux_pollenomics_lra.optimization.solver import ReplayOptimizer
+
+    with pytest.raises(ValidationError, match="replay_candidates"):
+        ReplayOptimizer(candidates)

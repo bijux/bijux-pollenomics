@@ -14,7 +14,7 @@ from bijux_pollenomics_lra.dispersal.rounding import r_round
 from bijux_pollenomics_lra.models.configuration import OptimizedLoveProfile
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
-    _reject_masked_values,
+    _float_array,
     frame,
     parameter_value,
     rng_from,
@@ -69,8 +69,7 @@ def love_pollen(
     """Forward-model local plus regional pollen deposition."""
     cover = vector(a, "a", nonnegative=True)
     regional = vector(vPoldepRegio, "vPoldepRegio", finite=False)
-    _reject_masked_values(mKlocal, "mKlocal")
-    local_k = np.atleast_2d(np.asarray(mKlocal, dtype=float))
+    local_k = np.atleast_2d(_float_array(mKlocal, "mKlocal"))
     local_fraction = vector(vFlocal, "vFlocal", finite=False)
     productivity = vector(ppes, "ppes", positive=True)
     return _love_pollen_arrays(cover, regional, local_k, local_fraction, productivity)
@@ -113,8 +112,7 @@ def tf(
 ) -> float:
     """LOVEoptim objective function."""
     predicted = love_pollen(a, vPoldepRegio, mKlocal, vFlocal, ppes)
-    _reject_masked_values(vSampleLocPro, "vSampleLocPro")
-    observed = np.asarray(vSampleLocPro, dtype=float) + 0.001
+    observed = _float_array(vSampleLocPro, "vSampleLocPro") + 0.001
     return logeuclidean(predicted, observed)
 
 
@@ -127,8 +125,7 @@ def _prepare_objective(
 ) -> Callable[[np.ndarray], float]:
     """Own immutable search invariants without revalidating them per candidate."""
     regional = vector(vPoldepRegio, "vPoldepRegio", finite=False).copy(order="K")
-    _reject_masked_values(mKlocal, "mKlocal")
-    local_k = np.atleast_2d(np.asarray(mKlocal, dtype=float)).copy(order="K")
+    local_k = np.atleast_2d(_float_array(mKlocal, "mKlocal")).copy(order="K")
     local_fraction = vector(vFlocal, "vFlocal", finite=False).copy(order="K")
     productivity = vector(ppes, "ppes", positive=True).copy(order="K")
     if (
@@ -136,8 +133,9 @@ def _prepare_objective(
         or regional.shape != productivity.shape
     ):
         raise ValidationError("LOVE forward-model dimensions disagree")
-    _reject_masked_values(vSampleLocPro, "vSampleLocPro")
-    observed = vector(np.asarray(vSampleLocPro, dtype=float) + 0.001, "b", finite=False)
+    observed = vector(
+        _float_array(vSampleLocPro, "vSampleLocPro") + 0.001, "b", finite=False
+    )
     if observed.shape != productivity.shape:
         raise ValidationError("logeuclidean vectors must have equal dimensions")
     for invariant in (regional, local_k, local_fraction, productivity, observed):
@@ -283,8 +281,12 @@ def LOVEoptim(
     )
     pollen_samples = np.full_like(cover_samples, np.nan)
     best_values = np.full((maximum_ring, repeat_count), np.nan, dtype=float)
-    _reject_masked_values(local_count_draws, "local_count_draws")
-    if local_count_draws is not None and np.asarray(local_count_draws).shape != (
+    count_values = (
+        None
+        if local_count_draws is None
+        else _float_array(local_count_draws, "local_count_draws")
+    )
+    if count_values is not None and count_values.shape != (
         repeat_count,
         len(taxa),
     ):
@@ -310,8 +312,8 @@ def LOVEoptim(
                 rng=generator,
             )
         counts = (
-            np.asarray(local_count_draws, dtype=float)[repeat_index]
-            if local_count_draws is not None
+            count_values[repeat_index]
+            if count_values is not None
             else multidraw(local_counts, rng=generator)
             if stochastic
             else local_counts

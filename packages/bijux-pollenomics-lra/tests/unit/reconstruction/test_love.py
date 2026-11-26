@@ -409,3 +409,26 @@ def test_typed_analytical_and_optimized_results(tmp_path: Path) -> None:
 def test_love_config_validation(kwargs: dict[str, object]) -> None:
     with pytest.raises(ValidationError):
         LoveConfig(**kwargs)  # type: ignore[arg-type]
+
+
+def test_invalid_supplied_optimized_counts_leave_generator_unchanged() -> None:
+    local, regional, params, rings = _source_params()
+    generator = np.random.default_rng(19)
+    reference = np.random.default_rng(19)
+    counts = np.ones((1, len(local.columns) - 1), dtype=complex)
+    counts[0, 0] += 4j
+    with pytest.raises(ValidationError, match="local_count_draws"):
+        LOVEoptim(
+            local,
+            regional,
+            params,
+            rings,
+            9,
+            repeats=1,
+            rng=generator,
+            stochastic=True,
+            local_count_draws=counts,
+        )
+    np.testing.assert_array_equal(
+        generator.integers(0, 100, 16), reference.integers(0, 100, 16)
+    )
