@@ -1172,6 +1172,9 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/source_completion/sead_relations/workflow.py": {
+        "bijux_pollenomics.core.filesystem": frozenset(
+            {"BoundedInputTree", "DirectoryAnchor"}
+        ),
         "bijux_pollenomics.collection.sources.sead.acquisition.governed": frozenset(
             {"governed_sead_expected_identity"}
         ),
@@ -1438,6 +1441,46 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"read_xlsx_sheet_rows"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/basin_sensitivity/calculation.py": {
+        "bijux_pollenomics.analysis.lra.api": frozenset(
+            {"read_lra_product", "run_lra_request"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/basin_sensitivity/inputs.py": {
+        "bijux_pollenomics.analysis.lra.api": frozenset({"read_lra_product"}),
+    },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/basin_sensitivity/workflow.py": {
+        "bijux_pollenomics.analysis.lra.api": frozenset({"LRARefusal"}),
+    },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/abborrtjarnen_age_ppe/grouped/publication.py": {
+        "bijux_pollenomics.core.filesystem": frozenset(
+            {"BoundedInputTree", "DirectoryAnchor", "OwnedTreeWriter"}
+        ),
+        "bijux_pollenomics.core.filesystem.replacement": frozenset(
+            {"publish_owned_replacement"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/preparation.py": {
+        "bijux_pollenomics.core.filesystem": frozenset({"OwnedTreeWriter"}),
+    },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/source_inputs.py": {
+        "bijux_pollenomics.core.filesystem": frozenset(
+            {"BoundedInputTree", "DirectoryAnchor"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/workflow.py": {
+        "bijux_pollenomics.analysis.lra.api": frozenset(
+            {"read_source_lra_cases", "run_source_lra_cases"}
+        ),
+        "bijux_pollenomics.core.filesystem": frozenset(
+            {"BoundedInputTree", "DirectoryAnchor"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/pollen_reconstruction/bokesjon_pilot/taxa/legacyvegetation.py": {
+        "bijux_pollenomics.core.filesystem": frozenset(
+            {"BoundedInputTree", "DirectoryAnchor"}
+        ),
+    },
 }
 
 
@@ -1493,6 +1536,106 @@ def test_dev_package_uses_only_reviewed_host_imports() -> None:
         )
     ]
     assert not failures, "unreviewed dev-to-host imports:\n" + "\n".join(failures)
+
+
+def test_scientific_clients_have_only_their_named_public_facade_bindings() -> None:
+    host = REPO_ROOT / "packages/bijux-pollenomics/src/bijux_pollenomics"
+    facade_files = {
+        "bijux_pollenomics.analysis.lra.api": host / "analysis/lra/api.py",
+        "bijux_pollenomics.core.filesystem": host / "core/filesystem/__init__.py",
+        "bijux_pollenomics.core.filesystem.replacement": host
+        / "core/filesystem/__init__.py",
+    }
+    facade_exports = {}
+    for module, path in facade_files.items():
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        declaration = next(
+            node.value
+            for node in tree.body
+            if isinstance(node, ast.Assign)
+            and any(
+                isinstance(target, ast.Name) and target.id == "__all__"
+                for target in node.targets
+            )
+        )
+        facade_exports[module] = set(ast.literal_eval(declaration))
+    clients = {
+        "pollen_reconstruction/bokesjon_pilot/basin_sensitivity/calculation.py": {
+            "bijux_pollenomics.analysis.lra.api": {
+                "read_lra_product",
+                "run_lra_request",
+            },
+        },
+        "pollen_reconstruction/bokesjon_pilot/basin_sensitivity/inputs.py": {
+            "bijux_pollenomics.analysis.lra.api": {"read_lra_product"},
+        },
+        "pollen_reconstruction/bokesjon_pilot/basin_sensitivity/workflow.py": {
+            "bijux_pollenomics.analysis.lra.api": {"LRARefusal"},
+        },
+        "pollen_reconstruction/abborrtjarnen_age_ppe/grouped/publication.py": {
+            "bijux_pollenomics.core.filesystem": {
+                "BoundedInputTree",
+                "DirectoryAnchor",
+                "OwnedTreeWriter",
+            },
+            "bijux_pollenomics.core.filesystem.replacement": {
+                "publish_owned_replacement"
+            },
+        },
+        "pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/preparation.py": {
+            "bijux_pollenomics.core.filesystem": {"OwnedTreeWriter"},
+        },
+        "pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/source_inputs.py": {
+            "bijux_pollenomics.core.filesystem": {
+                "BoundedInputTree",
+                "DirectoryAnchor",
+            },
+        },
+        "pollen_reconstruction/bokesjon_pilot/parameter_sensitivity/workflow.py": {
+            "bijux_pollenomics.analysis.lra.api": {
+                "read_source_lra_cases",
+                "run_source_lra_cases",
+            },
+            "bijux_pollenomics.core.filesystem": {
+                "BoundedInputTree",
+                "DirectoryAnchor",
+            },
+        },
+        "pollen_reconstruction/bokesjon_pilot/taxa/legacyvegetation.py": {
+            "bijux_pollenomics.core.filesystem": {
+                "BoundedInputTree",
+                "DirectoryAnchor",
+            },
+        },
+        "sead_relations/workflow.py": {
+            "bijux_pollenomics.core.filesystem": {
+                "BoundedInputTree",
+                "DirectoryAnchor",
+            },
+        },
+    }
+    prefix = "bijux_pollenomics_dev/source_completion/"
+    for relative, modules in clients.items():
+        owner = prefix + relative
+        source = (DEV_SRC / owner).read_text(encoding="utf-8")
+        imports = {
+            node.module: {alias.name for alias in node.names}
+            for node in ast.walk(ast.parse(source))
+            if isinstance(node, ast.ImportFrom) and node.module in modules
+        }
+        assert imports == modules
+        for module, names in modules.items():
+            assert names <= facade_exports[module]
+            statement = f"from {module} import {', '.join(sorted(names))}"
+            assert not host_import_violations(statement, owner)
+            assert host_import_violations(
+                statement, str(Path(owner).with_name("other.py"))
+            )
+            assert host_import_violations(statement + ", unreviewed", owner)
+            assert host_import_violations(f"from {module} import *", owner)
+            assert host_import_violations(f"import {module}", owner)
+            assert host_import_violations(f"__import__({module!r})", owner)
+            assert host_import_violations(f"importlib.import_module({module!r})", owner)
 
 
 def test_new_host_bindings_remain_file_and_symbol_specific() -> None:

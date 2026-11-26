@@ -17,6 +17,8 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ### Changed
 
+- Review exact host-facade imports used by pollen source studies and SEAD
+  relation exports without broadening neighboring development clients.
 - Preserve numerical operands and TeX escaping while offering safe breaks in long
   formulas and repository paths. Actual export/layout checks remain separate
   from human comprehension and scientific review.
