@@ -15,6 +15,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Preserve distinct JSON scalar representations in repeated Neotoma native
+  records and canonicalize their conflict diagnostics independently of arrival order.
 - Preserve source-age epoch and scale as separate requirements. Animal records
   with an undocumented age origin retain their raw source fields and no qualified
   calendar-BP interval; publication year supplies no inferred origin.

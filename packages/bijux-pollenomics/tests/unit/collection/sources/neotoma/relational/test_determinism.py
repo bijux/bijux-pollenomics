@@ -70,6 +70,46 @@ def test_variable_identity_is_invariant_to_label_arrival_order() -> None:
     assert _snapshot(source) == _snapshot(copy.deepcopy(source[::-1]))
 
 
+def test_chronology_conflicts_preserve_native_json_scalar_types(tmp_path: Path) -> None:
+    source = download_row(201)
+    chronologies = rows(nested(source, "site", "collectionunit")["chronologies"])
+    original = chronologies[0]
+    variants = []
+    for value in (True, 1, 1.0):
+        variant = copy.deepcopy(original)
+        mapping(variant["chronology"])["source_quality"] = value
+        variants.append(variant)
+
+    snapshots = []
+    for order in itertools.permutations(variants):
+        candidate = copy.deepcopy(source)
+        nested(candidate, "site", "collectionunit")["chronologies"] = [
+            *copy.deepcopy(order),
+            copy.deepcopy(chronologies[1]),
+        ]
+        snapshots.append(_snapshot([candidate]))
+
+    assert all(
+        canonical_json_bytes(snapshot) == canonical_json_bytes(snapshots[0])
+        for snapshot in snapshots[1:]
+    )
+    conflicts = [
+        row
+        for row in rows(snapshots[0]["conflicts"])
+        if row["conflict_kind"] == "chronology_payload_conflict"
+    ]
+    assert len(conflicts) == 1
+    variants = rows(mapping(conflicts[0]["detail"])["variants"])
+    assert {
+        json.dumps(mapping(variant["source_payload"])["source_quality"])
+        for variant in variants
+    } == {"true", "1", "1.0"}
+    manifest_path = materialize_neotoma_relational_snapshot(
+        tmp_path / "published", snapshots[0], rows_per_part=2
+    )
+    validate_neotoma_relational_materialization(manifest_path.parent)
+
+
 def test_repeated_variable_conflict_publishes_six_native_observations(
     tmp_path: Path,
 ) -> None:
