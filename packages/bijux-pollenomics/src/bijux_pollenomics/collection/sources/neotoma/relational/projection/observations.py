@@ -8,7 +8,7 @@ import copy
 
 from ......core.text import clean_optional_text
 from ..diagnostics import add_orphan, register_record
-from ..identifiers import digest
+from ..identifiers import digest, invalid_source_reference
 from ..state import RelationalBuildState
 from ..variables import register_variable, unit_family, variable_id
 from .parent_refusals import native_rows
@@ -57,6 +57,15 @@ def project_observations(
             f"neotoma:observation:{sample_source_id}:"
             f"{datum_digest[:20]}:{occurrence_counts[datum_digest]}"
         )
+        invalid_taxon = invalid_source_reference(datum.get("taxonid"))
+        if invalid_taxon:
+            add_orphan(
+                state.orphans,
+                "observation",
+                observation_id,
+                "invalid_taxon_identifier",
+                source_value=datum.get("taxonid"),
+            )
         source_variable_id = variable_id(datum)
         register_variable(
             state.tables["variables"],
@@ -79,6 +88,11 @@ def project_observations(
                 "country_code": country_code,
                 "variable_id": source_variable_id,
                 "source_taxon_id": copy.deepcopy(datum.get("taxonid")),
+                **(
+                    {"source_taxon_identifier_status": "invalid_source_identifier"}
+                    if invalid_taxon
+                    else {}
+                ),
                 "source_reported_name": copy.deepcopy(datum.get("variablename")),
                 "source_element": copy.deepcopy(datum.get("element")),
                 "source_element_type": copy.deepcopy(datum.get("elementtype")),

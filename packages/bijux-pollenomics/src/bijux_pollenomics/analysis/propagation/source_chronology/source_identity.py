@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
+from bijux_pollenomics.evidence.sources.neotoma.taxon_identity import (
+    invalid_source_taxon_identifier,
+)
+
 from .identity import optional_text
 
 
@@ -42,13 +46,19 @@ def enrich_source_identity(
         ):
             return enriched, "source_variable_lineage_mismatch"
 
+    invalid_taxon = invalid_source_taxon_identifier(
+        observation
+    ) or invalid_source_taxon_identifier(variable)
+    if invalid_taxon:
+        enriched["source_taxon_identifier_status"] = "invalid_source_identifier"
     observed_taxon = _taxon_id(observation.get("source_taxon_id"))
     variable_taxon = _taxon_id(variable.get("source_taxon_id"))
-    if observed_taxon is not None and variable_taxon is not None:
-        if observed_taxon != variable_taxon:
-            return enriched, "source_variable_identity_mismatch"
-    elif observed_taxon is None:
-        enriched["source_taxon_id"] = variable_taxon
+    if not invalid_taxon:
+        if observed_taxon is not None and variable_taxon is not None:
+            if observed_taxon != variable_taxon:
+                return enriched, "source_variable_identity_mismatch"
+        elif observed_taxon is None:
+            enriched["source_taxon_id"] = variable_taxon
 
     observed_name = optional_text(observation.get("source_reported_name"))
     variable_name = optional_text(variable.get("source_reported_name"))

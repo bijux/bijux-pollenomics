@@ -15,6 +15,9 @@ from bijux_pollenomics.analysis.propagation.source_chronology import (
 from bijux_pollenomics.evidence.sources.neotoma import (
     read_validated_neotoma_relational_manifest,
 )
+from bijux_pollenomics.evidence.sources.neotoma.taxon_identity import (
+    invalid_source_taxon_identifier,
+)
 from bijux_pollenomics.reporting.source_chronology import (
     build_source_chronology_atlas_projection,
 )
@@ -172,9 +175,21 @@ def _project_neotoma(
         fields=age_fields,
         label="Neotoma age claim",
     )
-    observation_fields = OBSERVATION_FIELDS
+    observation_fields: tuple[str, ...] = OBSERVATION_FIELDS
+    observation_source = surfaces["observations"]
+    if any(invalid_source_taxon_identifier(row) for row in observation_source):
+        observation_fields += ("source_taxon_identifier_status",)
+        observation_source = [
+            row
+            if "source_taxon_identifier_status" in row
+            and row["source_taxon_identifier_status"] != "not_recorded"
+            else {**row, "source_taxon_identifier_status": "invalid_source_identifier"}
+            if invalid_source_taxon_identifier(row)
+            else {**row, "source_taxon_identifier_status": "not_recorded"}
+            for row in observation_source
+        ]
     observation_rows = _compact_rows_by_site(
-        observation_variable_provenance(surfaces["observations"]),
+        observation_variable_provenance(observation_source),
         fields=observation_fields,
         label="Neotoma observation",
     )
@@ -268,6 +283,14 @@ def _project_neotoma(
             raise ValueError(
                 f"Neotoma observations reference unknown variables: {missing_variables[:5]}"
             )
+        variable_prefix = (
+            "neotoma:variable:"
+            if all(
+                variable_id.startswith("neotoma:variable:")
+                for variable_id in site_variable_ids
+            )
+            else "neotoma:"
+        )
         site_variable_rows = [
             [variables[variable_id].get(field) for field in variable_fields]
             for variable_id in site_variable_ids
@@ -346,16 +369,14 @@ def _project_neotoma(
                                 identifier_prefixes={
                                     "observation_id": "neotoma:observation:",
                                     "sample_id": "neotoma:sample:",
-                                    "variable_id": "neotoma:variable:",
+                                    "variable_id": variable_prefix,
                                     "aggregation_key": "neotoma:exact-unit:",
                                 },
                             ),
                             "variables": _row_table(
                                 variable_fields,
                                 site_variable_rows,
-                                identifier_prefixes={
-                                    "variable_id": "neotoma:variable:"
-                                },
+                                identifier_prefixes={"variable_id": variable_prefix},
                             ),
                             "aggregation_posture": "source rows retained without cross-unit summing",
                             "classification_status": "not_accepted",

@@ -70,6 +70,15 @@ materializations without the status do not establish that their unit-default
 references were valid. Rebuilding published products and validating their
 source custody are separate operations.
 
+Non-scalar source taxon IDs are retained with an invalid identifier diagnostic
+and a separate invalid-variable identity. That identity binds the reported
+payload; it is not a taxonomic name or an assertion of biological equivalence.
+The observation can remain source sample or ecological-code context, but it
+cannot supply an exact source-taxon facet or a classification event. Missing
+taxon IDs retain their separate existing fallback. Newly built detail tables
+expose the invalid posture; previously published assets require a separate
+rebuild and qualification.
+
 ### Current sample-level pollen screen
 
 The [governed prerequisite screen](../../../report/source-relations/neotoma/pollen-screen/README.md)

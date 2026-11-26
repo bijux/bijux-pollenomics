@@ -268,3 +268,13 @@ def test_explicitly_selected_invalid_chronology_reference_is_refused(
 def test_legacy_unmarked_explicitly_selected_chronology_remains_eligible() -> None:
     result = _derive(chronologies=[_chronology()])
     assert result.events
+
+
+def test_invalid_taxon_identifier_status_refuses_explicit_classification_event() -> (
+    None
+):
+    observation = _observation("observation:1")
+    observation["source_taxon_identifier_status"] = "invalid_source_identifier"
+    result = _derive(observations=[observation])
+    assert not result.events
+    assert result.refusals[0].reason_code == "invalid_source_taxon_identifier"
