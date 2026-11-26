@@ -252,3 +252,19 @@ def test_zero_bp_is_preserved_as_a_valid_canonical_interval() -> None:
 
     assert result.events
     assert all(event.younger_bp == 0 and event.older_bp == 0 for event in result.events)
+
+
+@pytest.mark.parametrize("status", ["invalid_source_reference", "unknown", None])
+def test_explicitly_selected_invalid_chronology_reference_is_refused(
+    status: object,
+) -> None:
+    chronology = _chronology()
+    chronology["chronology_reference_status"] = status
+    result = _derive(chronologies=[chronology])
+    assert not result.events
+    assert result.refusals[0].reason_code == "invalid_source_chronology_reference"
+
+
+def test_legacy_unmarked_explicitly_selected_chronology_remains_eligible() -> None:
+    result = _derive(chronologies=[_chronology()])
+    assert result.events

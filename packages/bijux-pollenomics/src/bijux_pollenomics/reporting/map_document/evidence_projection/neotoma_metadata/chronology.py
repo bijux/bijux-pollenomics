@@ -213,6 +213,8 @@ def chronology_model_tables(
                 enriched["reference_verification_status"] = (
                     "retained_reference_assertion_with_identified_source"
                     if identified
+                    else "refused_invalid_source_identifier"
+                    if isinstance(row.get("source_chronology_id"), (dict, list))
                     else "refused_missing_source_identifier"
                 )
             else:

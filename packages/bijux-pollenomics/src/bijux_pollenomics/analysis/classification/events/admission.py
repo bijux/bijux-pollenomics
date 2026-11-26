@@ -11,6 +11,9 @@ from bijux_pollenomics.evidence.classification.review import (
     context_category_refusal,
     is_context_category,
 )
+from bijux_pollenomics.evidence.sources.neotoma.chronology import (
+    invalid_chronology_reference,
+)
 
 from . import authority as classification_authority
 from .identity import (
@@ -262,6 +265,8 @@ def _source_refusal_reason(
     chronology: Mapping[str, object],
     context: ClassificationEventContext,
 ) -> str | None:
+    if context.source_family == "neotoma" and invalid_chronology_reference(chronology):
+        return "invalid_source_chronology_reference"
     identity_reason = _source_identity_refusal_reason(mapping, observation)
     if identity_reason is not None:
         return identity_reason

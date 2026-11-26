@@ -149,7 +149,8 @@ function renderSelectedSourceOverview(tabs, feature) {
     } catch (error) {
       reason = 'Source age claims are unavailable or cannot be decoded consistently.';
     }
-    const refused = claim && (claim.comparability_status === 'refused' || Boolean(claim.refusal_reason));
+    const referenceRefused = claim && Object.prototype.hasOwnProperty.call(claim,'chronology_reference_status') && claim.chronology_reference_status !== 'not_recorded';
+    const refused = claim && (referenceRefused || claim.comparability_status === 'refused' || Boolean(claim.refusal_reason));
     const status = !claim ? 'unmatched' : refused ? 'refused' : 'matched';
     const fields = [
       ['Source site ID',feature.record_id],['Native sample ID',sample.sample_id],
@@ -168,8 +169,9 @@ function renderSelectedSourceOverview(tabs, feature) {
       ['Source age unit',claim.source_age_unit],['Source age value',claim.source_age_value],
       ['Source younger endpoint',claim.source_age_younger],['Source older endpoint',claim.source_age_older],
       ['Age comparability status',claim.comparability_status],['Age refusal reason',claim.refusal_reason],
+      ...(claim.chronology_reference_status && claim.chronology_reference_status !== 'not_recorded' ? [['Chronology reference status',claim.chronology_reference_status]] : []),
     );
-    return charcoalHtml + `<section aria-label="Selected source record" data-source-record-details="${status}"><h3>Selected source record</h3><p>${!claim ? escapeHtml(reason) : refused ? 'The uniquely joined source age claim is refused; its values remain source context.' : 'One exact source sample and age claim are joined.'}</p>${sourceRecordFields(fields)}<p>Coordinates are source representative positions with the stated quality; that quality is not a numerical uncertainty estimate. Age values retain their reported units. Source-default flags and source selection posture do not select an analysis chronology. No age conversion, fitted age model, physical-core equivalence, ecological mapping or propagation admission is introduced. All source claims remain in the Chronology tab.</p></section>`;
+    return charcoalHtml + `<section aria-label="Selected source record" data-source-record-details="${status}"><h3>Selected source record</h3><p>${!claim ? escapeHtml(reason) : referenceRefused ? 'The chronology reference is refused; the age values remain source context.' : refused ? 'The uniquely joined source age claim is refused; its values remain source context.' : 'One exact source sample and age claim are joined.'}</p>${sourceRecordFields(fields)}<p>Coordinates are source representative positions with the stated quality; that quality is not a numerical uncertainty estimate. Age values retain their reported units. Source-default flags and source selection posture do not select an analysis chronology. No age conversion, fitted age model, physical-core equivalence, ecological mapping or propagation admission is introduced. All source claims remain in the Chronology tab.</p></section>`;
   } catch (error) {
     return unavailable('Selected sample source tables are unavailable or cannot be decoded consistently.');
   }

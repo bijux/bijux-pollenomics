@@ -134,7 +134,7 @@ def _project_neotoma(
         ),
         label="Neotoma sample",
     )
-    age_fields = (
+    age_fields: tuple[str, ...] = (
         "chronology_claim_id",
         "subject_type",
         "subject_id",
@@ -158,8 +158,17 @@ def _project_neotoma(
         "provenance_record_id",
         "source_relation_path",
     )
+    age_claims = surfaces["age_claims"]
+    if any("chronology_reference_status" in row for row in age_claims):
+        age_fields += ("chronology_reference_status",)
+        age_claims = [
+            row
+            if "chronology_reference_status" in row
+            else {**row, "chronology_reference_status": "not_recorded"}
+            for row in age_claims
+        ]
     age_rows = _compact_rows_by_site(
-        surfaces["age_claims"],
+        age_claims,
         fields=age_fields,
         label="Neotoma age claim",
     )

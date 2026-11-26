@@ -248,3 +248,66 @@ def test_changed_model_or_control_bytes_are_refused_before_projection(
     path.write_text(json.dumps(body))
     with pytest.raises(ValueError, match="digest|SHA-256"):
         projection._project_neotoma(tmp_path, {"features": [{"evidence_row_id": "20"}]})
+
+
+@pytest.mark.parametrize("bad", [{"nested": 1}, [1]])
+def test_retained_invalid_model_reference_is_unverified_with_literal_payload(
+    bad: object,
+) -> None:
+    model = {
+        "chronology_id": "neotoma:chronology:301:unidentified:placeholder",
+        "source_chronology_id": bad,
+        "site_id": "neotoma:site:20",
+        "collection_unit_id": "neotoma:collection-unit:301",
+        "selected_by_collection_unit_reference": True,
+        "source_is_default_assertion": True,
+        "source_payload": {"chronologyid": bad},
+    }
+    tables = chronology_model_tables(
+        {"chronologies": ([model], (1,))}, {"neotoma:site:20"}
+    )
+    table = cast(dict[str, Any], tables["neotoma:site:20"]["models"])
+    record = dict(zip(table["fields"], table["records"][0], strict=True))
+    assert record["effective_reference_selected"] is False
+    assert (
+        record["reference_verification_status"] == "refused_invalid_source_identifier"
+    )
+    assert record["source_payload"] == {"chronologyid": bad}
+
+
+def test_invalid_default_reference_survives_materialized_compact_claims(
+    tmp_path: Path,
+) -> None:
+    source = native_source()
+    unit = nested(source, "site", "collectionunit")
+    unit["defaultchronology"] = {"bad": 1}
+    tabs, _ = materialized(tmp_path, source)
+    ages = decoded_models(tabs)["ages"]
+    assert ages
+    assert all(
+        row["chronology_reference_status"] == "invalid_source_reference" for row in ages
+    )
+    assert all(row["is_default_chronology"] is None for row in ages)
+
+
+def test_compact_claims_keep_invalid_and_unmarked_reference_distinct(
+    tmp_path: Path,
+) -> None:
+    source = native_source()
+    unit = nested(source, "site", "collectionunit")
+    sample = rows(nested(unit, "dataset")["samples"])[0]
+    rows(sample["ages"])[0]["chronologyid"] = {"bad": 1}
+    tabs, _ = materialized(tmp_path, source)
+    ages = decoded_models(tabs)["ages"]
+    assert {row["chronology_reference_status"] for row in ages} == {
+        "invalid_source_reference",
+        "not_recorded",
+    }
+    assert (
+        next(
+            row
+            for row in ages
+            if row["chronology_reference_status"] == "invalid_source_reference"
+        )["is_default_chronology"]
+        is None
+    )

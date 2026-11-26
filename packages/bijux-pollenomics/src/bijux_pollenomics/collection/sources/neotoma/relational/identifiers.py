@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import hashlib
 import json
 import math
@@ -20,8 +21,15 @@ def optional_source_id(value: object) -> str | None:
     return text or None
 
 
+def invalid_source_reference(value: object) -> bool:
+    """Identify non-scalar JSON source IDs without coercing their meaning."""
+    return isinstance(value, (Mapping, list))
+
+
 def source_reference_matches(source_id: object, reference: object) -> bool:
     """Require an identified source entity before matching its native reference."""
+    if invalid_source_reference(source_id) or invalid_source_reference(reference):
+        return False
     identity = optional_source_id(source_id)
     selected = optional_source_id(reference)
     return identity is not None and selected is not None and identity == selected

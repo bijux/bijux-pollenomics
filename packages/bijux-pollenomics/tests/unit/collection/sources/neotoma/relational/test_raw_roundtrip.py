@@ -38,3 +38,21 @@ def test_native_roundtrip_detects_changed_datum_and_parent() -> None:
         native, tables(changed, SURFACES), rows(changed["conflicts"])
     )
     assert not nested(result, "surfaces", "observations")["match"]
+
+
+def test_invalid_chronology_identity_retains_native_roundtrip() -> None:
+    raw = download_row()
+    unit = nested(raw, "site", "collectionunit")
+    model = nested(rows(unit["chronologies"])[0], "chronology")
+    model["chronologyid"] = {"bad": 1}
+    rows(model["chroncontrols"])[0]["chroncontrolid"] = [1]
+    unit["defaultchronology"] = {"bad": 1}
+    rows(rows(nested(unit, "dataset")["samples"])[0]["ages"])[0]["chronologyid"] = {
+        "bad": 1
+    }
+    snapshot = build_neotoma_relational_snapshot(
+        [raw], source_snapshot_id="sha256:fixture", build_id="fixture-build"
+    )
+    assert reconcile_hierarchy(
+        native_hierarchy([raw]), tables(snapshot, SURFACES), rows(snapshot["conflicts"])
+    )["match"]

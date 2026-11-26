@@ -6,7 +6,12 @@ from collections.abc import Mapping
 import copy
 
 from ..diagnostics import add_conflict, add_orphan, register_record
-from ..identifiers import digest, optional_source_id, source_reference_matches
+from ..identifiers import (
+    digest,
+    invalid_source_reference,
+    optional_source_id,
+    source_reference_matches,
+)
 from ..source_payloads import copy_source_payload_excluding
 from ..state import RelationalBuildState
 from .parent_refusals import native_rows
@@ -22,7 +27,18 @@ def project_chronologies(
     site_id: str,
     country_code: str,
 ) -> tuple[str | None, dict[str, str]]:
-    default_source_id = optional_source_id(unit.get("defaultchronology"))
+    invalid_default = invalid_source_reference(unit.get("defaultchronology"))
+    default_source_id = (
+        None if invalid_default else optional_source_id(unit.get("defaultchronology"))
+    )
+    if invalid_default:
+        add_orphan(
+            state.orphans,
+            "collection_unit",
+            unit_id,
+            "invalid_default_chronology_reference",
+            source_value=unit.get("defaultchronology"),
+        )
     chronology_ids_by_source: dict[str, str] = {}
     flagged_default_ids: list[str] = []
     flagged_by_age_type: dict[str, list[str]] = {}
@@ -52,13 +68,18 @@ def project_chronologies(
                 excluded_source_row_counts={"chronology_rows": 1},
             )
             continue
-        chronology_source_id = optional_source_id(chronology.get("chronologyid"))
+        invalid_id = invalid_source_reference(chronology.get("chronologyid"))
+        chronology_source_id = (
+            None if invalid_id else optional_source_id(chronology.get("chronologyid"))
+        )
         if chronology_source_id is None:
             add_orphan(
                 state.orphans,
                 "chronology",
                 unit_id,
-                "missing_source_identifier",
+                "invalid_source_identifier"
+                if invalid_id
+                else "missing_source_identifier",
                 source_value=chronology.get("chronologyid"),
             )
             chronology_key = f"unidentified:{digest(dict(chronology))[:20]}"
@@ -190,13 +211,18 @@ def project_chronology_controls(
                 excluded_source_row_counts={"chronology_control_rows": 1},
             )
             continue
-        control_source_id = optional_source_id(control.get("chroncontrolid"))
+        invalid_id = invalid_source_reference(control.get("chroncontrolid"))
+        control_source_id = (
+            None if invalid_id else optional_source_id(control.get("chroncontrolid"))
+        )
         if control_source_id is None:
             add_orphan(
                 state.orphans,
                 "chronology_control",
                 chronology_id,
-                "missing_source_identifier",
+                "invalid_source_identifier"
+                if invalid_id
+                else "missing_source_identifier",
                 source_value=control.get("chroncontrolid"),
             )
             control_key = f"unidentified:{digest(dict(control))[:20]}"
