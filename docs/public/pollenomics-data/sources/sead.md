@@ -51,7 +51,11 @@ responses and receipts after refusal; automatic retry or resumption is unavailab
 all packet members through bounded ordinary descriptors. It reads the packet's raw
 context bodies, so it is not a metadata-only reader. Source notes and references
 are not thereby approved for public redistribution. This API's generated checks
-do not establish that either pending pilot site has been queried or admitted.
+alone do not establish a pilot capture. A separate bounded capture of
+[Troitski, site 3441](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/chronology/sead/troitski-site-3441/README.md),
+retains the selected source context; its country membership remains unassigned,
+and neither its chronology nor ecological events are thereby admitted. The
+earlier two-site attempt remains incomplete.
 
 SEAD contributes environmental-archaeology sites to the Nordic evidence
 atlas. Those sites are not static. Many are connected to dating ranges or
