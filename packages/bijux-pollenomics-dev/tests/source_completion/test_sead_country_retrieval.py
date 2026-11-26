@@ -4,14 +4,20 @@ from __future__ import annotations
 
 from copy import deepcopy
 import csv
+import hashlib
 import json
+import os
 from pathlib import Path
+import re
+import shutil
+import subprocess
 from typing import Any
 
 import pytest
 
 from bijux_pollenomics_dev.source_completion.sead_country_retrieval import (
     BOUNDARY,
+    PINNED,
     PUBLIC,
     RAW,
     build,
@@ -30,13 +36,13 @@ Documents = tuple[
 
 
 @pytest.fixture(scope="module")
-def documents() -> Documents:
+def documents(synthetic_historical_sead_review: dict[str, Any]) -> Documents:
     raw = REPOSITORY / RAW
     with (REPOSITORY / PUBLIC).open(encoding="utf-8", newline="") as handle:
         public = list(csv.DictReader(handle))
     return (
         json.loads((raw / "country-decisions.json").read_text()),
-        json.loads((REPOSITORY / BOUNDARY).read_text()),
+        synthetic_historical_sead_review,
         json.loads((raw / "receipts/tbl_sites.json").read_text()),
         json.loads((raw / "payloads/tbl_sites.json").read_text()),
         public,
@@ -86,6 +92,7 @@ def test_excluded_coordinate_cannot_enter_retrieved_payload(
 
 
 def test_boundary_review_cannot_be_promoted_to_country(documents: Documents) -> None:
+    reconcile(*documents)
     inputs = deepcopy(documents)
     review = next(
         row
@@ -104,9 +111,54 @@ def test_normalized_uuid_drift_is_refused(documents: Documents) -> None:
         reconcile(*inputs)
 
 
-def test_governed_report_is_byte_identical_to_source_replay(tmp_path: Path) -> None:
+def test_default_refuses_current_boundary_review(tmp_path: Path) -> None:
+    current = (REPOSITORY / BOUNDARY).read_bytes()
+    assert hashlib.sha256(current).hexdigest() != PINNED[BOUNDARY]
+    with pytest.raises(
+        ValueError,
+        match=f"^Pinned SEAD input changed: {re.escape(BOUNDARY.as_posix())}$",
+    ):
+        build(REPOSITORY, tmp_path / "country-retrieval")
+
+
+def test_historical_report_is_byte_identical_when_git_object_is_retained(
+    tmp_path: Path,
+) -> None:
+    revision = "28ffb5dd71fa03ec159f6a50a142c12402114593"
+    git_env = dict(os.environ, GIT_NO_LAZY_FETCH="1", GIT_NO_REPLACE_OBJECTS="1")
+    try:
+        object_name = f"{revision}:{BOUNDARY.as_posix()}"
+        present = subprocess.run(
+            ["git", "cat-file", "-e", object_name],
+            cwd=REPOSITORY,
+            env=git_env,
+            capture_output=True,
+            timeout=30,
+            check=False,
+        )
+    except FileNotFoundError:
+        pytest.skip("Git is unavailable; historical ledger replay not executed")
+    if present.returncode:
+        pytest.skip("Exact historical ledger Git object is unavailable")
+    result = subprocess.run(
+        ["git", "show", object_name],
+        cwd=REPOSITORY,
+        env=git_env,
+        capture_output=True,
+        timeout=30,
+        check=True,
+    )
+    assert hashlib.sha256(result.stdout).hexdigest() == PINNED[BOUNDARY]
+    scratch = tmp_path / "historical-repository"
+    for relative in PINNED:
+        target = scratch / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if relative == BOUNDARY:
+            target.write_bytes(result.stdout)
+        else:
+            shutil.copyfile(REPOSITORY / relative, target)
     output = tmp_path / "country-retrieval"
-    build(REPOSITORY, output)
+    build(scratch, output)
     governed = REPOSITORY / "docs/report/source-relations/sead-country-retrieval"
     for name in ("countries.csv", "sites.csv", "report.json"):
         assert (output / name).read_bytes() == (governed / name).read_bytes()
