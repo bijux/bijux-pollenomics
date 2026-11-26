@@ -6,6 +6,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Added
 
+- Construct whole-cell bounds from half-open declared HYDE grid index ranges,
+  retaining strict refusal of arbitrary partial-cell transfers.
 - Add source-preserving Nordic pollen windows, explicit same-core chronology
   comparisons, and conditional basin-geometry and shared-input covariance accounts.
 - Persist development splits before fitting and bind model/cache products to their

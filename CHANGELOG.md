@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#533](https://github.com/bijux/bijux-pollenomics/pull/533) — Indexed HYDE grid bounds
+
+Construct whole-cell bounds from declared grid indices so callers can select decimal-sized cells using the grid's exact computed edges. Arbitrary partial-cell bounds remain refused; no native source admission is implied.
+
 ### [#532](https://github.com/bijux/bijux-pollenomics/pull/532) — Joint cover estimand labels
 
 Identify regional REVEALS and local LOVE cover estimands in joint report means and covariance exports from verified child contracts. Preserve the v1 product and label historical source-raw, mixed-policy and all-failed cases explicitly; v2 CSV exports add columns.

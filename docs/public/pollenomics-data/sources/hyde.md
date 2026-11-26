@@ -38,6 +38,13 @@ spatiotemporal registries expose HYDE's pending admission. Unknown native cell
 and country totals remain null; placing JSON files at expected paths cannot
 turn them into accepted source evidence.
 
+For a declared-grid layer, `layer.grid.window_bounds(row_start, row_stop,
+column_start, column_stop)` constructs whole-cell target bounds from nonempty,
+half-open source-index ranges. Rows follow the grid's declared row order. These
+bounds can be passed to `aggregate_layer` or `compare_layers`; arbitrary numeric
+bounds are still checked strictly and partial-cell transfers are refused. This
+helper does not snap coordinates or establish native HYDE grid semantics.
+
 ## Documented licence reference
 
 The project records the downloaded April snapshot's bundled

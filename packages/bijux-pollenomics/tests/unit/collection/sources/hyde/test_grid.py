@@ -35,3 +35,30 @@ def test_row_orientation_edges_and_dateline_refusal() -> None:
         Bounds(179, 0, -179, 1)
     with pytest.raises(IntakeRefusal, match="grid_dimensions_invalid"):
         GridSpec(True, 1, 10, 60, 1, 1, "north_to_south")
+
+
+@pytest.mark.parametrize(
+    "indices",
+    [
+        (-1, 1, 0, 1),
+        (0, 0, 0, 1),
+        (0, 3, 0, 1),
+        (0, 1, -1, 1),
+        (0, 1, 1, 1),
+        (0, 1, 0, 3),
+        (True, 1, 0, 1),
+        (0, 1, 0, 1.0),
+    ],
+)
+def test_indexed_window_rejects_invalid_half_open_ranges(
+    indices: tuple[object, ...],
+) -> None:
+    grid = GridSpec(2, 2, 10, 60, 0.1, 0.1, "north_to_south")
+    with pytest.raises(IntakeRefusal, match="hyde_grid_window_invalid"):
+        grid.window_bounds(*indices)
+
+
+@pytest.mark.parametrize("row_order", ["north_to_south", "south_to_north"])
+def test_indexed_full_window_matches_declared_grid_bounds(row_order: str) -> None:
+    grid = GridSpec(6, 5, 10, 60, 0.1, 0.1, row_order)
+    assert grid.window_bounds(0, 5, 0, 6) == grid.bounds

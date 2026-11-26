@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from math import inf, nextafter
 from pathlib import Path
 from typing import Any
 
@@ -111,6 +112,55 @@ def test_partial_coastal_cell_and_unsupported_region_refuse(
         aggregate_layer(layer, Bounds(10.5, 60, 12, 62))
     with pytest.raises(IntakeRefusal, match="target_outside_grid"):
         aggregate_layer(layer, Bounds(9, 60, 12, 62))
+
+
+@pytest.mark.parametrize(
+    ("row_order", "south", "north"),
+    [("south_to_north", 60.1, 60.3), ("north_to_south", 60.2, 60.4)],
+)
+def test_indexed_window_aggregates_whole_decimal_step_cells_only(
+    tmp_path: Path,
+    declared_payload: dict[str, Any],
+    row_order: str,
+    south: float,
+    north: float,
+) -> None:
+    declared_payload["grid"].update(
+        columns=6,
+        rows=5,
+        west=10,
+        south=60,
+        longitude_step=0.1,
+        latitude_step=0.1,
+        row_order=row_order,
+    )
+    declared_payload["variable"].update(quantity="population", units="persons")
+    declared_payload["values"] = [
+        list(range(1 + 6 * row, 7 + 6 * row)) for row in range(5)
+    ]
+    declared_payload["land_fractions"] = [[1] * 6 for _ in range(5)]
+    layer = write_layer(tmp_path, declared_payload)
+    target = layer.grid.window_bounds(
+        row_start=1, row_stop=3, column_start=1, column_stop=5
+    )
+    assert target.west == pytest.approx(10.1)
+    assert target.east == pytest.approx(10.5)
+    assert target.south == pytest.approx(south)
+    assert target.north == pytest.approx(north)
+    result = aggregate_layer(layer, target)
+    assert result.observed_cell_count == 8
+    assert result.total == 100
+
+    for partial in (
+        Bounds(nextafter(target.west, inf), target.south, target.east, target.north),
+        Bounds(target.west, nextafter(target.south, inf), target.east, target.north),
+        Bounds(target.west, target.south, nextafter(target.east, -inf), target.north),
+        Bounds(target.west, target.south, target.east, nextafter(target.north, -inf)),
+    ):
+        with pytest.raises(
+            IntakeRefusal, match="partial_cell_transfer_requires_land_overlay"
+        ):
+            aggregate_layer(layer, partial)
 
 
 @pytest.mark.parametrize(
