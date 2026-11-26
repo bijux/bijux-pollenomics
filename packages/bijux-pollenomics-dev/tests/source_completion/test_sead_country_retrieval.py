@@ -115,7 +115,8 @@ def test_default_refuses_current_boundary_review(tmp_path: Path) -> None:
     current = (REPOSITORY / BOUNDARY).read_bytes()
     assert hashlib.sha256(current).hexdigest() != PINNED[BOUNDARY]
     with pytest.raises(
-        ValueError, match=f"^Pinned SEAD input changed: {re.escape(BOUNDARY.as_posix())}$"
+        ValueError,
+        match=f"^Pinned SEAD input changed: {re.escape(BOUNDARY.as_posix())}$",
     ):
         build(REPOSITORY, tmp_path / "country-retrieval")
 
