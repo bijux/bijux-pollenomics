@@ -55,6 +55,7 @@ SOURCE_OCCURRENCE_COUNTER_FIELDS = {
 SOURCE_ROW_REFUSAL_REASONS = frozenset(
     {
         "missing_source_identifier",
+        "invalid_source_identifier",
         "missing_site",
         "missing_collection_unit",
         "missing_dataset",

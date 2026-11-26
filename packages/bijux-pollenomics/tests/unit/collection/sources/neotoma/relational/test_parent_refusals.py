@@ -422,3 +422,88 @@ def test_legacy_absence_remains_valid_without_new_orphan_maps(tmp_path: Path) ->
     output = tmp_path / "native"
     materialize_neotoma_relational_snapshot(output, payload)
     validate_neotoma_relational_materialization(output)
+
+
+@pytest.mark.parametrize("value", [{"nested": 1}, [100]])
+@pytest.mark.parametrize(
+    ("level", "id_field"),
+    [
+        ("site", "siteid"),
+        ("collection_unit", "collectionunitid"),
+        ("dataset", "datasetid"),
+        ("sample", "sampleid"),
+    ],
+)
+def test_nonscalar_parent_identifier_is_explicitly_refused(
+    level: str, id_field: str, value: object, tmp_path: Path
+) -> None:
+    source = download_row()
+    parent = native_parents(source)[level]
+    parent[id_field] = deepcopy(value)
+    expected = deepcopy(parent)
+    result = snapshot([source])
+    assert_partition(result)
+    assert result["reconciliation"]["source_row_counts"] == {
+        "download_rows": 1,
+        **_NATIVE_COUNTS,
+    }
+    refused = [
+        row
+        for row in result["orphans"]
+        if row["entity_type"] == level and row["reason"] == "invalid_source_identifier"
+    ]
+    assert len(refused) == 1
+    assert refused[0]["source_value"] == expected
+    tables = {
+        "site": "sites",
+        "collection_unit": "collection_units",
+        "dataset": "datasets",
+        "sample": "samples",
+    }
+    assert result[tables[level]] == []
+    output = tmp_path / "materialized"
+    materialize_neotoma_relational_snapshot(output, result, rows_per_part=1)
+    validate_neotoma_relational_materialization(output)
+
+
+@pytest.mark.parametrize("value", [None, False, True])
+def test_existing_missing_parent_identifier_posture_is_preserved(value: object) -> None:
+    source = download_row()
+    native_parents(source)["site"]["siteid"] = value
+    result = snapshot([source])
+    assert_partition(result)
+    assert result["sites"] == []
+    assert any(
+        row["reason"] == "missing_source_identifier" for row in result["orphans"]
+    )
+
+
+@pytest.mark.parametrize("value", [42, 42.0, "42", "native-id", 42.5])
+def test_existing_scalar_parent_identifier_semantics_are_preserved(
+    value: object,
+) -> None:
+    source = download_row()
+    native_parents(source)["site"]["siteid"] = value
+    result = snapshot([source])
+    assert_partition(result)
+    assert len(result["sites"]) == 1
+    assert result["sites"][0]["source_site_id"] == value
+    assert not any(
+        row["reason"] == "invalid_source_identifier" for row in result["orphans"]
+    )
+
+
+def test_repeated_invalid_parent_retains_each_occurrence() -> None:
+    source = download_row()
+    native_parents(source)["site"]["siteid"] = {"nested": 1}
+    result = snapshot([source, deepcopy(source)])
+    assert_partition(result)
+    assert result["reconciliation"]["source_row_counts"] == {
+        "download_rows": 2,
+        **{key: count * 2 for key, count in _NATIVE_COUNTS.items()},
+    }
+    orphans = [
+        row for row in result["orphans"] if row["reason"] == "invalid_source_identifier"
+    ]
+    assert len(orphans) == 2
+    assert len({row["orphan_id"] for row in orphans}) == 2
