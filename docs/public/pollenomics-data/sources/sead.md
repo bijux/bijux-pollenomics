@@ -92,6 +92,15 @@ rule as the source-table projection: it retains the source row but does not add
 its one-sided date to the numeric site span. This reader correction does not
 rebuild the historical site products or establish a newly measured date.
 
+Analysis-entity ages retain their source age fields, range, chronology reference
+and record count, but the site-inventory reader does not assign them a BP basis
+or include them in numeric site spans. The checked-in historical site products
+predate this correction and may display these source values as BP coverage;
+for example, sites 4465, 4645 and 4999 have such historical labels. Their
+typed analysis-age claims remain unresolved. The optional site-inventory layer
+is spatial context, excluded from time-matched counts; this reader change does
+not rebuild that layer or change the record-level temporal discovery product.
+
 ## Current Evidence State
 
 <!-- sead-evidence:generated:start -->

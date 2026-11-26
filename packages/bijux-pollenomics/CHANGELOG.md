@@ -15,6 +15,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Retain SEAD analysis-entity ages without assigning an unqualified BP basis or
+  including them in numeric site spans.
 - Account for conflicting chronology model ownership, age basis and reliable
   bounds in Neotoma quality diagnostics without changing scientific eligibility.
 - Describe LandClim cereal and rye values as reconstructed vegetation cover

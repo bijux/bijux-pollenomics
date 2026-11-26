@@ -110,24 +110,12 @@ def _build_dating_range_row(
     }
 
 
-def _analysis_entity_age_interval(
-    entity_age: dict[str, object],
-) -> tuple[int, int] | None:
-    age = parse_optional_int(entity_age.get("age"))
-    younger = parse_optional_int(entity_age.get("age_younger"))
-    older = parse_optional_int(entity_age.get("age_older"))
-    return _normalize_optional_interval(
-        younger if younger is not None else age,
-        older if older is not None else age,
-    )
-
-
 def _build_analysis_entity_age_row(
     entity_age: dict[str, object],
     *,
-    interval: tuple[int, int] | None,
     relation_identity: dict[str, int | None],
 ) -> dict[str, object]:
+    """Retain source age fields without assigning an unqualified BP basis."""
     return {
         **relation_identity,
         "analysis_entity_age_id": required_sead_identifier(
@@ -142,8 +130,8 @@ def _build_analysis_entity_age_row(
         "age_older": parse_optional_int(entity_age.get("age_older")),
         "age_younger": parse_optional_int(entity_age.get("age_younger")),
         "age_range": clean_optional_text(entity_age.get("age_range")),
-        "time_start_bp": interval[0] if interval is not None else None,
-        "time_end_bp": interval[1] if interval is not None else None,
+        "time_start_bp": None,
+        "time_end_bp": None,
     }
 
 

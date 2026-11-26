@@ -5,7 +5,6 @@ from __future__ import annotations
 from bijux_pollenomics.core.text import clean_optional_text
 
 from .chronology_records import (
-    _analysis_entity_age_interval,
     _dendro_date_interval,
     _geochronology_interval,
 )
@@ -52,15 +51,9 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
             if interval is not None and sead_interval_is_canonical(interval):
                 numeric_intervals.append(interval)
         for entity_age_row in entity_age_rows:
-            interval = _analysis_entity_age_interval(entity_age_row)
-            entity_age_row["time_start_bp"] = (
-                interval[0] if interval is not None else None
-            )
-            entity_age_row["time_end_bp"] = (
-                interval[1] if interval is not None else None
-            )
-            if interval is not None and sead_interval_is_canonical(interval):
-                numeric_intervals.append(interval)
+            # Source entity ages lack an admitted BP basis in this inventory.
+            entity_age_row["time_start_bp"] = None
+            entity_age_row["time_end_bp"] = None
         for geochronology_row in geochronology_rows:
             interval = _geochronology_interval(geochronology_row)
             geochronology_row["time_start_bp"] = (

@@ -11,7 +11,6 @@ from bijux_pollenomics.collection.sources.sead.acquisition.identifiers import (
 from bijux_pollenomics.core.bp_time import normalize_bp_interval
 
 from .chronology_records import (
-    _analysis_entity_age_interval,
     _analysis_entity_relation_identity,
     _build_analysis_entity_age_row,
     _build_dating_range_row,
@@ -72,13 +71,11 @@ def project_site_chronology(
             entity_age.get("analysis_entity_id")
         )
         site_id = relations.site_by_analysis_entity.get(analysis_entity_id, 0)
-        interval = _analysis_entity_age_interval(entity_age)
         if not site_id:
             continue
         analysis_entity_age_rows_by_site.setdefault(site_id, []).append(
             _build_analysis_entity_age_row(
                 entity_age,
-                interval=interval,
                 relation_identity=_analysis_entity_relation_identity(
                     analysis_entity_id,
                     physical_sample_id_by_analysis_entity_id=relations.physical_sample_by_analysis_entity,
@@ -87,8 +84,6 @@ def project_site_chronology(
                 ),
             )
         )
-        if interval is not None and sead_interval_is_canonical(interval):
-            numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for geochronology_row in source.geochronology_rows:
         analysis_entity_id = required_sead_identifier(
             geochronology_row.get("analysis_entity_id")
