@@ -11,6 +11,7 @@ import re
 import subprocess
 from typing import Any, cast
 
+from bijux_pollenomics.core.filesystem import read_regular_file
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
     normalize_asset_inventory,
 )
@@ -23,10 +24,277 @@ COUNTRIES = {"Denmark": "DK", "Finland": "FI", "Norway": "NO", "Sweden": "SE"}
 SITE_LAYER = "sead-sites"
 RECORD_LAYER = "sweden-archaeology-site-discovery"
 REPORT = Path("docs/report/source-relations/sead/map-candidate")
+HISTORICAL_SOURCE = Path("data/sead/normalized/nordic_environmental_sites.geojson")
+HISTORICAL_LINEAGE = Path("data/sead/normalized/source_lineage.json")
+HISTORICAL_INTERVALS = Path(
+    "docs/report/source-relations/sead/interval-sets/report.json"
+)
+HISTORICAL_CUSTODY = Path(
+    "docs/report/source-relations/sead/public-custody/report.json"
+)
 
 
 def _sha(payload: bytes) -> str:
     return hashlib.sha256(payload).hexdigest()
+
+
+def validate_historical_browser_binding(
+    candidate: Path, generation_bytes: bytes, browser: dict[str, Any]
+) -> None:
+    """Require an explicitly candidate-bound browser receipt for v2 audits."""
+    generation = json.loads(generation_bytes)
+    if not isinstance(generation, dict):
+        raise ValueError("SEAD historical browser generation differs")
+    served = browser.get("served_files_sha256")
+    if (
+        browser.get("schema_version") != "atlas-nordic-source-browser-verification.v2"
+        or browser.get("candidate_generation_sha256") != _sha(generation_bytes)
+        or browser.get("candidate_build_id") != generation.get("candidate_build_id")
+        or browser.get("source_atlas_build_id")
+        != generation.get("source_atlas_build_id")
+        or not isinstance(generation.get("candidate_build_id"), str)
+        or not isinstance(generation.get("source_atlas_build_id"), str)
+        or browser.get("status") != "PASS"
+        or browser.get("runtime_errors") != []
+        or not isinstance(served, dict)
+        or "index.html" not in served
+        or not any(isinstance(path, str) and ".atlas-nodes." in path for path in served)
+        or not any(
+            isinstance(path, str) and ".atlas-details." in path for path in served
+        )
+    ):
+        raise ValueError("SEAD historical browser receipt is unbound")
+    for name, expected in served.items():
+        if not isinstance(name, str) or not name or "\\" in name:
+            raise ValueError("SEAD historical browser served path differs")
+        relative = Path(name)
+        if relative.is_absolute() or any(
+            part in {".", ".."} for part in relative.parts
+        ):
+            raise ValueError("SEAD historical browser served path differs")
+        payload = read_regular_file(candidate / relative, max_bytes=64 * 1024 * 1024)
+        if not isinstance(expected, str) or _sha(payload) != expected:
+            raise ValueError("SEAD historical browser served bytes differ")
+    html = read_regular_file(
+        candidate / "index.html", max_bytes=64 * 1024 * 1024
+    ).decode()
+    match = re.search(
+        r'<script id="atlas-static-bootstrap" type="application/json">(.*?)</script>',
+        html,
+        re.S,
+    )
+    if (
+        match is None
+        or json.loads(match.group(1)).get("build_id")
+        != generation["candidate_build_id"]
+    ):
+        raise ValueError("SEAD historical browser candidate build differs")
+    records = generation.get("source_records")
+    tables = browser.get("chronology_tables")
+    if (
+        not isinstance(records, list)
+        or len(records) != 8
+        or any(
+            not isinstance(row, dict) or not isinstance(row.get("record_id"), str)
+            for row in records
+        )
+        or not isinstance(tables, list)
+        or len(tables) != 16
+    ):
+        raise ValueError("SEAD historical browser record inventory differs")
+    by_id = {row["record_id"]: row for row in records}
+    if len(by_id) != 8:
+        raise ValueError("SEAD historical browser record identity differs")
+    seen: set[tuple[int, str]] = set()
+    for row in tables:
+        if (
+            not isinstance(row, dict)
+            or type(row.get("width")) is not int
+            or row.get("width") not in {390, 1440}
+            or not isinstance(row.get("record_id"), str)
+            or row["record_id"] not in by_id
+        ):
+            raise ValueError("SEAD historical browser chronology identity differs")
+        identity = (row["width"], row["record_id"])
+        if identity in seen:
+            raise ValueError("SEAD historical browser chronology identity differs")
+        seen.add(identity)
+        chronology = by_id[row["record_id"]].get("chronology")
+        if not isinstance(chronology, dict):
+            raise ValueError("SEAD historical browser chronology differs")
+        expected_rows = chronology.get("records")
+        if isinstance(expected_rows, list):
+            if row.get("all_source_cells_equal") is not True or row.get("rows") != len(
+                expected_rows
+            ):
+                raise ValueError("SEAD historical browser chronology differs")
+        elif (
+            row.get("status") != "unavailable"
+            or row.get("reason_code") != chronology.get("reason_code")
+            or row.get("source_null_not_zero") is not True
+        ):
+            raise ValueError("SEAD historical browser chronology differs")
+    if seen != {(width, key) for width in (390, 1440) for key in by_id}:
+        raise ValueError("SEAD historical browser chronology inventory differs")
+
+
+def validate_historical_input_bindings(
+    source_bytes: bytes,
+    lineage_bytes: bytes,
+    interval_bytes: bytes,
+    custody_bytes: bytes,
+    pins: tuple[str, str, str, str],
+    source_count: int,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Validate caller-selected identities, without attesting producer execution."""
+    payloads = (source_bytes, lineage_bytes, interval_bytes, custody_bytes)
+    if any(
+        not isinstance(pin, str)
+        or len(pin) != 64
+        or any(c not in "0123456789abcdef" for c in pin)
+        for pin in pins
+    ) or any(_sha(payload) != pin for payload, pin in zip(payloads, pins, strict=True)):
+        raise ValueError("SEAD historical input digest differs")
+    documents = [json.loads(payload) for payload in payloads]
+    if any(not isinstance(document, dict) for document in documents):
+        raise ValueError("SEAD historical input document differs")
+    source, lineage, intervals, custody = documents
+    source_sha, lineage_sha, _, _ = pins
+    run_id = "sead-full-evidence-39bfff6a-ce80714e"
+    build_id = "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725"
+    bundle_sha = (
+        "sha256:fdcda26e7de9a09383b0d9aae7ab7f9e8846c7cbf05513da17fdb8e329331ba9"
+    )
+    membership = {
+        "purpose": "historical_admission_cohort",
+        "authority_id": "sha256:e67d7e498df146bcdd65c398f67cdf2372298258288bcba9af734486fa2fe8d0",
+        "artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+    }
+    interval_hashes = intervals.get("input_hashes")
+    lineage_hashes = lineage.get("normalized_surface_sha256")
+    refresh = lineage.get("refresh_input_sha256")
+    custody_hashes = custody.get("inputs_sha256")
+    posture = {
+        "record_intervals_are_distinct": True,
+        "site_display_envelope_is_analytic_interval": False,
+        "qualified_or_contextual_claims_admitted": False,
+        "event_propagation_approved": False,
+    }
+    if (
+        lineage.get("schema_version") != "sead-normalized-surface-lineage.v2"
+        or lineage.get("source_run_id") != run_id
+        or lineage.get("build_id") != build_id
+        or lineage.get("acquisition_manifest_sha256")
+        != "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14"
+        or lineage.get("parent_admission_sha256")
+        != "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1"
+        or lineage.get("acquisition_bundle_sha256") != bundle_sha
+        or lineage.get("country_membership") != membership
+        or not isinstance(lineage_hashes, dict)
+        or lineage_hashes.get("normalized/nordic_environmental_sites.geojson")
+        != source_sha
+        or not isinstance(refresh, dict)
+        or refresh.get("boundary/normalized/nordic_country_boundaries.geojson")
+        != membership["artifact_digest"].removeprefix("sha256:")
+        or refresh.get("evidence/evidence_materialization_manifest.json")
+        != "383151443d04da5a6e127ea2e4344b4b10bb210137dd1d13b77e50dbfae93508"
+        or intervals.get("schema_version") != "sead-interval-set-review.v1"
+        or intervals.get("source_run_id") != run_id
+        or intervals.get("source_build_id") != build_id
+        or intervals.get("analytic_posture") != posture
+        or not isinstance(interval_hashes, dict)
+        or interval_hashes.get("site_geojson_sha256") != source_sha
+        or interval_hashes.get("claim_index_sha256")
+        != "b9accf421059eebf95b75a8c22fd237f4d51991fbc868e79530d20a694e6cd21"
+        or custody.get("schema_version") != "sead-public-source-custody.v1"
+        or custody.get("source_run_id") != run_id
+        or custody.get("acquisition_bundle_sha256") != bundle_sha
+        or custody.get("raw_and_public_site_count") != source_count
+        or custody.get("excluded_decision_count") != 126
+        or custody.get("excluded_status_counts") != {"review": 103, "unassigned": 23}
+        or not isinstance(custody_hashes, dict)
+        or custody_hashes.get(HISTORICAL_SOURCE.as_posix()) != source_sha
+        or custody_hashes.get(HISTORICAL_LINEAGE.as_posix()) != lineage_sha
+        or custody_hashes.get(
+            "docs/report/regions/nordic/nordic_environmental_sites.geojson"
+        )
+        != source_sha
+    ):
+        raise ValueError("SEAD historical source, interval or custody identity differs")
+    return source, intervals
+
+
+def validate_historical_site_projection(
+    source: dict[str, Any], features: list[dict[str, Any]], intervals: dict[str, Any]
+) -> int:
+    """Reconcile every historical source site's displayed bounds with atlas nodes."""
+    rows = source.get("features")
+    if source.get("type") != "FeatureCollection" or not isinstance(rows, list):
+        raise ValueError("SEAD historical site GeoJSON differs")
+    source_sites: dict[str, dict[str, Any]] = {}
+    for row in rows:
+        if (
+            not isinstance(row, dict)
+            or row.get("type") != "Feature"
+            or not isinstance(row.get("properties"), dict)
+        ):
+            raise ValueError("SEAD historical site feature differs")
+        site = row["properties"]
+        raw_id = site.get("record_id")
+        if not isinstance(raw_id, str) or not raw_id or raw_id in source_sites:
+            raise ValueError("SEAD historical site identity differs")
+        start, end = site.get("time_start_bp"), site.get("time_end_bp")
+        if (start is None) != (end is None) or (
+            start is not None
+            and (
+                type(start) is not int
+                or type(end) is not int
+                or start < 0
+                or end < start
+            )
+        ):
+            raise ValueError("SEAD historical site bounds differ")
+        if not all(
+            isinstance(site.get(key), str) and site[key]
+            for key in ("site_uuid", "country")
+        ):
+            raise ValueError("SEAD historical site identity differs")
+        source_sites[raw_id] = site
+    seen: set[str] = set()
+    for feature in features:
+        if not isinstance(feature, dict):
+            raise ValueError("SEAD historical atlas feature differs")
+        identifier = feature.get("record_id")
+        if not isinstance(identifier, str) or not identifier.startswith("sead:site:"):
+            raise ValueError("SEAD historical atlas identity differs")
+        site_id = identifier.removeprefix("sead:site:")
+        if site_id in seen or site_id not in source_sites:
+            raise ValueError("SEAD historical atlas identity differs")
+        seen.add(site_id)
+        site = source_sites[site_id]
+        if any(
+            feature.get(key) != site.get(key)
+            or type(feature.get(key)) is not type(site.get(key))
+            for key in ("site_uuid", "country", "time_start_bp", "time_end_bp")
+        ):
+            raise ValueError("SEAD historical atlas site fields differ")
+    if seen != set(source_sites):
+        raise ValueError("SEAD historical atlas site set differs")
+    denominators = intervals.get("denominators")
+    if not isinstance(denominators, dict):
+        raise ValueError("SEAD historical interval denominators differ")
+    total = denominators.get("exported_sites")
+    dated = denominators.get("sites_with_display_envelope")
+    untimed = sum(site.get("time_start_bp") is None for site in source_sites.values())
+    if (
+        type(total) is not int
+        or type(dated) is not int
+        or total != len(source_sites)
+        or not 0 <= dated <= total
+        or untimed != total - dated
+    ):
+        raise ValueError("SEAD historical interval denominators differ")
+    return untimed
 
 
 def _read_json(path: Path) -> dict[str, Any]:
@@ -167,15 +435,61 @@ def _run_time_filter(
     return observed
 
 
-def audit(repository: Path, candidate: Path, browser_receipt: Path) -> dict[str, Any]:
+def audit(
+    repository: Path,
+    candidate: Path,
+    browser_receipt: Path,
+    *,
+    historical_site_sha256: str | None = None,
+    historical_lineage_sha256: str | None = None,
+    historical_interval_sha256: str | None = None,
+    historical_custody_sha256: str | None = None,
+) -> dict[str, Any]:
     """Check exact built payloads, governed denominators and browser detail outcome."""
+    options = (
+        historical_site_sha256,
+        historical_lineage_sha256,
+        historical_interval_sha256,
+        historical_custody_sha256,
+    )
+    if any(value is not None for value in options) and not all(
+        value is not None for value in options
+    ):
+        raise ValueError("Historical map audit pins must be supplied together")
+    historical = all(value is not None for value in options)
     repository = repository.resolve()
     manifest, layers, features, edge_count = _built_layers(repository)
     site_features, record_features = features[SITE_LAYER], features[RECORD_LAYER]
     source = repository / "docs/report/source-relations/sead"
     country = _read_json(source / "country-coverage/report.json")
     claims = _read_json(source / "chronology-country-accounting/report.json")
-    intervals = _read_json(source / "interval-sets/report.json")
+    if historical:
+        pins = cast(tuple[str, str, str, str], options)
+        selected = tuple(
+            read_regular_file(repository / path, max_bytes=64 * 1024 * 1024)
+            for path in (
+                HISTORICAL_SOURCE,
+                HISTORICAL_LINEAGE,
+                HISTORICAL_INTERVALS,
+                HISTORICAL_CUSTODY,
+            )
+        )
+        site_source, intervals = validate_historical_input_bindings(
+            selected[0], selected[1], selected[2], selected[3], pins, len(site_features)
+        )
+        map_copy = read_regular_file(
+            repository
+            / "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+            max_bytes=64 * 1024 * 1024,
+        )
+        if map_copy != selected[0]:
+            raise ValueError("SEAD historical map copy differs from selected source")
+        expected_site_untimed = validate_historical_site_projection(
+            site_source, site_features, intervals
+        )
+    else:
+        intervals = _read_json(source / "interval-sets/report.json")
+        expected_site_untimed = 1219
     contract = _read_json(
         repository / "docs/report/regions/nordic/nordic_map_publication_contract.json"
     )
@@ -204,8 +518,19 @@ def audit(repository: Path, candidate: Path, browser_receipt: Path) -> dict[str,
         raise ValueError(
             "Public SEAD map narrative no longer matches governed counts or posture"
         )
-    generation = _read_json(candidate / "generation.json")
-    browser = _read_json(browser_receipt)
+    if historical:
+        generation_bytes = read_regular_file(
+            candidate / "generation.json", max_bytes=64 * 1024 * 1024
+        )
+        browser_bytes = read_regular_file(browser_receipt, max_bytes=64 * 1024 * 1024)
+        generation = json.loads(generation_bytes)
+        browser = json.loads(browser_bytes)
+        if not isinstance(browser, dict):
+            raise ValueError("SEAD historical browser receipt differs")
+        validate_historical_browser_binding(candidate, generation_bytes, browser)
+    else:
+        generation = _read_json(candidate / "generation.json")
+        browser = _read_json(browser_receipt)
     source_id = country["source_run_id"]
     if {
         claims["source_run_id"],
@@ -238,7 +563,7 @@ def audit(repository: Path, candidate: Path, browser_receipt: Path) -> dict[str,
         8799,
         intervals["denominators"]["exported_record_intervals"],
         1555,
-        1219,
+        expected_site_untimed,
     ):
         raise ValueError("Built SEAD chronology display denominators differ")
     if any(feature["country"] != "Sweden" for feature in record_features):
@@ -294,7 +619,22 @@ def audit(repository: Path, candidate: Path, browser_receipt: Path) -> dict[str,
         raise ValueError("Browser candidate lacks a four-country source detail pair")
     time_filter = _run_time_filter(repository, features)
     return {
-        "schema_version": "sead-built-map-candidate-audit.v1",
+        "schema_version": "sead-built-map-candidate-audit.v2"
+        if historical
+        else "sead-built-map-candidate-audit.v1",
+        **(
+            {
+                "historical_input_sha256": {
+                    HISTORICAL_SOURCE.as_posix(): pins[0],
+                    HISTORICAL_LINEAGE.as_posix(): pins[1],
+                    HISTORICAL_INTERVALS.as_posix(): pins[2],
+                    HISTORICAL_CUSTODY.as_posix(): pins[3],
+                },
+                "historical_input_posture": "caller-pinned identities and site identity, country and time-bound correspondence; no producer execution, scientific admission or comprehensive browser qualification is inferred",
+            }
+            if historical
+            else {}
+        ),
         "status": "PASS",
         "source_run_id": source_id,
         "source_release_status": contract["detail_projection"]["sources"]["sead"][
@@ -322,7 +662,7 @@ def audit(repository: Path, candidate: Path, browser_receipt: Path) -> dict[str,
             for path in (
                 source / "country-coverage/report.json",
                 source / "chronology-country-accounting/report.json",
-                source / "interval-sets/report.json",
+                *(() if historical else (source / "interval-sets/report.json",)),
                 repository / "docs/report/regions/nordic/nordic_map.html",
                 repository
                 / "docs/report/regions/nordic/nordic_map_publication_contract.json",
@@ -337,9 +677,13 @@ def audit(repository: Path, candidate: Path, browser_receipt: Path) -> dict[str,
                 Path(__file__).resolve(),
             )
         },
-        "browser_receipt_sha256": _sha(browser_receipt.read_bytes()),
+        "browser_receipt_sha256": _sha(
+            browser_bytes if historical else browser_receipt.read_bytes()
+        ),
         "candidate_generation_sha256": _sha(
-            (candidate / "generation.json").read_bytes()
+            generation_bytes
+            if historical
+            else (candidate / "generation.json").read_bytes()
         ),
     }
 
@@ -351,8 +695,38 @@ def main() -> None:
     parser.add_argument("--candidate", required=True, type=Path)
     parser.add_argument("--browser-receipt", required=True, type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--historical-site-sha256")
+    parser.add_argument("--historical-lineage-sha256")
+    parser.add_argument("--historical-interval-sha256")
+    parser.add_argument("--historical-custody-sha256")
     args = parser.parse_args()
-    result = audit(args.repository, args.candidate, args.browser_receipt)
+    historical = any(
+        value is not None
+        for value in (
+            args.historical_site_sha256,
+            args.historical_lineage_sha256,
+            args.historical_interval_sha256,
+            args.historical_custody_sha256,
+        )
+    )
+    if historical and (
+        args.output is None
+        or args.output.exists()
+        or args.output.is_symlink()
+        or not args.output.resolve().is_relative_to(
+            args.repository.resolve() / "artifacts"
+        )
+    ):
+        raise ValueError("Historical map audit requires an absent artifact output")
+    result = audit(
+        args.repository,
+        args.candidate,
+        args.browser_receipt,
+        historical_site_sha256=args.historical_site_sha256,
+        historical_lineage_sha256=args.historical_lineage_sha256,
+        historical_interval_sha256=args.historical_interval_sha256,
+        historical_custody_sha256=args.historical_custody_sha256,
+    )
     output = args.output or args.repository / REPORT
     output.mkdir(parents=True, exist_ok=True)
     (output / "report.json").write_text(
@@ -360,7 +734,7 @@ def main() -> None:
     )
     (output / "README.md").write_text(
         "# SEAD built map candidate\n\n"
-        f"The published Nordic atlas build `{result['published_atlas_build_id']}` and the "
+        f"The {'inspected' if historical else 'published'} Nordic atlas build `{result['published_atlas_build_id']}` and the "
         f"browser candidate `{result['browser_candidate_build_id']}` agree on the "
         f"retained four-country SEAD source details. The browser replay checked "
         f"{result['browser_chronology_table_checks']} chronology tables at two widths "
@@ -385,24 +759,44 @@ def main() -> None:
         "admissible event endpoints; a national border is not a rejection rule. "
         f"The pinned acquisition release status is `{result['source_release_status']}`. "
         "Site envelopes do not establish occupation, arrival or propagation.\n\n"
-        "## Reproduce\n\n"
-        "From the repository root, run the existing retained-source candidate and "
-        "browser verifier, then this audit with their output paths:\n\n"
-        "```sh\n"
-        "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m "
-        "bijux_pollenomics_dev.ci.atlas_browser.nordic_source_candidate "
-        "--repository . --destination artifacts/sead-map-candidate/source-display\n"
-        "node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic-country.mjs "
-        "artifacts/sead-map-candidate/source-display artifacts/sead-map-candidate/browser "
-        "'/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'\n"
-        "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m "
-        "bijux_pollenomics_dev.source_completion.sead_map_candidate "
-        "--repository . --candidate artifacts/sead-map-candidate/source-display "
-        "--browser-receipt artifacts/sead-map-candidate/browser/receipt.json\n"
-        "```\n\n"
-        "Use absent artifact destinations for a replay. The browser result is a bounded "
-        "retained-source detail check; it does not certify event-level ecology, "
-        "source release, hosted deployment or all browser engines.\n"
+        + (
+            "The v2 browser receipt contract binds the candidate generation and "
+            "served bytes; the current retained browser verifier does not emit "
+            "that schema. Caller-pinned, self-reported receipt bytes do not "
+            "independently attest producer or browser execution. Historical "
+            "inputs and the output remain separately qualified.\n\n"
+            if historical
+            else ""
+        )
+        + (
+            "## Reproduce\n\n"
+            "A historical v2 replay requires separately qualified source, lineage, "
+            "interval and custody SHA-256 values and an independently qualified "
+            "candidate-bound v2 browser receipt. The current v1 browser verifier "
+            "cannot produce that receipt. Supply all four `--historical-*-sha256` "
+            "options and an absent output under `artifacts/`.\n"
+            if historical
+            else (
+                "## Reproduce\n\n"
+                "From the repository root, run the existing retained-source candidate and "
+                "browser verifier, then this audit with their output paths:\n\n"
+                "```sh\n"
+                "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m "
+                "bijux_pollenomics_dev.ci.atlas_browser.nordic_source_candidate "
+                "--repository . --destination artifacts/sead-map-candidate/source-display\n"
+                "node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic-country.mjs "
+                "artifacts/sead-map-candidate/source-display artifacts/sead-map-candidate/browser "
+                "'/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'\n"
+                "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m "
+                "bijux_pollenomics_dev.source_completion.sead_map_candidate "
+                "--repository . --candidate artifacts/sead-map-candidate/source-display "
+                "--browser-receipt artifacts/sead-map-candidate/browser/receipt.json\n"
+                "```\n\n"
+                "Use absent artifact destinations for a replay. The browser result is a bounded "
+                "retained-source detail check; it does not certify event-level ecology, "
+                "source release, hosted deployment or all browser engines.\n"
+            )
+        )
     )
     print(
         json.dumps({"status": result["status"], "output": str(output / "report.json")})
