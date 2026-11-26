@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from decimal import Decimal, InvalidOperation
 from enum import Enum, StrEnum
+from typing import Any
 
 import numpy as np
 
@@ -14,6 +16,7 @@ from bijux_pollenomics_lra.models.validation import (
     fall_speed_bounds,
     finite_number,
     integer,
+    scalar,
 )
 
 
@@ -69,6 +72,28 @@ def _cover_policy(value: str) -> None:
         )
 
 
+def _normalized_seed(value: Any) -> Any:
+    """Keep working NumPy entropy representations; normalize only failing scalars."""
+    if value is None:
+        return None
+    integer(value, "seed", minimum=0)
+    try:
+        np.random.SeedSequence(value)
+    except (TypeError, ValueError, OverflowError):
+        raw = scalar(value, "seed")
+        try:
+            exact = Decimal(raw) if isinstance(raw, str) else raw
+            normalized = int(exact)
+            if normalized < 0 or exact != normalized:
+                raise ValueError("seed is not an exact nonnegative integer")
+        except (InvalidOperation, TypeError, ValueError, OverflowError) as error:
+            raise ValidationError(
+                "seed must represent an exact nonnegative integer"
+            ) from error
+        return normalized
+    return value
+
+
 @dataclass(frozen=True, slots=True)
 class RevealsConfig:
     """Configuration for a regional REVEALS reconstruction."""
@@ -100,8 +125,7 @@ class RevealsConfig:
         )
         if diameter / 2 > cutoff:
             raise ValidationError("Basin radius cannot exceed region_cutoff_m")
-        if self.seed is not None:
-            integer(self.seed, "seed", minimum=0)
+        object.__setattr__(self, "seed", _normalized_seed(self.seed))
         stochastic = _boolean(self.stochastic, "stochastic")
         retain_samples = _boolean(self.retain_samples, "retain_samples")
         object.__setattr__(self, "basin_type", basin_type)
@@ -212,8 +236,7 @@ class LoveConfig:
             "optimizer_tolerance",
             minimum=0,
         )
-        if self.seed is not None:
-            integer(self.seed, "seed", minimum=0)
+        object.__setattr__(self, "seed", _normalized_seed(self.seed))
         stochastic = _boolean(self.stochastic, "stochastic")
         retain_samples = _boolean(self.retain_samples, "retain_samples")
         ppe_error = _boolean(self.ppe_error, "ppe_error")
@@ -288,8 +311,7 @@ class RegionalDrawLoveConfig:
         )
         maximum_ring = integer(self.max_ring, "max_ring")
         repeats = integer(self.repeats, "repeats")
-        if self.seed is not None:
-            integer(self.seed, "seed", minimum=0)
+        object.__setattr__(self, "seed", _normalized_seed(self.seed))
         stochastic = _boolean(self.stochastic, "stochastic")
         retain_samples = _boolean(self.retain_samples, "retain_samples")
         ppe_error = _boolean(self.ppe_error, "ppe_error")
@@ -329,8 +351,7 @@ class LRAConfig:
 
     def __post_init__(self) -> None:
         """Validate compatibility before either paired numerical stage runs."""
-        if self.seed is not None:
-            integer(self.seed, "seed", minimum=0)
+        object.__setattr__(self, "seed", _normalized_seed(self.seed))
         if not isinstance(self.couple_regional_draws, (bool, np.bool_)):
             raise ValidationError("couple_regional_draws must be boolean")
         if self.couple_regional_draws and self.reveals.iterations < self.love.repeats:
