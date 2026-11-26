@@ -5,8 +5,9 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from ...context.layers import build_context_layers
+from ...context.layers import require_capture_owner, selected_capture_options
 from ...context.nordic_point_inputs import NordicPointInputs
+from ...context.nordic_polygon_inputs import NordicPolygonInputs
 from ...map_document.evidence_projection import HistoricalChronologyRequest
 from ...map_document.evidence_projection.sead.site_custody import (
     validate_staged_site_copy,
@@ -69,12 +70,15 @@ def prepare_layers(
     historical_chronology: HistoricalChronologyRequest | None = None,
     lake_inputs: SwedenLakeInputs | None = None,
     nordic_point_inputs: NordicPointInputs | None = None,
+    nordic_polygon_inputs: NordicPolygonInputs | None = None,
 ) -> tuple[Any, ...]:
     """Prepare atlas layers and traceable assets with optional publication metadata."""
-    if nordic_point_inputs is not None and (
-        context_root is None or build_context_layers_fn is not build_context_layers
-    ):
-        raise ValueError("Nordic point capture requires the maintained context owner")
+    require_capture_owner(
+        context_root,
+        build_context_layers_fn,
+        nordic_point_inputs,
+        nordic_polygon_inputs,
+    )
     if historical_chronology is not None and (
         context_root is None or atlas_detail_records is not None
     ):
@@ -99,11 +103,7 @@ def prepare_layers(
         published_output_dir=report.output_dir,
         context_root=context_root,
         geography_scope=geography_scope,
-        **(
-            {"nordic_point_inputs": nordic_point_inputs}
-            if nordic_point_inputs is not None
-            else {}
-        ),
+        **selected_capture_options(nordic_point_inputs, nordic_polygon_inputs),
     )
     animal_localities = ()
     animal_coordinate_review = surface.AnimalCoordinateVisibilityReview(

@@ -41,6 +41,7 @@ from .bundles.summary_builders import (
 from .bundles.sweden_lake_inputs import SwedenLakeInputs
 from .context import build_context_layers
 from .context.nordic_point_inputs import NordicPointInputs
+from .context.nordic_polygon_inputs import NordicPolygonInputs
 from .geography import GeographicScope, infer_publication_scope
 from .map_document.evidence_projection import HistoricalChronologyRequest
 from .map_document.evidence_projection.sead.site_custody import (
@@ -78,6 +79,7 @@ class _SourceResourceOptions(TypedDict, total=False):
 
 class _MapSourceOptions(_SourceResourceOptions, total=False):
     nordic_point_inputs: NordicPointInputs
+    nordic_polygon_inputs: NordicPolygonInputs
     historical_chronology: HistoricalChronologyRequest
     lake_inputs: SwedenLakeInputs
 
@@ -155,6 +157,7 @@ def generate_multi_country_map(
     historical_chronology: HistoricalChronologyRequest | None = None,
     lake_inputs: SwedenLakeInputs | None = None,
     nordic_point_inputs: NordicPointInputs | None = None,
+    nordic_polygon_inputs: NordicPolygonInputs | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     if nordic_point_inputs is not None and (
@@ -162,6 +165,11 @@ def generate_multi_country_map(
         or Path(context_root).absolute() != nordic_point_inputs.context_root
     ):
         raise ValueError("Nordic point capture requires its bound context")
+    if nordic_polygon_inputs is not None and (
+        context_root is None
+        or Path(context_root).absolute() != nordic_polygon_inputs.context_root
+    ):
+        raise ValueError("Nordic polygon capture requires its bound context")
     if historical_chronology is not None and context_root is None:
         raise ValueError("SEAD historical chronology requires context")
     version_dir = Path(version_dir)
@@ -179,6 +187,8 @@ def generate_multi_country_map(
         source_resource_options["historical_chronology"] = historical_chronology
     if nordic_point_inputs is not None:
         source_resource_options["nordic_point_inputs"] = nordic_point_inputs
+    if nordic_polygon_inputs is not None:
+        source_resource_options["nordic_polygon_inputs"] = nordic_polygon_inputs
     if lake_inputs is not None:
         source_resource_options["lake_inputs"] = lake_inputs
     normalized_countries = normalize_requested_countries(countries)
@@ -243,13 +253,19 @@ def generate_multi_country_map(
             **source_resource_options,
         )
 
-    if historical_chronology is None and nordic_point_inputs is None:
+    if (
+        historical_chronology is None
+        and nordic_point_inputs is None
+        and nordic_polygon_inputs is None
+    ):
         publish_into_staging_dir(output_dir, publish_map_bundle)
     else:
 
         def validate_map(output: Path) -> None:
             if nordic_point_inputs is not None:
                 nordic_point_inputs.validate_staged(output)
+            if nordic_polygon_inputs is not None:
+                nordic_polygon_inputs.validate_staged(output)
             if historical_chronology is not None:
                 if context_root is None:
                     raise ValueError("SEAD historical chronology requires context")

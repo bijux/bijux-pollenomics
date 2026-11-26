@@ -201,6 +201,18 @@ chronology-detail sources, other optional inputs, and the complete Atlas read-se
 remain outside this contract. It does not establish source admission, cross-file
 consistency, a complete source snapshot, or scientific validity.
 
+### Bind selected Nordic polygon inputs
+
+`generate_multi_country_map` accepts `nordic_polygon_inputs` from
+`bijux_pollenomics.reporting.context.nordic_polygon_inputs`. Call
+`capture_nordic_polygon_inputs(context_root, expected_sha256)` with the exact
+SHA-256 values for `country-boundaries` and `landclim-reveals-temporal-grid`.
+Both files are required; this option does not support the static grid fallback.
+The map builds and stages these held bytes and records their identities. Capture
+is sequential, not an atomic snapshot. These display inputs do not bind the
+historical SEAD country authority or other sources, establish source admission,
+or constitute complete Atlas source closure.
+
 ## Interpret Completion
 
 | Operation | Completion signal | Remaining scientific question |

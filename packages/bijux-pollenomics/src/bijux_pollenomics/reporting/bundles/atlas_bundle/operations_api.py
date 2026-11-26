@@ -13,6 +13,7 @@ from ....collection.contracts.models import ContextPointRecord
 from ....core.geospatial.geojson import JsonObject
 from ....evidence import AnimalCoordinateVisibilityReview
 from ...context.nordic_point_inputs import NordicPointInputs
+from ...context.nordic_polygon_inputs import NordicPolygonInputs
 from ...geography import GeographicScope
 from ...map_document.evidence_projection import HistoricalChronologyRequest
 from ...map_document.source_resources import AtlasResourceCatalogueInput
@@ -34,6 +35,7 @@ class _OptionalInputs(TypedDict, total=False):
     historical_chronology: HistoricalChronologyRequest
     lake_inputs: SwedenLakeInputs
     nordic_point_inputs: NordicPointInputs
+    nordic_polygon_inputs: NordicPolygonInputs
 
 
 def _surface() -> ModuleType:
@@ -73,6 +75,7 @@ def publish_multi_country_map_bundle(
     historical_chronology: HistoricalChronologyRequest | None = None,
     lake_inputs: SwedenLakeInputs | None = None,
     nordic_point_inputs: NordicPointInputs | None = None,
+    nordic_polygon_inputs: NordicPolygonInputs | None = None,
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
     optional_inputs: _OptionalInputs = {}
@@ -84,6 +87,8 @@ def publish_multi_country_map_bundle(
         optional_inputs["lake_inputs"] = lake_inputs
     if nordic_point_inputs is not None:
         optional_inputs["nordic_point_inputs"] = nordic_point_inputs
+    if nordic_polygon_inputs is not None:
+        optional_inputs["nordic_polygon_inputs"] = nordic_polygon_inputs
     publish_bundle(
         staging_output_dir,
         report=report,

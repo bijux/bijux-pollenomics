@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#564](https://github.com/bijux/bijux-pollenomics/pull/564) — Selected Nordic polygon inputs
+
+Offer an explicit captured display boundary and temporal LandClim grid for Nordic Atlas generation. This selected-input control does not establish complete Atlas closure or scientific admission.
+
 ### [#563](https://github.com/bijux/bijux-pollenomics/pull/563) — SEAD geochronology site envelopes
 
 Exclude unspecified-calibration geochronology from numeric BP site envelopes while retaining native source context. Existing published products require a controlled rebuild.

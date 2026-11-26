@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from ...context.nordic_point_inputs import NordicPointInputs
+from ...context.nordic_polygon_inputs import NordicPolygonInputs
 from ..sweden_lake_inputs import SwedenLakeInputs
 from .animal_chronology_publication import (
     build_animal_chronology_publication as _animal_chronology_publication,
@@ -27,6 +28,7 @@ def publish_contracts(
     surface: Any,
     lake_inputs: SwedenLakeInputs | None = None,
     nordic_point_inputs: NordicPointInputs | None = None,
+    nordic_polygon_inputs: NordicPolygonInputs | None = None,
 ) -> tuple[Any, dict[str, object]]:
     map_policy = surface.resolve_map_scope_policy(geography_scope)
     point_traceability = surface.build_map_point_traceability(
@@ -54,6 +56,10 @@ def publish_contracts(
     if nordic_point_inputs is not None:
         map_publication_contract["nordic_selected_point_inputs"] = (
             nordic_point_inputs.identity()
+        )
+    if nordic_polygon_inputs is not None:
+        map_publication_contract["nordic_selected_polygon_inputs"] = (
+            nordic_polygon_inputs.identity()
         )
     if lake_inputs is not None:
         map_publication_contract["sweden_lake_inputs"] = {
