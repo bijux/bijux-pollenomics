@@ -110,12 +110,16 @@ def test_open_ended_geochronology_stays_context_without_numeric_bounds(
 
 
 @pytest.mark.parametrize("route", ["api", "mapping"])
-def test_mixed_site_retains_other_finite_interval(route: str) -> None:
+def test_mixed_geochronology_rows_stay_source_context(route: str) -> None:
     site = _inventory(">", route, mixed=True)
     assert site["geochronology_count"] == 2
-    assert (site["numeric_time_start_bp"], site["numeric_time_end_bp"]) == (1380, 1410)
+    assert (
+        site["geochronology_rows"][1]["time_start_bp"],
+        site["geochronology_rows"][1]["time_end_bp"],
+    ) == (1380, 1410)
+    assert (site["numeric_time_start_bp"], site["numeric_time_end_bp"]) == (None, None)
     refresh_sead_repository_rows([site])
-    assert (site["numeric_time_start_bp"], site["numeric_time_end_bp"]) == (1380, 1410)
+    assert (site["numeric_time_start_bp"], site["numeric_time_end_bp"]) == (None, None)
 
 
 @pytest.mark.parametrize("route", ["api", "mapping"])

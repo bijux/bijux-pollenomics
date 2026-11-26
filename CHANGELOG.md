@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#563](https://github.com/bijux/bijux-pollenomics/pull/563) — SEAD geochronology site envelopes
+
+Exclude unspecified-calibration geochronology from numeric BP site envelopes while retaining native source context. Existing published products require a controlled rebuild.
+
 ### [#562](https://github.com/bijux/bijux-pollenomics/pull/562) — Validated multisite inputs
 
 Revalidate captured multisite inputs and copied bootstrap indices before use, refusing unresolved masks. Sequential capture and the documented standard-input compatibility restrictions remain.
