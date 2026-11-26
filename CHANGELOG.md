@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#536](https://github.com/bijux/bijux-pollenomics/pull/536) — Historical SEAD country retrieval
+
+Reconcile caller-pinned corrected SEAD site and lineage inputs against the authenticated historical review and admission while preserving the strict default and historical exclusions. Input hashes identify selected bytes and do not attest producer execution or temporal correctness.
+
 ### [#535](https://github.com/bijux/bijux-pollenomics/pull/535) — Reviewed development-to-host boundaries
 
 Restore the development-package host-import isolation gate with scoped reviewed bindings and supported facades, preserving code-identity distinctions for historical scientific outputs. The module-object provenance bindings remain narrower at import time than at attribute access.
