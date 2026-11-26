@@ -5,6 +5,10 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
+    AnimalPointInputs,
+)
+
 from ...context.layers import require_capture_owner, selected_capture_options
 from ...context.nordic_point_inputs import NordicPointInputs
 from ...context.nordic_polygon_inputs import NordicPolygonInputs
@@ -18,6 +22,7 @@ from ...map_document.source_resources import (
 )
 from ...modeled_context.publication_projection import project_modeled_context_layers
 from ..sweden_lake_inputs import SwedenLakeInputs
+from .context.animal_inputs import prepare_animal_layers, require_animal_capture_owner
 
 _ANIMAL_CHRONOLOGY_CONTEXT = {
     "semantic_role": "animal_source_chronology_context",
@@ -71,6 +76,7 @@ def prepare_layers(
     lake_inputs: SwedenLakeInputs | None = None,
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
+    animal_point_inputs: AnimalPointInputs | None = None,
 ) -> tuple[Any, ...]:
     """Prepare atlas layers and traceable assets with optional publication metadata."""
     require_capture_owner(
@@ -79,6 +85,7 @@ def prepare_layers(
         nordic_point_inputs,
         nordic_polygon_inputs,
     )
+    require_animal_capture_owner(context_root, surface, animal_point_inputs)
     if historical_chronology is not None and (
         context_root is None or atlas_detail_records is not None
     ):
@@ -105,34 +112,18 @@ def prepare_layers(
         geography_scope=geography_scope,
         **selected_capture_options(nordic_point_inputs, nordic_polygon_inputs),
     )
-    animal_localities = ()
-    animal_coordinate_review = surface.AnimalCoordinateVisibilityReview(
-        direct_coordinate_feature_count=0,
-        named_site_geocoded_feature_count=0,
-        weaker_geography_feature_count=0,
-    )
-    animal_chronology_context = None
-    if context_root is not None:
-        animal_bundle = surface.build_tracked_animal_atlas_bundle(
-            data_root=context_root,
-            output_dir=staging_output_dir,
-            atlas_slug=report.slug,
+    animal_localities, animal_coordinate_review, animal_chronology_context = (
+        prepare_animal_layers(
+            context_root=context_root,
+            staging_output_dir=staging_output_dir,
+            slug=report.slug,
             geography_scope=geography_scope,
+            point_layers=point_layers,
+            extra_artifacts=extra_artifacts,
+            surface=surface,
+            inputs=animal_point_inputs,
         )
-        point_layers.extend(animal_bundle.point_layers)
-        extra_artifacts.extend(animal_bundle.extra_artifacts)
-        if surface.animal_sample_chronology_context_available(context_root):
-            animal_chronology_context = surface.build_animal_sample_chronology_context(
-                data_root=context_root,
-                geography_scope=geography_scope,
-            )
-            point_layers.extend(animal_chronology_context.point_layers)
-        animal_localities = animal_bundle.localities
-        animal_coordinate_review = surface.AnimalCoordinateVisibilityReview(
-            direct_coordinate_feature_count=animal_bundle.coordinate_review.direct_coordinate_feature_count,
-            named_site_geocoded_feature_count=animal_bundle.coordinate_review.named_site_geocoded_feature_count,
-            weaker_geography_feature_count=animal_bundle.coordinate_review.weaker_geography_feature_count,
-        )
+    )
     point_layers.extend(
         surface.build_sweden_lake_atlas_layers(
             version=version,

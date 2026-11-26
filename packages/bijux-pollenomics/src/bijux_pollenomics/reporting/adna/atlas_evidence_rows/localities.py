@@ -17,6 +17,7 @@ from ....adna.domain.models.localities import AdnaSampleChronologySupport
 from ....adna.governance.atlas_candidates.chronology import (
     _atlas_public_locality_chronology,
 )
+from ....adna.governance.atlas_candidates.point_inputs import read_point_file
 from ....adna.workflow.paths import adna_species_dir
 from .chronology import (
     _optional_float,
@@ -38,12 +39,12 @@ def load_tracked_animal_mappable_localities(
     for species in build_species_support_matrix():
         if species.latin_name == "Homo sapiens":
             continue
-        locality_path = (
-            species_dir / species.slug / "normalized" / "locality_summaries.json"
+        raw = read_point_file(
+            species_dir / species.slug, "normalized/locality_summaries.json"
         )
-        if not locality_path.is_file():
+        if raw is None:
             continue
-        payload = json.loads(locality_path.read_text(encoding="utf-8"))
+        payload = json.loads(raw.decode("utf-8"))
         for row in payload.get("localities", []):
             if not isinstance(row, dict):
                 continue

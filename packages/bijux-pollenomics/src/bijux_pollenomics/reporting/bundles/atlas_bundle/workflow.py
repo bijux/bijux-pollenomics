@@ -5,6 +5,10 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, TypedDict
 
+from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
+    AnimalPointInputs,
+)
+
 from ...context.nordic_point_inputs import NordicPointInputs
 from ...context.nordic_polygon_inputs import NordicPolygonInputs
 from ...map_document.evidence_projection import HistoricalChronologyRequest
@@ -23,6 +27,7 @@ class _OptionalInputs(TypedDict, total=False):
     lake_inputs: SwedenLakeInputs
     nordic_point_inputs: NordicPointInputs
     nordic_polygon_inputs: NordicPolygonInputs
+    animal_point_inputs: AnimalPointInputs
 
 
 def publish_bundle(
@@ -57,6 +62,7 @@ def publish_bundle(
     lake_inputs: SwedenLakeInputs | None = None,
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
+    animal_point_inputs: AnimalPointInputs | None = None,
 ) -> None:
     """Publish atlas layers, evidence, playback, and inventoried static documents."""
     optional_inputs: _OptionalInputs = {}
@@ -70,6 +76,8 @@ def publish_bundle(
         optional_inputs["nordic_point_inputs"] = nordic_point_inputs
     if nordic_polygon_inputs is not None:
         optional_inputs["nordic_polygon_inputs"] = nordic_polygon_inputs
+    if animal_point_inputs is not None:
+        optional_inputs["animal_point_inputs"] = animal_point_inputs
     (
         bundle_paths,
         point_layers,
@@ -114,6 +122,7 @@ def publish_bundle(
         lake_inputs=lake_inputs,
         nordic_point_inputs=nordic_point_inputs,
         nordic_polygon_inputs=nordic_polygon_inputs,
+        animal_point_inputs=animal_point_inputs,
         static_assets=static_assets,
         animal_chronology_context=animal_chronology_context,
         extra_artifacts=extra_artifacts,

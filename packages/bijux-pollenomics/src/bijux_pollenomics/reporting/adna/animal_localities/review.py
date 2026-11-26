@@ -5,11 +5,11 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from ....adna.governance.atlas_candidates.point_inputs import read_point_file
+
 
 def _load_dataset_review(species_root: Path) -> dict[str, object]:
-    payload = json.loads(
-        (species_root / "reports" / "support_summary.json").read_text(encoding="utf-8")
-    )
+    payload = json.loads(_required_review(species_root, "reports/support_summary.json"))
     review = payload.get("dataset_review", {})
     if not isinstance(review, dict):
         raise ValueError(f"Dataset review missing for {species_root}")
@@ -17,9 +17,7 @@ def _load_dataset_review(species_root: Path) -> dict[str, object]:
 
 
 def _load_review_lookup(species_root: Path) -> dict[str, dict[str, str]]:
-    payload = json.loads(
-        (species_root / "review" / "species_review.json").read_text(encoding="utf-8")
-    )
+    payload = json.loads(_required_review(species_root, "review/species_review.json"))
     lookup: dict[str, dict[str, str]] = {}
     for key in (
         "accepted_projects",
@@ -54,3 +52,10 @@ def _optional_str(value: object) -> str | None:
         return None
     text = str(value).strip()
     return text or None
+
+
+def _required_review(species_root: Path, relative: str) -> str:
+    raw = read_point_file(species_root, relative)
+    if raw is None:
+        raise FileNotFoundError(species_root / relative)
+    return raw.decode("utf-8")

@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from typing import Any
 
+from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
+    AnimalPointInputs,
+)
+
 from ...context.nordic_point_inputs import NordicPointInputs
 from ...context.nordic_polygon_inputs import NordicPolygonInputs
 from ..sweden_lake_inputs import SwedenLakeInputs
@@ -29,6 +33,7 @@ def publish_contracts(
     lake_inputs: SwedenLakeInputs | None = None,
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
+    animal_point_inputs: AnimalPointInputs | None = None,
 ) -> tuple[Any, dict[str, object]]:
     map_policy = surface.resolve_map_scope_policy(geography_scope)
     point_traceability = surface.build_map_point_traceability(
@@ -56,6 +61,10 @@ def publish_contracts(
     if nordic_point_inputs is not None:
         map_publication_contract["nordic_selected_point_inputs"] = (
             nordic_point_inputs.identity()
+        )
+    if animal_point_inputs is not None:
+        map_publication_contract["animal_selected_point_inputs"] = (
+            animal_point_inputs.identity()
         )
     if nordic_polygon_inputs is not None:
         map_publication_contract["nordic_selected_polygon_inputs"] = (
