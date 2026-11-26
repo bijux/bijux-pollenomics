@@ -10,6 +10,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from bijux_pollenomics.core.filesystem import read_regular_file
+
 RUN = "sead-full-evidence-39bfff6a-ce80714e"
 RAW = Path("data/sead/raw/acquisitions") / RUN
 NORMALIZED = Path("data/sead/normalized/acquisitions") / RUN
@@ -29,6 +31,15 @@ PINNED = {
     / "countries.csv": "ee39d12eff900b8aaf3a15c571f182c3e15957d3cfe3d797c2f31f9c70221c9f",
 }
 COUNTRIES = ("SE", "DK", "NO", "FI")
+HISTORICAL_REVIEW = "data/boundaries/review/country-decisions/sead.json"
+HISTORICAL_REVIEW_SHA256 = (
+    "5f74c5b8eeb02e28e0ff0b5abdb96a8fb0dc7fa32427055dce0c1967e07ad643"
+)
+HISTORICAL_SITES_SHA256 = (
+    "901fe18211ee3c0ad0b901bc5723bb437191bb66debc97dc5f7eb91cb212abec"
+)
+HISTORICAL_SITE_CSV = "data/sead/normalized/nordic_environmental_sites.csv"
+HISTORICAL_LINEAGE = "data/sead/normalized/source_lineage.json"
 FIELDS = (
     "country_code",
     "governed_discovered_sites",
@@ -48,11 +59,85 @@ def _sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def validate_historical_retrieval(
+    report: dict[str, Any], sites: bytes, site_sha256: str, lineage_sha256: str
+) -> None:
+    """Check selected historical inputs without asserting producer execution."""
+    inputs = report.get("inputs")
+    if not isinstance(inputs, list) or any(not isinstance(row, dict) for row in inputs):
+        raise ValueError("SEAD historical retrieval inputs differ")
+    by_path = {row.get("path"): row for row in inputs}
+    if len(by_path) != len(inputs):
+        raise ValueError("SEAD historical retrieval inputs are duplicated")
+    review = by_path.get(HISTORICAL_REVIEW, {})
+    if (
+        report.get("schema_version") != "sead-country-retrieval.v2"
+        or report.get("run_id") != RUN
+        or report.get("admission", {}).get("source_release_status") != "refused"
+        or report.get("admission", {}).get("qualified_review_of_126_coordinates")
+        != "pending"
+        or review.get("sha256") != HISTORICAL_REVIEW_SHA256
+        or review.get("custody") != "historical_retained_ledger"
+        or by_path.get(HISTORICAL_SITE_CSV, {}).get("sha256") != site_sha256
+        or by_path.get(HISTORICAL_LINEAGE, {}).get("sha256") != lineage_sha256
+        or report.get("outputs", {}).get("sites.csv", {}).get("sha256")
+        != HISTORICAL_SITES_SHA256
+        or _sha(sites) != HISTORICAL_SITES_SHA256
+    ):
+        raise ValueError("SEAD historical retrieval identity or refusal differs")
+    rows = list(csv.DictReader(io.StringIO(sites.decode("utf-8"), newline="")))
+    by_id = {row.get("site_id"): row for row in rows}
+    if len(rows) != 2195 or len(by_id) != len(rows):
+        raise ValueError("SEAD historical retrieval site ledger differs")
+    for site_id in ("3447", "3457", "3528", "3652"):
+        row = by_id.get(site_id, {})
+        if (
+            row.get("country_decision_status") != "unassigned"
+            or row.get("retrieved_payload") != "false"
+            or row.get("normalized_consumer") != "false"
+        ):
+            raise ValueError("SEAD historical retrieval exclusions differ")
+
+
+def validate_historical_site_lineage(
+    lineage: dict[str, Any], admission: dict[str, Any], site_sha256: str
+) -> None:
+    """Bind declared site provenance to the original, refused admission."""
+    membership = {
+        "purpose": "historical_admission_cohort",
+        "authority_id": "sha256:e67d7e498df146bcdd65c398f67cdf2372298258288bcba9af734486fa2fe8d0",
+        "artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+    }
+    refresh = lineage.get("refresh_input_sha256", {})
+    if (
+        lineage.get("schema_version") != "sead-normalized-surface-lineage.v2"
+        or lineage.get("source_run_id") != admission.get("run_id")
+        or any(
+            lineage.get(key) != admission.get(key)
+            for key in (
+                "build_id",
+                "acquisition_manifest_sha256",
+                "parent_admission_sha256",
+                "acquisition_bundle_sha256",
+            )
+        )
+        or lineage.get("country_membership") != membership
+        or not isinstance(refresh, dict)
+        or refresh.get("boundary/normalized/nordic_country_boundaries.geojson")
+        != membership["artifact_digest"].removeprefix("sha256:")
+        or refresh.get("evidence/evidence_materialization_manifest.json")
+        != PINNED[NORMALIZED / "evidence_materialization_manifest.json"]
+        or lineage.get("normalized_surface_sha256", {}).get(
+            "normalized/nordic_environmental_sites.csv"
+        )
+        != site_sha256
+    ):
+        raise ValueError("SEAD historical site lineage differs")
+
+
 def _read_pinned(repository: Path, relative: Path) -> bytes:
     path = repository / relative
-    if path.is_symlink() or not path.is_file():
-        raise ValueError(f"Pinned SEAD input missing or linked: {relative}")
-    content = path.read_bytes()
+    content = read_regular_file(path, max_bytes=64 * 1024 * 1024)
     if _sha(content) != PINNED[relative]:
         raise ValueError(f"Pinned SEAD input changed: {relative}")
     return content
@@ -109,16 +194,94 @@ def _receipt_accounting(repository: Path, manifest: dict[str, Any]) -> dict[str,
     return counts
 
 
-def run(repository: Path, output: Path) -> dict[str, Any]:
+def run(
+    repository: Path,
+    output: Path,
+    *,
+    historical_retrieval_report: Path | None = None,
+    historical_retrieval_sha256: str | None = None,
+    historical_site_sha256: str | None = None,
+    historical_lineage_sha256: str | None = None,
+) -> dict[str, Any]:
     """Replay exact country denominators into a fresh repository artifact path."""
     repository, output = repository.resolve(), output.resolve()
+    options = (
+        historical_retrieval_report,
+        historical_retrieval_sha256,
+        historical_site_sha256,
+        historical_lineage_sha256,
+    )
+    if any(value is not None for value in options) and not all(
+        value is not None for value in options
+    ):
+        raise ValueError("Historical retrieval inputs must be supplied together")
+    historical = historical_retrieval_report is not None
+    if historical:
+        for digest in options[1:]:
+            if (
+                not isinstance(digest, str)
+                or len(digest) != 64
+                or any(c not in "0123456789abcdef" for c in digest)
+            ):
+                raise ValueError(
+                    "Historical retrieval digests must be lowercase SHA-256"
+                )
     if (
         output.exists()
         or output.is_symlink()
         or not output.is_relative_to(repository / "artifacts")
     ):
         raise ValueError("Absent repository artifact destination required")
-    contents = {path: _read_pinned(repository, path) for path in PINNED}
+    contents = {
+        path: _read_pinned(repository, path)
+        for path in PINNED
+        if not (historical and path == RETRIEVAL / "report.json")
+    }
+    if historical:
+        assert historical_retrieval_report is not None
+        assert historical_retrieval_sha256 is not None
+        assert historical_site_sha256 is not None
+        assert historical_lineage_sha256 is not None
+        report_bytes = read_regular_file(
+            historical_retrieval_report, max_bytes=16 * 1024 * 1024
+        )
+        sites_bytes = read_regular_file(
+            historical_retrieval_report.parent / "sites.csv", max_bytes=16 * 1024 * 1024
+        )
+        site_bytes = read_regular_file(
+            repository / HISTORICAL_SITE_CSV, max_bytes=16 * 1024 * 1024
+        )
+        lineage_bytes = read_regular_file(
+            repository / HISTORICAL_LINEAGE, max_bytes=16 * 1024 * 1024
+        )
+        admission_bytes = read_regular_file(
+            repository / RAW / "admission.json", max_bytes=16 * 1024 * 1024
+        )
+        if (
+            _sha(report_bytes) != historical_retrieval_sha256
+            or _sha(site_bytes) != historical_site_sha256
+            or _sha(lineage_bytes) != historical_lineage_sha256
+        ):
+            raise ValueError("SEAD historical retrieval selected input digest differs")
+        if (
+            _sha(admission_bytes)
+            != "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea"
+        ):
+            raise ValueError("SEAD historical admission identity differs")
+        retrieval_payload = json.loads(report_bytes)
+        validate_historical_retrieval(
+            retrieval_payload,
+            sites_bytes,
+            historical_site_sha256,
+            historical_lineage_sha256,
+        )
+        admission = json.loads(admission_bytes)
+        if admission.get("release_status") != "refused":
+            raise ValueError("SEAD historical admission release status differs")
+        validate_historical_site_lineage(
+            json.loads(lineage_bytes), admission, historical_site_sha256
+        )
+        contents[RETRIEVAL / "report.json"] = report_bytes
     raw_manifest = json.loads(contents[RAW / "manifest.json"])
     materialization = json.loads(
         contents[NORMALIZED / "evidence_materialization_manifest.json"]
@@ -228,7 +391,16 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         writer.writeheader()
         writer.writerows(rows)
     report = {
-        "schema_version": "sead-country-coverage.v1",
+        "schema_version": "sead-country-coverage.v2"
+        if historical
+        else "sead-country-coverage.v1",
+        **(
+            {
+                "historical_input_posture": "caller-pinned retrieval, site and lineage identities; no producer execution, temporal correctness or current-boundary admission is inferred"
+            }
+            if historical
+            else {}
+        ),
         "source_run_id": RUN,
         "source_scope": "governed_four_country_bbox_and_61_declared_relations",
         "country_assignment": "versioned_boundary_decision;source_country_not_supplied",
@@ -265,7 +437,24 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
             "capture_complete_only_for_declared_snapshot_and_scope",
             "no_scientifically_eligible_propagation_events",
         ],
-        "input_sha256": {path.as_posix(): digest for path, digest in PINNED.items()},
+        "input_sha256": {
+            path.as_posix(): digest
+            for path, digest in PINNED.items()
+            if not (historical and path == RETRIEVAL / "report.json")
+        },
+        **(
+            {
+                "historical_inputs_sha256": {
+                    "historical_retrieval_report": historical_retrieval_sha256,
+                    (RAW / "admission.json").as_posix(): _sha(admission_bytes),
+                    HISTORICAL_SITE_CSV: historical_site_sha256,
+                    HISTORICAL_LINEAGE: historical_lineage_sha256,
+                    "historical_retrieval_sites.csv": _sha(sites_bytes),
+                }
+            }
+            if historical
+            else {}
+        ),
         "rows_csv": {
             "path": "rows.csv",
             "sha256": _sha((output / "rows.csv").read_bytes()),
@@ -283,8 +472,19 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--historical-retrieval-report", type=Path)
+    parser.add_argument("--historical-retrieval-sha256")
+    parser.add_argument("--historical-site-sha256")
+    parser.add_argument("--historical-lineage-sha256")
     args = parser.parse_args()
-    run(args.repository, args.output)
+    run(
+        args.repository,
+        args.output,
+        historical_retrieval_report=args.historical_retrieval_report,
+        historical_retrieval_sha256=args.historical_retrieval_sha256,
+        historical_site_sha256=args.historical_site_sha256,
+        historical_lineage_sha256=args.historical_lineage_sha256,
+    )
     return 0
 
 

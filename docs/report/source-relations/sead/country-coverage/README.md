@@ -61,6 +61,17 @@ checks each of the 61 receipt digests against the pinned manifest, validates
 every query status and count, and refuses changed source identities or
 denominators.
 
+For a historical-cohort replay, supply all four options:
+`--historical-retrieval-report`, `--historical-retrieval-sha256`,
+`--historical-site-sha256`, and `--historical-lineage-sha256`. The selected
+retrieval report must have its `sites.csv` companion beside it. The producer
+checks those selected bytes, the historical site lineage and original admission,
+and the unchanged country ledger. The v2 result records the caller-selected
+identities; they do not prove the historical producer was executed or validate
+the sites' temporal values. This route preserves the historical cohort and does
+not admit sites under the current boundary authority. It does not update this
+retained report or publish its scratch result.
+
 
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits
