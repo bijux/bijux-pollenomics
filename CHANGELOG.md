@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#538](https://github.com/bijux/bijux-pollenomics/pull/538) — Historical SEAD map correspondence audit
+
+Add a versioned audit that compares each selected SEAD site with its bound historical source and requires candidate-bound browser evidence. Existing v1 behavior remains; no corrected Atlas or v2 browser run is claimed.
+
 ### [#537](https://github.com/bijux/bijux-pollenomics/pull/537) — Historical SEAD country coverage
 
 Allow explicitly pinned historical retrieval, site and lineage inputs to be reconciled against the original SEAD admission without changing strict defaults or exclusion status. Input identities do not attest producer execution or temporal correctness.

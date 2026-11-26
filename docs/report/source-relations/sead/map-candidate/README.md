@@ -18,6 +18,14 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_compl
 
 Use absent artifact destinations for a replay. The browser result is a bounded retained-source detail check; it does not certify event-level ecology, source release, hosted deployment or all browser engines.
 
+The separate historical v2 audit accepts explicitly pinned source, lineage,
+interval-review and custody identities, and checks every site identity, country
+and display bound against the inspected static atlas. It requires a v2 browser
+receipt bound to the candidate generation and served bytes. The current retained
+browser verifier emits v1 receipts, so it cannot supply that v2 qualification.
+Caller-pinned, self-reported receipt bytes do not independently attest producer
+or browser execution. This capability does not publish a corrected atlas.
+
 
 <!-- scientific-account-route:begin -->
 ## Scientific verification and limits

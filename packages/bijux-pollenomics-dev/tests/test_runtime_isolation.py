@@ -641,6 +641,7 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/source_completion/sead_map_candidate.py": {
+        "bijux_pollenomics.core.filesystem": frozenset({"read_regular_file"}),
         "bijux_pollenomics.reporting.map_document.static_assets.asset_inventory": frozenset(
             {"normalize_asset_inventory"}
         ),
