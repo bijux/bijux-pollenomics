@@ -14,6 +14,7 @@ from ...map_document.source_resources import (
     load_atlas_resource_catalogue,
 )
 from ...modeled_context.publication_projection import project_modeled_context_layers
+from ..sweden_lake_inputs import SwedenLakeInputs
 
 _ANIMAL_CHRONOLOGY_CONTEXT = {
     "semantic_role": "animal_source_chronology_context",
@@ -64,6 +65,7 @@ def prepare_layers(
     publication_capture_root: Path | None = None,
     source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
     historical_chronology: HistoricalChronologyRequest | None = None,
+    lake_inputs: SwedenLakeInputs | None = None,
 ) -> tuple[Any, ...]:
     """Prepare atlas layers and traceable assets with optional publication metadata."""
     if historical_chronology is not None and (
@@ -124,6 +126,7 @@ def prepare_layers(
             version=version,
             staging_output_dir=staging_output_dir,
             published_output_dir=report.output_dir,
+            **({"lake_inputs": lake_inputs} if lake_inputs is not None else {}),
         )
     )
     detail_projection_reconciliation = None

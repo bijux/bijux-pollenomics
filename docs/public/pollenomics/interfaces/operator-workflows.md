@@ -171,6 +171,19 @@ A caller that persists or shares a map must separately record the executed code
 identity and qualify the complete Atlas input closure. This option does not admit a
 new country authority or establish corrected-site browser verification.
 
+### Select Sweden lake inputs for a map
+
+`generate_multi_country_map` accepts an optional `lake_inputs` request from
+`bijux_pollenomics.reporting.bundles.sweden_lake_inputs`. Construct each
+`CapturedLakeFile` from an absolute path and its expected SHA-256 with
+`CapturedLakeFile.read`, then supply the captured scenario and optional registry
+and traceability files in `SwedenLakeInputs`. The map uses the captured bytes,
+records their identities, and does not search output-directory ancestors. An
+empty request selects no lake layers. Omitting the request retains automatic
+discovery. A selected traceability Markdown file contributes its identity and
+reference name; it is not copied into the map bundle. These input identities do
+not constitute a source-rights or scientific-admission decision.
+
 ## Interpret Completion
 
 | Operation | Completion signal | Remaining scientific question |

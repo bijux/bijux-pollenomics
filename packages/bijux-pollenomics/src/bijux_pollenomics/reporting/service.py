@@ -38,6 +38,7 @@ from .bundles.summary_builders import (
     build_multi_country_map_summary,
     build_published_reports_summary,
 )
+from .bundles.sweden_lake_inputs import SwedenLakeInputs
 from .context import build_context_layers
 from .geography import GeographicScope, infer_publication_scope
 from .map_document.evidence_projection import HistoricalChronologyRequest
@@ -76,6 +77,7 @@ class _SourceResourceOptions(TypedDict, total=False):
 
 class _MapSourceOptions(_SourceResourceOptions, total=False):
     historical_chronology: HistoricalChronologyRequest
+    lake_inputs: SwedenLakeInputs
 
 
 def generate_country_report(
@@ -149,6 +151,7 @@ def generate_multi_country_map(
     publication_capture_root: Path | None = None,
     source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
     historical_chronology: HistoricalChronologyRequest | None = None,
+    lake_inputs: SwedenLakeInputs | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     if historical_chronology is not None and context_root is None:
@@ -166,6 +169,8 @@ def generate_multi_country_map(
     )
     if historical_chronology is not None:
         source_resource_options["historical_chronology"] = historical_chronology
+    if lake_inputs is not None:
+        source_resource_options["lake_inputs"] = lake_inputs
     normalized_countries = normalize_requested_countries(countries)
     if not normalized_countries:
         raise ValueError(
