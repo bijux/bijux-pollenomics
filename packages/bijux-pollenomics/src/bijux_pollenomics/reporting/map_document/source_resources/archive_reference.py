@@ -7,7 +7,9 @@ from pathlib import Path
 import re
 from typing import Any
 
-from bijux_pollenomics.collection.sources.neotoma.capture.receipts import _object
+from bijux_pollenomics.collection.sources.neotoma.client import (
+    decode_neotoma_json_object,
+)
 from bijux_pollenomics.collection.sources.neotoma.resource_catalogue.archive.files import (
     MAX_MANIFEST_BYTES,
     validate_manifest,
@@ -40,7 +42,11 @@ def _pinned(
         content = inputs.read(path, max_bytes=size)
     if sha256(content).hexdigest() != digest:
         raise ValueError("Atlas source archive metadata identity differs")
-    return _object(content), len(content)
+    try:
+        decoded = decode_neotoma_json_object(content)
+    except (ValueError, UnicodeError, RecursionError) as error:
+        raise ValueError("Neotoma capture input is not bounded JSON") from error
+    return decoded, len(content)
 
 
 def validate_archive_reference(

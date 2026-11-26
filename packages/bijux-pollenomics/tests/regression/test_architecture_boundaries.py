@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 from pathlib import Path
 import re
 
@@ -45,6 +46,23 @@ def test_collection_and_publication_import_boundaries_are_separate() -> None:
     assert not failures, "collection/publication boundary violations:\n" + "\n".join(
         failures
     )
+
+
+def test_source_resource_publication_avoids_private_capture_reader() -> None:
+    """Atlas source readers use the supported strict JSON decoder."""
+    roots = REPORTING_SRC / "map_document" / "source_resources"
+    violations = []
+    for source in roots.rglob("*.py"):
+        for node in ast.walk(ast.parse(source.read_bytes(), filename=str(source))):
+            if (
+                isinstance(node, ast.ImportFrom)
+                and node.module
+                and node.module
+                == "bijux_pollenomics.collection.sources.neotoma.capture.receipts"
+                and any(alias.name == "_object" for alias in node.names)
+            ):
+                violations.append(str(source.relative_to(REPO_ROOT)))
+    assert not violations, violations
 
 
 def test_harmonization_logic_stays_out_of_map_rendering_layers() -> None:

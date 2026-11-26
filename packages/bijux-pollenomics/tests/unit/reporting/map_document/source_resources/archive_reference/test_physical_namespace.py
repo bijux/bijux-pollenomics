@@ -12,6 +12,15 @@ from bijux_pollenomics.reporting.map_document.source_resources.archive_reference
 )
 
 
+@pytest.mark.parametrize("raw", [b'{"a":1,"a":2}', b'{"n":1e-9999}', b"[]"])
+def test_pinned_metadata_rejects_ambiguous_or_invalid_source_json(
+    tmp_path: Path, raw: bytes
+) -> None:
+    (tmp_path / "manifest.json").write_bytes(raw)
+    with pytest.raises(ValueError, match="not bounded JSON"):
+        _pinned(tmp_path, "manifest.json", sha256(raw).hexdigest())
+
+
 @pytest.mark.parametrize("change", ["stable", "initial_alias", "alias_during_open"])
 def test_metadata_namespace_remains_physical_through_open(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch, change: str
