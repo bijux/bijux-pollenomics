@@ -17,6 +17,8 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ### Changed
 
+- Review the exact modeled-context dependencies pinned by Swedish LandClim
+  history calculations.
 - Use the Neotoma selected-source facade for shared pollen identity and
   chronology guards in direct study consumers.
 - Review exact host-facade imports used by pollen source studies and SEAD

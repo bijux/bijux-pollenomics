@@ -14,6 +14,20 @@ DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"
 # not to run the application. Keep those exact names visible until a public
 # verification facade replaces them.
 APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
+    # The history producer pins these exact modeled-context module bytes.
+    "bijux_pollenomics_dev/landscape_history/landclim/inputs.py": {
+        "bijux_pollenomics.reporting.modeled_context.contracts": frozenset(
+            {"PANGAEA_WINDOWS_PRESENT_TO_OLDEST"}
+        ),
+        "bijux_pollenomics.reporting.modeled_context.metric_families": frozenset(
+            {"PANGAEA_METRIC_KEYS"}
+        ),
+    },
+    "bijux_pollenomics_dev/landscape_history/landclim/workflow.py": {
+        "bijux_pollenomics.reporting.modeled_context": frozenset(
+            {"contracts", "metric_families"}
+        ),
+    },
     "bijux_pollenomics_dev/source_completion/neotoma/exhult_cells.py": {
         "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
             {"Sheet"}
@@ -1703,6 +1717,42 @@ def test_selected_pollen_clients_keep_exact_source_guard_bindings() -> None:
             assert host_import_violations(statement, root + "unreviewed.py")
             assert host_import_violations(f"from {module} import *", owner)
             assert host_import_violations(f"import {module}", owner)
+            assert host_import_violations(f"__import__({module!r})", owner)
+
+
+def test_landclim_history_uses_only_its_pinned_modeled_context_dependencies() -> None:
+    owner_root = "bijux_pollenomics_dev/landscape_history/landclim/"
+    expected = {
+        "inputs.py": {
+            "bijux_pollenomics.reporting.modeled_context.contracts": {
+                "PANGAEA_WINDOWS_PRESENT_TO_OLDEST"
+            },
+            "bijux_pollenomics.reporting.modeled_context.metric_families": {
+                "PANGAEA_METRIC_KEYS"
+            },
+        },
+        "workflow.py": {
+            "bijux_pollenomics.reporting.modeled_context": {
+                "contracts",
+                "metric_families",
+            },
+        },
+    }
+    for name, modules in expected.items():
+        owner = owner_root + name
+        code = (DEV_SRC / owner).read_text(encoding="utf-8")
+        imports = {
+            node.module: {alias.name for alias in node.names}
+            for node in ast.walk(ast.parse(code))
+            if isinstance(node, ast.ImportFrom) and node.module in modules
+        }
+        assert imports == modules
+        for module, names in modules.items():
+            statement = f"from {module} import {', '.join(sorted(names))}"
+            assert not host_import_violations(statement, owner)
+            assert host_import_violations(statement, owner_root + "other.py")
+            assert host_import_violations(statement + ", unreviewed", owner)
+            assert host_import_violations(f"from {module} import *", owner)
             assert host_import_violations(f"__import__({module!r})", owner)
 
 
