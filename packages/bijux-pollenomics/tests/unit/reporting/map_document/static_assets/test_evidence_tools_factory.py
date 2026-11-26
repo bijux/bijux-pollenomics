@@ -11,6 +11,47 @@ from ..browser_semantics.support import run_node_json
 from .test_runtime_packaging import request_args as request_args
 
 
+def test_optional_diagram_factory_requires_explicit_bindings(
+    tmp_path: Path, request_args: dict[str, Any]
+) -> None:
+    html, _ = subject.write_static_map_document(tmp_path / "atlas.html", **request_args)
+    evidence = subject.static_map_optional_controller_paths(html)[0].read_text()
+    observed = run_node_json(
+        evidence
+        + """
+const tools=BijuxPollenomicsEvidenceTools(String,String);
+const bindings={detailTableShape:()=>false,decodeDetailTableRow:()=>null,
+  escapeHtml:String,sourceDetailContext:()=>null};
+const rejected=[];
+for(const key of Object.keys(bindings)) {
+  try { tools.sourceDiagrams({...bindings,[key]:null}); }
+  catch(error) { rejected.push(key); }
+}
+const diagrams=tools.sourceDiagrams(bindings);
+console.log(JSON.stringify({keys:Object.keys(diagrams),frozen:Object.isFrozen(diagrams),rejected}));
+"""
+    )
+    assert observed == {
+        "keys": [
+            "renderSourceChronologyDiagram",
+            "pollenFocusedSignalData",
+            "renderPollenFocusedSignal",
+            "renderPollenDepthDiagram",
+            "renderPollenAgeDiagram",
+            "renderPollenSmallMultiples",
+            "pollenObservationDiagramData",
+            "pollenAgeAxisData",
+        ],
+        "frozen": True,
+        "rejected": [
+            "detailTableShape",
+            "decodeDetailTableRow",
+            "escapeHtml",
+            "sourceDetailContext",
+        ],
+    }
+
+
 def test_optional_factory_binds_escape_and_supplied_glyph_callback(
     tmp_path: Path, request_args: dict[str, Any]
 ) -> None:
@@ -48,6 +89,7 @@ html:tools.pickerHtml(catalog,{pinnedIds:[],visibleIds:[]})}));
         "pickerHtml",
         "pickerMount",
         "sourceDetails",
+        "sourceDiagrams",
         "sourceExport",
         "sourceResources",
         "selectionExport",

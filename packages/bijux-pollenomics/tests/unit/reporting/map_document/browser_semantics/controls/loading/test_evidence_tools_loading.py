@@ -60,7 +60,13 @@ const document={head:{appendChild(script){scripts.push(script)}},
 function visibleGovernedEdges(){return activeEdges}
 const atlasURLState={canPublish(){return false}},DETAIL_TABLE_PAGE_SIZE=25;
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
+function detailTableShape(){return false}
+function decodeDetailTableRow(){return null}
+function sourceDetailContext(){return null}
 """
+        + template_block(
+            "let sourceDiagramRenderers", "function sourceDiagramUnavailable"
+        )
         + template_block("let evidenceTools = null", "async function openEdgeDetail")
         + template_block(
             "document.querySelectorAll('details[data-evidence-tools]')",
@@ -154,12 +160,20 @@ def test_invalid_descriptor_refuses_before_request_and_exposes_sticky_error(
 
 
 @pytest.mark.parametrize(
-    "failure", ["missing_factory", "incomplete_factory", "factory_error", "network"]
+    "failure",
+    [
+        "missing_factory",
+        "incomplete_factory",
+        "incomplete_diagrams",
+        "factory_error",
+        "network",
+    ],
 )
 def test_load_failures_remain_visible_without_retrying(failure: str) -> None:
     setup = {
         "missing_factory": "scripts[0].events.load();",
         "incomplete_factory": "globalThis.BijuxPollenomicsEvidenceTools=()=>({});scripts[0].events.load();",
+        "incomplete_diagrams": "eval(optionalBody);const original=globalThis.BijuxPollenomicsEvidenceTools;globalThis.BijuxPollenomicsEvidenceTools=(...args)=>({...original(...args),sourceDiagrams:()=>({})});scripts[0].events.load();",
         "factory_error": "globalThis.BijuxPollenomicsEvidenceTools=()=>{throw Error('<img src=x onerror=unsafe()>')};scripts[0].events.load();",
         "network": "scripts[0].events.error();",
     }[failure]

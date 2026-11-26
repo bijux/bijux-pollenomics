@@ -5569,17 +5569,12 @@ __URL_STATE_CONTROLLER__
         }
         return `<span>${escapeHtml(String(value))}</span>`;
       }
-      __CHRONOLOGY_DIAGRAM_CONTROLLER__
-      __POLLEN_DIAGRAM_CONTROLLER__
-      __POLLEN_AGE_AXIS_CONTROLLER__
-      __POLLEN_SMALL_MULTIPLES_CONTROLLER__
-      __POLLEN_FOCUSED_SIGNAL_CONTROLLER__
       const pollenDepthSelections = new WeakMap();
       const pollenAgeSelections = new WeakMap();
       function pollenDisplaySelection(tabs) {
         const signal = focusState?.sourceSignal;
         const owner = signal || tabs;
-        const focused = pollenFocusedSignalData(tabs, signal);
+        const focused = sourceDiagrams().pollenFocusedSignalData(tabs, signal);
         const key = pollenDepthSelections.get(owner) ?? focused.defaultAnchorKey;
         const requireExplicitAnchor = Boolean(signal?.semantic_role === 'source_chronology_context'
           && ['source_taxon','source_ecological_code'].includes(signal.node_level)
@@ -5587,16 +5582,33 @@ __URL_STATE_CONTROLLER__
         return {owner,signal,focused,key,requireExplicitAnchor};
       }
       function renderPollenObservationDiagram(tabs) {
+        const diagrams = sourceDiagrams();
+        if (!diagrams) return sourceDiagramUnavailable();
         const selected = pollenDisplaySelection(tabs);
         const ageKey = pollenAgeSelections.get(selected.owner) ?? null;
-        return (selected.signal ? renderPollenFocusedSignal(tabs, selected.signal, selected.focused,
+        return (selected.signal ? diagrams.renderPollenFocusedSignal(tabs, selected.signal, selected.focused,
           COUNTRIES.filter(country => activeCountries.has(country))) : '')
-          + renderPollenDepthDiagram(tabs, selected.key,
-            (group, ids) => renderPollenAgeDiagram(tabs, group.key, ageKey, false, ids)
-              + renderPollenSmallMultiples(tabs, group.key, ageKey, ids),
+          + diagrams.renderPollenDepthDiagram(tabs, selected.key,
+            (group, ids) => diagrams.renderPollenAgeDiagram(tabs, group.key, ageKey, false, ids)
+              + diagrams.renderPollenSmallMultiples(tabs, group.key, ageKey, ids),
             {selectedObservationIds:selected.focused.observationIds,requireExplicitAnchor:selected.requireExplicitAnchor});
       }
       let sourceDetailRenderers = null;
+      let sourceDiagramRenderers = null;
+      function bindSourceDiagrams(tools) {
+        const diagrams = tools.sourceDiagrams({detailTableShape, decodeDetailTableRow, escapeHtml, sourceDetailContext});
+        if (!diagrams || !['renderSourceChronologyDiagram', 'pollenFocusedSignalData', 'renderPollenFocusedSignal', 'renderPollenDepthDiagram', 'renderPollenAgeDiagram', 'renderPollenSmallMultiples', 'pollenObservationDiagramData', 'pollenAgeAxisData'].every(key => typeof diagrams[key] === 'function')) throw Error('Source diagram interface is incomplete.');
+        return diagrams;
+      }
+      function sourceDiagrams() {
+        const tools = currentEvidenceTools();
+        if (!tools) return null;
+        try { return sourceDiagramRenderers ||= bindSourceDiagrams(tools); }
+        catch (error) { evidenceToolsError = String(error.message || error); return null; }
+      }
+      function sourceDiagramUnavailable() {
+        return `<p role="status">${escapeHtml(evidenceToolsError || 'Loading source diagrams…')} Original source tables remain available below.</p>${evidenceToolsError ? '<button type="button" data-source-diagram-retry>Retry source diagrams</button>' : ''}`;
+      }
       function sourceDetailContext() {
         const tools = currentEvidenceTools();
         return tools ? (sourceDetailRenderers ||= tools.sourceDetails({detailTableShape, decodeDetailTableRow, detailTableText, renderDetailTable, renderDetailObjectEntries, escapeHtml, resourceCatalogueAvailable:typeof STATIC_ATLAS_BOOTSTRAP !== 'undefined' && Boolean(STATIC_ATLAS_BOOTSTRAP?.domains?.resources)})) : null;
@@ -5617,13 +5629,14 @@ __URL_STATE_CONTROLLER__
         const focusedTab = focusTabs.contains(focused) ? focused.dataset.focusTab : null;
         const focusedTable = focusDetail.contains(focused) ? focused.dataset.detailTablePage : null;
         const focusedDirection = focusedTable ? focused.dataset.pageDirection : null;
+        const focusedPollen = focusDetail.contains(focused) && (Object.hasOwn(focused.dataset, 'pollenDepthGroup') ? '[data-pollen-depth-group]' : Object.hasOwn(focused.dataset, 'pollenAgeGroup') ? '[data-pollen-age-group]' : null);
         const tabs = focusState && focusState.detailTabs ? focusState.detailTabs : unavailableDetailTabs('record_level_evidence_not_available');
         const fieldwork = focusState?.kind === 'point' && focusState.layerKey === 'fieldwork-documentation';
         const tabDefinitions = fieldwork ? [['overview', 'Documentation']] : DETAIL_TAB_DEFINITIONS;
         if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
         focusTabs.innerHTML = tabDefinitions.map(([key, label]) => `<button id="focus-tab-${key}" class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}" aria-controls="focus-detail" tabindex="${activeFocusTab === key ? '0' : '-1'}">${escapeHtml(label)}</button>`).join('');
         focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
-        const sourceDiagram = activeFocusTab === 'chronology' ? renderSourceChronologyDiagram(tabs, focusState?.sourceSignal, COUNTRIES.filter(country => activeCountries.has(country)))
+        const sourceDiagram = activeFocusTab === 'chronology' ? (sourceDiagrams()?.renderSourceChronologyDiagram(tabs, focusState?.sourceSignal, COUNTRIES.filter(country => activeCountries.has(country))) || sourceDiagramUnavailable())
           : activeFocusTab === 'pollen_composition' ? renderPollenObservationDiagram(tabs) : '';
         const sourceOverview = activeFocusTab === 'overview' && tabs.overview?.status !== 'unavailable'
           && ['source_chronology_context','native_charcoal_source_context'].includes(focusState?.sourceSignal?.semantic_role)
@@ -5661,11 +5674,28 @@ __URL_STATE_CONTROLLER__
             renderFocusDetail();
           });
         });
+        focusDetail.querySelectorAll('[data-source-diagram-retry]').forEach((button) => {
+          button.addEventListener('click', async () => {
+            const owner = focusState, request = edgeFocusLoadState.request, generation = edgeFocusLoadState.generation;
+            const wasFocused = document.activeElement === button;
+            evidenceToolsRequest = null;
+            evidenceToolsError = null;
+            renderFocusDetail();
+            if (wasFocused) document.getElementById(`focus-tab-${activeFocusTab}`)?.focus({preventScroll:true});
+            try { await loadEvidenceTools(); } catch (_) { /* The status below reports the failure. */ }
+            const samePoint = owner?.kind === 'point' && focusState?.kind === 'point'
+              && ['layerKey','featureKey','recordId'].every(key => focusState[key] === owner[key])
+              && visiblePointEntryForFocus(focusState);
+            const sameEdge = owner?.kind === 'edge' && focusState === owner
+              && availableEdgeFocus(owner.edgeId, visibleGovernedEdges(), visiblePointEntries) !== null;
+            if (edgeFocusLoadState.request === request && edgeFocusLoadState.generation === generation && (samePoint || sameEdge)) renderFocusDetail();
+          });
+        });
         focusDetail.querySelectorAll('[data-pollen-depth-group]').forEach((select) => {
           select.addEventListener('change', () => {
             const {owner} = pollenDisplaySelection(tabs);
             pollenAgeSelections.delete(owner);
-            if (pollenObservationDiagramData(tabs).groups.some(group => group.key === select.value)) {
+            if (sourceDiagrams().pollenObservationDiagramData(tabs).groups.some(group => group.key === select.value)) {
               pollenDepthSelections.set(owner, select.value);
             } else {
               pollenDepthSelections.delete(owner);
@@ -5676,10 +5706,11 @@ __URL_STATE_CONTROLLER__
         });
         focusDetail.querySelectorAll('[data-pollen-age-group]').forEach((select) => {
           select.addEventListener('change', () => {
-            const native = pollenObservationDiagramData(tabs);
+            const diagrams = sourceDiagrams();
+            const native = diagrams.pollenObservationDiagramData(tabs);
             const selected = pollenDisplaySelection(tabs);
             const nativeKey = selected.key ?? (selected.requireExplicitAnchor ? null : native.groups[0]?.key);
-            const choices = nativeKey ? pollenAgeAxisData(tabs, nativeKey).options : [];
+            const choices = nativeKey ? diagrams.pollenAgeAxisData(tabs, nativeKey).options : [];
             if (select.value && choices.some(option => option.key === select.value)) {
               pollenAgeSelections.set(selected.owner, select.value);
             } else {
@@ -5694,6 +5725,8 @@ __URL_STATE_CONTROLLER__
         } else if (focusedTable) {
           const replacement = [...focusDetail.querySelectorAll('[data-detail-table-page]')].find((button) => button.dataset.detailTablePage === focusedTable && button.dataset.pageDirection === focusedDirection && !button.disabled);
           (replacement || focusDetail).focus({ preventScroll: true });
+        } else if (focusedPollen) {
+          (focusDetail.querySelectorAll(focusedPollen)[0] || focusDetail).focus({ preventScroll: true });
         }
         syncHashState();
       }
@@ -6990,6 +7023,15 @@ __URL_STATE_CONTROLLER__
         else if (decision.mode !== 'both') topbarStatePill.textContent = `${visiblePointEntries.length} display-eligible point entries · Drawing ${decision.mode} only`;
       }
       /* atlas-evidence-tools:begin */
+      function createSourceDiagrams({detailTableShape, decodeDetailTableRow, escapeHtml, sourceDetailContext}) {
+        if (![detailTableShape, decodeDetailTableRow, escapeHtml, sourceDetailContext].every(value => typeof value === 'function')) throw Error('Source diagram bindings are incomplete.');
+      __CHRONOLOGY_DIAGRAM_CONTROLLER__
+      __POLLEN_DIAGRAM_CONTROLLER__
+      __POLLEN_AGE_AXIS_CONTROLLER__
+      __POLLEN_SMALL_MULTIPLES_CONTROLLER__
+      __POLLEN_FOCUSED_SIGNAL_CONTROLLER__
+        return Object.freeze({renderSourceChronologyDiagram, pollenFocusedSignalData, renderPollenFocusedSignal, renderPollenDepthDiagram, renderPollenAgeDiagram, renderPollenSmallMultiples, pollenObservationDiagramData, pollenAgeAxisData});
+      }
       __RELATION_SUMMARY_CONTROLLER__
       __RELATION_TIME_SUMMARY_CONTROLLER__
       __SCIENTIFIC_PICKER_CONTROLLER__
@@ -7009,7 +7051,7 @@ function currentEvidenceTools() {
       timeData: relationTimeSummaryData, timeHtml: renderRelationTimeSummary,
       pickerCatalog: scientificPickerCatalog, pickerSearch: scientificPickerSearch,
       pickerInitial: scientificPickerInitialState, pickerAction: scientificPickerAction,
-      pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker, sourceDetails: createSourceRecordDetails,
+      pickerHtml: renderScientificPicker, pickerMount: mountScientificPicker, sourceDetails: createSourceRecordDetails, sourceDiagrams: createSourceDiagrams,
       sourceExport: createSourceRecordExport, sourceResources: createSourceResourceBrowser, selectionExport: prepareAtlasSelectionExport});
   }
   return evidenceTools;
@@ -7045,7 +7087,8 @@ function loadEvidenceTools() {
         try {
           if (typeof globalThis.BijuxPollenomicsEvidenceTools !== 'function') throw new Error('Evidence tools did not register.');
           const tools = globalThis.BijuxPollenomicsEvidenceTools(escapeHtml, scientificCueGlyph);
-          if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount', 'sourceDetails', 'sourceExport', 'selectionExport'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
+          if (!tools || !['countryData', 'countryHtml', 'timeData', 'timeHtml', 'pickerCatalog', 'pickerSearch', 'pickerInitial', 'pickerAction', 'pickerHtml', 'pickerMount', 'sourceDetails', 'sourceDiagrams', 'sourceResources', 'sourceExport', 'selectionExport'].every(key => typeof tools[key] === 'function')) throw new Error('Evidence tools interface is incomplete.');
+          sourceDiagramRenderers = bindSourceDiagrams(tools);
           evidenceTools = tools;
           resolve(tools);
         } catch (error) { reject(error); }
@@ -7167,6 +7210,16 @@ async function openSourceResources(selection = {}) {
           sourceUrl: '',
           detailTabs: tabs,
         });
+        const openedRequest = edgeFocusLoadState.request, openedGeneration = edgeFocusLoadState.generation;
+        const refreshSourceDiagrams = () => {
+          if (focusState?.kind === 'edge' && focusState.edgeId === edge.edge_id
+            && edgeFocusLoadState.request === openedRequest && edgeFocusLoadState.generation === openedGeneration
+            && visiblePointEntries.includes(source)
+            && visibleGovernedEdges().filter(row => row.edge_id === edge.edge_id).length === 1
+            && visibleGovernedEdges().includes(edge)
+            && ['source_record_id','target_record_id'].every(key => visiblePointEntries.filter(entry => entry.feature.record_id === edge[key]).length === 1)) renderFocusDetail();
+        };
+        loadEvidenceTools().then(refreshSourceDiagrams, refreshSourceDiagrams);
         if (compare) {
           activeFocusTab = 'relation';
           renderFocusDetail();

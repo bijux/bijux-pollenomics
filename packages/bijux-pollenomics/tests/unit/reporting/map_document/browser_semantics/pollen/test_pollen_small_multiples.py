@@ -46,10 +46,11 @@ def script() -> str:
         + template_block(
             "function createSourceRecordDetails", "/* atlas-evidence-tools:end */"
         )
+        + template_block("function createSourceDiagrams", "// Counts describe supplied")
         + template_block("let sourceDetailRenderers", "function renderFieldworkDetail")
         + """
 const evidenceToolsError=null;
-function currentEvidenceTools(){return {sourceDetails:createSourceRecordDetails};}
+function currentEvidenceTools(){return {sourceDetails:createSourceRecordDetails,sourceDiagrams:createSourceDiagrams};}
 """
     )
 

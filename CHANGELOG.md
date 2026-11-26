@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#556](https://github.com/bijux/bijux-pollenomics/pull/556) — Atlas source diagram loading
+
+Load source diagram controllers through the optional evidence-tools factory with guarded focus, failure and retry behavior, retaining source tables and inline mode. Two-site browser controls do not qualify the full Atlas.
+
 ### [#555](https://github.com/bijux/bijux-pollenomics/pull/555) — Exact LRA seed entropy
 
 Normalize previously accepted non-executable integral seeds exactly while preserving working singleton sequence entropy and manifest representation. Caller-owned mutable seed sequences retain their existing behavior.

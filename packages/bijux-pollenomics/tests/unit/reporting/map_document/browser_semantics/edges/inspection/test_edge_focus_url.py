@@ -7,9 +7,56 @@ from typing import Any
 
 import pytest
 
+from ...controls.loading.test_evidence_tools_loading import DESCRIPTOR, OPTIONAL_BODY
 from ...support import template_block
 from .focus_support import browser
 from .focus_support import published as published
+
+
+@pytest.mark.parametrize(
+    "change", ["none", "close", "filter", "replacement", "new_focus"]
+)
+def test_edge_first_requests_diagram_tools_and_rerenders_current_focus(
+    published: dict[str, Any],
+    change: str,
+) -> None:
+    observed = browser(
+        published,
+        "const descriptor="
+        + json.dumps(DESCRIPTOR)
+        + ";const body="
+        + json.dumps(OPTIONAL_BODY.decode())
+        + ";const change="
+        + json.dumps(change)
+        + ";"
+        + r"""
+STATIC_ATLAS_BOOTSTRAP.runtime={optional_controllers:{evidence_tools:descriptor}};
+window.location.protocol='https:';const scripts=[];
+currentEvidenceTools=()=>evidenceTools;
+document.head={appendChild(script){scripts.push(script)}};
+document.createElement=()=>({events:{},addEventListener(name,fn){this.events[name]=fn}});
+let renders=0;renderFocusDetail=()=>{renders++};
+await openEdgeDetail(supplied.edge,visiblePointEntries[0]);
+await new Promise(resolve=>setImmediate(resolve));
+const before=renders, count=scripts.length;
+if(change==='close')setFocusState(null);
+if(change==='filter')activeScientificSignalIds.clear();
+if(change==='replacement')GOVERNED_EDGE_RECORDS=[{...supplied.edge}];
+if(change==='new_focus')setFocusState({kind:'point',layerKey:'points',featureKey:'record:other',recordId:'other'});
+if(count){eval(body);scripts[0].events.load();await new Promise(resolve=>setImmediate(resolve));}
+console.log(JSON.stringify({count,before,after:renders,kind:focusState?.kind||null}));
+""",
+    )
+    assert observed == {
+        "count": 1,
+        "before": 0,
+        "after": 1 if change == "none" else 0,
+        "kind": None
+        if change == "close"
+        else "point"
+        if change == "new_focus"
+        else "edge",
+    }
 
 
 def test_producer_projection_static_build_roundtrip_reuses_actual_async_drawer(
