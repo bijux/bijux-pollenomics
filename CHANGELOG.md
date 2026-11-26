@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#560](https://github.com/bijux/bijux-pollenomics/pull/560) — Legacy LRA manifest label identity
+
+Document and demonstrate that v1 manifest canonicalization stringifies tabular labels. Existing hashes remain unchanged; a typed-label identity needs a separate versioned contract.
+
 ### [#559](https://github.com/bijux/bijux-pollenomics/pull/559) — Neotoma observation source names
 
 Preserve per-observation literal names and missingness through compact Atlas detail, diagrams and downloads. Legacy representative names remain unverified; no retained name conflict or full Atlas qualification is claimed.

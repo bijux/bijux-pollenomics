@@ -98,3 +98,20 @@ def test_missing_dependency_status_is_preserved_and_cached(
         assert calls == ["numpy", "scipy", "pandas"]
     finally:
         provenance._version_or_unknown.cache_clear()
+
+
+def test_legacy_run_manifest_does_not_distinguish_index_label_types() -> None:
+    """Record the existing label identity limit, not a typed identity guarantee."""
+    from bijux_pollenomics_lra.api import RevealsConfig, run_reveals
+    from bijux_pollenomics_lra.resources.examples import load_love_example
+
+    _, pollen, inputs, _ = load_love_example()
+    integer_index = pollen.copy(deep=True)
+    string_index = pollen.copy(deep=True)
+    integer_index.index = [0]
+    string_index.index = ["0"]
+    assert not integer_index.index.equals(string_index.index)
+    config = RevealsConfig("lake", 300, iterations=2, stochastic=False)
+    first = run_reveals(integer_index, inputs["ppes"], config)
+    second = run_reveals(string_index, inputs["ppes"], config)
+    assert first.manifest.inputs["pollen"] == second.manifest.inputs["pollen"]
