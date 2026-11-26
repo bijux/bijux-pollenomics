@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#535](https://github.com/bijux/bijux-pollenomics/pull/535) — Reviewed development-to-host boundaries
+
+Restore the development-package host-import isolation gate with scoped reviewed bindings and supported facades, preserving code-identity distinctions for historical scientific outputs. The module-object provenance bindings remain narrower at import time than at attribute access.
+
 ### [#534](https://github.com/bijux/bijux-pollenomics/pull/534) — Historical SEAD boundary custody
 
 Allow a SEAD refresh to bind and stage its historical country authority and record that identity in versioned lineage, while retaining legacy lineage readability. The separate current boundary review and downstream publication remain outside this historical-cohort capability.
