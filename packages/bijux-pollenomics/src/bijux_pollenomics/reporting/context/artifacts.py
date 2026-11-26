@@ -20,6 +20,7 @@ from ...collection.contracts.artifacts import (
 from ...collection.sources.raa.inventory import decode_source_object
 from ...core.geospatial.geojson import as_mapping
 from ..map_publication import map_allows_context_layer
+from .nordic_point_inputs import NordicPointInputs
 from .raa import (
     capture_raa_atlas_input_snapshot,
 )
@@ -39,13 +40,23 @@ def stage_context_point_layers(
     context_root: Path,
     output_dir: Path,
     build_external_point_layer_fn: Callable[..., dict[str, object]],
+    nordic_point_inputs: NordicPointInputs | None = None,
 ) -> tuple[list[dict[str, object]], list[tuple[str, str]]]:
     """Copy external point layers into the bundle and return rendered layer configs."""
+    if nordic_point_inputs is not None:
+        if (
+            scope_key != "nordic"
+            or Path(context_root).absolute() != nordic_point_inputs.context_root
+        ):
+            raise ValueError("Nordic point capture requires its bound Nordic context")
+        nordic_point_inputs.validate_temporal_presence()
     point_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
-    discovery_available = SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON.path_under(
-        context_root
-    ).exists()
+    discovery_available = (
+        True
+        if nordic_point_inputs is not None
+        else SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON.path_under(context_root).exists()
+    )
     superseded_sead_filenames = {
         "nordic_temporal_evidence.geojson",
     }
@@ -56,15 +67,22 @@ def stage_context_point_layers(
         if not map_allows_context_layer(scope_key=scope_key, layer_key=layer_key):
             continue
         source_path = contract.path_under(context_root)
-        if not source_path.exists():
-            continue
-        destination_path = stage_context_artifact(
-            source_path=source_path, output_dir=output_dir
-        )
-        geojson = load_context_geojson(destination_path)
-        point_layers.append(
-            build_external_point_layer_fn(geojson, source_path=destination_path)
-        )
+        if nordic_point_inputs is not None:
+            if layer_key not in nordic_point_inputs.buffers:
+                raise ValueError("Nordic selected point layer differs")
+            destination_path = nordic_point_inputs.stage(layer_key, output_dir)
+            geojson = nordic_point_inputs.decode(layer_key)
+        else:
+            if not source_path.exists():
+                continue
+            destination_path = stage_context_artifact(
+                source_path=source_path, output_dir=output_dir
+            )
+            geojson = load_context_geojson(destination_path)
+        layer = build_external_point_layer_fn(geojson, source_path=destination_path)
+        if nordic_point_inputs is not None and layer.get("key") != layer_key:
+            raise ValueError("Nordic selected point layer identity differs")
+        point_layers.append(layer)
         extra_artifacts.append((contract.label, destination_path.name))
         if contract is SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON:
             for companion in (
@@ -79,6 +97,12 @@ def stage_context_point_layers(
                     source_path=companion_path, output_dir=output_dir
                 )
                 extra_artifacts.append((companion.label, staged_companion.name))
+    if nordic_point_inputs is not None:
+        if len(point_layers) != len(nordic_point_inputs.buffers) or {
+            layer.get("key") for layer in point_layers
+        } != set(nordic_point_inputs.buffers):
+            raise ValueError("Nordic selected point layer set differs")
+        nordic_point_inputs.validate_staged(output_dir)
     return point_layers, extra_artifacts
 
 

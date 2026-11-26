@@ -184,6 +184,23 @@ discovery. A selected traceability Markdown file contributes its identity and
 reference name; it is not copied into the map bundle. These input identities do
 not constitute a source-rights or scientific-admission decision.
 
+### Bind selected Nordic point inputs
+
+`generate_multi_country_map` accepts an optional `nordic_point_inputs` capture from
+`bijux_pollenomics.reporting.context.nordic_point_inputs`. Create it with
+`capture_nordic_point_inputs(context_root, expected_sha256)`, supplying exact
+SHA-256 values for `landclim-sites`, `neotoma-pollen`, `sead-sites`, and
+`sweden-archaeology-site-discovery`. The selected point-layer builder parses the
+held bytes and stages the same bytes. Discovery takes precedence over the separate
+SEAD temporal evidence layer; its source presence is recorded and checked again.
+The option requires the bound context root and Nordic geography. Missing selected
+layers, changed staged bytes, and changed temporal presence refuse publication.
+
+This captures only four selected point inputs. AADR, animal, RAÄ, polygon and
+chronology-detail sources, other optional inputs, and the complete Atlas read-set
+remain outside this contract. It does not establish source admission, cross-file
+consistency, a complete source snapshot, or scientific validity.
+
 ## Interpret Completion
 
 | Operation | Completion signal | Remaining scientific question |
