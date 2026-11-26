@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#546](https://github.com/bijux/bijux-pollenomics/pull/546) — Supported Atlas source metadata decoder
+
+Use the source-owned Neotoma decoder for Atlas metadata and correct the missing-evidence refusal test to match the closed-namespace diagnostic. The broader reporting-to-collection architecture boundary remains under review.
+
 ### [#545](https://github.com/bijux/bijux-pollenomics/pull/545) — Content-bound AADR sample caches
 
 Key sample caches by captured annotation content and parse those same bytes, preventing stale results when source bytes change without a size or timestamp change. Each query remains separate; this does not establish a frozen Atlas input snapshot.
