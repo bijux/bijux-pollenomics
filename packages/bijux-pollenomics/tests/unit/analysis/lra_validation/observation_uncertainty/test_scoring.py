@@ -146,6 +146,7 @@ def test_unicode_engine_canonical_bytes_survive_host_encoding(tmp_path: Path) ->
         "draw_profile",
         "draw_plan",
         "displayed_draws",
+        "wrong_interval",
         "retained_posture",
     ],
 )
@@ -187,6 +188,14 @@ def test_rehashed_contradictions_refuse(tmp_path: Path, kind: str) -> None:
                 return
             if kind == "draw_profile":
                 result["profile"] = "unsupported"
+            elif kind == "wrong_interval":
+                interval = result["marginal_predictive_intervals"]["a"]
+                interval.update(
+                    lower_count=0,
+                    upper_count=10,
+                    lower_fraction=0.0,
+                    upper_fraction=1.0,
+                )
             else:
                 result["declaration"]["prediction_sha256"] = "0" * 64
             import hashlib
@@ -233,3 +242,35 @@ def test_missing_retained_plan_has_stable_refusal(tmp_path: Path) -> None:
             destination=tmp_path / "coverage",
         )
     assert error.value.reason_code == "invalid_observation_coverage_input"
+
+
+def test_old_engine_without_interval_verifier_refuses_before_output(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from bijux_pollenomics_lra import PollenObservationDraws
+
+    product, plan, inventory = fixture(tmp_path)
+    uncertainty = generate_pollen_observation_uncertainty(
+        product.directory,
+        plan,
+        evidence_root=tmp_path / "effort",
+        destination=tmp_path / "draws",
+    )
+    scores = score_experiment_predictions(
+        product.directory,
+        expected_manifest_sha256=product.manifest_sha256,
+        outcome_root=tmp_path / "outcomes",
+        outcome_inventory=inventory,
+        destination=tmp_path / "scores",
+    )
+    monkeypatch.delattr(PollenObservationDraws, "validate_predictive_intervals")
+    with pytest.raises(ValidationRefusal, match="validate_predictive_intervals"):
+        score_pollen_observation_coverage(
+            product.directory,
+            uncertainty.directory,
+            scores.directory,
+            expected_uncertainty_sha256=uncertainty.manifest_sha256,
+            expected_scores_sha256=scores.manifest_sha256,
+            destination=tmp_path / "coverage",
+        )
+    assert not (tmp_path / "coverage").exists()

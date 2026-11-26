@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#558](https://github.com/bijux/bijux-pollenomics/pull/558) — Observation interval verification
+
+Verify declared binomial equal-tail bounds before observation products are published or scored. Structural historical reads remain available; large-support verification requires the recorded SciPy version and does not attest random execution.
+
 ### [#557](https://github.com/bijux/bijux-pollenomics/pull/557) — Real-valued optimized LOVE inputs
 
 Refuse nonreal local count draws, replay candidates and related optimized inputs before float conversion. Generated witnesses demonstrated the loss; no retained scientific result impact is claimed.

@@ -229,9 +229,11 @@ def _authenticated_block_draws(
         if not isinstance(canonical, str) or not isinstance(result_sha256, str):
             refuse("Generated block uncertainty requires canonical draw identities")
         try:
-            result = binding.api.PollenObservationDraws(
+            saved_result = binding.api.PollenObservationDraws(
                 canonical, digest(result_sha256)
-            ).as_dict()
+            )
+            saved_result.validate_predictive_intervals()
+            result = saved_result.as_dict()
         except (ValueError, TypeError, AttributeError) as exc:
             refuse(f"Invalid governed block conditional result: {exc}")
         declaration = object_mapping(result["declaration"], "declaration")

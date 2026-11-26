@@ -153,3 +153,72 @@ def test_counting_design_is_bound_to_exact_canonical_source_bytes() -> None:
         block_workflow._validate_counting_design(
             {**value, "declaration_provenance": "forged"}, entry
         )
+
+
+def test_block_generator_refuses_legacy_engine_result(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    entry = _entry("p1", "model")
+    plan = BlockObservationUncertaintyPlan("b" * 64, (entry,), 10, 0.9)
+    parent = SimpleNamespace(
+        manifest_sha256="b" * 64, scientific_content_sha256="c" * 64
+    )
+    prediction = {
+        "prediction_manifest_sha256": "d" * 64,
+        "pollen_fraction": {"Alnus": 0.6, "Betula": 0.4},
+    }
+    monkeypatch.setattr(
+        block_workflow,
+        "validate_block_plan_parent",
+        lambda *a: (
+            parent,
+            {"profile": "fixture"},
+            {entry.key: prediction},
+            {entry.key: "predicted"},
+        ),
+    )
+    monkeypatch.setattr(
+        block_workflow, "_effort_evidence", lambda *a: {"fixture": True}
+    )
+    monkeypatch.setattr(
+        block_workflow, "implementation_identity", lambda: {"fixture": True}
+    )
+    monkeypatch.setattr(
+        block_workflow,
+        "load_engine",
+        lambda: SimpleNamespace(
+            api=SimpleNamespace(
+                sample_pollen_observations=lambda *a, **k: SimpleNamespace()
+            )
+        ),
+    )
+    monkeypatch.setattr(
+        block_workflow,
+        "capture_code_identity",
+        lambda *a: SimpleNamespace(payload=lambda: {"fixture": True}),
+    )
+    monkeypatch.setattr(block_workflow, "verify_code_identity", lambda *a: None)
+    monkeypatch.setattr(block_workflow, "read_experiment_product", lambda *a, **k: None)
+    monkeypatch.setattr(
+        block_workflow, "stage_directory", lambda *a: tmp_path / "stage"
+    )
+    captured: dict[str, object] = {}
+    monkeypatch.setattr(
+        block_workflow,
+        "write_json",
+        lambda _p, name, value: captured.__setitem__(name, value),
+    )
+    monkeypatch.setattr(
+        block_workflow, "publish_phase", lambda *a, **k: SimpleNamespace()
+    )
+    block_workflow.generate_block_pollen_observation_uncertainty(
+        tmp_path / "predictions",
+        plan,
+        evidence_root=tmp_path / "effort",
+        destination=tmp_path / "result",
+    )
+    rows = captured["uncertainty.json"]
+    assert isinstance(rows, list) and len(rows) == 1
+    assert rows[0]["status"] == "sampler_refused"
+    assert "lacks predictive interval verification" in rows[0]["detail"]
+    assert rows[0]["engine_result"] is None

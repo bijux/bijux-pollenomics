@@ -258,6 +258,12 @@ def generate_block_pollen_observation_uncertainty(
                     prediction_sha256=row["prediction_sha256"],
                     effort_evidence_sha256=entry.evidence_sha256,
                 )
+                verify_intervals = getattr(
+                    result, "validate_predictive_intervals", None
+                )
+                if not callable(verify_intervals):
+                    raise ValueError("Engine lacks predictive interval verification")
+                verify_intervals()
                 row.update(
                     status="generated",
                     engine_result=result.as_dict(),

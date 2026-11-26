@@ -3,6 +3,7 @@
 from dataclasses import replace
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -19,9 +20,11 @@ from bijux_pollenomics.analysis.lra_validation.evaluation.intervals import (
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
     BLOCK_BASELINE_METHOD,
+    BLOCK_PROFILE,
     FITTED_METHOD,
 )
 from bijux_pollenomics.analysis.lra_validation.observation_uncertainty.block_contracts import (
+    BLOCK_OBSERVATION_PROFILE,
     BlockEffortDeclaration,
     BlockObservationUncertaintyPlan,
 )
@@ -334,3 +337,123 @@ def test_batch_refuses_forged_state_on_parent_failure(
             uncertainty=tmp_path / "uncertainty",
             expected_uncertainty_manifest_sha256="c" * 64,
         )
+
+
+def test_block_reader_refuses_rehashed_wrong_equal_tail_interval(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from types import SimpleNamespace
+
+    from bijux_pollenomics_lra import api
+    from bijux_pollenomics_lra.provenance.identity import canonical_json, sha256_object
+
+    entry = _entry(FITTED_METHOD)
+    plan = BlockObservationUncertaintyPlan("a" * 64, (entry,), 10, 0.9)
+    result = api.sample_pollen_observations(
+        {"Alnus": 0.6, "Betula": 0.4},
+        effort=100,
+        repeats=10,
+        seed=7,
+        coverage=0.9,
+        prediction_sha256="c" * 64,
+        effort_evidence_sha256=entry.evidence_sha256,
+    ).as_dict()
+    parent = SimpleNamespace(
+        manifest_sha256="a" * 64, scientific_content_sha256="b" * 64
+    )
+    parent_row = {
+        "prediction_manifest_sha256": "c" * 64,
+        "pollen_fraction": {"Alnus": 0.6, "Betula": 0.4},
+    }
+    row = {
+        "entry": entry.as_dict(),
+        "parent_status": "predicted",
+        "prediction_sha256": "c" * 64,
+        "engine_result": result,
+        "engine_result_canonical_json": canonical_json(result),
+        "engine_result_sha256": sha256_object(result),
+        "status": "generated",
+    }
+    evidence = {entry.evidence_sha256: {"design": "fixture"}}
+    payload: dict[str, Any] = dict.fromkeys(
+        block_intervals._BLOCK_UNCERTAINTY_PAYLOAD_FIELDS
+    )
+    payload.update(
+        schema_version="lra-spatial-block-observation-uncertainty.v1",
+        profile=BLOCK_OBSERVATION_PROFILE,
+        plan=plan.as_dict(),
+        plan_sha256=plan.sha256,
+        prediction_manifest_sha256=parent.manifest_sha256,
+        prediction_scientific_content_sha256=parent.scientific_content_sha256,
+        uncertainty_scope="conditional_observation_process_only",
+        conditioned_on=[
+            "fixed_predicted_pollen_probabilities",
+            "predeclared_sampling_effort",
+        ],
+        outcome_accesses=[],
+        declaration_timing_authenticated=False,
+        empirical_coverage_verified=False,
+        scientific_acceptance="not_evaluated",
+        final_policy_approval=False,
+        rows=[row],
+        effort_evidence=evidence,
+        requested_units=1,
+        parent_status_counts={"predicted": 1, "refused": 0, "not_run": 0},
+        engine_identity={"fixture": True},
+        implementation={"fixture": True},
+        access_order=block_intervals._BLOCK_UNCERTAINTY_ACCESS_ORDER,
+        status_counts={"generated": 1},
+    )
+    manifest = {
+        "scientific_payload": payload,
+        "phase": "observation_uncertainty",
+        "profile": BLOCK_PROFILE,
+    }
+    product = SimpleNamespace()
+    monkeypatch.setattr(
+        block_intervals, "read_experiment_product", lambda *a, **k: (product, manifest)
+    )
+    monkeypatch.setattr(
+        block_intervals,
+        "validate_block_plan_parent",
+        lambda *a, **k: (
+            parent,
+            {"profile": BLOCK_PROFILE},
+            {entry.key: parent_row},
+            {entry.key: "predicted"},
+        ),
+    )
+    monkeypatch.setattr(
+        block_intervals,
+        "read_member",
+        lambda _p, name: {
+            "uncertainty.json": [row],
+            "effort_evidence.json": evidence,
+            "plan.json": plan.as_dict(),
+        }[name],
+    )
+    monkeypatch.setattr(
+        block_intervals, "load_engine", lambda: SimpleNamespace(api=api)
+    )
+    monkeypatch.setattr(
+        block_intervals,
+        "capture_code_identity",
+        lambda _b: SimpleNamespace(payload=lambda: {"fixture": True}),
+    )
+    monkeypatch.setattr(
+        block_intervals, "implementation_identity", lambda: {"fixture": True}
+    )
+    monkeypatch.setattr(block_intervals, "_validate_counting_design", lambda *a: None)
+    kwargs: dict[str, Any] = {
+        "expected_prediction_manifest_sha256": "a" * 64,
+        "uncertainty": tmp_path / "uncertainty",
+        "expected_uncertainty_manifest_sha256": "d" * 64,
+    }
+    block_intervals._authenticated_block_draws(tmp_path / "predictions", **kwargs)
+    result["marginal_predictive_intervals"]["Alnus"].update(
+        lower_count=0, upper_count=100, lower_fraction=0.0, upper_fraction=1.0
+    )
+    row["engine_result_canonical_json"] = canonical_json(result)
+    row["engine_result_sha256"] = sha256_object(result)
+    with pytest.raises(ValidationRefusal, match="equal-tail"):
+        block_intervals._authenticated_block_draws(tmp_path / "predictions", **kwargs)

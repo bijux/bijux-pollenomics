@@ -11,6 +11,7 @@ from typing import Any
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.observation_intervals import validate_interval
 from bijux_pollenomics_lra.provenance.identity import canonical_json, sha256_object
 
 PROFILE = "fixed-probability-multinomial-observation-v1"
@@ -54,6 +55,20 @@ class PollenObservationDraws:
             raise ValidationError(
                 str(exc), reason_code="observation_draw_identity_mismatch"
             ) from exc
+
+    def validate_predictive_intervals(self) -> None:
+        """Verify saved equal-tail bounds; identity alone does not verify them."""
+        result = self.as_dict()
+        declaration = result["declaration"]
+        for taxon, bounds in result["marginal_predictive_intervals"].items():
+            validate_interval(
+                effort=declaration["effort"],
+                probability=float(declaration["effective_pollen_fraction"][taxon]),
+                coverage=float(declaration["coverage"]),
+                lower=bounds["lower_count"],
+                upper=bounds["upper_count"],
+                scipy_version=declaration["scipy_version"],
+            )
 
     def as_dict(self) -> dict[str, Any]:
         """Return fresh JSON data without sharing mutable result state."""

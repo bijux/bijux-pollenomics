@@ -431,3 +431,32 @@ def test_batch_preserves_authenticated_parent_failure_without_values(
     assert frozen[0].prediction is None
     assert frozen[0].source_model is None
     assert all(row.interval is not None for row in frozen[1:])
+
+
+def test_rehashed_wrong_equal_tail_interval_refuses(
+    tmp_path: Path,
+    products: tuple[ExperimentProduct, ExperimentProduct, EvaluationRow],
+) -> None:
+    from bijux_pollenomics.analysis.lra_validation.contracts import manifest_sha256
+
+    original = products[1]
+    target = tmp_path / "changed-uncertainty"
+    shutil.copytree(original.directory, target)
+    copied = ExperimentProduct(
+        target, original.manifest_sha256, original.scientific_content_sha256
+    )
+
+    def mutate(rows: list[dict[str, Any]]) -> None:
+        selected = next(row for row in rows if row["status"] == "generated")
+        result = selected["engine_result"]
+        effort = result["declaration"]["effort"]
+        taxon = result["declaration"]["taxa"][0]
+        result["marginal_predictive_intervals"][taxon].update(
+            lower_count=0, upper_count=effort, lower_fraction=0.0, upper_fraction=1.0
+        )
+        selected["engine_result_canonical_json"] = canonical_json(result)
+        selected["engine_result_sha256"] = manifest_sha256(result)
+
+    changed = rewrite(copied, member="uncertainty.json", member_change=mutate)
+    with pytest.raises(ValidationRefusal, match="equal-tail"):
+        _freeze(products, uncertainty=changed)
