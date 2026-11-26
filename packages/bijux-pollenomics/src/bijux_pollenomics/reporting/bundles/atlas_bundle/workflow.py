@@ -7,6 +7,7 @@ from typing import Any, TypedDict
 
 from ...map_document.evidence_projection import HistoricalChronologyRequest
 from ...map_document.source_resources import AtlasResourceCatalogueInput
+from ..sweden_lake_inputs import SwedenLakeInputs
 from .contracts import publish_contracts
 from .evidence import publish_evidence_and_rankings
 from .finalization import finalize_bundle
@@ -17,6 +18,7 @@ from .playback import publish_playback_storyboards
 class _OptionalInputs(TypedDict, total=False):
     source_resource_catalogue: AtlasResourceCatalogueInput
     historical_chronology: HistoricalChronologyRequest
+    lake_inputs: SwedenLakeInputs
 
 
 def publish_bundle(
@@ -48,6 +50,7 @@ def publish_bundle(
     publication_capture_root: Path | None = None,
     source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
     historical_chronology: HistoricalChronologyRequest | None = None,
+    lake_inputs: SwedenLakeInputs | None = None,
 ) -> None:
     """Publish atlas layers, evidence, playback, and inventoried static documents."""
     optional_inputs: _OptionalInputs = {}
@@ -55,6 +58,8 @@ def publish_bundle(
         optional_inputs["source_resource_catalogue"] = source_resource_catalogue
     if historical_chronology is not None:
         optional_inputs["historical_chronology"] = historical_chronology
+    if lake_inputs is not None:
+        optional_inputs["lake_inputs"] = lake_inputs
     (
         bundle_paths,
         point_layers,
@@ -96,6 +101,7 @@ def publish_bundle(
         polygon_layers=polygon_layers,
         bundle_paths=bundle_paths,
         detail_projection_reconciliation=detail_projection_reconciliation,
+        **({"lake_inputs": lake_inputs} if lake_inputs is not None else {}),
         static_assets=static_assets,
         animal_chronology_context=animal_chronology_context,
         extra_artifacts=extra_artifacts,

@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#543](https://github.com/bijux/bijux-pollenomics/pull/543) — Explicit Sweden lake Atlas inputs
+
+Allow Atlas callers to bind captured Sweden lake source bytes and explicit absence independently of the output directory. Default discovery remains available; input identity does not establish source admission or complete Atlas closure.
+
 ### [#542](https://github.com/bijux/bijux-pollenomics/pull/542) — Historical SEAD chronology in Atlas
 
 Project reconciled chronology onto copied Atlas claims through an explicit historical request, binding consumed evidence and site bytes to their sources. Existing source eligibility remains unchanged; no corrected Atlas publication or browser qualification is claimed.

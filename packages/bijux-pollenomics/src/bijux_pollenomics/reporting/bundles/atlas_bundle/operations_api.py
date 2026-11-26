@@ -17,6 +17,7 @@ from ...map_document.evidence_projection import HistoricalChronologyRequest
 from ...map_document.source_resources import AtlasResourceCatalogueInput
 from ...models import MultiCountryMapReport, SampleRecord
 from ..paths import AtlasBundlePaths
+from ..sweden_lake_inputs import SwedenLakeInputs
 from .context import (
     as_optional_int,
     attach_traceability_surfaces,
@@ -30,6 +31,7 @@ from .workflow import publish_bundle
 class _OptionalInputs(TypedDict, total=False):
     source_resource_catalogue: AtlasResourceCatalogueInput
     historical_chronology: HistoricalChronologyRequest
+    lake_inputs: SwedenLakeInputs
 
 
 def _surface() -> ModuleType:
@@ -67,6 +69,7 @@ def publish_multi_country_map_bundle(
     publication_capture_root: Path | None = None,
     source_resource_catalogue: AtlasResourceCatalogueInput | None = None,
     historical_chronology: HistoricalChronologyRequest | None = None,
+    lake_inputs: SwedenLakeInputs | None = None,
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
     optional_inputs: _OptionalInputs = {}
@@ -74,6 +77,8 @@ def publish_multi_country_map_bundle(
         optional_inputs["source_resource_catalogue"] = source_resource_catalogue
     if historical_chronology is not None:
         optional_inputs["historical_chronology"] = historical_chronology
+    if lake_inputs is not None:
+        optional_inputs["lake_inputs"] = lake_inputs
     publish_bundle(
         staging_output_dir,
         report=report,

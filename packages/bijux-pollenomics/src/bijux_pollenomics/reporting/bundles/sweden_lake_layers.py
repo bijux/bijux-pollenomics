@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import csv
+import io
 import json
 from pathlib import Path
 
 from ..context.points import build_external_point_layer
+from .sweden_lake_inputs import SwedenLakeInputs
 
 __all__ = ["build_sweden_lake_atlas_layers"]
 
@@ -68,30 +70,57 @@ def build_sweden_lake_atlas_layers(
     version: str,
     staging_output_dir: Path,
     published_output_dir: Path,
+    lake_inputs: SwedenLakeInputs | None = None,
 ) -> list[dict[str, object]]:
     """Build optional Nordic atlas layers from the published Sweden lake packet."""
-    scenario_csv_path = _find_sweden_scenario_csv(
-        version=version,
-        staging_output_dir=staging_output_dir,
-        published_output_dir=published_output_dir,
-    )
-    if scenario_csv_path is None:
-        return []
-    registry_csv_path = _find_sweden_registry_csv(
-        version=version,
-        staging_output_dir=staging_output_dir,
-        published_output_dir=published_output_dir,
-    )
-
-    grouped_rows = _load_grouped_scenario_rows(
-        scenario_csv_path,
-        registry_csv_path=registry_csv_path,
-    )
-    traceability_reference = _build_traceability_reference(
-        version=version,
-        staging_output_dir=staging_output_dir,
-        published_output_dir=published_output_dir,
-    )
+    if lake_inputs is None:
+        scenario_csv_path = _find_sweden_scenario_csv(
+            version=version,
+            staging_output_dir=staging_output_dir,
+            published_output_dir=published_output_dir,
+        )
+        if scenario_csv_path is None:
+            return []
+        registry_csv_path = _find_sweden_registry_csv(
+            version=version,
+            staging_output_dir=staging_output_dir,
+            published_output_dir=published_output_dir,
+        )
+        grouped_rows = _load_grouped_scenario_rows(
+            scenario_csv_path, registry_csv_path=registry_csv_path
+        )
+        traceability_reference = _build_traceability_reference(
+            version=version,
+            staging_output_dir=staging_output_dir,
+            published_output_dir=published_output_dir,
+        )
+    else:
+        lake_inputs.validate_version(version)
+        if lake_inputs.scenario is None:
+            return []
+        scenario_csv_path = Path(lake_inputs.scenario.name)
+        scenario_rows = list(
+            csv.DictReader(
+                io.StringIO(lake_inputs.scenario.content.decode("utf-8"), newline="")
+            )
+        )
+        registry_rows = (
+            list(
+                csv.DictReader(
+                    io.StringIO(
+                        lake_inputs.registry.content.decode("utf-8"), newline=""
+                    )
+                )
+            )
+            if lake_inputs.registry is not None
+            else None
+        )
+        grouped_rows = _group_scenario_rows(scenario_rows, registry_rows=registry_rows)
+        traceability_reference = (
+            lake_inputs.traceability.name
+            if lake_inputs.traceability is not None
+            else ""
+        )
     point_layers: list[dict[str, object]] = []
     for scenario_key in _SCENARIO_KEYS:
         rows = grouped_rows.get(scenario_key, [])
@@ -106,6 +135,8 @@ def build_sweden_lake_atlas_layers(
             source_path=scenario_csv_path,
         )
         layer["default_enabled"] = False
+        if lake_inputs is not None:
+            layer["lake_input_sha256"] = lake_inputs.identity()
         if traceability_reference:
             layer["traceability_reference"] = traceability_reference
         point_layers.append(layer)
@@ -173,18 +204,29 @@ def _load_grouped_scenario_rows(
     *,
     registry_csv_path: Path | None,
 ) -> dict[str, list[dict[str, str]]]:
-    grouped_rows: dict[str, list[dict[str, str]]] = {key: [] for key in _SCENARIO_KEYS}
     with scenario_csv_path.open(newline="", encoding="utf-8") as handle:
-        for row in csv.DictReader(handle):
-            scenario_key = str(row.get("scenario_key", "")).strip()
-            rank = _parse_int(row.get("rank", ""))
-            if scenario_key not in grouped_rows or rank is None or rank > 40:
-                continue
-            grouped_rows[scenario_key].append(row)
+        scenario_rows = list(csv.DictReader(handle))
+    registry_rows = None
+    if registry_csv_path is not None:
+        with registry_csv_path.open(newline="", encoding="utf-8") as handle:
+            registry_rows = list(csv.DictReader(handle))
+    return _group_scenario_rows(scenario_rows, registry_rows=registry_rows)
+
+
+def _group_scenario_rows(
+    scenario_rows: list[dict[str, str]], *, registry_rows: list[dict[str, str]] | None
+) -> dict[str, list[dict[str, str]]]:
+    grouped_rows: dict[str, list[dict[str, str]]] = {key: [] for key in _SCENARIO_KEYS}
+    for row in scenario_rows:
+        scenario_key = str(row.get("scenario_key", "")).strip()
+        rank = _parse_int(row.get("rank", ""))
+        if scenario_key not in grouped_rows or rank is None or rank > 40:
+            continue
+        grouped_rows[scenario_key].append(row)
     for rows in grouped_rows.values():
         rows.sort(key=lambda row: int(row["rank"]))
-    if registry_csv_path is not None:
-        grouped_rows["consensus"] = _load_consensus_rows(registry_csv_path)
+    if registry_rows is not None:
+        grouped_rows["consensus"] = _rank_consensus_rows(registry_rows)
     return grouped_rows
 
 
@@ -216,10 +258,7 @@ def _find_sweden_registry_csv(
     return None
 
 
-def _load_consensus_rows(registry_csv_path: Path) -> list[dict[str, str]]:
-    rows: list[dict[str, str]] = []
-    with registry_csv_path.open(newline="", encoding="utf-8") as handle:
-        rows.extend(csv.DictReader(handle))
+def _rank_consensus_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     rows.sort(
         key=lambda row: (
             -int(row["scenario_top20_presence_count"]),
