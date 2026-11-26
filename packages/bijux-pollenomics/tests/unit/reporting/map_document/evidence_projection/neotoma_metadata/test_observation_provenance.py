@@ -22,7 +22,12 @@ def test_optional_provenance_retains_absence_null_and_owned_values(
     result = list(observation_variable_provenance([row]))
     assert row == original
     assert result[0]["source_payload"] == payload
-    assert result[0]["source_variable_provenance"] == payload
+    expected = (
+        {**payload, "source_reported_name_status": "not_provided_by_source"}
+        if isinstance(payload, dict)
+        else None
+    )
+    assert result[0]["source_variable_provenance"] == expected
     if isinstance(payload, dict):
         assert result[0]["source_variable_provenance"] is not payload
 
@@ -32,6 +37,34 @@ def test_missing_source_payload_is_explicitly_unavailable() -> None:
     result = list(observation_variable_provenance([row]))
     assert result == [{**row, "source_variable_provenance": None}]
     assert "source_payload" not in row
+
+
+@pytest.mark.parametrize(
+    ("payload", "expected"),
+    [
+        ({}, {"source_reported_name_status": "not_provided_by_source"}),
+        (
+            {"variablename": None},
+            {"source_reported_name_status": "reported", "variablename": None},
+        ),
+        (
+            {"variablename": ""},
+            {"source_reported_name_status": "reported", "variablename": ""},
+        ),
+        (
+            {"variablename": "Avena"},
+            {"source_reported_name_status": "reported", "variablename": "Avena"},
+        ),
+    ],
+)
+def test_original_variable_name_presence_is_preserved(
+    payload: object, expected: object
+) -> None:
+    row = {"source_payload": payload}
+    assert (
+        list(observation_variable_provenance([row]))[0]["source_variable_provenance"]
+        == expected
+    )
 
 
 def test_provenance_yields_one_owned_row_without_consuming_later_sources() -> None:
@@ -56,4 +89,7 @@ def test_provenance_yields_one_owned_row_without_consuming_later_sources() -> No
     assert native == {"symmetry": [{"literal": "reported"}]}
     second = next(projected)
     assert observed == ["first", "second"]
-    assert second["source_variable_provenance"] == {"variableid": 2}
+    assert second["source_variable_provenance"] == {
+        "variableid": 2,
+        "source_reported_name_status": "not_provided_by_source",
+    }

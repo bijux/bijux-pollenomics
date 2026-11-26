@@ -91,6 +91,53 @@ def add_row(table: dict[str, Any], **changes: object) -> None:
     table["record_count"] = len(table["records"])
 
 
+def test_conflicting_literal_names_remain_separate_and_labelled(
+    projected_tabs: dict[str, Any],
+) -> None:
+    tabs = decoded(projected_tabs)
+    table = tabs["pollen_composition"]
+    set_cell(
+        table,
+        "source_variable_provenance",
+        {"source_reported_name_status": "reported", "variablename": "Triticum"},
+    )
+    add_row(
+        table,
+        observation_id="observation:alternate",
+        source_variable_provenance={
+            "source_reported_name_status": "reported",
+            "variablename": "Avena",
+        },
+    )
+    out = observe(tabs)
+    assert len(out["data"]["groups"]) == 2
+    assert all(len(group["rows"]) == 1 for group in out["data"]["groups"])
+    assert "Triticum" in out["html"] and "Avena" in out["html"]
+
+
+@pytest.mark.parametrize("value", [None, ""])
+def test_reported_null_or_empty_name_does_not_become_representative(
+    projected_tabs: dict[str, Any],
+    value: object,
+) -> None:
+    tabs = decoded(projected_tabs)
+    set_cell(
+        tabs["pollen_composition"],
+        "source_variable_provenance",
+        {"source_reported_name_status": "reported", "variablename": value},
+    )
+    output = observe(tabs)
+    assert "canonical variable representative" not in output["html"]
+    assert "source-reported name" in output["html"]
+
+
+def test_legacy_name_is_qualified_as_representative(
+    projected_tabs: dict[str, Any],
+) -> None:
+    output = observe(projected_tabs)
+    assert "canonical variable representative" in output["html"]
+
+
 def test_actual_producer_decoder_and_native_svg_keep_source_ids_and_limits(
     projected_tabs: dict[str, Any],
 ) -> None:

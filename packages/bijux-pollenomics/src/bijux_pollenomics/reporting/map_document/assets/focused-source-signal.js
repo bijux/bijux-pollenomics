@@ -77,7 +77,7 @@ function pollenFocusedSignalData(tabs, signal) {
     for (const id of observationIds) { const value=basis.get(id); matchBasisCounts[value]=(matchBasisCounts[value] || 0)+1; }
     const status = !matches.length ? ambiguous.size ? 'ambiguous' : 'unmatched'
       : ambiguous.size || unmatchedVariableIds.length ? 'partial' : 'matched';
-    const contexts = new Set(matchedGroups.map(group => JSON.stringify(group.identity.filter((_,index) => index !== 2 && index !== 3))));
+    const contexts = new Set(matchedGroups.map(group => JSON.stringify(group.identity.filter((_,index) => index !== 2 && index !== 3 && index !== 14))));
     return {status,reason:'',groupKeys,matches,observationIds,unmatchedVariableIds,ambiguousObservationIds:[...ambiguous],matchBasisCounts,
       defaultAnchorKey:status === 'matched' && contexts.size === 1 ? groupKeys[0] : null,
       anchorStatus:contexts.size > 1 ? 'ambiguous_measurement_context' : contexts.size === 1 ? 'compatible' : 'unavailable'};

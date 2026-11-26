@@ -26,6 +26,8 @@ def generated_pair(
     *,
     charcoal: bool = False,
     native_provenance: tuple[dict[str, Any], dict[str, Any]] | None = None,
+    source_names: tuple[dict[str, Any], dict[str, Any]] | None = None,
+    taxon_ids: tuple[object, object] | None = None,
 ) -> tuple[dict[str, Any], Path, Path, list[dict[str, Any]]]:
     """Publish a finite generated archive and its verified relational projection."""
     row = cast(dict[str, Any], download_row())
@@ -51,6 +53,9 @@ def generated_pair(
         second["symmetry"] = "bilateral"
     elif dimension == "taphonomics":
         second["taphonomics"] = "corroded"
+    elif dimension == "name":
+        second["variableid"] = first["variableid"]
+        second["variablename"] = "alternate literal name"
     elif dimension != "native_id":
         raise AssertionError(dimension)
     if native_provenance is not None:
@@ -58,6 +63,13 @@ def generated_pair(
             for field in ("variableid", "symmetry", "taphonomics"):
                 datum.pop(field, None)
             datum.update(provenance)
+    if source_names is not None:
+        for datum, source_name in zip((first, second), source_names, strict=True):
+            datum.pop("variablename", None)
+            datum.update(source_name)
+    if taxon_ids is not None:
+        for datum, taxon in zip((first, second), taxon_ids, strict=True):
+            datum["taxonid"] = taxon
     sample["datum"] = [first, second]
     raw = root / "raw"
     raw.mkdir(parents=True)

@@ -46,6 +46,21 @@ function pollenVariableDimensionText(value) {
     source_payload_unavailable:'source payload unavailable',
     not_supplied_by_source:'not supplied by source'})[value?.[0]] || 'unavailable';
 }
+function pollenSourceNameDimension(observation) {
+  const provenance = observation.source_variable_provenance;
+  if (!provenance || typeof provenance !== 'object' || Array.isArray(provenance)
+    || !Object.hasOwn(provenance,'source_reported_name_status')) return ['not_in_compact_document'];
+  const status = provenance.source_reported_name_status;
+  if (status === 'reported' && Object.hasOwn(provenance,'variablename')) return ['reported',provenance.variablename];
+  if (status === 'not_provided_by_source' && !Object.hasOwn(provenance,'variablename')) return ['not_supplied_by_source'];
+  throw Error('source_reported_name_provenance_invalid');
+}
+function pollenSourceName(group) {
+  const name = group.sourceName;
+  if (name?.[0] === 'reported') return `source-reported name: ${JSON.stringify(name[1])}`;
+  if (name?.[0] === 'not_supplied_by_source') return 'source-reported name not supplied';
+  return `${pollenDepthText(group.variable.source_reported_name)} (canonical variable representative; observation name unavailable)`;
+}
 // Source identity and measurement qualification is independent of the display axis.
 function pollenObservationDiagramData(tabs, requireDepth = false) {
   const unavailable = reason => ({status:'unavailable', reason, groups:[], total:0, omitted:{}});
@@ -99,8 +114,10 @@ function pollenObservationDiagramData(tabs, requireDepth = false) {
       if (Object.hasOwn(observation,'source_variable_provenance')) {
         identity.push(...['variableid','symmetry','taphonomics'].map(field => pollenVariableDimension(observation,field)));
       }
+      const sourceName = pollenSourceNameDimension(observation);
+      if (sourceName[0] !== 'not_in_compact_document') identity.push(sourceName);
       const key = JSON.stringify(identity);
-      if (!groups.has(key)) groups.set(key, {key, identity, variable, rows:[]});
+      if (!groups.has(key)) groups.set(key, {key, identity, variable, sourceName, rows:[]});
       groups.get(key).rows.push({observation, sample:sample.sample_id, depth:sample.source_depth, value:observation.source_value});
     }
     const ordered = [...groups.values()].sort((a,b) => a.key < b.key ? -1 : a.key > b.key ? 1 : 0);
@@ -124,8 +141,8 @@ function pollenDepthScale(values, start, extent) {
 function pollenDepthGroupLabel(group) {
   const labels = ['collection','dataset','taxon-derived variable key','source taxon','unit','context',
     'element','element type','denominator','denominator status','unit family',
-    'source-reported VariableID','symmetry','taphonomics'];
-  return `${pollenDepthText(group.variable.source_reported_name)}; ` + labels.map((label,index) => {
+    'source-reported VariableID','symmetry','taphonomics','source-reported name'];
+  return `${pollenSourceName(group)}; ` + labels.map((label,index) => {
     const value = group.identity[index];
     return `${label} ${index > 10 ? pollenVariableDimensionText(value) : JSON.stringify(value)}`;
   }).join('; ');
@@ -164,7 +181,7 @@ function pollenDepthGroupHtml(group, index = null, scales = null, selectedObserv
     const label = `${selected ? 'Selected map-signal observation; ' : ''}${row.observation.observation_id}; sample ${row.sample}; reported value ${row.value} ${group.identity[4]}; source depth ${row.depth} (${group.depthProfile?.unit || 'unit not supplied'})`;
     return `<g role="img" tabindex="0"${selected ? ' data-selected-observation="true"' : ''} aria-label="${text(label)}"><title>${text(label)}</title>${selected ? pollenObservationSelectionBox(x.position(row.value),[y.position(row.depth)]) : ''}<circle cx="${x.position(row.value)}" cy="${y.position(row.depth)}" r="4" fill="#0f172a" stroke="white" stroke-width="1"/></g>`;
   }).join('');
-  return `<figure style="margin:1rem 0"><figcaption><strong>${text(group.variable.source_reported_name)}</strong><br/>${text(pollenDepthGroupLabel(group))}<br/>Taxon grouping semantics: ${text(group.variable.source_semantics)}<br/>Denominator: ${text(group.identity[8])}; status: ${text(group.identity[9])}. ${shown.length} of ${total} individual source observations drawn; ${total-group.rows.length} lack numeric source depth; all remain in the table.${pollenObservationSelectionCaption(group.rows,shown,selection)}${qualification}</figcaption>${pollenObservationPlotHtml(x,y,marks,{titleId,descriptionId,title:'Native reported observation values versus source depth',description:'Individual source observations: depth increases downward and values rightward. Coincident observations stay separate. No ecological groups, vegetation reconstruction or calculated percentages.',unit:group.identity[4],verticalLabel:sourceDepthLabel(group.depthProfile),scrollLabel:"Scrollable native value-depth plot"})}</figure>`;
+  return `<figure style="margin:1rem 0"><figcaption><strong>${text(pollenSourceName(group))}</strong><br/>${text(pollenDepthGroupLabel(group))}<br/>Taxon grouping semantics: ${text(group.variable.source_semantics)}<br/>Denominator: ${text(group.identity[8])}; status: ${text(group.identity[9])}. ${shown.length} of ${total} individual source observations drawn; ${total-group.rows.length} lack numeric source depth; all remain in the table.${pollenObservationSelectionCaption(group.rows,shown,selection)}${qualification}</figcaption>${pollenObservationPlotHtml(x,y,marks,{titleId,descriptionId,title:'Native reported observation values versus source depth',description:'Individual source observations: depth increases downward and values rightward. Coincident observations stay separate. No ecological groups, vegetation reconstruction or calculated percentages.',unit:group.identity[4],verticalLabel:sourceDepthLabel(group.depthProfile),scrollLabel:"Scrollable native value-depth plot"})}</figure>`;
 }
 function renderPollenDepthDiagram(tabs, selectedGroupKey = null, renderGroup = (group, ids) => pollenDepthGroupHtml(group,null,null,ids), options = {}) {
   const data = pollenObservationDiagramData(tabs);
