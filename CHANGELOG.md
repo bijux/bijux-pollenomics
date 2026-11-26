@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#547](https://github.com/bijux/bijux-pollenomics/pull/547) — Neotoma literal source comparison
+
+Expose the existing source-owned literal JSON comparator for Atlas metadata joins and migrate two private imports while retaining exact comparison and exception behavior. The broader reporting-to-collection boundary remains open.
+
 ### [#546](https://github.com/bijux/bijux-pollenomics/pull/546) — Supported Atlas source metadata decoder
 
 Use the source-owned Neotoma decoder for Atlas metadata and correct the missing-evidence refusal test to match the closed-namespace diagnostic. The broader reporting-to-collection architecture boundary remains under review.
