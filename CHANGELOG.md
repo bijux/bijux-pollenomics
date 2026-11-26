@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#537](https://github.com/bijux/bijux-pollenomics/pull/537) — Historical SEAD country coverage
+
+Allow explicitly pinned historical retrieval, site and lineage inputs to be reconciled against the original SEAD admission without changing strict defaults or exclusion status. Input identities do not attest producer execution or temporal correctness.
+
 ### [#536](https://github.com/bijux/bijux-pollenomics/pull/536) — Historical SEAD country retrieval
 
 Reconcile caller-pinned corrected SEAD site and lineage inputs against the authenticated historical review and admission while preserving the strict default and historical exclusions. Input hashes identify selected bytes and do not attest producer execution or temporal correctness.
