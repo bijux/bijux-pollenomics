@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#528](https://github.com/bijux/bijux-pollenomics/pull/528) — LOVE cover refusal mass
+
+Retain failed case or atom mass when LOVE cover is nonfinite or has no positive mass, and keep full-law moments unavailable. Generated mixed-outcome tests exercise both refusal codes without claiming they occur in a retained source result.
+
 ### [#527](https://github.com/bijux/bijux-pollenomics/pull/527) — Neotoma conflict scalar types
 
 Preserve decoded JSON scalar distinctions when registering conflicting Neotoma records, using the same canonical representation as conflict variant selection. A chronology regression checks arrival-order invariance and materialization; it does not assert that the retained corpus contains such a conflict.
