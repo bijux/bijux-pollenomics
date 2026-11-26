@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#562](https://github.com/bijux/bijux-pollenomics/pull/562) — Validated multisite inputs
+
+Revalidate captured multisite inputs and copied bootstrap indices before use, refusing unresolved masks. Sequential capture and the documented standard-input compatibility restrictions remain.
+
 ### [#561](https://github.com/bijux/bijux-pollenomics/pull/561) — REVEALS owned input snapshot
 
 Offer an opt-in bounded input snapshot used by both REVEALS calculation and legacy manifest hashing. Capture is sequential and does not establish typed-label identity or source-byte custody.
