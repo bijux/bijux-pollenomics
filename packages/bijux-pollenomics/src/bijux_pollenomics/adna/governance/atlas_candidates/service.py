@@ -13,6 +13,7 @@ from .chronology import (
     _optional_float,
 )
 from .models import AnimalAtlasEvidenceRow
+from .point_inputs import selected_point_inputs
 from .row_factory import _build_evidence_row
 from .sample_chronologies import _resolve_sample_chronologies
 from .sample_support import (
@@ -42,11 +43,18 @@ def build_tracked_animal_atlas_evidence_rows(
     """Build the exact set of animal rows eligible for atlas point publication."""
     rows: list[AnimalAtlasEvidenceRow] = []
     species_dir = adna_species_dir(Path(data_root))
+    captured = selected_point_inputs()
+    if captured is not None and Path(data_root).absolute() != captured.context_root:
+        raise ValueError("animal point capture requires its bound context")
     for species in build_species_support_matrix():
         if species.latin_name == "Homo sapiens":
             continue
         species_root = species_dir / species.slug
-        if not species_root.is_dir():
+        if not (
+            captured.species_present(species.slug)
+            if captured is not None
+            else species_root.is_dir()
+        ):
             continue
         locality_rows = _load_locality_rows(species_root)
         sample_rows = _load_sample_rows(species_root)

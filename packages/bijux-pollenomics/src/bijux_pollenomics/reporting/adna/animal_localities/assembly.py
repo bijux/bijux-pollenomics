@@ -6,8 +6,10 @@ from collections.abc import Callable, Iterable
 from pathlib import Path
 
 from ....adna import AdnaLocalitySummary
+from ....adna.governance.atlas_candidates.point_inputs import AnimalPointInputs
 from ...geography import GeographicScope
 from ..atlas_evidence_rows import AnimalAtlasEvidenceRow
+from .model import AnimalAtlasBundle
 
 EvidenceLoader = Callable[[Path], tuple[AnimalAtlasEvidenceRow, ...]]
 LocalityLoader = Callable[[Path], tuple[AdnaLocalitySummary, ...]]
@@ -83,3 +85,28 @@ def _partition_features(
     except KeyError as exc:
         raise ValueError(f"unsupported animal layer group: {layer_group}") from exc
     target.extend(features)
+
+
+def build_tracked_animal_atlas_bundle_from_inputs(
+    *,
+    data_root: Path,
+    output_dir: Path,
+    atlas_slug: str,
+    point_inputs: AnimalPointInputs,
+    geography_scope: GeographicScope | None = None,
+) -> AnimalAtlasBundle:
+    """Build animal points from caller-held bytes without changing the legacy API."""
+    from ....adna.governance.atlas_candidates.point_inputs import (
+        use_animal_point_inputs,
+    )
+    from . import build_tracked_animal_atlas_bundle
+
+    if not isinstance(point_inputs, AnimalPointInputs):
+        raise ValueError("animal point capture differs")
+    with use_animal_point_inputs(point_inputs, data_root):
+        return build_tracked_animal_atlas_bundle(
+            data_root=data_root,
+            output_dir=output_dir,
+            atlas_slug=atlas_slug,
+            geography_scope=geography_scope,
+        )

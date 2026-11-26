@@ -7,6 +7,10 @@ from datetime import date
 from pathlib import Path
 from typing import TypedDict
 
+from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
+    AnimalPointInputs,
+)
+
 from ..adna import (
     AdnaSampleQuery,
     build_homo_sapiens_runtime_manifest_for_version_dir,
@@ -80,6 +84,7 @@ class _SourceResourceOptions(TypedDict, total=False):
 class _MapSourceOptions(_SourceResourceOptions, total=False):
     nordic_point_inputs: NordicPointInputs
     nordic_polygon_inputs: NordicPolygonInputs
+    animal_point_inputs: AnimalPointInputs
     historical_chronology: HistoricalChronologyRequest
     lake_inputs: SwedenLakeInputs
 
@@ -158,6 +163,7 @@ def generate_multi_country_map(
     lake_inputs: SwedenLakeInputs | None = None,
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
+    animal_point_inputs: AnimalPointInputs | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
     if nordic_point_inputs is not None and (
@@ -170,6 +176,11 @@ def generate_multi_country_map(
         or Path(context_root).absolute() != nordic_polygon_inputs.context_root
     ):
         raise ValueError("Nordic polygon capture requires its bound context")
+    if animal_point_inputs is not None and (
+        context_root is None
+        or Path(context_root).absolute() != animal_point_inputs.context_root
+    ):
+        raise ValueError("animal point capture requires its bound context")
     if historical_chronology is not None and context_root is None:
         raise ValueError("SEAD historical chronology requires context")
     version_dir = Path(version_dir)
@@ -189,6 +200,8 @@ def generate_multi_country_map(
         source_resource_options["nordic_point_inputs"] = nordic_point_inputs
     if nordic_polygon_inputs is not None:
         source_resource_options["nordic_polygon_inputs"] = nordic_polygon_inputs
+    if animal_point_inputs is not None:
+        source_resource_options["animal_point_inputs"] = animal_point_inputs
     if lake_inputs is not None:
         source_resource_options["lake_inputs"] = lake_inputs
     normalized_countries = normalize_requested_countries(countries)

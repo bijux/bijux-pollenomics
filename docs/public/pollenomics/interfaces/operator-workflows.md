@@ -227,3 +227,21 @@ Logs can explain execution, but they do not become scientific authority. The
 durable evidence is the source identity, governed records, admission decisions,
 product manifests, and explicit qualifications that remain after the command
 finishes.
+
+### Bind animal point inputs
+
+`generate_multi_country_map` accepts an optional `animal_point_inputs` created by
+`capture_animal_point_inputs` in
+`bijux_pollenomics.adna.governance.atlas_candidates.point_inputs`. Provide a
+complete inventory for each tracked non-human species: `None` declares the
+species directory absent; a present species maps each `ANIMAL_POINT_PATHS` entry
+to its SHA-256 or `None` for an absent file. Capture refuses discrepancies and
+the animal point owner parses the held bytes. The publication contract records
+those identities and absences. Capture is sequential, not an atomic snapshot.
+
+The opt-in capture inventories each present species tree conservatively: it
+rejects symlinks and aliased files, changes during capture, trees exceeding one
+GiB or 50,000 files, and more than 256 MiB of selected bodies. It does not bind
+the separate animal sample chronology registry or its projects, other Atlas
+inputs, source rights, or scientific admission. Absence does not assert that a
+species is scientifically excluded.

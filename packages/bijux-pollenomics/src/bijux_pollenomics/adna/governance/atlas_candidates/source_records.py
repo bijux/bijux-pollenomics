@@ -3,8 +3,11 @@
 from __future__ import annotations
 
 import csv
+import io
 import json
 from pathlib import Path
+
+from .point_inputs import read_point_file
 
 _PROJECT_SCOPE_RULES = {
     ("domesticated_core_curated", "domesticated_core", False): "domesticated_core",
@@ -21,18 +24,20 @@ _PROJECT_SCOPE_RULES = {
 
 def _load_locality_rows(species_root: Path) -> list[dict[str, object]]:
     path = species_root / "normalized" / "locality_summaries.json"
-    if not path.is_file():
+    raw = read_point_file(species_root, path.relative_to(species_root).as_posix())
+    if raw is None:
         return []
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    payload = json.loads(raw.decode("utf-8"))
     rows = payload.get("localities", [])
     return [row for row in rows if isinstance(row, dict)]
 
 
 def _load_sample_rows(species_root: Path) -> list[dict[str, object]]:
     path = species_root / "normalized" / "sample_records.json"
-    if not path.is_file():
+    raw = read_point_file(species_root, path.relative_to(species_root).as_posix())
+    if raw is None:
         return []
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    payload = json.loads(raw.decode("utf-8"))
     rows = payload.get("samples", [])
     return [row for row in rows if isinstance(row, dict)]
 
@@ -41,9 +46,10 @@ def _load_coordinate_provenance_lookup(
     species_root: Path,
 ) -> dict[tuple[str, str], dict[str, object]]:
     path = species_root / "normalized" / "coordinate_provenance.json"
-    if not path.is_file():
+    raw = read_point_file(species_root, path.relative_to(species_root).as_posix())
+    if raw is None:
         return {}
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    payload = json.loads(raw.decode("utf-8"))
     rows = payload.get("coordinate_provenance", [])
     lookup: dict[tuple[str, str], dict[str, object]] = {}
     for row in rows:
@@ -61,9 +67,10 @@ def _load_site_evidence_lookup(
     species_root: Path,
 ) -> dict[tuple[str, str], dict[str, object]]:
     path = species_root / "normalized" / "site_evidence.json"
-    if not path.is_file():
+    raw = read_point_file(species_root, path.relative_to(species_root).as_posix())
+    if raw is None:
         return {}
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    payload = json.loads(raw.decode("utf-8"))
     rows = payload.get("site_evidence", [])
     lookup: dict[tuple[str, str], dict[str, object]] = {}
     for row in rows:
@@ -88,10 +95,11 @@ def _lookup_project_locality_row(
 
 def _load_citation_lookup(species_root: Path) -> dict[str, dict[str, str]]:
     path = species_root / "manifests" / "citation_manifest.csv"
-    if not path.is_file():
+    raw = read_point_file(species_root, path.relative_to(species_root).as_posix())
+    if raw is None:
         return {}
     lookup: dict[str, dict[str, str]] = {}
-    with path.open(encoding="utf-8", newline="") as handle:
+    with io.StringIO(raw.decode("utf-8"), newline="") as handle:
         reader = csv.DictReader(handle)
         for row in reader:
             accession = str(row.get("project_accession", "")).strip()
@@ -108,9 +116,10 @@ def _load_citation_lookup(species_root: Path) -> dict[str, dict[str, str]]:
 
 def _load_review_lookup(species_root: Path) -> dict[str, dict[str, str]]:
     path = species_root / "review" / "species_review.json"
-    if not path.is_file():
+    raw = read_point_file(species_root, path.relative_to(species_root).as_posix())
+    if raw is None:
         return {}
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    payload = json.loads(raw.decode("utf-8"))
     lookup: dict[str, dict[str, str]] = {}
     for key in (
         "accepted_projects",
@@ -138,9 +147,10 @@ def _load_review_lookup(species_root: Path) -> dict[str, dict[str, str]]:
 
 def _load_project_animal_scope_lookup(species_root: Path) -> dict[str, str] | None:
     path = species_root / "normalized" / "project_summaries.json"
-    if not path.is_file():
+    raw = read_point_file(species_root, path.relative_to(species_root).as_posix())
+    if raw is None:
         return None
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    payload = json.loads(raw.decode("utf-8"))
     if not isinstance(payload, dict):
         return {}
     rows = payload.get("projects", [])
