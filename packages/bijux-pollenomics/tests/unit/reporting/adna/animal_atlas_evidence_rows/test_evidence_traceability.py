@@ -114,7 +114,15 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
                             "source_anchor_tokens": ["PRJEB59481"],
                         },
                         "master_id": "ovis_aries:sample:prjeb59481",
-                        "chronology": AdnaChronology("", None, None, None).as_dict(),
+                        "chronology": AdnaChronology(
+                            "1200-1600 BP",
+                            1200,
+                            1600,
+                            1400,
+                            dating_basis="bp_window",
+                            evidence_class="direct_radiocarbon_date",
+                            precision_posture="sample_precise_interval",
+                        ).as_dict(),
                         "group_id": "PRJEB59481",
                         "project_accession": "PRJEB59481",
                         "source_native_tax_id": "9940",
@@ -260,6 +268,11 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
         rows = build_tracked_animal_atlas_evidence_rows(data_root)
         localities = load_tracked_animal_mappable_localities(data_root)
         coordinate_review = build_tracked_animal_atlas_coordinate_review(rows)
+        blank_sample = copy.deepcopy(sample_payload["samples"][0])
+        blank_sample["chronology"] = AdnaChronology("", None, None, None).as_dict()
+        _write_json(sample_path, {**sample_payload, "samples": [blank_sample]})
+        blank_rows = build_tracked_animal_atlas_evidence_rows(data_root)
+        blank_localities = load_tracked_animal_mappable_localities(data_root)
         _write_json(
             species_root / "normalized" / "sample_records.json",
             {
@@ -285,8 +298,8 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
     assert row.sample_record_ids == ("ovis_aries:sample:prjeb59481",)
     assert row.sample_group_ids == ("PRJEB59481",)
     assert len(row.sample_chronologies) == 1
-    assert row.sample_chronologies[0].chronology.time_start_bp is None
-    assert row.sample_chronologies[0].chronology.time_end_bp is None
+    assert row.sample_chronologies[0].chronology.time_start_bp == 1200
+    assert row.sample_chronologies[0].chronology.time_end_bp == 1600
     assert row.source_native_taxon_labels == ("Ovis aries (tax_id 9940)",)
     assert row.source_native_tax_ids == ("9940",)
     assert row.source_native_scientific_names == ("Ovis aries",)
@@ -299,5 +312,7 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
     assert coordinate_review.direct_coordinate_feature_count == 0
     assert coordinate_review.named_site_geocoded_feature_count == 1
     assert coordinate_review.weaker_geography_feature_count == 0
+    assert blank_rows == ()
+    assert blank_localities == ()
     assert blocked_rows == ()
     assert blocked_localities == ()
