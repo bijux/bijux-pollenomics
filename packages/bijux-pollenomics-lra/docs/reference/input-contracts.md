@@ -148,6 +148,22 @@ changes the recorded representation for those formerly non-executable inputs.
 Direct translated helper functions are private implementation/testing surfaces
 and do not broaden these facade contracts.
 
+## Owned REVEALS inputs
+
+`run_reveals(..., input_ownership="snapshot")` captures a bounded set of inputs
+before reconstruction. It copies ordinary DataFrames with plain or range axes,
+immutable scalar labels and cells, ordinary numeric arrays or scalar sequences
+of draws, and the configuration seed. Python-backed pandas string columns are
+supported. Unsupported objects, masked arrays and other pandas extension or
+index types are refused in this opt-in profile. The
+calculation and run manifest use the captured values; the manifest records the
+snapshot choice. Capture is sequential, not an atomic snapshot of concurrently
+changing inputs. Callers must prevent mutation during capture if a coherent
+multi-input instant matters. The returned manifest and results are not an
+external execution attestation. The legacy canonical hashes still stringify
+labels and do not attest original source bytes or typed label identity. The
+default `input_ownership="borrowed"` retains the existing behavior.
+
 ## Paired regional extent
 
 `LRAConfig` requires `reveals.region_cutoff_m=100000` for analytical LOVE,
