@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
 import csv
+import io
+from collections.abc import Iterable, Mapping
 from pathlib import Path
 
 from bijux_pollenomics.adna.domain.locality import build_locality_identity
@@ -37,21 +38,64 @@ def iter_homo_sapiens_samples_from_anno(
 ) -> Iterable[AdnaSampleRecord]:
     """Yield normalized Homo sapiens sample records from one AADR anno file."""
     with path.open(encoding="utf-8", newline="") as handle:
-        reader = csv.DictReader(handle, delimiter="\t")
-        schema = resolve_homo_sapiens_schema(reader.fieldnames or ())
-        for row in reader:
-            record = _parse_sample_row(
-                row,
-                schema=schema,
-                dataset_name=dataset_name,
-                source_release=source_release,
-                source_family=source_family,
-                record_modality=record_modality,
-                review_strength=review_strength,
-                provenance_quality=provenance_quality,
-            )
-            if record is not None:
-                yield record
+        yield from _iter_samples_from_handle(
+            handle,
+            dataset_name=dataset_name,
+            source_release=source_release,
+            source_family=source_family,
+            record_modality=record_modality,
+            review_strength=review_strength,
+            provenance_quality=provenance_quality,
+        )
+
+
+def iter_homo_sapiens_samples_from_bytes(
+    raw: bytes,
+    *,
+    dataset_name: str,
+    source_release: str,
+    source_family: str,
+    record_modality: str,
+    review_strength: str,
+    provenance_quality: str,
+) -> Iterable[AdnaSampleRecord]:
+    with io.TextIOWrapper(io.BytesIO(raw), encoding="utf-8", newline="") as handle:
+        yield from _iter_samples_from_handle(
+            handle,
+            dataset_name=dataset_name,
+            source_release=source_release,
+            source_family=source_family,
+            record_modality=record_modality,
+            review_strength=review_strength,
+            provenance_quality=provenance_quality,
+        )
+
+
+def _iter_samples_from_handle(
+    handle: Iterable[str],
+    *,
+    dataset_name: str,
+    source_release: str,
+    source_family: str,
+    record_modality: str,
+    review_strength: str,
+    provenance_quality: str,
+) -> Iterable[AdnaSampleRecord]:
+    reader = csv.DictReader(handle, delimiter="\t")
+    schema = resolve_homo_sapiens_schema(reader.fieldnames or ())
+    for row in reader:
+        record = _parse_sample_row(
+            row,
+            schema=schema,
+            dataset_name=dataset_name,
+            source_release=source_release,
+            source_family=source_family,
+            record_modality=record_modality,
+            review_strength=review_strength,
+            provenance_quality=provenance_quality,
+        )
+        if record is not None:
+            yield record
 
 
 def _parse_sample_row(

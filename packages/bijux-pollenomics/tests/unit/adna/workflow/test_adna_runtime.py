@@ -284,8 +284,8 @@ class AdnaRuntimeUnitTests(unittest.TestCase):
 
             with patch.object(
                 homo_sapiens_runtime,
-                "iter_homo_sapiens_samples_from_anno",
-                wraps=homo_sapiens_runtime.iter_homo_sapiens_samples_from_anno,
+                "iter_homo_sapiens_samples_from_bytes",
+                wraps=homo_sapiens_runtime.iter_homo_sapiens_samples_from_bytes,
             ) as iter_samples:
                 first_samples, _ = load_species_samples(
                     manifest,

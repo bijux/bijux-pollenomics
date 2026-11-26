@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 from collections import Counter
+from contextvars import ContextVar
 from functools import lru_cache
+from hashlib import sha256
 from pathlib import Path
 
 from bijux_pollenomics.adna.domain.models import AdnaSampleRecord
@@ -63,14 +65,21 @@ from .records import (
 )
 from .records import (
     iter_homo_sapiens_samples_from_anno,
+    iter_homo_sapiens_samples_from_bytes,
 )
 from .release import (
+    ReleaseCacheKey,
+    capture_release_inputs,
     discover_homo_sapiens_anno_files,
     release_cache_key,
     release_dataset_names,
     validate_release_manifest_identity,
 )
 from .text import clean_text as _clean_text
+
+_CAPTURED_RELEASE: ContextVar[tuple[tuple[str, bytes], ...] | None] = ContextVar(
+    "aadr_captured_release", default=None
+)
 
 _EMPTY_COUNTRY_RECORDS = EMPTY_COUNTRY_RECORDS
 _is_country_only_query = is_country_only_query
@@ -110,19 +119,25 @@ def load_homo_sapiens_samples(
         )
     bundle = _single_human_bundle(manifest)
     normalized_query = query.normalized() if query is not None else AdnaSampleQuery()
-    return _load_homo_sapiens_samples(
-        manifest=manifest,
-        query=normalized_query,
-        cache_key=_release_cache_key(bundle),
-        release_loader=_cached_release_samples,
-        country_loader=_cached_country_records,
-        sample_matcher=sample_matches_query,
-    )
+    captured = capture_release_inputs(bundle)
+    cache_key = release_cache_key(bundle, captured)
+    token = _CAPTURED_RELEASE.set(captured)
+    try:
+        return _load_homo_sapiens_samples(
+            manifest=manifest,
+            query=normalized_query,
+            cache_key=cache_key,
+            release_loader=_cached_release_samples,
+            country_loader=_cached_country_records,
+            sample_matcher=sample_matches_query,
+        )
+    finally:
+        _CAPTURED_RELEASE.reset(token)
 
 
 @lru_cache(maxsize=32)
 def _cached_release_samples(
-    cache_key: tuple[str, str, str, str, str, tuple[tuple[str, int, int], ...]],
+    cache_key: ReleaseCacheKey,
 ) -> tuple[AdnaSampleRecord, ...]:
     (
         source_release,
@@ -133,11 +148,16 @@ def _cached_release_samples(
         file_rows,
     ) = cache_key
     records: list[AdnaSampleRecord] = []
-    for file_path, _, _ in file_rows:
+    captured = _CAPTURED_RELEASE.get()
+    if captured is None:
+        raise ValueError("AADR cache miss requires captured annotation bytes")
+    if tuple((path, sha256(raw).hexdigest()) for path, raw in captured) != file_rows:
+        raise ValueError("AADR captured annotations do not match cache identity")
+    for file_path, raw in captured:
         anno_path = Path(file_path)
         records.extend(
-            iter_homo_sapiens_samples_from_anno(
-                anno_path,
+            iter_homo_sapiens_samples_from_bytes(
+                raw,
                 dataset_name=anno_path.parent.name,
                 source_release=source_release,
                 source_family=source_family,
@@ -151,7 +171,7 @@ def _cached_release_samples(
 
 @lru_cache(maxsize=32)
 def _cached_country_records(
-    cache_key: tuple[str, str, str, str, str, tuple[tuple[str, int, int], ...]],
+    cache_key: ReleaseCacheKey,
 ) -> dict[str, _CountryRecords]:
     grouped_samples: dict[str, dict[str, AdnaSampleRecord]] = {}
     grouped_dataset_counts: dict[str, Counter[str]] = {}
@@ -177,7 +197,5 @@ def _cached_country_records(
     }
 
 
-def _release_cache_key(
-    bundle: AdnaSourceBundle,
-) -> tuple[str, str, str, str, str, tuple[tuple[str, int, int], ...]]:
+def _release_cache_key(bundle: AdnaSourceBundle) -> ReleaseCacheKey:
     return release_cache_key(bundle)
