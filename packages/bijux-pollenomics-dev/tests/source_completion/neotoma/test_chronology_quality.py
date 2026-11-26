@@ -2,17 +2,18 @@
 
 from __future__ import annotations
 
-import hashlib
-import importlib
-import json
 from collections.abc import Iterator
 from contextlib import contextmanager
 from copy import deepcopy
+import hashlib
+import importlib
+import json
 from pathlib import Path
 from types import ModuleType
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics.collection.sources.neotoma.materialization import (
     materialize_neotoma_relational_snapshot,
 )

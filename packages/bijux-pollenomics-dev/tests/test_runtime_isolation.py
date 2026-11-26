@@ -1920,7 +1920,7 @@ def test_parameter_sensitivity_uses_only_its_source_case_and_publication_contrac
     for filename, modules in expected.items():
         owner = root + filename
         source = (DEV_SRC / owner).read_text(encoding="utf-8")
-        found = {module: set() for module in modules}
+        found: dict[str, set[str]] = {module: set() for module in modules}
         for node in ast.walk(ast.parse(source)):
             if isinstance(node, ast.ImportFrom) and node.module in modules:
                 found[node.module].update(alias.name for alias in node.names)

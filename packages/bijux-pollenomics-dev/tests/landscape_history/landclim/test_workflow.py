@@ -88,6 +88,7 @@ def test_workflow_preserves_deterministic_source_bound_outputs(tmp_path: Path) -
     summary = json.loads((out / "summary.json").read_text())
     pins = {item["path"]: item["sha256"] for item in summary["calculation_source_pins"]}
     for module in (contracts, metric_families):
+        assert module.__file__ is not None
         module_path = Path(module.__file__)
         label = f"packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/{module_path.name}"
         assert pins[label] == hashlib.sha256(module_path.read_bytes()).hexdigest()
