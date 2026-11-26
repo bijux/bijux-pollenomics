@@ -6,7 +6,7 @@ function pollenSmallMultiplesData(tabs, anchorNativeGroupKey, selectedAgeGroupKe
   const anchor = native.groups.find(group => group.key === anchorNativeGroupKey);
   if (!anchor) return unavailable('native_source_group_unavailable');
   const ages = sourceAgeAssignmentData(tabs);
-  const compatible = group => group.identity.every((value,index) => index === 2 || index === 3 || index === 11
+  const compatible = group => group.identity.every((value,index) => index === 2 || index === 3 || index === 11 || index === 14
     || JSON.stringify(value) === JSON.stringify(anchor.identity[index]));
   const groups = native.groups.filter(compatible);
   groups.sort((a,b) => a === anchor ? -1 : b === anchor ? 1 : a.key < b.key ? -1 : a.key > b.key ? 1 : 0);
@@ -47,7 +47,7 @@ function renderPollenSmallMultiples(tabs, anchorNativeGroupKey, selectedAgeGroup
   if (!eligible) return `<section aria-label="Compatible native variable panels">${summary}<p>No observations have an unambiguous assignment in this selected source group.</p>${shownPanels.map(panel => `<p>${text(pollenDepthGroupLabel(panel.group))}: ${Object.entries(panel.alignment.omitted).map(([reason,count]) => `${text(pollenSmallMultiplesReason(reason))}: ${count}`).join('; ') || 'no drawable observations'}.</p>`).join('')}</section>`;
   const scales = {x:pollenDepthScale(values, 85, 500), y:pollenDepthScale(coordinates, 40, 190)};
   const figures = shownPanels.map((panel,index) => {
-    const heading = `${panel.anchor ? 'Selected anchor: ' : ''}${pollenDepthText(panel.group.variable.source_reported_name)}`;
+    const heading = `${panel.anchor ? 'Selected anchor: ' : ''}${pollenSourceName(panel.group)}`;
     const omitted = Object.entries(panel.alignment.omitted).sort().map(([reason,count]) => `${text(pollenSmallMultiplesReason(reason))}: ${count}`).join('; ') || 'none';
     const figure = !panel.alignment.rows.length ? `<p>${text(pollenDepthGroupLabel(panel.group))}</p><p>No observations align with this selected source age group.</p>`
       : data.status === 'age' ? pollenAgeFigureHtml(panel.alignment, panel.group, index, scales, selectedObservationIds)

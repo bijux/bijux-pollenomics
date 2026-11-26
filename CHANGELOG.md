@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#559](https://github.com/bijux/bijux-pollenomics/pull/559) — Neotoma observation source names
+
+Preserve per-observation literal names and missingness through compact Atlas detail, diagrams and downloads. Legacy representative names remain unverified; no retained name conflict or full Atlas qualification is claimed.
+
 ### [#558](https://github.com/bijux/bijux-pollenomics/pull/558) — Observation interval verification
 
 Verify declared binomial equal-tail bounds before observation products are published or scored. Structural historical reads remain available; large-support verification requires the recorded SciPy version and does not attest random execution.

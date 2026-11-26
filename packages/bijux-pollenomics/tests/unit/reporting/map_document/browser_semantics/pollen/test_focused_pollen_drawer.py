@@ -146,7 +146,10 @@ ready=true;release();await Promise.all([firstLoad,secondLoad]);snapshot('ready')
     )
     assert 'role="status"' in output["snapshots"]["pending"]
     assert "Loading source diagrams" in output["snapshots"]["secondPending"]
-    assert anchor(output["snapshots"]["ready"]) == "Triticum"
+    assert (
+        anchor(output["snapshots"]["ready"])
+        == "Triticum (canonical variable representative; observation name unavailable)"
+    )
     assert output["sourceRetained"] and output["unchanged"]
 
 
@@ -249,7 +252,10 @@ eval(optionalBody);scripts[1].events.load();await Promise.all([retry,second]);sn
     assert "Loading source diagrams" in output["snapshots"]["pending"]
     assert "Retry source diagrams" in output["snapshots"]["failed"]
     assert "Loading source diagrams" in output["snapshots"]["secondPending"]
-    assert anchor(output["snapshots"]["ready"]) == "Triticum"
+    assert (
+        anchor(output["snapshots"]["ready"])
+        == "Triticum (canonical variable representative; observation name unavailable)"
+    )
     assert output["sourceRetained"] and output["unchanged"]
 
 
@@ -282,9 +288,10 @@ await focusPointAtVisibleIndex(1);snapshot('second');
 """,
     )
     snapshots = output["snapshots"]
-    assert anchor(snapshots["first"]) == "Native taxon 51"
+    first_label = "Native taxon 51 (canonical variable representative; observation name unavailable)"
+    assert anchor(snapshots["first"]) == first_label
     for key in ("manual", "rerender", "page", "tab", "second"):
-        assert anchor(snapshots[key]) != "Native taxon 51", key
+        assert anchor(snapshots[key]) != first_label, key
     assert 'data-pollen-focused-signal="matched"' in snapshots["manual"]
     assert "native taxon 51" in snapshots["manual"]
     assert "native taxon 50" in snapshots["second"]

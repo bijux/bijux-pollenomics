@@ -44,6 +44,7 @@ from .neotoma_metadata.chronology import (
 )
 from .neotoma_metadata.observations import (
     OBSERVATION_FIELDS,
+    observation_table,
     observation_variable_provenance,
 )
 from .neotoma_metadata.source_issues import source_issue_tables
@@ -363,15 +364,10 @@ def _project_neotoma(
                     ),
                     "pollen_composition": (
                         {
-                            **_row_table(
+                            **observation_table(
                                 observation_fields,
                                 site_observation_rows,
-                                identifier_prefixes={
-                                    "observation_id": "neotoma:observation:",
-                                    "sample_id": "neotoma:sample:",
-                                    "variable_id": variable_prefix,
-                                    "aggregation_key": "neotoma:exact-unit:",
-                                },
+                                variable_prefix,
                             ),
                             "variables": _row_table(
                                 variable_fields,

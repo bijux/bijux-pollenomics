@@ -120,12 +120,13 @@ def test_missing_claim_does_not_become_zero_or_fall_back_to_another_chronology(
     sample_table["records"].append(sample)
     sample_table["record_count"] = 2
     observation_table = cast(dict[str, Any], tabs["pollen_composition"])
-    # This table is still compact; only actual prefix-bearing columns are expanded.
+    # Decode both identifier prefixes and dictionary-backed source values.
     observation_table["records"] = observe(
         tabs,
         "tabs.pollen_composition.records.map(row=>{const decoded=decodeDetailTableRow(tabs.pollen_composition,row);return tabs.pollen_composition.fields.map(field=>decoded[field]);})",
     )
     observation_table.pop("identifier_prefixes", None)
+    observation_table.pop("column_dictionaries", None)
     observation = observation_table["records"][0].copy()
     observation[observation_table["fields"].index("observation_id")] = "new-observation"
     observation[observation_table["fields"].index("sample_id")] = "neotoma:sample:99"
