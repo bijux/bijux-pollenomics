@@ -464,14 +464,12 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py": {
-        "bijux_pollenomics.collection.sources.neotoma.client": frozenset(
-            {"validate_neotoma_selected_download"}
-        ),
-        "bijux_pollenomics.collection.sources.neotoma.relational.chronology": frozenset(
-            {"require_neotoma_point_age"}
-        ),
-        "bijux_pollenomics.collection.sources.neotoma.relational.variables": frozenset(
-            {"is_native_pollen"}
+        "bijux_pollenomics.collection.sources.neotoma": frozenset(
+            {
+                "is_native_pollen",
+                "require_neotoma_point_age",
+                "validate_neotoma_selected_download",
+            }
         ),
         "bijux_pollenomics.analysis.lra.materialization.api": frozenset(
             {"inspect_neotoma_lra_pollen_screen"}
@@ -637,14 +635,12 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py": {
-        "bijux_pollenomics.collection.sources.neotoma.client": frozenset(
-            {"validate_neotoma_selected_download"}
-        ),
-        "bijux_pollenomics.collection.sources.neotoma.relational.chronology": frozenset(
-            {"require_neotoma_point_age"}
-        ),
-        "bijux_pollenomics.collection.sources.neotoma.relational.variables": frozenset(
-            {"is_native_pollen"}
+        "bijux_pollenomics.collection.sources.neotoma": frozenset(
+            {
+                "is_native_pollen",
+                "require_neotoma_point_age",
+                "validate_neotoma_selected_download",
+            }
         ),
         "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
             {"predict_spatial_baseline"}
@@ -1500,23 +1496,21 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/source_completion/swedish_pollen_sequences.py": {
-        "bijux_pollenomics.collection.sources.neotoma.client": frozenset(
-            {"validate_neotoma_selected_download"}
-        ),
-        "bijux_pollenomics.collection.sources.neotoma.relational.chronology": frozenset(
-            {"require_neotoma_point_age"}
-        ),
-        "bijux_pollenomics.collection.sources.neotoma.relational.variables": frozenset(
-            {"is_native_pollen"}
+        "bijux_pollenomics.collection.sources.neotoma": frozenset(
+            {
+                "is_native_pollen",
+                "require_neotoma_point_age",
+                "validate_neotoma_selected_download",
+            }
         ),
     },
     "bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py": {
-        "bijux_pollenomics.collection.sources.neotoma.relational.chronology": frozenset(
+        "bijux_pollenomics.collection.sources.neotoma": frozenset(
             {"require_neotoma_point_age"}
         ),
     },
     "bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py": {
-        "bijux_pollenomics.collection.sources.neotoma.relational.chronology": frozenset(
+        "bijux_pollenomics.collection.sources.neotoma": frozenset(
             {"require_neotoma_point_age"}
         ),
     },
@@ -1679,20 +1673,20 @@ def test_scientific_clients_have_only_their_named_public_facade_bindings() -> No
 
 def test_selected_pollen_clients_keep_exact_source_guard_bindings() -> None:
     root = "bijux_pollenomics_dev/source_completion/"
-    client = "bijux_pollenomics.collection.sources.neotoma.client"
-    chronology = "bijux_pollenomics.collection.sources.neotoma.relational.chronology"
-    variables = "bijux_pollenomics.collection.sources.neotoma.relational.variables"
+    facade = "bijux_pollenomics.collection.sources.neotoma"
     all_guards = {
-        client: {"validate_neotoma_selected_download"},
-        chronology: {"require_neotoma_point_age"},
-        variables: {"is_native_pollen"},
+        facade: {
+            "validate_neotoma_selected_download",
+            "require_neotoma_point_age",
+            "is_native_pollen",
+        }
     }
     owners = {
         "nordic_direct_pollen.py": all_guards,
         "swedish_direct_pollen.py": all_guards,
         "swedish_pollen_sequences.py": all_guards,
-        "swedish_lake_transfer.py": {chronology: {"require_neotoma_point_age"}},
-        "swedish_neotoma_holdout.py": {chronology: {"require_neotoma_point_age"}},
+        "swedish_lake_transfer.py": {facade: {"require_neotoma_point_age"}},
+        "swedish_neotoma_holdout.py": {facade: {"require_neotoma_point_age"}},
     }
     for relative, modules in owners.items():
         owner = root + relative

@@ -17,6 +17,8 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ### Changed
 
+- Use the Neotoma selected-source facade for shared pollen identity and
+  chronology guards in direct study consumers.
 - Review exact host-facade imports used by pollen source studies and SEAD
   relation exports without broadening neighboring development clients.
 - Preserve numerical operands and TeX escaping while offering safe breaks in long

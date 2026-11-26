@@ -11,7 +11,7 @@ import math
 from pathlib import Path
 from typing import Any
 
-from bijux_pollenomics.collection.sources.neotoma.relational.chronology import (
+from bijux_pollenomics.collection.sources.neotoma import (
     require_neotoma_point_age,
 )
 
