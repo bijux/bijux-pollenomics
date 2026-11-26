@@ -9,6 +9,7 @@ import pandas as pd
 from bijux_pollenomics_lra.models.configuration import (
     RevealsConfig,
 )
+from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.results import (
     RevealsResult,
 )
@@ -19,6 +20,7 @@ from bijux_pollenomics_lra.models.validation import (
 )
 from bijux_pollenomics_lra.provenance.manifest import build_manifest
 from bijux_pollenomics_lra.reconstruction.regional import _reconstruct_frame
+from bijux_pollenomics_lra.workflows.reveals_input_capture import capture_reveals_inputs
 
 
 def run_reveals(
@@ -28,8 +30,18 @@ def run_reveals(
     *,
     ppe_draws: object | None = None,
     pollen_draws: object | None = None,
+    input_ownership: str = "borrowed",
 ) -> RevealsResult:
     """Run a Python regional REVEALS reconstruction."""
+    if type(input_ownership) is not str or input_ownership not in {
+        "borrowed",
+        "snapshot",
+    }:
+        raise ValidationError("Unknown REVEALS input ownership")
+    if input_ownership == "snapshot":
+        pollen, params, config, ppe_draws, pollen_draws = capture_reveals_inputs(
+            pollen, params, config, ppe_draws, pollen_draws
+        )
     table, deposition, samples = _reconstruct_frame(
         pollen,
         params,
@@ -57,6 +69,9 @@ def run_reveals(
             "paired_ppe_draws": ppe_draws is not None,
             "paired_pollen_draws": pollen_draws is not None,
             "equation": "Sugita-2007-B1",
+            **(
+                {"input_ownership": "snapshot"} if input_ownership == "snapshot" else {}
+            ),
         },
         {
             "pollen": pollen,
