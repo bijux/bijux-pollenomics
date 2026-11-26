@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import csv
 import hashlib
 import io
 import json
-from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -361,6 +361,7 @@ def build(
         else:
             content = read_regular_file(path, max_bytes=16 * 1024 * 1024)
         if historical and relative == PUBLIC:
+            assert historical_site_sha256 is not None
             expected = historical_site_sha256
         if _sha(content) != expected:
             raise ValueError(f"Pinned SEAD input changed: {relative}")

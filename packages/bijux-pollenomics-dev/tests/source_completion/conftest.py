@@ -2,18 +2,19 @@
 
 import json
 from pathlib import Path
+from typing import Any, cast
 
 import pytest
 
 
 @pytest.fixture(scope="module")
-def synthetic_historical_sead_review() -> dict:
+def synthetic_historical_sead_review() -> dict[str, Any]:
     """Project original decisions into review-shaped rows; not retained ledger bytes."""
     from bijux_pollenomics_dev.source_completion import sead_country_retrieval as owner
 
     root = Path(__file__).resolve().parents[4]
     decisions = json.loads((root / owner.RAW / "country-decisions.json").read_bytes())
-    boundary = json.loads((root / owner.BOUNDARY).read_bytes())
+    boundary = cast(dict[str, Any], json.loads((root / owner.BOUNDARY).read_bytes()))
     by_id = {int(row["site_id"]): row for row in decisions["decisions"]}
     for row in boundary["decisions"]:
         prior = by_id[int(row["source_record_id"].removeprefix("sead:site:"))]

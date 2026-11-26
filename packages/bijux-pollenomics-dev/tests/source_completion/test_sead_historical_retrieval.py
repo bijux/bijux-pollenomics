@@ -1,12 +1,14 @@
 """Historical retrieval must bind corrected sites to the original admission."""
 
+from copy import deepcopy
 import csv
 import hashlib
 import json
-from copy import deepcopy
 from pathlib import Path
+from typing import Any
 
 import pytest
+
 from bijux_pollenomics_dev.source_completion import sead_country_retrieval as owner
 
 
@@ -20,7 +22,7 @@ def test_corrected_site_lineage_refuses_wrong_site_or_authority() -> None:
         "parent_admission_sha256": "parent",
         "acquisition_bundle_sha256": "bundle",
     }
-    lineage = {
+    lineage: dict[str, Any] = {
         "schema_version": "sead-normalized-surface-lineage.v2",
         "source_run_id": admission["run_id"],
         **{key: value for key, value in admission.items() if key != "run_id"},
@@ -89,7 +91,7 @@ def test_explicit_historical_ledger_requires_original_bytes(tmp_path: Path) -> N
     ],
 )
 def test_historical_mode_requires_all_explicit_inputs(
-    tmp_path: Path, options: dict
+    tmp_path: Path, options: dict[str, Any]
 ) -> None:
     with pytest.raises(ValueError, match="must be supplied together"):
         owner.build(tmp_path, tmp_path / "out", **options)
@@ -98,7 +100,7 @@ def test_historical_mode_requires_all_explicit_inputs(
 
 @pytest.mark.parametrize("site_id", [3447, 3457, 3528, 3652])
 def test_historical_reconciliation_refuses_excluded_sites(
-    site_id: int, synthetic_historical_sead_review: dict
+    site_id: int, synthetic_historical_sead_review: dict[str, Any]
 ) -> None:
     root = Path(__file__).resolve().parents[4]
     raw = root / owner.RAW
