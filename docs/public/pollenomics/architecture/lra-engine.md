@@ -872,3 +872,11 @@ byte inventories without running the engine. CLI exit codes are zero for complet
 computation, two for incomplete/refused work and 130 for interruption. None grants
 scientific acceptance. Geometry, fall speed, taxonomy, parameter-domain selection,
 spatial fitting and source/calibration authenticity remain outside this profile.
+
+The joint report identifies local LOVE cover policy separately from the regional
+REVEALS estimand in its means, covariance axes and downloads. Its v2 summary
+projection binds each local policy to the retained child result-contract bytes;
+an older contract without a policy field denotes source-raw cover. A bin without
+successful children has no observed local policy, and mixed successful child
+policies are refused. This presentation does not change retained v1 joint products
+or establish ecological accuracy.

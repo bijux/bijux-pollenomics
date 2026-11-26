@@ -25,6 +25,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
   spans, consistent with source-table projection.
 - Keep SEAD radiometric `>` ages as one-sided source context when building or
   refreshing site inventories, without synthesizing closed point intervals.
+- Identify local LOVE cover policy and regional REVEALS estimands in joint
+  report means and covariance downloads using retained child contracts.
 - Preserve distinct JSON scalar representations in repeated Neotoma native
   records and canonicalize their conflict diagnostics independently of arrival order.
 - Retain failed probability mass when LOVE cover normalization refuses a

@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#532](https://github.com/bijux/bijux-pollenomics/pull/532) — Joint cover estimand labels
+
+Identify regional REVEALS and local LOVE cover estimands in joint report means and covariance exports from verified child contracts. Preserve the v1 product and label historical source-raw, mixed-policy and all-failed cases explicitly; v2 CSV exports add columns.
+
 ### [#531](https://github.com/bijux/bijux-pollenomics/pull/531) — SEAD site chronology bounds
 
 Keep open-ended radiometric and dendrochronology records and unspecified-basis analysis ages from creating closed BP site spans, while preserving their source fields and independently supported ranges. Align ownership test fixtures with filtered query contracts. Historical source-derived site products remain unchanged and require a controlled rebuild.

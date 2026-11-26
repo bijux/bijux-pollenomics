@@ -16,10 +16,13 @@ def _fraction(value: dict[str, Any]) -> str:
     return _text(f"{value['numerator']}/{value['denominator']}")
 
 
-def _coordinate(value: dict[str, Any]) -> str:
+def _coordinate(value: dict[str, Any], policy: str | None) -> str:
     ring = value["ring_mean_m"]
+    estimand = (
+        "reveals:regional-cover" if value["role"] == "regional" else f"love:{policy}"
+    )
     return _text(
-        f"{value['role']} / {value['taxon']} / "
+        f"{estimand} / {value['taxon']} / "
         + ("ring=null" if ring is None else f"ring={ring} m")
     )
 
@@ -30,6 +33,7 @@ def _means(bin_id: str, rows: list[dict[str, Any]]) -> str:
         "<tr>"
         f"<td>{row['coordinate_index']}</td>"
         f"<td>{_text(row['coordinate']['role'])}</td>"
+        f"<td>{_text(row.get('estimand'))}</td>"
         f"<td>{_text(row['coordinate']['taxon'])}</td>"
         f"<td>{_text(row['coordinate']['ring_mean_m'])}</td>"
         f"<td>{_text(row['coordinate']['source_unit'])}</td>"
@@ -41,25 +45,28 @@ def _means(bin_id: str, rows: list[dict[str, Any]]) -> str:
     )
     return (
         '<div class="table-scroll"><table><caption>Finite-law population means</caption>'
-        "<thead><tr><th>Index</th><th>Role</th><th>Taxon</th><th>Native ring mean</th>"
+        "<thead><tr><th>Index</th><th>Role</th><th>Estimand</th><th>Taxon</th><th>Native ring mean</th>"
         "<th>Source unit</th><th>Conversion</th><th>Mean</th><th>Unit</th></tr></thead>"
         f"<tbody>{body}</tbody></table></div>"
     )
 
 
 def _covariance(
-    bin_id: str, coordinates: list[dict[str, Any]], rows: list[dict[str, Any]]
+    bin_id: str,
+    coordinates: list[dict[str, Any]],
+    rows: list[dict[str, Any]],
+    policy: str | None,
 ) -> str:
     selected = [row for row in rows if row["bin_id"] == bin_id]
     cells = {(row["row_index"], row["column_index"]): row for row in selected}
-    header = "".join(f"<th>{_coordinate(item)}</th>" for item in coordinates)
+    header = "".join(f"<th>{_coordinate(item, policy)}</th>" for item in coordinates)
     body = ""
     for row_index, coordinate in enumerate(coordinates):
         values = "".join(
             f"<td>{_text(cells[(row_index, column_index)]['value'])}</td>"
             for column_index in range(len(coordinates))
         )
-        body += f"<tr><th>{_coordinate(coordinate)}</th>{values}</tr>"
+        body += f"<tr><th>{_coordinate(coordinate, policy)}</th>{values}</tr>"
     return (
         '<div class="table-scroll"><table><caption>Full ordered population covariance '
         "(fraction_squared)</caption><thead><tr><th>Row / column</th>"
@@ -76,7 +83,12 @@ def render_report(projection: dict[str, Any], manifest: dict[str, Any]) -> str:
         status = "complete" if band["complete"] else "incomplete"
         moments = (
             _means(band["bin_id"], projection["means"])
-            + _covariance(band["bin_id"], band["coordinates"], projection["covariance"])
+            + _covariance(
+                band["bin_id"],
+                band["coordinates"],
+                projection["covariance"],
+                band.get("local_cover_policy"),
+            )
             if band["complete"]
             else (
                 '<p class="warning"><strong>Incomplete bin:</strong> mean and covariance '
@@ -87,6 +99,8 @@ def render_report(projection: dict[str, Any], manifest: dict[str, Any]) -> str:
             f'<section id="bin-{band["bin_index"]}"><h2>Bin {_text(band["bin_id"])}</h2>'
             f'<p class="status {status}">Status: {status}. Product interrupted: '
             f"{_text(projection['interrupted'])}.</p>"
+            f"<p>Local LOVE cover policy: {_text(band.get('local_cover_policy'))}. "
+            "A null policy means no successful child supplied an estimand.</p>"
             f"<p>Allocation support: [{_text(band['younger_bp'])}, "
             f"{_text(band['older_bp'])}) BP; {_text(band['membership'])}. "
             "The reconstruction is conditioned on declared stationarity within this bin.</p>"
