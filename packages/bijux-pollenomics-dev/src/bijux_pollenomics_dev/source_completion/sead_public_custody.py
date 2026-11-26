@@ -14,6 +14,9 @@ from typing import Any
 from bijux_pollenomics.collection.sources.sead.acquisition.governed import (
     validate_governed_sead_admission,
 )
+from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces.validation import (
+    validate_normalized_lineage,
+)
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_ADMISSION_SHA256,
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
@@ -175,14 +178,23 @@ def reconcile(
     }
 
 
-def run(repository: Path, output: Path) -> dict[str, Any]:
+def run(
+    repository: Path,
+    output: Path,
+    *,
+    historical_country_authority_root: Path | None = None,
+) -> dict[str, Any]:
     """Reconcile governed SEAD joins and source UUIDs through the Nordic map input."""
     repository, output = repository.resolve(), output.resolve()
     if output.exists() or not output.is_relative_to(repository / "artifacts"):
         raise ValueError("Absent repository artifact destination required")
     data_root = repository / "data"
     raw_root = repository / RAW_BASE
-    snapshot = validate_governed_sead_admission(raw_root, data_root=data_root)
+    snapshot = validate_governed_sead_admission(
+        raw_root,
+        data_root=data_root,
+        historical_country_authority_root=historical_country_authority_root,
+    )
     selected = {
         (RAW_BASE / path).as_posix(): snapshot.copied_files[path]
         for path in (
@@ -205,6 +217,15 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
     if selected[PUBLIC_PATH.as_posix()] != selected[MAP_PATH.as_posix()]:
         raise ValueError("Nordic map SEAD source diverges from normalized GeoJSON")
     lineage = json.loads(selected[LINEAGE_PATH.as_posix()])
+    if lineage.get("schema_version") not in {
+        "sead-normalized-surface-lineage.v1",
+        "sead-normalized-surface-lineage.v2",
+    }:
+        raise ValueError("Unsupported SEAD normalized lineage schema")
+    if lineage.get("schema_version") == "sead-normalized-surface-lineage.v2":
+        validate_normalized_lineage(
+            data_root, lineage_bytes=selected[LINEAGE_PATH.as_posix()]
+        )
     if lineage["source_run_id"] != snapshot.admission["run_id"] or any(
         lineage[key] != snapshot.admission[key]
         for key in (
@@ -271,8 +292,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--historical-country-authority-root", type=Path)
     args = parser.parse_args()
-    run(args.repository, args.output)
+    run(
+        args.repository,
+        args.output,
+        historical_country_authority_root=args.historical_country_authority_root,
+    )
     return 0
 
 

@@ -1161,6 +1161,9 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
     },
     "bijux_pollenomics_dev/source_completion/sead_public_custody.py": {
+        "bijux_pollenomics.collection.sources.sead.collection.repository_surfaces.validation": frozenset(
+            {"validate_normalized_lineage"}
+        ),
         "bijux_pollenomics.collection.sources.sead.acquisition.governed": frozenset(
             {"validate_governed_sead_admission"}
         ),

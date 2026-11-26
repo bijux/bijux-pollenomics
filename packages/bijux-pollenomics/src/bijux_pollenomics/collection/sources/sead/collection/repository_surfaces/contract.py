@@ -8,6 +8,20 @@ import os
 from pathlib import Path
 import tempfile
 
+from bijux_pollenomics.evidence.sources.sead import (
+    SEAD_GOVERNED_COUNTRY_AUTHORITY_DIGEST,
+    SEAD_GOVERNED_COUNTRY_AUTHORITY_ID,
+)
+
+
+def historical_country_membership() -> dict[str, str]:
+    return {
+        "purpose": "historical_admission_cohort",
+        "authority_id": SEAD_GOVERNED_COUNTRY_AUTHORITY_ID,
+        "artifact_digest": SEAD_GOVERNED_COUNTRY_AUTHORITY_DIGEST,
+    }
+
+
 SEAD_NORMALIZED_LINEAGE_PATH = Path("sead/normalized/source_lineage.json")
 SEAD_NORMALIZED_LINEAGE_INPUTS = (
     Path("sead/normalized/chronology_claims.json"),
