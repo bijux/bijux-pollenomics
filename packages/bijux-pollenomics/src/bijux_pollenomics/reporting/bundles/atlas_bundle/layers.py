@@ -11,10 +11,14 @@ from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
 from bijux_pollenomics.reporting.adna.sample_chronology_context.captured_inputs import (
     AnimalChronologyInputs,
 )
+from bijux_pollenomics.reporting.context.points.fieldwork_inputs import (
+    FieldworkMediaInputs,
+)
 
 from ...context.layers import require_capture_owner, selected_capture_options
 from ...context.nordic_point_inputs import NordicPointInputs
 from ...context.nordic_polygon_inputs import NordicPolygonInputs
+from ...context.points.fieldwork_inputs import require_fieldwork_capture_owner
 from ...map_document.evidence_projection import HistoricalChronologyRequest
 from ...map_document.evidence_projection.neotoma_site_binding import (
     require_neotoma_binding_owner,
@@ -29,21 +33,11 @@ from ...map_document.source_resources import (
 )
 from ...modeled_context.publication_projection import project_modeled_context_layers
 from ..sweden_lake_inputs import SwedenLakeInputs
-from .context.animal_inputs import prepare_animal_layers, require_animal_capture_owner
-
-_ANIMAL_CHRONOLOGY_CONTEXT = {
-    "semantic_role": "animal_source_chronology_context",
-    "group": "animal-chronology-context",
-    "contribution_role": "display_only",
-    "default_enabled": False,
-    "applies_time_filter": True,
-    "candidate_ranking_eligible": False,
-    "scientific_classification_eligible": False,
-    "scientific_selection_enabled": False,
-    "propagation_status": "refused",
-    "propagation_reason_code": "display_only_source_chronology",
-    "edge_count": 0,
-}
+from .context.animal_inputs import (
+    _ANIMAL_CHRONOLOGY_CONTEXT,
+    prepare_animal_layers,
+    require_animal_capture_owner,
+)
 
 
 def is_animal_chronology_context(layer: dict[str, object]) -> bool:
@@ -87,6 +81,7 @@ def prepare_layers(
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
     neotoma_manifest_sha256: str | None = None,
     raa_status_sha256: str | None = None,
+    fieldwork_inputs: FieldworkMediaInputs | None = None,
 ) -> tuple[Any, ...]:
     """Prepare atlas layers and traceable assets with optional publication metadata."""
     require_neotoma_binding_owner(
@@ -100,6 +95,7 @@ def prepare_layers(
         build_context_layers_fn,
         *(nordic_point_inputs, nordic_polygon_inputs, raa_status_sha256),
     )
+    require_fieldwork_capture_owner(fieldwork_inputs, build_context_layers_fn)
     require_animal_capture_owner(
         context_root, surface, animal_point_inputs, animal_chronology_inputs
     )
@@ -128,7 +124,10 @@ def prepare_layers(
         context_root=context_root,
         geography_scope=geography_scope,
         **selected_capture_options(
-            nordic_point_inputs, nordic_polygon_inputs, raa_status_sha256
+            nordic_point_inputs,
+            nordic_polygon_inputs,
+            raa_status_sha256,
+            fieldwork_inputs,
         ),
     )
     animal_localities, animal_coordinate_review, animal_chronology_context = (

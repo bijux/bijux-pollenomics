@@ -11,6 +11,9 @@ from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
 from bijux_pollenomics.reporting.adna.sample_chronology_context.captured_inputs import (
     AnimalChronologyInputs,
 )
+from bijux_pollenomics.reporting.context.points.fieldwork_inputs import (
+    FieldworkMediaInputs,
+)
 
 from ....adna.species.homo_sapiens.map_snapshot import (
     AadrMapSnapshot,
@@ -38,6 +41,7 @@ class _OptionalInputs(TypedDict, total=False):
     animal_chronology_inputs: AnimalChronologyInputs
     neotoma_manifest_sha256: str
     raa_status_sha256: str
+    fieldwork_inputs: FieldworkMediaInputs
 
 
 def publish_bundle(
@@ -76,6 +80,7 @@ def publish_bundle(
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
     neotoma_manifest_sha256: str | None = None,
     raa_status_sha256: str | None = None,
+    fieldwork_inputs: FieldworkMediaInputs | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> None:
     """Publish atlas layers, evidence, playback, and inventoried static documents."""
@@ -102,6 +107,8 @@ def publish_bundle(
         optional_inputs["neotoma_manifest_sha256"] = neotoma_manifest_sha256
     if raa_status_sha256 is not None:
         optional_inputs["raa_status_sha256"] = raa_status_sha256
+    if fieldwork_inputs is not None:
+        optional_inputs["fieldwork_inputs"] = fieldwork_inputs
     (
         bundle_paths,
         point_layers,
@@ -150,6 +157,7 @@ def publish_bundle(
         animal_chronology_inputs=animal_chronology_inputs,
         aadr_map_snapshot=aadr_map_snapshot,
         raa_status_sha256=raa_status_sha256,
+        fieldwork_inputs=fieldwork_inputs,
         static_assets=static_assets,
         animal_chronology_context=animal_chronology_context,
         extra_artifacts=extra_artifacts,

@@ -3,6 +3,7 @@ from __future__ import annotations
 from os.path import relpath
 from pathlib import Path
 
+from .fieldwork_inputs import FieldworkMediaInputs
 from .shared import (
     FIELDWORK_MEDIA_FILES,
     LYNGSJON_FIELDWORK_LATITUDE,
@@ -15,28 +16,40 @@ def build_fieldwork_point_layer(
     output_dir: Path,
     *,
     published_output_dir: Path | None = None,
+    fieldwork_inputs: FieldworkMediaInputs | None = None,
 ) -> dict[str, object] | None:
     """Build a checked-in fieldwork documentation layer when gallery media exists."""
-    published_output_dir = (
-        Path(published_output_dir) if published_output_dir is not None else output_dir
-    )
-    docs_root = find_docs_root(published_output_dir)
-    if docs_root is None:
-        return None
-
-    media_links = []
-    gallery_root = docs_root / "gallery"
-    for kind, label, filename in FIELDWORK_MEDIA_FILES:
-        media_path = gallery_root / filename
-        if not media_path.exists():
-            continue
-        media_links.append(
-            {
-                "kind": kind,
-                "label": label,
-                "url": relpath(media_path, published_output_dir).replace("\\", "/"),
-            }
+    if fieldwork_inputs is not None:
+        if type(fieldwork_inputs) is not FieldworkMediaInputs:
+            raise ValueError("fieldwork media capture differs")
+        fieldwork_inputs.stage(output_dir)
+        media_links = [
+            {"kind": kind, "label": label, "url": f"fieldwork-media/{filename}"}
+            for kind, label, filename in FIELDWORK_MEDIA_FILES
+            if fieldwork_inputs.buffers[filename] is not None
+        ]
+    else:
+        published_output_dir = (
+            Path(published_output_dir)
+            if published_output_dir is not None
+            else output_dir
         )
+        docs_root = find_docs_root(published_output_dir)
+        if docs_root is None:
+            return None
+        media_links = []
+        gallery_root = docs_root / "gallery"
+        for kind, label, filename in FIELDWORK_MEDIA_FILES:
+            media_path = gallery_root / filename
+            if not media_path.exists():
+                continue
+            media_links.append(
+                {
+                    "kind": kind,
+                    "label": label,
+                    "url": relpath(media_path, published_output_dir).replace("\\", "/"),
+                }
+            )
     if not media_links:
         return None
 
