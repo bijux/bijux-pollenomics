@@ -16,6 +16,48 @@ _ENRICHMENT_FIELDS = frozenset(
 _BOUND_FIELDS = ("time_start_bp", "time_end_bp")
 
 
+def is_witnessed_marked_relative(original: Mapping[str, object]) -> bool:
+    """Recognize only the retained point-shaped marked relative posture."""
+    from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.temporal import (
+        sead_relative_label_has_trailing_marker,
+    )
+
+    old = original.get("source_age_value")
+    if not isinstance(old, dict):
+        return False
+    start, end = old.get("time_start_bp"), old.get("time_end_bp")
+    label, qualifier = old.get("relative_age_label"), old.get("uncertainty_label")
+    return (
+        original.get("claim_type") == "relative_period"
+        and original.get("comparability_status") == "context_only"
+        and isinstance(label, str)
+        and sead_relative_label_has_trailing_marker(label)
+        and isinstance(qualifier, str)
+        and qualifier.strip().casefold() == "from"
+        and old.get("interval_source") == "relative_age_bounds"
+        and type(start) is int
+        and type(end) is int
+        and start == end
+        and original.get("original_interval_orientation") == "point"
+    )
+
+
+def validate_marked_relative_transition(
+    original: Mapping[str, object], revised: Mapping[str, object]
+) -> None:
+    """Restrict the extra status change to the witnessed source posture."""
+    new = revised.get("source_age_value")
+    if (
+        not is_witnessed_marked_relative(original)
+        or not isinstance(new, dict)
+        or new.get("interval_source") != "unresolved"
+        or new.get("time_start_bp") is not None
+        or new.get("time_end_bp") is not None
+        or revised.get("original_interval_orientation") != "unavailable"
+    ):
+        raise ValueError("SEAD marked relative source transition differs")
+
+
 def _canonical(value: object) -> bytes:
     """Compare JSON types as well as values, independent of object key order."""
     try:
@@ -65,8 +107,11 @@ def reconcile_chronology_rows(
     corrected: Sequence[Mapping[str, object]],
     *,
     expected_count: int,
+    allow_marked_relative_source: bool = False,
 ) -> list[dict[str, Any]]:
     """Return changed derived fields only after reconciling every claim identity."""
+    if type(allow_marked_relative_source) is not bool:
+        raise ValueError("SEAD marked relative source option differs")
     old = _index(retained, expected_count)
     new = _index(corrected, expected_count)
     if old.keys() != new.keys():
@@ -76,23 +121,45 @@ def reconcile_chronology_rows(
         original, revised = old[identifier], new[identifier]
         original_shared, original_age = _shared(original)
         revised_shared, revised_age = _shared(revised)
+        marked_transition = False
         if _canonical(original_shared) != _canonical(revised_shared):
-            raise ValueError(f"SEAD chronology nonderived fields differ: {identifier}")
+            if allow_marked_relative_source is not True:
+                raise ValueError(
+                    f"SEAD chronology nonderived fields differ: {identifier}"
+                )
+            validate_marked_relative_transition(original, revised)
+            for shared in (original_shared, revised_shared):
+                source = shared["source_age_value"]
+                if not isinstance(source, dict) or "interval_source" not in source:
+                    raise ValueError("SEAD marked relative source status missing")
+                source.pop("interval_source")
+            if _canonical(original_shared) != _canonical(revised_shared):
+                raise ValueError(
+                    f"SEAD chronology nonderived fields differ: {identifier}"
+                )
+            marked_transition = True
+        if (
+            allow_marked_relative_source
+            and is_witnessed_marked_relative(original)
+            and not marked_transition
+        ):
+            raise ValueError("SEAD marked relative source change missing")
         previous = [original_age[key] for key in _BOUND_FIELDS] + [
             original["original_interval_orientation"]
         ]
         current = [revised_age[key] for key in _BOUND_FIELDS] + [
             revised["original_interval_orientation"]
         ]
-        if _canonical(previous) != _canonical(current):
-            result.append(
-                {
-                    "chronology_claim_id": identifier,
-                    "time_start_bp": current[0],
-                    "time_end_bp": current[1],
-                    "original_interval_orientation": current[2],
-                }
-            )
+        if _canonical(previous) != _canonical(current) or marked_transition:
+            change = {
+                "chronology_claim_id": identifier,
+                "time_start_bp": current[0],
+                "time_end_bp": current[1],
+                "original_interval_orientation": current[2],
+            }
+            if marked_transition:
+                change["interval_source"] = "unresolved"
+            result.append(change)
     return result
 
 
@@ -156,13 +223,19 @@ def validate_chronology_lineage(
 
 
 def build_historical_chronology_overlay(
-    data_root: Path, historical_country_authority_root: Path, *, lineage_sha256: str
+    data_root: Path,
+    historical_country_authority_root: Path,
+    *,
+    lineage_sha256: str,
+    allow_marked_relative_source: bool = False,
 ) -> dict[str, Any]:
     """Return an in-memory overlay; a persisting caller must bind executed code identity.
 
     The lineage checks cover chronology and its historical evidence, not the
     unrelated site or spatial-context surfaces referenced by that lineage.
     """
+    if type(allow_marked_relative_source) is not bool:
+        raise ValueError("SEAD marked relative source option differs")
     import hashlib
 
     from bijux_pollenomics.collection.sources.sead.acquisition.governed import (
@@ -241,9 +314,18 @@ def build_historical_chronology_overlay(
         or any(not isinstance(row, dict) for row in old_rows + new_rows)
     ):
         raise ValueError("SEAD chronology claim rows are invalid")
-    changes = reconcile_chronology_rows(old_rows, new_rows, expected_count=25109)
+    changes = reconcile_chronology_rows(
+        old_rows,
+        new_rows,
+        expected_count=25109,
+        allow_marked_relative_source=allow_marked_relative_source,
+    )
     return {
-        "schema_version": "sead-historical-derived-chronology-overlay.v1",
+        "schema_version": (
+            "sead-historical-derived-chronology-overlay.v2"
+            if allow_marked_relative_source is True
+            else "sead-historical-derived-chronology-overlay.v1"
+        ),
         "producer_code_identity": "external_execution_receipt_required",
         "source_run_id": SEAD_GOVERNED_EVIDENCE_RUN_ID,
         "admission_sha256": SEAD_GOVERNED_ADMISSION_SHA256,

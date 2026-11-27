@@ -6,6 +6,9 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Added
 
+- Offer an explicit versioned SEAD chronology overlay for the witnessed marked
+  relative-period status correction, retaining strict original evidence checks.
+
 - Support explicit historical LandClim inventory selection against pinned current source bytes ([#550](https://github.com/bijux/bijux-pollenomics/pull/550)).
 - Construct whole-cell bounds from half-open declared HYDE grid index ranges,
   retaining strict refusal of arbitrary partial-cell transfers.

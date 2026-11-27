@@ -88,8 +88,10 @@ original label, uncertainty and source identifiers remain available; the native
 bound remains in the retained acquisition lookup. Relative-period claims stay
 context-only. Checked-in products and prior scratch candidates predate this
 reader behavior. A historical refresh must be revalidated: the existing derived
-chronology overlay refuses the changed `interval_source` as a nonderived field,
-so the old overlay cannot be reused without a separately reviewed contract.
+chronology overlay refuses the changed `interval_source` as a nonderived field.
+An explicitly selected versioned overlay can reconcile the witnessed `From`
+point-to-unresolved transition while retaining the source evidence, but no
+updated historical replay or published product is implied.
 
 The site-inventory reader preserves a radiometric `>` qualifier as a one-sided
 source age and does not turn it into a closed numeric interval. This does not
