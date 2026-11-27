@@ -6,9 +6,17 @@ CRS, country, area, calendar year, unit, or scientific admission.
 
 from __future__ import annotations
 
-from decimal import Decimal, InvalidOperation
+from decimal import (
+    ROUND_HALF_EVEN,
+    Context,
+    Decimal,
+    Inexact,
+    InvalidOperation,
+    Rounded,
+    localcontext,
+)
 import re
-from typing import Any
+from typing import Any, cast
 
 from ...quarantine import IntakeRefusal
 from .contracts import NativeAsciiWindow
@@ -27,6 +35,30 @@ def _number(token: str, name: str) -> Decimal:
 
 def _plain(number: Decimal) -> str:
     return format(number, "f")
+
+
+_MAX_AXIS_CHARACTERS = 4096
+
+
+def _axis_precision(
+    west: Decimal, south: Decimal, step: Decimal, maximum_index: int
+) -> int:
+    """Bound plain output and exact arithmetic before allocating expanded digits."""
+    values = (west, south, step)
+    smallest_exponent = min(
+        0, *(cast(int, value.as_tuple().exponent) for value in values)
+    )
+    largest_adjusted = max(
+        west.adjusted() if west else 0,
+        south.adjusted() if south else 0,
+        step.adjusted() + len(str(maximum_index)),
+    )
+    output_size = max(1, largest_adjusted + 1) + max(0, -smallest_exponent) + 2
+    if output_size > _MAX_AXIS_CHARACTERS:
+        raise IntakeRefusal(
+            "hyde_native_axis_size_limit", "Expanded axis exceeds 4096 characters"
+        )
+    return max(1, largest_adjusted - smallest_exponent + 3)
 
 
 def native_axis_geometry(
@@ -67,7 +99,28 @@ def native_axis_geometry(
     south = _number(header.value("yllcorner"), "yllcorner")
     if step <= 0:
         raise IntakeRefusal("hyde_native_axis_step_invalid", "cellsize")
-    north = south + header.rows * step
+    precision = _axis_precision(west, south, step, max(header.rows, header.columns))
+    context = Context(
+        prec=precision,
+        rounding=ROUND_HALF_EVEN,
+        Emin=-8192,
+        Emax=8192,
+        traps=[Inexact, Rounded, InvalidOperation],
+    )
+    with localcontext(context):
+        north = south + header.rows * step
+        edges = {
+            "global_west": _plain(west),
+            "global_south": _plain(south),
+            "global_east": _plain(west + header.columns * step),
+            "global_north": _plain(north),
+            "window_west": _plain(west + selection.column_start * step),
+            "window_east": _plain(west + selection.column_stop * step),
+            "window_south": _plain(north - selection.row_stop * step),
+            "window_north": _plain(north - selection.row_start * step),
+            "step": _plain(step),
+            "row_order": "north_to_south",
+        }
     values = [
         _number(token, "source cell")
         for token, missing in zip(
@@ -94,18 +147,7 @@ def native_axis_geometry(
             "column_start": selection.column_start,
             "column_stop": selection.column_stop,
         },
-        "source_axis_edges": {
-            "global_west": _plain(west),
-            "global_south": _plain(south),
-            "global_east": _plain(west + header.columns * step),
-            "global_north": _plain(north),
-            "window_west": _plain(west + selection.column_start * step),
-            "window_east": _plain(west + selection.column_stop * step),
-            "window_south": _plain(north - selection.row_stop * step),
-            "window_north": _plain(north - selection.row_start * step),
-            "step": _plain(step),
-            "row_order": "north_to_south",
-        },
+        "source_axis_edges": edges,
         "selected_cells": len(window.source_tokens),
         "selected_missing": sum(window.missing_mask),
         "selected_nonmissing": len(values),
