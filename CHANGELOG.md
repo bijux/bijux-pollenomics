@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#585](https://github.com/bijux/bijux-pollenomics/pull/585) — LandClim Marquer window identities
+
+Refuse repeated Marquer time-window codes and selected grid/window collisions before updating temporal features.
+
 ### [#584](https://github.com/bijux/bijux-pollenomics/pull/584) — HYDE native-axis precision
 
 Calculate native-axis edges independently of ambient decimal precision and refuse axes whose conservative expanded width exceeds the documented limit.

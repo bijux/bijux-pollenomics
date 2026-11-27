@@ -10,7 +10,7 @@ All notable changes for `bijux-pollenomics` are recorded here.
   decimal precision; oversized expanded axes are explicitly refused ([#584](https://github.com/bijux/bijux-pollenomics/pull/584)).
 
 - Refuse repeated Marquer time-window codes and selected grid/window collisions
-  before updating temporal features.
+  before updating temporal features ([#585](https://github.com/bijux/bijux-pollenomics/pull/585)).
 
 - Refuse Neotoma count tokens that round into a different nonnegative integer
   before source and LRA count review.
