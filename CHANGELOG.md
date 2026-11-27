@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#581](https://github.com/bijux/bijux-pollenomics/pull/581) — Neotoma facet candidate reconciliation
+
+Add a private development audit joining pinned Atlas dataset identities to separately dated scoped facet declarations without publishing source bodies.
+
 ### [#580](https://github.com/bijux/bijux-pollenomics/pull/580) — Scoped Neotoma facet declarations
 
 Offer an opt-in profile for checked retained capture and request declarations and scope roles. The default result is unchanged; these declarations do not establish rights or scientific admission.

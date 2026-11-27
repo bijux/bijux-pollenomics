@@ -6,6 +6,9 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ### Added
 
+- Reconcile a caller-pinned Neotoma candidate with separately recorded scoped
+  facet declarations in a private development receipt. This does not publish
+  source content or establish scientific admission.
 - Expose supported claims, actual verification, denominators, negative outcomes
   and precise remaining acceptance on scientific primary reports, with explicit
   source-bound reading routes from scientific wrappers.
