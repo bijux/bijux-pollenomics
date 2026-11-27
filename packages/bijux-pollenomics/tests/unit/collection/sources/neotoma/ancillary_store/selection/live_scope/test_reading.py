@@ -10,8 +10,11 @@ from ..native_products import facet_row
 @pytest.mark.parametrize(
     "member", ["context", "roster", "native_manifest", "metadata_body"]
 )
+@pytest.mark.parametrize(
+    "reader", ["read_neotoma_ancillary_facet_entity", "read_neotoma_ancillary_facet"]
+)
 def test_selected_facet_rechecks_current_inputs_after_preflight(
-    selected_products: dict[str, Any], monkeypatch: Any, member: str
+    selected_products: dict[str, Any], monkeypatch: Any, member: str, reader: str
 ) -> None:
     from bijux_pollenomics.collection.sources.neotoma.ancillary_store.selection import (
         entities,
@@ -50,7 +53,7 @@ def test_selected_facet_rechecks_current_inputs_after_preflight(
     monkeypatch.setattr(entities, "_body", observe)
     row = facet_row(products)
     with pytest.raises(ValueError):
-        entities.read_neotoma_ancillary_facet_entity(
+        getattr(entities, reader)(
             products["directory"],
             **products["kwargs"],
             observation_id=row["observation_id"],
@@ -175,3 +178,115 @@ def test_typed_linked_keeps_current_scope_until_native_parser_finishes(
             native_id=11,
         )
     assert qualified == [1]
+
+
+def test_typed_facet_uses_one_complete_scope_lifetime(
+    selected_products: dict[str, Any], monkeypatch: Any
+) -> None:
+    from contextlib import contextmanager
+
+    from bijux_pollenomics.collection.sources.neotoma.ancillary_store.selection import (
+        entities,
+    )
+
+    original = entities.context_seals
+    events: list[str] = []
+
+    @contextmanager
+    def counted(options: Any) -> Any:
+        events.append("enter")
+        try:
+            with original(options) as guard:
+                yield guard
+        finally:
+            events.append("close")
+
+    monkeypatch.setattr(entities, "context_seals", counted)
+    products = selected_products
+    row = facet_row(products)
+    result = entities.read_neotoma_ancillary_facet(
+        products["directory"],
+        **products["kwargs"],
+        observation_id=row["observation_id"],
+        dataset_id=201,
+        facet="taxa",
+    )
+    assert (
+        result["source_qualification"]["qualification_status"]
+        == "qualified_source_schema"
+    )
+    assert events == ["enter", "close"]
+
+
+def test_typed_facet_refuses_scope_change_after_body(
+    selected_products: dict[str, Any], monkeypatch: Any
+) -> None:
+    from bijux_pollenomics.collection.sources.neotoma.ancillary_store.selection import (
+        entities,
+    )
+
+    products = selected_products
+    permission = products["kwargs"]["context_directory"] / "manifest.json"
+    original = entities._body
+
+    def read(*args: Any, **kwargs: Any) -> Any:
+        result = original(*args, **kwargs)
+        permission.write_bytes(permission.read_bytes() + b"\n")
+        return result
+
+    monkeypatch.setattr(entities, "_body", read)
+    qualified: list[bool] = []
+    monkeypatch.setattr(
+        entities,
+        "qualify_neotoma_facet_body",
+        lambda *args, **kwargs: qualified.append(True),
+    )
+    row = facet_row(products)
+    with pytest.raises(ValueError):
+        entities.read_neotoma_ancillary_facet(
+            products["directory"],
+            **products["kwargs"],
+            observation_id=row["observation_id"],
+            dataset_id=201,
+            facet="taxa",
+        )
+    assert qualified == []
+
+
+def test_typed_facet_closes_scope_when_qualification_raises(
+    selected_products: dict[str, Any], monkeypatch: Any
+) -> None:
+    from contextlib import contextmanager
+
+    from bijux_pollenomics.collection.sources.neotoma.ancillary_store.selection import (
+        entities,
+    )
+
+    original = entities.context_seals
+    events: list[str] = []
+
+    @contextmanager
+    def observed(options: Any) -> Any:
+        events.append("enter")
+        try:
+            with original(options) as guard:
+                yield guard
+        finally:
+            events.append("close")
+
+    monkeypatch.setattr(entities, "context_seals", observed)
+
+    def fail(*args: Any, **kwargs: Any) -> Any:
+        raise RuntimeError("qualification failure")
+
+    monkeypatch.setattr(entities, "qualify_neotoma_facet_body", fail)
+    row = facet_row(selected_products)
+    with pytest.raises(RuntimeError, match="qualification failure"):
+        entities.read_neotoma_ancillary_facet(
+            selected_products["directory"],
+            **selected_products["kwargs"],
+            observation_id=row["observation_id"],
+            dataset_id=201,
+            facet="taxa",
+        )
+    assert events == ["enter", "close"]
