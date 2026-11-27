@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Reject unresolved masks, complex values and booleans in direct GPM inputs and
+  dispersal-factor basin diameters before numeric conversion.
+
 - Reject nonfinite propagated covariance and account separately for declared
   count, PPE and shared-input contributions instead of treating small numerical
   residuals as valid uncertainty.
