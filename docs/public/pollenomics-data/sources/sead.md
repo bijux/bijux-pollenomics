@@ -79,6 +79,18 @@ products when auditing its source. The discovery surface keeps every Swedish
 site, preserves each eligible linked interval, and represents missing numeric
 chronology explicitly rather than as a static or timeless point.
 
+For encoded relative-age calendar labels ending in a trailing hyphen, the
+site-inventory reader conservatively withholds a closed interval. This is a
+refusal to invent an endpoint, not a claim that every such label has a known
+direction. The retained source has one linked example: site 4570, relative date
+47981, label `CAL_1175_AD-`, one native bound and a `From` uncertainty. Its
+original label, uncertainty and source identifiers remain available; the native
+bound remains in the retained acquisition lookup. Relative-period claims stay
+context-only. Checked-in products and prior scratch candidates predate this
+reader behavior. A historical refresh must be revalidated: the existing derived
+chronology overlay refuses the changed `interval_source` as a nonderived field,
+so the old overlay cannot be reused without a separately reviewed contract.
+
 The site-inventory reader preserves a radiometric `>` qualifier as a one-sided
 source age and does not turn it into a closed numeric interval. This does not
 interpret possible source pairs or admit the date for comparison. The retained

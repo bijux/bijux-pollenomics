@@ -17,6 +17,7 @@ from .temporal import (
     _normalized_period_label,
     _relative_interval_from_range,
     sead_dating_interval,
+    sead_relative_label_has_trailing_marker,
 )
 from .values import parse_optional_int
 
@@ -41,7 +42,10 @@ def _build_relative_period_row(
         cal_older if cal_older is not None else c14_older,
     )
     interval_source = "relative_age_bounds"
-    if interval is None:
+    if sead_relative_label_has_trailing_marker(label):
+        interval = None
+        interval_source = "unresolved"
+    elif interval is None:
         interval = _interval_from_relative_age_label(label)
         interval_source = "encoded_relative_age_label" if interval else "unresolved"
     return {

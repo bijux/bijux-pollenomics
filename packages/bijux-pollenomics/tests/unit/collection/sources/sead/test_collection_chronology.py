@@ -46,7 +46,7 @@ class SeadChronologyTests(unittest.TestCase):
                     )
                 )
 
-    def test_sead_refresh_recovers_interval_encoded_in_relative_age_label(self) -> None:
+    def test_sead_refresh_preserves_open_relative_age_as_context(self) -> None:
         rows = [
             {
                 "site_id": 3816,
@@ -65,11 +65,12 @@ class SeadChronologyTests(unittest.TestCase):
 
         refresh_sead_repository_rows(rows)
 
-        self.assertEqual(rows[0]["time_start_bp"], 0)
-        self.assertEqual(rows[0]["time_end_bp"], 708)
+        self.assertIsNone(rows[0]["time_start_bp"])
+        self.assertIsNone(rows[0]["time_end_bp"])
         relative_rows = cast(list[dict[str, object]], rows[0]["relative_period_rows"])
         relative_row = relative_rows[0]
-        self.assertEqual(relative_row["interval_source"], "encoded_relative_age_label")
+        self.assertEqual(relative_row["interval_source"], "unresolved")
+        self.assertEqual(relative_row["relative_age_label"], "CAL_1242_AD-")
 
     def test_sead_refresh_retains_but_does_not_admit_post_1950_source_dates(
         self,

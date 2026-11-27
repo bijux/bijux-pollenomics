@@ -106,6 +106,12 @@ _RELATIVE_CALENDAR_LABEL_PATTERN = re.compile(
 )
 
 
+def sead_relative_label_has_trailing_marker(label: str) -> bool:
+    """Recognize a trailing marker without inferring its precise direction."""
+    match = _RELATIVE_CALENDAR_LABEL_PATTERN.fullmatch(label.strip())
+    return bool(match and match.group("open"))
+
+
 def _interval_from_relative_age_label(label: str) -> tuple[int, int] | None:
     bp_match = _RELATIVE_BP_LABEL_PATTERN.fullmatch(label.strip())
     if bp_match:
@@ -116,14 +122,14 @@ def _interval_from_relative_age_label(label: str) -> tuple[int, int] | None:
     calendar_match = _RELATIVE_CALENDAR_LABEL_PATTERN.fullmatch(label.strip())
     if not calendar_match:
         return None
+    if calendar_match.group("open"):
+        return None
     era = calendar_match.group("era").upper()
     start_year = int(calendar_match.group("start"))
     end_text = calendar_match.group("end")
     end_year = int(end_text) if end_text is not None else start_year
     if start_year == 0 or end_year == 0:
         return None
-    if calendar_match.group("open"):
-        end_year = BP_REFERENCE_YEAR
     return normalize_bp_interval(
         _historical_year_to_bp(start_year, era=era),
         _historical_year_to_bp(end_year, era=era),

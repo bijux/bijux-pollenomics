@@ -18,6 +18,7 @@ from .temporal import (
     sead_dating_interval,
     sead_dendro_is_open_ended,
     sead_interval_is_canonical,
+    sead_relative_label_has_trailing_marker,
 )
 from .values import parse_optional_int, parse_required_int
 
@@ -85,14 +86,18 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
                 numeric_intervals.append(interval)
         contextual_intervals: list[tuple[int, int]] = []
         for relative_row in relative_rows:
-            interval = _normalize_optional_interval(
-                parse_optional_int(relative_row.get("time_start_bp")),
-                parse_optional_int(relative_row.get("time_end_bp")),
-            )
-            if interval is None:
-                interval = _interval_from_relative_age_label(
-                    clean_optional_text(relative_row.get("relative_age_label"))
+            label = clean_optional_text(relative_row.get("relative_age_label"))
+            trailing_marker = sead_relative_label_has_trailing_marker(label)
+            if trailing_marker:
+                interval = None
+                relative_row["interval_source"] = "unresolved"
+            else:
+                interval = _normalize_optional_interval(
+                    parse_optional_int(relative_row.get("time_start_bp")),
+                    parse_optional_int(relative_row.get("time_end_bp")),
                 )
+            if interval is None and not trailing_marker:
+                interval = _interval_from_relative_age_label(label)
                 if interval is not None:
                     relative_row["interval_source"] = "encoded_relative_age_label"
             relative_row["time_start_bp"] = (
