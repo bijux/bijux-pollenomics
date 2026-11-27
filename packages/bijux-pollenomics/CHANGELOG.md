@@ -6,6 +6,10 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Added
 
+- Offer opt-in in-memory RAÄ WFS page observations with canonical inventory and
+  feature-slice checks. Page declarations and hashes are collector-reported, not
+  retained HTTP evidence or proof of provider origin or an atomic snapshot.
+
 - Calculate bounded HYDE native-axis edges exactly independent of ambient
   decimal precision; oversized expanded axes are explicitly refused ([#584](https://github.com/bijux/bijux-pollenomics/pull/584)).
 

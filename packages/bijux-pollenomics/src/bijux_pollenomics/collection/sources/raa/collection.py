@@ -6,6 +6,7 @@ from dataclasses import dataclass
 from hashlib import sha256
 import json
 from pathlib import Path
+from typing import Literal
 
 from ....core.files import write_json, write_text
 from ....core.filesystem import BoundedInputTree
@@ -32,6 +33,18 @@ from .outputs import (
     count_raa_features,
     fetch_raa_archaeology_metadata,
     iter_raa_features,
+)
+from .page_observation import (
+    MAX_CAPTURE_BYTES,
+    MAX_FEATURES,
+    MAX_FILTER_BYTES,
+    MAX_PAGE_BYTES,
+    MAX_PAGES,
+    RaaInventoryObservation,
+    RaaObservedInventory,
+    RaaPageObservation,
+    bounded_json_identity,
+    validate_raa_page_observation,
 )
 
 RAA_FEATURE_PAGE_SIZE = 10000
@@ -74,12 +87,91 @@ def fetch_raa_feature_page(
 
 def fetch_raa_feature_inventory(cql_filter: str | None = None) -> dict[str, object]:
     """Fetch WFS pages under the requested CRS; absent declarations are unverified."""
+    inventory, _ = _fetch_raa_feature_inventory(cql_filter, observe=False)
+    return inventory
+
+
+def capture_raa_feature_inventory(
+    cql_filter: str | None = None,
+) -> RaaObservedInventory:
+    """Return bounded self-reported decoded-page observations with the inventory.
+
+    Page hashes do not authenticate HTTP bytes, provider identity or a snapshot.
+    No sidecar or inventory is written by this operation.
+    """
+    if cql_filter is not None and (
+        not isinstance(cql_filter, str)
+        or len(cql_filter.encode("utf-8")) > MAX_FILTER_BYTES
+    ):
+        raise ValueError("RAÄ page observation filter budget exceeded")
+    inventory, pages = _fetch_raa_feature_inventory(cql_filter, observe=True)
+    digest, byte_count = bounded_json_identity(inventory, MAX_CAPTURE_BYTES)
+    observation = RaaInventoryObservation(
+        schema_version="raa-wfs-page-observation-v1",
+        endpoint=RAA_WFS_URL,
+        service="WFS",
+        version="2.0.0",
+        request="GetFeature",
+        output_format="application/json",
+        feature_type=RAA_FEATURE_TYPE,
+        requested_crs="EPSG:4326",
+        sort_key=RAA_FEATURE_SORT_KEY,
+        page_size=RAA_FEATURE_PAGE_SIZE,
+        cql_filter=cql_filter or None,
+        canonical_inventory_sha256=digest,
+        canonical_inventory_byte_count=byte_count,
+        pages=pages,
+    )
+    validate_raa_page_observation(inventory, observation)
+    return RaaObservedInventory(inventory, observation)
+
+
+def _fetch_raa_feature_inventory(
+    cql_filter: str | None, *, observe: bool
+) -> tuple[dict[str, object], tuple[RaaPageObservation, ...]]:
     first_page = fetch_raa_feature_page(start_index=0, cql_filter=cql_filter)
     _validate_raa_page_crs(first_page)
     features = [dict(feature) for feature in iter_raa_features(first_page)]
     total_features = declared_population(first_page)
+    pages: list[RaaPageObservation] = []
+    page_bytes = 0
+
+    def record(
+        page: Mapping[str, object], start: int, page_features: list[dict[str, object]]
+    ) -> None:
+        nonlocal page_bytes
+        if not observe:
+            return
+        if len(pages) >= MAX_PAGES or total_features > MAX_FEATURES:
+            raise ValueError("RAÄ page observation count budget exceeded")
+        digest, size = bounded_json_identity(dict(page), MAX_PAGE_BYTES)
+        page_bytes += size
+        if page_bytes > MAX_CAPTURE_BYTES:
+            raise ValueError("RAÄ page observation byte budget exceeded")
+        slice_hash, _ = bounded_json_identity(page_features, MAX_PAGE_BYTES)
+        crs = page.get("crs")
+        state: Literal["absent", "null", "declared"] = (
+            "absent" if "crs" not in page else "null" if crs is None else "declared"
+        )
+        name = crs["properties"]["name"] if isinstance(crs, Mapping) else None
+        pages.append(
+            RaaPageObservation(
+                start,
+                len(page_features),
+                total_features,
+                state,
+                name,
+                digest,
+                size,
+                slice_hash,
+            )
+        )
+
+    record(first_page, 0, features)
     start_index = len(features)
     while start_index < total_features:
+        if observe and len(pages) >= MAX_PAGES:
+            raise ValueError("RAÄ page observation count budget exceeded")
         page = fetch_raa_feature_page(start_index=start_index, cql_filter=cql_filter)
         _validate_raa_page_crs(page)
         if declared_population(page) != total_features:
@@ -89,6 +181,7 @@ def fetch_raa_feature_inventory(cql_filter: str | None = None) -> dict[str, obje
             raise ValueError(
                 "RAÄ feature paging ended before the reported numberMatched was archived"
             )
+        record(page, start_index, page_features)
         features.extend(page_features)
         start_index += len(page_features)
     feature_inventory = {
@@ -99,7 +192,7 @@ def fetch_raa_feature_inventory(cql_filter: str | None = None) -> dict[str, obje
         "timeStamp": first_page.get("timeStamp"),
     }
     validate_raa_feature_inventory(feature_inventory)
-    return feature_inventory
+    return feature_inventory, tuple(pages)
 
 
 def _validate_raa_page_crs(page: Mapping[str, object]) -> None:
@@ -224,7 +317,9 @@ __all__ = [
     "RaaDataReport",
     "build_raa_density_geojson",
     "collect_raa_data",
+    "capture_raa_feature_inventory",
     "count_raa_features",
     "fetch_raa_archaeology_metadata",
     "fetch_raa_feature_inventory",
+    "validate_raa_page_observation",
 ]
