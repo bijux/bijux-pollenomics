@@ -42,6 +42,27 @@ def test_area_lost_to_floating_point_is_refused() -> None:
         _ = Bounds(0, 0, tiny, tiny).area_km2
 
 
+@pytest.mark.parametrize(
+    "bounds",
+    [
+        Bounds(0.0, 0.0, 1.0, 1e-321),
+        Bounds(0.0, 0.0, 1e-321, 1.0),
+        Bounds(0.0, 0.0, 1.0, 1e-305),
+        Bounds(0.0, 0.0, 1e-305, 1e-10),
+    ],
+)
+def test_subnormal_area_arithmetic_is_refused(bounds: Bounds) -> None:
+    with pytest.raises(IntakeRefusal, match="hyde_cell_area_precision_limit"):
+        _ = bounds.area_km2
+
+
+def test_tiny_normal_area_arithmetic_remains_available() -> None:
+    small = Bounds(0, 0, 1, 2e-305).area_km2
+    larger = Bounds(0, 0, 1, 1e-304).area_km2
+    assert small > 0
+    assert small / larger == pytest.approx(0.2, rel=1e-12)
+
+
 def test_polar_partition_preserves_area() -> None:
     whole = Bounds(0, 89.9999998, 1, 90).area_km2
     parts = (
