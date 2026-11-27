@@ -155,6 +155,7 @@ The API owners are under
 | Current joined metadata | `federation.load_neotoma_ancillary_federation` | None |
 | One facet HTTP entity | `selection.read_neotoma_ancillary_facet_entity` | The selected entity |
 | One qualified facet | `selection.read_neotoma_ancillary_facet` | The selected entity, parsed from the authenticated buffer |
+| Qualified facet batch | `selection.read_neotoma_ancillary_facets` | Only explicitly selected entities, each parsed from its authenticated buffer |
 | One linked HTTP entity | `selection.read_neotoma_ancillary_linked_entity` | The selected entity and its selected native source witness |
 | One qualified linked record | `selection.read_neotoma_ancillary_linked` | The same authenticated buffers as the linked entity reader |
 | Unit metadata | `unit_metadata.read_neotoma_unit_metadata_inventory` | None |
@@ -165,6 +166,17 @@ The API owners are under
 | Selected context HTTP entity | `context_resources.read_neotoma_context_resource_entity` | One selected context body |
 | Selected qualified context | `context_resources.read_neotoma_context_resource` | The selected authenticated body |
 | Full context verification | `context_resources.load_neotoma_context_resource_archive` | All owned context bodies, subject to exposure restrictions |
+
+The opt-in qualified facet batch accepts up to 128 distinct observation IDs
+and retains at most 64 MiB of selected body bytes. It checks all selected body
+identities before reading, then validates each body and native schema under one
+operation-owned source lifetime. It returns only after the complete selection
+and final checks succeed. Metadata and previously selected body identity checks
+are repeated across selections, so total work can grow quadratically with the
+number of selected bodies; no fixed runtime or memory ceiling follows from the
+body-byte limit. This path requires an ordinary, single-link source body and may
+refuse a batch if global current-scope preflight cannot be established. Its
+physical drift checks do not prove atomic capture or scientific admission.
 
 Selected facet and linked reads require exact observation identities. Linked
 reads additionally require the precise occurrence identity. The source witness

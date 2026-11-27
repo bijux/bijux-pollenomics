@@ -11,8 +11,10 @@ from .entities import (
     read_neotoma_ancillary_linked,
     read_neotoma_ancillary_linked_entity,
 )
+from .typed_batch import read_neotoma_ancillary_facets
 
 __all__ = [
+    "read_neotoma_ancillary_facets",
     "read_neotoma_ancillary_facet",
     "read_neotoma_ancillary_facet_entity",
     "read_neotoma_ancillary_linked",

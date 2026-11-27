@@ -243,6 +243,12 @@ class NeotomaPreflightBatch:
             self._metadata, self._scope = None, None
             self._parts.close()
 
+    def _abort(self) -> None:
+        """Close without a second validation when preserving a primary failure."""
+        self._status = "closed"
+        self._metadata, self._scope = None, None
+        self._parts.close()
+
     def __exit__(self, *_error: Any) -> None:
         self.close()
 

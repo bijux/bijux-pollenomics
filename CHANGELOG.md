@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#579](https://github.com/bijux/bijux-pollenomics/pull/579) — Neotoma typed facet batches
+
+Offer bounded all-or-nothing qualification of selected facet bodies under their source custody and scope. Metadata preflight remains body-free; no atomic snapshot or scientific admission is implied.
+
 ### [#578](https://github.com/bijux/bijux-pollenomics/pull/578) — Neotoma selected-facet custody lifetime
 
 Share one context seal through selected facet reading and schema qualification while preserving the source checks and failure behavior.
