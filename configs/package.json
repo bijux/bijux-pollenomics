@@ -7,8 +7,8 @@
   },
   "type": "commonjs",
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "2.42.2",
-    "@redocly/cli": "2.79.0"
+    "@openapitools/openapi-generator-cli": "2.44.0",
+    "@redocly/cli": "2.84.0"
   },
   "overrides": {
     "axios": "^1.20.0",
