@@ -4,7 +4,7 @@ Repository changes are recorded by pull request, newest merge first.
 
 ### [#589](https://github.com/bijux/bijux-pollenomics/pull/589) — LandClim aggregate cell identities
 
-Preserve exact cell bounds in aggregate grid keys and refuse centers that cannot be recovered from emitted bounds. Keys can change for higher-precision bounds and normalized signed zero.
+Preserve exact floating-point cell bounds in aggregate grid keys and refuse centers that cannot be recovered from emitted bounds. Keys can change for higher-precision bounds and normalized signed zero.
 
 ### [#588](https://github.com/bijux/bijux-pollenomics/pull/588) — RAÄ WFS page observations
 
