@@ -3,11 +3,12 @@
 from copy import deepcopy
 import os
 from pathlib import Path
+from typing import Any
 
 import pytest
 
 
-def inputs():
+def inputs() -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
     fields = ["dataset_id", "source_dataset_id", "source_payload"]
     status_fields = [
         "dataset_id",
@@ -277,7 +278,9 @@ def test_bounded_static_details_decode_and_reject_changed_chunk(tmp_path: Path) 
         decode_details(tmp_path, files)
 
 
-def source_fixture(tmp_path: Path, selected: list, declarations: list) -> Path:
+def source_fixture(
+    tmp_path: Path, selected: list[dict[str, Any]], declarations: list[dict[str, Any]]
+) -> Path:
     import hashlib
     import json
 
@@ -412,7 +415,7 @@ def test_declarations_reject_unexpected_nested_content() -> None:
 
 
 def test_post_link_cleanup_failure_keeps_complete_success(
-    tmp_path: Path, monkeypatch: object
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     from bijux_pollenomics_dev.source_completion.neotoma_facet_candidate import (
         private_output,
@@ -420,14 +423,18 @@ def test_post_link_cleanup_failure_keeps_complete_success(
 
     os.chmod(tmp_path, 0o700)
     path = tmp_path / "receipt.json"
-    original = private_output.os.unlink
+    original = os.unlink
 
-    def refuse_staging(name: object, *args: object, **kwargs: object) -> None:
+    def refuse_staging(
+        name: str | bytes | os.PathLike[str] | os.PathLike[bytes],
+        *,
+        dir_fd: int | None = None,
+    ) -> None:
         if isinstance(name, str) and name.startswith(".receipt-"):
             raise OSError("injected cleanup failure")
-        original(name, *args, **kwargs)
+        original(name, dir_fd=dir_fd)
 
-    monkeypatch.setattr(private_output.os, "unlink", refuse_staging)
+    monkeypatch.setattr(os, "unlink", refuse_staging)
     private_output.write_private_receipt(path, {"publication_allowed": False})
     assert (
         path.read_text().strip() == '{\n  "publication_allowed": false\n}'
@@ -702,7 +709,7 @@ def test_private_receipt_failure_before_link_leaves_no_final(
     def fail(*args: object, **kwargs: object) -> None:
         raise OSError("injected link failure")
 
-    monkeypatch.setattr(private_output.os, "link", fail)
+    monkeypatch.setattr(os, "link", fail)
     with pytest.raises(OSError):
         private_output.write_private_receipt(tmp_path / "receipt.json", {"safe": True})
     assert list(tmp_path.iterdir()) == []
