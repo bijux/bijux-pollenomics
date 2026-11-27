@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import atanh, isfinite, radians, sin, sqrt
+from math import atanh, cos, isfinite, radians, sin, sqrt
+from sys import float_info
 from typing import Literal
 
 from ....core.geospatial.distance import WGS84_GEODESIC
@@ -59,24 +60,47 @@ class Bounds:
 
         The area element is a²(1-e²) cos(phi)/(1-e² sin²(phi))² dphi dlambda.
         This is not a geodesic-corner polygon approximation or an equal-cell-area rule.
+        Critical positive intermediates and the result must be normal floats.
         """
         eccentricity_squared = WGS84_GEODESIC.es
         eccentricity = sqrt(eccentricity_squared)
 
-        def primitive(latitude: float) -> float:
-            u = sin(radians(latitude))
-            return (
-                u / (1 - eccentricity_squared * u * u)
-                + atanh(eccentricity * u) / eccentricity
-            ) / 2
+        def require_normal(value: float) -> float:
+            if not isfinite(value) or value < float_info.min:
+                raise IntakeRefusal("hyde_cell_area_precision_limit", repr(self))
+            return value
 
-        return (
-            radians(self.east - self.west)
+        south_u = sin(radians(self.south))
+        north_u = sin(radians(self.north))
+        # Computing sin(north) - sin(south) directly loses polar cell support.
+        # Use midpoint colatitude when both edges lie in the same hemisphere.
+        if self.south >= 0 or self.north <= 0:
+            midpoint_cos = sin(
+                radians(((90 - abs(self.south)) + (90 - abs(self.north))) / 2)
+            )
+        else:
+            midpoint_cos = cos(radians((self.south + self.north) / 2))
+        half_span = require_normal(radians((self.north - self.south) / 2))
+        longitude_span = require_normal(radians(self.east - self.west))
+        delta_u = require_normal(2 * sin(half_span) * midpoint_cos)
+        cross = eccentricity_squared * south_u * north_u
+        rational = require_normal(
+            require_normal(delta_u * (1 + cross))
+            / (
+                (1 - eccentricity_squared * south_u * south_u)
+                * (1 - eccentricity_squared * north_u * north_u)
+            )
+        )
+        argument = require_normal(require_normal(eccentricity * delta_u) / (1 - cross))
+        difference = require_normal((rational + atanh(argument) / eccentricity) / 2)
+        area = (
+            longitude_span
             * WGS84_GEODESIC.a**2
             * (1 - eccentricity_squared)
-            * (primitive(self.north) - primitive(self.south))
+            * difference
             / 1_000_000
         )
+        return require_normal(area)
 
 
 @dataclass(frozen=True)
