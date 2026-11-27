@@ -79,4 +79,4 @@ def test_bp_zero_and_valid_encoded_dates_are_unchanged() -> None:
     assert _interval_from_relative_age_label("CAL_1950_AD") == (0, 0)
     assert _interval_from_relative_age_label("CAL_2000_AD") == (-50, -50)
     assert _interval_from_relative_age_label("CAL_1_BC") == (1950, 1950)
-    assert _interval_from_relative_age_label("CAL_1242_AD-") == (0, 708)
+    assert _interval_from_relative_age_label("CAL_1242_AD-") is None

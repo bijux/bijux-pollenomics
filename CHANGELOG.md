@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#574](https://github.com/bijux/bijux-pollenomics/pull/574) — SEAD marked relative periods
+
+Withhold closed intervals for calendar labels with an unresolved trailing marker and preserve source uncertainty. Existing historical overlays require a separately validated update before replay.
+
 ### [#573](https://github.com/bijux/bijux-pollenomics/pull/573) — HYDE population precision
 
 Preserve integral population and no-data token precision in declared HYDE grids and guard sums of integral source cells. Fractional floating behavior and native-source qualification remain unchanged.
