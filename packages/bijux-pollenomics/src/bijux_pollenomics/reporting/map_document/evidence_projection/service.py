@@ -48,6 +48,8 @@ def build_map_evidence_projection(
     projected_point_layers: list[dict[str, object]] = []
 
     neotoma_layer = selected_layers.get(_NEOTOMA_LAYER_KEY)
+    if publication_capture_root is not None and neotoma_layer is None:
+        raise ValueError("Publication capture requires a selected Neotoma layer")
     if neotoma_manifest_sha256 is not None and neotoma_layer is None:
         raise ValueError("Neotoma binding requires a selected Neotoma layer")
     if neotoma_layer is not None:

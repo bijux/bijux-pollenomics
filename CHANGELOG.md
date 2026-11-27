@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#571](https://github.com/bijux/bijux-pollenomics/pull/571) — Neotoma publication capture selection
+
+Refuse an explicit Neotoma publication capture when no Neotoma layer is selected, while preserving the default empty projection and separate discovery catalogue behavior.
+
 ### [#570](https://github.com/bijux/bijux-pollenomics/pull/570) — Captured Atlas fieldwork media
 
 Offer explicit fieldwork media selection and held-byte staging independent of the output path. Input identity does not establish media rights or complete Atlas closure.

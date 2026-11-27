@@ -420,3 +420,60 @@ def test_capture_cannot_be_ignored_without_source_projection(
             surface=None,
             publication_capture_root=tmp_path,
         )
+
+
+def test_capture_requires_selected_neotoma_layer(tmp_path: Path) -> None:
+    missing = tmp_path / "missing-capture"
+    with pytest.raises(ValueError, match="requires a selected Neotoma layer"):
+        build_map_evidence_projection(tmp_path, [], publication_capture_root=missing)
+    result = build_map_evidence_projection(tmp_path, [])
+    assert result.reconciliation["status"] == "reconciled"
+
+
+def test_public_map_refuses_unselected_publication_capture_and_preserves_output(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(
+        reports, "build_homo_sapiens_runtime_manifest_for_version_dir", lambda _: None
+    )
+    monkeypatch.setattr(
+        reports,
+        "load_multi_country_map_inputs",
+        lambda **_: SimpleNamespace(
+            country_sample_counts=dict.fromkeys(
+                ("Sweden", "Norway", "Denmark", "Finland"), 0
+            ),
+            all_samples=(),
+        ),
+    )
+    monkeypatch.setattr(reports, "build_context_layers", lambda **_: ([], [], []))
+    empty = SimpleNamespace(
+        direct_coordinate_feature_count=0,
+        named_site_geocoded_feature_count=0,
+        weaker_geography_feature_count=0,
+    )
+    monkeypatch.setattr(
+        atlas_bundle,
+        "build_tracked_animal_atlas_bundle",
+        lambda **_: SimpleNamespace(
+            point_layers=[], extra_artifacts=[], localities=(), coordinate_review=empty
+        ),
+    )
+    monkeypatch.setattr(
+        atlas_bundle, "animal_sample_chronology_context_available", lambda _: False
+    )
+    monkeypatch.setattr(atlas_bundle, "build_sweden_lake_atlas_layers", lambda **_: [])
+    output = tmp_path / "atlas"
+    output.mkdir()
+    (output / "prior.txt").write_text("preserved")
+    with pytest.raises(ValueError, match="requires a selected Neotoma layer"):
+        reports.generate_multi_country_map(
+            tmp_path / "v66",
+            ("Sweden",),
+            output,
+            "Map",
+            "nordic",
+            context_root=tmp_path,
+            publication_capture_root=tmp_path / "missing-capture",
+        )
+    assert (output / "prior.txt").read_text() == "preserved"
