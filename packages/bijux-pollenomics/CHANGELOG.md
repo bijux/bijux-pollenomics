@@ -9,6 +9,10 @@ All notable changes for `bijux-pollenomics` are recorded here.
 - Calculate bounded HYDE native-axis edges exactly independent of ambient
   decimal precision; oversized expanded axes are explicitly refused ([#584](https://github.com/bijux/bijux-pollenomics/pull/584)).
 
+- Refuse repeated Marquer time-window codes and selected grid/window collisions
+  before updating temporal features, and include the historical receipt selector
+  in the bounded collection topology check ([#585](https://github.com/bijux/bijux-pollenomics/pull/585)).
+
 - Refuse Neotoma count tokens that round into a different nonnegative integer
   before source and LRA count review.
 
