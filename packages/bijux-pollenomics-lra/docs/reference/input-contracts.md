@@ -12,6 +12,15 @@ This includes values with a zero imaginary component; an imaginary component is
 never silently discarded. Percentages, concentration and influx are not accepted
 as count units by the host admission profile.
 
+Direct GPM distances and parameters, and dispersal-factor basin diameters, also
+reject unresolved masks, complex values and booleans before conversion. GPM
+parameters remain strictly positive and finite. This tightens the direct
+kernel API, which previously accepted boolean values and could discard masks or
+imaginary components. Fully unmasked and real numeric inputs retain their
+distance or diameter shape; this does not change the scientific domain of a result.
+GPM parameters are normalized as scalars: singleton array parameters no longer
+produce array-shaped results, and scalar numeric strings may be accepted.
+
 Local and regional LOVE require one row each with identical taxon names/order.
 Series require unique finite numeric coordinates and exact counterpart matching;
 no implicit time interpolation or nearest-age pairing occurs. Dataframe index

@@ -11,7 +11,7 @@ import numpy as np
 from bijux_pollenomics_lra.dispersal.loess import Loess1D
 from bijux_pollenomics_lra.dispersal.rounding import r_round
 from bijux_pollenomics_lra.models.errors import ValidationError
-from bijux_pollenomics_lra.models.validation import finite_number, scalar
+from bijux_pollenomics_lra.models.validation import _float_array, finite_number, scalar
 
 METHODS: Final[tuple[str, ...]] = (
     "lsm unstable",
@@ -32,17 +32,21 @@ def gpm_values(
     wind_speed_m_s: float,
 ) -> float | np.ndarray:
     """Evaluate the Sutton/Prentice Gaussian plume remaining-airborne curve."""
-    distance = np.asarray(distance_m, dtype=float)
+    distance = _float_array(distance_m, "distance_m")
     if not np.isfinite(distance).all() or np.any(distance < 0):
         raise ValidationError("GPM distances must be finite and nonnegative")
-    values = (
-        fall_speed_m_s,
-        diffusion_coefficient,
-        turbulence_parameter,
-        wind_speed_m_s,
+    fall_speed_m_s = finite_number(
+        fall_speed_m_s, "fall_speed_m_s", minimum=0, strict_minimum=True
     )
-    if any(not np.isfinite(value) or value <= 0 for value in values):
-        raise ValidationError("GPM parameters must be positive and finite")
+    diffusion_coefficient = finite_number(
+        diffusion_coefficient, "diffusion_coefficient", minimum=0, strict_minimum=True
+    )
+    turbulence_parameter = finite_number(
+        turbulence_parameter, "turbulence_parameter", minimum=0, strict_minimum=True
+    )
+    wind_speed_m_s = finite_number(
+        wind_speed_m_s, "wind_speed_m_s", minimum=0, strict_minimum=True
+    )
     result = np.exp(
         -4
         * fall_speed_m_s
@@ -264,7 +268,7 @@ def dispersal_factor(
         minimum=0,
         strict_minimum=True,
     )
-    diameters = np.asarray(basin_diameter_m, dtype=float)
+    diameters = _float_array(basin_diameter_m, "basin_diameter_m")
     if not np.isfinite(diameters).all() or np.any(diameters < 0):
         raise ValidationError("Basin diameters must be finite and nonnegative")
     if basin_type not in BASIN_TYPES:
