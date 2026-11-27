@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#584](https://github.com/bijux/bijux-pollenomics/pull/584) — HYDE native-axis precision
+
+Calculate native-axis edges independently of ambient decimal precision and refuse axes whose conservative expanded width exceeds the documented limit.
+
 ### [#583](https://github.com/bijux/bijux-pollenomics/pull/583) — Neotoma custody and preflight imports
 
 Resolve linked preflight at use to preserve independent imports, and verify that both size-changing and same-size source tampering refuse reopening.

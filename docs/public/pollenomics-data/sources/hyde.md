@@ -172,6 +172,13 @@ plus separate missing, nonmissing and zero counts. It explicitly leaves CRS,
 variable units and calendar support unset, and marks country projection and
 public release as unavailable.
 
+The source-axis calculation uses its own exact decimal context, independent of
+the caller's ambient precision. Before expanding fixed-format coordinates, it
+conservatively bounds the combined integer and fractional width to 4,096
+characters. Inputs beyond that bound are refused with
+`hyde_native_axis_size_limit`; authenticated windows remain available for other
+uses. This is an output and computation limit, not a geographic qualification.
+
 The private source-axis envelope for the inspected base 2000AD cropland member
 contains 72,576 selected cells: 29,217 missing, 43,359 nonmissing and 15,307
 numeric zeros. Its source-axis window edges are west `3.9999264`, east
