@@ -86,6 +86,7 @@ def prepare_layers(
     animal_point_inputs: AnimalPointInputs | None = None,
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
     neotoma_manifest_sha256: str | None = None,
+    raa_status_sha256: str | None = None,
 ) -> tuple[Any, ...]:
     """Prepare atlas layers and traceable assets with optional publication metadata."""
     require_neotoma_binding_owner(
@@ -97,8 +98,7 @@ def prepare_layers(
     require_capture_owner(
         context_root,
         build_context_layers_fn,
-        nordic_point_inputs,
-        nordic_polygon_inputs,
+        *(nordic_point_inputs, nordic_polygon_inputs, raa_status_sha256),
     )
     require_animal_capture_owner(
         context_root, surface, animal_point_inputs, animal_chronology_inputs
@@ -127,7 +127,9 @@ def prepare_layers(
         published_output_dir=report.output_dir,
         context_root=context_root,
         geography_scope=geography_scope,
-        **selected_capture_options(nordic_point_inputs, nordic_polygon_inputs),
+        **selected_capture_options(
+            nordic_point_inputs, nordic_polygon_inputs, raa_status_sha256
+        ),
     )
     animal_localities, animal_coordinate_review, animal_chronology_context = (
         prepare_animal_layers(

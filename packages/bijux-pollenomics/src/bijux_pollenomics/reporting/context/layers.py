@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable
 from pathlib import Path
+from typing import TypedDict
 
 from ..geography import GeographicScope
 from ..map_publication import map_allows_fieldwork_layer
@@ -30,6 +31,11 @@ __all__ = [
 ]
 
 
+class _PolygonOptions(TypedDict, total=False):
+    nordic_polygon_inputs: NordicPolygonInputs
+    raa_status_sha256: str
+
+
 def build_context_layers(
     samples: Iterable[SampleRecord],
     version: str,
@@ -41,6 +47,7 @@ def build_context_layers(
     native_registry_context: NativeRegistryContextSnapshot | None = None,
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
+    raa_status_sha256: str | None = None,
 ) -> tuple[list[dict[str, object]], list[dict[str, object]], list[tuple[str, str]]]:
     """Build embedded point layers and service-backed overlays for the shared map."""
     scope_key = "custom" if geography_scope is None else geography_scope.key
@@ -76,6 +83,11 @@ def build_context_layers(
         )
         point_layers.extend(external_point_layers)
         extra_artifacts.extend(point_artifacts)
+    polygon_options: _PolygonOptions = {}
+    if nordic_polygon_inputs is not None:
+        polygon_options["nordic_polygon_inputs"] = nordic_polygon_inputs
+    if raa_status_sha256 is not None:
+        polygon_options["raa_status_sha256"] = raa_status_sha256
     external_polygon_layers, polygon_artifacts = stage_context_polygon_layers(
         scope_key=scope_key,
         context_root=context_root,
@@ -84,11 +96,7 @@ def build_context_layers(
         build_density_polygon_layer_fn=build_density_polygon_layer,
         build_external_polygon_layer_fn=build_external_polygon_layer,
         native_registry_context=native_registry_context,
-        **(
-            {"nordic_polygon_inputs": nordic_polygon_inputs}
-            if nordic_polygon_inputs is not None
-            else {}
-        ),
+        **polygon_options,
     )
     polygon_layers.extend(external_polygon_layers)
     extra_artifacts.extend(polygon_artifacts)
@@ -101,6 +109,7 @@ def require_capture_owner(
     builder: object,
     point: NordicPointInputs | None,
     polygon: NordicPolygonInputs | None,
+    raa_status_sha256: str | None = None,
 ) -> None:
     """Keep selected captures on the maintained context path."""
     if context_root is None or builder is not build_context_layers:
@@ -113,9 +122,14 @@ def require_capture_owner(
                 "Nordic polygon capture requires the maintained context owner"
             )
 
+        if raa_status_sha256 is not None:
+            raise ValueError("RAÄ status pin requires the maintained context owner")
+
 
 def selected_capture_options(
-    point: NordicPointInputs | None, polygon: NordicPolygonInputs | None
+    point: NordicPointInputs | None,
+    polygon: NordicPolygonInputs | None,
+    raa_status_sha256: str | None = None,
 ) -> dict[str, object]:
     """Forward only explicitly selected captures to the context owner."""
     return {
@@ -123,6 +137,7 @@ def selected_capture_options(
         for key, value in (
             ("nordic_point_inputs", point),
             ("nordic_polygon_inputs", polygon),
+            ("raa_status_sha256", raa_status_sha256),
         )
         if value is not None
     }

@@ -4,7 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
-from typing import cast
+from typing import Any, cast
 
 import pytest
 
@@ -213,3 +213,209 @@ def test_pinned_publication_rejects_boolean_to_integer_manifest_tampering(
     manifest_path.write_text(json.dumps(manifest))
     with pytest.raises(ValueError, match="status"):
         validate_pinned_raa_publication(out, pin)
+
+
+def test_public_map_requires_context_for_raa_status_pin(tmp_path: Path) -> None:
+    from bijux_pollenomics.reporting.service import generate_multi_country_map
+
+    out = tmp_path / "map"
+    out.mkdir()
+    (out / "prior").write_text("preserved")
+    with pytest.raises(ValueError, match="RAÄ.*context"):
+        generate_multi_country_map(
+            tmp_path / "v66",
+            ("Sweden",),
+            out,
+            "Nordic",
+            "nordic",
+            raa_status_sha256="0" * 64,
+        )
+    assert (out / "prior").read_text() == "preserved"
+
+
+@pytest.mark.parametrize("mode", ["degraded", "withheld", "wrong_pin", "tamper"])
+def test_public_map_binds_selected_raa_status_and_preserves_prior(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, mode: str
+) -> None:
+    from types import SimpleNamespace
+
+    from bijux_pollenomics.reporting import service
+    from bijux_pollenomics.reporting.bundles import atlas_bundle
+    from bijux_pollenomics.reporting.bundles.sweden_lake_inputs import SwedenLakeInputs
+
+    root = tmp_path / "data"
+    root.mkdir()
+    if mode != "withheld":
+        source = repository_data_root(__file__) / "raa/normalized"
+        target = root / "raa/normalized"
+        target.mkdir(parents=True)
+        for name in (
+            "sweden_archaeology_layer.json",
+            "sweden_archaeology_density.geojson",
+        ):
+            shutil.copyfile(source / name, target / name)
+    snapshot = capture_raa_atlas_input_snapshot(root)
+    pin = hashlib.sha256(snapshot.status_bytes).hexdigest()
+    monkeypatch.setattr(
+        service, "build_homo_sapiens_runtime_manifest_for_version_dir", lambda _: None
+    )
+    monkeypatch.setattr(
+        service,
+        "load_multi_country_map_inputs",
+        lambda **_: SimpleNamespace(
+            country_sample_counts=dict.fromkeys(
+                ("Denmark", "Finland", "Norway", "Sweden"), 0
+            ),
+            all_samples=(),
+        ),
+    )
+    monkeypatch.setattr(
+        atlas_bundle,
+        "build_tracked_animal_atlas_bundle",
+        lambda **_: SimpleNamespace(
+            point_layers=(),
+            extra_artifacts=(),
+            localities=(),
+            coordinate_review=SimpleNamespace(
+                direct_coordinate_feature_count=0,
+                named_site_geocoded_feature_count=0,
+                weaker_geography_feature_count=0,
+            ),
+        ),
+    )
+    monkeypatch.setattr(
+        atlas_bundle, "animal_sample_chronology_context_available", lambda _: False
+    )
+    monkeypatch.setattr(
+        atlas_bundle,
+        "build_map_evidence_projection",
+        lambda *_args, **_kwargs: SimpleNamespace(
+            detail_records=(), reconciliation={}, point_layers=()
+        ),
+    )
+    if mode == "tamper":
+        original = cast(Any, service).publish_multi_country_map_bundle
+
+        def alter_after_owner(staging: Path, **kwargs: Any) -> None:
+            original(staging, **kwargs)
+            publication = staging / "context/raa"
+            density = publication / "sweden_archaeology_density.geojson"
+            density.write_bytes(b'{"type":"FeatureCollection","features":[]}')
+            path = publication / "publication_manifest.json"
+            manifest = json.loads(path.read_bytes())
+            manifest["files"][density.name] = {
+                "sha256": hashlib.sha256(density.read_bytes()).hexdigest(),
+                "byte_count": density.stat().st_size,
+            }
+            path.write_text(json.dumps(manifest))
+
+        monkeypatch.setattr(
+            service, "publish_multi_country_map_bundle", alter_after_owner
+        )
+    out = tmp_path / "map"
+    out.mkdir()
+    (out / "prior").write_text("preserved")
+    args = (
+        tmp_path / "v66",
+        ("Denmark", "Finland", "Norway", "Sweden"),
+        out,
+        "Nordic",
+        "nordic",
+    )
+    if mode in {"wrong_pin", "tamper"}:
+        with pytest.raises(ValueError, match="digest"):
+            service.generate_multi_country_map(
+                *args,
+                context_root=root,
+                lake_inputs=SwedenLakeInputs(),
+                raa_status_sha256="0" * 64 if mode == "wrong_pin" else pin,
+            )
+        assert (out / "prior").read_text() == "preserved"
+    else:
+        service.generate_multi_country_map(
+            *args,
+            context_root=root,
+            lake_inputs=SwedenLakeInputs(),
+            raa_status_sha256=pin,
+        )
+        status = (out / "context/raa/raa_atlas_input_status.json").read_bytes()
+        assert status == snapshot.status_bytes
+        contract = json.loads(
+            (out / "nordic_map_publication_contract.json").read_bytes()
+        )
+        assert contract["raa_status_binding"]["sha256"] == pin
+        assert (out / "context/raa/sweden_archaeology_density.geojson").exists() == (
+            mode == "degraded"
+        )
+        import re
+
+        from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+            normalize_asset_inventory,
+        )
+        from bijux_pollenomics.reporting.map_document.static_assets.serialization import (
+            decode_chunk_script,
+        )
+
+        html = (out / "nordic_map.html").read_text()
+        match = re.search(
+            r'<script id="atlas-static-bootstrap" type="application/json">(.*?)</script>',
+            html,
+            re.S,
+        )
+        assert match is not None
+        assets = cast(
+            list[dict[str, Any]],
+            normalize_asset_inventory(json.loads(match.group(1))["assets"]),
+        )
+        nodes = [
+            x
+            for x in assets
+            if x["domain"] == "nodes" and x.get("layer_key") == "raa-archaeology"
+        ]
+        if mode == "withheld":
+            assert nodes == []
+        else:
+            assert len(nodes) == 1
+            asset = nodes[0]
+            node = cast(
+                dict[str, Any],
+                decode_chunk_script(
+                    (out / asset["path"]).read_bytes(),
+                    expected_asset_key=asset["asset_key"],
+                    expected_payload_sha256=asset["payload_sha256"],
+                    expected_payload_encoding=asset["payload_encoding"],
+                    expected_decoded_byte_count=asset.get("decoded_byte_count"),
+                ),
+            )
+            assert (
+                node["features"]
+                == json.loads(cast(bytes, snapshot.density_bytes))["features"]
+            )
+
+
+def test_raa_status_pin_refuses_custom_context_builder(tmp_path: Path) -> None:
+    from types import SimpleNamespace
+
+    from bijux_pollenomics.reporting.bundles.atlas_bundle.layers import prepare_layers
+
+    root = tmp_path / "source"
+    root.mkdir()
+    with pytest.raises(ValueError, match="maintained context owner"):
+        prepare_layers(
+            tmp_path / "stage",
+            report=SimpleNamespace(),
+            version="v66",
+            all_samples=(),
+            context_root=root,
+            geography_scope=None,
+            build_atlas_bundle_paths_fn=lambda **_: None,
+            build_context_layers_fn=lambda **_: ([], [], []),
+            build_samples_geojson_fn=lambda _: {},
+            atlas_detail_records=None,
+            atlas_scientific_signals=None,
+            atlas_edge_records=None,
+            atlas_sequence_records=None,
+            surface=SimpleNamespace(),
+            raa_status_sha256="0" * 64,
+        )
+    assert not (tmp_path / "stage").exists()
