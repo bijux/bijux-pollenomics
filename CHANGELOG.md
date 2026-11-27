@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#577](https://github.com/bijux/bijux-pollenomics/pull/577) — SEAD surface lineage validation
+
+Separate normalized-lineage validation into its own module while preserving existing callable imports and the repository-surface size limit.
+
 ### [#576](https://github.com/bijux/bijux-pollenomics/pull/576) — SEAD review CSV boundaries
 
 Quote review CSV cells and write byte-stable UTF-8 so lists and embedded line breaks retain their values. Existing materialized exports require a governed rebuild.
