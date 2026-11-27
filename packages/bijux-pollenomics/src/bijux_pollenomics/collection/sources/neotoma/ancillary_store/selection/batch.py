@@ -6,15 +6,17 @@ from collections.abc import Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
 from types import MappingProxyType
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from ...capture.receipts import _object
 from ...capture.resources.models import DEFAULT_RESOURCE_LIMITS, NeotomaResourceLimits
-from ..linked_evidence.preflight import LinkedAccess, _prepared_linked_access
 from .metadata import MAX_METADATA, SelectedMetadata, _selected_metadata
 from .parts import MAX_BYTES, MAX_FILES, VerifiedParts
 from .preflight import FacetAccess, _prepared_facet_access
 from .scope import CurrentScope, current_scope
+
+if TYPE_CHECKING:
+    from ..linked_evidence.preflight import LinkedAccess
 
 
 def _freeze(value: Any) -> Any:
@@ -79,7 +81,7 @@ def _source(
 
 def _projection(access: FacetAccess | LinkedAccess) -> PreflightProjection:
     witness = None
-    if isinstance(access, LinkedAccess):
+    if not isinstance(access, FacetAccess):
         witness = {
             "source_proof": access.proof,
             "evidence_locator": access.locator,
@@ -220,6 +222,9 @@ class NeotomaPreflightBatch:
         self, *, observation_id: str, occurrence_id: str, kind: str, native_id: int
     ) -> PreflightProjection:
         metadata, scope = self._active()
+        # Linked preflight also imports selection metadata, so resolve it at use.
+        from ..linked_evidence.preflight import _prepared_linked_access
+
         return _projection(
             _prepared_linked_access(
                 metadata,
