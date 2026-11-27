@@ -19,6 +19,7 @@ EXPECTED_MODULES = {
 
 EXPECTED_RECEIPT_MODULES = {
     "__init__.py",
+    "predecessor.py",
     "publication.py",
     "structure.py",
     "validation.py",
