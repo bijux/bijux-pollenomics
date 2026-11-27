@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#583](https://github.com/bijux/bijux-pollenomics/pull/583) — Neotoma custody and preflight imports
+
+Resolve linked preflight at use to preserve independent imports, and verify that both size-changing and same-size source tampering refuse reopening.
+
 ### [#582](https://github.com/bijux/bijux-pollenomics/pull/582) — Neotoma count token precision
 
 Refuse source count decimal tokens that round into a different nonnegative integer before Neotoma source and LRA count review. Previously rounded archives and predecoded inputs cannot recover the original token.

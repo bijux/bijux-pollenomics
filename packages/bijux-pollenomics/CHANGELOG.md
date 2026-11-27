@@ -24,6 +24,9 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Resolve linked Neotoma preflight at use so selected access imports independently,
+  and verify both source-size and same-size byte drift ([#583](https://github.com/bijux/bijux-pollenomics/pull/583)).
+
 - Quote SEAD review CSV cells so source lists, commas, and line breaks round-trip.
   Previously materialized review CSVs require a governed rebuild.
 
