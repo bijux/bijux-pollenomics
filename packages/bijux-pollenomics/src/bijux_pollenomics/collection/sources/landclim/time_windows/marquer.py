@@ -28,13 +28,16 @@ def _merge_marquer_time_windows(
         read_xlsx_sheet_rows,
     )
 
-    window_labels = {
-        clean_optional_text(row[1]): normalize_landclim_time_window_label(
-            f"{clean_optional_text(row[0])} BP"
-        )
-        for row in read_xlsx_sheet_rows(path, "Code time windows")[1:]
-        if len(row) > 1 and clean_optional_text(row[0]) and clean_optional_text(row[1])
-    }
+    window_labels: dict[str, str] = {}
+    for row in read_xlsx_sheet_rows(path, "Code time windows")[1:]:
+        if len(row) <= 1:
+            continue
+        label, code = clean_optional_text(row[0]), clean_optional_text(row[1])
+        if not label or not code:
+            continue
+        if code in window_labels:
+            raise ValueError(f"Marquer Code time windows repeats source code {code}")
+        window_labels[code] = normalize_landclim_time_window_label(f"{label} BP")
     cell_geometries = _marquer_cell_geometries(path)
     estimate_rows = read_xlsx_sheet_rows(path, "REVEALS 36GCs")
     error_rows = read_xlsx_sheet_rows(path, "SE_REVEALS 36GCs")
@@ -73,6 +76,7 @@ def _merge_marquer_time_windows(
         for row in error_rows[1:]
         if row and clean_optional_text(row[0])
     }
+    pending: dict[tuple[str, str, str], dict[str, object]] = {}
     for row in estimate_rows[1:]:
         row_id = clean_optional_text(row[0]) if row else ""
         match = _MARQUER_GRID_WINDOW_PATTERN.fullmatch(row_id)
@@ -103,6 +107,9 @@ def _merge_marquer_time_windows(
             dataset_id="900966",
             record_id=f"{cell_id}:{time_window}",
         )
+        key = ("900966", cell_id, time_window)
+        if key in pending:
+            raise ValueError("Marquer repeats selected grid and time window")
         feature = _temporal_grid_feature(
             dataset_id="900966",
             cell_id=cell_id,
@@ -117,7 +124,8 @@ def _merge_marquer_time_windows(
         properties = _properties(feature)
         properties["reconstruction_values"] = estimates
         properties["standard_errors"] = error_values
-        features[("900966", cell_id, time_window)] = feature
+        pending[key] = feature
+    features.update(pending)
 
 
 def _marquer_cell_geometries(path: Path) -> dict[str, dict[str, object]]:

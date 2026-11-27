@@ -120,6 +120,21 @@ filtering therefore selects published estimates rather than treating a cell's
 full Holocene coverage as one continuous value. Source combinations without a
 published estimate remain absent; they are not converted to zero cover.
 
+For Marquer workbook extraction, each complete time-window code must occur
+once, even when repeated labels are identical. Incomplete code-table rows keep
+their existing ignored behavior. Different codes may share a label, but two
+selected records cannot produce the same grid-cell and normalized-window key.
+The owner stages its results before updating the caller's features; after a
+successful extraction it retains the existing behavior of replacing a matching
+caller key. The public builder starts with an empty feature collection.
+
+The retained Marquer workbook with SHA-256
+`d3076ebfc87a9a8f4bfa08698e49e95bf7c307a89990d1825f1d1ccddf719a05`
+has 25 distinct complete codes and normalized labels. A full extraction of
+that workbook currently refuses grid 17's coordinate support on both the
+previous and corrected owner; this census is not a complete output replay.
+Existing published features remain historical until a governed rebuild.
+
 The ten sequences without numeric intervals remain spatial pollen context.
 They are not assigned synthetic dates to make the family appear uniformly
 time-resolved.
