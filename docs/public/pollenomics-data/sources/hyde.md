@@ -45,6 +45,18 @@ bounds can be passed to `aggregate_layer` or `compare_layers`; arbitrary numeric
 bounds are still checked strictly and partial-cell transfers are refused. This
 helper does not snap coordinates or establish native HYDE grid semantics.
 
+For population grids loaded through the declared-grid adapter, mathematically
+integral JSON values and nodata sentinels must survive float conversion exactly;
+aggregation also refuses a lost integer total across integral source cells.
+The adapter retains per-cell lexical integrality for this check. The added
+`population_integral_cells` field participates in dataclass equality and
+`dataclasses.asdict` output. Legacy layers constructed without it retain their
+earlier integer-type-only aggregation rule; caller-provided flags are not an
+authenticated statement about source tokens. Decimal and exponent spellings
+receive the same check as integer spellings. Fractional quantities retain
+floating-point semantics, including possible rounding and underflow. These are
+interchange checks and do not qualify a native HYDE source.
+
 ## Documented licence reference
 
 The project records the downloaded April snapshot's bundled
