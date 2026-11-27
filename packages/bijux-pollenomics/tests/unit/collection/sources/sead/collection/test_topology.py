@@ -38,6 +38,7 @@ def test_repository_surface_transaction_is_grouped_and_bounded() -> None:
         "__init__.py",
         "contract.py",
         "identity.py",
+        "lineage.py",
         "transaction.py",
         "validation.py",
     ]
@@ -45,3 +46,13 @@ def test_repository_surface_transaction_is_grouped_and_bounded() -> None:
         len(module.read_text(encoding="utf-8").splitlines()) <= 220
         for module in modules
     )
+
+
+def test_lineage_validator_preserves_existing_import_identity() -> None:
+    from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces import (
+        lineage,
+        validation,
+    )
+
+    assert validation.validate_normalized_lineage is lineage.validate_normalized_lineage
+    assert validation.json_object is lineage.json_object
