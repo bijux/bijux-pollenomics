@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#590](https://github.com/bijux/bijux-pollenomics/pull/590) — Dependency security and Python tooling
+
+Update the vulnerable basic-ftp parser and refresh the Python documentation and OpenAPI tool requirements with their resolved lockfile.
+
 ### [#589](https://github.com/bijux/bijux-pollenomics/pull/589) — LandClim aggregate cell identities
 
 Preserve exact floating-point cell bounds in aggregate grid keys and refuse centers that cannot be recovered from emitted bounds. Keys can change for higher-precision bounds and normalized signed zero.
