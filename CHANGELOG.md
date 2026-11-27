@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#576](https://github.com/bijux/bijux-pollenomics/pull/576) — SEAD review CSV boundaries
+
+Quote review CSV cells and write byte-stable UTF-8 so lists and embedded line breaks retain their values. Existing materialized exports require a governed rebuild.
+
 ### [#575](https://github.com/bijux/bijux-pollenomics/pull/575) — SEAD marked chronology overlay
 
 Offer an explicitly selected, validated overlay for the retained marked-relative-period provenance transition while preserving existing v1 behavior. A new lineage and Atlas replay remain separate.
