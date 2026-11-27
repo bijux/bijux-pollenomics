@@ -4,7 +4,7 @@ Repository changes are recorded by pull request, newest merge first.
 
 ### [#587](https://github.com/bijux/bijux-pollenomics/pull/587) — RAÄ WFS page coordinate declarations
 
-Refuse explicit page CRS declarations that do not match the requested coordinate system before assembling an inventory. Missing declarations remain unverified; retained source impact is unassessed.
+Refuse unrecognized or unsupported explicit page CRS declarations before assembling an inventory. Missing declarations remain unverified; retained source impact is unassessed.
 
 ### [#586](https://github.com/bijux/bijux-pollenomics/pull/586) — HYDE ellipsoid cell areas
 

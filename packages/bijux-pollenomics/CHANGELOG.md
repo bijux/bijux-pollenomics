@@ -31,8 +31,8 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
-- Refuse explicit RAÄ WFS page CRS declarations that do not match the requested
-  coordinate system before assembling the inventory. Missing declarations remain
+- Refuse unrecognized or unsupported explicit RAÄ WFS page CRS declarations
+  before assembling the inventory. Missing declarations remain
   unverified; retained source impact is unassessed
   ([#587](https://github.com/bijux/bijux-pollenomics/pull/587)).
 
