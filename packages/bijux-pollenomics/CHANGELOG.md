@@ -36,6 +36,11 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Preserve exact floating-point cell bounds in LandClim aggregate grid identities
+  and refuse centers that cannot be recovered from their emitted bounds. Keys can
+  change for higher-precision bounds and normalized signed zero
+  ([#589](https://github.com/bijux/bijux-pollenomics/pull/589)).
+
 - Refuse unrecognized or unsupported explicit RAÄ WFS page CRS declarations
   before assembling the inventory. Missing declarations remain
   unverified; retained source impact is unassessed

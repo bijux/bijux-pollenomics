@@ -349,20 +349,41 @@ def summarize_quality_labels(labels: set[str]) -> str:
 
 
 def feature_key_from_geometry(geometry: dict[str, object]) -> str:
-    """Create a stable geometry key from polygon bounds."""
+    """Create a lossless key from finite polygon bounds in geographic range."""
     ring = geometry_ring(geometry)
-    if ring is None:
+    if ring is None or len(ring) < 4:
         raise ValueError("LandClim grid geometry must include a valid polygon ring")
     west = min(point[0] for point in ring[:4])
     south = min(point[1] for point in ring[:4])
     east = max(point[0] for point in ring[:4])
     north = max(point[1] for point in ring[:4])
-    return f"{west:.6f},{south:.6f},{east:.6f},{north:.6f}"
+    if not (-180 <= west < east <= 180 and -90 <= south < north <= 90):
+        raise ValueError("LandClim grid geometry bounds are outside geographic range")
+
+    def token(value: float) -> str:
+        value = 0.0 if value == 0 else value
+        fixed = f"{value:.6f}"
+        return fixed if float(fixed) == value else repr(value)
+
+    return ",".join(token(value) for value in (west, south, east, north))
 
 
 def feature_key_from_center(longitude: float, latitude: float) -> str:
-    """Create a stable 1° cell key from a center coordinate."""
-    return f"{longitude - 0.5:.6f},{latitude - 0.5:.6f},{longitude + 0.5:.6f},{latitude + 0.5:.6f}"
+    """Key the emitted 1° geometry, refusing centers its bounds cannot retain."""
+    if (
+        any(
+            isinstance(value, bool) or not isinstance(value, (int, float))
+            for value in (longitude, latitude)
+        )
+        or not -180 <= longitude <= 180
+        or not -90 <= latitude <= 90
+    ):
+        raise ValueError("LandClim grid center must be finite")
+    west, east = longitude - 0.5, longitude + 0.5
+    south, north = latitude - 0.5, latitude + 0.5
+    if (west + east) / 2 != longitude or (south + north) / 2 != latitude:
+        raise ValueError("LandClim grid center cannot be represented by its bounds")
+    return feature_key_from_geometry(grid_geometry_from_center(longitude, latitude))
 
 
 def grid_geometry_from_nw_cell_label(cell_label: str) -> dict[str, object] | None:
