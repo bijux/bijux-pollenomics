@@ -7,7 +7,7 @@ All notable changes for `bijux-pollenomics` are recorded here.
 ### Added
 
 - Calculate bounded HYDE native-axis edges exactly independent of ambient
-  decimal precision; oversized expanded axes are explicitly refused.
+  decimal precision; oversized expanded axes are explicitly refused ([#584](https://github.com/bijux/bijux-pollenomics/pull/584)).
 
 - Refuse Neotoma count tokens that round into a different nonnegative integer
   before source and LRA count review.
