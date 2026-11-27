@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#591](https://github.com/bijux/bijux-pollenomics/pull/591) — Shared Java and OpenAPI toolchain
+
+Refresh the accepted shared standards and update OpenAPI Generator CLI and Redocly to their reviewed versions.
+
 ### [#590](https://github.com/bijux/bijux-pollenomics/pull/590) — Dependency security and Python tooling
 
 Update the vulnerable basic-ftp parser and refresh the Python documentation and OpenAPI tool requirements with their resolved lockfile.
