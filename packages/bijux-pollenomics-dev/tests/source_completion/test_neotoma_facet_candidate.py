@@ -525,6 +525,30 @@ def test_complete_candidate_audit_and_tampered_source_refusal(tmp_path: Path) ->
             "document_sha256": digest(html),
         },
     )
+    comparison = pin(
+        "comparison.json",
+        {
+            "status": "PASS",
+            "candidate_build": "build",
+            "producer_receipt_sha256": producer.sha256,
+            "supervisor_receipt_sha256": supervisor.sha256,
+            "asset_receipt_sha256": assets.sha256,
+            "reference_sha256": "b" * 64,
+            "reference_receipt_sha256": "c" * 64,
+            "reference_supervisor_sha256": "d" * 64,
+            "sites": 1,
+            "datasets": 2,
+        },
+    )
+    comparison_supervisor = pin(
+        "comparison-supervisor.json",
+        {
+            "status": "completed",
+            "exit_code": 0,
+            "timed_out": False,
+            "verification_receipt_sha256": comparison.sha256,
+        },
+    )
     selection = pin("selection.json", {"status": "PASS", "selected": selected})
     source = pin(
         "source.json",
@@ -551,10 +575,15 @@ def test_complete_candidate_audit_and_tampered_source_refusal(tmp_path: Path) ->
         producer,
         supervisor,
         assets,
+        comparison,
+        comparison_supervisor,
         selection,
         source,
         source_supervisor,
         "a" * 40,
+        "b" * 64,
+        "c" * 64,
+        "d" * 64,
         1,
         2,
         2,
@@ -577,6 +606,73 @@ def test_complete_candidate_audit_and_tampered_source_refusal(tmp_path: Path) ->
             replace(config, asset_audit=wrong_assets), private / "wrong.json"
         )
     assert not (private / "wrong.json").exists()
+    with pytest.raises(ValueError):
+        audit_to_private_receipt(
+            replace(config, expected_comparison_reference_sha256="e" * 64),
+            private / "bad-reference.json",
+        )
+    assert not (private / "bad-reference.json").exists()
+    original_comparison = json.loads(comparison.path.read_bytes())
+    for field, value in (
+        ("producer_receipt_sha256", "f" * 64),
+        ("supervisor_receipt_sha256", "f" * 64),
+        ("asset_receipt_sha256", "f" * 64),
+        ("candidate_build", "different-build"),
+        ("sites", True),
+        ("datasets", 3),
+    ):
+        changed = {**original_comparison, field: value}
+        changed_pin = pin(f"bad-{field}.json", changed)
+        changed_supervisor = pin(
+            f"bad-{field}-supervisor.json",
+            {
+                "status": "completed",
+                "exit_code": 0,
+                "timed_out": False,
+                "verification_receipt_sha256": changed_pin.sha256,
+            },
+        )
+        with pytest.raises(ValueError):
+            audit_to_private_receipt(
+                replace(
+                    config,
+                    source_comparison=changed_pin,
+                    source_comparison_supervisor=changed_supervisor,
+                ),
+                private / f"bad-{field}.json",
+            )
+        assert not (private / f"bad-{field}.json").exists()
+    failed_supervisor = pin(
+        "failed-comparison-supervisor.json",
+        {
+            "status": "failed",
+            "exit_code": 0,
+            "timed_out": False,
+            "verification_receipt_sha256": comparison.sha256,
+        },
+    )
+    with pytest.raises(ValueError):
+        audit_to_private_receipt(
+            replace(config, source_comparison_supervisor=failed_supervisor),
+            private / "failed-comparison.json",
+        )
+    assert not (private / "failed-comparison.json").exists()
+    bad_supervisor = pin(
+        "bad-comparison-supervisor.json",
+        {
+            "status": "completed",
+            "exit_code": 0,
+            "timed_out": False,
+            "verification_receipt_sha256": "f" * 64,
+        },
+    )
+    with pytest.raises(ValueError):
+        audit_to_private_receipt(
+            replace(config, source_comparison_supervisor=bad_supervisor),
+            private / "bad-comparison.json",
+        )
+    assert not (private / "bad-comparison.json").exists()
+
     with pytest.raises(ValueError, match="outside input directories"):
         audit_to_private_receipt(config, candidate / "receipt.json")
     with pytest.raises(ValueError, match="outside input directories"):

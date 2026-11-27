@@ -34,10 +34,15 @@ class AuditInputs:
     producer: PinnedInput
     producer_supervisor: PinnedInput
     asset_audit: PinnedInput
+    source_comparison: PinnedInput
+    source_comparison_supervisor: PinnedInput
     selection: PinnedInput
     source_declarations: PinnedInput
     source_supervisor: PinnedInput
     expected_source_revision: str
+    expected_comparison_reference_sha256: str
+    expected_comparison_reference_receipt_sha256: str
+    expected_comparison_reference_supervisor_sha256: str
     expected_sites: int
     expected_datasets: int
     expected_selected: int
@@ -66,26 +71,46 @@ def audit_candidate(inputs: AuditInputs) -> dict[str, Any]:
     """Return private identity reconciliation without publishing source bodies.
 
     The selected declarations are a pinned prior typed-owner result, not a live
-    replay. Locally pinned receipts and source buffers do not attest execution, rights,
-    an atomic snapshot, original acquisition or scientific admission.
+    replay. Comparison reference identities are checked against the pinned
+    comparison receipt; reference bytes are not revalidated here. Locally pinned
+    receipts and source buffers do not attest execution, rights, an atomic
+    snapshot, original acquisition or scientific admission.
     """
     if (
         not isinstance(inputs.expected_source_revision, str)
         or re.fullmatch(r"[0-9a-f]{40}", inputs.expected_source_revision) is None
     ):
         raise ValueError("Expected source revision is malformed")
+    if any(
+        not isinstance(value, str) or re.fullmatch(r"[0-9a-f]{64}", value) is None
+        for value in (
+            inputs.expected_comparison_reference_sha256,
+            inputs.expected_comparison_reference_receipt_sha256,
+            inputs.expected_comparison_reference_supervisor_sha256,
+        )
+    ):
+        raise ValueError("Comparison reference identities are malformed")
     sources = (
         inputs.producer,
         inputs.producer_supervisor,
         inputs.asset_audit,
+        inputs.source_comparison,
+        inputs.source_comparison_supervisor,
         inputs.selection,
         inputs.source_declarations,
         inputs.source_supervisor,
     )
     buffers = [_held(source) for source in sources]
-    producer, supervisor, assets, selection, declarations, source_supervisor = map(
-        _object, buffers
-    )
+    (
+        producer,
+        supervisor,
+        assets,
+        comparison,
+        comparison_supervisor,
+        selection,
+        declarations,
+        source_supervisor,
+    ) = map(_object, buffers)
     if (
         producer.get("status") != "producer_returned"
         or supervisor.get("status") != "completed"
@@ -96,6 +121,27 @@ def audit_candidate(inputs: AuditInputs) -> dict[str, Any]:
         or assets.get("status") != "PASS"
         or assets.get("producer_receipt_sha256") != inputs.producer.sha256
         or assets.get("supervisor_receipt_sha256") != inputs.producer_supervisor.sha256
+        or comparison.get("status") != "PASS"
+        or comparison.get("producer_receipt_sha256") != inputs.producer.sha256
+        or comparison.get("supervisor_receipt_sha256")
+        != inputs.producer_supervisor.sha256
+        or comparison.get("asset_receipt_sha256") != inputs.asset_audit.sha256
+        or comparison.get("reference_sha256")
+        != inputs.expected_comparison_reference_sha256
+        or comparison.get("reference_receipt_sha256")
+        != inputs.expected_comparison_reference_receipt_sha256
+        or comparison.get("reference_supervisor_sha256")
+        != inputs.expected_comparison_reference_supervisor_sha256
+        or type(comparison.get("sites")) is not int
+        or comparison.get("sites") != inputs.expected_sites
+        or type(comparison.get("datasets")) is not int
+        or comparison.get("datasets") != inputs.expected_datasets
+        or comparison_supervisor.get("status") != "completed"
+        or type(comparison_supervisor.get("exit_code")) is not int
+        or comparison_supervisor.get("exit_code") != 0
+        or comparison_supervisor.get("timed_out") is not False
+        or comparison_supervisor.get("verification_receipt_sha256")
+        != inputs.source_comparison.sha256
     ):
         raise ValueError("Candidate receipt linkage differs")
     if (
@@ -123,7 +169,10 @@ def audit_candidate(inputs: AuditInputs) -> dict[str, Any]:
     ):
         raise ValueError("Audit input populations differ")
     build, records = decode_details(inputs.candidate_root, files)
-    if assets.get("candidate_build") != build:
+    if (
+        assets.get("candidate_build") != build
+        or comparison.get("candidate_build") != build
+    ):
         raise ValueError("Candidate build identity differs")
     rows = reconcile(
         records,
@@ -160,6 +209,8 @@ def audit_candidate(inputs: AuditInputs) -> dict[str, Any]:
         "candidate_producer_sha256": inputs.producer.sha256,
         "candidate_supervisor_sha256": inputs.producer_supervisor.sha256,
         "asset_audit_sha256": inputs.asset_audit.sha256,
+        "source_comparison_sha256": inputs.source_comparison.sha256,
+        "source_comparison_supervisor_sha256": inputs.source_comparison_supervisor.sha256,
         "selection_sha256": inputs.selection.sha256,
         "source_declarations_sha256": inputs.source_declarations.sha256,
         "source_supervisor_sha256": inputs.source_supervisor.sha256,
@@ -182,6 +233,8 @@ def audit_to_private_receipt(inputs: AuditInputs, output: Path) -> None:
             inputs.producer,
             inputs.producer_supervisor,
             inputs.asset_audit,
+            inputs.source_comparison,
+            inputs.source_comparison_supervisor,
             inputs.selection,
             inputs.source_declarations,
             inputs.source_supervisor,
