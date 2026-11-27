@@ -178,6 +178,15 @@ body-byte limit. This path requires an ordinary, single-link source body and may
 refuse a batch if global current-scope preflight cannot be established. Its
 physical drift checks do not prove atomic capture or scientific admission.
 
+The optional `source_declarations_profile="neotoma-scoped-facet-declarations.v1"`
+adds each selected scoped facet's checked capture/request timestamps, request
+URL and original/current scope roles. These are retained declarations drawn
+from the same validated source operation. They do not independently attest the
+original network request or grant reuse rights. The profile refuses legacy
+identity-only captures and requires matching original and current effective roles;
+differing roles are refused even if both are development roles. Omitting the
+option preserves the existing batch result.
+
 Selected facet and linked reads require exact observation identities. Linked
 reads additionally require the precise occurrence identity. The source witness
 must actually contain that native target at the recorded JSON pointer. A

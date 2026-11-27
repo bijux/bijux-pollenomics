@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#580](https://github.com/bijux/bijux-pollenomics/pull/580) — Scoped Neotoma facet declarations
+
+Offer an opt-in profile for checked retained capture and request declarations and scope roles. The default result is unchanged; these declarations do not establish rights or scientific admission.
+
 ### [#579](https://github.com/bijux/bijux-pollenomics/pull/579) — Neotoma typed facet batches
 
 Offer bounded all-or-nothing qualification of selected facet bodies under their source custody and scope. Metadata preflight remains body-free; no atomic snapshot or scientific admission is implied.
