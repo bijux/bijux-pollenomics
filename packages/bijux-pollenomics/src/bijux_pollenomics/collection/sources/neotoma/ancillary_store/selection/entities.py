@@ -42,27 +42,32 @@ from .preflight import prepare_facet_access
 
 
 def _facet(
-    directory: Path, *, observation_id: str, dataset_id: int, facet: str, **kwargs: Any
+    directory: Path,
+    *,
+    observation_id: str,
+    dataset_id: int,
+    facet: str,
+    guard: Any,
+    **kwargs: Any,
 ) -> tuple[dict[str, Any], Any]:
-    """Share metadata preflight, then read the exact same authenticated entity buffer."""
-    with context_seals(kwargs) as guard:
-        prepared = prepare_facet_access(
-            directory,
-            observation_id=observation_id,
-            dataset_id=dataset_id,
-            facet=facet,
-            **kwargs,
-        )
-        body, receipt = _body(
-            prepared.metadata,
-            prepared.capture,
-            prepared.entry,
-            prepared.request,
-            prepared.row,
-            response=prepared.response,
-            _before_body_read=guard.check,
-        )
-        return _result(prepared.row, body, receipt, linked=False), prepared.resource
+    """Read the authenticated entity under the caller's current source lifetime."""
+    prepared = prepare_facet_access(
+        directory,
+        observation_id=observation_id,
+        dataset_id=dataset_id,
+        facet=facet,
+        **kwargs,
+    )
+    body, receipt = _body(
+        prepared.metadata,
+        prepared.capture,
+        prepared.entry,
+        prepared.request,
+        prepared.row,
+        response=prepared.response,
+        _before_body_read=guard.check,
+    )
+    return _result(prepared.row, body, receipt, linked=False), prepared.resource
 
 
 def read_neotoma_ancillary_facet_entity(
@@ -89,13 +94,15 @@ def read_neotoma_ancillary_facet_entity(
         "capsule_sources": capsule_sources,
         "limits": limits,
     }
-    return _facet(
-        directory,
-        observation_id=observation_id,
-        dataset_id=dataset_id,
-        facet=facet,
-        **kwargs,
-    )[0]
+    with context_seals(kwargs) as guard:
+        return _facet(
+            directory,
+            observation_id=observation_id,
+            dataset_id=dataset_id,
+            facet=facet,
+            guard=guard,
+            **kwargs,
+        )[0]
 
 
 def read_neotoma_ancillary_facet(
@@ -122,14 +129,16 @@ def read_neotoma_ancillary_facet(
         "capsule_sources": capsule_sources,
         "limits": limits,
     }
-    with context_seals(kwargs):
+    with context_seals(kwargs) as guard:
         result, resource = _facet(
             directory,
             observation_id=observation_id,
             dataset_id=dataset_id,
             facet=facet,
+            guard=guard,
             **kwargs,
         )
+        guard.check()
         if result["terminal_status"] != "received_complete_unqualified_facet":
             raise ValueError("Typed facet source is not a complete successful entity")
         qualified = qualify_neotoma_facet_body(
