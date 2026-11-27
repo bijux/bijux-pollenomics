@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#573](https://github.com/bijux/bijux-pollenomics/pull/573) — HYDE population precision
+
+Preserve integral population and no-data token precision in declared HYDE grids and guard sums of integral source cells. Fractional floating behavior and native-source qualification remain unchanged.
+
 ### [#572](https://github.com/bijux/bijux-pollenomics/pull/572) — Dispersal numeric input validation
 
 Reject masked, complex and boolean dispersal inputs before conversion, and document scalar parameter compatibility. This does not establish an effect on retained scientific results.

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from decimal import Decimal, InvalidOperation
 import hashlib
 import json
 from pathlib import Path
@@ -115,10 +116,17 @@ def load_declared_grid(
         if nodata >= 0:
             raise IntakeRefusal("hyde_nodata_overlaps_valid_domain", str(nodata))
     raw_values = _matrix(document["values"], grid, "values", allow_null=True)
+    population_integral_cells = None
     if variable.quantity == "population":
-        for value in raw_values:
-            if type(value) is int and float(value) != value:
-                raise IntakeRefusal("hyde_population_precision_loss", str(value))
+        lexical = json.loads(
+            content, object_pairs_hook=_unique_object, parse_float=_FloatLexeme
+        )
+        _check_population_integral(nodata, lexical["nodata_value"])
+        tokens = (item for row in lexical["values"] for item in row)
+        population_integral_cells = tuple(
+            _check_population_integral(value, token)
+            for value, token in zip(raw_values, tokens, strict=True)
+        )
     land = _matrix(document["land_fractions"], grid, "land_fractions", allow_null=False)
     return DeclaredGridLayer(
         interchange_sha256=actual,
@@ -142,6 +150,7 @@ def load_declared_grid(
         land_fractions=tuple(float(value) for value in land if value is not None),
         source_values=raw_values,
         nodata_value=nodata,
+        population_integral_cells=population_integral_cells,
     )
 
 
@@ -170,3 +179,34 @@ def _unique_object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
             raise ValueError(f"Duplicate JSON key: {key}")
         result[key] = value
     return result
+
+
+class _FloatLexeme:
+    """Retain a JSON decimal token solely for population precision checks."""
+
+    def __init__(self, text: str) -> None:
+        self.text = text
+
+
+def _check_population_integral(value: int | float | None, token: object) -> bool:
+    if value is None:
+        return False
+    if type(token) is int:
+        if float(value) != token:
+            raise IntakeRefusal("hyde_population_precision_loss", str(token))
+        return True
+    if not isinstance(token, _FloatLexeme):
+        return False
+    try:
+        exact = Decimal(token.text)
+    except InvalidOperation:
+        # Finite nonzero values have bounded decimal exponents. A token rounded
+        # to zero is either zero or a fractional value.
+        if value == 0:
+            mantissa = token.text.lower().split("e", 1)[0]
+            return not any(digit in "123456789" for digit in mantissa)
+        raise IntakeRefusal("hyde_population_precision_loss", token.text) from None
+    integral = exact == exact.to_integral_value()
+    if integral and exact != Decimal.from_float(float(value)):
+        raise IntakeRefusal("hyde_population_precision_loss", token.text)
+    return integral

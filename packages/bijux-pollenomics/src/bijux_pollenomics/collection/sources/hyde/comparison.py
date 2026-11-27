@@ -103,11 +103,13 @@ def _aggregate(
     if total is not None and not isfinite(total):
         raise IntakeRefusal("hyde_aggregate_non_finite", layer.variable.quantity)
     raw_contributions = [layer.source_values[index] for index, _ in observed]
+    integral_cells = layer.population_integral_cells
     if layer.variable.quantity == "population" and all(
-        type(value) is int for value in raw_contributions
+        integral_cells[index] if integral_cells is not None else type(value) is int
+        for (index, _), value in zip(observed, raw_contributions, strict=True)
     ):
         exact_total = sum(
-            value for value in raw_contributions if isinstance(value, int)
+            int(value) for value in raw_contributions if value is not None
         )
         if total is not None and total != exact_total:
             raise IntakeRefusal(

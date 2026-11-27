@@ -59,6 +59,7 @@ class DeclaredGridLayer:
     land_fractions: tuple[float, ...]
     source_values: tuple[int | float | None, ...]
     nodata_value: float | None
+    population_integral_cells: tuple[bool, ...] | None = field(default=None, repr=False)
     native_hyde_admission_verified: bool = field(default=False, init=False)
     public_release_allowed: bool = field(default=False, init=False)
     evidence_role: str = field(default="modeled_comparison_only", init=False)
@@ -89,6 +90,26 @@ class DeclaredGridLayer:
             == count
         ):
             raise IntakeRefusal("hyde_cell_count_mismatch", str(count))
+        if self.population_integral_cells is not None and (
+            type(self.population_integral_cells) is not tuple
+            or self.variable.quantity != "population"
+            or len(self.population_integral_cells) != count
+            or any(type(flag) is not bool for flag in self.population_integral_cells)
+        ):
+            raise IntakeRefusal("hyde_population_integrality_invalid", str(count))
+        if self.population_integral_cells is not None:
+            for flag, raw in zip(
+                self.population_integral_cells, self.source_values, strict=True
+            ):
+                if (type(raw) is int and not flag) or (
+                    flag
+                    and not (
+                        type(raw) is int or (type(raw) is float and raw.is_integer())
+                    )
+                ):
+                    raise IntakeRefusal(
+                        "hyde_population_integrality_invalid", repr(raw)
+                    )
         for index, (value, land) in enumerate(
             zip(self.values, self.land_fractions, strict=True)
         ):
