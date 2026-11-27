@@ -31,6 +31,10 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Refuse explicit RAÄ WFS page CRS declarations that do not match the requested
+  coordinate system before assembling the inventory. Missing declarations remain
+  unverified; retained source impact is unassessed.
+
 - Preserve small polar cell areas in declared HYDE grid aggregation and refuse
   subnormal precision-critical intermediates or results. Retained source impact is unassessed
   ([#586](https://github.com/bijux/bijux-pollenomics/pull/586)).

@@ -25,6 +25,130 @@ GeoJsonFeature = dict[str, object]
 GeoJsonCollection = dict[str, list[GeoJsonFeature] | str]
 
 
+def _crs_page(identifier: str, crs: object) -> dict[str, object]:
+    return {
+        "type": "FeatureCollection",
+        "numberMatched": 2,
+        "crs": crs,
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {"type": "Point", "coordinates": [18.2, 57.4]},
+                "properties": {
+                    "lamningsnummer": identifier,
+                    "antikvariskbedomningtyp_namn": "Fornlämning",
+                },
+            }
+        ],
+    }
+
+
+def _named_crs(name: str) -> dict[str, object]:
+    return {"type": "name", "properties": {"name": name}}
+
+
+@pytest.mark.parametrize(
+    "first,second",
+    [("EPSG:4326", "EPSG:3857"), (None, "EPSG:3857"), ("EPSG:3857", "EPSG:4326")],
+)
+def test_incompatible_page_crs_refused_before_density_publication(
+    tmp_path: Path, first: str | None, second: str | None
+) -> None:
+    pages = [
+        _crs_page("A", _named_crs(first) if first else None),
+        _crs_page("B", _named_crs(second) if second else None),
+    ]
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.raa.collection.fetch_raa_feature_page",
+            side_effect=pages,
+        ),
+        patch(
+            "bijux_pollenomics.collection.sources.raa.collection.fetch_raa_archaeology_metadata",
+            return_value={"capabilities_xml": "x", "schema_xml": "x"},
+        ) as metadata,
+        pytest.raises(ValueError, match="RAÄ.*CRS"),
+    ):
+        collect_raa_data(tmp_path, {})
+    metadata.assert_not_called()
+    assert not any(path.is_file() for path in tmp_path.rglob("*"))
+
+
+@pytest.mark.parametrize(
+    "first,second",
+    [
+        (None, None),
+        ("EPSG:4326", None),
+        (None, "EPSG:4326"),
+        ("EPSG:4326", "urn:ogc:def:crs:EPSG::4326"),
+    ],
+)
+def test_compatible_page_crs_reaches_density(
+    first: str | None, second: str | None
+) -> None:
+    pages = [
+        _crs_page("A", _named_crs(first) if first else None),
+        _crs_page("B", _named_crs(second) if second else None),
+    ]
+    boundary = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [[[17, 57], [20, 57], [20, 59], [17, 59], [17, 57]]],
+                },
+                "properties": {},
+            }
+        ],
+    }
+    with patch(
+        "bijux_pollenomics.collection.sources.raa.collection.fetch_raa_feature_page",
+        side_effect=pages,
+    ):
+        inventory = fetch_raa_feature_inventory()
+    result = build_raa_density_membership(
+        feature_inventory=inventory, sweden_boundary=boundary
+    )
+    assert [record["grid_cell"] for record in result["records"]] == [[18, 57], [18, 57]]
+    assert inventory["crs"] == pages[0]["crs"]
+
+
+def test_absent_page_crs_preserves_existing_inventory_behavior() -> None:
+    pages = [_crs_page("A", None), _crs_page("B", None)]
+    for page in pages:
+        del page["crs"]
+    with patch(
+        "bijux_pollenomics.collection.sources.raa.collection.fetch_raa_feature_page",
+        side_effect=pages,
+    ):
+        inventory = fetch_raa_feature_inventory()
+    assert inventory["crs"] is None
+    assert isinstance(inventory["features"], list)
+    assert len(inventory["features"]) == 2
+
+
+@pytest.mark.parametrize(
+    "crs",
+    [
+        {},
+        {"type": "name", "properties": {"name": 4326}},
+        {"type": "name", "properties": {"name": "OGC:CRS84"}},
+        True,
+    ],
+)
+def test_malformed_or_unsupported_page_crs_is_refused(crs: object) -> None:
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.raa.collection.fetch_raa_feature_page",
+            side_effect=[_crs_page("A", crs), _crs_page("B", None)],
+        ),
+        pytest.raises(ValueError, match="RAÄ.*CRS"),
+    ):
+        fetch_raa_feature_inventory()
+
+
 class RaaDataTests(unittest.TestCase):
     def test_count_and_density_are_derived_from_archived_features(self) -> None:
         feature_inventory = {
