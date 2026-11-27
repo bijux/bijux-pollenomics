@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+import csv
 from datetime import date
+import io
 import json
 from pathlib import Path
 from typing import cast
@@ -93,7 +95,7 @@ def write_sead_review_outputs(
     for stem, payload, markdown, csv_text in payload_specs:
         write_json(review_root / f"{stem}.json", payload)
         (review_root / f"{stem}.md").write_text(markdown, encoding="utf-8")
-        (review_root / f"{stem}.csv").write_text(csv_text, encoding="utf-8")
+        (review_root / f"{stem}.csv").write_bytes(csv_text.encode("utf-8"))
         artifact_paths[f"{stem}_json"] = f"review/{stem}.json"
         artifact_paths[f"{stem}_markdown"] = f"review/{stem}.md"
         artifact_paths[f"{stem}_csv"] = f"review/{stem}.csv"
@@ -138,16 +140,25 @@ def render_review_csv(rows: list[dict[str, object]]) -> str:
     if not rows:
         return "row_count\n"
     fieldnames = list(rows[0].keys())
-    lines = [",".join(fieldnames)]
+    buffer = io.StringIO(newline="")
+    writer = csv.writer(buffer, lineterminator="\r\n")
+    lines: list[str] = []
+
+    def append_row(values: list[str]) -> None:
+        buffer.seek(0)
+        buffer.truncate()
+        writer.writerow(values)
+        # CRLF makes the writer quote both CR and LF; keep the public LF terminator.
+        lines.append(buffer.getvalue()[:-2] + "\n")
+
+    append_row(fieldnames)
     for row in rows:
-        values = []
-        for field in fieldnames:
-            value = row.get(field)
-            if isinstance(value, list):
-                values.append(json.dumps(value, ensure_ascii=False))
-            else:
-                text = str(value).replace('"', '""')
-                values.append(f'"{text}"' if "," in text or '"' in text else text)
-        lines.append(",".join(values))
-    lines.append("")
-    return "\n".join(lines)
+        append_row(
+            [
+                json.dumps(value, ensure_ascii=False)
+                if isinstance(value := row.get(field), list)
+                else str(value)
+                for field in fieldnames
+            ]
+        )
+    return "".join(lines)

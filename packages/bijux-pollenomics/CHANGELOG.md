@@ -21,6 +21,9 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Quote SEAD review CSV cells so source lists, commas, and line breaks round-trip.
+  Previously materialized review CSVs require a governed rebuild.
+
 - Reconcile retained Nordic chronology layers separately from later charcoal context ([#552](https://github.com/bijux/bijux-pollenomics/pull/552)).
 - Expose the source-owned Neotoma JSON comparison for Atlas metadata joins ([#547](https://github.com/bijux/bijux-pollenomics/pull/547)).
 - Use the supported strict Neotoma decoder for Atlas archive metadata.
