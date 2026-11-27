@@ -36,6 +36,7 @@ from .outputs import (
 
 RAA_FEATURE_PAGE_SIZE = 10000
 RAA_FEATURE_SORT_KEY = "lamningsnummer"
+_RAA_REQUESTED_CRS_NAMES = frozenset({"EPSG:4326", "urn:ogc:def:crs:EPSG::4326"})
 
 
 @dataclass(frozen=True)
@@ -72,13 +73,15 @@ def fetch_raa_feature_page(
 
 
 def fetch_raa_feature_inventory(cql_filter: str | None = None) -> dict[str, object]:
-    """Fetch the full published archaeology point inventory with WFS paging."""
+    """Fetch WFS pages under the requested CRS; absent declarations are unverified."""
     first_page = fetch_raa_feature_page(start_index=0, cql_filter=cql_filter)
+    _validate_raa_page_crs(first_page)
     features = [dict(feature) for feature in iter_raa_features(first_page)]
     total_features = declared_population(first_page)
     start_index = len(features)
     while start_index < total_features:
         page = fetch_raa_feature_page(start_index=start_index, cql_filter=cql_filter)
+        _validate_raa_page_crs(page)
         if declared_population(page) != total_features:
             raise ValueError("RAÄ feature paging population changed during capture")
         page_features = [dict(feature) for feature in iter_raa_features(page)]
@@ -97,6 +100,22 @@ def fetch_raa_feature_inventory(cql_filter: str | None = None) -> dict[str, obje
     }
     validate_raa_feature_inventory(feature_inventory)
     return feature_inventory
+
+
+def _validate_raa_page_crs(page: Mapping[str, object]) -> None:
+    """Reject explicit CRS claims incompatible with the fixed WFS request."""
+    crs = page.get("crs")
+    if crs is None:
+        return
+    if isinstance(crs, Mapping) and crs.get("type") == "name":
+        properties = crs.get("properties")
+        if isinstance(properties, Mapping):
+            name = properties.get("name")
+            if isinstance(name, str) and name in _RAA_REQUESTED_CRS_NAMES:
+                return
+    raise ValueError(
+        "RAÄ WFS page CRS is malformed or differs from requested EPSG:4326"
+    )
 
 
 def validate_raa_feature_inventory(feature_inventory: dict[str, object]) -> None:
