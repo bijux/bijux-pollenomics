@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#570](https://github.com/bijux/bijux-pollenomics/pull/570) — Captured Atlas fieldwork media
+
+Offer explicit fieldwork media selection and held-byte staging independent of the output path. Input identity does not establish media rights or complete Atlas closure.
+
 ### [#569](https://github.com/bijux/bijux-pollenomics/pull/569) — RAÄ map status binding
 
 Allow Atlas callers to pin the captured RAÄ status and validate its staged normalized pair. Presence-only source bytes and scientific admission remain outside this control.
