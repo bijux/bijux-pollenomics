@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#588](https://github.com/bijux/bijux-pollenomics/pull/588) — RAÄ WFS page observations
+
+Offer opt-in in-memory page observations with canonical inventory and feature-slice checks. Page declarations and hashes are collector-reported; they do not attest HTTP responses, provider origin or an atomic snapshot.
+
 ### [#587](https://github.com/bijux/bijux-pollenomics/pull/587) — RAÄ WFS page coordinate declarations
 
 Refuse unrecognized or unsupported explicit page CRS declarations before assembling an inventory. Missing declarations remain unverified; retained source impact is unassessed.
