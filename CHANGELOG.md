@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#592](https://github.com/bijux/bijux-pollenomics/pull/592) — Current OpenAPI tool versions
+
+Refresh the accepted shared baseline and advance OpenAPI Generator CLI and Redocly beyond the updated Dependabot proposals.
+
 ### [#591](https://github.com/bijux/bijux-pollenomics/pull/591) — Shared Java and OpenAPI toolchain
 
 Refresh the accepted shared standards and update OpenAPI Generator CLI and Redocly to their reviewed versions.
