@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#586](https://github.com/bijux/bijux-pollenomics/pull/586) — HYDE ellipsoid cell areas
+
+Preserve small polar cell areas in declared grid aggregation and refuse areas lost to floating-point arithmetic. Retained source impact is unassessed.
+
 ### [#585](https://github.com/bijux/bijux-pollenomics/pull/585) — LandClim Marquer window identities
 
 Refuse repeated Marquer time-window codes and selected grid/window collisions before updating temporal features.
