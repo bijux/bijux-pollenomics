@@ -112,7 +112,7 @@ mandatory = {'shared/bijux-docs', 'shared/bijux-makes', 'shared/bijux-checks', '
 if not mandatory <= installed or not installed <= allowed or {row[1] for row in rows} != installed:
     raise SystemExit('ERROR: documentation component manifest does not cover its complete installed capability closure')
 capabilities = ['common', 'docs']
-for name, capability in [('shared/bijux-makes-py', 'python'), ('shared/bijux-makes-rs', 'rust'), ('shared/bijux-makes-node', 'node')]:
+for name, capability in [('shared/bijux-makes-py', 'python'), ('shared/bijux-makes-rs', 'rust'), ('shared/bijux-makes-node', 'node'), ('shared/bijux-gitlab', 'gitlab')]:
     if name in installed: capabilities.append(capability)
 for relative in installed:
     directory = shared / relative.removeprefix('shared/')
@@ -147,7 +147,7 @@ verify_components
 # provenance and every original physical/local-manifest/site control remain.
 control_directory="$(mktemp -d "${repo_root}/artifacts/documentation-components/controls.XXXXXX")"
 trap 'rm -rf "${control_directory}"' EXIT
-python3 - "${old_guard}" "${standard_source}/shared/bijux-docs/tooling/scripts/verify_bijux_docs_source_of_truth.sh" "${control_directory}/retained-source-controls.sh" <<'PY'
+python3 - "${old_guard}" "${documentation_source}/shared/bijux-docs/tooling/scripts/verify_bijux_docs_source_of_truth.sh" "${control_directory}/retained-source-controls.sh" <<'PY'
 from pathlib import Path
 import sys
 retained, canonical, output = map(Path, sys.argv[1:])

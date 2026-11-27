@@ -264,7 +264,10 @@ def environment_snapshot():
         for name in listed:
             if '..' in name.parts:
                 require(name.parts[:4]==('..','..','..','bin') and len(name.parts)==5,
-                        "Renderer profile: unknown distribution path escape")
+                        "Renderer profile: unknown distribution path escape; " + json.dumps({
+                            'distribution':str(distribution.metadata['Name'])[:128],
+                            'version':str(distribution.version)[:128],
+                            'record':name.as_posix()[:1024]},sort_keys=True,ensure_ascii=True))
                 continue
             if name.suffix=='.pyc' or (name.parent.name.endswith('.dist-info') and name.name in {'RECORD','INSTALLER','direct_url.json','REQUESTED'}):
                 continue

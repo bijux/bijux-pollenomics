@@ -187,4 +187,10 @@ def validate_owned_execution(documents: dict[str, dict], policy: WorkflowExecuti
                     raise ValueError(f"owned workflow_run job lacks successful-main admission: {relative}")
         projected = project_dependency_pull_requests(identity, document, policy)
         if document != projected:
+            for name, job in document["jobs"].items():
+                expected = projected["jobs"][name]
+                if job.get("if") != expected.get("if"):
+                    raise ValueError(f"owned dependency job admission guard differs: {relative} job {name}")
+                if job.get("name") != expected.get("name"):
+                    raise ValueError(f"owned dependency job admission name prefix missing: {relative} job {name}")
             raise ValueError(f"owned dependency job admission is missing: {relative}")

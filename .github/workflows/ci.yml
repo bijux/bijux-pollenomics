@@ -49,11 +49,12 @@
         "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}"
         "with":
           "node-version": "24.21.0"
-      - "uses": "actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad"
+      - "uses": "actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880"
         "if": "${{ contains(fromJson(inputs.api_toolchain_targets), matrix.target) }}"
         "with":
           "distribution": "temurin"
           "java-version": 17
+          "problem-matcher": true
       - "name": "Install package toolchain"
         "shell": "bash"
         "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" install "
