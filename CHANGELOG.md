@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#575](https://github.com/bijux/bijux-pollenomics/pull/575) — SEAD marked chronology overlay
+
+Offer an explicitly selected, validated overlay for the retained marked-relative-period provenance transition while preserving existing v1 behavior. A new lineage and Atlas replay remain separate.
+
 ### [#574](https://github.com/bijux/bijux-pollenomics/pull/574) — SEAD marked relative periods
 
 Withhold closed intervals for calendar labels with an unresolved trailing marker and preserve source uncertainty. Existing historical overlays require a separately validated update before replay.

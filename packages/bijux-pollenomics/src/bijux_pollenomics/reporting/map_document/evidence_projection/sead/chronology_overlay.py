@@ -16,10 +16,12 @@ class HistoricalChronologyRequest:
 
     country_authority_root: Path
     lineage_sha256: str
+    allow_marked_relative_source: bool = False
 
     def __post_init__(self) -> None:
         if (
-            not self.country_authority_root.is_absolute()
+            type(self.allow_marked_relative_source) is not bool
+            or not self.country_authority_root.is_absolute()
             or len(self.lineage_sha256) != 64
             or any(c not in "0123456789abcdef" for c in self.lineage_sha256)
         ):
@@ -39,8 +41,24 @@ def _canonical(value: object) -> bytes:
         raise ValueError("SEAD derived chronology JSON differs") from error
 
 
-def apply_overlay(claims: ClaimIndex, overlay: Mapping[str, object]) -> ClaimIndex:
+def apply_overlay(
+    claims: ClaimIndex,
+    overlay: Mapping[str, object],
+    *,
+    allow_marked_relative_source: bool = False,
+) -> ClaimIndex:
     """Validate an owner result and copy only its permitted derived fields."""
+    if type(allow_marked_relative_source) is not bool:
+        raise ValueError("SEAD marked relative source option differs")
+    schema = overlay.get("schema_version")
+    if (
+        allow_marked_relative_source
+        and schema != "sead-historical-derived-chronology-overlay.v2"
+    ) or (
+        not allow_marked_relative_source
+        and schema not in (None, "sead-historical-derived-chronology-overlay.v1")
+    ):
+        raise ValueError("SEAD derived chronology schema differs")
     original: dict[str, Mapping[str, object]] = {}
     for row in claims.rows:
         claim_id = row.get("chronology_claim_id")
@@ -63,12 +81,19 @@ def apply_overlay(claims: ClaimIndex, overlay: Mapping[str, object]) -> ClaimInd
         raise ValueError("SEAD derived chronology change count differs")
     changes: dict[str, Mapping[str, object]] = {}
     for change in raw:
-        if not isinstance(change, dict) or set(change) != {
+        base_fields = {
             "chronology_claim_id",
             "time_start_bp",
             "time_end_bp",
             "original_interval_orientation",
-        }:
+        }
+        if not isinstance(change, dict) or (
+            set(change) != base_fields
+            and not (
+                allow_marked_relative_source is True
+                and set(change) == base_fields | {"interval_source"}
+            )
+        ):
             raise ValueError("SEAD derived chronology fields differ")
         claim_id = change.get("chronology_claim_id")
         if (
@@ -80,6 +105,16 @@ def apply_overlay(claims: ClaimIndex, overlay: Mapping[str, object]) -> ClaimInd
             raise ValueError("SEAD derived chronology change identity differs")
         _canonical(change)
         changes[claim_id] = change
+    if allow_marked_relative_source:
+        from bijux_pollenomics.collection.sources.sead.evidence.chronology_overlay import (
+            is_witnessed_marked_relative,
+        )
+
+        for claim_id, row in original.items():
+            if is_witnessed_marked_relative(row) and (
+                claim_id not in changes or "interval_source" not in changes[claim_id]
+            ):
+                raise ValueError("SEAD marked relative source change missing")
     result: list[Mapping[str, object]] = []
     grouped: dict[str, list[Mapping[str, object]]] = defaultdict(list)
     for row in claims.rows:
@@ -104,6 +139,18 @@ def apply_overlay(claims: ClaimIndex, overlay: Mapping[str, object]) -> ClaimInd
             revised["original_interval_orientation"] = change[
                 "original_interval_orientation"
             ]
+            if "interval_source" in change:
+                from bijux_pollenomics.collection.sources.sead.evidence.chronology_overlay import (
+                    validate_marked_relative_transition,
+                )
+
+                revised["source_age_value"] = {
+                    **age,
+                    "time_start_bp": change["time_start_bp"],
+                    "time_end_bp": change["time_end_bp"],
+                    "interval_source": change["interval_source"],
+                }
+                validate_marked_relative_transition(row, revised)
         site = revised.get("source_site_id")
         if not isinstance(site, str) or not site:
             raise ValueError("SEAD derived chronology site differs")

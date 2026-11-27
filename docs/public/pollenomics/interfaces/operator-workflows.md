@@ -167,6 +167,15 @@ admission, checks the selected site layer and its staged copy against the lineag
 and records separate derived chronology provenance. The retained source evidence,
 relation fields, and eligibility decisions remain the source of record.
 
+The optional `allow_marked_relative_source=True` selects a versioned overlay for
+one narrowly supported correction: a context-only relative-period claim with a
+trailing calendar marker and `From`, whose retained point had source
+`relative_age_bounds`, may become an unresolved source interval. The overlay
+checks the exact retained and recomputed claims and keeps every other source and
+eligibility field unchanged. Other status transitions refuse. Omitting the option
+retains the original strict overlay contract. This option does not by itself
+rebuild or qualify a historical product.
+
 A caller that persists or shares a map must separately record the executed code
 identity and qualify the complete Atlas input closure. This option does not admit a
 new country authority or establish corrected-site browser verification.

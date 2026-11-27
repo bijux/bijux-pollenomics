@@ -51,10 +51,19 @@ def project_sead(
             context_root,
             historical_chronology.country_authority_root,
             lineage_sha256=historical_chronology.lineage_sha256,
+            **(
+                {"allow_marked_relative_source": True}
+                if historical_chronology.allow_marked_relative_source
+                else {}
+            ),
+        )
+        expected_overlay_schema = (
+            "sead-historical-derived-chronology-overlay.v2"
+            if historical_chronology.allow_marked_relative_source
+            else "sead-historical-derived-chronology-overlay.v1"
         )
         if (
-            overlay.get("schema_version")
-            != "sead-historical-derived-chronology-overlay.v1"
+            overlay.get("schema_version") != expected_overlay_schema
             or overlay.get("source_run_id") != bundle.run_id
             or overlay.get("admission_sha256") != expected_admission_sha256
             or overlay.get("evidence_manifest_sha256") != expected_manifest_sha256
@@ -64,9 +73,17 @@ def project_sead(
         validate_site_binding(
             context_root, historical_chronology.lineage_sha256, sites.rows_by_id, layers
         )
-        claims = apply_overlay(claims, overlay)
+        claims = apply_overlay(
+            claims,
+            overlay,
+            allow_marked_relative_source=historical_chronology.allow_marked_relative_source,
+        )
         derived = {
-            "schema_version": "sead-atlas-derived-chronology.v1",
+            "schema_version": (
+                "sead-atlas-derived-chronology.v2"
+                if historical_chronology.allow_marked_relative_source
+                else "sead-atlas-derived-chronology.v1"
+            ),
             "overlay_sha256": hashlib.sha256(_canonical(overlay)).hexdigest(),
             "lineage_sha256": historical_chronology.lineage_sha256,
             "evidence_manifest_sha256": expected_manifest_sha256,
