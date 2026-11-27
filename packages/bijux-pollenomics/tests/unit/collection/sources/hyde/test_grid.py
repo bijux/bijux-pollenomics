@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from math import fsum
+from math import fsum, nextafter
 
 import pytest
 
@@ -24,6 +24,51 @@ def test_area_varies_with_latitude_and_conserves_partition() -> None:
     assert Bounds(0, 60, 1, 61).area_km2 < Bounds(0, 0, 1, 1).area_km2 * 0.51
     parts = [Bounds(x, y, x + 1, y + 1).area_km2 for x in (10, 11) for y in (60, 61)]
     assert fsum(parts) == pytest.approx(Bounds(10, 60, 12, 62).area_km2, rel=1e-12)
+
+
+@pytest.mark.parametrize("south,north", [(89.9999999, 90), (-90, -89.9999999)])
+def test_tiny_polar_area_preserves_positive_ellipsoid_support(
+    south: float, north: float
+) -> None:
+    # Independent high-precision ellipsoid integration for these binary64 edges.
+    assert Bounds(0, south, 1, north).area_km2 == pytest.approx(
+        1.0886965579729643e-12, rel=1e-8, abs=0
+    )
+
+
+def test_area_lost_to_floating_point_is_refused() -> None:
+    tiny = nextafter(0.0, 1.0)
+    with pytest.raises(IntakeRefusal, match="hyde_cell_area_precision_limit"):
+        _ = Bounds(0, 0, tiny, tiny).area_km2
+
+
+def test_polar_partition_preserves_area() -> None:
+    whole = Bounds(0, 89.9999998, 1, 90).area_km2
+    parts = (
+        Bounds(0, 89.9999998, 1, 89.9999999).area_km2,
+        Bounds(0, 89.9999999, 1, 90).area_km2,
+    )
+    assert all(part > 0 for part in parts)
+    assert fsum(parts) == pytest.approx(whole, rel=1e-12)
+
+
+def test_equator_crossing_area_preserves_partition() -> None:
+    whole = Bounds(0, -1, 1, 1).area_km2
+    parts = Bounds(0, -1, 1, 0).area_km2 + Bounds(0, 0, 1, 1).area_km2
+    assert parts == pytest.approx(whole, rel=1e-12)
+
+
+def test_thin_interior_cell_matches_dense_geodesic_polygon() -> None:
+    south, north = 60.0, 60.0000001
+    points = [(i / 1000, south) for i in range(1001)] + [
+        (1 - i / 1000, north) for i in range(1001)
+    ]
+    area, _ = WGS84_GEODESIC.polygon_area_perimeter(
+        [p[0] for p in points], [p[1] for p in points]
+    )
+    assert Bounds(0, south, 1, north).area_km2 == pytest.approx(
+        abs(area) / 1e6, rel=1e-6
+    )
 
 
 def test_row_orientation_edges_and_dateline_refusal() -> None:

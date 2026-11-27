@@ -36,6 +36,40 @@ def test_fraction_weights_use_land_area_and_keep_missing_denominator(
     assert result.total_units == "km2"
 
 
+def test_polar_observed_fraction_retains_positive_land_support(
+    tmp_path: Path, declared_payload: dict[str, Any]
+) -> None:
+    declared_payload["grid"].update(
+        columns=1,
+        rows=1,
+        west=0,
+        south=89.9999999,
+        longitude_step=1,
+        latitude_step=0.0000001,
+        row_order="south_to_north",
+    )
+    declared_payload["values"] = [[0.5]]
+    declared_payload["land_fractions"] = [[1]]
+    layer = write_layer(tmp_path, declared_payload)
+    result = aggregate_layer(layer, layer.grid.bounds)
+    assert result.observed_cell_count == 1
+    assert result.observed_land_area_km2 > 0
+    assert result.value == pytest.approx(0.5)
+
+
+def test_zero_land_is_not_an_unrepresentable_cell(
+    tmp_path: Path, declared_payload: dict[str, Any]
+) -> None:
+    declared_payload["grid"].update(columns=1, rows=1)
+    declared_payload["values"] = [[0]]
+    declared_payload["land_fractions"] = [[0]]
+    layer = write_layer(tmp_path, declared_payload)
+    result = aggregate_layer(layer, layer.grid.bounds)
+    assert result.observed_cell_count == 1
+    assert result.full_land_area_km2 == 0
+    assert result.value is None
+
+
 def test_sum_of_exact_population_cells_cannot_silently_lose_integer_mass(
     tmp_path: Path, declared_payload: dict[str, Any]
 ) -> None:

@@ -31,6 +31,9 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Changed
 
+- Preserve small polar cell areas in declared HYDE grid aggregation and refuse
+  areas lost to floating-point arithmetic. Retained source impact is unassessed.
+
 - Resolve linked Neotoma preflight at use so selected access imports independently,
   and verify both source-size and same-size byte drift ([#583](https://github.com/bijux/bijux-pollenomics/pull/583)).
 
