@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#578](https://github.com/bijux/bijux-pollenomics/pull/578) — Neotoma selected-facet custody lifetime
+
+Share one context seal through selected facet reading and schema qualification while preserving the source checks and failure behavior.
+
 ### [#577](https://github.com/bijux/bijux-pollenomics/pull/577) — SEAD surface lineage validation
 
 Separate normalized-lineage validation into its own module while preserving existing callable imports and the repository-surface size limit.
