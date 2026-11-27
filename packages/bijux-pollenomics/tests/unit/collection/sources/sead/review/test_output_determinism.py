@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import csv
 from datetime import date
+import io
 import json
 from pathlib import Path
 
@@ -176,3 +178,50 @@ def test_recovery_tracks_period_labels_as_sites_without_numeric_chronology(
     )
     assert unresolved["evidence_gap_count"] == 2
     assert unresolved["affected_site_uuids"] == ["site-uuid-1", "site-uuid-2"]
+
+
+def test_published_csv_roundtrips_review_packet_cells(tmp_path: Path) -> None:
+    name = 'Å, "site"\r\nsecond\rthird\nfourth'
+    rows: list[dict[str, object]] = [
+        {
+            "site_id": 1,
+            "site_uuid": "site-uuid-1",
+            "site_name": name,
+            "bibliography_rows": [],
+        }
+    ]
+    write_sead_review_outputs(
+        tmp_path,
+        rows=rows,
+        records=[_record(name=name)],
+        lineage=_LINEAGE,
+        generated_on=_SOURCE_DATE,
+    )
+    for stem in (
+        "access_model",
+        "evidence_legibility_review",
+        "recovery_requirements",
+        "temporal_review",
+    ):
+        root = tmp_path / "review"
+        native = json.loads((root / f"{stem}.json").read_bytes())["rows"]
+        text = (root / f"{stem}.csv").read_bytes().decode("utf-8")
+        parsed = list(csv.DictReader(io.StringIO(text, newline="")))
+        expected = [
+            {
+                key: json.dumps(value, ensure_ascii=False)
+                if isinstance(value, list)
+                else str(value)
+                for key in native[0]
+                for value in [row.get(key)]
+            }
+            for row in native
+        ]
+        assert parsed == expected
+        if stem != "recovery_requirements":
+            assert any(
+                name in value
+                for row in parsed
+                for value in row.values()
+                if value is not None
+            )
