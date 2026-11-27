@@ -6,6 +6,9 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ### Added
 
+- Refuse Neotoma count tokens that round into a different nonnegative integer
+  before source and LRA count review.
+
 - Offer an explicit versioned SEAD chronology overlay for the witnessed marked
   relative-period status correction, retaining strict original evidence checks.
 

@@ -68,6 +68,9 @@ def decode_neotoma_json_object(content: bytes | str) -> dict[str, Any]:
         raise ValueError("Neotoma JSON cannot be decoded") from error
     if not isinstance(value, dict):
         raise ValueError("Neotoma JSON must be an object")
+    from .count_precision import check_native_count_tokens
+
+    check_native_count_tokens(content, value)
     return value
 
 

@@ -140,6 +140,18 @@ joins the corrected 10,637-sample cohort to 1,006 Neotoma review concepts and
 unapproved; exact `NISP` and `NISP digitized` count sums stay separate. The
 earlier 674-concept priority used that narrower historical cohort.
 
+Neotoma download decoding, checked raw-part loading and LRA observation-part
+reading refuse a count-unit decimal token if conversion to a nonnegative
+integral float would change its mathematical value. This includes tiny nonzero
+values that underflow to zero. Integral spellings exactly representable as
+binary64 and ordinary fractional values retain their existing float
+representation; non-count fields are not
+subject to this check. A second JSON parse is used only for parts containing
+floating-point count values and adds time and memory proportional to the part.
+This protects the bytes presented at these readers. Previously rounded archives
+and caller-supplied Python mappings cannot recover the original token; this check
+does not establish a provider-wide impact or LRA admission.
+
 For Abborrtjärnen, a [cross-source ABBO profile comparison](../../../report/source-relations/neotoma/abbo-profile/README.md)
 matches 107 sample depths and 535 selected taxon-count cells against a separate
 EPD/PANGAEA record. That record reports a 3 ha lake, but its June 2002 core

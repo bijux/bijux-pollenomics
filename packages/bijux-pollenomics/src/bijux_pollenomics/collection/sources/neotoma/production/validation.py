@@ -57,6 +57,9 @@ def json_object(
         raise ValueError(f"Invalid JSON input: {path}") from error
     if not isinstance(payload, dict):
         raise ValueError(f"JSON input must be an object: {path}")
+    from ..count_precision import check_native_count_tokens
+
+    check_native_count_tokens(content, payload)
     return payload
 
 

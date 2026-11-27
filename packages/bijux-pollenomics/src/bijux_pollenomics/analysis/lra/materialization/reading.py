@@ -117,6 +117,12 @@ class NeotomaEvidence:
             if hashlib.sha256(content).hexdigest() != inventory[relative]:
                 raise ValueError(f"Normalized part changed: {relative}")
             document = json_object(content)
+            if surface == "observations":
+                from bijux_pollenomics.collection.sources.neotoma.count_precision import (
+                    check_observation_count_tokens,
+                )
+
+                check_observation_count_tokens(content, document)
             for index, row in enumerate(document["rows"]):
                 yield SourceRow(surface, relative, index, canonical_bytes(row))
 
