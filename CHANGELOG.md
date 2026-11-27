@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#582](https://github.com/bijux/bijux-pollenomics/pull/582) — Neotoma count token precision
+
+Refuse source count decimal tokens that round into a different nonnegative integer before Neotoma source and LRA count review. Previously rounded archives and predecoded inputs cannot recover the original token.
+
 ### [#581](https://github.com/bijux/bijux-pollenomics/pull/581) — Neotoma facet candidate reconciliation
 
 Add a private development audit joining pinned Atlas dataset identities to separately dated scoped facet declarations without publishing source bodies.
