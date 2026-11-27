@@ -40,6 +40,7 @@ def publish_contracts(
     animal_point_inputs: AnimalPointInputs | None = None,
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
+    raa_status_sha256: str | None = None,
 ) -> tuple[Any, dict[str, object]]:
     map_policy = surface.resolve_map_scope_policy(geography_scope)
     point_traceability = surface.build_map_point_traceability(
@@ -84,6 +85,11 @@ def publish_contracts(
         map_publication_contract["aadr_map_annotation_inputs"] = (
             aadr_map_snapshot.identity()
         )
+    if raa_status_sha256 is not None:
+        map_publication_contract["raa_status_binding"] = {
+            "sha256": raa_status_sha256,
+            "posture": "selected_status_and_captured_normalized_buffers_only",
+        }
     if lake_inputs is not None:
         map_publication_contract["sweden_lake_inputs"] = {
             "schema_version": "sweden-lake-map-inputs.v1",

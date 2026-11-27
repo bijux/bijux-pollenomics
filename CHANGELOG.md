@@ -2,6 +2,10 @@
 
 Repository changes are recorded by pull request, newest merge first.
 
+### [#569](https://github.com/bijux/bijux-pollenomics/pull/569) — RAÄ map status binding
+
+Allow Atlas callers to pin the captured RAÄ status and validate its staged normalized pair. Presence-only source bytes and scientific admission remain outside this control.
+
 ### [#568](https://github.com/bijux/bijux-pollenomics/pull/568) — Neotoma Atlas site binding
 
 Offer an explicit binding between held Nordic map points and the pinned Neotoma relational site identities, representative coordinates, names and governed countries. This does not establish new geographic or scientific admission.

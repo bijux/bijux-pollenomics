@@ -24,6 +24,7 @@ from .nordic_point_inputs import NordicPointInputs
 from .nordic_polygon_inputs import NordicPolygonInputs
 from .raa import (
     capture_raa_atlas_input_snapshot,
+    validate_pinned_raa_snapshot,
 )
 from .raa_native import NativeRegistryContextSnapshot
 from .raa_native.publication import (
@@ -117,6 +118,7 @@ def stage_context_polygon_layers(
     build_external_polygon_layer_fn: Callable[..., dict[str, object]],
     native_registry_context: NativeRegistryContextSnapshot | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
+    raa_status_sha256: str | None = None,
 ) -> tuple[list[dict[str, object]], list[tuple[str, str]]]:
     """Copy external polygon layers into the bundle and return rendered layer configs."""
     polygon_layers: list[dict[str, object]] = []
@@ -127,6 +129,21 @@ def stage_context_polygon_layers(
         or Path(context_root).absolute() != nordic_polygon_inputs.context_root
     ):
         raise ValueError("Nordic polygon capture requires its bound Nordic context")
+
+    pinned_raa_snapshot = None
+    if raa_status_sha256 is not None:
+        if (
+            context_root is None
+            or scope_key != "nordic"
+            or not map_allows_context_layer(
+                scope_key=scope_key, layer_key="raa-archaeology"
+            )
+        ):
+            raise ValueError("RAÄ status pin requires Nordic RAÄ context")
+        pinned_raa_snapshot = capture_raa_atlas_input_snapshot(
+            context_root, expected_status_sha256=raa_status_sha256
+        )
+        validate_pinned_raa_snapshot(pinned_raa_snapshot, raa_status_sha256)
 
     if context_root is None:
         if native_registry_context is not None and map_allows_context_layer(
@@ -231,7 +248,11 @@ def stage_context_polygon_layers(
         scope_key=scope_key, layer_key="raa-archaeology"
     )
     if raa_allowed:
-        snapshot = capture_raa_atlas_input_snapshot(context_root)
+        snapshot = (
+            pinned_raa_snapshot
+            if pinned_raa_snapshot is not None
+            else capture_raa_atlas_input_snapshot(context_root)
+        )
         raa_status = snapshot.status()
         geometry_publication = raa_status.get("geometry_publication")
         with stage_raa_publication(

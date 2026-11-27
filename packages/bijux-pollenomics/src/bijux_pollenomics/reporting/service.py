@@ -50,6 +50,7 @@ from .bundles.sweden_lake_inputs import SwedenLakeInputs
 from .context import build_context_layers
 from .context.nordic_point_inputs import NordicPointInputs
 from .context.nordic_polygon_inputs import NordicPolygonInputs
+from .context.raa_staging import validate_pinned_raa_publication
 from .geography import GeographicScope, infer_publication_scope
 from .map_document.evidence_projection import HistoricalChronologyRequest
 from .map_document.evidence_projection.sead.site_custody import (
@@ -91,6 +92,7 @@ class _MapSourceOptions(_SourceResourceOptions, total=False):
     animal_point_inputs: AnimalPointInputs
     animal_chronology_inputs: AnimalChronologyInputs
     neotoma_manifest_sha256: str
+    raa_status_sha256: str
     aadr_map_snapshot: AadrMapSnapshot
     historical_chronology: HistoricalChronologyRequest
     lake_inputs: SwedenLakeInputs
@@ -173,6 +175,7 @@ def generate_multi_country_map(
     animal_point_inputs: AnimalPointInputs | None = None,
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
     neotoma_manifest_sha256: str | None = None,
+    raa_status_sha256: str | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> MultiCountryMapReport:
     """Write a shared interactive map for multiple countries with country toggles."""
@@ -210,6 +213,8 @@ def generate_multi_country_map(
         and type(nordic_point_inputs) is not NordicPointInputs
     ):
         raise ValueError("Neotoma binding requires the captured Nordic point capture")
+    if raa_status_sha256 is not None and context_root is None:
+        raise ValueError("RAÄ status pin requires context")
     if historical_chronology is not None and context_root is None:
         raise ValueError("SEAD historical chronology requires context")
     version_dir = Path(version_dir)
@@ -235,6 +240,8 @@ def generate_multi_country_map(
         source_resource_options["animal_chronology_inputs"] = animal_chronology_inputs
     if neotoma_manifest_sha256 is not None:
         source_resource_options["neotoma_manifest_sha256"] = neotoma_manifest_sha256
+    if raa_status_sha256 is not None:
+        source_resource_options["raa_status_sha256"] = raa_status_sha256
     if lake_inputs is not None:
         source_resource_options["lake_inputs"] = lake_inputs
     if aadr_map_snapshot is not None:
@@ -312,11 +319,14 @@ def generate_multi_country_map(
         historical_chronology is None
         and nordic_point_inputs is None
         and nordic_polygon_inputs is None
+        and raa_status_sha256 is None
     ):
         publish_into_staging_dir(output_dir, publish_map_bundle)
     else:
 
         def validate_map(output: Path) -> None:
+            if raa_status_sha256 is not None:
+                validate_pinned_raa_publication(output, raa_status_sha256)
             if nordic_point_inputs is not None:
                 nordic_point_inputs.validate_staged(output)
             if nordic_polygon_inputs is not None:

@@ -240,6 +240,18 @@ and authority of the relational materialization; this check does not admit a
 new boundary, establish geographic or scientific truth, or bind other Atlas
 inputs. Omitting the option retains the existing identity-only join.
 
+### Bind the RAÄ map status
+
+`generate_multi_country_map` accepts an optional `raa_status_sha256` containing
+the SHA-256 of the status bytes returned by `capture_raa_atlas_input_snapshot`.
+The map captures the RAÄ decision at the polygon owner, refuses a different
+status, and checks the selected status and held normalized buffers before
+attachment and on readback. A pinned withheld status remains withheld; a pinned
+retained context remains degraded rather than becoming admitted. Some status
+inputs record presence only, so the status hash does not bind every source file's
+bytes. This selection does not establish source or scientific admission or
+complete Atlas source closure.
+
 ## Interpret Completion
 
 | Operation | Completion signal | Remaining scientific question |
