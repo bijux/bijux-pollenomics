@@ -41,16 +41,29 @@ def test_missing_protected_predecessor_cannot_erase_full_scope(
         write_neotoma_ancillary_capsule(tmp_path / "capsule", **scoped_inputs)
 
 
+@pytest.mark.parametrize("mutation", ["changed_size", "same_size"])
 def test_changed_source_bytes_refuse_full_reopen(
     scoped_inputs: dict[str, Any],
     tmp_path: Path,
+    mutation: str,
 ) -> None:
     directory = tmp_path / "capsule"
     write_neotoma_ancillary_capsule(directory, **scoped_inputs)
     source = next(iter(scoped_inputs["predecessor_facets"].values()))
     body = next(source.glob("*.body"))
-    body.write_bytes(body.read_bytes() + b" ")
-    with pytest.raises(ValueError, match="pins|identity|bytes|budget"):
+    original = body.read_bytes()
+    changed = (
+        original + b" "
+        if mutation == "changed_size"
+        else bytes([original[0] ^ 1]) + original[1:]
+    )
+    body.write_bytes(changed)
+    expected = (
+        "declared source size differs"
+        if mutation == "changed_size"
+        else "pin|identity|bytes"
+    )
+    with pytest.raises(ValueError, match=expected):
         load_neotoma_ancillary_capsule(
             directory,
             expected_manifest_sha256=pin(directory / "manifest.json"),
