@@ -14,6 +14,9 @@ from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
 from bijux_pollenomics.reporting.adna.sample_chronology_context.captured_inputs import (
     AnimalChronologyInputs,
 )
+from bijux_pollenomics.reporting.context.points.fieldwork_inputs import (
+    FieldworkMediaInputs,
+)
 
 from ....adna import AdnaLocalitySummary
 from ....adna.species.homo_sapiens.map_snapshot import AadrMapSnapshot
@@ -48,6 +51,7 @@ class _OptionalInputs(TypedDict, total=False):
     animal_chronology_inputs: AnimalChronologyInputs
     neotoma_manifest_sha256: str
     raa_status_sha256: str
+    fieldwork_inputs: FieldworkMediaInputs
     aadr_map_snapshot: AadrMapSnapshot
 
 
@@ -93,6 +97,7 @@ def publish_multi_country_map_bundle(
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
     neotoma_manifest_sha256: str | None = None,
     raa_status_sha256: str | None = None,
+    fieldwork_inputs: FieldworkMediaInputs | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
 ) -> None:
     """Write the full atlas bundle into one staging directory."""
@@ -115,6 +120,8 @@ def publish_multi_country_map_bundle(
         optional_inputs["neotoma_manifest_sha256"] = neotoma_manifest_sha256
     if raa_status_sha256 is not None:
         optional_inputs["raa_status_sha256"] = raa_status_sha256
+    if fieldwork_inputs is not None:
+        optional_inputs["fieldwork_inputs"] = fieldwork_inputs
     if aadr_map_snapshot is not None:
         optional_inputs["aadr_map_snapshot"] = aadr_map_snapshot
     publish_bundle(

@@ -303,3 +303,21 @@ its pins cover only the registry and three required JSON surfaces per project.
 It does not bind other animal, AADR or Atlas inputs, establish source rights, or
 convey scientific admission. Registry absence is a recorded observation, not a
 scientific exclusion.
+
+### Bind fieldwork gallery media
+
+`generate_multi_country_map` accepts an optional `fieldwork_inputs` from
+`bijux_pollenomics.reporting.context.points.fieldwork_inputs`. Call
+`capture_fieldwork_media(gallery_root, expected_sha256)` with a SHA-256 value or
+`None` for each of `2026-02-26-data-collection.JPG` and
+`2026-02-26-data-collection.mp4`. The gallery directory must exist; `None` records
+that a named file was absent when captured. The map stages the held selected
+bytes under `fieldwork-media/` beside its HTML and records their identities in
+its publication contract and bundle artifacts. It verifies the staged namespace
+and bytes before attachment and on readback. The explicit option refuses a map
+scope that excludes the fieldwork layer. Without the option, existing gallery
+discovery and links remain in use.
+
+Capture reads sequentially, with 32 MiB per file and 64 MiB total bounds. These
+identities do not attest external source origin, media rights, or scientific
+admission, and do not bind the rest of an Atlas build.

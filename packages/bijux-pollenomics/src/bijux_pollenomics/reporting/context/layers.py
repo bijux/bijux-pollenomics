@@ -17,6 +17,10 @@ from .points import (
     build_external_point_layer,
     build_fieldwork_point_layer,
 )
+from .points.fieldwork_inputs import (
+    FieldworkMediaInputs,
+    require_fieldwork_capture_owner,
+)
 from .polygons import (
     build_country_boundary_layer,
     build_density_polygon_layer,
@@ -48,9 +52,15 @@ def build_context_layers(
     nordic_point_inputs: NordicPointInputs | None = None,
     nordic_polygon_inputs: NordicPolygonInputs | None = None,
     raa_status_sha256: str | None = None,
+    fieldwork_inputs: FieldworkMediaInputs | None = None,
 ) -> tuple[list[dict[str, object]], list[dict[str, object]], list[tuple[str, str]]]:
     """Build embedded point layers and service-backed overlays for the shared map."""
     scope_key = "custom" if geography_scope is None else geography_scope.key
+    require_fieldwork_capture_owner(fieldwork_inputs, build_context_layers)
+    if fieldwork_inputs is not None and not map_allows_fieldwork_layer(
+        scope_key=scope_key
+    ):
+        raise ValueError("fieldwork media capture is unavailable for this map scope")
     point_layers = [build_aadr_point_layer(samples, version=version)]
     polygon_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
@@ -59,12 +69,19 @@ def build_context_layers(
         build_fieldwork_point_layer(
             output_dir,
             published_output_dir=published_output_dir,
+            **(
+                {"fieldwork_inputs": fieldwork_inputs}
+                if fieldwork_inputs is not None
+                else {}
+            ),
         )
         if map_allows_fieldwork_layer(scope_key=scope_key)
         else None
     )
     if fieldwork_layer is not None:
         point_layers.append(fieldwork_layer)
+        if fieldwork_inputs is not None:
+            extra_artifacts.extend(fieldwork_inputs.artifacts())
 
     if nordic_point_inputs is not None and context_root is None:
         raise ValueError("Nordic point capture requires context")
@@ -130,6 +147,7 @@ def selected_capture_options(
     point: NordicPointInputs | None,
     polygon: NordicPolygonInputs | None,
     raa_status_sha256: str | None = None,
+    fieldwork_inputs: FieldworkMediaInputs | None = None,
 ) -> dict[str, object]:
     """Forward only explicitly selected captures to the context owner."""
     return {
@@ -138,6 +156,7 @@ def selected_capture_options(
             ("nordic_point_inputs", point),
             ("nordic_polygon_inputs", polygon),
             ("raa_status_sha256", raa_status_sha256),
+            ("fieldwork_inputs", fieldwork_inputs),
         )
         if value is not None
     }

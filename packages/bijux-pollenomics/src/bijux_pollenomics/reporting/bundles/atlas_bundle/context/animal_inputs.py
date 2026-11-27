@@ -17,6 +17,20 @@ from ....adna.sample_chronology_context import (
 )
 from ....adna.sample_chronology_context.captured_inputs import AnimalChronologyInputs
 
+_ANIMAL_CHRONOLOGY_CONTEXT = {
+    "semantic_role": "animal_source_chronology_context",
+    "group": "animal-chronology-context",
+    "contribution_role": "display_only",
+    "default_enabled": False,
+    "applies_time_filter": True,
+    "candidate_ranking_eligible": False,
+    "scientific_classification_eligible": False,
+    "scientific_selection_enabled": False,
+    "propagation_status": "refused",
+    "propagation_reason_code": "display_only_source_chronology",
+    "edge_count": 0,
+}
+
 
 def require_animal_capture_owner(
     context_root: Path | None,

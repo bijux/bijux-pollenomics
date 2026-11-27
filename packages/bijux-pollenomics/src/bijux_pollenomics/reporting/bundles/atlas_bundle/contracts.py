@@ -10,6 +10,9 @@ from bijux_pollenomics.adna.governance.atlas_candidates.point_inputs import (
 from bijux_pollenomics.reporting.adna.sample_chronology_context.captured_inputs import (
     AnimalChronologyInputs,
 )
+from bijux_pollenomics.reporting.context.points.fieldwork_inputs import (
+    FieldworkMediaInputs,
+)
 
 from ....adna.species.homo_sapiens.map_snapshot import AadrMapSnapshot
 from ...context.nordic_point_inputs import NordicPointInputs
@@ -41,6 +44,7 @@ def publish_contracts(
     animal_chronology_inputs: AnimalChronologyInputs | None = None,
     aadr_map_snapshot: AadrMapSnapshot | None = None,
     raa_status_sha256: str | None = None,
+    fieldwork_inputs: FieldworkMediaInputs | None = None,
 ) -> tuple[Any, dict[str, object]]:
     map_policy = surface.resolve_map_scope_policy(geography_scope)
     point_traceability = surface.build_map_point_traceability(
@@ -85,6 +89,8 @@ def publish_contracts(
         map_publication_contract["aadr_map_annotation_inputs"] = (
             aadr_map_snapshot.identity()
         )
+    if fieldwork_inputs is not None:
+        map_publication_contract["fieldwork_media_inputs"] = fieldwork_inputs.identity()
     if raa_status_sha256 is not None:
         map_publication_contract["raa_status_binding"] = {
             "sha256": raa_status_sha256,
